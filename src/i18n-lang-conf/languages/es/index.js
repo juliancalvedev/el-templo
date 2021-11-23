@@ -14,7 +14,6 @@ export default {
 		disable: 'Deshabilitar',
 		reject: 'Rechazar',
 		verify: 'Verificar',
-		pay: 'Pagar ahora',
 		markAsPaid: 'Marcar como pago',
 		totalAmount: 'Monto total',
 		download: 'Descargar',
