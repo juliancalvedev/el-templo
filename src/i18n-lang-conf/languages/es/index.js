@@ -33,18 +33,10 @@ export default {
 	},
 
 	login: {
-		button: 'Ingresar',
-		emailPlaceholder: 'Email',
+		title: 'Login',
+		emailPlaceholder: 'correo@correo.com',
 		passwordPlaceholder: 'Contraseña',
-		recovery: 'Olvidé mi contraseña',
-		subtitle: 'Ingresa con tu Settle ID',
-		title: 'Ingresar con Settle ID',
-		remember: 'Mantenerme conectado en esta computadora',
-		createAccount: 'No tienes tu Settle ID? Crear una cuenta',
-		twoFA: {
-			title: 'Ingresa tu código 2FA',
-			subtitle:
-				'Hola {{ user }}, para continuar introduzca el código de 6 dígitos generado por su aplicación 2FA.',
-		},
+		recovery: '¿Olvidaste tu contraseña?',
+		button: 'Iniciar sesión',
 	},
 };
