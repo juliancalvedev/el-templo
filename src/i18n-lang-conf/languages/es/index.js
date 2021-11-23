@@ -1,0 +1,51 @@
+export default {
+	global: {
+		next: 'Siguiente',
+		continue: 'Continuar',
+		finish: 'Terminar',
+		cancel: 'Cancelar',
+		copy: 'Copiar',
+		edit: 'Editar',
+		goBack: 'Volver',
+		gotIt: 'Entendido!',
+		close: 'Cerrar',
+		confirm: 'Confirmar',
+		enable: 'Habilitar',
+		disable: 'Deshabilitar',
+		reject: 'Rechazar',
+		verify: 'Verificar',
+		pay: 'Pagar ahora',
+		markAsPaid: 'Marcar como pago',
+		totalAmount: 'Monto total',
+		download: 'Descargar',
+		delete: 'Eliminar',
+		search: 'Buscar',
+		signOut: 'Cerrar sesión',
+
+		errors: {
+			required: 'Este campo es requerido.',
+			emailType: 'Debe ser un email válido.',
+			passwordNotEquals: 'Las contraseñas deben ser iguales.',
+			validPassword: 'La contraseña no es válida.',
+			notAllowedEmail: 'Email no permitido.',
+			number: 'Este campo debe ser un número.',
+			text: 'Este campo deber ser un texto.',
+		},
+	},
+
+	login: {
+		button: 'Ingresar',
+		emailPlaceholder: 'Email',
+		passwordPlaceholder: 'Contraseña',
+		recovery: 'Olvidé mi contraseña',
+		subtitle: 'Ingresa con tu Settle ID',
+		title: 'Ingresar con Settle ID',
+		remember: 'Mantenerme conectado en esta computadora',
+		createAccount: 'No tienes tu Settle ID? Crear una cuenta',
+		twoFA: {
+			title: 'Ingresa tu código 2FA',
+			subtitle:
+				'Hola {{ user }}, para continuar introduzca el código de 6 dígitos generado por su aplicación 2FA.',
+		},
+	},
+};
