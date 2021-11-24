@@ -31,7 +31,7 @@ export default {
 	},
 
 	landing: {
-		title: 'Have an account?',
+		haveAccount: 'Have an account?',
 		btnLogin: 'Log In',
 		btnRegister: 'Register',
 	},

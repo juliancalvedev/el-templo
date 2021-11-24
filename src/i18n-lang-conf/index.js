@@ -7,8 +7,14 @@ import es from './languages/es/espanol.js';
 export const getLastLangFromLocalStorage = () => {
 	return window.localStorage.getItem('lang');
 };
+
 export const setCurrentLangToLocalStorage = (lang) => {
 	return window.localStorage.setItem('lang', lang);
+};
+
+export const changeLanguage = async (language) => {
+	await i18n.changeLanguage(language);
+	setCurrentLangToLocalStorage(language);
 };
 
 const defaultLang = getLastLangFromLocalStorage() || 'es';

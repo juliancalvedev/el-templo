@@ -31,7 +31,7 @@ export default {
 	},
 
 	landing: {
-		title: '¿Ya tenés cuenta?',
+		haveAccoun: '¿Ya tenés cuenta?',
 		btnLogin: 'Iniciar sesión',
 		btnRegister: 'Registrarme',
 	},
