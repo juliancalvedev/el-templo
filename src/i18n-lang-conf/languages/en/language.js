@@ -1,5 +1,8 @@
 export default {
 	global: {
+		language: 'Language',
+		spanish: 'ES',
+		english: 'EN',
 		next: 'Next',
 		continue: 'Continue',
 		finish: 'Finish',
@@ -18,6 +21,7 @@ export default {
 		delete: 'Delete',
 		search: 'Search',
 		signOut: 'Sing Out',
+		logIn: 'Log In',
 
 		errors: {
 			required: 'This field is required.',

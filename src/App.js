@@ -1,31 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { useDispatch } from 'react-redux';
-import { loginAction } from './redux/auth';
+import { LanguageSelector } from './components/ChangeLanguage';
+import i18n from './i18n-lang-conf';
 
 function App() {
 	const dispatch = useDispatch();
 
-	return (
-		<div
-			className='App'
-			style={{ backgroundColor: 'rgb(22,22,22)', height: '100vh' }}
-		>
-			<button
-				onClick={() =>
-					dispatch(
-						loginAction({
-							email: 'test.templo@mailinator.com',
-							password: 'pass12345',
-						})
-					)
-				}
-			>
-				asd
-			</button>
-		</div>
-	);
+	//Integrates i18n to the whole App.
+	i18n.options.interpolation.defaultVariables = { companyName: 'El Templo' };
+
+	return <div className='App'></div>;
 }
 
 export default App;

@@ -6,24 +6,13 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import genereteStore from './redux/store';
-import { I18nextProvider } from 'react-i18next';
-import i18next from 'i18next';
-
-import es from './i18n-lang-conf/languages/es/espanol';
-import en from './i18n-lang-conf/languages/en/english';
-
-i18next.init({
-	interpolation: { escapeValue: false },
-});
 
 const store = genereteStore();
 
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<I18nextProvider i18n={i18next}>
-				<App />
-			</I18nextProvider>
+			<App />
 		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root')

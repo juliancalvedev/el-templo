@@ -1,5 +1,8 @@
 export default {
 	global: {
+		language: 'Lenguaje',
+		spanish: 'ES',
+		english: 'EN',
 		next: 'Siguiente',
 		continue: 'Continuar',
 		finish: 'Terminar',
@@ -18,6 +21,7 @@ export default {
 		delete: 'Eliminar',
 		search: 'Buscar',
 		signOut: 'Cerrar sesión',
+		logIn: 'Iniciar sesión',
 
 		errors: {
 			required: 'Este campo es requerido.',
@@ -31,7 +35,7 @@ export default {
 	},
 
 	landing: {
-		haveAccoun: '¿Ya tenés cuenta?',
+		haveAccount: '¿Ya tenés cuenta?',
 		btnLogin: 'Iniciar sesión',
 		btnRegister: 'Registrarme',
 	},
