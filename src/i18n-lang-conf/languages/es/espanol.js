@@ -7,15 +7,13 @@ export default {
 		copy: 'Copiar',
 		edit: 'Editar',
 		goBack: 'Volver',
-		gotIt: 'Entendido!',
+		gotIt: '¡Entendido!',
 		close: 'Cerrar',
 		confirm: 'Confirmar',
 		enable: 'Habilitar',
 		disable: 'Deshabilitar',
 		reject: 'Rechazar',
 		verify: 'Verificar',
-		markAsPaid: 'Marcar como pago',
-		totalAmount: 'Monto total',
 		download: 'Descargar',
 		delete: 'Eliminar',
 		search: 'Buscar',
@@ -32,11 +30,17 @@ export default {
 		},
 	},
 
+	landing: {
+		title: '¿Ya tenés cuenta?',
+		btnLogin: 'Iniciar sesión',
+		btnRegister: 'Registrarme',
+	},
+
 	login: {
 		title: 'Login',
 		emailPlaceholder: 'correo@correo.com',
 		passwordPlaceholder: 'Contraseña',
 		recovery: '¿Olvidaste tu contraseña?',
-		button: 'Iniciar sesión',
+		btnLogin: 'Iniciar sesión',
 	},
 };

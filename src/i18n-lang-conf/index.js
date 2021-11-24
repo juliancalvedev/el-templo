@@ -1,14 +1,15 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import en from './languages/en';
-import es from './languages/es';
+import en from './languages/en/english.js';
+import es from './languages/es/espanol.js';
 
-export const getLastLangFromLocalStorage = () =>
-	window.localStorage.getItem('lang');
-
-export const setCurrentLangToLocalStorage = (lang) =>
-	window.localStorage.setItem('lang', lang);
+export const getLastLangFromLocalStorage = () => {
+	return window.localStorage.getItem('lang');
+};
+export const setCurrentLangToLocalStorage = (lang) => {
+	return window.localStorage.setItem('lang', lang);
+};
 
 const defaultLang = getLastLangFromLocalStorage() || 'es';
 
