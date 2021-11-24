@@ -32,14 +32,14 @@ export const loginAction = ({ email, password }) => async (dispatch) => {
     try {
         const response = await login({ email, password });
         const { data, problem } = response.data;
-        if(data){
+        if(problem){
             dispatch({
-                type: LOGIN,
-                payload: response.data
+                type: ERROR,
             })
         } else {
             dispatch({
-                type: ERROR,
+                type: LOGIN,
+                payload: data
             })
         }
     } catch( error ) {

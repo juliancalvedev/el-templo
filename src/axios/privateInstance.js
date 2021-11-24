@@ -5,7 +5,6 @@ axiosInstance.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${token}`
 });
 
-
 export const privateGet = ({ url }) => {
     return axiosInstance.get(url);
 }
