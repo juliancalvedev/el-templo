@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Input = ({ attribute, handleChange, param, value }) => {
+const Input = ({ id, name, placeholder, type, handleChange, param, value }) => {
 	return (
 		<div>
 			<input
-				id={attribute.id}
-				name={attribute.name}
-				placeholder={attribute.placeholder}
-				type={attribute.type}
+				id={id}
+				name={name}
+				placeholder={placeholder}
+				type={type}
 				onChange={ handleChange}
 				className={param }
 				value={value}
