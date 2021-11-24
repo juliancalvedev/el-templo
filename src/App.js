@@ -21,7 +21,6 @@ function App() {
 			>
 				asd
 			</button>
-		
 		</div>
 	);
 }
