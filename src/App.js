@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { useDispatch } from 'react-redux';
-import { LanguageSelector } from './components/ChangeLanguage';
 import i18n from './i18n-lang-conf';
 
 function App() {
@@ -10,7 +9,22 @@ function App() {
 	//Integrates i18n to the whole App.
 	i18n.options.interpolation.defaultVariables = { companyName: 'El Templo' };
 
-	return <div className='App'></div>;
+	return (
+		<div className='App'>
+			<button
+				onClick={() =>
+					dispatch(
+						loginAction({
+							email: 'test.templo@mailinator.com',
+							password: 'pass12345',
+						})
+					)
+				}
+			>
+				asd
+			</button>
+		</div>
+	);
 }
 
 export default App;
