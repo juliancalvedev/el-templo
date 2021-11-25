@@ -1,12 +1,8 @@
-import React from 'react';
-import './Title.css';
-
-const Title = ({ Text }) => {
+const Title = ({ text }) => {
 	return (
 		<div>
-			<h1 className='Title'>{Text}</h1>
+			<h1>{text}</h1>
 		</div>
 	);
 };
-
 export default Title;
