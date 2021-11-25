@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { useDispatch } from 'react-redux';
 import { loginAction } from './redux/auth';
-import EmailVerification from './VerifyEmail/VerifyEmail';
+import VerifyEmail from './components/VerifyEmail/VerifyEmail';
 
 function App() {
 	const dispatch = useDispatch();
@@ -22,7 +22,7 @@ function App() {
 				asd
 			</button>
 
-			<EmailVerification />
+			<VerifyEmail />
 		</div>
 	);
 }
