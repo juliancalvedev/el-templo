@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import { useDispatch } from 'react-redux';
 import { loginAction } from './redux/auth';
-import EmailVerification from './components/EmailVerification/EmailVerification';
 
 function App() {
 	const dispatch = useDispatch();
@@ -21,8 +20,6 @@ function App() {
 			>
 				asd
 			</button>
-
-			<EmailVerification />
 		</div>
 	);
 }
