@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { useDispatch } from 'react-redux';
 import { loginAction } from './redux/auth';
-import EmailVerification from './EmailVerification/EmailVerification';
+import EmailVerification from './VerifyEmail/VerifyEmail';
 
 function App() {
 	const dispatch = useDispatch();
