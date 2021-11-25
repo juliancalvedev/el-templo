@@ -34,17 +34,60 @@ export default {
 		},
 	},
 
-	landing: {
-		haveAccount: '¿Ya tenés cuenta?',
-		btnLogin: 'Iniciar sesión',
-		btnRegister: 'Registrarme',
+	auth: {
+		landing: {
+			haveAccount: '¿Ya tenés cuenta?',
+			btnLogin: 'Iniciar sesión',
+			btnRegister: 'Registrarme',
+		},
+
+		login: {
+			title: 'Login',
+			emailPlaceholder: 'correo@correo.com',
+			passwordPlaceholder: 'Contraseña',
+			recovery: '¿Olvidaste tu contraseña?',
+			btnLogin: 'Iniciar sesión',
+		},
+		register: {},
+		emailConfirm: {},
+		emailVerify: {},
+		emailNotVerify: {},
+		welcome: {},
+		onboard1: {},
+		onboard2: {},
+		register: {},
+		forgotPassword1: {},
+		forgotPassword2: {},
 	},
 
-	login: {
-		title: 'Login',
-		emailPlaceholder: 'correo@correo.com',
-		passwordPlaceholder: 'Contraseña',
-		recovery: '¿Olvidaste tu contraseña?',
-		btnLogin: 'Iniciar sesión',
+	profile: {
+		profile: {},
+		editProfile: {},
+		editPassword: {},
+	},
+
+	training: {
+		leveling: {},
+		levelingExercise: {},
+		yourResults: {},
+		result: {},
+		training: {},
+		warmUpRoutine: {},
+		trainingRoutine: {},
+		countdown: {},
+		liveTraining: {},
+		pause: {},
+		exerciseInfo: {},
+		finishTraining: {},
+		questionary: {},
+	},
+
+	appStart: {
+		animation: {},
+		incompleteDashboard: {},
+		completedDashboard: {},
+	},
+	help: {
+		main: {},
 	},
 };

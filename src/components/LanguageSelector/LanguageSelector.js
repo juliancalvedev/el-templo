@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { languageSelector } from '../../i18n-lang-conf';
 
 export const LanguageSelector = () => {
 	const [t, i18n] = useTranslation();
@@ -13,13 +14,13 @@ export const LanguageSelector = () => {
 			>
 				<option
 					value='es'
-					onClick={() => i18n.changeLanguage('es')}
+					onClick={() => languageSelector('es')}
 					defaultValue
 				>
 					{t('global.spanish')}
 				</option>
 
-				<option value='en' onClick={() => i18n.changeLanguage('en')}>
+				<option value='en' onClick={() => languageSelector('en')}>
 					{t('global.english')}
 				</option>
 			</select>
