@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { useDispatch } from 'react-redux';
 import i18n from './i18n-lang-conf';
+import TestingComponent from './i18n-lang-conf/languages/TestingComponent';
 
 function App() {
 	const dispatch = useDispatch();
@@ -10,19 +11,11 @@ function App() {
 	i18n.options.interpolation.defaultVariables = { companyName: 'El Templo' };
 
 	return (
-		<div className='App'>
-			<button
-				onClick={() =>
-					dispatch(
-						loginAction({
-							email: 'test.templo@mailinator.com',
-							password: 'pass12345',
-						})
-					)
-				}
-			>
-				asd
-			</button>
+		<div
+			className='App'
+			style={{ height: '100vh', backgroundColor: 'black' }}
+		>
+			<TestingComponent />
 		</div>
 	);
 }
