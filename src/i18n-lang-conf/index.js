@@ -4,18 +4,17 @@ import { initReactI18next } from 'react-i18next';
 import en from './languages/en/language';
 import es from './languages/es/language';
 
-export const getLastLangFromLocalStorage = () => {
+const getLastLangFromLocalStorage = () => {
 	return window.localStorage.getItem('lang');
 };
 
-export const setCurrentLangToLocalStorage = (lang) => {
+const setCurrentLangToLocalStorage = (lang) => {
 	return window.localStorage.setItem('lang', lang);
 };
 
-export const languageSelector = async (language) => {
+const languageSelector = async (language) => {
 	await i18n.changeLanguage(language);
 	setCurrentLangToLocalStorage(language);
-	console.log('LangueageSelector works');
 };
 
 const defaultLang = getLastLangFromLocalStorage() || 'es';
@@ -48,3 +47,4 @@ const updateLang = () => {
 updateLang();
 
 export default i18n;
+export { languageSelector };

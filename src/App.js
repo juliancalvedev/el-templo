@@ -8,7 +8,9 @@ function App() {
 	const dispatch = useDispatch();
 
 	//Integrates i18n to the whole App.
-	i18n.options.interpolation.defaultVariables = { companyName: 'El Templo' };
+	i18n.options.interpolation.defaultVariables = {
+		companyName: 'El Templo',
+	};
 
 	return (
 		<div

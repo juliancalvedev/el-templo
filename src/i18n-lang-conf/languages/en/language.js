@@ -34,17 +34,60 @@ export default {
 		},
 	},
 
-	landing: {
-		haveAccount: 'Have an account?',
-		btnLogin: 'Log In',
-		btnRegister: 'Register',
+	auth: {
+		landing: {
+			haveAccount: 'Have an account?',
+			btnLogin: 'Log In',
+			btnRegister: 'Register',
+		},
+
+		login: {
+			title: 'Login',
+			emailPlaceholder: 'email@email.com',
+			passwordPlaceholder: 'Password',
+			recovery: 'Forgotten password?',
+			btnLogin: 'Log In',
+		},
+		register: {},
+		emailConfirm: {},
+		emailVerify: {},
+		emailNotVerify: {},
+		welcome: {},
+		onboard1: {},
+		onboard2: {},
+		register: {},
+		forgotPassword1: {},
+		forgotPassword2: {},
 	},
 
-	login: {
-		title: 'Login',
-		emailPlaceholder: 'email@email.com',
-		passwordPlaceholder: 'Password',
-		recovery: 'Forgotten password?',
-		btnLogin: 'Log In',
+	profile: {
+		profile: {},
+		editProfile: {},
+		editPassword: {},
+	},
+
+	training: {
+		leveling: {},
+		levelingExercise: {},
+		yourResults: {},
+		result: {},
+		training: {},
+		warmUpRoutine: {},
+		trainingRoutine: {},
+		countdown: {},
+		liveTraining: {},
+		pause: {},
+		exerciseInfo: {},
+		finishTraining: {},
+		questionary: {},
+	},
+
+	appStart: {
+		animation: {},
+		incompleteDashboard: {},
+		completedDashboard: {},
+	},
+	help: {
+		main: {},
 	},
 };
