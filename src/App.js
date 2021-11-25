@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import { useDispatch } from 'react-redux';
 import i18n from './i18n-lang-conf';
-import TestingComponent from './i18n-lang-conf/languages/TestingComponent';
+import TestingComponent from './i18n-lang-conf/TestingComponent';
+import { LanguageSelector } from './components/LanguageSelector/LanguageSelector';
 
 function App() {
 	const dispatch = useDispatch();
@@ -18,6 +19,7 @@ function App() {
 			style={{ height: '100vh', backgroundColor: 'black' }}
 		>
 			<TestingComponent />
+			<LanguageSelector />
 		</div>
 	);
 }

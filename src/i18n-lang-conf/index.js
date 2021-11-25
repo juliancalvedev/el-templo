@@ -12,7 +12,7 @@ const setCurrentLangToLocalStorage = (lang) => {
 	return window.localStorage.setItem('lang', lang);
 };
 
-const languageSelector = async (language) => {
+const setNewLangToLocalStore = async (language) => {
 	await i18n.changeLanguage(language);
 	setCurrentLangToLocalStorage(language);
 };
@@ -47,4 +47,4 @@ const updateLang = () => {
 updateLang();
 
 export default i18n;
-export { languageSelector };
+export { setNewLangToLocalStore };
