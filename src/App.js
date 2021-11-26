@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import VerifiedEmail from './components/VerifiedEmail/VerifiedEmail';
 
 import i18n from './i18n-lang-conf';
 
@@ -8,7 +9,16 @@ function App() {
 	i18n.options.interpolation.defaultVariables = {
 		companyName: 'El Templo',
 	};
-	return <div className='App'></div>;
+	return (
+		<div
+			className='App'
+			style={{ height: '100vh', background: 'black', color: 'wheat' }}
+		>
+			<h1 style={{ placeSelf: 'center' }}>
+				<VerifiedEmail />
+			</h1>
+		</div>
+	);
 }
 
 export default App;

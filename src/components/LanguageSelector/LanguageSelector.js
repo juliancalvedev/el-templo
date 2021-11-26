@@ -4,6 +4,7 @@ import { setNewLangToLocalStore } from '../../i18n-lang-conf';
 
 export const LanguageSelector = () => {
 	const { t } = useTranslation();
+
 	const onChange = (e) => setNewLangToLocalStore(e.target.value);
 
 	return (
@@ -14,11 +15,18 @@ export const LanguageSelector = () => {
 				style={{ width: '70px' }}
 				onChange={onChange}
 			>
-				<option value='es' defaultValue>
+				<option
+					value='es'
+					defaultValue
+				>
 					{t('global.spanish')}
 				</option>
 
-				<option value='en'>{t('global.english')}</option>
+				<option
+					value='en'
+				>
+					{t('global.english')}
+				</option>
 			</select>
 		</div>
 	);
