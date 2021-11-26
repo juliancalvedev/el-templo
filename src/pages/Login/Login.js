@@ -3,7 +3,7 @@ import Input from '../../components/Input/Input';
 import Title from '../../components/Title/Title';
 import Button from '../../components/Button/Button';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
 import { loginAction } from '../../redux/auth';
 
@@ -33,18 +33,19 @@ const Login = () => {
 				</h1>
 				<Input
 					value={email}
-					onClick={()=>dispatch(loginAction)}
-					// onChange={handleChangeEmail}
+					
+					handleChange={handleChangeEmail}
 					type='email'
 					placeholder='Email@email.com'
 				/>
 				<Input
 					value={password}
-					onChange={handleChangePassword}
+					handleChange={handleChangePassword}
 					type='password'
 					placeholder='Contraseña'
 				/>
 				<Button onClick={handleSubmit} title='iniciar sesion' />
+			
 			</form>
 		</div>
 	);
