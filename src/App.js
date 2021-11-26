@@ -2,24 +2,13 @@ import React from 'react';
 import './App.css';
 import { useDispatch } from 'react-redux';
 import { loginAction } from './redux/auth';
+import PasswordRecovery from './components/PasswordRecovery/PasswordRecovery';
 
 function App() {
 	const dispatch = useDispatch();
-
 	return (
 		<div className='App'>
-			<button
-				onClick={() =>
-					dispatch(
-						loginAction({
-							email: 'test.templo@mailinator.com',
-							password: 'pass12345',
-						})
-					)
-				}
-			>
-				asd
-			</button>
+			<PasswordRecovery />
 		</div>
 	);
 }
