@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { setNewLangToLocalStore } from '../../i18n-lang-conf';
 
 export const LanguageSelector = () => {
-	const [t, i18n] = useTranslation();
+	const { t } = useTranslation();
 
 	return (
 		<div style={{ boxSizing: 'content-box' }}>
