@@ -5,6 +5,7 @@ import { setNewLangToLocalStore } from '../../i18n-lang-conf';
 export const LanguageSelector = () => {
 	const { t } = useTranslation();
 	const onChange = (e) => setNewLangToLocalStore(e.target.value);
+
 	return (
 		<div style={{ boxSizing: 'content-box' }}>
 			<select
