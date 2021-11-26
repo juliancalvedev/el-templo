@@ -8,6 +8,7 @@ const Button = ({ children, onClick, title, disabled,type }) => {
 					disabled={disabled}
 					className='btn btn-primary'
 					onClick={onClick}
+					type='button'
 				>
 					{children}
 					{title}

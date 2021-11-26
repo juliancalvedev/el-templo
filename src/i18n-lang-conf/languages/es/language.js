@@ -48,7 +48,9 @@ export default {
 			recovery: '¿Olvidaste tu contraseña?',
 			btnLogin: 'Iniciar sesión',
 		},
-		register: {},
+		register: {
+			
+		},
 		emailConfirm: {},
 		emailVerify: {},
 		emailNotVerify: {},

@@ -43,7 +43,7 @@ export default {
 
 		login: {
 			title: 'Login',
-			emailPlaceholder: 'email@email.com',
+			emailPlaceholder: 'Email@email.com',
 			passwordPlaceholder: 'Password',
 			recovery: 'Forgotten password?',
 			btnLogin: 'Log In',

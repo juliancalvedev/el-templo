@@ -1,17 +1,25 @@
 import React from 'react';
 import './App.css';
-import { useDispatch } from 'react-redux';
+
 import i18n from './i18n-lang-conf';
 
-function App() {
-	const dispatch = useDispatch();
 
-	//Integrates i18n to the whole App.
+function App() {
+		//Integrates i18n to the whole App.
 	i18n.options.interpolation.defaultVariables = {
 		companyName: 'El Templo',
 	};
+	return (
+		<div className='App'>
+		
+			
 
-	return <div className='App'></div>;
+		</div>
+	);
+
+
+
+	
 }
 
 export default App;
