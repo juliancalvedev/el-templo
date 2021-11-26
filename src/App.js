@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import Login from './pages/Login/Login';
+
 import i18n from './i18n-lang-conf';
+
 
 function App() {
 		//Integrates i18n to the whole App.
@@ -12,7 +13,7 @@ function App() {
 		<div className='App'>
 		
 			
-		<Login/>
+		
 
 		</div>
 	);
