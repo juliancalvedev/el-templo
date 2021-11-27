@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import i18n from './i18n-lang-conf';
+import RouterApp from './Router/RouterApp';
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
 	return (
 		<div className='App'>
 		
-			
+			<RouterApp />
 
 		</div>
 	);
