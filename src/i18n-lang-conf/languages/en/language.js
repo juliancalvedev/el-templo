@@ -50,7 +50,11 @@ export default {
 		},
 		register: {},
 		emailConfirm: {},
-		emailVerify: {},
+		emailVerified: {
+			title: 'Your E-mail has been correctly verified.',
+			auxText: "Everything ready, let's go!",
+			btnNext: "Let's go!",
+		},
 		emailNotVerify: {},
 		welcome: {},
 		onboard1: {},

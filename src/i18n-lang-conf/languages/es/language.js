@@ -48,11 +48,13 @@ export default {
 			recovery: '¿Olvidaste tu contraseña?',
 			btnLogin: 'Iniciar sesión',
 		},
-		register: {
-			
-		},
+		register: {},
 		emailConfirm: {},
-		emailVerify: {},
+		emailVerified: {
+			title: 'Meilucho verificado, Champion ;), ¡Seguí así!',
+			auxText: 'Listorti?... Mandale nomás!',
+			btnNext: "Pa'lante!"
+		},
 		emailNotVerify: {},
 		welcome: {},
 		onboard1: {},

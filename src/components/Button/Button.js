@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Button = ({ children, onClick, title, disabled,type }) => {
+const Button = ({ children, onClick, text, disabled, type = 'button' }) => {
 	return (
 		<div>
 			<div className='col-sm max-auto'>
@@ -8,10 +8,10 @@ const Button = ({ children, onClick, title, disabled,type }) => {
 					disabled={disabled}
 					className='btn btn-primary'
 					onClick={onClick}
-					type='button'
+					type={type}
 				>
 					{children}
-					{title}
+					{text}
 				</button>
 			</div>
 		</div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import VerifiedEmail from './components/VerifiedEmail/VerifiedEmail';
+import { LanguageSelector } from './components/LanguageSelector/LanguageSelector'
 
 import i18n from './i18n-lang-conf';
 
@@ -14,9 +15,10 @@ function App() {
 			className='App'
 			style={{ height: '100vh', background: 'black', color: 'wheat' }}
 		>
-			<h1 style={{ placeSelf: 'center' }}>
-				<VerifiedEmail />
-			</h1>
+			<VerifiedEmail />
+
+			<LanguageSelector />
+
 		</div>
 	);
 }

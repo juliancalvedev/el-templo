@@ -1,9 +1,25 @@
 import React from 'react'
 
+import Title from '../Title/Title'
+import AuxText from '../AuxText/AuxText'
+import Button from '../Button/Button'
+
+import { useTranslation } from 'react-i18next'
+
 const VerifiedEmail = () => {
+   const { t } = useTranslation()
+
+
    return (
+
       <div>
-         <h1>Verified Email</h1>
+
+         <Title text={t('auth.emailVerified.title')} />
+
+         <AuxText text={t('auth.emailVerified.auxText')} />
+
+         <Button text={t('auth.emailVerified.btnNext')} />
+
       </div>
    )
 }
