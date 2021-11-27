@@ -7,6 +7,8 @@ export const LanguageSelector = () => {
 
 	const onChange = (e) => setNewLangToLocalStore(e.target.value);
 
+	const currentLang = window.localStorage.getItem('lang');
+
 	return (
 		<div style={{ boxSizing: 'content-box' }}>
 			<select
@@ -14,19 +16,11 @@ export const LanguageSelector = () => {
 				aria-label='.form-select-sm example'
 				style={{ width: '70px' }}
 				onChange={onChange}
+				defaultValue={currentLang}
 			>
-				<option
-					value='es'
-					defaultValue
-				>
-					{t('global.spanish')}
-				</option>
+				<option value='es'> {t('global.spanish')} </option>
 
-				<option
-					value='en'
-				>
-					{t('global.english')}
-				</option>
+				<option value='en'> {t('global.english')} </option>
 			</select>
 		</div>
 	);
