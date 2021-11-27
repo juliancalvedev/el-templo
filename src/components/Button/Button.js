@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-const Button = ({ children, onClick, title, disabled,type }) => {
+const Button = ({ children, onClick, title, disabled, type }) => {
 	return (
 		<div>
 			<div className='col-sm max-auto'>
@@ -17,4 +17,4 @@ const Button = ({ children, onClick, title, disabled,type }) => {
 	);
 };
 
-export default Button
+export default Button;

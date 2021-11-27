@@ -11,6 +11,7 @@ const Input = ({ id, name, placeholder, type, handleChange, param, value }) => {
 				onChange={ handleChange}
 				className={param }
 				value={value}
+				
 			/>
 		</div>
 	);

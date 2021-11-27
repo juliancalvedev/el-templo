@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { useDispatch } from 'react-redux';
 import { loginAction } from './redux/auth';
+import Register from './pages/Register/Register';
 
 
 function App() {
@@ -19,8 +20,9 @@ function App() {
 					)
 				}
 			>
-				asd
+				
 			</button>
+			<Register></Register>
 		</div>
 	);
 }
