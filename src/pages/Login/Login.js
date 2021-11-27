@@ -4,7 +4,6 @@ import Title from '../../components/Title/Title';
 import Button from '../../components/Button/Button';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { useHistory } from 'react-router-dom';
 import { loginAction } from '../../redux/auth';
 import {useTranslation} from 'react-i18next';
 
