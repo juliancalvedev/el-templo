@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Input = ({ id, name, placeholder, type, handleChange, param, value }) => {
 	return (
@@ -8,8 +8,8 @@ const Input = ({ id, name, placeholder, type, handleChange, param, value }) => {
 				name={name}
 				placeholder={placeholder}
 				type={type}
-				onChange={ handleChange}
-				className={param }
+				onChange={handleChange}
+				className={param}
 				value={value}
 			/>
 		</div>
