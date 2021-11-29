@@ -42,7 +42,7 @@ const PasswordRecoveryForm = () => {
 
 				sendPassword(password);
 
-				navigate('/Login', { replace: true });
+				navigate('/login', { replace: true });
 
 				console.log(password.length);
 			}
