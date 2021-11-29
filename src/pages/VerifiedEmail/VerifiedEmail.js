@@ -21,7 +21,7 @@ const VerifiedEmail = () => {
 		const response = await axios.get(
 			`${baseURL}/auth/verify-email?token=${token}`
 		);
-		const { data, problem } = response?.data;
+		const { problem } = response?.data;
 
 		if (!problem) {
 			verifiedEmail = true;
