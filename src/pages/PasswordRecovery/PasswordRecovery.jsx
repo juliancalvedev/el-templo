@@ -23,7 +23,7 @@ const PasswordRecovery = () => {
 
 	useEffect(() => {
 		tokenIsActive();
-	}, []);
+	});
 
 	return (
 		<div className='password-recovery-main'>
