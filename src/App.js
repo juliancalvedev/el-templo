@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import i18n from './i18n-lang-conf';
+import VerifiedEmail from './pages/VerifiedEmail/VerifiedEmail';
 import RouterApp from './Router/RouterApp';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
 	return (
 		<div className='App'>
 			<RouterApp />
+			<VerifiedEmail />
 		</div>
 	);
 }

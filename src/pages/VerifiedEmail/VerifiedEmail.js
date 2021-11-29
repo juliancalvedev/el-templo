@@ -1,14 +1,17 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
+import { useTranslation } from 'react-i18next';
+
+import axios from 'axios';
 
 import Title from '../../components/Title/Title';
 import AuxText from '../../components/AuxText/AuxText';
 import Button from '../../components/Button/Button';
 
-import { useTranslation } from 'react-i18next';
-import axios from 'axios';
-
 const VerifiedEmail = () => {
 	const { t } = useTranslation();
+
+	const navigate = useNavigate();
 
 	const baseURL = 'https://el-templo.herokuapp.com/api';
 
@@ -32,6 +35,12 @@ const VerifiedEmail = () => {
 		}
 	};
 
+	const navigateToLoggin = () => {
+		navigate('/login', { replace: true });
+
+		console.log('NAvigate to Login clicked');
+	};
+
 	useEffect(() => {
 		getToken();
 	}, []);
@@ -42,12 +51,18 @@ const VerifiedEmail = () => {
 				<div>
 					<Title text={t('auth.emailVerified.title')} />
 					<AuxText text={t('auth.emailVerified.auxText')} />
-					<Button text={t('auth.emailVerified.btnNext')} />
+					<Button
+						text={t('auth.emailVerified.btnNext')}
+						onClick={navigateToLoggin}
+					/>
 				</div>
 			) : (
 				<div>
 					<Title text={t('auth.emailVerified.titleError')} />
-					<Button text={t('auth.emailVerified.btnNext')} />
+					<Button
+						text={t('auth.emailVerified.btnNext')}
+						onClick={navigateToLoggin}
+					/>
 				</div>
 			)}
 		</div>
