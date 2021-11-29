@@ -15,17 +15,21 @@ const VerifiedEmail = () => {
 	const queryParams = new URLSearchParams(window?.location?.search);
 	const token = queryParams.get('token');
 
+	let verifiedEmail = true;
+
 	const getToken = async () => {
 		const response = await axios.get(
 			`${baseURL}/auth/verify-email?token=${token}`
 		);
+		const { data, problem } = response?.data;
 
-		const isValidated = response?.data;
-		// const isProblem = response?.data?.problem;
-
-		console.log(isValidated);
-
-		return isValidated;
+		if (!problem) {
+			verifiedEmail = true;
+			return true;
+		} else {
+			verifiedEmail = false;
+			return false;
+		}
 	};
 
 	useEffect(() => {
@@ -34,9 +38,18 @@ const VerifiedEmail = () => {
 
 	return (
 		<div>
-			<Title text={t('auth.emailVerified.title')} />
-			<AuxText text={t('auth.emailVerified.auxText')} />
-			<Button text={t('auth.emailVerified.btnNext')} />
+			{verifiedEmail ? (
+				<div>
+					<Title text={t('auth.emailVerified.title')} />
+					<AuxText text={t('auth.emailVerified.auxText')} />
+					<Button text={t('auth.emailVerified.btnNext')} />
+				</div>
+			) : (
+				<div>
+					<Title text={t('auth.emailVerified.titleError')} />
+					<Button text={t('auth.emailVerified.btnNext')} />
+				</div>
+			)}
 		</div>
 	);
 };

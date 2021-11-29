@@ -54,7 +54,7 @@ export default {
 			title: 'Tu E-mail ha sido verificado correctamente.',
 			titleError: 'El link no es válido o ha caducado.',
 			auxText: 'Todo listo para comenzar!',
-			btnNext: "Pa'lante!",
+			btnNext: 'Siguiente',
 		},
 		emailNotVerify: {},
 		welcome: {},
