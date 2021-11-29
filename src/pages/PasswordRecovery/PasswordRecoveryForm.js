@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './PasswordRecovery.css';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
-import { getSearchParams } from '../../utils/SearchParams';
-import { enablePasswordRecovery } from '../../services/auth';
 
 const PasswordRecoveryForm = () => {
 	const [password, setPassword] = useState('');
