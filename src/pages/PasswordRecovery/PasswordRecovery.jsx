@@ -6,7 +6,7 @@ import PasswordRecoveryForm from './PasswordRecoveryForm';
 import PasswordRecoveryError from './PasswordRecoveryError';
 
 const PasswordRecovery = () => {
-	const token = getSearchParams('passwordRecoveryHash');
+	const token = getSearchParams('token');
 
 	const [verified, setVerified] = useState(false);
 

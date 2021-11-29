@@ -16,6 +16,10 @@ const PasswordRecoveryForm = () => {
 		setRepeatPassword(e.target.value);
 	};
 
+	const submitChangePassword = () => {
+		console.log(password);
+	};
+
 	return (
 		<div>
 			<h2>Crea nueva contraseña</h2>
@@ -33,7 +37,7 @@ const PasswordRecoveryForm = () => {
 				handleChange={handleChangeRepeatPassword}
 			/>
 
-			<Button title='Actualizar contraseña' />
+			<Button title='Actualizar contraseña' onClick={submitChangePassword} />
 		</div>
 	);
 };
