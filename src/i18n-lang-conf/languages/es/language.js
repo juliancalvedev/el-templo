@@ -51,9 +51,10 @@ export default {
 		register: {},
 		emailConfirm: {},
 		emailVerified: {
-			title: 'Meilucho verificado, Champion ;), ¡Seguí así!',
-			auxText: 'Listorti?... Mandale nomás!',
-			btnNext: "Pa'lante!"
+			title: 'Tu E-mail ha sido verificado correctamente.',
+			titleError: 'El link no es válido o ha caducado.',
+			auxText: 'Todo listo para comenzar!',
+			btnNext: "Pa'lante!",
 		},
 		emailNotVerify: {},
 		welcome: {},
