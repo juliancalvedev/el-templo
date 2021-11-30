@@ -22,6 +22,7 @@ export default {
 		search: 'Buscar',
 		signOut: 'Cerrar sesión',
 		logIn: 'Iniciar sesión',
+		loading: 'Cargando...',
 
 		errors: {
 			required: 'Este campo es requerido.',

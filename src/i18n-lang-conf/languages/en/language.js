@@ -22,6 +22,7 @@ export default {
 		search: 'Search',
 		signOut: 'Sing Out',
 		logIn: 'Log In',
+		loading: 'Loading...',
 
 		errors: {
 			required: 'This field is required.',

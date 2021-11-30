@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
@@ -10,35 +10,47 @@ import Button from '../../components/Button/Button';
 
 const VerifiedEmail = () => {
 	const { t } = useTranslation();
-
 	const navigate = useNavigate();
 
-	let verifiedEmail = true;
+	const [isVerified, setIsVerified] = useState(true);
+	const [isLoading, setIsLoading] = useState(true);
 
 	const navigateToLoggin = () => navigate('/login', { replace: true });
 
+	const makeVerify = async () => {
+		const response = await verifyEmailToBackEnd();
+		await setIsVerified(response);
+		await setIsLoading(false);
+	};
+
 	useEffect(() => {
-		verifyEmailToBackEnd();
+		makeVerify();
 	}, []);
 
 	return (
 		<div className='container d-flex justify-content-center col '>
-			{verifiedEmail ? (
-				<div>
-					<Title text={t('auth.emailVerified.title')} />
-					<AuxText text={t('auth.emailVerified.auxText')} />
-					<Button
-						title={t('auth.emailVerified.btnNext')}
-						onClick={navigateToLoggin}
-					/>
-				</div>
+			{isLoading ? (
+				<h1>{t('global.loading')}</h1>
 			) : (
 				<div>
-					<Title text={t('auth.emailVerified.titleError')} />
-					<Button
-						title={t('auth.emailVerified.btnNext')}
-						onClick={navigateToLoggin}
-					/>
+					{isVerified ? (
+						<div>
+							<Title text={t('auth.emailVerified.title')} />
+							<AuxText text={t('auth.emailVerified.auxText')} />
+							<Button
+								title={t('auth.emailVerified.btnNext')}
+								onClick={navigateToLoggin}
+							/>
+						</div>
+					) : (
+						<div>
+							<Title text={t('auth.emailVerified.titleError')} />
+							<Button
+								title={t('auth.emailVerified.btnNext')}
+								onClick={navigateToLoggin}
+							/>
+						</div>
+					)}
 				</div>
 			)}
 		</div>

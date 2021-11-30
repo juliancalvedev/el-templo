@@ -14,7 +14,7 @@ export const verifyEmailToBackEnd = async () => {
 	const token = getSearchParams('token');
 
 	const response = await axiosInstance.get(
-		`/auth/verify-email?token=${token}`
+		`${baseURL}/verify-email?token=${token}`
 	);
 
 	const { problem } = response?.data;

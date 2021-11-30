@@ -1,12 +1,11 @@
-import React from "react";
+import React from 'react';
 
 const AuxText = ({ text }) => {
-
-   return (
-      <div>
-         <h3>{text}</h3>
-      </div>
-   );
+	return (
+		<div>
+			<p>{text}</p>
+		</div>
+	);
 };
 
 export default AuxText;
