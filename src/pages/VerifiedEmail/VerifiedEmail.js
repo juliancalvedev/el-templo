@@ -19,8 +19,8 @@ const VerifiedEmail = () => {
 
 	const makeVerify = async () => {
 		const response = await verifyEmailToBackEnd();
-		await setIsVerified(response);
-		await setIsLoading(false);
+		setIsVerified(response);
+		setIsLoading(false);
 	};
 
 	useEffect(() => {
@@ -30,7 +30,12 @@ const VerifiedEmail = () => {
 	return (
 		<div className='container d-flex justify-content-center col '>
 			{isLoading ? (
-				<h1>{t('global.loading')}</h1>
+				<div>
+					<h1>{t('global.loading')}</h1>
+					<div class='spinner-border' role='status'>
+						<span class='sr-only'></span>
+					</div>
+				</div>
 			) : (
 				<div>
 					{isVerified ? (
