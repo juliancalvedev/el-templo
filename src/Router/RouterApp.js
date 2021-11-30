@@ -18,7 +18,7 @@ const RouterApp = () => {
 					<Route path='/' element={<PublicLayout />}>
 						<Route path='login' element={<Login />} />
 						<Route
-							path='verified-email'
+							path='verify-email'
 							element={<VerifiedEmail />}
 						/>
 					</Route>
