@@ -5,6 +5,7 @@ import PrivatedLayout from '../layouts/PrivatedLayout/PrivatedLayout';
 import PublicLayout from '../layouts/PublicLayout/PublicLayout';
 
 import Login from '../pages/Login/Login';
+import VerifiedEmail from '../pages/VerifiedEmail/VerifiedEmail';
 
 import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
 
@@ -21,8 +22,10 @@ const RouterApp = () => {
 						<Route path='login' element={<Login />} />
 						<Route
 							path='forgotten-password'
-							element={<ForgottenPassword />}
-						/>
+							element={<ForgottenPassword />}/>
+						<Route
+							path='verify-email'
+							element={<VerifiedEmail />}/>
 					</Route>
 				)}
 				<Route path='*' element={<Navigate to='/' />} />
@@ -31,4 +34,7 @@ const RouterApp = () => {
 	);
 };
 
+
+						
+			
 export default RouterApp;

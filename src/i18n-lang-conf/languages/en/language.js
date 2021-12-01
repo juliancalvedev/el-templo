@@ -22,6 +22,7 @@ export default {
 		search: 'Search',
 		signOut: 'Sing Out',
 		logIn: 'Log In',
+		loading: 'Loading...',
 
 		errors: {
 			required: 'This field is required.',
@@ -50,7 +51,12 @@ export default {
 		},
 		register: {},
 		emailConfirm: {},
-		emailVerify: {},
+		emailVerified: {
+			title: 'Your E-mail has been correctly verified.',
+			titleError: 'The link is invalid or has expired. ',
+			auxText: "Everything ready, let's go!",
+			btnNext: 'Next',
+		},
 		emailNotVerify: {},
 		welcome: {},
 		onboard1: {},
