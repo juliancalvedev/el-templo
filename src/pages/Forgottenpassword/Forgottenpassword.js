@@ -8,13 +8,16 @@ import { startPasswordRecoveryAction } from '../../redux/auth';
 import { useTranslation } from 'react-i18next';
 
 const ForgottenPassword = () => {
+
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
 
 	const [email, setEmail] = useState('');
+
 	const handleChangeEmail = (e) => {
 		setEmail(e.target.value);
 	};
+
 	const handleSubmit = () => {
 		dispatch(startPasswordRecoveryAction({ email }));
 	};
