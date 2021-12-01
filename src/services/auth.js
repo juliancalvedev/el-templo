@@ -4,11 +4,18 @@ import { getSearchParams } from '../utils/SearchParams';
 const baseURL = '/auth';
 
 export const login = ({ email, password }) => {
-	return axiosInstance.post(`${baseURL}/login`, {
+    return axiosInstance.post(`${baseURL}/login`, {
+        email,
+        password
+    });
+};
+export const startPasswordRecovery = ({ email }) => {
+	return axiosInstance.post(`${baseURL}/start-password-recovery`, {
 		email,
-		password,
 	});
 };
+	
+
 
 export const verifyEmailToBackEnd = async () => {
 	const token = getSearchParams('token');
