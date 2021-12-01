@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { startPasswordRecoveryAction } from '../../redux/auth';
 import { useTranslation } from 'react-i18next';
+
 const ForgottenPassword = () => {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
