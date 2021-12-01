@@ -22,6 +22,7 @@ export default {
 		search: 'Search',
 		signOut: 'Sing Out',
 		logIn: 'Log In',
+		password: 'Password',
 
 		errors: {
 			required: 'This field is required.',
@@ -58,8 +59,14 @@ export default {
 		register: {},
 		forgotPassword1: {},
 		forgotPassword2: {},
-	},
 
+		passwordRecoveryForm: {
+			title: 'Create new password',
+			newPassword: 'New password',
+			repeatNewPassword: 'Repeat new password',
+			btnUpdatePassword: 'Update password',
+		},
+	},
 	profile: {
 		profile: {},
 		editProfile: {},

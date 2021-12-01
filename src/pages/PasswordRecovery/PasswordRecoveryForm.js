@@ -2,11 +2,14 @@ import { useState } from 'react';
 import './PasswordRecovery.css';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
-import { getSearchParams } from '../../utils/SearchParams';
 import { useNavigate } from 'react-router';
 import { onPasswordRecovery } from '../../services/auth';
+import { useTranslation } from 'react-i18next';
+import Title from '../../components/Title/Title';
+import { LanguageSelector } from '../../components/LanguageSelector/LanguageSelector';
 
 const PasswordRecoveryForm = () => {
+	const { t } = useTranslation();
 	const navigate = useNavigate();
 
 	const [password, setPassword] = useState('');
@@ -41,22 +44,27 @@ const PasswordRecoveryForm = () => {
 
 	return (
 		<div>
-			<h2>Crea nueva contraseña</h2>
+			<Title text={t('auth.passwordRecoveryForm.title')} />
 
 			<Input
+				placeholder={t('auth.passwordRecoveryForm.newPassword')}
 				type='password'
-				placeholder='Nueva Contraseña'
 				value={password}
 				handleChange={handleChangePassword}
 			/>
 			<Input
-				placeholder='Repite nueva Contraseña'
+				placeholder={t('auth.passwordRecoveryForm.repeatNewPassword')}
 				type='password'
 				value={repeatPassword}
 				handleChange={handleChangeRepeatPassword}
 			/>
 
-			<Button title='Actualizar contraseña' onClick={submitChangePassword} />
+			<Button
+				title={t('auth.passwordRecoveryForm.btnUpdatePassword')}
+				onClick={submitChangePassword}
+			/>
+
+			<LanguageSelector />
 		</div>
 	);
 };

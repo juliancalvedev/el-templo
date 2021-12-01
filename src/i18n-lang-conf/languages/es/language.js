@@ -22,6 +22,7 @@ export default {
 		search: 'Buscar',
 		signOut: 'Cerrar sesión',
 		logIn: 'Iniciar sesión',
+		password: 'contraseña',
 
 		errors: {
 			required: 'Este campo es requerido.',
@@ -48,9 +49,7 @@ export default {
 			recovery: '¿Olvidaste tu contraseña?',
 			btnLogin: 'Iniciar sesión',
 		},
-		register: {
-			
-		},
+		register: {},
 		emailConfirm: {},
 		emailVerify: {},
 		emailNotVerify: {},
@@ -60,8 +59,14 @@ export default {
 		register: {},
 		forgotPassword1: {},
 		forgotPassword2: {},
-	},
 
+		passwordRecoveryForm: {
+			title: 'Crear nueva contraseña',
+			newPassword: 'Nueva contraseña',
+			repeatNewPassword: 'Repite nueva contraseña',
+			btnUpdatePassword: 'Actualizar contraseña',
+		},
+	},
 	profile: {
 		profile: {},
 		editProfile: {},
