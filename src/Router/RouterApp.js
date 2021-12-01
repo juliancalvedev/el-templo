@@ -8,6 +8,7 @@ import Login from '../pages/Login/Login';
 import VerifiedEmail from '../pages/VerifiedEmail/VerifiedEmail';
 
 import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
+import Landing from '../pages/Landing/Landing';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -19,13 +20,14 @@ const RouterApp = () => {
 					<Route path='/' element={<PrivatedLayout />}></Route>
 				) : (
 					<Route path='/' element={<PublicLayout />}>
+						<Route index element={<Landing />} />
+
 						<Route path='login' element={<Login />} />
 						<Route
 							path='forgotten-password'
-							element={<ForgottenPassword />}/>
-						<Route
-							path='verify-email'
-							element={<VerifiedEmail />}/>
+							element={<ForgottenPassword />}
+						/>
+						<Route path='verify-email' element={<VerifiedEmail />} />
 					</Route>
 				)}
 				<Route path='*' element={<Navigate to='/' />} />
