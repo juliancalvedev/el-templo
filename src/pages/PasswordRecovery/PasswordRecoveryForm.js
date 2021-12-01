@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router';
 import { onPasswordRecovery } from '../../services/auth';
 import { useTranslation } from 'react-i18next';
 import Title from '../../components/Title/Title';
-import { LanguageSelector } from '../../components/LanguageSelector/LanguageSelector';
 
 const PasswordRecoveryForm = () => {
 	const { t } = useTranslation();
@@ -63,8 +62,6 @@ const PasswordRecoveryForm = () => {
 				title={t('auth.passwordRecoveryForm.btnUpdatePassword')}
 				onClick={submitChangePassword}
 			/>
-
-			<LanguageSelector />
 		</div>
 	);
 };

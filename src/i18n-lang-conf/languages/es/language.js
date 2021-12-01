@@ -62,7 +62,6 @@ export default {
 		welcome: {},
 		onboard1: {},
 		onboard2: {},
-		register: {},
 		forgotPassword1: {},
 		forgotPassword2: {},
 
