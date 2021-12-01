@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginAction } from '../../redux/auth';
 import {useTranslation} from 'react-i18next';
-
+import { Link } from 'react-router-dom';
 const Login = () => {
 	const {t}=useTranslation();
 	const dispatch = useDispatch();
@@ -44,7 +44,8 @@ const Login = () => {
 					type='password'
 					placeholder={t('auth.login.passwordPlaceholder')}
 				/>
-				<p>{t('auth.login.recovery')}</p>
+				
+				<Link to='/forgottenPassword'>{t('auth.login.recovery')}</Link> 
 				<Button onClick={handleSubmit} title={t('auth.login.btnLogin')} />
 			</form>
 		</div>

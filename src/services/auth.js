@@ -8,3 +8,8 @@ export const login = ({ email, password }) => {
         password
     });
 };
+export const startPasswordRecovery = ({ email }) => {
+	return axiosInstance.post(`${baseURL}/start-password-recovery`, {
+		email,
+	});
+};
