@@ -1,7 +1,10 @@
+import userEvent from '@testing-library/user-event';
+import axios from 'axios';
 import { axiosInstance } from '../axios/axiosInstance';
 import { getSearchParams } from '../utils/SearchParams';
 
 const baseURL = '/auth';
+const BASEURL = '/user';
 
 export const login = ({ email, password }) => {
 	return axiosInstance.post(`${baseURL}/login`, {
