@@ -8,3 +8,17 @@ export const login = ({ email, password }) => {
         password
     });
 };
+
+export const register = ({ name,lastName,sex,email,password,password2,birth,country,img}) => {
+	return axiosInstance.post(`${baseURL}/register`, {
+		name,
+		lastName,
+		sex,
+		email,
+		password,
+		password2,
+		birth,
+		country,
+		img,
+	});
+};
