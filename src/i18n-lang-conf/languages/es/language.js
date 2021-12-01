@@ -22,7 +22,11 @@ export default {
 		search: 'Buscar',
 		signOut: 'Cerrar sesión',
 		logIn: 'Iniciar sesión',
+<<<<<<< HEAD
 		password: 'contraseña',
+=======
+		loading: 'Cargando...',
+>>>>>>> 4dcd62998c4ada6537376d9634337fa3c0bb6854
 
 		errors: {
 			required: 'Este campo es requerido.',
@@ -51,7 +55,12 @@ export default {
 		},
 		register: {},
 		emailConfirm: {},
-		emailVerify: {},
+		emailVerified: {
+			title: 'Tu E-mail ha sido verificado correctamente.',
+			titleError: 'El link no es válido o ha caducado.',
+			auxText: 'Todo listo para comenzar!',
+			btnNext: 'Siguiente',
+		},
 		emailNotVerify: {},
 		welcome: {},
 		onboard1: {},
