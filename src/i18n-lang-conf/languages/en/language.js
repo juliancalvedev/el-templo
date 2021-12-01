@@ -22,11 +22,8 @@ export default {
 		search: 'Search',
 		signOut: 'Sing Out',
 		logIn: 'Log In',
-<<<<<<< HEAD
 		password: 'Password',
-=======
 		loading: 'Loading...',
->>>>>>> 4dcd62998c4ada6537376d9634337fa3c0bb6854
 
 		errors: {
 			required: 'This field is required.',

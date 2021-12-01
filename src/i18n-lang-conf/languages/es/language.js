@@ -22,11 +22,8 @@ export default {
 		search: 'Buscar',
 		signOut: 'Cerrar sesión',
 		logIn: 'Iniciar sesión',
-<<<<<<< HEAD
 		password: 'contraseña',
-=======
 		loading: 'Cargando...',
->>>>>>> 4dcd62998c4ada6537376d9634337fa3c0bb6854
 
 		errors: {
 			required: 'Este campo es requerido.',
