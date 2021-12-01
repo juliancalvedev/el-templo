@@ -65,7 +65,7 @@ export default {
 		forgotPassword1: {
 			title: 'Did you forget your password?',
 			emailPlaceholder: 'Email@email.com',
-			btn: 'Accept',
+			btnAccept: 'Accept',
 		},
 		forgotPassword2: {},
 	},

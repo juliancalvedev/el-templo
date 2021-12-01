@@ -20,9 +20,8 @@ const ForgottenPassword = () => {
 	return (
 		<div className='container d-flex justify-content-center align-items-center '>
 			<form className=''>
-				<h1 className=''>
 					<Title text={t('auth.forgotPassword1.title')} />
-				</h1>
+				
 				<Input
 					value={email}
 					handleChange={handleChangeEmail}
@@ -32,7 +31,7 @@ const ForgottenPassword = () => {
 				<Button
 					disabled={!email}
 					onClick={handleSubmit}
-					title={t('auth.forgotPassword1.btn')}
+					title={t('auth.forgotPassword1.btnAccept')}
 				/>
 			</form>
 		</div>

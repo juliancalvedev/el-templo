@@ -7,7 +7,7 @@ const defaultValue = {
 	error: false,
 	enabled: false,
 	loading: false,
-	emailIsVerify: false,
+	emailIsVerified: false,
 };
 
 // ACTION TYPES
