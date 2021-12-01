@@ -2,18 +2,12 @@ import { useState } from 'react';
 import './PasswordRecovery.css';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
-import axios from 'axios';
 import { getSearchParams } from '../../utils/SearchParams';
 import { useNavigate } from 'react-router';
+import { onPasswordRecovery } from '../../services/auth';
 
 const PasswordRecoveryForm = () => {
 	const navigate = useNavigate();
-
-	const token = getSearchParams('token');
-
-	const baseURL = 'https://el-templo.herokuapp.com/api';
-
-	const path = '/auth/on-password-recovery?token=';
 
 	const [password, setPassword] = useState('');
 
@@ -32,19 +26,15 @@ const PasswordRecoveryForm = () => {
 			if (password === repeatPassword) {
 				const sendPassword = async (password) => {
 					try {
-						axios.put(`${baseURL + path + token}`, {
-							newPassword: `${password}`,
-						});
+						onPasswordRecovery({ password });
 					} catch (error) {
-						console.log(error);
+						return error;
 					}
 				};
 
 				sendPassword(password);
 
 				navigate('/login', { replace: true });
-
-				console.log(password.length);
 			}
 		}
 	};

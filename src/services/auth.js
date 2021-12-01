@@ -14,3 +14,9 @@ export const enablePasswordRecovery = ({ token }) => {
 		`${baseURL}/enable-password-recovery?token=${token}`
 	);
 };
+
+export const onPasswordRecovery = ({ token, password }) => {
+	return axiosInstance.put(`${baseURL}/on-password-recovery?token=${token}`, {
+		newPassword: { password },
+	});
+};
