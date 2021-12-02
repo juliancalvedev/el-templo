@@ -11,6 +11,8 @@ import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
 import Landing from '../pages/Landing/Landing';
 import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
 
+
+
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
 
