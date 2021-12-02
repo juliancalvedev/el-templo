@@ -10,6 +10,7 @@ import PasswordRecovery from '../pages/PasswordRecovery/PasswordRecovery';
 import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
 import Landing from '../pages/Landing/Landing';
 import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
+import UsersList from '../pages/admin/UsersList/UsersList';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -22,6 +23,8 @@ const RouterApp = () => {
 				) : (
 					<Route path='/' element={<PublicLayout />}>
 						<Route index element={<Landing />} />
+						{/* users-list está acá provisoriamente */}
+						<Route path='users-list' element={<UsersList />} />
 
 						<Route path='login' element={<Login />} />
 						<Route
