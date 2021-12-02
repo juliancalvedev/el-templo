@@ -1,7 +1,5 @@
-
-
 export const RegisterValidate = (values) => {
-	let errors = {};
+	const errors = {};
 
 	if (!values.name.trim()) {
 		errors.name = 'Por favor, ingresa tu nombre.';
@@ -9,8 +7,7 @@ export const RegisterValidate = (values) => {
 	if (!values.lastName.trim()) {
 		errors.lastName = 'Por favor, ingresa tu Apellido.';
 	}
-	
-	
+
 	if (!values.email) {
 		errors.email = 'Email required';
 	} else if (!/\S+@\S+\.\S+/.test(values.email)) {
@@ -35,4 +32,37 @@ export const RegisterValidate = (values) => {
 	}
 
 	return errors;
+};
+
+export const HasErrors = (values) => {
+	if (!values.name.trim()) {
+		return true;
+	}
+	if (!values.lastName.trim()) {
+		return true;
+	}
+
+	if (!values.email) {
+		return true;
+	} else if (!/\S+@\S+\.\S+/.test(values.email)) {
+		return true;
+	}
+	if (!values.password) {
+		return true;
+	} else if (values.password.length < 6) {
+		return true;
+	}
+	if (!values.password2) {
+		return true;
+	} else if (values.password2 !== values.password) {
+		return true;
+	}
+
+	if (!values.country) {
+		return true;
+	}
+	if (!values.birth) {
+		return true;
+	}
+	return false;
 };

@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { registerAction } from '../../redux/auth';
+import { useDispatch } from 'react-redux';
+import { HasErrors } from './RegisterValidate';
 
 const useForm = (RegisterValidate) => {
 	const [values, setValues] = useState({
@@ -14,6 +17,7 @@ const useForm = (RegisterValidate) => {
 	});
 	const [errors, setErrors] = useState({});
 	const [isSubmitting, setIsSubmitting] = useState(false);
+	const dispatch = useDispatch();
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -24,9 +28,14 @@ const useForm = (RegisterValidate) => {
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		setErrors(RegisterValidate(values));
+		const auxErrors = RegisterValidate(values);
+		setErrors(auxErrors);
 		setIsSubmitting(true);
+		if (!HasErrors(values)) {
+			alert('ok');
+		}
 	};
+
 	useEffect(() => {
 		if (Object.keys(errors).length === 0 && isSubmitting) {
 			console.log(values);

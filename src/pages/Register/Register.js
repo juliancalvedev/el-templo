@@ -5,8 +5,11 @@ import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import { useDispatch } from 'react-redux';
 import { registerAction } from '../../redux/auth';
+import { useTranslation } from 'react-i18next';
+import Title from '../../components/Title/Title';
 
 export const Register = ({ submitRegisterForm }) => {
+	const { t } = useTranslation();
 	const { handleChange, values, handleSubmit, errors } =
 		useForm(RegisterValidate);
 	const [radioButton, setRadioButton] = useState(false);
@@ -14,7 +17,7 @@ export const Register = ({ submitRegisterForm }) => {
 	return (
 		<div className='container d-flex justify-content-center col '>
 			<form className='Register' onSubmit={handleSubmit}>
-				<h1 className='d-flex justify-content-center'>Registro</h1>
+				<Title text={t('auth.register.title')} />
 
 				<div className='form-inputs'>
 					<Input
@@ -126,7 +129,6 @@ export const Register = ({ submitRegisterForm }) => {
 				<div className='form-inputs'>
 					<Input
 						type='date'
-						max='01-01-1921'
 						name='birth'
 						placeholder='Fecha de nacimiento'
 						value={values.birth}

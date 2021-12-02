@@ -22,6 +22,7 @@ export default {
 		search: 'Buscar',
 		signOut: 'Cerrar sesión',
 		logIn: 'Iniciar sesión',
+		loading: 'Cargando...',
 
 		errors: {
 			required: 'Este campo es requerido.',
@@ -49,16 +50,25 @@ export default {
 			btnLogin: 'Iniciar sesión',
 		},
 		register: {
-			
+			title:'Registro',
 		},
 		emailConfirm: {},
-		emailVerify: {},
+		emailVerified: {
+			title: 'Tu E-mail ha sido verificado correctamente.',
+			titleError: 'El link no es válido o ha caducado.',
+			auxText: 'Todo listo para comenzar!',
+			btnNext: 'Siguiente',
+		},
 		emailNotVerify: {},
 		welcome: {},
 		onboard1: {},
 		onboard2: {},
-		register: {},
-		forgotPassword1: {},
+		
+		forgotPassword1: {
+			title: 'Olvidaste tu contraseña?',
+			emailPlaceholder: 'Email@email.com',
+			btnAccept: 'Aceptar',
+		},
 		forgotPassword2: {},
 	},
 

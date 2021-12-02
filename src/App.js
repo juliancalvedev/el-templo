@@ -10,27 +10,16 @@ import RouterApp from './Router/RouterApp';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 
-
 function App() {
-		//Integrates i18n to the whole App.
+	//Integrates i18n to the whole App.
 	i18n.options.interpolation.defaultVariables = {
 		companyName: 'El Templo',
 	};
 	return (
 		<div className='App'>
-		
-			{/* <Login/>
-			<LanguageSelector/>
-		
-			<RouterApp /> */}
-			<Register/>
-
+			<RouterApp />
 		</div>
 	);
-
-
-
-	
 }
 
 export default App;
