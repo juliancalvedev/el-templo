@@ -23,9 +23,9 @@ const EnabledVerified = () => {
 		navToLogin();
 	};
 
-	const rendering = () => {
-		if (emailIsVerified === false) {
-			return (
+	return (
+		<div className='container d-flex justify-content-center col '>
+			{!emailIsVerified && (
 				<div>
 					<Title
 						text={t('auth.enabledVerified.emailNotVerified.title')}
@@ -42,9 +42,8 @@ const EnabledVerified = () => {
 						onClick={() => handleResendVerifyEmail(savedEmail)}
 					/>
 				</div>
-			);
-		} else if (emailIsVerified === true && enabled === false) {
-			return (
+			)}
+			{emailIsVerified && !enabled && (
 				<div>
 					<Title
 						text={t('auth.enabledVerified.accountNotEnabled.title')}
@@ -61,17 +60,7 @@ const EnabledVerified = () => {
 						onClick={navToLogin}
 					/>
 				</div>
-			);
-		}
-	};
-
-	useEffect(() => {
-		rendering();
-	}, []);
-
-	return (
-		<div className='container d-flex justify-content-center col '>
-			{rendering()}
+			)}
 		</div>
 	);
 };
