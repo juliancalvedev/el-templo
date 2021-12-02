@@ -29,13 +29,10 @@ const RouterApp = () => {
 						<Route index element={<Landing />} />
 
 						<Route path='login' element={<Login />} />
-<<<<<<< HEAD
-=======
 						<Route
 							path='forgotten-password'
 							element={<ForgottenPassword />}
 						/>
->>>>>>> ced551ec2bae40ca9e86eef9dfc08616dd4cc61b
 						<Route path='verify-email' element={<VerifiedEmail />} />
 					</Route>
 				)}
@@ -45,7 +42,4 @@ const RouterApp = () => {
 	);
 };
 
-
-						
-			
 export default RouterApp;

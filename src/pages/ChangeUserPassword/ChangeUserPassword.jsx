@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ChangeUserPassword.css';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
+import { axiosInstance } from '../../axios/axiosInstance';
 
 const ChangeUserPassword = () => {
 	const [currentPassword, setCurrentPassword] = useState('');
@@ -9,6 +10,19 @@ const ChangeUserPassword = () => {
 	const [newPassword, setNewPassword] = useState('');
 
 	const [repeatPassword, setRepeatPassword] = useState('');
+
+	const getUserInfo = async () => {
+		try {
+			const data = await axiosInstance.get('/user/info');
+			console.log(data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	useEffect(() => {
+		getUserInfo();
+	}, []);
 
 	const handleChangeCurrentPassword = (e) => {
 		setCurrentPassword(e.target.value);

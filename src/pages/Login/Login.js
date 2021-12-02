@@ -29,9 +29,8 @@ const Login = () => {
 	return (
 		<div className='container d-flex justify-content-center col '>
 			<form className='login'>
-				
-					<Title text={t('auth.login.title')} />
-				
+				<Title text={t('auth.login.title')} />
+
 				<Input
 					value={email}
 					handleChange={handleChangeEmail}
