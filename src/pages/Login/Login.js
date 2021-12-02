@@ -7,10 +7,10 @@ import { useDispatch } from 'react-redux';
 import { loginAction } from '../../redux/auth';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+
 const Login = () => {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
-	// const history = useHistory();
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -25,13 +25,11 @@ const Login = () => {
 	const handleSubmit = () => {
 		dispatch(loginAction({ email, password }));
 	};
-
 	return (
 		<div className='container d-flex justify-content-center col '>
 			<form className='login'>
-				
-					<Title text={t('auth.login.title')} />
-				
+				<Title text={t('auth.login.title')} />
+
 				<Input
 					value={email}
 					handleChange={handleChangeEmail}
@@ -46,7 +44,10 @@ const Login = () => {
 				/>
 
 				<Link to='/forgotten-password'>{t('auth.login.recovery')}</Link>
-				<Button onClick={handleSubmit} title={t('auth.login.btnLogin')} />
+				<Button
+					onClick={handleSubmit}
+					title={t('auth.login.btnLogin')}
+				/>
 			</form>
 		</div>
 	);

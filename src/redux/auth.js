@@ -1,6 +1,5 @@
 import { login, startPasswordRecovery } from '../services/auth';
 
-
 // DEFAULT VALUE
 const defaultValue = {
 	token: null,
@@ -15,6 +14,7 @@ const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
 const ERROR = 'ERROR';
 const START_PASSWORD_RECOVERY = 'START_PASSWORD_RECOVERY';
+const SAVE_EMAIL = 'SAVE_EMAIL';
 
 // REDUCER
 // El reducer lo que hace es encontrar la accion que queremos realizar
@@ -28,6 +28,8 @@ export default function AuthReducer(state = defaultValue, { type, payload }) {
 		case ERROR:
 			return { ...state, error: true };
 		case START_PASSWORD_RECOVERY:
+			return { ...state, ...payload, error: false };
+		case SAVE_EMAIL:
 			return { ...state, ...payload, error: false };
 		default:
 			return state;
@@ -51,6 +53,10 @@ export const loginAction =
 				dispatch({
 					type: LOGIN,
 					payload: data,
+				});
+				dispatch({
+					type: SAVE_EMAIL,
+					payload: { userEmail: email },
 				});
 			}
 		} catch (error) {
@@ -104,7 +110,4 @@ export const startPasswordRecoveryAction =
 		//dispatch un error
 	};
 
-		//dispatch un error
-	
-
-
+//dispatch un error
