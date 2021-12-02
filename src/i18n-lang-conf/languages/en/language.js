@@ -58,7 +58,19 @@ export default {
 			auxText: "Everything ready, let's go!",
 			btnNext: 'Next',
 		},
-		emailNotVerify: {},
+		enabledVerified: {
+			emailNotVerified: {
+				title: 'Your account has not been verified yet.',
+				auxText:
+					'Enter the Link that we have sent you to the email. And follow the steps.',
+				btnResendEmail: 'Resend Email',
+			},
+			accountNotEnabled: {
+				title: 'Your account is not enabled.',
+				auxText: 'Please, contact "El Templo" for more information.',
+				btnBack: 'Back',
+			},
+		},
 		welcome: {},
 		onboard1: {},
 		onboard2: {},

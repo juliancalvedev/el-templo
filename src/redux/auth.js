@@ -59,7 +59,7 @@ export const loginAction =
 					type: SAVE_EMAIL,
 					payload: email,
 				});
-				callback(); //Navigates to '/enabled-verified'.
+				callback(); //Navega hacia '/enabled-verified', luego de los dispatchs.
 			}
 		} catch (error) {
 			dispatch({
