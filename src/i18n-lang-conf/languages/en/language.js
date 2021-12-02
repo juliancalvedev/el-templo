@@ -62,15 +62,12 @@ export default {
 		welcome: {},
 		onboard1: {},
 		onboard2: {},
-		forgotPassword1: {},
-
 		forgotPassword1: {
 			title: 'Did you forget your password?',
 			emailPlaceholder: 'Email@email.com',
 			btnAccept: 'Accept',
 		},
 		forgotPassword2: {},
-
 		passwordRecoveryForm: {
 			title: 'Create new password',
 			newPassword: 'New password',

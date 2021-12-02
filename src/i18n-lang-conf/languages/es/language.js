@@ -62,7 +62,6 @@ export default {
 		welcome: {},
 		onboard1: {},
 		onboard2: {},
-		forgotPassword1: {},
 
 		forgotPassword1: {
 			title: 'Olvidaste tu contraseña?',

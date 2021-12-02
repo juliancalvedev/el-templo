@@ -5,8 +5,8 @@ import PrivatedLayout from '../layouts/PrivatedLayout/PrivatedLayout';
 import PublicLayout from '../layouts/PublicLayout/PublicLayout';
 
 import Login from '../pages/Login/Login';
-import PasswordRecovery from '../pages/PasswordRecovery/PasswordRecovery';
 import VerifiedEmail from '../pages/VerifiedEmail/VerifiedEmail';
+import PasswordRecovery from '../pages/PasswordRecovery/PasswordRecovery';
 
 import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
 import Landing from '../pages/Landing/Landing';
@@ -18,7 +18,7 @@ const RouterApp = () => {
 		<BrowserRouter>
 			<Routes>
 				{token ? (
-					<Route path='/' element={<PrivatedLayout />}></Route>
+					<Route path='/' element={<PrivatedLayout />} />
 				) : (
 					<Route path='/' element={<PublicLayout />}>
 						<Route index element={<Landing />} />
