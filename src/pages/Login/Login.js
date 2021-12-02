@@ -16,7 +16,7 @@ const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
-	const callback = () => navigate('enabled-verified');
+	const callback = () => navigate('/enabled-verified');
 
 	const handleChangeEmail = (e) => {
 		setEmail(e.target.value);
