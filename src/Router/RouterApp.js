@@ -7,9 +7,9 @@ import PublicLayout from '../layouts/PublicLayout/PublicLayout';
 import Login from '../pages/Login/Login';
 import VerifiedEmail from '../pages/VerifiedEmail/VerifiedEmail';
 import PasswordRecovery from '../pages/PasswordRecovery/PasswordRecovery';
-
 import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
 import Landing from '../pages/Landing/Landing';
+import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -32,7 +32,14 @@ const RouterApp = () => {
 							path='forgotten-password'
 							element={<ForgottenPassword />}
 						/>
-						<Route path='verify-email' element={<VerifiedEmail />} />
+						<Route
+							path='verify-email'
+							element={<VerifiedEmail />}
+						/>
+						<Route
+							path='enabled-verified'
+							element={<EnabledVerified />}
+						/>
 					</Route>
 				)}
 				<Route path='*' element={<Navigate to='/' />} />

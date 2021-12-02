@@ -39,7 +39,7 @@ export default function AuthReducer(state = defaultValue, { type, payload }) {
 
 // ACTIONS
 export const loginAction =
-	({ email, password }) =>
+	({ email, password, callback }) =>
 	async (dispatch) => {
 		//llamada al back
 
@@ -59,6 +59,7 @@ export const loginAction =
 					type: SAVE_EMAIL,
 					payload: email,
 				});
+				callback(); //Navega hacia '/enabled-verified', luego de los dispatchs.
 			}
 		} catch (error) {
 			dispatch({
