@@ -12,8 +12,7 @@ const PasswordRecovery = () => {
 
 	const tokenIsActive = async () => {
 		const response = await enablePasswordRecovery({ token });
-		const { data, problem } = response.data;
-		console.log(data, problem);
+		const { problem } = response.data;
 		if (!problem) {
 			setVerified(true);
 		} else {
