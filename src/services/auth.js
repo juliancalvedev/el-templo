@@ -17,6 +17,18 @@ export const startPasswordRecovery = ({ email }) => {
 	
 
 
+export const enablePasswordRecovery = ({ token }) => {
+	return axiosInstance.get(
+		`${baseURL}/enable-password-recovery?token=${token}`
+	);
+};
+
+export const onPasswordRecovery = ({ token, password }) => {
+	return axiosInstance.put(`${baseURL} /on-password-recovery?token=${token}`, {
+		newPassword: { password },
+	});
+};
+
 export const verifyEmailToBackEnd = async () => {
 	const token = getSearchParams('token');
 
