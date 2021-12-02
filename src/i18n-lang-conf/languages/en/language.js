@@ -62,16 +62,13 @@ export default {
 		welcome: {},
 		onboard1: {},
 		onboard2: {},
-<<<<<<< HEAD
 		forgotPassword1: {},
-=======
-	
+
 		forgotPassword1: {
 			title: 'Did you forget your password?',
 			emailPlaceholder: 'Email@email.com',
 			btnAccept: 'Accept',
 		},
->>>>>>> ced551ec2bae40ca9e86eef9dfc08616dd4cc61b
 		forgotPassword2: {},
 
 		passwordRecoveryForm: {
