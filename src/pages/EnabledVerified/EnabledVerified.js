@@ -18,8 +18,8 @@ const EnabledVerified = () => {
 
 	const navToLogin = () => navigate('/login');
 
-	const handleResendVerifyEmail = async (email) => {
-		await resendVerifyEmail(email);
+	const handleResendVerifyEmail = async () => {
+		await resendVerifyEmail(savedEmail);
 		navToLogin();
 	};
 
@@ -39,7 +39,7 @@ const EnabledVerified = () => {
 						title={t(
 							'auth.enabledVerified.emailNotVerified.btnResendEmail'
 						)}
-						onClick={() => handleResendVerifyEmail(savedEmail)}
+						onClick={handleResendVerifyEmail}
 					/>
 				</div>
 			)}

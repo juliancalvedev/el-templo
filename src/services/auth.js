@@ -9,14 +9,14 @@ export const login = ({ email, password }) => {
 		password,
 	});
 };
-export const startPasswordRecovery = async ({ email }) => {
-	return await axiosInstance.post(`${baseURL}/start-password-recovery`, {
+export const startPasswordRecovery = ({ email }) => {
+	return axiosInstance.post(`${baseURL}/start-password-recovery`, {
 		email,
 	});
 };
 
-export const resendVerifyEmail = async (email) => {
-	return await axiosInstance.post(`${baseURL}/resend-verify-email`, {
+export const resendVerifyEmail = (email) => {
+	return axiosInstance.post(`${baseURL}/resend-verify-email`, {
 		email: email,
 	});
 };
