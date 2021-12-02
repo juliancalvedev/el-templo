@@ -61,8 +61,12 @@ export default {
 		welcome: {},
 		onboard1: {},
 		onboard2: {},
-		register: {},
-		forgotPassword1: {},
+		
+		forgotPassword1: {
+			title: 'Olvidaste tu contraseña?',
+			emailPlaceholder: 'Email@email.com',
+			btnAccept: 'Aceptar',
+		},
 		forgotPassword2: {},
 	},
 
