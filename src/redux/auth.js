@@ -7,6 +7,7 @@ const defaultValue = {
 	enabled: false,
 	loading: false,
 	emailIsVerified: false,
+	savedEmail: '',
 };
 
 // ACTION TYPES
@@ -30,7 +31,7 @@ export default function AuthReducer(state = defaultValue, { type, payload }) {
 		case START_PASSWORD_RECOVERY:
 			return { ...state, ...payload, error: false };
 		case SAVE_EMAIL:
-			return { ...state, ...payload, error: false };
+			return { ...state, savedEmail: payload, error: false };
 		default:
 			return state;
 	}
@@ -56,7 +57,7 @@ export const loginAction =
 				});
 				dispatch({
 					type: SAVE_EMAIL,
-					payload: { userEmail: email },
+					payload: email,
 				});
 			}
 		} catch (error) {
