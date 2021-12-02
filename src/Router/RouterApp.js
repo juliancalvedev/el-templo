@@ -3,9 +3,13 @@ import { useSelector } from 'react-redux';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import PrivatedLayout from '../layouts/PrivatedLayout/PrivatedLayout';
 import PublicLayout from '../layouts/PublicLayout/PublicLayout';
+
 import Login from '../pages/Login/Login';
 import PasswordRecovery from '../pages/PasswordRecovery/PasswordRecovery';
 import VerifiedEmail from '../pages/VerifiedEmail/VerifiedEmail';
+
+import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
+import Landing from '../pages/Landing/Landing';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -17,10 +21,17 @@ const RouterApp = () => {
 					<Route path='/' element={<PrivatedLayout />}></Route>
 				) : (
 					<Route path='/' element={<PublicLayout />}>
+						<Route index element={<Landing />} />
+
 						<Route path='login' element={<Login />} />
 						<Route
+<<<<<<< HEAD
 							path='password-recovery'
 							element={<PasswordRecovery />}
+=======
+							path='forgotten-password'
+							element={<ForgottenPassword />}
+>>>>>>> ced551ec2bae40ca9e86eef9dfc08616dd4cc61b
 						/>
 						<Route path='verify-email' element={<VerifiedEmail />} />
 					</Route>
@@ -31,4 +42,7 @@ const RouterApp = () => {
 	);
 };
 
+
+						
+			
 export default RouterApp;
