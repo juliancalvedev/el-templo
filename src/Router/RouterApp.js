@@ -18,7 +18,7 @@ const RouterApp = () => {
 		<BrowserRouter>
 			<Routes>
 				{token ? (
-					<Route path='/' element={<PrivatedLayout />} />
+					<Route path='/' element={<PrivatedLayout />}></Route>
 				) : (
 					<Route path='/' element={<PublicLayout />}>
 						<Route index element={<Landing />} />
