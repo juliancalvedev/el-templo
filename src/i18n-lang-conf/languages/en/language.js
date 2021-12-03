@@ -118,12 +118,20 @@ export default {
 		main: {},
 	},
 	navbar: {
-		nav:{
-			myProfile:'My profile',
-			dashboard:'Dashboard',
-			help:'Help',
-			training:'Training',
+		nav: {
+			myProfile: 'My profile',
+			dashboard: 'Dashboard',
+			help: 'Help',
+			training: 'Training',
 		},
-		
+	},
+	user: {
+		changeUserPassword: {
+			title: 'Edit password',
+			currentPassword: 'Current password',
+			newPassword: 'New password',
+			repeatNewPassword: 'Repeat New Password',
+			submitPassword: 'Change Password',
+		},
 	},
 };
