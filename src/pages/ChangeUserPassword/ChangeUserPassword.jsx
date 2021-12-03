@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import React, { useState, useEffect } from 'react';
 import { changePassword } from '../../services/user';
-import { LanguageSelector } from '../../components/LanguageSelector/LanguageSelector';
+import { useNavigate } from 'react-router';
 
 import './ChangeUserPassword.css';
 import Input from '../../components/Input/Input';
@@ -10,6 +10,8 @@ import Button from '../../components/Button/Button';
 
 const ChangeUserPassword = () => {
 	const { t } = useTranslation();
+
+	const navigate = useNavigate();
 
 	const [currentPassword, setCurrentPassword] = useState('');
 
@@ -29,14 +31,15 @@ const ChangeUserPassword = () => {
 		setRepeatPassword(e.target.value);
 	};
 
-	const handleSubmit = () => {
-		changePassword({ currentPassword, newPassword });
+	const handleSubmit = async ({ problem }) => {
+		await changePassword({ currentPassword, newPassword });
+		if (!problem) {
+			navigate(-1, { replace: true });
+		}
 	};
 
 	return (
 		<div className='change-user-password-body'>
-			<nav className='navbar'></nav>
-
 			<Title text={t('user.changeUserPassword.title')} />
 
 			<Input
@@ -63,7 +66,6 @@ const ChangeUserPassword = () => {
 				}
 				onClick={handleSubmit}
 			/>
-			<LanguageSelector />
 		</div>
 	);
 };

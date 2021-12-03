@@ -1,10 +1,7 @@
-import userEvent from '@testing-library/user-event';
-import axios from 'axios';
 import { axiosInstance } from '../axios/axiosInstance';
 import { getSearchParams } from '../utils/SearchParams';
 
 const baseURL = '/auth';
-const BASEURL = '/user';
 
 export const login = ({ email, password }) => {
 	return axiosInstance.post(`${baseURL}/login`, {
@@ -31,12 +28,9 @@ export const enablePasswordRecovery = ({ token }) => {
 };
 
 export const onPasswordRecovery = ({ token, password }) => {
-	return axiosInstance.put(
-		`${baseURL} /on-password-recovery?token=${token}`,
-		{
-			newPassword: { password },
-		}
-	);
+	return axiosInstance.put(`${baseURL} /on-password-recovery?token=${token}`, {
+		newPassword: { password },
+	});
 };
 
 export const verifyEmailToBackEnd = async () => {

@@ -46,7 +46,6 @@ const onLogout = () => {
 // ACTIONS
 export const checkLoggedUserAction = () => (dispatch) => {
 	const token = localStorage.getItem('token');
-	console.log(token);
 	if (token) {
 		dispatch({
 			type: CHECK_LOGGED_USER,

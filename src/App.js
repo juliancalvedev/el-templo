@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import './App.css';
 
 import i18n from './i18n-lang-conf';
-import ChangeUserPassword from './pages/ChangeUserPassword/ChangeUserPassword';
 import { checkLoggedUserAction } from './redux/auth';
 import RouterApp from './Router/RouterApp';
 
