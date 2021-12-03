@@ -7,18 +7,22 @@ const baseURL = '/auth';
 const BASEURL = '/user';
 
 export const login = ({ email, password }) => {
-    return axiosInstance.post(`${baseURL}/login`, {
-        email,
-        password
-    });
+	return axiosInstance.post(`${baseURL}/login`, {
+		email,
+		password,
+	});
 };
 export const startPasswordRecovery = ({ email }) => {
 	return axiosInstance.post(`${baseURL}/start-password-recovery`, {
 		email,
 	});
 };
-	
 
+export const resendVerifyEmail = (email) => {
+	return axiosInstance.post(`${baseURL}/resend-verify-email`, {
+		email: email,
+	});
+};
 
 export const enablePasswordRecovery = ({ token }) => {
 	return axiosInstance.get(
@@ -27,9 +31,12 @@ export const enablePasswordRecovery = ({ token }) => {
 };
 
 export const onPasswordRecovery = ({ token, password }) => {
-	return axiosInstance.put(`${baseURL} /on-password-recovery?token=${token}`, {
-		newPassword: { password },
-	});
+	return axiosInstance.put(
+		`${baseURL} /on-password-recovery?token=${token}`,
+		{
+			newPassword: { password },
+		}
+	);
 };
 
 export const verifyEmailToBackEnd = async () => {

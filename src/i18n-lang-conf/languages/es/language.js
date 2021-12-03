@@ -58,7 +58,20 @@ export default {
 			auxText: 'Todo listo para comenzar!',
 			btnNext: 'Siguiente',
 		},
-		emailNotVerify: {},
+		enabledVerified: {
+			emailNotVerified: {
+				title: 'Tu cuenta aún no ha sido verificada.',
+				auxText:
+					'Entra al Link que te hemos enviado al email. Y sigue los pasos.',
+				btnResendEmail: 'Reenviar correo electrónico',
+			},
+			accountNotEnabled: {
+				title: 'Tu cuenta no se encuentra habilitada',
+				auxText:
+					'Por favor, ponete en contacto con "El Templo" para más información.',
+				btnBack: 'volver',
+			},
+		},
 		welcome: {},
 		onboard1: {},
 		onboard2: {},
@@ -106,5 +119,13 @@ export default {
 	},
 	help: {
 		main: {},
+	},
+	navbar: {
+		nav: {
+			myProfile: 'Mi perfil',
+			dashboard: 'Tablero',
+			help: 'Ayuda',
+			training: 'Entrenamiento',
+		},
 	},
 };

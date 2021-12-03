@@ -29,8 +29,8 @@ const ChangeUserPassword = () => {
 		console.log(repeatPassword);
 	};
 
-	const sendChangeUserPassword = ({ newPassword, repeatPassword }) => {
-		changePassword({ newPassword, repeatPassword });
+	const handleSubmit = () => {
+		changePassword({ currentPassword, newPassword });
 	};
 
 	return (
@@ -40,11 +40,17 @@ const ChangeUserPassword = () => {
 			<Input
 				placeholder='Current Password'
 				handleChange={handleChangeCurrentPassword}
+				type='password'
 			/>
-			<Input placeholder='New Password' handleChange={handleNewPassword} />
+			<Input
+				placeholder='New Password'
+				handleChange={handleNewPassword}
+				type='password'
+			/>
 			<Input
 				placeholder='Repeat New Password'
 				handleChange={handleRepeatPassword}
+				type='password'
 			/>
 			<Button
 				title='Change Password'
@@ -53,7 +59,7 @@ const ChangeUserPassword = () => {
 					newPassword !== repeatPassword ||
 					!newPassword
 				}
-				onClick={sendChangeUserPassword}
+				onClick={handleSubmit}
 			/>
 		</div>
 	);

@@ -7,6 +7,7 @@ const defaultValue = {
 	enabled: false,
 	loading: false,
 	emailIsVerified: false,
+	savedEmail: '',
 };
 
 // ACTION TYPES
@@ -15,6 +16,7 @@ const LOGOUT = 'LOGOUT';
 const ERROR = 'ERROR';
 const START_PASSWORD_RECOVERY = 'START_PASSWORD_RECOVERY';
 const CHECK_LOGGED_USER = 'CHECK_LOGGED_USER';
+const SAVE_EMAIL = 'SAVE_EMAIL';
 
 // REDUCER
 // El reducer lo que hace es encontrar la accion que queremos realizar
@@ -31,6 +33,8 @@ export default function AuthReducer(state = defaultValue, { type, payload }) {
 			return { ...state, error: true };
 		case START_PASSWORD_RECOVERY:
 			return { ...state, ...payload, error: false };
+		case SAVE_EMAIL:
+			return { ...state, savedEmail: payload, error: false };
 		default:
 			return state;
 	}
@@ -56,7 +60,7 @@ export const checkLoggedUserAction = () => (dispatch) => {
 	}
 };
 export const loginAction =
-	({ email, password }) =>
+	({ email, password, callback }) =>
 	async (dispatch) => {
 		//llamada al back
 
@@ -75,6 +79,11 @@ export const loginAction =
 					type: LOGIN,
 					payload: data,
 				});
+				dispatch({
+					type: SAVE_EMAIL,
+					payload: email,
+				});
+				callback(); //Navega hacia '/enabled-verified', luego de los dispatchs.
 			}
 		} catch (error) {
 			dispatch({

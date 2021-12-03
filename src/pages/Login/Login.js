@@ -6,14 +6,17 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginAction } from '../../redux/auth';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 const Login = () => {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
-	// const history = useHistory();
+	const navigate = useNavigate();
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+
+	const callback = () => navigate('/enabled-verified');
 
 	const handleChangeEmail = (e) => {
 		setEmail(e.target.value);
@@ -23,9 +26,8 @@ const Login = () => {
 	};
 
 	const handleSubmit = () => {
-		dispatch(loginAction({ email, password }));
+		dispatch(loginAction({ email, password, callback }));
 	};
-
 	return (
 		<div className='container d-flex justify-content-center col '>
 			<form className='login'>
@@ -45,7 +47,10 @@ const Login = () => {
 				/>
 
 				<Link to='/forgotten-password'>{t('auth.login.recovery')}</Link>
-				<Button onClick={handleSubmit} title={t('auth.login.btnLogin')} />
+				<Button
+					onClick={handleSubmit}
+					title={t('auth.login.btnLogin')}
+				/>
 			</form>
 		</div>
 	);
