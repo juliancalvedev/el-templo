@@ -1,25 +1,22 @@
 import React from 'react';
-import { privateGet } from '../../../axios/privateInstance';
+import UsersTable from './UsersTable/UsersTable';
 
-const Admin = () => {
-	const baseURL = 'https://el-templo.herokuapp.com/api';
-
-	const users = async () => {
-		const response = await privateGet(
-			`https://el-templo.herokuapp.com/api/admin/users`
-		);
-
-		const data = response.data;
-		return data;
-	};
-
-	console.log(users, 'Log de Users List');
-
+const UsersList = () => {
 	return (
 		<div>
-			<h1>Lista de Usuarios</h1>
+			<UsersTable
+				columns={[
+					'firstName',
+					'lastName',
+					'email',
+					'sex',
+					'country',
+					'enabled',
+					'options',
+				]}
+			/>
 		</div>
 	);
 };
 
-export default Admin;
+export default UsersList;
