@@ -120,4 +120,12 @@ export default {
 	help: {
 		main: {},
 	},
+	navbar: {
+		nav: {
+			myProfile: 'Mi perfil',
+			dashboard: 'Tablero',
+			help: 'Ayuda',
+			training: 'Entrenamiento',
+		},
+	},
 };
