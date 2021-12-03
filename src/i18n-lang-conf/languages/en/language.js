@@ -117,4 +117,13 @@ export default {
 	help: {
 		main: {},
 	},
+	navbar: {
+		nav:{
+			myProfile:'My profile',
+			dashboard:'Dashboard',
+			help:'Help',
+			training:'Training',
+		},
+		
+	},
 };
