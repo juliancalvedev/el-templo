@@ -28,12 +28,9 @@ export const enablePasswordRecovery = ({ token }) => {
 };
 
 export const onPasswordRecovery = ({ token, password }) => {
-	return axiosInstance.put(
-		`${baseURL} /on-password-recovery?token=${token}`,
-		{
-			newPassword: { password },
-		}
-	);
+	return axiosInstance.put(`${baseURL} /on-password-recovery?token=${token}`, {
+		newPassword: { password },
+	});
 };
 
 export const verifyEmailToBackEnd = async () => {

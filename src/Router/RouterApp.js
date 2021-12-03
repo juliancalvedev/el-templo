@@ -6,6 +6,7 @@ import PublicLayout from '../layouts/PublicLayout/PublicLayout';
 
 import Login from '../pages/Login/Login';
 import VerifiedEmail from '../pages/VerifiedEmail/VerifiedEmail';
+import ChangeUserPassword from '../pages/ChangeUserPassword/ChangeUserPassword';
 import PasswordRecovery from '../pages/PasswordRecovery/PasswordRecovery';
 import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
 import Landing from '../pages/Landing/Landing';
@@ -13,13 +14,18 @@ import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
 import UsersList from '../pages/admin/UsersList/UsersList';
 
 const RouterApp = () => {
-	const { token } = useSelector((store) => store.auth);
-
+	//const { token } = useSelector((store) => store.auth);
+	const token = localStorage.getItem('token');
 	return (
 		<BrowserRouter>
 			<Routes>
 				{token ? (
-					<Route path='/' element={<PrivatedLayout />}></Route>
+					<Route path='/' element={<PrivatedLayout />}>
+						<Route
+							path='change-user-password'
+							element={<ChangeUserPassword />}
+						/>
+					</Route>
 				) : (
 					<Route path='/' element={<PublicLayout />}>
 						<Route index element={<Landing />} />
