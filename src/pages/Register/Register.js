@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import useForm from './UseForm';
 import { RegisterValidate } from './RegisterValidate';
 import Input from '../../components/Input/Input';
@@ -11,7 +11,7 @@ export const Register = () => {
 	const { t } = useTranslation();
 	const { handleChange, values, handleSubmit, errors } =
 		useForm(RegisterValidate);
-	const [radioButton, setRadioButton] = useState(false);
+
 
 	return (
 		<div className='container d-flex justify-content-center col '>
@@ -22,7 +22,7 @@ export const Register = () => {
 					<Input
 						type='firstName'
 						name='firstName'
-						placeholder={t('auth.register.firtNamePlaceholder')}
+						placeholder='Nombre'
 						value={values.firstName}
 						handleChange={handleChange}
 					/>
@@ -32,7 +32,7 @@ export const Register = () => {
 					<Input
 						type='lastName'
 						name='lastName'
-						placeholder={t('auth.register.lastNamePlaceholder')}
+						placeholder='Apellido'
 						value={values.lastName}
 						handleChange={handleChange}
 					/>
@@ -43,7 +43,7 @@ export const Register = () => {
 					<input
 						type='radio'
 						class='btn-check'
-						name='sex1'
+						name='sex'
 						id='btnradio1'
 						value='M'
 						checked={values.sex === 'M' ? true : false}
@@ -56,7 +56,7 @@ export const Register = () => {
 					<input
 						type='radio'
 						class='btn-check'
-						name='sex2'
+						name='sex'
 						id='btnradio2'
 						value='F'
 						checked={values.sex === 'F' ? true : false}
@@ -69,7 +69,7 @@ export const Register = () => {
 					<input
 						type='radio'
 						class='btn-check'
-						name='sex3'
+						name='sex'
 						id='btnradio3'
 						value='O'
 						checked={values.sex === 'O' ? true : false}
@@ -132,11 +132,9 @@ export const Register = () => {
 					<Input
 						type='date'
 						name='dateOfBirth'
-						title={t('auth.register.datOfBirth')}
 						value={values.dateOfBirth}
 						handleChange={handleChange}
 					/>
-
 					{errors.dateOfBirth && <p>{errors.dateOfBirth}</p>}
 				</div>
 				<Button

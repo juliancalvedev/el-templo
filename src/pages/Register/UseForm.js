@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { registerAction } from '../../redux/auth';
 import { useDispatch } from 'react-redux';
 import { HasErrors } from './RegisterValidate';
@@ -17,10 +17,8 @@ const useForm = (RegisterValidate) => {
 		img: '',
 	});
 	const [errors, setErrors] = useState({});
-	const [isSubmitting, setIsSubmitting] = useState(false);
-	function submitRegister() {
-    setIsSubmitting(true);
-  }
+	
+	
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -38,7 +36,7 @@ const useForm = (RegisterValidate) => {
 		const callback = () => navigate('/enabled-verified');
 		const auxErrors = RegisterValidate(values);
 		setErrors(auxErrors);
-		setIsSubmitting(true);
+		
 		if (!HasErrors(values)) {
 				const {
 					firstName,
