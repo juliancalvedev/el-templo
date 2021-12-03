@@ -1,13 +1,16 @@
+import { useTranslation } from 'react-i18next';
 import React, { useState, useEffect } from 'react';
+import { changePassword } from '../../services/user';
+import { LanguageSelector } from '../../components/LanguageSelector/LanguageSelector';
+
 import './ChangeUserPassword.css';
 import Input from '../../components/Input/Input';
+import Title from '../../components/Title/Title';
 import Button from '../../components/Button/Button';
-import { axiosInstance } from '../../axios/axiosInstance';
-import { useSelector } from 'react-redux';
-import { privatePut } from '../../axios/privateInstance';
-import { changePassword } from '../../services/user';
 
 const ChangeUserPassword = () => {
+	const { t } = useTranslation();
+
 	const [currentPassword, setCurrentPassword] = useState('');
 
 	const [newPassword, setNewPassword] = useState('');
@@ -16,17 +19,14 @@ const ChangeUserPassword = () => {
 
 	const handleChangeCurrentPassword = (e) => {
 		setCurrentPassword(e.target.value);
-		console.log(currentPassword);
 	};
 
 	const handleNewPassword = (e) => {
 		setNewPassword(e.target.value);
-		console.log(newPassword);
 	};
 
 	const handleRepeatPassword = (e) => {
 		setRepeatPassword(e.target.value);
-		console.log(repeatPassword);
 	};
 
 	const handleSubmit = () => {
@@ -37,23 +37,25 @@ const ChangeUserPassword = () => {
 		<div className='change-user-password-body'>
 			<nav className='navbar'></nav>
 
+			<Title text={t('user.changeUserPassword.title')} />
+
 			<Input
-				placeholder='Current Password'
+				placeholder={t('user.changeUserPassword.currentPassword')}
 				handleChange={handleChangeCurrentPassword}
 				type='password'
 			/>
 			<Input
-				placeholder='New Password'
+				placeholder={t('user.changeUserPassword.newPassword')}
 				handleChange={handleNewPassword}
 				type='password'
 			/>
 			<Input
-				placeholder='Repeat New Password'
+				placeholder={t('user.changeUserPassword.repeatNewPassword')}
 				handleChange={handleRepeatPassword}
 				type='password'
 			/>
 			<Button
-				title='Change Password'
+				title={t('user.changeUserPassword.submitPassword')}
 				disabled={
 					!currentPassword ||
 					newPassword !== repeatPassword ||
@@ -61,6 +63,7 @@ const ChangeUserPassword = () => {
 				}
 				onClick={handleSubmit}
 			/>
+			<LanguageSelector />
 		</div>
 	);
 };

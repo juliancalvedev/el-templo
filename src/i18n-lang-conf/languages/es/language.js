@@ -82,7 +82,6 @@ export default {
 			btnAccept: 'Aceptar',
 		},
 		forgotPassword2: {},
-
 		passwordRecoveryForm: {
 			title: 'Crear nueva contraseña',
 			newPassword: 'Nueva contraseña',
@@ -126,6 +125,15 @@ export default {
 			dashboard: 'Tablero',
 			help: 'Ayuda',
 			training: 'Entrenamiento',
+		},
+	},
+	user: {
+		changeUserPassword: {
+			title: 'Editar contraseña',
+			currentPassword: 'Contraseña actual',
+			newPassword: 'Nueva contraseña',
+			repeatNewPassword: 'Repetir contraseña nueva',
+			submitPassword: 'Cambiar contraseña',
 		},
 	},
 };
