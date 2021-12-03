@@ -22,6 +22,7 @@ export default {
 		search: 'Buscar',
 		signOut: 'Cerrar sesión',
 		logIn: 'Iniciar sesión',
+		password: 'contraseña',
 		loading: 'Cargando...',
 
 		errors: {
@@ -61,15 +62,21 @@ export default {
 		welcome: {},
 		onboard1: {},
 		onboard2: {},
-		
+
 		forgotPassword1: {
 			title: 'Olvidaste tu contraseña?',
 			emailPlaceholder: 'Email@email.com',
 			btnAccept: 'Aceptar',
 		},
 		forgotPassword2: {},
-	},
 
+		passwordRecoveryForm: {
+			title: 'Crear nueva contraseña',
+			newPassword: 'Nueva contraseña',
+			repeatNewPassword: 'Repite nueva contraseña',
+			btnUpdatePassword: 'Actualizar contraseña',
+		},
+	},
 	profile: {
 		profile: {},
 		editProfile: {},

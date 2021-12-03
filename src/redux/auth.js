@@ -1,6 +1,5 @@
 import { login, startPasswordRecovery } from '../services/auth';
 
-
 // DEFAULT VALUE
 const defaultValue = {
 	token: null,
@@ -15,12 +14,15 @@ const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
 const ERROR = 'ERROR';
 const START_PASSWORD_RECOVERY = 'START_PASSWORD_RECOVERY';
+const CHECK_LOGGED_USER = 'CHECK_LOGGED_USER';
 
 // REDUCER
 // El reducer lo que hace es encontrar la accion que queremos realizar
 // Y al encontrarla le devuelve los valores al STORE, quien maneja los estados de redux
 export default function AuthReducer(state = defaultValue, { type, payload }) {
 	switch (type) {
+		case CHECK_LOGGED_USER:
+			return { ...state, token: payload };
 		case LOGIN:
 			return { ...state, ...payload, error: false };
 		case LOGOUT:
@@ -34,7 +36,25 @@ export default function AuthReducer(state = defaultValue, { type, payload }) {
 	}
 }
 
+const onLogout = () => {
+	localStorage.clear();
+};
 // ACTIONS
+export const checkLoggedUserAction = () => (dispatch) => {
+	const token = localStorage.getItem('token');
+	console.log(token);
+	if (token) {
+		dispatch({
+			type: CHECK_LOGGED_USER,
+			payload: token,
+		});
+	} else {
+		onLogout();
+		dispatch({
+			type: LOGOUT,
+		});
+	}
+};
 export const loginAction =
 	({ email, password }) =>
 	async (dispatch) => {
@@ -48,6 +68,9 @@ export const loginAction =
 					type: ERROR,
 				});
 			} else {
+				if (data?.token) {
+					localStorage.setItem('token', data?.token);
+				}
 				dispatch({
 					type: LOGIN,
 					payload: data,
@@ -67,7 +90,7 @@ export const loginAction =
 	};
 
 export const logoutAction = () => (dispatch) => {
-	localStorage.clear();
+	onLogout();
 	dispatch({
 		type: LOGOUT,
 	});
@@ -104,7 +127,4 @@ export const startPasswordRecoveryAction =
 		//dispatch un error
 	};
 
-		//dispatch un error
-	
-
-
+//dispatch un error

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import './App.css';
 
 import i18n from './i18n-lang-conf';
 import ChangeUserPassword from './pages/ChangeUserPassword/ChangeUserPassword';
+import { checkLoggedUserAction } from './redux/auth';
 import RouterApp from './Router/RouterApp';
 
 function App() {
@@ -10,10 +12,14 @@ function App() {
 	i18n.options.interpolation.defaultVariables = {
 		companyName: 'El Templo',
 	};
+
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(checkLoggedUserAction());
+	}, []);
 	return (
 		<div className='App'>
 			<RouterApp />
-			<ChangeUserPassword />
 		</div>
 	);
 }

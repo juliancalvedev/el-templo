@@ -3,6 +3,9 @@ import './ChangeUserPassword.css';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import { axiosInstance } from '../../axios/axiosInstance';
+import { useSelector } from 'react-redux';
+import { privatePut } from '../../axios/privateInstance';
+import { changePassword } from '../../services/user';
 
 const ChangeUserPassword = () => {
 	const [currentPassword, setCurrentPassword] = useState('');
@@ -10,19 +13,6 @@ const ChangeUserPassword = () => {
 	const [newPassword, setNewPassword] = useState('');
 
 	const [repeatPassword, setRepeatPassword] = useState('');
-
-	const getUserInfo = async () => {
-		try {
-			const data = await axiosInstance.get('/user/info');
-			console.log(data);
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
-	useEffect(() => {
-		getUserInfo();
-	}, []);
 
 	const handleChangeCurrentPassword = (e) => {
 		setCurrentPassword(e.target.value);
@@ -39,6 +29,10 @@ const ChangeUserPassword = () => {
 		console.log(repeatPassword);
 	};
 
+	const sendChangeUserPassword = ({ newPassword, repeatPassword }) => {
+		changePassword({ newPassword, repeatPassword });
+	};
+
 	return (
 		<div className='change-user-password-body'>
 			<nav className='navbar'></nav>
@@ -52,7 +46,15 @@ const ChangeUserPassword = () => {
 				placeholder='Repeat New Password'
 				handleChange={handleRepeatPassword}
 			/>
-			<Button title='Change Password' />
+			<Button
+				title='Change Password'
+				disabled={
+					!currentPassword ||
+					newPassword !== repeatPassword ||
+					!newPassword
+				}
+				onClick={sendChangeUserPassword}
+			/>
 		</div>
 	);
 };
