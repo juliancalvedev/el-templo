@@ -22,6 +22,7 @@ export default {
 		search: 'Search',
 		signOut: 'Sing Out',
 		logIn: 'Log In',
+		password: 'Password',
 		loading: 'Loading...',
 
 		errors: {
@@ -50,7 +51,21 @@ export default {
 			btnLogin: 'Log In',
 		},
 		register: {
-			title:'Register',
+			title: 'Register',
+			firtNamePlaceholder: 'Name',
+			lastNamePlaceholder: 'Last Name',
+			sex1: 'Male',
+			sex2: 'Female',
+			sex3: 'Other',
+			emailPlaceholder: 'email@gmail.com',
+			passwordPlaceholder: 'Password',
+			password2Placeholder: 'Confirm Your Password',
+			countrySelection: 'select country',
+			country1: 'Argentina',
+			country2: 'USA',
+			country3: 'Mexico',
+			dateOfBirth: 'Date of birth',
+			btnRegister: 'Check in',
 		},
 		emailConfirm: {},
 		emailVerified: {
@@ -59,19 +74,35 @@ export default {
 			auxText: "Everything ready, let's go!",
 			btnNext: 'Next',
 		},
-		emailNotVerify: {},
+		enabledVerified: {
+			emailNotVerified: {
+				title: 'Your account has not been verified yet.',
+				auxText:
+					'Enter the Link that we have sent you to the email. And follow the steps.',
+				btnResendEmail: 'Resend Email',
+			},
+			accountNotEnabled: {
+				title: 'Your account is not enabled.',
+				auxText: 'Please, contact "El Templo" for more information.',
+				btnBack: 'Back',
+			},
+		},
 		welcome: {},
 		onboard1: {},
 		onboard2: {},
-	
 		forgotPassword1: {
 			title: 'Did you forget your password?',
 			emailPlaceholder: 'Email@email.com',
 			btnAccept: 'Accept',
 		},
 		forgotPassword2: {},
+		passwordRecoveryForm: {
+			title: 'Create new password',
+			newPassword: 'New password',
+			repeatNewPassword: 'Repeat new password',
+			btnUpdatePassword: 'Update password',
+		},
 	},
-
 	profile: {
 		profile: {},
 		editProfile: {},

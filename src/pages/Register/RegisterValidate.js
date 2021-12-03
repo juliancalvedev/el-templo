@@ -1,8 +1,8 @@
 export const RegisterValidate = (values) => {
 	const errors = {};
 
-	if (!values.name.trim()) {
-		errors.name = 'Por favor, ingresa tu nombre.';
+	if (!values.firstName.trim()) {
+		errors.firstName = 'Por favor, ingresa tu nombre.';
 	}
 	if (!values.lastName.trim()) {
 		errors.lastName = 'Por favor, ingresa tu Apellido.';
@@ -27,15 +27,15 @@ export const RegisterValidate = (values) => {
 	if (!values.country) {
 		errors.country = 'Por favor, ingresa tu pais.';
 	}
-	if (!values.birth) {
-		errors.birth = 'Por favor, ingresa tu fecha de nacimiento.';
+	if (!values.dateOfBirth) {
+		errors.dateOfBirth = 'Por favor, ingresa tu fecha de nacimiento.';
 	}
 
 	return errors;
 };
 
 export const HasErrors = (values) => {
-	if (!values.name.trim()) {
+	if (!values.firstName.trim()) {
 		return true;
 	}
 	if (!values.lastName.trim()) {
@@ -61,7 +61,7 @@ export const HasErrors = (values) => {
 	if (!values.country) {
 		return true;
 	}
-	if (!values.birth) {
+	if (!values.dateOfBirth) {
 		return true;
 	}
 	return false;

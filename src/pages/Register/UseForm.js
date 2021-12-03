@@ -2,22 +2,28 @@ import { useState, useEffect } from 'react';
 import { registerAction } from '../../redux/auth';
 import { useDispatch } from 'react-redux';
 import { HasErrors } from './RegisterValidate';
+import { useNavigate } from 'react-router-dom';
 
 const useForm = (RegisterValidate) => {
 	const [values, setValues] = useState({
-		name: '',
+		firstName: '',
 		lastName: '',
 		sex: '',
 		email: '',
 		password: '',
 		password2: '',
-		birth: '',
+		dateOfBirth: '',
 		country: false,
 		img: '',
 	});
 	const [errors, setErrors] = useState({});
 	const [isSubmitting, setIsSubmitting] = useState(false);
+	function submitRegister() {
+    setIsSubmitting(true);
+  }
+
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -26,22 +32,41 @@ const useForm = (RegisterValidate) => {
 			[name]: value,
 		});
 	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		const callback = () => navigate('/enabled-verified');
 		const auxErrors = RegisterValidate(values);
 		setErrors(auxErrors);
 		setIsSubmitting(true);
 		if (!HasErrors(values)) {
-			alert('ok');
+				const {
+					firstName,
+					lastName,
+					sex,
+					email,
+					password,
+					dateOfBirth,
+					country,
+					img,
+				} = values;
+			dispatch(
+				registerAction({
+					firstName,
+					lastName,
+					sex,
+					email,
+					password,
+					dateOfBirth,
+					country,
+					img,
+					callback
+				})
+			);
+			
 		}
 	};
-
-	useEffect(() => {
-		if (Object.keys(errors).length === 0 && isSubmitting) {
-			console.log(values);
-		}
-	}, [errors]);
-
+ 
 	return { handleChange, handleSubmit, values, errors };
 };
 

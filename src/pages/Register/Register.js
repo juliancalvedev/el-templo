@@ -3,12 +3,11 @@ import useForm from './UseForm';
 import { RegisterValidate } from './RegisterValidate';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
-import { useDispatch } from 'react-redux';
-import { registerAction } from '../../redux/auth';
 import { useTranslation } from 'react-i18next';
 import Title from '../../components/Title/Title';
 
-export const Register = ({ submitRegisterForm }) => {
+
+export const Register = () => {
 	const { t } = useTranslation();
 	const { handleChange, values, handleSubmit, errors } =
 		useForm(RegisterValidate);
@@ -21,19 +20,19 @@ export const Register = ({ submitRegisterForm }) => {
 
 				<div className='form-inputs'>
 					<Input
-						type='name'
-						name='name'
-						placeholder='Nombre'
-						value={values.name}
+						type='firstName'
+						name='firstName'
+						placeholder={t('auth.register.firtNamePlaceholder')}
+						value={values.firstName}
 						handleChange={handleChange}
 					/>
-					{errors.name && <p>{errors.name}</p>}
+					{errors.firstName && <p>{errors.firstName}</p>}
 				</div>
 				<div className='form-inputs'>
 					<Input
 						type='lastName'
 						name='lastName'
-						placeholder='Apellido'
+						placeholder={t('auth.register.lastNamePlaceholder')}
 						value={values.lastName}
 						handleChange={handleChange}
 					/>
@@ -44,40 +43,40 @@ export const Register = ({ submitRegisterForm }) => {
 					<input
 						type='radio'
 						class='btn-check'
-						name='sex'
+						name='sex1'
 						id='btnradio1'
 						value='M'
 						checked={values.sex === 'M' ? true : false}
 						onChange={handleChange}
 					/>
 					<label class='btn btn-outline-primary' for='btnradio1'>
-						Male
+						{t('auth.register.sex1')}
 					</label>
 
 					<input
 						type='radio'
 						class='btn-check'
-						name='sex'
+						name='sex2'
 						id='btnradio2'
 						value='F'
 						checked={values.sex === 'F' ? true : false}
 						onChange={handleChange}
 					/>
 					<label class='btn btn-outline-primary' for='btnradio2'>
-						Female
+						{t('auth.register.sex2')}
 					</label>
 
 					<input
 						type='radio'
 						class='btn-check'
-						name='sex'
+						name='sex3'
 						id='btnradio3'
 						value='O'
 						checked={values.sex === 'O' ? true : false}
 						onChange={handleChange}
 					/>
 					<label class='btn btn-outline-primary' for='btnradio3'>
-						Other
+						{t('auth.register.sex3')}
 					</label>
 				</div>
 
@@ -85,7 +84,7 @@ export const Register = ({ submitRegisterForm }) => {
 					<Input
 						type='email'
 						name='email'
-						placeholder='email@gmail.com'
+						placeholder={t('auth.register.emailPlaceholder')}
 						value={values.email}
 						handleChange={handleChange}
 					/>
@@ -95,7 +94,7 @@ export const Register = ({ submitRegisterForm }) => {
 					<Input
 						type='password'
 						name='password'
-						placeholder='Enter your password'
+						placeholder={t('auth.register.passwordPlaceholder')}
 						value={values.password}
 						handleChange={handleChange}
 					/>
@@ -105,7 +104,7 @@ export const Register = ({ submitRegisterForm }) => {
 					<Input
 						type='password'
 						name='password2'
-						placeholder='Confirme su contraseña'
+						placeholder={t('auth.register.password2Placeholder')}
 						value={values.password2}
 						handleChange={handleChange}
 					/>
@@ -118,32 +117,33 @@ export const Register = ({ submitRegisterForm }) => {
 						onChange={handleChange}
 						name='country'
 					>
-						<option>seleccione un país</option>
-						<option value='argentina'>Argentina</option>
-						<option value='us'>U.S</option>
-						<option value='mexico'>Mexico</option>
+						<option>{t('auth.register.countrySelection')}</option>
+						<option value='argentina'>
+							{t('auth.register.country1')}
+						</option>
+						<option value='us'>{t('auth.register.country2')}</option>
+						<option value='mexico'>{t('auth.register.country3')}</option>
 					</select>
 
 					{errors.country && <p>{errors.country}</p>}
 				</div>
 				<div className='form-inputs'>
+					<label>{t('auth.register.dateOfBirth')}</label>
 					<Input
 						type='date'
-						name='birth'
-						placeholder='Fecha de nacimiento'
-						value={values.birth}
+						name='dateOfBirth'
+						title={t('auth.register.datOfBirth')}
+						value={values.dateOfBirth}
 						handleChange={handleChange}
 					/>
-					{errors.birth && <p>{errors.birth}</p>}
+
+					{errors.dateOfBirth && <p>{errors.dateOfBirth}</p>}
 				</div>
 				<Button
-					disabled={(!values.sex, !values.birth)}
+					disabled={(!values.sex, !values.dateOfBirth)}
 					onClick={handleSubmit}
-					title={'Registro'}
+					title={t('auth.register.btnRegister')}
 				/>
-				<span className='form-input-login'>
-					Ya tienes una cuenta? Login <a href='#'>Click aquí</a>
-				</span>
 			</form>
 		</div>
 	);

@@ -1,6 +1,5 @@
 import { login, startPasswordRecovery, register } from '../services/auth';
 
-
 // DEFAULT VALUE
 const defaultValue = {
 	token: null,
@@ -8,6 +7,7 @@ const defaultValue = {
 	enabled: false,
 	loading: false,
 	emailIsVerified: false,
+	savedEmail: '',
 };
 
 // ACTION TYPES
@@ -16,6 +16,7 @@ const LOGOUT = 'LOGOUT';
 const ERROR = 'ERROR';
 const REGISTER ='REGISTER';
 const START_PASSWORD_RECOVERY = 'START_PASSWORD_RECOVERY';
+const SAVE_EMAIL = 'SAVE_EMAIL';
 
 // REDUCER
 // El reducer lo que hace es encontrar la accion que queremos realizar
@@ -32,6 +33,8 @@ export default function AuthReducer(state = defaultValue, { type, payload }) {
 			return { ...state, ...payload, error: false };
 		case REGISTER:
 			return { ...state, ...payload, error: false };
+		case SAVE_EMAIL:
+			return { ...state, savedEmail: payload, error: false };
 		default:
 			return state;
 	}
@@ -39,7 +42,7 @@ export default function AuthReducer(state = defaultValue, { type, payload }) {
 
 // ACTIONS
 export const loginAction =
-	({ email, password }) =>
+	({ email, password, callback }) =>
 	async (dispatch) => {
 		//llamada al back
 
@@ -55,6 +58,11 @@ export const loginAction =
 					type: LOGIN,
 					payload: data,
 				});
+				dispatch({
+					type: SAVE_EMAIL,
+					payload: email,
+				});
+				callback(); //Navega hacia '/enabled-verified', luego de los dispatchs.
 			}
 		} catch (error) {
 			dispatch({
@@ -112,19 +120,18 @@ export const logoutAction = () => dispatch => {
 };
 
 export const registerAction =
-	({ name, lastName, sex, email, password, password2, birth, country, img }) =>
+	({ firstName, lastName, sex, email, password, dateOfBirth, country, img,callback }) =>
 	async (dispatch) => {
 		//llamada al back
 
 		try {
 			const response = await register({
-				name,
+				firstName,
 				lastName,
 				sex,
 				email,
 				password,
-				password2,
-				birth,
+				dateOfBirth,
 				country,
 				img,
 			});
@@ -138,6 +145,11 @@ export const registerAction =
 					type: REGISTER,
 					payload: data,
 				});
+				dispatch({
+					type: SAVE_EMAIL,
+					payload: email,
+				});
+				callback();
 			}
 		} catch (error) {
 			dispatch({
@@ -147,3 +159,4 @@ export const registerAction =
 	};
 
 
+//dispatch un error

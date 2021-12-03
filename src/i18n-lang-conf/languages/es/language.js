@@ -22,6 +22,7 @@ export default {
 		search: 'Buscar',
 		signOut: 'Cerrar sesión',
 		logIn: 'Iniciar sesión',
+		password: 'contraseña',
 		loading: 'Cargando...',
 
 		errors: {
@@ -50,7 +51,21 @@ export default {
 			btnLogin: 'Iniciar sesión',
 		},
 		register: {
-			title:'Registro',
+			title: 'Registro',
+			firtNamePlaceholder: 'Nombre',
+			lastNamePlaceholder: 'Apellido',
+			sex1: 'Masculino',
+			sex2: 'Femenino',
+			sex3: 'Otro',
+			emailPlaceholder: 'email@gmail.com',
+			passwordPlaceholder: 'Contraseña',
+			password2Placeholder: 'Repita su contraseña',
+			countrySelection: 'Seleccione un país',
+			country1: 'Argentina',
+			country2: 'USA',
+			country3: 'Mexico',
+			dateOfBirth: 'Fecha de nacimiento',
+			btnRegister: 'Registrarse',
 		},
 		emailConfirm: {},
 		emailVerified: {
@@ -59,19 +74,38 @@ export default {
 			auxText: 'Todo listo para comenzar!',
 			btnNext: 'Siguiente',
 		},
-		emailNotVerify: {},
+		enabledVerified: {
+			emailNotVerified: {
+				title: 'Tu cuenta aún no ha sido verificada.',
+				auxText:
+					'Entra al Link que te hemos enviado al email. Y sigue los pasos.',
+				btnResendEmail: 'Reenviar correo electrónico',
+			},
+			accountNotEnabled: {
+				title: 'Tu cuenta no se encuentra habilitada',
+				auxText:
+					'Por favor, ponete en contacto con "El Templo" para más información.',
+				btnBack: 'volver',
+			},
+		},
 		welcome: {},
 		onboard1: {},
 		onboard2: {},
-		
+
 		forgotPassword1: {
 			title: 'Olvidaste tu contraseña?',
 			emailPlaceholder: 'Email@email.com',
 			btnAccept: 'Aceptar',
 		},
 		forgotPassword2: {},
-	},
 
+		passwordRecoveryForm: {
+			title: 'Crear nueva contraseña',
+			newPassword: 'Nueva contraseña',
+			repeatNewPassword: 'Repite nueva contraseña',
+			btnUpdatePassword: 'Actualizar contraseña',
+		},
+	},
 	profile: {
 		profile: {},
 		editProfile: {},
