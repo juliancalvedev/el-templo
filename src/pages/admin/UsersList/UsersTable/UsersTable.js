@@ -1,22 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { privateGet } from '../../../../axios/privateInstance';
+import React from 'react';
+
 import { randomHexadecimal as randomKey } from '../../../../utils/mathmaticalUtils';
 
-const UsersTable = ({ columns = [] }) => {
-	const [users, setUsers] = useState([]);
-
-	const getUsers = async () => {
-		const response = await privateGet({
-			url: `/admin/users`,
-		});
-		const users = response.data.data.users;
-		setUsers(users);
-	};
-
-	useEffect(() => {
-		getUsers();
-	}, []);
-
+const UsersTable = ({ columns = [], users = [] }) => {
 	return (
 		<div>
 			<table className='table'>
