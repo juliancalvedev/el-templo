@@ -125,6 +125,7 @@ export default {
 			dashboard: 'Tablero',
 			help: 'Ayuda',
 			training: 'Entrenamiento',
+			users: 'Usuarios',
 		},
 	},
 	user: {

@@ -123,6 +123,7 @@ export default {
 			dashboard: 'Dashboard',
 			help: 'Help',
 			training: 'Training',
+			users: 'Users',
 		},
 	},
 	user: {
