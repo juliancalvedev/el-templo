@@ -21,6 +21,8 @@ const RouterApp = () => {
 			<Routes>
 				{token ? (
 					<Route path='/' element={<PrivatedLayout />}>
+						<Route path='users-list' element={<UsersList />} />
+
 						<Route
 							path='change-user-password'
 							element={<ChangeUserPassword />}
@@ -29,9 +31,6 @@ const RouterApp = () => {
 				) : (
 					<Route path='/' element={<PublicLayout />}>
 						<Route index element={<Landing />} />
-						{/* users-list está acá provisoriamente */}
-						<Route path='users-list' element={<UsersList />} />
-
 						<Route path='login' element={<Login />} />
 						<Route
 							path='password-recovery'
