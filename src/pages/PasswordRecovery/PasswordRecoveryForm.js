@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router';
 import { onPasswordRecovery } from '../../services/auth';
 import { useTranslation } from 'react-i18next';
 import Title from '../../components/Title/Title';
-import { getSearchParams } from '../../utils/SearchParams';
+import { getSearchParams } from '../../utils/searchParams';
 
 const PasswordRecoveryForm = () => {
 	const token = getSearchParams('token');
@@ -63,7 +63,9 @@ const PasswordRecoveryForm = () => {
 				title={t('auth.passwordRecoveryForm.btnUpdatePassword')}
 				onClick={submitChangePassword}
 				disabled={
-					password !== repeatPassword || !password || password.length <= 5
+					password !== repeatPassword ||
+					!password ||
+					password.length <= 5
 				}
 			/>
 		</div>
