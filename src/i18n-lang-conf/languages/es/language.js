@@ -117,7 +117,12 @@ export default {
 		completedDashboard: {},
 	},
 	help: {
-		main: {},
+		main: {
+			aboutUs: 'Sobre nosotros',
+			elTemplo: 'El Templo',
+			auxText1:
+				'El Templo es un espacio de entrenamiento funcional y alternativo para personas entrenadas y no entrenadas... etc',
+		},
 	},
 	navbar: {
 		nav: {
