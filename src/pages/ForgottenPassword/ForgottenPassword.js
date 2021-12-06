@@ -1,4 +1,3 @@
-import React from 'react';
 import Input from '../../components/Input/Input';
 import Title from '../../components/Title/Title';
 import Button from '../../components/Button/Button';
@@ -8,7 +7,6 @@ import { startPasswordRecoveryAction } from '../../redux/auth';
 import { useTranslation } from 'react-i18next';
 
 const ForgottenPassword = () => {
-
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
 
@@ -24,8 +22,8 @@ const ForgottenPassword = () => {
 	return (
 		<div className='container d-flex justify-content-center align-items-center '>
 			<form className=''>
-					<Title text={t('auth.forgotPassword1.title')} />
-				
+				<Title text={t('auth.forgotPassword1.title')} />
+
 				<Input
 					value={email}
 					handleChange={handleChangeEmail}
