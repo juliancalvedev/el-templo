@@ -51,7 +51,13 @@ export default {
 			btnLogin: 'Log In',
 		},
 		register: {},
-		emailConfirm: {},
+		emailConfirm: {
+			title: 'Confirm your email',
+			p1: 'you are one step away from starting',
+			p2: 'Confirm your email by clicking on the link we sent, in your inbox.',
+			p3: "Hasn't it reached you? Click here",
+			btnConfirm: 'Resend email',
+		},
 		emailVerified: {
 			title: 'Your E-mail has been correctly verified.',
 			titleError: 'The link is invalid or has expired. ',

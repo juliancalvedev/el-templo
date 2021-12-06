@@ -11,6 +11,7 @@ import PasswordRecovery from '../pages/PasswordRecovery/PasswordRecovery';
 import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
 import Landing from '../pages/Landing/Landing';
 import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
+import EmailRegisterSend from '../pages/EmailRegisterSended/EmailRegisterSended'
 
 const RouterApp = () => {
 	//const { token } = useSelector((store) => store.auth);
@@ -27,7 +28,7 @@ const RouterApp = () => {
 					</Route>
 				) : (
 					<Route path='/' element={<PublicLayout />}>
-						<Route index element={<Landing />} />
+						<Route index element={<EmailRegisterSend/>} />
 
 						<Route path='login' element={<Login />} />
 						<Route

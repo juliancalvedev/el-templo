@@ -51,7 +51,13 @@ export default {
 			btnLogin: 'Iniciar sesión',
 		},
 		register: {},
-		emailConfirm: {},
+		emailConfirm: {
+			title: 'Confirma tu email',
+			p1: 'Estás a un paso de comenzar',
+			p2: 'Confirma tu correo electronico haciendo click en el enlace que enviamos, en tu bandeja de entrada.',
+			p3: "No te ha llegado? Haz click aquí",
+			btnConfirm: 'Reenviar correo electronico',
+		},
 		emailVerified: {
 			title: 'Tu E-mail ha sido verificado correctamente.',
 			titleError: 'El link no es válido o ha caducado.',
