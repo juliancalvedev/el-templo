@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import PrivatedLayout from '../layouts/PrivatedLayout/PrivatedLayout';
@@ -12,15 +11,19 @@ import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
 import Landing from '../pages/Landing/Landing';
 import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
 import EmailRegisterSend from '../pages/EmailRegisterSended/EmailRegisterSended'
+import UsersList from '../pages/admin/UsersList/UsersList';
 
 const RouterApp = () => {
-	//const { token } = useSelector((store) => store.auth);
-	const token = localStorage.getItem('token');
+	const { token } = useSelector((store) => store.auth);
+	const savedToken = localStorage.getItem('token');
+
 	return (
 		<BrowserRouter>
 			<Routes>
-				{token ? (
+				{savedToken ? (
 					<Route path='/' element={<PrivatedLayout />}>
+						<Route path='users-list' element={<UsersList />} />
+
 						<Route
 							path='change-user-password'
 							element={<ChangeUserPassword />}
@@ -30,6 +33,7 @@ const RouterApp = () => {
 					<Route path='/' element={<PublicLayout />}>
 						<Route index element={<EmailRegisterSend/>} />
 
+						<Route index element={<Landing />} />
 						<Route path='login' element={<Login />} />
 						<Route
 							path='password-recovery'

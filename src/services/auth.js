@@ -1,5 +1,5 @@
 import { axiosInstance } from '../axios/axiosInstance';
-import { getSearchParams } from '../utils/SearchParams';
+import { getSearchParams } from '../utils/searchParams';
 
 const baseURL = '/auth';
 
@@ -28,8 +28,8 @@ export const enablePasswordRecovery = ({ token }) => {
 };
 
 export const onPasswordRecovery = ({ token, password }) => {
-	return axiosInstance.put(`${baseURL} /on-password-recovery?token=${token}`, {
-		newPassword: { password },
+	return axiosInstance.put(`${baseURL}/on-password-recovery?token=${token}`, {
+		newPassword: password,
 	});
 };
 
