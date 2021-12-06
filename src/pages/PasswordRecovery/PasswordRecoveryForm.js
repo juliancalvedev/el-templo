@@ -62,6 +62,9 @@ const PasswordRecoveryForm = () => {
 			<Button
 				title={t('auth.passwordRecoveryForm.btnUpdatePassword')}
 				onClick={submitChangePassword}
+				disabled={
+					password !== repeatPassword || !password || password.length <= 5
+				}
 			/>
 		</div>
 	);
