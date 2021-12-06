@@ -1,4 +1,4 @@
-import { privatePut } from '../axios/privateInstance';
+import { privatePut, privateGet } from '../axios/privateInstance';
 
 export const changePassword = async ({ currentPassword, newPassword }) => {
 	try {
@@ -13,5 +13,14 @@ export const changePassword = async ({ currentPassword, newPassword }) => {
 		return { data, problem };
 	} catch (error) {
 		alert(error);
+	}
+};
+
+export const getUserInfo = async () => {
+	try {
+		const userInfo = await privateGet({ url: '/user/info' });
+		return userInfo.data;
+	} catch (error) {
+		return error;
 	}
 };
