@@ -6,8 +6,11 @@ import { useNavigate } from 'react-router';
 import { onPasswordRecovery } from '../../services/auth';
 import { useTranslation } from 'react-i18next';
 import Title from '../../components/Title/Title';
+import { getSearchParams } from '../../utils/SearchParams';
 
 const PasswordRecoveryForm = () => {
+	const token = getSearchParams('token');
+
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 
@@ -24,20 +27,18 @@ const PasswordRecoveryForm = () => {
 	};
 
 	const submitChangePassword = () => {
-		if (password.length > 6) {
-			if (password === repeatPassword) {
-				const sendPassword = async (password) => {
-					try {
-						onPasswordRecovery({ password });
-					} catch (error) {
-						return error;
-					}
-				};
+		if (password === repeatPassword) {
+			const sendPassword = async () => {
+				try {
+					onPasswordRecovery({ password, token });
+				} catch (error) {
+					return error;
+				}
+			};
 
-				sendPassword(password);
+			sendPassword(password);
 
-				navigate('/login', { replace: true });
-			}
+			navigate('/login', { replace: true });
 		}
 	};
 
@@ -61,6 +62,9 @@ const PasswordRecoveryForm = () => {
 			<Button
 				title={t('auth.passwordRecoveryForm.btnUpdatePassword')}
 				onClick={submitChangePassword}
+				disabled={
+					password !== repeatPassword || !password || password.length <= 5
+				}
 			/>
 		</div>
 	);

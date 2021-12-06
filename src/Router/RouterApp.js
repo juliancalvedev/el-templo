@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import PrivatedLayout from '../layouts/PrivatedLayout/PrivatedLayout';
@@ -14,12 +13,13 @@ import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
 import UsersList from '../pages/admin/UsersList/UsersList';
 
 const RouterApp = () => {
-	//const { token } = useSelector((store) => store.auth);
-	const token = localStorage.getItem('token');
+	const { token } = useSelector((store) => store.auth);
+	const savedToken = localStorage.getItem('token');
+
 	return (
 		<BrowserRouter>
 			<Routes>
-				{token ? (
+				{savedToken ? (
 					<Route path='/' element={<PrivatedLayout />}>
 						<Route path='users-list' element={<UsersList />} />
 
