@@ -1,5 +1,5 @@
 import { axiosInstance } from '../axios/axiosInstance';
-import { getSearchParams } from '../utils/SearchParams';
+import { getSearchParams } from '../utils/searchParams';
 
 const baseURL = '/auth';
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './PasswordRecovery.css';
-import { getSearchParams } from '../../utils/SearchParams';
+import { getSearchParams } from '../../utils/searchParams';
 import { enablePasswordRecovery } from '../../services/auth';
 import PasswordRecoveryForm from './PasswordRecoveryForm';
 import PasswordRecoveryError from './PasswordRecoveryError';
