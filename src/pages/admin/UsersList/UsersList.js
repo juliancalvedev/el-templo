@@ -19,8 +19,6 @@ const UsersList = () => {
 		onGetUsers();
 	}, []);
 
-	console.log(users, 'pepe');
-
 	return (
 		<div>
 			<UsersTable

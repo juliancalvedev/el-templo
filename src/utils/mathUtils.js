@@ -4,7 +4,7 @@ export const randomMinMax = (min, max) => {
 };
 
 // Returns a random Hexadecimal value, it length depends of one numeric parametter.
-// Default length = 16.
+// Default length = 7.
 export const randomHexadecimal = (length = 7) => {
 	const character = '11223344556677889900abcdefghijklmnopqrstuvwxyz';
 	const result = [];

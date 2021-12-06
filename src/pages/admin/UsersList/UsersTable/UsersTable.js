@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { randomHexadecimal as randomKey } from '../../../../utils/mathmaticalUtils';
+import { randomHexadecimal as rndKey } from '../../../../utils/mathUtils';
 
 const UsersTable = ({ columns = [], users = [] }) => {
 	return (
@@ -9,7 +9,7 @@ const UsersTable = ({ columns = [], users = [] }) => {
 				<thead>
 					<tr>
 						{columns?.map((column) => (
-							<th scope='col' key={randomKey()}>
+							<th scope='col' key={rndKey()}>
 								{column}
 							</th>
 						))}
@@ -18,9 +18,9 @@ const UsersTable = ({ columns = [], users = [] }) => {
 
 				<tbody>
 					{users?.map((user) => (
-						<tr scope='col' key={randomKey()}>
+						<tr scope='col' key={rndKey()}>
 							{columns?.map((c) => (
-								<td key={randomKey()}>{user[c]}</td>
+								<td key={rndKey()}>{user[c]}</td>
 							))}
 						</tr>
 					))}
