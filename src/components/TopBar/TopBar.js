@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { textStyles, backBtnStyles, navStyles } from './topBarStyles';
+import { textStyles, backBtnStyles, onHide, navStyles } from './topBarStyles';
 import { useTranslation } from 'react-i18next';
 import { TOPBAR_TEXTS } from '../../constants/paths';
 
@@ -11,7 +11,7 @@ const TopBar = () => {
 	const navigate = useNavigate();
 	const currentLocation = useLocation().pathname.substring(1);
 
-	const [mainPath, setMainPath] = useState(false);
+	const [mainPath, setMainPath] = useState(true);
 
 	const back = () => navigate(-1);
 
@@ -20,21 +20,28 @@ const TopBar = () => {
 	};
 
 	useEffect(() => {
-		if (currentLocation === '/') {
-			setMainPath(true);
-		} else {
+		if (currentLocation === '') {
 			setMainPath(false);
+		} else {
+			setMainPath(true);
 		}
 	});
 
 	return (
 		<div>
 			<nav className='navbar-light bg-dark' style={navStyles}>
-				{!mainPath && ( // Si está en Main, no muestra el botón de Volver.
+				{mainPath ? (
 					<button
 						className='navbar-brand'
 						style={backBtnStyles}
 						onClick={back}
+					>
+						{'ᐸ'}
+					</button>
+				) : (
+					<button
+						className='navbar-brand'
+						style={(backBtnStyles, onHide)}
 					>
 						{'ᐸ'}
 					</button>

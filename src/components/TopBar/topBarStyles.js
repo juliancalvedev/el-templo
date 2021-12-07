@@ -8,9 +8,10 @@ export const navStyles = {
 };
 export const backBtnStyles = {
 	color: 'whitesmoke',
-	margin: '0px -12px 0px 4px',
+	margin: '0px 10px 0px 10px',
 	padding: '10px',
 	backgroundColor: 'rgb(0,0,0,0)',
 	border: 'none',
 };
-export const textStyles = { margin: '0px 0px 0px 20px' };
+export const onHide = { opacity: '0', marginLeft: '10px' };
+export const textStyles = { margin: '0px 0px 0px 0px' };
