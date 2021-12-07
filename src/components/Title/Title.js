@@ -1,7 +1,6 @@
-const Title = ({ text }) => {
-
+const Title = ({ text, style }) => {
 	return (
-		<div>
+		<div style={style}>
 			<h1>{text}</h1>
 		</div>
 	);

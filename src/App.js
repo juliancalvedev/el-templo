@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import './App.css';
+import TopBar from './components/TopBar/TopBar';
 
 import i18n from './i18n-lang-conf';
 import { checkLoggedUserAction } from './redux/auth';
@@ -16,6 +17,7 @@ function App() {
 	useEffect(() => {
 		dispatch(checkLoggedUserAction());
 	}, []);
+
 	return (
 		<div className='App'>
 			<RouterApp />
