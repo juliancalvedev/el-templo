@@ -12,6 +12,7 @@ import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
 import Landing from '../pages/Landing/Landing';
 import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
 import UsersList from '../pages/admin/UsersList/UsersList';
+import TopBar from '../components/TopBar/TopBar';
 import { ROLES } from '../constants/roles';
 
 const RouterApp = () => {
@@ -22,6 +23,7 @@ const RouterApp = () => {
 
 	return (
 		<BrowserRouter>
+			<TopBar />
 			<Routes>
 				{savedToken ? (
 					<Route path='/' element={<PrivatedLayout />}>
