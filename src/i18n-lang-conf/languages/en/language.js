@@ -140,7 +140,12 @@ export default {
 		completedDashboard: {},
 	},
 	help: {
-		main: {},
+		main: {
+			aboutUs: 'About us',
+			elTemplo: 'El Templo',
+			auxText1:
+				"El Templo' it's a functional alternative trainning space, for advanced and also for beginers.",
+		},
 	},
 	navbar: {
 		nav: {
@@ -148,6 +153,7 @@ export default {
 			dashboard: 'Dashboard',
 			help: 'Help',
 			training: 'Training',
+			users: 'Users',
 		},
 	},
 	user: {

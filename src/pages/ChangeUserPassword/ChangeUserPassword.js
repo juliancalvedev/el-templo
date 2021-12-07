@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { changePassword } from '../../services/user';
 import { useNavigate } from 'react-router';
 

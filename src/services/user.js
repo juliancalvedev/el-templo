@@ -1,9 +1,11 @@
-import { privatePut } from '../axios/privateInstance';
+import { privatePut, privateGet } from '../axios/privateInstance';
+
+const baseURL = '/user';
 
 export const changePassword = async ({ currentPassword, newPassword }) => {
 	try {
 		const response = await privatePut({
-			url: `/user/change-password`,
+			url: `${baseURL}/change-password`,
 			body: {
 				currentPassword: currentPassword,
 				newPassword: newPassword,
@@ -13,5 +15,14 @@ export const changePassword = async ({ currentPassword, newPassword }) => {
 		return { data, problem };
 	} catch (error) {
 		alert(error);
+	}
+};
+
+export const getUserInfo = async () => {
+	try {
+		const userInfo = await privateGet({ url: `${baseURL}/info` });
+		return userInfo.data;
+	} catch (error) {
+		return error;
 	}
 };
