@@ -23,6 +23,9 @@ export const Register = () => {
 	const clickFile = () => {
 		document.getElementById('file').click();
 	};
+	const handleClickimg =(e) => {
+		uploadImage(e);
+	};
 
 	const convertBase64 = (file) => {
 		return new Promise((resolve, reject) => {
@@ -40,7 +43,7 @@ export const Register = () => {
 
 	
 
-		//Base64
+	//Base64
 	};
 
 	return (
@@ -50,14 +53,12 @@ export const Register = () => {
 
 				<div className='Base64img'>
 					<input
-					
+						
 						id='file'
 						type='file'
-						onChange={(e) => {
-							uploadImage(e);
-						}}
+						onChange={handleClickimg}
 					/>
-					<img hidden src={baseImage}  onClick={clickFile} />
+					<img src={baseImage}  onClick={clickFile} />
 				</div>
 
 				<div className='form-inputs'>
@@ -188,8 +189,7 @@ export const Register = () => {
 				<div className='form-inputs'>
 					<label>{t('auth.register.dateOfBirth')}</label>
 					<Input
-						minDate={new Date('02-01-2020')}
-						maxDate={new Date('02-29-2020')}
+					
 						type='date'
 						name='dateOfBirth'
 						value={values.dateOfBirth}
