@@ -13,9 +13,6 @@ import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
 import Landing from '../pages/Landing/Landing';
 import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
 import UsersList from '../pages/admin/UsersList/UsersList';
-import TopBar from '../components/TopBar/TopBar';
-import { ROLES } from '../constants/roles';
-import { PATHS } from '../constants/paths';
 import Help from '../pages/Help/Help';
 
 const RouterApp = () => {
@@ -26,45 +23,41 @@ const RouterApp = () => {
 
 	return (
 		<BrowserRouter>
-			<TopBar />
 			<Routes>
 				{savedToken ? (
-					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
+					<Route path='/' element={<PrivatedLayout />}>
 						{role === ROLES.ADMIN && (
-							<Route
-								path={PATHS.BASE_URL}
-								element={<AdminLayout />}
-							>
+							<Route path='/' element={<AdminLayout />}>
 								<Route
-									path={PATHS.USERS_LIST}
+									path='users-list'
 									element={<UsersList />}
 								/>
 							</Route>
 						)}
 						<Route
-							path={PATHS.CHANGE_USER_PASSWORD}
+							path='change-user-password'
 							element={<ChangeUserPassword />}
 						/>
 						<Route path='help' element={<Help />} />
 					</Route>
 				) : (
-					<Route path={PATHS.BASE_URL} element={<PublicLayout />}>
+					<Route path='/' element={<PublicLayout />}>
 						<Route index element={<Landing />} />
-						<Route path={PATHS.LOGIN} element={<Login />} />
+						<Route path='login' element={<Login />} />
 						<Route
-							path={PATHS.PASSWORD_RECOVERY}
+							path='password-recovery'
 							element={<PasswordRecovery />}
 						/>
 						<Route
-							path={PATHS.FORGOTTEN_PASSWORD}
+							path='forgotten-password'
 							element={<ForgottenPassword />}
 						/>
 						<Route
-							path={PATHS.VERIFY_EMAIL}
+							path='verify-email'
 							element={<VerifiedEmail />}
 						/>
 						<Route
-							path={PATHS.ENABLED_VERIFIED}
+							path='enabled-verified'
 							element={<EnabledVerified />}
 						/>
 					</Route>

@@ -35,12 +35,14 @@ export default {
 			text: 'Must be a text.',
 		},
 	},
+
 	auth: {
 		landing: {
 			haveAccount: 'Have an account?',
 			btnLogin: 'Log In',
 			btnRegister: 'Register',
 		},
+
 		login: {
 			title: 'Login',
 			emailPlaceholder: 'Email@email.com',
@@ -69,7 +71,6 @@ export default {
 				btnBack: 'Back',
 			},
 		},
-
 		welcome: {},
 		onboard1: {},
 		onboard2: {},
@@ -91,6 +92,7 @@ export default {
 		editProfile: {},
 		editPassword: {},
 	},
+
 	training: {
 		leveling: {},
 		levelingExercise: {},
@@ -106,6 +108,7 @@ export default {
 		finishTraining: {},
 		questionary: {},
 	},
+
 	appStart: {
 		animation: {},
 		incompleteDashboard: {},
@@ -127,16 +130,6 @@ export default {
 			training: 'Training',
 			users: 'Users',
 		},
-	},
-	topBar: {
-		main: 'El Templo',
-		usersList: 'Users',
-		changeUserPassword: 'Change Password',
-		login: 'Log In',
-		passwordRecovery: 'Password Recovering',
-		forgottenPassword: 'Forgot you Password?',
-		verifyEmail: 'Verify Email',
-		enabledVerified: 'Checking Account',
 	},
 	user: {
 		changeUserPassword: {
