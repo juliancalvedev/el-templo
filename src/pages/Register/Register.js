@@ -12,13 +12,16 @@ export const Register = () => {
 		useForm(RegisterValidate);
 
 	//Base64
-
+    	
 	const [baseImage, setBaseImage] = useState('');
 
 	const uploadImage = async (e) => {
 		const file = e.target.files[0];
 		const base64 = await convertBase64(file);
 		setBaseImage(base64);
+	};
+	const clickFile = () => {
+		document.getElementById('file').click();
 	};
 
 	const convertBase64 = (file) => {
@@ -35,6 +38,8 @@ export const Register = () => {
 			};
 		});
 
+	
+
 		//Base64
 	};
 
@@ -45,14 +50,14 @@ export const Register = () => {
 
 				<div className='Base64img'>
 					<input
-						hidden
+					
 						id='file'
 						type='file'
 						onChange={(e) => {
 							uploadImage(e);
 						}}
 					/>
-					<img src={baseImage} height='200px' />
+					<img hidden src={baseImage}  onClick={clickFile} />
 				</div>
 
 				<div className='form-inputs'>
@@ -202,13 +207,14 @@ export const Register = () => {
 				</div>
 				<Button
 					disabled={
-						(!values.firstName,
+						!values.firstName,
 						!values.lastName,
 						!values.sex,
 						!values.email,
 						!values.password,
 						!values.password2,
-						!values.country)
+						!values.country,
+						!values.dateOfBirth
 					}
 					onClick={handleSubmit}
 					title={t('auth.register.btnRegister')}
