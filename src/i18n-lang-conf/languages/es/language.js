@@ -35,12 +35,14 @@ export default {
 			text: 'Este campo deber ser un texto.',
 		},
 	},
+
 	auth: {
 		landing: {
 			haveAccount: '¿Ya tenés cuenta?',
 			btnLogin: 'Iniciar sesión',
 			btnRegister: 'Registrarme',
 		},
+
 		login: {
 			title: 'Login',
 			emailPlaceholder: 'correo@correo.com',
@@ -73,6 +75,7 @@ export default {
 		welcome: {},
 		onboard1: {},
 		onboard2: {},
+
 		forgotPassword1: {
 			title: 'Olvidaste tu contraseña?',
 			emailPlaceholder: 'Email@email.com',
@@ -91,6 +94,7 @@ export default {
 		editProfile: {},
 		editPassword: {},
 	},
+
 	training: {
 		leveling: {},
 		levelingExercise: {},
@@ -106,6 +110,7 @@ export default {
 		finishTraining: {},
 		questionary: {},
 	},
+
 	appStart: {
 		animation: {},
 		incompleteDashboard: {},
@@ -127,16 +132,6 @@ export default {
 			training: 'Entrenamiento',
 			users: 'Usuarios',
 		},
-	},
-	topBar: {
-		main: 'El Templo',
-		usersList: 'Usuarios',
-		changeUserPassword: 'Cambiar Contraseña',
-		login: 'Iniciar Sesión',
-		passwordRecovery: 'Recuperar Contraseña',
-		forgottenPassword: '¿Olvidaste tu Contraseña?',
-		verifyEmail: 'Verificar Email',
-		enabledVerified: 'Comprobando Cuenta',
 	},
 	user: {
 		changeUserPassword: {
