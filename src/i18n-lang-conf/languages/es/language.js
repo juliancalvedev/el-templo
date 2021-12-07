@@ -52,7 +52,7 @@ export default {
 		},
 		register: {
 			title: 'Registro',
-			firtNamePlaceholder: 'Nombre',
+			firstNamePlaceholder: 'Nombre',
 			lastNamePlaceholder: 'Apellido',
 			sex1: 'Masculino',
 			sex2: 'Femenino',
@@ -66,6 +66,15 @@ export default {
 			country3: 'Mexico',
 			dateOfBirth: 'Fecha de nacimiento',
 			btnRegister: 'Registrarse',
+
+			//RegisterValidate:
+			firstNameError: 'Por favor, ingrese su nombre',
+			lastNameError: 'Por favor, ingrese su apellido',
+			emailError: 'Email invalido',
+			password1Error: 'La contraseña debe tener 6 caracteres o más',
+			password2Error: 'La contraseña no coincide',
+			countryError: 'Por favor, seleccione su país',
+			dateOfBirthError: 'por favor, ingrese su fecha de nacimiento',
 		},
 		emailConfirm: {},
 		emailVerified: {

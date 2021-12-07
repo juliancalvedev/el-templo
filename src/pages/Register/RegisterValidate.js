@@ -1,34 +1,31 @@
-export const RegisterValidate = (values) => {
+
+
+export const RegisterValidate = (values,) => {
+
 	const errors = {};
 
 	if (!values.firstName.trim()) {
-		errors.firstName = 'Por favor, ingresa tu nombre.';
+		errors.firstName = {};
 	}
 	if (!values.lastName.trim()) {
-		errors.lastName = 'Por favor, ingresa tu Apellido.';
+		errors.lastName = {};
 	}
 
-	if (!values.email) {
-		errors.email = 'Email required';
-	} else if (!/\S+@\S+\.\S+/.test(values.email)) {
-		errors.email = 'Email address is invalid';
+	if (!/\S+@\S+\.\S+/.test(values.email)) {
+		errors.email = {};
 	}
-	if (!values.password) {
-		errors.password = 'Password is required';
-	} else if (values.password.length < 6) {
-		errors.password = 'Password needs to be 6 characters or more';
+	if (values.password.length < 6) {
+		errors.password = {};
 	}
-	if (!values.password2) {
-		errors.password2 = 'Password is required';
-	} else if (values.password2 !== values.password) {
-		errors.password2 = 'Password do not match';
+	if (values.password2 !== values.password) {
+		errors.password2 = {};
 	}
 
 	if (!values.country) {
-		errors.country = 'Por favor, ingresa tu pais.';
+		errors.country = {};
 	}
 	if (!values.dateOfBirth) {
-		errors.dateOfBirth = 'Por favor, ingresa tu fecha de nacimiento.';
+		errors.dateOfBirth ={};
 	}
 
 	return errors;

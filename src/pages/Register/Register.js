@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 import useForm from './UseForm';
 import { RegisterValidate } from './RegisterValidate';
 import Input from '../../components/Input/Input';
@@ -6,37 +6,80 @@ import Button from '../../components/Button/Button';
 import { useTranslation } from 'react-i18next';
 import Title from '../../components/Title/Title';
 
-
 export const Register = () => {
 	const { t } = useTranslation();
 	const { handleChange, values, handleSubmit, errors } =
 		useForm(RegisterValidate);
 
+	//Base64
+
+	const [baseImage, setBaseImage] = useState('');
+
+	const uploadImage = async (e) => {
+		const file = e.target.files[0];
+		const base64 = await convertBase64(file);
+		setBaseImage(base64);
+	};
+
+	const convertBase64 = (file) => {
+		return new Promise((resolve, reject) => {
+			const fileReader = new FileReader();
+			fileReader.readAsDataURL(file);
+
+			fileReader.onload = () => {
+				resolve(fileReader.result);
+			};
+
+			fileReader.onerror = (error) => {
+				reject(error);
+			};
+		});
+
+		//Base64
+	};
 
 	return (
 		<div className='container d-flex justify-content-center col '>
 			<form className='Register' onSubmit={handleSubmit}>
 				<Title text={t('auth.register.title')} />
 
+				<div className='Base64img'>
+					<input
+						hidden
+						id='file'
+						type='file'
+						onChange={(e) => {
+							uploadImage(e);
+						}}
+					/>
+					<img src={baseImage} height='200px' />
+				</div>
+
 				<div className='form-inputs'>
 					<Input
 						type='firstName'
 						name='firstName'
-						placeholder='Nombre'
+						placeholder={t('auth.register.firstNamePlaceholder')}
 						value={values.firstName}
 						handleChange={handleChange}
 					/>
-					{errors.firstName && <p>{errors.firstName}</p>}
+					{errors.firstName && (
+						<p>
+							{(errors.firstName = t('auth.register.firstNameError'))}
+						</p>
+					)}
 				</div>
 				<div className='form-inputs'>
 					<Input
 						type='lastName'
 						name='lastName'
-						placeholder='Apellido'
+						placeholder={t('auth.register.lastNamePlaceholder')}
 						value={values.lastName}
 						handleChange={handleChange}
 					/>
-					{errors.lastName && <p>{errors.lastName}</p>}
+					{errors.lastName && (
+						<p>{(errors.lastName = t('auth.register.lastNameError'))}</p>
+					)}
 				</div>
 
 				<div class='form-input' name='sex' value={values.sex}>
@@ -88,7 +131,9 @@ export const Register = () => {
 						value={values.email}
 						handleChange={handleChange}
 					/>
-					{errors.email && <p>{errors.email}</p>}
+					{errors.email && (
+						<p>{(errors.email = t('auth.register.emailError'))}</p>
+					)}
 				</div>
 				<div className='form-inputs'>
 					<Input
@@ -98,7 +143,9 @@ export const Register = () => {
 						value={values.password}
 						handleChange={handleChange}
 					/>
-					{errors.password && <p>{errors.password}</p>}
+					{errors.password && (
+						<p>{(errors.password = t('auth.register.password1Error'))}</p>
+					)}
 				</div>
 				<div className='form-inputs'>
 					<Input
@@ -108,7 +155,11 @@ export const Register = () => {
 						value={values.password2}
 						handleChange={handleChange}
 					/>
-					{errors.password2 && <p>{errors.password2}</p>}
+					{errors.password2 && (
+						<p>
+							{(errors.password2 = t('auth.register.password2Error'))}
+						</p>
+					)}
 				</div>
 				<div className='form-inputs'>
 					<select
@@ -125,20 +176,40 @@ export const Register = () => {
 						<option value='mexico'>{t('auth.register.country3')}</option>
 					</select>
 
-					{errors.country && <p>{errors.country}</p>}
+					{errors.country && (
+						<p>{(errors.country = t('auth.register.countryError'))}</p>
+					)}
 				</div>
 				<div className='form-inputs'>
 					<label>{t('auth.register.dateOfBirth')}</label>
 					<Input
+						minDate={new Date('02-01-2020')}
+						maxDate={new Date('02-29-2020')}
 						type='date'
 						name='dateOfBirth'
 						value={values.dateOfBirth}
 						handleChange={handleChange}
 					/>
-					{errors.dateOfBirth && <p>{errors.dateOfBirth}</p>}
+					{errors.dateOfBirth && (
+						<p>
+							{
+								(errors.dateOfBirth = t(
+									'auth.register.dateOfBirthError'
+								))
+							}
+						</p>
+					)}
 				</div>
 				<Button
-					disabled={(!values.sex, !values.dateOfBirth)}
+					disabled={
+						(!values.firstName,
+						!values.lastName,
+						!values.sex,
+						!values.email,
+						!values.password,
+						!values.password2,
+						!values.country)
+					}
 					onClick={handleSubmit}
 					title={t('auth.register.btnRegister')}
 				/>

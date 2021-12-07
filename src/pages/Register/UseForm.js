@@ -17,8 +17,6 @@ const useForm = (RegisterValidate) => {
 		img: '',
 	});
 	const [errors, setErrors] = useState({});
-	
-	
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
