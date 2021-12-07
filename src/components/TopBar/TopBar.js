@@ -2,21 +2,21 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { textStyles, backBtnStyles, navStyles } from './topBarStyles';
 import { useTranslation } from 'react-i18next';
-import { ROUTES } from './TopBarTextRoutes';
+import { TOPBAR_TEXTS } from '../../constants/paths';
 
 import Title from '../../components/Title/Title';
 
 const TopBar = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
-	const currentLocation = useLocation().pathname;
+	const currentLocation = useLocation().pathname.substring(1);
 
 	const [mainPath, setMainPath] = useState(false);
 
 	const back = () => navigate(-1);
 
-	const translatingPath = (path) => {
-		return ROUTES[path];
+	const translatingPath = (currentPath) => {
+		return TOPBAR_TEXTS[currentPath];
 	};
 
 	useEffect(() => {
