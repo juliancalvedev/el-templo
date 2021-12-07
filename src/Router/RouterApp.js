@@ -4,6 +4,7 @@ import PrivatedLayout from '../layouts/PrivatedLayout/PrivatedLayout';
 import PublicLayout from '../layouts/PublicLayout/PublicLayout';
 import AdminLayout from '../layouts/AdminLayout/AdminLayout';
 
+import { ROLES } from '../constants/roles';
 import Login from '../pages/Login/Login';
 import VerifiedEmail from '../pages/VerifiedEmail/VerifiedEmail';
 import ChangeUserPassword from '../pages/ChangeUserPassword/ChangeUserPassword';
@@ -15,6 +16,7 @@ import UsersList from '../pages/admin/UsersList/UsersList';
 import TopBar from '../components/TopBar/TopBar';
 import { ROLES } from '../constants/roles';
 import { PATHS } from '../constants/paths';
+import Help from '../pages/Help/Help';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -43,6 +45,7 @@ const RouterApp = () => {
 							path={PATHS.CHANGE_USER_PASSWORD}
 							element={<ChangeUserPassword />}
 						/>
+						<Route path='help' element={<Help />} />
 					</Route>
 				) : (
 					<Route path={PATHS.BASE_URL} element={<PublicLayout />}>
