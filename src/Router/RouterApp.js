@@ -21,7 +21,7 @@ const RouterApp = () => {
 		<BrowserRouter>
 			<Routes>
 				{savedToken ? (
-					<Route path='/' element={<PrivatedLayout />}>
+					<Route path='/' element={<PrivatedLayout />}><Route index element={<EmailRegisterSend/>} />
 						<Route path='users-list' element={<UsersList />} />
 
 						<Route
@@ -31,7 +31,7 @@ const RouterApp = () => {
 					</Route>
 				) : (
 					<Route path='/' element={<PublicLayout />}>
-						<Route index element={<EmailRegisterSend/>} />
+						
 
 						<Route index element={<Landing />} />
 						<Route path='login' element={<Login />} />
