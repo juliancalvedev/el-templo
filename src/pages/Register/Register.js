@@ -52,13 +52,8 @@ export const Register = () => {
 				<Title text={t('auth.register.title')} />
 
 				<div className='Base64img'>
-					<input
-						
-						id='file'
-						type='file'
-						onChange={handleClickimg}
-					/>
-					<img src={baseImage}  onClick={clickFile} />
+					<input id='file' type='file' onChange={handleClickimg} />
+					<img src={baseImage} onClick={clickFile} />
 				</div>
 
 				<div className='form-inputs'>
@@ -189,7 +184,6 @@ export const Register = () => {
 				<div className='form-inputs'>
 					<label>{t('auth.register.dateOfBirth')}</label>
 					<Input
-					
 						type='date'
 						name='dateOfBirth'
 						value={values.dateOfBirth}
@@ -207,14 +201,14 @@ export const Register = () => {
 				</div>
 				<Button
 					disabled={
-						!values.firstName,
+						(!values.firstName,
 						!values.lastName,
 						!values.sex,
 						!values.email,
 						!values.password,
 						!values.password2,
 						!values.country,
-						!values.dateOfBirth
+						!values.dateOfBirth)
 					}
 					onClick={handleSubmit}
 					title={t('auth.register.btnRegister')}
