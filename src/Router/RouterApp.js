@@ -14,6 +14,7 @@ import Landing from '../pages/Landing/Landing';
 import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
 import UsersList from '../pages/admin/UsersList/UsersList';
 import Help from '../pages/Help/Help';
+import { PATHS } from '../constants/paths';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -25,7 +26,7 @@ const RouterApp = () => {
 		<BrowserRouter>
 			<Routes>
 				{savedToken ? (
-					<Route path='/' element={<PrivatedLayout />}>
+					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
 						{role === ROLES.ADMIN && (
 							<Route path='/' element={<AdminLayout />}>
 								<Route
@@ -57,7 +58,7 @@ const RouterApp = () => {
 							element={<VerifiedEmail />}
 						/>
 						<Route
-							path='enabled-verified'
+							path={PATHS.ENABLED_VERIFIED}
 							element={<EnabledVerified />}
 						/>
 					</Route>
