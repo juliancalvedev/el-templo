@@ -10,6 +10,7 @@ import VerifiedEmail from '../pages/VerifiedEmail/VerifiedEmail';
 import ChangeUserPassword from '../pages/ChangeUserPassword/ChangeUserPassword';
 import PasswordRecovery from '../pages/PasswordRecovery/PasswordRecovery';
 import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
+import Register from '../pages/Register/Register';
 import Landing from '../pages/Landing/Landing';
 import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
 import UsersList from '../pages/admin/UsersList/UsersList';
@@ -47,6 +48,8 @@ const RouterApp = () => {
 					<Route path={PATHS.BASE_URL} element={<PublicLayout />}>
 						<Route index element={<Landing />} />
 						<Route path={PATHS.LOGIN} element={<Login />} />
+						<Route path={PATHS.REGISTER} element={<Register />} />
+
 						<Route
 							path={PATHS.PASSWORD_RECOVERY}
 							element={<PasswordRecovery />}
@@ -59,6 +62,7 @@ const RouterApp = () => {
 							path={PATHS.VERIFY_EMAIL}
 							element={<VerifiedEmail />}
 						/>
+
 						<Route
 							path={PATHS.ENABLED_VERIFIED}
 							element={<EnabledVerified />}

@@ -1,4 +1,4 @@
-import { login, startPasswordRecovery } from '../services/auth';
+import { login, startPasswordRecovery, register } from '../services/auth';
 
 // DEFAULT VALUE
 const defaultValue = {
@@ -14,6 +14,7 @@ const defaultValue = {
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
 const ERROR = 'ERROR';
+const REGISTER ='REGISTER';
 const START_PASSWORD_RECOVERY = 'START_PASSWORD_RECOVERY';
 const CHECK_LOGGED_USER = 'CHECK_LOGGED_USER';
 const SAVE_EMAIL = 'SAVE_EMAIL';
@@ -32,6 +33,8 @@ export default function AuthReducer(state = defaultValue, { type, payload }) {
 		case ERROR:
 			return { ...state, error: true };
 		case START_PASSWORD_RECOVERY:
+			return { ...state, ...payload, error: false };
+		case REGISTER:
 			return { ...state, ...payload, error: false };
 		case SAVE_EMAIL:
 			return { ...state, savedEmail: payload, error: false };
@@ -134,5 +137,50 @@ export const startPasswordRecoveryAction =
 
 		//dispatch un error
 	};
+
+
+
+
+
+
+export const registerAction =
+	({ firstName, lastName, sex, email, password, dateOfBirth, country, img,callback }) =>
+	async (dispatch) => {
+		//llamada al back
+
+		try {
+			const response = await register({
+				firstName,
+				lastName,
+				sex,
+				email,
+				password,
+				dateOfBirth,
+				country,
+				img,
+			});
+			const { data, problem } = response.data;
+			if (problem) {
+				dispatch({
+					type: ERROR,
+				});
+			} else {
+				dispatch({
+					type: REGISTER,
+					payload: data,
+				});
+				dispatch({
+					type: SAVE_EMAIL,
+					payload: email,
+				});
+				callback();
+			}
+		} catch (error) {
+			dispatch({
+				type: ERROR,
+			});
+		}
+	};
+
 
 //dispatch un error

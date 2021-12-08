@@ -7,6 +7,7 @@ export const PATHS = {
 	FORGOTTEN_PASSWORD: 'forgotten-password',
 	VERIFY_EMAIL: 'verify-email',
 	ENABLED_VERIFIED: 'enabled-verified',
+	REGISTER:'register',
 };
 
 export const TOPBAR_TEXTS = {
@@ -18,4 +19,5 @@ export const TOPBAR_TEXTS = {
 	[PATHS.FORGOTTEN_PASSWORD]: 'topBar.forgottenPassword',
 	[PATHS.VERIFY_EMAIL]: 'topBar.verifyEmail',
 	[PATHS.ENABLED_VERIFIED]: 'topBar.enabledVerified',
+	[PATHS.REGISTER]: 'topBar.register',
 };

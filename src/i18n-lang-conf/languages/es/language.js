@@ -50,7 +50,32 @@ export default {
 			recovery: '¿Olvidaste tu contraseña?',
 			btnLogin: 'Iniciar sesión',
 		},
-		register: {},
+		register: {
+			title: 'Registro',
+			firstNamePlaceholder: 'Nombre',
+			lastNamePlaceholder: 'Apellido',
+			sex1: 'Masculino',
+			sex2: 'Femenino',
+			sex3: 'Otro',
+			emailPlaceholder: 'email@gmail.com',
+			passwordPlaceholder: 'Contraseña',
+			password2Placeholder: 'Repita su contraseña',
+			countrySelection: 'Seleccione un país',
+			country1: 'Argentina',
+			country2: 'USA',
+			country3: 'Mexico',
+			dateOfBirth: 'Fecha de nacimiento',
+			btnRegister: 'Registrarse',
+
+			//RegisterValidate:
+			firstNameError: 'Por favor, ingrese su nombre',
+			lastNameError: 'Por favor, ingrese su apellido',
+			emailError: 'Email invalido',
+			password1Error: 'La contraseña debe tener 6 caracteres o más',
+			password2Error: 'La contraseña no coincide',
+			countryError: 'Por favor, seleccione su país',
+			dateOfBirthError: 'por favor, ingrese su fecha de nacimiento',
+		},
 		emailConfirm: {},
 		emailVerified: {
 			title: 'Tu E-mail ha sido verificado correctamente.',
@@ -142,6 +167,8 @@ export default {
 		forgottenPassword: '¿Olvidaste tu Contraseña?',
 		verifyEmail: 'Verificar Email',
 		enabledVerified: 'Comprobando Cuenta',
+		register:'Registro'
+
 	},
 	user: {
 		changeUserPassword: {
