@@ -156,6 +156,16 @@ export default {
 			users: 'Users',
 		},
 	},
+	topBar: {
+		main: 'El Templo',
+		usersList: 'Users',
+		changeUserPassword: 'Change Password',
+		login: 'Log In',
+		passwordRecovery: 'Password Recovering',
+		forgottenPassword: 'Forgot you Password?',
+		verifyEmail: 'Verify Email',
+		enabledVerified: 'Checking Account',
+	},
 	user: {
 		changeUserPassword: {
 			title: 'Edit password',
