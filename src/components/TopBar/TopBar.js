@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { textStyles, backBtnStyles, onHide, navStyles } from './topBarStyles';
+import { textStyles, backBtnStyles, onHide, navStyles } from './TopBarStyles';
 import { useTranslation } from 'react-i18next';
 import { TOPBAR_TEXTS } from '../../constants/paths';
 
