@@ -133,6 +133,16 @@ export default {
 			users: 'Usuarios',
 		},
 	},
+	topBar: {
+		main: 'El Templo',
+		usersList: 'Usuarios',
+		changeUserPassword: 'Cambiar Contraseña',
+		login: 'Iniciar Sesión',
+		passwordRecovery: 'Recuperar Contraseña',
+		forgottenPassword: '¿Olvidaste tu Contraseña?',
+		verifyEmail: 'Verificar Email',
+		enabledVerified: 'Comprobando Cuenta',
+	},
 	user: {
 		changeUserPassword: {
 			title: 'Editar contraseña',
