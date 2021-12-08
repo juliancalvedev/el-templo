@@ -48,6 +48,8 @@ const RouterApp = () => {
 					<Route path={PATHS.BASE_URL} element={<PublicLayout />}>
 						<Route index element={<Landing />} />
 						<Route path={PATHS.LOGIN} element={<Login />} />
+						<Route path={PATHS.REGISTER} element={<Register />} />
+
 						<Route
 							path={PATHS.PASSWORD_RECOVERY}
 							element={<PasswordRecovery />}
@@ -61,12 +63,10 @@ const RouterApp = () => {
 							element={<VerifiedEmail />}
 						/>
 
-						<Route path='verify-email' element={<VerifiedEmail />} />
 						<Route
 							path={PATHS.ENABLED_VERIFIED}
 							element={<EnabledVerified />}
 						/>
-						<Route path='register' element={<Register />} />
 					</Route>
 				)}
 				<Route path='*' element={<Navigate to={PATHS.BASE_URL} />} />
