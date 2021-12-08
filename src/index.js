@@ -6,10 +6,9 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import genereteStore from './redux/store';
-import { initializeFirebase } from './firebase';
+import { app } from './firebase';
 
 const store = genereteStore();
-initializeFirebase();
 
 ReactDOM.render(
 	<React.StrictMode>
