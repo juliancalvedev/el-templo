@@ -3,10 +3,16 @@ import './MyProfile.css';
 import AuxText from '../../components/AuxText/AuxText';
 import { useSelector } from 'react-redux';
 import { cutDate } from '../../utils/cutDate';
+import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../constants/paths';
 
 const MyProfile = () => {
+	const navigate = useNavigate();
 	const userData = useSelector((store) => store.user);
-	console.log(userData);
+
+	const handleNavigate = () => {
+		navigate(PATHS.CHANGE_USER_PASSWORD, { replace: true });
+	};
 	return (
 		<div className='my-profile-body'>
 			<div className='user-level-box'>
@@ -31,8 +37,11 @@ const MyProfile = () => {
 			<div className='my-profile-stats'>
 				<AuxText text={`Nivel de entrenamiento :`} />
 				<AuxText text={`Objetivos: ${userData.goals}`} />
-				<AuxText text={`Peso: ${userData.country} `} />
+				<AuxText text={`Peso: `} />
 				<AuxText text={`Altura:`} />
+			</div>
+			<div className='buttons-box'>
+				<button onClick={handleNavigate}>contrasenia</button>
 			</div>
 		</div>
 	);
