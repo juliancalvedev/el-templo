@@ -7,3 +7,12 @@ $fifth: #eedfbf;
 $sixth: #15212d;
 $seventh: #566574;
 $eighth: #f8f5f0;
+$nineth: #ffffff;
+
+// Font Familys
+@font-face {
+	font-family: 'Red Hat Display';
+	font-style: normal;
+	font-weight: 400;
+	@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap');
+}
