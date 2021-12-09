@@ -21,5 +21,5 @@ export const TOPBAR_TEXTS = {
 	[PATHS.VERIFY_EMAIL]: 'topBar.verifyEmail',
 	[PATHS.ENABLED_VERIFIED]: 'topBar.enabledVerified',
 	[PATHS.REGISTER]: 'topBar.register',
-	[PATHS.MY_PROFILE]: 'topbar.myProfile',
+	[PATHS.MY_PROFILE]: 'topBar.myProfile',
 };
