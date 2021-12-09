@@ -17,6 +17,7 @@ import UsersList from '../pages/admin/UsersList/UsersList';
 import Help from '../pages/Help/Help';
 import { PATHS } from '../constants/paths';
 import TopBar from '../components/TopBar/TopBar';
+import MyProfile from '../pages/MyProfile/MyProfile';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -30,6 +31,7 @@ const RouterApp = () => {
 			<Routes>
 				{savedToken ? (
 					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
+						<Route path={PATHS.MY_PROFILE} element={<MyProfile />} />
 						{role === ROLES.ADMIN && (
 							<Route path={PATHS.BASE_URL} element={<AdminLayout />}>
 								<Route
