@@ -13,11 +13,13 @@ import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
 import Register from '../pages/Register/Register';
 import Landing from '../pages/Landing/Landing';
 import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
-import EmailRegisterSend from '../pages/EmailRegisterSended/EmailRegisterSended'
+
 import UsersList from '../pages/admin/UsersList/UsersList';
 import Help from '../pages/Help/Help';
 import { PATHS } from '../constants/paths';
 import TopBar from '../components/TopBar/TopBar';
+import EmailRegisterSended from '../pages/EmailRegisterSended/EmailRegisterSended';
+
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -43,6 +45,7 @@ const RouterApp = () => {
 							path={PATHS.CHANGE_USER_PASSWORD}
 							element={<ChangeUserPassword />}
 						/>
+						
 						<Route path={PATHS.HELP} element={<Help />} />
 					</Route>
 				) : (
@@ -50,6 +53,7 @@ const RouterApp = () => {
 						<Route index element={<Landing />} />
 						<Route path={PATHS.LOGIN} element={<Login />} />
 						<Route path={PATHS.REGISTER} element={<Register />} />
+						<Route path={PATHS.EMAIL_REGISTER_SENDED} element={<EmailRegisterSended />}/>
 
 						<Route
 							path={PATHS.PASSWORD_RECOVERY}

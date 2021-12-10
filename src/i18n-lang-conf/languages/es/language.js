@@ -175,7 +175,8 @@ export default {
 		forgottenPassword: '¿Olvidaste tu Contraseña?',
 		verifyEmail: 'Verificar Email',
 		enabledVerified: 'Comprobando Cuenta',
-		register:'Registro'
+		register:'Registro',
+		emailRegisterSended:'Confirma tu Email',
 
 	},
 	user: {

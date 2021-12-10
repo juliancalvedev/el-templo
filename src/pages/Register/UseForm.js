@@ -3,6 +3,7 @@ import { registerAction } from '../../redux/auth';
 import { useDispatch } from 'react-redux';
 import { HasErrors } from './RegisterValidate';
 import { useNavigate } from 'react-router-dom';
+import {PATHS} from '../../constants/paths';
 
 const useForm = (RegisterValidate) => {
 	const [values, setValues] = useState({
@@ -20,6 +21,8 @@ const useForm = (RegisterValidate) => {
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const callback = () => navigate(`/${PATHS.EMAIL_REGISTER_SENDED}`);
+	
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -31,7 +34,7 @@ const useForm = (RegisterValidate) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const callback = () => navigate('/enabled-verified');
+		
 		const auxErrors = RegisterValidate(values);
 		setErrors(auxErrors);
 		
@@ -56,7 +59,8 @@ const useForm = (RegisterValidate) => {
 					dateOfBirth,
 					country,
 					img,
-					callback
+					callback,
+					
 				})
 			);
 			
