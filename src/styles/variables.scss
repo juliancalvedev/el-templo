@@ -11,3 +11,15 @@ $nineth: #ffffff;
 $tenth: #15212d;
 
 // Font Familys
+@font-face {
+	font-family: 'Red Hat Display';
+	src: url(../fonts/RedHatDisplay-VariableFont_wght.ttf);
+}
+@font-face {
+	font-family: 'Red Hat Display Italic';
+	src: url(../fonts/RedHatDisplay-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+	font-family: 'BoldPact';
+	src: url(../fonts/BoldPact-Normal-font.ttf);
+}
