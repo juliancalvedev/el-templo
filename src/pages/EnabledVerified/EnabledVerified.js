@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { resendVerifyEmail } from '../../services/auth';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { PATHS } from '../../constants/paths';
 
 import Title from '../../components/Title/Title';
 import AuxText from '../../components/AuxText/AuxText';
@@ -15,7 +16,7 @@ const EnabledVerified = () => {
 		(store) => store.auth
 	);
 
-	const navToLogin = () => navigate('/login');
+	const navToLogin = () => navigate(`/${PATHS.LOGIN}`);
 
 	const handleResendVerifyEmail = async () => {
 		await resendVerifyEmail(savedEmail);
