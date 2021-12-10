@@ -1,13 +1,14 @@
 export const navStyles = {
-	color: 'whitesmoke',
+	color: 'black',
 	width: '100vw',
 	height: '50px',
 	display: 'flex',
 	justifySelf: 'start',
 	alignItems: 'center',
+	borderBottom: '1px solid black',
 };
 export const backBtnStyles = {
-	color: 'whitesmoke',
+	color: 'black',
 	margin: '0px 10px 0px 10px',
 	padding: '10px',
 	backgroundColor: 'rgb(0,0,0,0)',
