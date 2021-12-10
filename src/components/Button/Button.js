@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Button = ({ children, onClick, title, disabled, type = 'button' }) => {
 	return (
 		<div>

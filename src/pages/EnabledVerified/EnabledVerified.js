@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { resendVerifyEmail } from '../../services/auth';
 import { useNavigate } from 'react-router-dom';
@@ -27,9 +26,13 @@ const EnabledVerified = () => {
 		<div className='container d-flex justify-content-center col '>
 			{!emailIsVerified && (
 				<div>
-					<Title text={t('auth.enabledVerified.emailNotVerified.title')} />
+					<Title
+						text={t('auth.enabledVerified.emailNotVerified.title')}
+					/>
 					<AuxText
-						text={t('auth.enabledVerified.emailNotVerified.auxText')}
+						text={t(
+							'auth.enabledVerified.emailNotVerified.auxText'
+						)}
 					/>
 					<Button
 						title={t(
@@ -45,10 +48,14 @@ const EnabledVerified = () => {
 						text={t('auth.enabledVerified.accountNotEnabled.title')}
 					/>
 					<AuxText
-						text={t('auth.enabledVerified.accountNotEnabled.auxText')}
+						text={t(
+							'auth.enabledVerified.accountNotEnabled.auxText'
+						)}
 					/>
 					<Button
-						title={t('auth.enabledVerified.accountNotEnabled.btnBack')}
+						title={t(
+							'auth.enabledVerified.accountNotEnabled.btnBack'
+						)}
 						onClick={navToLogin}
 					/>
 				</div>

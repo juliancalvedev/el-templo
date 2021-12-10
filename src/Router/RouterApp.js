@@ -2,58 +2,75 @@ import { useSelector } from 'react-redux';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import PrivatedLayout from '../layouts/PrivatedLayout/PrivatedLayout';
 import PublicLayout from '../layouts/PublicLayout/PublicLayout';
+import AdminLayout from '../layouts/AdminLayout/AdminLayout';
 
+import { ROLES } from '../constants/roles';
 import Login from '../pages/Login/Login';
 import VerifiedEmail from '../pages/VerifiedEmail/VerifiedEmail';
 import ChangeUserPassword from '../pages/ChangeUserPassword/ChangeUserPassword';
 import PasswordRecovery from '../pages/PasswordRecovery/PasswordRecovery';
 import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
+import Register from '../pages/Register/Register';
 import Landing from '../pages/Landing/Landing';
 import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
 import EmailRegisterSend from '../pages/EmailRegisterSended/EmailRegisterSended'
 import UsersList from '../pages/admin/UsersList/UsersList';
+import Help from '../pages/Help/Help';
+import { PATHS } from '../constants/paths';
+import TopBar from '../components/TopBar/TopBar';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
+	const { role } = useSelector((store) => store.user);
+
 	const savedToken = localStorage.getItem('token');
 
 	return (
 		<BrowserRouter>
+			<TopBar />
 			<Routes>
 				{savedToken ? (
-					<Route path='/' element={<PrivatedLayout />}><Route index element={<EmailRegisterSend/>} />
-						<Route path='users-list' element={<UsersList />} />
-
+					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
+						{role === ROLES.ADMIN && (
+							<Route path={PATHS.BASE_URL} element={<AdminLayout />}>
+								<Route
+									path={PATHS.USERS_LIST}
+									element={<UsersList />}
+								/>
+							</Route>
+						)}
 						<Route
-							path='change-user-password'
+							path={PATHS.CHANGE_USER_PASSWORD}
 							element={<ChangeUserPassword />}
 						/>
+						<Route path={PATHS.HELP} element={<Help />} />
 					</Route>
 				) : (
-					<Route path='/' element={<PublicLayout />}>
-						
-
+					<Route path={PATHS.BASE_URL} element={<PublicLayout />}>
 						<Route index element={<Landing />} />
-						<Route path='login' element={<Login />} />
+						<Route path={PATHS.LOGIN} element={<Login />} />
+						<Route path={PATHS.REGISTER} element={<Register />} />
+
 						<Route
-							path='password-recovery'
+							path={PATHS.PASSWORD_RECOVERY}
 							element={<PasswordRecovery />}
 						/>
 						<Route
-							path='forgotten-password'
+							path={PATHS.FORGOTTEN_PASSWORD}
 							element={<ForgottenPassword />}
 						/>
 						<Route
-							path='verify-email'
+							path={PATHS.VERIFY_EMAIL}
 							element={<VerifiedEmail />}
 						/>
+
 						<Route
-							path='enabled-verified'
+							path={PATHS.ENABLED_VERIFIED}
 							element={<EnabledVerified />}
 						/>
 					</Route>
 				)}
-				<Route path='*' element={<Navigate to='/' />} />
+				<Route path='*' element={<Navigate to={PATHS.BASE_URL} />} />
 			</Routes>
 		</BrowserRouter>
 	);

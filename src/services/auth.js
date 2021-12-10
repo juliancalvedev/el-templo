@@ -9,6 +9,28 @@ export const login = ({ email, password }) => {
 		password,
 	});
 };
+ 
+export const register = ({
+	firstName,
+	lastName,
+	sex,
+	email,
+	password,
+	dateOfBirth,
+	country,
+	img,
+}) => {
+	return axiosInstance.post(`${baseURL}/register`, {
+		firstName,
+		lastName,
+		sex,
+		email,
+		password,
+		dateOfBirth,
+		country,
+		img,
+	});
+};
 export const startPasswordRecovery = ({ email }) => {
 	return axiosInstance.post(`${baseURL}/start-password-recovery`, {
 		email,

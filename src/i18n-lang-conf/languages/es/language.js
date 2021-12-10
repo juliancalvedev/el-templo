@@ -50,7 +50,7 @@ export default {
 			recovery: '¿Olvidaste tu contraseña?',
 			btnLogin: 'Iniciar sesión',
 		},
-		register: {},
+		
 		emailConfirm: {
 			title: 'Confirma tu email',
 			p1: 'Estás a un paso de comenzar',
@@ -58,6 +58,33 @@ export default {
 			p3: "No te ha llegado? Haz click aquí",
 			btnConfirm: 'Reenviar correo electronico',
 		},
+		register: {
+			title: 'Registro',
+			firstNamePlaceholder: 'Nombre',
+			lastNamePlaceholder: 'Apellido',
+			sex1: 'Masculino',
+			sex2: 'Femenino',
+			sex3: 'Otro',
+			emailPlaceholder: 'email@gmail.com',
+			passwordPlaceholder: 'Contraseña',
+			password2Placeholder: 'Repita su contraseña',
+			countrySelection: 'Seleccione un país',
+			country1: 'Argentina',
+			country2: 'USA',
+			country3: 'Mexico',
+			dateOfBirth: 'Fecha de nacimiento',
+			btnRegister: 'Registrarse',
+
+			//RegisterValidate:
+			firstNameError: 'Por favor, ingrese su nombre',
+			lastNameError: 'Por favor, ingrese su apellido',
+			emailError: 'Email invalido',
+			password1Error: 'La contraseña debe tener 6 caracteres o más',
+			password2Error: 'La contraseña no coincide',
+			countryError: 'Por favor, seleccione su país',
+			dateOfBirthError: 'por favor, ingrese su fecha de nacimiento',
+		},
+		
 		emailVerified: {
 			title: 'Tu E-mail ha sido verificado correctamente.',
 			titleError: 'El link no es válido o ha caducado.',
@@ -123,7 +150,12 @@ export default {
 		completedDashboard: {},
 	},
 	help: {
-		main: {},
+		main: {
+			aboutUs: 'Sobre nosotros',
+			elTemplo: 'El Templo',
+			auxText1:
+				'El Templo es un espacio de entrenamiento funcional y alternativo para personas entrenadas y no entrenadas... etc',
+		},
 	},
 	navbar: {
 		nav: {
@@ -131,7 +163,20 @@ export default {
 			dashboard: 'Tablero',
 			help: 'Ayuda',
 			training: 'Entrenamiento',
+			users: 'Usuarios',
 		},
+	},
+	topBar: {
+		main: 'El Templo',
+		usersList: 'Usuarios',
+		changeUserPassword: 'Cambiar Contraseña',
+		login: 'Iniciar Sesión',
+		passwordRecovery: 'Recuperar Contraseña',
+		forgottenPassword: '¿Olvidaste tu Contraseña?',
+		verifyEmail: 'Verificar Email',
+		enabledVerified: 'Comprobando Cuenta',
+		register:'Registro'
+
 	},
 	user: {
 		changeUserPassword: {

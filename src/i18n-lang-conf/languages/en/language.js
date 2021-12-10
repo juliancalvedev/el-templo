@@ -58,6 +58,33 @@ export default {
 			p3: "Hasn't it reached you? Click here",
 			btnConfirm: 'Resend email',
 		},
+		register: {
+			title: 'Register',
+			firstNamePlaceholder: 'Name',
+			lastNamePlaceholder: 'Last Name',
+			sex1: 'Male',
+			sex2: 'Female',
+			sex3: 'Other',
+			emailPlaceholder: 'email@gmail.com',
+			passwordPlaceholder: 'Password',
+			password2Placeholder: 'Confirm Your Password',
+			countrySelection: 'select country',
+			country1: 'Argentina',
+			country2: 'USA',
+			country3: 'Mexico',
+			dateOfBirth: 'Date of birth',
+			btnRegister: 'Check in',
+
+			//RegisterValidate:
+			firstNameError: 'Please, enter your name',
+			lastNameError: 'Please, enter your last name',
+			emailError: 'Email address is invalid',
+			password1Error: 'Password needs to be 6 characters or more',
+			password2Error: 'Password do not match',
+			countryError: 'Please, select your Country.',
+			dateOfBirthError: 'Please, enter your date of birth',
+		},
+	
 		emailVerified: {
 			title: 'Your E-mail has been correctly verified.',
 			titleError: 'The link is invalid or has expired. ',
@@ -121,7 +148,12 @@ export default {
 		completedDashboard: {},
 	},
 	help: {
-		main: {},
+		main: {
+			aboutUs: 'About us',
+			elTemplo: 'El Templo',
+			auxText1:
+				"El Templo' it's a functional alternative trainning space, for advanced and also for beginers.",
+		},
 	},
 	navbar: {
 		nav: {
@@ -129,7 +161,19 @@ export default {
 			dashboard: 'Dashboard',
 			help: 'Help',
 			training: 'Training',
+			users: 'Users',
 		},
+	},
+	topBar: {
+		main: 'El Templo',
+		usersList: 'Users',
+		changeUserPassword: 'Change Password',
+		login: 'Log In',
+		passwordRecovery: 'Password Recovering',
+		forgottenPassword: 'Forgot you Password?',
+		verifyEmail: 'Verify Email',
+		enabledVerified: 'Checking Account',
+		register:'Register'
 	},
 	user: {
 		changeUserPassword: {

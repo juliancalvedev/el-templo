@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { randomHexadecimal as rndKey } from '../../../../utils/mathUtils';
 
 const UsersTable = ({ columns = [], users = [] }) => {

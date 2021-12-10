@@ -1,6 +1,7 @@
+import React from 'react';
 import { Outlet } from 'react-router';
 
-const PublicLayout = () => {
+const AdminLayout = () => {
 	return (
 		<div>
 			<Outlet />
@@ -8,4 +9,4 @@ const PublicLayout = () => {
 	);
 };
 
-export default PublicLayout;
+export default AdminLayout;
