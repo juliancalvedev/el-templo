@@ -7,11 +7,13 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+/* Setteando la Fuente Predefinida como Red  */
 * {
 	font-family: 'Red Hat Display', source-code-pro, Menlo, Monaco, Consolas,
 		'Courier New', monospace;
 }
 
+/* Importando la Fuente Predefinida para toda la App. */
 @font-face {
 	font-family: 'Red Hat Display';
 	src: url(./fonts/RedHatDisplay-VariableFont_wght.ttf);
