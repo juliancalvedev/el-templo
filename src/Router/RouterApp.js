@@ -33,7 +33,10 @@ const RouterApp = () => {
 					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
 						<Route path={PATHS.MY_PROFILE} element={<MyProfile />} />
 						{role === ROLES.ADMIN && (
-							<Route path={PATHS.BASE_URL} element={<AdminLayout />}>
+							<Route
+								path={PATHS.BASE_URL}
+								element={<AdminLayout />}
+							>
 								<Route
 									path={PATHS.USERS_LIST}
 									element={<UsersList />}
