@@ -34,7 +34,10 @@ const RouterApp = () => {
 				{savedToken ? (
 					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
 						{role === ROLES.ADMIN && (
-							<Route path={PATHS.BASE_URL} element={<AdminLayout />}>
+							<Route
+								path={PATHS.BASE_URL}
+								element={<AdminLayout />}
+							>
 								<Route
 									path={PATHS.USERS_LIST}
 									element={<UsersList />}
