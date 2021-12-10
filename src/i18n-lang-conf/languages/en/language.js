@@ -165,7 +165,8 @@ export default {
 		forgottenPassword: 'Forgot you Password?',
 		verifyEmail: 'Verify Email',
 		enabledVerified: 'Checking Account',
-		register:'Register'
+		register:'Register',
+		help:'Help',
 	},
 	user: {
 		changeUserPassword: {
