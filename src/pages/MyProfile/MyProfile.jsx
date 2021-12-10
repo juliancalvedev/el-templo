@@ -2,7 +2,7 @@ import React from 'react';
 import './MyProfile.css';
 import AuxText from '../../components/AuxText/AuxText';
 import { useSelector } from 'react-redux';
-import { cutDate } from '../../utils/cutDate';
+import { cutDate } from '../../utils/date';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
 
@@ -11,7 +11,7 @@ const MyProfile = () => {
 	const userData = useSelector((store) => store.user);
 
 	const handleNavigate = () => {
-		navigate(PATHS.CHANGE_USER_PASSWORD, { replace: true });
+		navigate(`/${PATHS.CHANGE_USER_PASSWORD}`, { replace: true });
 	};
 	return (
 		<div className='my-profile-body'>
