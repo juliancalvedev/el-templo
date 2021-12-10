@@ -5,6 +5,7 @@ import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import { useTranslation } from 'react-i18next';
 import Title from '../../components/Title/Title';
+import { useNavigate } from 'react-router';
 
 export const Register = () => {
 	const { t } = useTranslation();
