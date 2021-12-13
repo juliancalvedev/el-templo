@@ -7,7 +7,8 @@ export const PATHS = {
 	FORGOTTEN_PASSWORD: 'forgotten-password',
 	VERIFY_EMAIL: 'verify-email',
 	ENABLED_VERIFIED: 'enabled-verified',
-	REGISTER:'register',
+	REGISTER: 'register',
+	WELCOME: 'welcome',
 };
 
 export const TOPBAR_TEXTS = {

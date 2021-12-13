@@ -17,12 +17,16 @@ import UsersList from '../pages/admin/UsersList/UsersList';
 import Help from '../pages/Help/Help';
 import { PATHS } from '../constants/paths';
 import TopBar from '../components/TopBar/TopBar';
+import Welcome from '../pages/welcome/Welcome/Welcome';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
-	const { role } = useSelector((store) => store.user);
+	const { role, goals } = useSelector((store) => store.user);
 
 	const savedToken = localStorage.getItem('token');
+
+	console.log(goals?.length);
+	console.log(PATHS.BASE_URL);
 
 	return (
 		<BrowserRouter>
@@ -40,6 +44,13 @@ const RouterApp = () => {
 									element={<UsersList />}
 								/>
 							</Route>
+						)}
+						{goals?.length === 0 && (
+							<Route
+								index
+								// path={PATHS.WELCOME}
+								element={<Welcome />}
+							/>
 						)}
 						<Route
 							path={PATHS.CHANGE_USER_PASSWORD}
