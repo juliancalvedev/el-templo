@@ -50,7 +50,6 @@ export default {
 			recovery: 'Forgotten password?',
 			btnLogin: 'Log In',
 		},
-		register: {},
 		emailConfirm: {
 			title: 'Confirm your email',
 			p1: 'you are one step away from starting',

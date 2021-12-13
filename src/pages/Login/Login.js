@@ -15,7 +15,7 @@ const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
-	const callback = () => navigate('/PATHS.ENABLED_VERIFIED');
+	const callback = () => navigate(`/${PATHS.ENABLED_VERIFIED}`);
 
 	const handleChangeEmail = (e) => {
 		setEmail(e.target.value);
