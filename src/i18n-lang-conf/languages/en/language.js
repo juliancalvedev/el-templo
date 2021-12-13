@@ -50,6 +50,13 @@ export default {
 			recovery: 'Forgotten password?',
 			btnLogin: 'Log In',
 		},
+		emailConfirm: {
+			title: 'Confirm your email',
+			p1: 'you are one step away from starting',
+			p2: 'Confirm your email by clicking on the link we sent, in your inbox.',
+			p3: "Hasn't it reached you? Click here",
+			btnConfirm: 'Resend email',
+		},
 		register: {
 			title: 'Register',
 			firstNamePlaceholder: 'Name',
@@ -76,7 +83,7 @@ export default {
 			countryError: 'Please, select your Country.',
 			dateOfBirthError: 'Please, enter your date of birth',
 		},
-		emailConfirm: {},
+	
 		emailVerified: {
 			title: 'Your E-mail has been correctly verified.',
 			titleError: 'The link is invalid or has expired. ',
@@ -165,7 +172,8 @@ export default {
 		forgottenPassword: 'Forgot you Password?',
 		verifyEmail: 'Verify Email',
 		enabledVerified: 'Checking Account',
-		register:'Register'
+		register:'Register',
+		emailRegisterSended:'Confirm Email',
 	},
 	user: {
 		changeUserPassword: {

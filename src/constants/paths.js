@@ -8,6 +8,7 @@ export const PATHS = {
 	VERIFY_EMAIL: 'verify-email',
 	ENABLED_VERIFIED: 'enabled-verified',
 	REGISTER:'register',
+	EMAIL_REGISTER_SENDED:'email-register-sended',
 };
 
 export const TOPBAR_TEXTS = {
@@ -20,4 +21,5 @@ export const TOPBAR_TEXTS = {
 	[PATHS.VERIFY_EMAIL]: 'topBar.verifyEmail',
 	[PATHS.ENABLED_VERIFIED]: 'topBar.enabledVerified',
 	[PATHS.REGISTER]: 'topBar.register',
+	[PATHS.EMAIL_REGISTER_SENDED]:'topBar.emailRegisterSended',
 };

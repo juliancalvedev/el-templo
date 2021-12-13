@@ -50,6 +50,14 @@ export default {
 			recovery: '¿Olvidaste tu contraseña?',
 			btnLogin: 'Iniciar sesión',
 		},
+		
+		emailConfirm: {
+			title: 'Confirma tu email',
+			p1: 'Estás a un paso de comenzar',
+			p2: 'Confirma tu correo electronico haciendo click en el enlace que enviamos, en tu bandeja de entrada.',
+			p3: "No te ha llegado? Haz click aquí",
+			btnConfirm: 'Reenviar correo electronico',
+		},
 		register: {
 			title: 'Registro',
 			firstNamePlaceholder: 'Nombre',
@@ -76,7 +84,7 @@ export default {
 			countryError: 'Por favor, seleccione su país',
 			dateOfBirthError: 'por favor, ingrese su fecha de nacimiento',
 		},
-		emailConfirm: {},
+		
 		emailVerified: {
 			title: 'Tu E-mail ha sido verificado correctamente.',
 			titleError: 'El link no es válido o ha caducado.',
@@ -167,7 +175,8 @@ export default {
 		forgottenPassword: '¿Olvidaste tu Contraseña?',
 		verifyEmail: 'Verificar Email',
 		enabledVerified: 'Comprobando Cuenta',
-		register:'Registro'
+		register:'Registro',
+		emailRegisterSended:'Confirma tu Email',
 
 	},
 	user: {
