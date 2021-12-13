@@ -20,15 +20,13 @@ import { PATHS } from '../constants/paths';
 import TopBar from '../components/TopBar/TopBar';
 import Welcome from '../pages/welcome/Welcome/Welcome';
 import EmailRegisterSended from '../pages/EmailRegisterSended/EmailRegisterSended';
+import MainGoals from '../pages/welcome/MainGoals/MainGoals';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
 	const { role, goals } = useSelector((store) => store.user);
 
 	const savedToken = localStorage.getItem('token');
-
-	console.log(goals?.length);
-	console.log(PATHS.BASE_URL);
 
 	return (
 		<BrowserRouter>
@@ -48,11 +46,16 @@ const RouterApp = () => {
 							</Route>
 						)}
 						{goals?.length === 0 && (
-							<Route
-								index
-								// path={PATHS.WELCOME}
-								element={<Welcome />}
-							/>
+							<Route>
+								<Route
+									path={PATHS.BASE_URL}
+									element={<Welcome />}
+								/>
+								<Route
+									path={PATHS.MAIN_GOALS}
+									element={<MainGoals />}
+								/>
+							</Route>
 						)}
 						<Route
 							path={PATHS.CHANGE_USER_PASSWORD}

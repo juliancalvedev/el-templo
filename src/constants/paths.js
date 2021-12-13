@@ -11,6 +11,7 @@ export const PATHS = {
 	WELCOME: 'welcome',
 	REGISTER: 'register',
 	EMAIL_REGISTER_SENDED: 'email-register-sended',
+	MAIN_GOALS: 'main-goals',
 };
 
 export const TOPBAR_TEXTS = {

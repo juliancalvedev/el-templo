@@ -1,0 +1,38 @@
+@import '../../../styles/variables.scss';
+
+.goal-field {
+	height: 40px;
+	width: 379px;
+	border: 1px solid black;
+	border-radius: 15px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+	margin: 4px;
+
+	.numbers {
+		font-weight: 500;
+		font-size: 16px;
+
+		margin: 4px 5px 5px 20px;
+
+		text-align: start;
+	}
+
+	.goals {
+		font-size: 20px;
+
+		margin: 4px 5px 5px 20px;
+
+		text-align: start;
+	}
+}
+
+.selectable-goals {
+	.goals-tags {
+		background-color: $tertiary;
+		padding: 5px 10px;
+		border-radius: 15px;
+		margin: 5px;
+		color: $nineth;
+	}
+}

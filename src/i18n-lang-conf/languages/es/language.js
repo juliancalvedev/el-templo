@@ -50,12 +50,12 @@ export default {
 			recovery: '¿Olvidaste tu contraseña?',
 			btnLogin: 'Iniciar sesión',
 		},
-		
+
 		emailConfirm: {
 			title: 'Confirma tu email',
 			p1: 'Estás a un paso de comenzar',
 			p2: 'Confirma tu correo electronico haciendo click en el enlace que enviamos, en tu bandeja de entrada.',
-			p3: "No te ha llegado? Haz click aquí",
+			p3: 'No te ha llegado? Haz click aquí',
 			btnConfirm: 'Reenviar correo electronico',
 		},
 		register: {
@@ -84,7 +84,7 @@ export default {
 			countryError: 'Por favor, seleccione su país',
 			dateOfBirthError: 'por favor, ingrese su fecha de nacimiento',
 		},
-		
+
 		emailVerified: {
 			title: 'Tu E-mail ha sido verificado correctamente.',
 			titleError: 'El link no es válido o ha caducado.',
@@ -105,9 +105,6 @@ export default {
 				btnBack: 'volver',
 			},
 		},
-		welcome: {},
-		onboard1: {},
-		onboard2: {},
 
 		forgotPassword1: {
 			title: 'Olvidaste tu contraseña?',
@@ -122,6 +119,15 @@ export default {
 			btnUpdatePassword: 'Actualizar contraseña',
 		},
 	},
+	welcome: {
+		title: 'Bienbenido a El Templo',
+		hello: '¡Hola',
+		auxText:
+			'Antes de seguir, necesitamos conocerte un poco más, así podremos personalizar tu plan a medida.',
+		btnLetsBegin: '¡Empecemos!',
+	},
+	onboard1: {},
+	onboard2: {},
 	profile: {
 		profile: {},
 		editProfile: {},
@@ -175,9 +181,8 @@ export default {
 		forgottenPassword: '¿Olvidaste tu Contraseña?',
 		verifyEmail: 'Verificar Email',
 		enabledVerified: 'Comprobando Cuenta',
-		register:'Registro',
-		emailRegisterSended:'Confirma tu Email',
-
+		register: 'Registro',
+		emailRegisterSended: 'Confirma tu Email',
 	},
 	user: {
 		changeUserPassword: {

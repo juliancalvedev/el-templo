@@ -83,7 +83,7 @@ export default {
 			countryError: 'Please, select your Country.',
 			dateOfBirthError: 'Please, enter your date of birth',
 		},
-	
+
 		emailVerified: {
 			title: 'Your E-mail has been correctly verified.',
 			titleError: 'The link is invalid or has expired. ',
@@ -103,7 +103,7 @@ export default {
 				btnBack: 'Back',
 			},
 		},
-		welcome: {},
+
 		onboard1: {},
 		onboard2: {},
 		forgotPassword1: {
@@ -118,6 +118,13 @@ export default {
 			repeatNewPassword: 'Repeat new password',
 			btnUpdatePassword: 'Update password',
 		},
+	},
+	welcome: {
+		title: "Welcome to 'El Templo'",
+		hello: 'Hello',
+		auxText:
+			'Before continuing, we need to know you a little more, so we can customize your plan to suit you.',
+		btnLetsBegin: "Let's begin",
 	},
 	profile: {
 		profile: {},
@@ -172,8 +179,8 @@ export default {
 		forgottenPassword: 'Forgot you Password?',
 		verifyEmail: 'Verify Email',
 		enabledVerified: 'Checking Account',
-		register:'Register',
-		emailRegisterSended:'Confirm Email',
+		register: 'Register',
+		emailRegisterSended: 'Confirm Email',
 	},
 	user: {
 		changeUserPassword: {
