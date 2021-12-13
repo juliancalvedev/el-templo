@@ -6,13 +6,15 @@ import Button from '../../components/Button/Button';
 import { useTranslation } from 'react-i18next';
 import Title from '../../components/Title/Title';
 
+
 export const Register = () => {
 	const { t } = useTranslation();
 	const { handleChange, values, handleSubmit, errors } =
 		useForm(RegisterValidate);
 
+	
 	//Base64
-    	
+
 	const [baseImage, setBaseImage] = useState('');
 
 	const uploadImage = async (e) => {
@@ -23,7 +25,7 @@ export const Register = () => {
 	const clickFile = () => {
 		document.getElementById('file').click();
 	};
-	const handleClickimg =(e) => {
+	const handleClickimg = (e) => {
 		uploadImage(e);
 	};
 
@@ -41,9 +43,7 @@ export const Register = () => {
 			};
 		});
 
-	
-
-	//Base64
+		//Base64
 	};
 
 	return (
@@ -66,7 +66,11 @@ export const Register = () => {
 					/>
 					{errors.firstName && (
 						<p>
-							{(errors.firstName = t('auth.register.firstNameError'))}
+							{
+								(errors.firstName = t(
+									'auth.register.firstNameError'
+								))
+							}
 						</p>
 					)}
 				</div>
@@ -79,47 +83,62 @@ export const Register = () => {
 						handleChange={handleChange}
 					/>
 					{errors.lastName && (
-						<p>{(errors.lastName = t('auth.register.lastNameError'))}</p>
+						<p>
+							{
+								(errors.lastName = t(
+									'auth.register.lastNameError'
+								))
+							}
+						</p>
 					)}
 				</div>
 
-				<div class='form-input' name='sex' value={values.sex}>
+				<div className='form-input' name='sex' value={values.sex}>
 					<input
 						type='radio'
-						class='btn-check'
+						className='btn-check'
 						name='sex'
 						id='btnradio1'
 						value='M'
 						checked={values.sex === 'M' ? true : false}
 						onChange={handleChange}
 					/>
-					<label class='btn btn-outline-primary' for='btnradio1'>
+					<label
+						className='btn btn-outline-primary'
+						htmlFor='btnradio1'
+					>
 						{t('auth.register.sex1')}
 					</label>
 
 					<input
 						type='radio'
-						class='btn-check'
+						className='btn-check'
 						name='sex'
 						id='btnradio2'
 						value='F'
 						checked={values.sex === 'F' ? true : false}
 						onChange={handleChange}
 					/>
-					<label class='btn btn-outline-primary' for='btnradio2'>
+					<label
+						className='btn btn-outline-primary'
+						htmlFor='btnradio2'
+					>
 						{t('auth.register.sex2')}
 					</label>
 
 					<input
 						type='radio'
-						class='btn-check'
+						className='btn-check'
 						name='sex'
 						id='btnradio3'
 						value='O'
 						checked={values.sex === 'O' ? true : false}
 						onChange={handleChange}
 					/>
-					<label class='btn btn-outline-primary' for='btnradio3'>
+					<label
+						className='btn btn-outline-primary'
+						htmlFor='btnradio3'
+					>
 						{t('auth.register.sex3')}
 					</label>
 				</div>
@@ -145,7 +164,13 @@ export const Register = () => {
 						handleChange={handleChange}
 					/>
 					{errors.password && (
-						<p>{(errors.password = t('auth.register.password1Error'))}</p>
+						<p>
+							{
+								(errors.password = t(
+									'auth.register.password1Error'
+								))
+							}
+						</p>
 					)}
 				</div>
 				<div className='form-inputs'>
@@ -158,13 +183,17 @@ export const Register = () => {
 					/>
 					{errors.password2 && (
 						<p>
-							{(errors.password2 = t('auth.register.password2Error'))}
+							{
+								(errors.password2 = t(
+									'auth.register.password2Error'
+								))
+							}
 						</p>
 					)}
 				</div>
 				<div className='form-inputs'>
 					<select
-						class='col-6'
+						className='col-6'
 						value={values.country}
 						onChange={handleChange}
 						name='country'
@@ -173,12 +202,18 @@ export const Register = () => {
 						<option value='argentina'>
 							{t('auth.register.country1')}
 						</option>
-						<option value='us'>{t('auth.register.country2')}</option>
-						<option value='mexico'>{t('auth.register.country3')}</option>
+						<option value='us'>
+							{t('auth.register.country2')}
+						</option>
+						<option value='mexico'>
+							{t('auth.register.country3')}
+						</option>
 					</select>
 
 					{errors.country && (
-						<p>{(errors.country = t('auth.register.countryError'))}</p>
+						<p>
+							{(errors.country = t('auth.register.countryError'))}
+						</p>
 					)}
 				</div>
 				<div className='form-inputs'>

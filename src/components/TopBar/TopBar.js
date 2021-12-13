@@ -29,7 +29,7 @@ const TopBar = () => {
 
 	return (
 		<div>
-			<nav className='navbar-light bg-dark' style={navStyles}>
+			<nav className='navbar-light bg-light' style={navStyles}>
 				{mainPath ? (
 					<button
 						className='navbar-brand'

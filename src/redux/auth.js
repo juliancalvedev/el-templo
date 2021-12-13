@@ -144,7 +144,7 @@ export const startPasswordRecoveryAction =
 
 
 export const registerAction =
-	({ firstName, lastName, sex, email, password, dateOfBirth, country, img,callback }) =>
+	({ firstName, lastName, sex, email, password, dateOfBirth, country, img,callback, }) =>
 	async (dispatch) => {
 		//llamada al back
 
@@ -174,6 +174,7 @@ export const registerAction =
 					payload: email,
 				});
 				callback();
+				
 			}
 		} catch (error) {
 			dispatch({

@@ -7,6 +7,7 @@ import { onPasswordRecovery } from '../../services/auth';
 import { useTranslation } from 'react-i18next';
 import Title from '../../components/Title/Title';
 import { getSearchParams } from '../../utils/searchParams';
+import { PATHS } from '../../constants/paths';
 
 const PasswordRecoveryForm = () => {
 	const token = getSearchParams('token');
@@ -38,7 +39,7 @@ const PasswordRecoveryForm = () => {
 
 			sendPassword(password);
 
-			navigate('/login', { replace: true });
+			navigate(`/${PATHS.LOGIN}`);
 		}
 	};
 

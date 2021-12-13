@@ -1,8 +1,9 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import { registerAction } from '../../redux/auth';
 import { useDispatch } from 'react-redux';
 import { HasErrors } from './RegisterValidate';
 import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../constants/paths';
 
 const useForm = (RegisterValidate) => {
 	const [values, setValues] = useState({
@@ -20,6 +21,8 @@ const useForm = (RegisterValidate) => {
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const callback = () => navigate(`/${PATHS.EMAIL_REGISTER_SENDED}`);
+	
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -31,21 +34,21 @@ const useForm = (RegisterValidate) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const callback = () => navigate('/enabled-verified');
+		const callback = () => navigate(`/${PATHS.ENABLED_VERIFIED}`);
 		const auxErrors = RegisterValidate(values);
 		setErrors(auxErrors);
-		
+
 		if (!HasErrors(values)) {
-				const {
-					firstName,
-					lastName,
-					sex,
-					email,
-					password,
-					dateOfBirth,
-					country,
-					img,
-				} = values;
+			const {
+				firstName,
+				lastName,
+				sex,
+				email,
+				password,
+				dateOfBirth,
+				country,
+				img,
+			} = values;
 			dispatch(
 				registerAction({
 					firstName,
@@ -56,13 +59,12 @@ const useForm = (RegisterValidate) => {
 					dateOfBirth,
 					country,
 					img,
-					callback
+					callback,
 				})
 			);
-			
 		}
 	};
- 
+
 	return { handleChange, handleSubmit, values, errors };
 };
 
