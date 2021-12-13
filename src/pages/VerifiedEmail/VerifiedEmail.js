@@ -7,6 +7,7 @@ import { verifyEmailToBackEnd } from '../../services/auth';
 import Title from '../../components/Title/Title';
 import AuxText from '../../components/AuxText/AuxText';
 import Button from '../../components/Button/Button';
+import { PATHS } from '../../constants/paths';
 
 const VerifiedEmail = () => {
 	const { t } = useTranslation();
@@ -15,7 +16,7 @@ const VerifiedEmail = () => {
 	const [isVerified, setIsVerified] = useState(true);
 	const [isLoading, setIsLoading] = useState(true);
 
-	const navigateToLoggin = () => navigate('/login', { replace: true });
+	const navigateToLoggin = () => navigate(`/${PATHS.LOGIN}`);
 
 	const makeVerify = async () => {
 		const response = await verifyEmailToBackEnd();
