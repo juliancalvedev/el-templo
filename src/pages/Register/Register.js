@@ -6,11 +6,13 @@ import Button from '../../components/Button/Button';
 import { useTranslation } from 'react-i18next';
 import Title from '../../components/Title/Title';
 
+
 export const Register = () => {
 	const { t } = useTranslation();
 	const { handleChange, values, handleSubmit, errors } =
 		useForm(RegisterValidate);
 
+	
 	//Base64
 
 	const [baseImage, setBaseImage] = useState('');

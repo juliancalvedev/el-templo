@@ -9,6 +9,8 @@ export const PATHS = {
 	ENABLED_VERIFIED: 'enabled-verified',
 	REGISTER: 'register',
 	WELCOME: 'welcome',
+	REGISTER: 'register',
+	EMAIL_REGISTER_SENDED: 'email-register-sended',
 };
 
 export const TOPBAR_TEXTS = {
