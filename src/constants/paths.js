@@ -14,7 +14,7 @@ export const PATHS = {
 export const TOPBAR_TEXTS = {
 	[PATHS.BASE_URL]: 'topBar.main',
 	[PATHS.USERS_LIST]: 'topBar.usersList',
-	[PATHS.CHANGE_USER_PASSWORD]: 'topBar.changeUsersPassword',
+	[PATHS.CHANGE_USER_PASSWORD]: 'topBar.changeUserPassword',
 	[PATHS.LOGIN]: 'topBar.login',
 	[PATHS.PASSWORD_RECOVERY]: 'topBar.passwordRecovery',
 	[PATHS.FORGOTTEN_PASSWORD]: 'topBar.forgottenPassword',

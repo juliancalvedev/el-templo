@@ -9,16 +9,11 @@ import { getUserInfo } from '../../services/user';
 
 const PrivatedLayout = () => {
 	const dispatch = useDispatch();
-	const onLogout = () => {
-		dispatch(logoutAction());
-	};
-
 	useEffect(() => {
 		dispatch(getUserInfoAction());
 	}, []);
 	return (
 		<div>
-			<Button onClick={onLogout} title='logout' />
 			<NavBar />
 			<Outlet />
 		</div>
