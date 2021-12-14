@@ -20,30 +20,15 @@ const MainGoals = () => {
 
 	const pushGoal = (goal) => {
 		const auxArr = [...selectedGoals];
-		if (auxArr[0] === '') {
-			auxArr[0] = goal;
-			setSelectedGoals(auxArr);
-		} else if (auxArr[1] === '') {
-			auxArr[1] = goal;
-			setSelectedGoals(auxArr);
-		} else if (auxArr[2] === '') {
-			auxArr[2] = goal;
-			setSelectedGoals(auxArr);
-		}
+		const empty = auxArr.findIndex((e) => e === '');
+		auxArr[empty] = goal;
+		setSelectedGoals(auxArr);
 	};
 
 	const deleteGoal = (index) => {
 		const auxArr = [...selectedGoals];
-		if (index === 0) {
-			auxArr[0] = '';
-			setSelectedGoals(auxArr);
-		} else if (index === 1) {
-			auxArr[1] = '';
-			setSelectedGoals(auxArr);
-		} else if (index === 2) {
-			auxArr[2] = '';
-			setSelectedGoals(auxArr);
-		}
+		auxArr[index] = '';
+		setSelectedGoals(auxArr);
 	};
 
 	useEffect(() => {
