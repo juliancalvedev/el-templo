@@ -39,6 +39,7 @@ const MainGoals = () => {
 	useEffect(() => {
 		getGoals();
 	}, []);
+
 	return (
 		<div className='container d-flex justify-content-center align-items-center flex-column'>
 			<Title text={'Contanos'} />
@@ -91,8 +92,11 @@ const MainGoals = () => {
 				)}
 			</div>
 			<button
-				disabled={!selectedGoals.includes((e) => e === '')}
-				// disabled='enabled'
+				disabled={
+					selectedGoals[0] === '' ||
+					selectedGoals[1] === '' ||
+					selectedGoals[2] === ''
+				}
 				className='btnNext'
 				onClick={toTrainningLevel}
 			>
