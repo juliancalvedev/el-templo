@@ -38,9 +38,24 @@
 .selectable-goals {
 	.goals-tags {
 		background-color: $tertiary;
-		padding: 5px 10px;
-		border-radius: 15px;
-		margin: 5px;
 		color: $nineth;
+
+		border-radius: 15px;
+
+		padding: 5px 20px;
+		margin: 5px;
+
+		border: none;
 	}
+}
+
+.btnNext {
+	background-color: $tertiary;
+	border: none;
+	border-radius: 5px;
+	border: 1px solid $nineth;
+
+	color: $nineth;
+
+	padding: 0px 10px;
 }

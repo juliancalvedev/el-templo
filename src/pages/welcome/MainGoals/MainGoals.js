@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../../axios/axiosInstance';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 import AuxText from '../../../components/AuxText/AuxText';
 import Title from '../../../components/Title/Title';
 import './mainGoals.scss';
+import { PATHS } from '../../../constants/paths';
 
 const MainGoals = () => {
 	const { t } = useTranslation();
+	const navigate = useNavigate();
+
+	const toTrainningLevel = () => navigate(`/${PATHS.TRAINNING_LEVEL}`);
 
 	const [arrGoals, setArrGoals] = useState([]);
 	const [selectedGoals, setSelectedGoals] = useState(['', '', '']);
@@ -18,7 +23,7 @@ const MainGoals = () => {
 		setArrGoals(goals);
 	};
 
-	const pushGoal = (goal) => {
+	const addNewGoal = (goal) => {
 		const auxArr = [...selectedGoals];
 		const empty = auxArr.findIndex((e) => e === '');
 		auxArr[empty] = goal;
@@ -34,7 +39,6 @@ const MainGoals = () => {
 	useEffect(() => {
 		getGoals();
 	}, []);
-	console.log(selectedGoals);
 	return (
 		<div className='container d-flex justify-content-center align-items-center flex-column'>
 			<Title text={'Contanos'} />
@@ -73,16 +77,27 @@ const MainGoals = () => {
 			</div>
 
 			<div className='selectable-goals d-flex flex-wrap'>
-				{arrGoals?.map((goal, i) => (
-					<button
-						key={i}
-						className='goals-tags'
-						onClick={() => pushGoal(goal)}
-					>
-						{t(`welcome.goals.${goal}`)}
-					</button>
-				))}
+				{arrGoals?.map(
+					(goal, i) =>
+						!selectedGoals.includes(goal) && (
+							<button
+								key={i}
+								className='goals-tags'
+								onClick={() => addNewGoal(goal)}
+							>
+								{t(`welcome.goals.${goal}`)}
+							</button>
+						)
+				)}
 			</div>
+			<button
+				disabled={!selectedGoals.includes((e) => e === '')}
+				// disabled='enabled'
+				className='btnNext'
+				onClick={toTrainningLevel}
+			>
+				{'>'}
+			</button>
 		</div>
 	);
 };

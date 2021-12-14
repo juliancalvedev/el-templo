@@ -21,6 +21,7 @@ import TopBar from '../components/TopBar/TopBar';
 import Welcome from '../pages/welcome/Welcome/Welcome';
 import EmailRegisterSended from '../pages/EmailRegisterSended/EmailRegisterSended';
 import MainGoals from '../pages/welcome/MainGoals/MainGoals';
+import TrainningLevel from '../pages/welcome/TrainningLevel/TrainningLevel';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -54,6 +55,10 @@ const RouterApp = () => {
 								<Route
 									path={PATHS.MAIN_GOALS}
 									element={<MainGoals />}
+								/>
+								<Route
+									path={PATHS.TRAINNING_LEVEL}
+									element={<TrainningLevel />}
 								/>
 							</Route>
 						)}
