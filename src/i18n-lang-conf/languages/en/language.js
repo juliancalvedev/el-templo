@@ -168,7 +168,7 @@ export default {
 			aboutUs: 'About us',
 			elTemplo: 'El Templo',
 			auxText1:
-				"El Templo' it's a functional alternative trainning space, for advanced and also for beginers.",
+				"El Templo' it's a functional alternative training space, for advanced and also for beginers.",
 		},
 	},
 	navbar: {

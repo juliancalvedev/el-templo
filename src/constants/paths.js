@@ -12,7 +12,7 @@ export const PATHS = {
 	REGISTER: 'register',
 	EMAIL_REGISTER_SENDED: 'email-register-sended',
 	MAIN_GOALS: 'main-goals',
-	TRAINNING_LEVEL: 'trainning-level',
+	TRAINING_LEVEL: 'training-level',
 };
 
 export const TOPBAR_TEXTS = {

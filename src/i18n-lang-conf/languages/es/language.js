@@ -121,7 +121,7 @@ export default {
 	},
 	welcome: {
 		main: {
-			title: 'Bienbenido a El Templo',
+			title: 'Bienvenido a El Templo',
 			hello: '¡Hola',
 			auxText:
 				'Antes de seguir, necesitamos conocerte un poco más, así podremos personalizar tu plan a medida.',

@@ -2,6 +2,7 @@ import { getUserInfo } from '../services/user';
 
 // ACTION TYPES
 const GET_USER_INFO = 'GET_USER_INFO';
+const SET_TRAINING_INFO = 'SET_TRAINING_INFO';
 const ERROR = 'ERROR';
 
 const defaultValue = {
@@ -16,6 +17,12 @@ const defaultValue = {
 	role: null,
 	endEnabledDate: null,
 	startEnabledDate: null,
+	trainingInfo: {
+		goals: ['', '', ''],
+		trainingLevel: 0,
+		weight: 0,
+		height: 0,
+	},
 };
 
 // REDUCER
@@ -28,6 +35,8 @@ export default function UserReducer(state = defaultValue, { type, payload }) {
 			return { ...state, ...payload, error: false };
 		case ERROR:
 			return { ...state, error: true };
+		case SET_TRAINING_INFO:
+			return { ...state, ...payload, error: false };
 		default:
 			return state;
 	}
@@ -52,3 +61,23 @@ export const getUserInfoAction = () => async (dispatch) => {
 		});
 	}
 };
+
+// export const getUserTrainingLevel = () => async (dispatch) => {
+// 	try {
+// 		const { data, problem } = await getUserInfo();
+// 		if (problem) {
+// 			dispatch({
+// 				type: ERROR,
+// 			});
+// 		} else {
+// 			dispatch({
+// 				type: GET_USER_INFO,
+// 				payload: data?.user,
+// 			});
+// 		}
+// 	} catch (error) {
+// 		dispatch({
+// 			type: ERROR,
+// 		});
+// 	}
+// };

@@ -7,15 +7,20 @@ import AuxText from '../../../components/AuxText/AuxText';
 import Title from '../../../components/Title/Title';
 import './mainGoals.scss';
 import { PATHS } from '../../../constants/paths';
+import { useDispatch, useSelector } from 'react-redux';
 
 const MainGoals = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
-	const toTrainningLevel = () => navigate(`/${PATHS.TRAINNING_LEVEL}`);
+	const toTrainingLevel = () => navigate(`/${PATHS.TRAINING_LEVEL}`);
+	const trainingGoals = useSelector((store) => store.user.trainingInfo.goals);
 
 	const [arrGoals, setArrGoals] = useState([]);
-	const [selectedGoals, setSelectedGoals] = useState(['', '', '']);
+	const [selectedGoals, setSelectedGoals] = useState(trainingGoals);
+
+	console.log(selectedGoals);
 
 	const getGoals = async () => {
 		const response = await axiosInstance.get('/user/get-goals');
@@ -98,7 +103,7 @@ const MainGoals = () => {
 					selectedGoals[2] === ''
 				}
 				className='btnNext'
-				onClick={toTrainningLevel}
+				onClick={toTrainingLevel}
 			>
 				{'>'}
 			</button>
