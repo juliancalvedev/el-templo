@@ -120,11 +120,21 @@ export default {
 		},
 	},
 	welcome: {
-		title: "Welcome to 'El Templo'",
-		hello: 'Hello',
-		auxText:
-			'Before continuing, we need to know you a little more, so we can customize your plan to suit you.',
-		btnLetsBegin: "Let's begin",
+		main: {
+			title: "Welcome to 'El Templo'",
+			hello: 'Hello',
+			auxText:
+				'Before continuing, we need to know you a little more, so we can customize your plan to suit you.',
+			btnLetsBegin: "Let's begin",
+		},
+		goals: {
+			'': '', // Default
+			STRENGTH: 'Strength',
+			FLEX: 'Flex',
+			LOSE_WEIGHT: 'Lose weight',
+			TONE_UP: 'Tone up',
+			GAIN_STAMINA: 'Gain stamina',
+		},
 	},
 	profile: {
 		profile: {},

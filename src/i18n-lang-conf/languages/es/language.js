@@ -120,14 +120,22 @@ export default {
 		},
 	},
 	welcome: {
-		title: 'Bienbenido a El Templo',
-		hello: '¡Hola',
-		auxText:
-			'Antes de seguir, necesitamos conocerte un poco más, así podremos personalizar tu plan a medida.',
-		btnLetsBegin: '¡Empecemos!',
+		main: {
+			title: 'Bienbenido a El Templo',
+			hello: '¡Hola',
+			auxText:
+				'Antes de seguir, necesitamos conocerte un poco más, así podremos personalizar tu plan a medida.',
+			btnLetsBegin: '¡Empecemos!',
+		},
+		goals: {
+			'': '', // Default
+			STRENGTH: 'Fuerza',
+			FLEX: 'Flexibilidad',
+			LOSE_WEIGHT: 'Perder peso',
+			TONE_UP: 'Tonificar',
+			GAIN_STAMINA: 'Ganar resistencia',
+		},
 	},
-	onboard1: {},
-	onboard2: {},
 	profile: {
 		profile: {},
 		editProfile: {},

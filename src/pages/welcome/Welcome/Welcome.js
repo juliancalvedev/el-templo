@@ -16,11 +16,14 @@ const Welcome = () => {
 
 	return (
 		<div className='container d-flex justify-content-center align-items-center flex-column'>
-			<Title text={t('welcome.title')} />
-			<h3>{`${t('welcome.hello')} ${firstName}!`}</h3>
-			<AuxText text={t('welcome.auxText')} />
+			<Title text={t('welcome.main.title')} />
+			<h3>{`${t('welcome.main.hello')} ${firstName}!`}</h3>
+			<AuxText text={t('welcome.main.auxText')} />
 
-			<Button title={t('welcome.btnLetsBegin')} onClick={toOnboarding} />
+			<Button
+				title={t('welcome.main.btnLetsBegin')}
+				onClick={toOnboarding}
+			/>
 		</div>
 	);
 };
