@@ -36,7 +36,12 @@ export default function UserReducer(state = defaultValue, { type, payload }) {
 		case ERROR:
 			return { ...state, error: true };
 		case SET_TRAINING_INFO:
-			return { ...state, ...payload, error: false };
+			const { trainingInfo } = state;
+			return {
+				...state,
+				trainingInfo: { ...trainingInfo, goals: payload },
+				error: false,
+			};
 		default:
 			return state;
 	}
@@ -62,22 +67,10 @@ export const getUserInfoAction = () => async (dispatch) => {
 	}
 };
 
-// export const getUserTrainingLevel = () => async (dispatch) => {
-// 	try {
-// 		const { data, problem } = await getUserInfo();
-// 		if (problem) {
-// 			dispatch({
-// 				type: ERROR,
-// 			});
-// 		} else {
-// 			dispatch({
-// 				type: GET_USER_INFO,
-// 				payload: data?.user,
-// 			});
-// 		}
-// 	} catch (error) {
-// 		dispatch({
-// 			type: ERROR,
-// 		});
-// 	}
-// };
+export const addTrainingInfo = (data) => async (dispatch) => {
+	console.log(data.goals);
+	dispatch({
+		type: SET_TRAINING_INFO,
+		payload: data.goals,
+	});
+};

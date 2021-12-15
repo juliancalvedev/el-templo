@@ -8,24 +8,34 @@ import Title from '../../../components/Title/Title';
 import './mainGoals.scss';
 import { PATHS } from '../../../constants/paths';
 import { useDispatch, useSelector } from 'react-redux';
+import { addTrainingInfo } from '../../../redux/user';
 
 const MainGoals = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	const toTrainingLevel = () => navigate(`/${PATHS.TRAINING_LEVEL}`);
 	const trainingGoals = useSelector((store) => store.user.trainingInfo.goals);
 
 	const [arrGoals, setArrGoals] = useState([]);
 	const [selectedGoals, setSelectedGoals] = useState(trainingGoals);
 
-	console.log(selectedGoals);
+	// console.log(selectedGoals);
+	// console.log(trainingGoals);
 
 	const getGoals = async () => {
 		const response = await axiosInstance.get('/user/get-goals');
 		const goals = await response?.data?.data?.goals;
 		setArrGoals(goals);
+	};
+
+	const toTrainingLevel = () => {
+		dispatch(
+			addTrainingInfo({
+				goals: selectedGoals,
+			})
+		);
+		navigate(`/${PATHS.TRAINING_LEVEL}`);
 	};
 
 	const addNewGoal = (goal) => {
@@ -44,6 +54,10 @@ const MainGoals = () => {
 	useEffect(() => {
 		getGoals();
 	}, []);
+
+	useEffect(() => {
+		setSelectedGoals(trainingGoals);
+	}, [trainingGoals]);
 
 	return (
 		<div className='container d-flex justify-content-center align-items-center flex-column'>
