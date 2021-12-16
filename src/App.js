@@ -6,6 +6,7 @@ import i18n from './i18n-lang-conf';
 import { checkLoggedUserAction } from './redux/auth';
 import RouterApp from './Router/RouterApp';
 import './styles/variables.scss';
+import './styles/global.scss';
 
 function App() {
 	//Integrates i18n to the whole App.

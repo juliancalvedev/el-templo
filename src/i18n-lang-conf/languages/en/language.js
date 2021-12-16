@@ -50,6 +50,13 @@ export default {
 			recovery: 'Forgotten password?',
 			btnLogin: 'Log In',
 		},
+		emailConfirm: {
+			title: 'Confirm your email',
+			p1: 'you are one step away from starting',
+			p2: 'Confirm your email by clicking on the link we sent, in your inbox.',
+			p3: "Hasn't it reached you? Click here",
+			btnConfirm: 'Resend email',
+		},
 		register: {
 			title: 'Register',
 			firstNamePlaceholder: 'Name',
@@ -76,7 +83,7 @@ export default {
 			countryError: 'Please, select your Country.',
 			dateOfBirthError: 'Please, enter your date of birth',
 		},
-		emailConfirm: {},
+
 		emailVerified: {
 			title: 'Your E-mail has been correctly verified.',
 			titleError: 'The link is invalid or has expired. ',
@@ -96,7 +103,7 @@ export default {
 				btnBack: 'Back',
 			},
 		},
-		welcome: {},
+
 		onboard1: {},
 		onboard2: {},
 		forgotPassword1: {
@@ -110,6 +117,23 @@ export default {
 			newPassword: 'New password',
 			repeatNewPassword: 'Repeat new password',
 			btnUpdatePassword: 'Update password',
+		},
+	},
+	welcome: {
+		main: {
+			title: "Welcome to 'El Templo'",
+			hello: 'Hello',
+			auxText:
+				'Before continuing, we need to know you a little more, so we can customize your plan to suit you.',
+			btnLetsBegin: "Let's begin",
+		},
+		goals: {
+			'': '', // Default
+			STRENGTH: 'Strength',
+			FLEX: 'Flex',
+			LOSE_WEIGHT: 'Lose weight',
+			TONE_UP: 'Tone up',
+			GAIN_STAMINA: 'Gain stamina',
 		},
 	},
 	profile: {
@@ -144,7 +168,7 @@ export default {
 			aboutUs: 'About us',
 			elTemplo: 'El Templo',
 			auxText1:
-				"El Templo' it's a functional alternative trainning space, for advanced and also for beginers.",
+				"El Templo' it's a functional alternative training space, for advanced and also for beginers.",
 		},
 	},
 	navbar: {
@@ -166,6 +190,7 @@ export default {
 		verifyEmail: 'Verify Email',
 		enabledVerified: 'Checking Account',
 		register: 'Register',
+		emailRegisterSended: 'Confirm Email',
 		myProfile: 'My Profile',
 	},
 	user: {

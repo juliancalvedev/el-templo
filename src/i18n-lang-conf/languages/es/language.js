@@ -50,6 +50,14 @@ export default {
 			recovery: '¿Olvidaste tu contraseña?',
 			btnLogin: 'Iniciar sesión',
 		},
+
+		emailConfirm: {
+			title: 'Confirma tu email',
+			p1: 'Estás a un paso de comenzar',
+			p2: 'Confirma tu correo electronico haciendo click en el enlace que enviamos, en tu bandeja de entrada.',
+			p3: 'No te ha llegado? Haz click aquí',
+			btnConfirm: 'Reenviar correo electronico',
+		},
 		register: {
 			title: 'Registro',
 			firstNamePlaceholder: 'Nombre',
@@ -76,7 +84,7 @@ export default {
 			countryError: 'Por favor, seleccione su país',
 			dateOfBirthError: 'por favor, ingrese su fecha de nacimiento',
 		},
-		emailConfirm: {},
+
 		emailVerified: {
 			title: 'Tu E-mail ha sido verificado correctamente.',
 			titleError: 'El link no es válido o ha caducado.',
@@ -97,9 +105,6 @@ export default {
 				btnBack: 'volver',
 			},
 		},
-		welcome: {},
-		onboard1: {},
-		onboard2: {},
 
 		forgotPassword1: {
 			title: 'Olvidaste tu contraseña?',
@@ -112,6 +117,23 @@ export default {
 			newPassword: 'Nueva contraseña',
 			repeatNewPassword: 'Repite nueva contraseña',
 			btnUpdatePassword: 'Actualizar contraseña',
+		},
+	},
+	welcome: {
+		main: {
+			title: 'Bienvenido a El Templo',
+			hello: '¡Hola',
+			auxText:
+				'Antes de seguir, necesitamos conocerte un poco más, así podremos personalizar tu plan a medida.',
+			btnLetsBegin: '¡Empecemos!',
+		},
+		goals: {
+			'': '', // Default
+			STRENGTH: 'Fuerza',
+			FLEX: 'Flexibilidad',
+			LOSE_WEIGHT: 'Perder peso',
+			TONE_UP: 'Tonificar',
+			GAIN_STAMINA: 'Ganar resistencia',
 		},
 	},
 	profile: {
@@ -168,7 +190,8 @@ export default {
 		verifyEmail: 'Verificar Email',
 		enabledVerified: 'Comprobando Cuenta',
 		register: 'Registro',
-		myProfile: 'Mi Perfil',
+		emailRegisterSended: 'Confirma tu Email',
+		myProfile: 'Mi perfil',
 	},
 	user: {
 		changeUserPassword: {

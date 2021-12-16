@@ -12,4 +12,19 @@
 
 	margin: 2px;
 	border: none;
+
+	&--flat {
+		width: 411px;
+		height: 56px;
+		background-color: $nineth;
+		margin-top: 1px;
+		display: flex;
+		align-items: center;
+		padding-left: 24px;
+		color: $sixth;
+		border-radius: 0;
+		&:hover {
+			background-color: rgba(255, 255, 255, 3);
+		}
+	}
 }

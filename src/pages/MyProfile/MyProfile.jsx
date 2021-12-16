@@ -2,7 +2,6 @@ import React from 'react';
 import './MyProfile.css';
 import AuxText from '../../components/AuxText/AuxText';
 import Button from '../../components/Button/Button';
-import LogOutButton from '../../components/LogOutButton/LogOutButton';
 import { useSelector } from 'react-redux';
 import { cutDate } from '../../utils/date';
 import { useNavigate } from 'react-router-dom';
@@ -11,11 +10,13 @@ import GenericTicket from '../../components/GenericTicket/GenericTicket';
 import { logoutAction } from '../../redux/auth';
 import { useDispatch } from 'react-redux';
 import Input from '../../components/Input/Input';
+
 const MyProfile = () => {
 	const navigate = useNavigate();
-	const { startEnabledDate, endEnabledDate, goals } = useSelector(
-		(store) => store.user
-	);
+	const { startEnabledDate, endEnabledDate, goals, height, weight } =
+		useSelector((store) => store.user);
+	const userData = useSelector((store) => store.user);
+	console.log(userData);
 
 	const handleNavigate = () => {
 		navigate(`/${PATHS.CHANGE_USER_PASSWORD}`, { replace: true });
@@ -27,9 +28,12 @@ const MyProfile = () => {
 	return (
 		<div className='my-profile-body'>
 			<div className='user-level-box'>
+				<div className='userImg'>
+					<img src='' alt='' />
+				</div>
 				<div className='edit-profile-box'>
 					<img src='' alt='' />
-					<AuxText className='edit-profile-text' text='Editar perfil' />
+					<p className='edit-profile-text'>Editar perfil</p>
 				</div>
 				<h3>Nivel x</h3>
 				<AuxText text='Entrenamientos realizados: x' />
@@ -45,7 +49,7 @@ const MyProfile = () => {
 
 			<div className='about-you-box'>
 				<AuxText text='Sobre vos' />
-				<a className='about-you-link' href='/home'>
+				<a className='about-you-link' href='/edit-user-info'>
 					EDITAR
 				</a>
 			</div>
@@ -53,16 +57,21 @@ const MyProfile = () => {
 				<div className='training-level-box'>
 					<AuxText text={`Nivel de entrenamiento :`} />
 				</div>
-				<AuxText text={`Objetivos: ${goals}`} />
-				<GenericTicket text='hola	' />
-				<GenericTicket />
-				<GenericTicket />
+				<AuxText text={`Objetivos:`} />
+				<GenericTicket text1={goals?.[0]} />
+				<GenericTicket text1={goals?.[1]} />
+				<GenericTicket text1={goals?.[2]} />
 				<AuxText text='Datos personales:' />
-				<Input></Input>
+				<GenericTicket text1={`Peso`} text2={weight} />
+				<GenericTicket text1={`Altura`} text2={height} />
 			</div>
 
-			<Button title='Contraseña' onClick={handleNavigate} />
-			<Button onClick={onLogout} title='logout' />
+			<Button title='Contraseña' mode='flat' onClick={handleNavigate} />
+			<Button
+				title='Cerrar sesion'
+				mode='flat dangerText'
+				onClick={onLogout}
+			/>
 		</div>
 	);
 };

@@ -18,6 +18,15 @@
 	border-radius: 15px;
 }
 
+.userImg {
+	align-self: flex-start;
+	width: 88px;
+	height: 88px;
+	margin-top: 34px;
+	border-radius: 45px;
+	background-color: black;
+}
+
 .edit-profile-box {
 	width: 53px;
 	height: 64px;
@@ -29,6 +38,7 @@
 }
 
 .edit-profile-text {
+	size: 1px;
 }
 .subscription-box {
 	background-color: #c59980;
