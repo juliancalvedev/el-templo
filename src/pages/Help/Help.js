@@ -6,9 +6,12 @@ import './Help.scss';
 
 import Button from '../../components/Button/Button';
 import '../../components/Button/button.scss';
+import HelpAccordion from './HelpAccordion';
 
 const Help = () => {
 	const { t } = useTranslation();
+	const getBtn=document.querySelector('.btnCollapsed');
+	const removeBtn=()=>{getBtn.remove()}
 
 	return (
 		<div classNameName=' container col-12 d-flex justify-content-center'>
@@ -26,10 +29,11 @@ const Help = () => {
 				</p>
 
 				<button
-					className='btnColapsed'
+					className='btnCollapsed'
 					type='button'
 					data-bs-toggle='collapse'
 					data-bs-target='#collapseExample'
+					onClick={removeBtn}
 				>
 					{t('help.main.btn1')}
 				</button>
@@ -38,7 +42,8 @@ const Help = () => {
 					<div className='card card-body'>
 						<Title type='title3' text={t('help.main.mission')} />
 						<AuxText text={t('help.main.auxText2')} />
-						<accordion>text</accordion>
+						
+						<HelpAccordion/>
 					</div>
 				</div>
 			</div>

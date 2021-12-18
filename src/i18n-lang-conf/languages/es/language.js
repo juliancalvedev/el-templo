@@ -158,7 +158,14 @@ export default {
 			rectangle324: 'Cuerpo,alma,mente',
 			btn1: 'Ver mas',
 			mission: 'MISION Y VISION',
-			auxText2: 'El Templo tiene como Misión introducir al público a nuevos sistemas de entrenamientos, culturizar e instruir a sus integrantes en el mundo del movimiento como estilo de vida y no como compromiso social y fines puramente estéticos. Ser mejores humanos a través de nuestras acciones y comportamientos.',
+			auxText2:
+				'El Templo tiene como Misión introducir al público a nuevos sistemas de entrenamientos, culturizar e instruir a sus integrantes en el mundo del movimiento como estilo de vida y no como compromiso social y fines puramente estéticos. Ser mejores humanos a través de nuestras acciones y comportamientos.',
+			accordionText1: '¿Tienes dudas sobre tu entrenamiento?',
+			accordionInside1: 'Contacta al coach',
+			accordionInside2: 'Asunto:',
+			accordionInside3:'Mensaje:',
+			btnSend:'Enviar',
+			accordionText2: '¿Tienes dudas sobre cómo funciona la app?',
 		},
 	},
 	navbar: {

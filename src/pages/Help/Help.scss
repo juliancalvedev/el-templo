@@ -12,7 +12,7 @@ line-height: 24px;
 color: #FFFFFF;
 
 }
-.btnColapsed{
+.btnCollapsed{
     
 height: 44px;
 width: 193px;
@@ -37,8 +37,19 @@ text-align: center;
 color: #2E4F77;
 
 }
-.collapse {
-  &:not(.show) {
-    display: none;
-  }
+.accordion-button{
+  display: flex;
+align-items: flex-start;
+border-radius: 0px;
+width: 100%;
+
+font-family: $font-1;
+font-weight: 600;
+font-size: 11px;
+line-height: 1px;
+color: #000000;
+padding-bottom: 0%;
+
+
+
 }

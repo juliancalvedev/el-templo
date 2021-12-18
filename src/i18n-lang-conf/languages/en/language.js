@@ -157,6 +157,13 @@ export default {
 			mission: 'MISSION & VISION',
 			auxText2:
 				'The Mission of El Templo is to introduce the public to new training systems, to cultivate and instruct its members in the world of movement as a lifestyle and not as a social commitment and purely aesthetic purposes. Be better humans through our actions and behaviors.',
+			accordionText1: 'Do you have questions about your training?',
+			accordionInside1: 'Contact the coach',
+			accordionInside2: 'Matter:',
+			accordionInside3: 'Message:',
+			btnSend: 'Send',
+
+			accordionText2: 'Do you have questions about how the app works?',
 		},
 	},
 	navbar: {
