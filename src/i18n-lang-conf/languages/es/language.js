@@ -50,12 +50,12 @@ export default {
 			recovery: '¿Olvidaste tu contraseña?',
 			btnLogin: 'Iniciar sesión',
 		},
-		
+
 		emailConfirm: {
 			title: 'Confirma tu email',
 			p1: 'Estás a un paso de comenzar',
 			p2: 'Confirma tu correo electronico haciendo click en el enlace que enviamos, en tu bandeja de entrada.',
-			p3: "No te ha llegado? Haz click aquí",
+			p3: 'No te ha llegado? Haz click aquí',
 			btnConfirm: 'Reenviar correo electronico',
 		},
 		register: {
@@ -84,7 +84,7 @@ export default {
 			countryError: 'Por favor, seleccione su país',
 			dateOfBirthError: 'por favor, ingrese su fecha de nacimiento',
 		},
-		
+
 		emailVerified: {
 			title: 'Tu E-mail ha sido verificado correctamente.',
 			titleError: 'El link no es válido o ha caducado.',
@@ -152,9 +152,13 @@ export default {
 	help: {
 		main: {
 			aboutUs: 'Sobre nosotros',
-			elTemplo: 'El Templo',
+			elTemplo: 'EL TEMPLO',
 			auxText1:
-				'El Templo es un espacio de entrenamiento funcional y alternativo para personas entrenadas y no entrenadas... etc',
+				'El Templo es un espacio de entrenamiento funcional y alternativo para personas entrenadas y no entrenadas.Desde acrobacia libre a gimnasia deportiva, levantamiento de pesas a calistenia y movimiento natural.Es un lugar de introspección y autoconocimiento que busca transmitir los pilares del cuidado y superación personal a través del entrenamiento físico y mental.',
+			rectangle324: 'Cuerpo,alma,mente',
+			btn1: 'Ver mas',
+			mission: 'MISION Y VISION',
+			auxText2: 'El Templo tiene como Misión introducir al público a nuevos sistemas de entrenamientos, culturizar e instruir a sus integrantes en el mundo del movimiento como estilo de vida y no como compromiso social y fines puramente estéticos. Ser mejores humanos a través de nuestras acciones y comportamientos.',
 		},
 	},
 	navbar: {
@@ -175,10 +179,9 @@ export default {
 		forgottenPassword: '¿Olvidaste tu Contraseña?',
 		verifyEmail: 'Verificar Email',
 		enabledVerified: 'Comprobando Cuenta',
-		register:'Registro',
-		help:'Ayuda',
-		emailRegisterSended:'Confirma tu Email',
-
+		register: 'Registro',
+		help: 'Ayuda',
+		emailRegisterSended: 'Confirma tu Email',
 	},
 	user: {
 		changeUserPassword: {

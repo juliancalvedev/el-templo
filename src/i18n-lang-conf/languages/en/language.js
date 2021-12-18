@@ -83,7 +83,7 @@ export default {
 			countryError: 'Please, select your Country.',
 			dateOfBirthError: 'Please, enter your date of birth',
 		},
-	
+
 		emailVerified: {
 			title: 'Your E-mail has been correctly verified.',
 			titleError: 'The link is invalid or has expired. ',
@@ -151,7 +151,12 @@ export default {
 			aboutUs: 'About us',
 			elTemplo: 'El Templo',
 			auxText1:
-				"El Templo' it's a functional alternative trainning space, for advanced and also for beginers.",
+				'El Templo is a functional and alternative training space for trained and untrained people, from free acrobatics to sports gymnastics, weightlifting to calisthenics and natural movement. through physical and mental training.',
+			rectangle324: 'Body,soul,mind',
+			btn1: 'See more',
+			mission: 'MISSION & VISION',
+			auxText2:
+				'The Mission of El Templo is to introduce the public to new training systems, to cultivate and instruct its members in the world of movement as a lifestyle and not as a social commitment and purely aesthetic purposes. Be better humans through our actions and behaviors.',
 		},
 	},
 	navbar: {
@@ -172,9 +177,9 @@ export default {
 		forgottenPassword: 'Forgot you Password?',
 		verifyEmail: 'Verify Email',
 		enabledVerified: 'Checking Account',
-		register:'Register',
-		help:'Help',
-		emailRegisterSended:'Confirm Email',
+		register: 'Register',
+		help: 'Help',
+		emailRegisterSended: 'Confirm Email',
 	},
 	user: {
 		changeUserPassword: {
