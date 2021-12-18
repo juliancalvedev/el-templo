@@ -13,6 +13,7 @@ export const PATHS = {
 	EMAIL_REGISTER_SENDED: 'email-register-sended',
 	MAIN_GOALS: 'main-goals',
 	TRAINING_LEVEL: 'training-level',
+	WEIGHT_HEIGHT: 'weight-height',
 };
 
 export const TOPBAR_TEXTS = {

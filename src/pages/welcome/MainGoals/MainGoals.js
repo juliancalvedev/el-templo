@@ -8,7 +8,7 @@ import Title from '../../../components/Title/Title';
 import './mainGoals.scss';
 import { PATHS } from '../../../constants/paths';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTrainingInfo } from '../../../redux/user';
+import { addGoalsToTrainingInfo } from '../../../redux/user';
 
 const MainGoals = () => {
 	const { t } = useTranslation();
@@ -20,9 +20,6 @@ const MainGoals = () => {
 	const [arrGoals, setArrGoals] = useState([]);
 	const [selectedGoals, setSelectedGoals] = useState(trainingGoals);
 
-	// console.log(selectedGoals);
-	// console.log(trainingGoals);
-
 	const getGoals = async () => {
 		const response = await axiosInstance.get('/user/get-goals');
 		const goals = await response?.data?.data?.goals;
@@ -31,7 +28,7 @@ const MainGoals = () => {
 
 	const toTrainingLevel = () => {
 		dispatch(
-			addTrainingInfo({
+			addGoalsToTrainingInfo({
 				goals: selectedGoals,
 			})
 		);
@@ -61,8 +58,8 @@ const MainGoals = () => {
 
 	return (
 		<div className='container d-flex justify-content-center align-items-center flex-column'>
-			<Title text={'Contanos'} />
-			<AuxText text={'¿Cuáles son tus objetivos principales?'} />
+			<Title text={t('welcome.goals.tellUs')} />
+			<AuxText text={t('welcome.goals.mainGoals')} />
 
 			<div className='showing-inputs'>
 				<div
@@ -80,7 +77,6 @@ const MainGoals = () => {
 				>
 					<p className='numbers'>2</p>
 					<p className='goals'>
-						{' '}
 						{t(`welcome.goals.${selectedGoals[1]}`)}
 					</p>
 				</div>
@@ -90,7 +86,6 @@ const MainGoals = () => {
 				>
 					<p className='numbers'>3</p>
 					<p className='goals'>
-						{' '}
 						{t(`welcome.goals.${selectedGoals[2]}`)}
 					</p>
 				</div>

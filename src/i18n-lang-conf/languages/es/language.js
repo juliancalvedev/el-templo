@@ -128,12 +128,20 @@ export default {
 			btnLetsBegin: '¡Empecemos!',
 		},
 		goals: {
+			tellUs: 'Contanos',
+			mainGoals: '¿Cuáles son tus objetivos principales?',
 			'': '', // Default
 			STRENGTH: 'Fuerza',
 			FLEX: 'Flexibilidad',
 			LOSE_WEIGHT: 'Perder peso',
 			TONE_UP: 'Tonificar',
 			GAIN_STAMINA: 'Ganar resistencia',
+		},
+		trainingLevel: {
+			title: '¿Cuál es tu nivel de entrenamiento actual?',
+			auxText: 'Esto ayudará a tu entrenador a asesorarte adecuadamente.',
+			amateur: 'Principiante',
+			professional: 'Profesional',
 		},
 	},
 	profile: {

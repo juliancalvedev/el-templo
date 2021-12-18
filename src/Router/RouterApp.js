@@ -22,6 +22,7 @@ import Welcome from '../pages/welcome/Welcome/Welcome';
 import EmailRegisterSended from '../pages/EmailRegisterSended/EmailRegisterSended';
 import MainGoals from '../pages/welcome/MainGoals/MainGoals';
 import TrainingLevel from '../pages/welcome/TrainingLevel/TrainningLevel';
+import WeightHeight from '../pages/welcome/WeightHeight/WeightHeight';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -59,6 +60,10 @@ const RouterApp = () => {
 								<Route
 									path={PATHS.TRAINING_LEVEL}
 									element={<TrainingLevel />}
+								/>
+								<Route
+									path={PATHS.WEIGHT_HEIGHT}
+									element={<WeightHeight />}
 								/>
 							</Route>
 						)}

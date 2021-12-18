@@ -1,6 +1,6 @@
-const AuxText = ({ text }) => {
+const AuxText = ({ text, style }) => {
 	return (
-		<div>
+		<div style={style}>
 			<p>{text}</p>
 		</div>
 	);

@@ -128,12 +128,20 @@ export default {
 			btnLetsBegin: "Let's begin",
 		},
 		goals: {
+			tellUs: 'Tell Us',
+			mainGoals: 'What are your main goals?',
 			'': '', // Default
 			STRENGTH: 'Strength',
 			FLEX: 'Flex',
 			LOSE_WEIGHT: 'Lose weight',
 			TONE_UP: 'Tone up',
 			GAIN_STAMINA: 'Gain stamina',
+		},
+		trainingLevel: {
+			title: "What's your current training level?",
+			auxText: 'This will help your coach to advise you properly.',
+			amateur: 'Amateur',
+			professional: 'Professional',
 		},
 	},
 	profile: {
