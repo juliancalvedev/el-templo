@@ -142,6 +142,7 @@ export default {
 		editPassword: {},
 	},
 
+
 	training: {
 		leveling: {},
 		levelingExercise: {},
@@ -200,6 +201,22 @@ export default {
 			newPassword: 'Nueva contraseña',
 			repeatNewPassword: 'Repetir contraseña nueva',
 			submitPassword: 'Cambiar contraseña',
+		},
+		myProfile:{
+			level: 'Nivel',
+			completedTrainings: 'Entrenamientos completados',
+			memberSince: 'Miembro desde',
+			editProfile: 'Editar perfil',
+			editInfo: 'EDITAR',
+			endEnabledDate: 'Suscripción activa hasta el día',
+			aboutYou: 'Sobre vos',
+			trainingLevel: 'Nivel de entrenamiento',
+			goals: 'Objetivos',
+			personalInfo: 'Datos personales',
+			height: 'Altura',
+			weight: 'Peso',
+			logOut: 'Cerrar sesión',
+			password: 'Password'
 		},
 	},
 };

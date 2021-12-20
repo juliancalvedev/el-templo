@@ -30,11 +30,9 @@
 .edit-profile-box {
 	width: 53px;
 	height: 64px;
-	align-self: flex-end;
-	position: absolute;
 	background-color: rgba(224, 198, 168, 0.4);
 	border-radius: 0px 16px;
-	flex-direction: column;
+
 }
 
 .edit-profile-text {

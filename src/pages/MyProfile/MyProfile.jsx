@@ -9,11 +9,13 @@ import { PATHS } from '../../constants/paths';
 import GenericTicket from '../../components/GenericTicket/GenericTicket';
 import { logoutAction } from '../../redux/auth';
 import { useDispatch } from 'react-redux';
-import Input from '../../components/Input/Input';
+import { useTranslation } from 'react-i18next';
+ 
 
 const MyProfile = () => {
+	const { t } = useTranslation();
 	const navigate = useNavigate();
-	const { startEnabledDate, endEnabledDate, goals, height, weight } =
+	const { startEnabledDate, endEnabledDate, goals, height, weight, trainingLevel } =
 		useSelector((store) => store.user);
 	const userData = useSelector((store) => store.user);
 	console.log(userData);
@@ -27,51 +29,54 @@ const MyProfile = () => {
 	};
 	return (
 		<div className='my-profile-body'>
-			<div className='user-level-box'>
+			<div className='user-level-box   '>
 				<div className='userImg'>
 					<img src='' alt='' />
 				</div>
-				<div className='edit-profile-box'>
+				<div className='edit-profile-box '>
 					<img src='' alt='' />
-					<p className='edit-profile-text'>Editar perfil</p>
+					<p className='edit-profile-text'>{t('user.myProfile.editProfile')}</p>
 				</div>
-				<h3>Nivel x</h3>
-				<AuxText text='Entrenamientos realizados: x' />
-				<AuxText
-					text={`Miembro desde: ${cutDate(`${startEnabledDate}`)}`}
-				/>
+				<h3 className='' >{t('user.myProfile.level')} {trainingLevel}</h3>
+				<p className='align-self-center' >{t('user.myProfile.completedTrainings')}: X</p>
+				
+				
+				
+				<AuxText  className='' text={`${t('user.myProfile.memberSince'), cutDate(`${startEnabledDate}`)}`}/>
 			</div>
 			<div className='subscription-box'>
 				<p className='subscription-white-text'>
-					Suscripción activa hasta el día: {cutDate(`${endEnabledDate}`)}
+					{t('user.myProfile.endEnabledDate')} : {cutDate(`${endEnabledDate}`)}
 				</p>
 			</div>
 
-			<div className='about-you-box'>
-				<AuxText text='Sobre vos' />
+			<div className='about-you-box  '>
+				<p className="align-self-end"> {t('user.myProfile.aboutYou')} </p>
 				<a className='about-you-link' href='/edit-user-info'>
-					EDITAR
+					{t('user.myProfile.editInfo')}
 				</a>
 			</div>
 			<div className='my-profile-stats'>
 				<div className='training-level-box'>
-					<AuxText text={`Nivel de entrenamiento :`} />
+					<p>{`${t('user.myProfile.trainingLevel')} : inicial`}</p>
 				</div>
-				<AuxText text={`Objetivos:`} />
-				<GenericTicket text1={goals?.[0]} />
-				<GenericTicket text1={goals?.[1]} />
-				<GenericTicket text1={goals?.[2]} />
+				<AuxText text={t('user.myProfile.goals')} />
+				<GenericTicket text1={" 1 	. " + goals?.[0]} />
+				<GenericTicket text1={" 2 . " + goals?.[1]} />
+				<GenericTicket text1={" 3 . " +goals?.[2]} />
 				<AuxText text='Datos personales:' />
-				<GenericTicket text1={`Peso`} text2={weight} />
-				<GenericTicket text1={`Altura`} text2={height} />
+				<GenericTicket text1={t('user.myProfile.weight')} text2={weight} />
+				<GenericTicket text1={t('user.myProfile.height')} text2={height} />
+
 			</div>
 
-			<Button title='Contraseña' mode='flat' onClick={handleNavigate} />
+			<Button title={t('user.myProfile.password')} mode='flat' onClick={handleNavigate} />
 			<Button
-				title='Cerrar sesion'
+				title={t('user.myProfile.logOut')}
 				mode='flat dangerText'
 				onClick={onLogout}
-			/>
+				/>
+				
 		</div>
 	);
 };

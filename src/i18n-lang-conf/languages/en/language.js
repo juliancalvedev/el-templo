@@ -201,5 +201,21 @@ export default {
 			repeatNewPassword: 'Repeat New Password',
 			submitPassword: 'Change Password',
 		},
+		myProfile:{
+			level: 'Level',
+			completedTrainings: 'Completed Trainings',
+			memberSince: 'Member since',
+			editProfile: 'Edit profile',
+			editInfo: 'Edit',
+			endEnabledDate: 'Subscription active until',
+			aboutYou: 'About you',
+			trainingLevel: 'Training level',
+			goals: 'Goals',
+			personalInfo: 'Personal info',
+			height: 'Height',
+			weight: 'Weight',
+			logOut: 'Log out',
+			password: 'Password'
+		},
 	},
 };
