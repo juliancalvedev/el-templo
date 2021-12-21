@@ -204,7 +204,7 @@ export default {
 		},
 		myProfile:{
 			level: 'Nivel',
-			completedTrainings: 'Entrenamientos completados',
+			completedTrainings: 'Entrenamientos realizados',
 			memberSince: 'Miembro desde',
 			editProfile: 'Editar perfil',
 			editInfo: 'EDITAR',

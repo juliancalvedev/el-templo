@@ -1,5 +1,17 @@
 @import '../../styles/variables';
 
+@mixin flatBtn(){
+	width: 411px;
+	height: 56px;
+	background-color: $nineth;
+	margin-top: 1px;
+	display: flex;
+	align-items: center;
+	padding-left: 24px;
+	color: $sixth;
+	border-radius: 0;
+}
+
 .customBtn {
 	width: 379px;
 	height: 44px;
@@ -14,17 +26,21 @@
 	border: none;
 
 	&--flat {
-		width: 411px;
-		height: 56px;
-		background-color: $nineth;
-		margin-top: 1px;
-		display: flex;
-		align-items: center;
-		padding-left: 24px;
-		color: $sixth;
-		border-radius: 0;
+		@include flatBtn();
 		&:hover {
-			background-color: rgba(255, 255, 255, 3);
+			background-color: $nineth;
+			color: $sixth;
 		}
+		&Danger{
+		@include flatBtn();
+		color: $fourth;
+		&:hover {
+			background-color: $nineth;
+			color: $fourth;
+		}
+			
+	}
+
+	
 	}
 }

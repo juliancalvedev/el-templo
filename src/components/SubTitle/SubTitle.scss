@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+
+.subTitle {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 32px;
+
+	margin: 5px;
+
+	&--dark {
+		color: $sixth;
+	}
+	&--light {
+		color: $nineth;
+	}
+}
