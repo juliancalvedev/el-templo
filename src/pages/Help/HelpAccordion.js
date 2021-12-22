@@ -39,19 +39,16 @@ const HelpAccordion = ({accordionType='icon'}) => {
 									<p>{t('help.main.accordionInside3')}</p>
 								</div>
 							</div>
-							<div className='col-8'>
+							<div className='col-8 '>
 								<input className='col-12 border border-1 rounded-pill '></input>
 								<textarea
 									rows='3'
 									cols='21'
 									className='col-12 border border-1 rounded-3'
 								></textarea>
-								
-									<Button 
-										type='button'
-										title={t('help.main.btnSend')}
-									/>
-								
+								<button className='customBtn w-50 h-60  '>
+									{t('help.main.btnSend')}
+								</button>
 							</div>
 						</div>
 					</div>
