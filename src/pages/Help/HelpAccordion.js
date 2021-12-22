@@ -7,11 +7,11 @@ const HelpAccordion = ({accordionType='icon'}) => {
 	const { t } = useTranslation();
 	return (
 		<div>
-			<div class='accordion  ' id='accordionExample'>
-				<div class='accordion-item  '>
-					<h2 class='accordion-header  ' id='headingTwo'>
+			<div className='accordion  ' id='accordionExample'>
+				<div className='accordion-item  '>
+					<h2 className='accordion-header  ' id='headingTwo'>
 						<button
-							class='accordion-button  bg-light text-dark'
+							className='accordion-button  bg-light text-dark'
 							type='button'
 							data-bs-toggle='collapse'
 							data-bs-target='#collapseTwo'
@@ -23,11 +23,11 @@ const HelpAccordion = ({accordionType='icon'}) => {
 					</h2>
 					<div
 						id='collapseTwo'
-						class='accordion-collapse collapse'
+						className='accordion-collapse collapse'
 						aria-labelledby='headingTwo'
 						data-bs-parent='#accordionExample'
 					>
-						<div class='accordion-body row'>
+						<div className='accordion-body row'>
 							<div className='col-12'>
 								<p>{t('help.main.accordionInside1')}</p>
 							</div>
@@ -40,20 +40,26 @@ const HelpAccordion = ({accordionType='icon'}) => {
 								</div>
 							</div>
 							<div className='col-8'>
-								<input className='col-12'></input>
-								<input className='col-12'></input>
-								<Button
-									className='col align-self-end  '
-									title={t('help.main.btnSend')}
-								/>
+								<input className='col-12 border border-1 rounded-pill '></input>
+								<textarea
+									rows='3'
+									cols='21'
+									className='col-12 border border-1 rounded-3'
+								></textarea>
+								
+									<Button 
+										type='button'
+										title={t('help.main.btnSend')}
+									/>
+								
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class='accordion-item'>
-					<h2 class='accordion-header' id='headingThree'>
+				<div className='accordion-item'>
+					<h2 className='accordion-header' id='headingThree'>
 						<button
-							class='accordion-button bg-light text-dark'
+							className='accordion-button bg-light text-dark'
 							type='button'
 							data-bs-toggle='collapse'
 							data-bs-target='#collapseThree'
@@ -65,11 +71,11 @@ const HelpAccordion = ({accordionType='icon'}) => {
 					</h2>
 					<div
 						id='collapseThree'
-						class='accordion-collapse collapse'
+						className='accordion-collapse collapse'
 						aria-labelledby='headingThree'
 						data-bs-parent='#accordionExample'
 					>
-						<div class='accordion-body'>
+						<div className='accordion-body'>
 							<HelpAccordionBlue />
 						</div>
 					</div>

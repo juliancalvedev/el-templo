@@ -5,13 +5,13 @@ import AuxText from '../../components/AuxText/AuxText';
 const HelpAccordionBlue = ({accordionType='blue',color='color'}) => {
     const {t}=useTranslation();
 	return (
-		<div class='accordion accordion-flush ' id='accordionFlushExample'>
+		<div className='accordion accordion-flush ' id='accordionFlushExample'>
 			<p className='fs-4 pt-2 mb-0'>{t('help.main.faqs')}</p>
 			<p >{t('help.main.fq')}</p>
-			<div class='accordion-item'>
-				<h2 class='accordion-header' id='flush-headingOne'>
+			<div className='accordion-item'>
+				<h2 className='accordion-header' id='flush-headingOne'>
 					<button
-						class={`accordion-button accordion-button--${accordionType} `}
+						className={`accordion-button accordion-button--${accordionType} `}
 						type='button'
 						data-bs-toggle='collapse'
 						data-bs-target='#flush-collapseOne'
@@ -23,19 +23,19 @@ const HelpAccordionBlue = ({accordionType='blue',color='color'}) => {
 				</h2>
 				<div
 					id='flush-collapseOne'
-					class='accordion-collapse collapse'
+					className='accordion-collapse collapse'
 					aria-labelledby='flush-headingOne'
 					data-bs-parent='#accordionFlushExample'
 				>
-					<div class={`accordion-body accordion-body--${color}`}>
+					<div className={`accordion-body accordion-body--${color}`}>
 						{t('help.main.auxText3')}
 					</div>
 				</div>
 			</div>
-			<div class='accordion-item'>
-				<h2 class='accordion-header' id='flush-headingTwo'>
+			<div className='accordion-item'>
+				<h2 className='accordion-header' id='flush-headingTwo'>
 					<button
-						class={`accordion-button accordion-button--${accordionType}  `}
+						className={`accordion-button accordion-button--${accordionType}  `}
 						type='button'
 						data-bs-toggle='collapse'
 						data-bs-target='#flush-collapseTwo'
@@ -47,11 +47,11 @@ const HelpAccordionBlue = ({accordionType='blue',color='color'}) => {
 				</h2>
 				<div
 					id='flush-collapseTwo'
-					class='accordion-collapse collapse'
+					className='accordion-collapse collapse'
 					aria-labelledby='flush-headingTwo'
 					data-bs-parent='#accordionFlushExample'
 				>
-					<div class={`accordion-body accordion-body--${color}`}>
+					<div className={`accordion-body accordion-body--${color}`}>
 						Placeholder content for this accordion, which is intended to
 						demonstrate the <code>.accordion-flush</code> class. This is
 						the second item's accordion body. Let's imagine this being
@@ -59,10 +59,10 @@ const HelpAccordionBlue = ({accordionType='blue',color='color'}) => {
 					</div>
 				</div>
 			</div>
-			<div class='accordion-item'>
-				<h2 class='accordion-header' id='flush-headingThree'>
+			<div className='accordion-item'>
+				<h2 className='accordion-header' id='flush-headingThree'>
 					<button
-						class={`accordion-button  accordion-button--${accordionType}  `}
+						className={`accordion-button  accordion-button--${accordionType}  `}
 						type='button'
 						data-bs-toggle='collapse'
 						data-bs-target='#flush-collapseThree'
@@ -74,11 +74,11 @@ const HelpAccordionBlue = ({accordionType='blue',color='color'}) => {
 				</h2>
 				<div
 					id='flush-collapseThree'
-					class='accordion-collapse collapse'
+					className='accordion-collapse collapse'
 					aria-labelledby='flush-headingThree'
 					data-bs-parent='#accordionFlushExample'
 				>
-					<div class={`accordion-body accordion-body--${color}`}>
+					<div className={`accordion-body accordion-body--${color}`}>
 						Placeholder content for this accordion, which is intended to
 						demonstrate the <code>.accordion-flush</code> class. This is
 						the third item's accordion body. Nothing more exciting
@@ -89,10 +89,10 @@ const HelpAccordionBlue = ({accordionType='blue',color='color'}) => {
 					</div>
 				</div>
 			</div>
-			<div class='accordion-item'>
-				<h2 class='accordion-header' id='flush-headingFour'>
+			<div className='accordion-item'>
+				<h2 className='accordion-header' id='flush-headingFour'>
 					<button
-						class={`accordion-button accordion-button--${accordionType} `}
+						className={`accordion-button accordion-button--${accordionType} `}
 						type='button'
 						data-bs-toggle='collapse'
 						data-bs-target='#flush-collapseFour'
@@ -104,11 +104,11 @@ const HelpAccordionBlue = ({accordionType='blue',color='color'}) => {
 				</h2>
 				<div
 					id='flush-collapseFour'
-					class='accordion-collapse collapse'
+					className='accordion-collapse collapse'
 					aria-labelledby='flush-headingFour'
 					data-bs-parent='#accordionFlushExample'
 				>
-					<div class={`accordion-body accordion-body--${color}`}>
+					<div className={`accordion-body accordion-body--${color}`}>
 						Placeholder content for this accordion, which is intended to
 						demonstrate the <code>.accordion-flush</code> class. This is
 						the third item's accordion body. Nothing more exciting
