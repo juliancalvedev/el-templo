@@ -163,9 +163,21 @@ export default {
 			accordionText1: '¿Tienes dudas sobre tu entrenamiento?',
 			accordionInside1: 'Contacta al coach',
 			accordionInside2: 'Asunto:',
-			accordionInside3:'Mensaje:',
-			btnSend:'Enviar',
+			accordionInside3: 'Mensaje:',
+			btnSend: 'Enviar',
 			accordionText2: '¿Tienes dudas sobre cómo funciona la app?',
+			btn2: 'Terminos y condiciones',
+			btn3: 'Contacto',
+			accordionTextBlue1: '¿Cuáles son los objetivos del programa ?',
+			accordionTextBlue2: '¿Cuándo subo de nivel?',
+			accordionTextBlue3:
+				'¿Qué estará contemplado dentro de un entrenamiento diario?',
+			accordionTextBlue4:
+				'¿Qué nivel de preparación física se necesita para realizarlo?',
+			auxText3:
+				'Desarrollo de capacidades básicas de la fuerza (explosiva, potencia, máxima, resistencia).• Desarrollo de capacidades básicas de la flexibilidad (Pasiva, activa, dinámica).• Aumento de eficiencia biomecánica.• Prevención o tratamiento de lesiones• Mejora en el rendimiento deportivo. • Aumento del conocimiento en relación al movimiento.',
+			faqs:'FAQS',
+			fq:'Preguntas frecuentes'
 		},
 	},
 	navbar: {

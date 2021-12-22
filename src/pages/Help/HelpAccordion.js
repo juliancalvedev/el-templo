@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Button from '../../components/Button/Button';
 import HelpAccordionBlue from './HelpAccordionBlue';
 
-const HelpAccordion = () => {
+const HelpAccordion = ({accordionType='icon'}) => {
 	const { t } = useTranslation();
 	return (
 		<div>
@@ -76,11 +76,15 @@ const HelpAccordion = () => {
 				</div>
 			</div>
 			<div>
-				<button className='accordion-button bg-light text-dark'>
-					terminos y condiciones
+				<button
+					className={`accordion-button bg-light  text-dark accordion-button--${accordionType}`}
+				>
+					{t('help.main.btn2')}
 				</button>
-				<button className='accordion-button bg-light text-dark'>
-					contacto
+				<button
+					className={`accordion-button bg-light  text-dark accordion-button--${accordionType}`}
+				>
+					{t('help.main.btn3')}
 				</button>
 			</div>
 		</div>

@@ -164,6 +164,17 @@ export default {
 			btnSend: 'Send',
 
 			accordionText2: 'Do you have questions about how the app works?',
+			btn2: 'Terms & conditions',
+			btn3: 'Contact',
+			accordionTextBlue1: 'What are the objectives of the program ?',
+			accordionTextBlue2: 'When do I level up?',
+			accordionTextBlue3: 'What will be included in a daily training?',
+			accordionTextBlue4:
+				'What level of physical preparation is needed to do it?',
+			auxText3:
+				' Development of basic strength capabilities (explosive, power, maximum, resistance). • Development of basic flexibility capabilities (passive, active, dynamic). • Increased biomechanical efficiency. • Prevention or treatment of injuries • Improvement in the sports performance. • Increased knowledge in relation to movement. ',
+			faqs: 'FAQS',
+			fq: 'Frequent questions',
 		},
 	},
 	navbar: {
