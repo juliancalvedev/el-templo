@@ -32,15 +32,14 @@ export const putTrainingInfo = async (trainingInfo) => {
 		const response = await privatePut({
 			url: `${baseURL}/edit-training-info`,
 			body: {
-				trainingInfo: {
-					goals: trainingInfo.goals,
-					trainingLevel: trainingInfo.trainingLevel,
-					weight: trainingInfo.weight,
-					height: trainingInfo.height,
-				},
+				goals: trainingInfo.goals,
+				trainingLevel: trainingInfo.trainingLevel,
+				weight: trainingInfo.weight,
+				height: trainingInfo.height,
 			},
 		});
 		const { data, problem } = response.data;
+
 		return { data, problem };
 	} catch (error) {
 		alert(error);

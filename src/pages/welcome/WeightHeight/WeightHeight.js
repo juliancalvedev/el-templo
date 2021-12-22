@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addWeightAndHeightToTrainingInfo } from '../../../redux/user';
+import {
+	addWeightAndHeightToTrainingInfo,
+	getUserInfoAction,
+} from '../../../redux/user';
 import { putTrainingInfo } from '../../../services/user';
 import { useNavigate } from 'react-router-dom';
 
@@ -22,16 +25,16 @@ const WeightHeight = () => {
 	const [selectedHeight, setSelectedHeight] = useState(userHeight);
 
 	const generateWeightNums = () => {
-		let nums = [];
-		for (let i = 0; i <= 200; i++) nums.push(i); // PESO
-		return nums;
+		let weightNums = [];
+		for (let i = 0; i <= 200; i++) weightNums.push(i); // PESO
+		return weightNums;
 	};
 	const weights = generateWeightNums(); // PESO
 
 	const generateHeights = () => {
-		let nums = [];
-		for (let i = 1; i <= 2.5; i = i + 0.01) nums.push(i.toFixed(2)); // ALTURA
-		return nums;
+		let heights = [];
+		for (let i = 0.5; i <= 2.5; i = i + 0.01) heights.push(i.toFixed(2)); // ALTURA
+		return heights;
 	};
 	const heights = generateHeights(); // ALTURA
 
@@ -40,17 +43,25 @@ const WeightHeight = () => {
 		if (type === 'height') setSelectedHeight(e.target.value); // ALTURA
 	};
 
-	const setTrainingInfo = async () => await putTrainingInfo(trainingInfo);
+	const callback = async () => {
+		await putTrainingInfo({
+			...trainingInfo,
+			weight: selectedWeight,
+			height: selectedHeight,
+		});
+		dispatch(getUserInfoAction());
+	};
 
 	const handleSubmit = () => {
 		dispatch(
-			addWeightAndHeightToTrainingInfo({
-				weight: selectedWeight,
-				height: selectedHeight,
-			})
+			// 	addWeightAndHeightToTrainingInfo(
+			// 		{
+			// 			weight: selectedWeight,
+			// 			height: selectedHeight,
+			// 		},
+			callback
+			// )
 		);
-		setTrainingInfo(trainingInfo);
-
 		navigate(`/${PATHS.BASE_URL}`);
 	};
 

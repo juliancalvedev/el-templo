@@ -97,9 +97,11 @@ export const addLevelToTrainingInfo = (data) => (dispatch) => {
 	});
 };
 
-export const addWeightAndHeightToTrainingInfo = (data) => (dispatch) => {
-	dispatch({
-		type: SET_WEIGHT_HEIGHT_TRAINING_INFO,
-		payload: data,
-	});
-};
+export const addWeightAndHeightToTrainingInfo =
+	(data, callback) => (dispatch) => {
+		// dispatch({
+		// 	type: SET_WEIGHT_HEIGHT_TRAINING_INFO,
+		// 	payload: data,
+		// });
+		callback();
+	};
