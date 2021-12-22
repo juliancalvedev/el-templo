@@ -67,11 +67,11 @@ const WeightHeight = () => {
 
 	return (
 		<div className='d-flex justify-content-center  flex-column'>
-			<Title text='Completa estos ultimos datos personales' />
+			<Title text={t('welcome.weightHeight.title')} />
 
 			<div className='form-group d-flex'>
 				<label className='col-3' htmlFor='weight'>
-					Peso
+					{t('welcome.weightHeight.weight')}
 				</label>
 				<select
 					className='form-control col-6'
@@ -83,12 +83,12 @@ const WeightHeight = () => {
 						<option key={num}>{num}</option> // PESAJES
 					))}
 				</select>
-				<p>Kilos</p>
+				<p>{t('welcome.weightHeight.kilos')}</p>
 			</div>
 
 			<div className='form-group d-flex'>
 				<label className='col-3' htmlFor='height'>
-					Altura
+					{t('welcome.weightHeight.height')}
 				</label>
 				<select
 					className='form-control col-6'
@@ -100,9 +100,12 @@ const WeightHeight = () => {
 						<option key={num}>{num}</option> // ALTURAS
 					))}
 				</select>
-				<p>Metros</p>
+				<p>{t('welcome.weightHeight.meters')}</p>
 			</div>
-			<Button title='ENTRAR' onClick={handleSubmit} />
+			<Button
+				title={t('welcome.weightHeight.enter')}
+				onClick={handleSubmit}
+			/>
 		</div>
 	);
 };

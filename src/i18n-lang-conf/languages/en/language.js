@@ -143,6 +143,14 @@ export default {
 			amateur: 'Amateur',
 			professional: 'Professional',
 		},
+		weightHeight: {
+			title: 'Complete the last personal data.',
+			weight: 'Weight',
+			height: 'Height',
+			kilos: 'Kilos',
+			meters: 'Meters',
+			enter: 'Enter',
+		},
 	},
 	profile: {
 		profile: {},
