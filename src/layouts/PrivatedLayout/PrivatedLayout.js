@@ -8,7 +8,6 @@ import { getUserInfoAction } from '../../redux/user';
 
 const PrivatedLayout = () => {
 	const { goals } = useSelector((store) => store.user);
-	console.log(goals);
 
 	const dispatch = useDispatch();
 	const onLogout = () => {
