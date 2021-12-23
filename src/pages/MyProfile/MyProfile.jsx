@@ -9,7 +9,6 @@ import GenericTicket from '../../components/GenericTicket/GenericTicket';
 import { logoutAction } from '../../redux/auth';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import Title from '../../components/Title/Title';
 import SubTitle from '../../components/SubTitle/SubTitle';
 
 const MyProfile = () => {
@@ -22,6 +21,7 @@ const MyProfile = () => {
 		height,
 		weight,
 		trainingLevel,
+		img,
 	} = useSelector((store) => store.user);
 	const userData = useSelector((store) => store.user);
 	console.log(userData);
@@ -35,50 +35,46 @@ const MyProfile = () => {
 	};
 	return (
 		<div className=' col-12 my-profile-body'>
-			<div className=' col-10 user-level-box'>
-				<div className='  image-container'>
-					<img src='' alt='' />
+			<div className='d-flex flex-row col-10 user-level-box'>
+				<div className=' align-self-center image-container'>
+					<img src={img} alt='' />
 				</div>
-
-				<div className='userLevel-box-texts'>
-					<div className=' level-and-profile'>
-						<Title
-							text={`${t(
-								'user.myProfile.level'
-							)} ${trainingLevel}`}
-						/>
-						<div className='edit-profile-box '>
-							<img
-								className='editProfile-icon'
-								src=''
-								alt='icon'
-							/>
-							<p className='editProfile-text'>
-								{t('user.myProfile.editProfile')}
-							</p>
-						</div>
-						<div>
-							<SubTitle
-								text={`${t(
+				<div className=' level-and-profile'>
+					<div>
+						<p className=' userLevel align-self-center'>{`${t(
+							'user.myProfile.level'
+						)} ${trainingLevel}`}</p>
+					</div>
+					<div className='userLevel-box-texts'>
+						<div className='d-flex flex-column justify-content-center date-container'>
+							<p className='date'>
+								{`${t(
 									'user.myProfile.completedTrainings'
-								)}: X`}
-							/>
+								)}: 00`}{' '}
+							</p>
 
-							<SubTitle
-								className=''
-								text={`${t(
-									'user.myProfile.memberSince'
-								)}: ${cutDate(`${startEnabledDate}`)}`}
-							/>
+							<p className='date'>
+								{`${t('user.myProfile.memberSince')}: ${cutDate(
+									`${startEnabledDate}`
+								)}`}
+							</p>
 						</div>
 					</div>
 				</div>
+				<a className='link' href=''>
+					<div className=' align-self-top align-self-end edit-profile-box '>
+						<img className='editProfile-icon' src='' alt='icon' />
+						<p className='editProfile-text'>
+							{t('user.myProfile.editProfile')}
+						</p>
+					</div>
+				</a>
 			</div>
 
-			<div className=' align-items-center justify-content-center d-flex subscription-box'>
-				<div className='d-flex align-self-center'>
+			<div className=' subscription-box'>
+				<div>
 					<p className=' subscription-white-text '>
-						{t('user.myProfile.endEnabledDate')} :
+						{t('user.myProfile.endEnabledDate')}:
 						{cutDate(`${endEnabledDate}`)}
 					</p>
 				</div>

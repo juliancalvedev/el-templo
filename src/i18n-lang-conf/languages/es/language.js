@@ -208,7 +208,7 @@ export default {
 			memberSince: 'Miembro desde',
 			editProfile: 'Editar perfil',
 			editInfo: 'EDITAR',
-			endEnabledDate: 'Suscripción activa hasta el día',
+			endEnabledDate: 'Suscripción activa hasta el día ',
 			aboutYou: 'Sobre vos',
 			trainingLevel: 'Nivel de entrenamiento',
 			goals: 'Objetivos',

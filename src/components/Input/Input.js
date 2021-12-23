@@ -1,3 +1,5 @@
+import './Input.scss'
+
 const Input = ({ id, name, placeholder, type, handleChange, param, value }) => {
 	return (
 		<div>
