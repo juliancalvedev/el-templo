@@ -1,12 +1,16 @@
 import './button.scss';
-
-const Button = ({ children, onClick, title, disabled, type = 'button' }) => {
+const SIZE_STYLES={
+	sm:'col-3 h-50 py-3 px-4 d-flex align-items-center rounded-4',
+	md:'col-5',
+	lg:'col-12',
+}
+const Button = ({ children, onClick, title, disabled, type = 'button' ,size='md'}) => {
 	return (
-		<div>
-			<div className='col-sm max-auto'>
+		
+			<div className=''>
 				<button
 					disabled={disabled}
-					className='btn btn-primary customBtn'
+					className={`btn btn-primary customBtn ${SIZE_STYLES[size]}`}
 					onClick={onClick}
 					type={type}
 				>
@@ -14,7 +18,7 @@ const Button = ({ children, onClick, title, disabled, type = 'button' }) => {
 					{title}
 				</button>
 			</div>
-		</div>
+	
 	);
 };
 
