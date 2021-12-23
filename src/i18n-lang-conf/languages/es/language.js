@@ -174,10 +174,16 @@ export default {
 				'¿Qué estará contemplado dentro de un entrenamiento diario?',
 			accordionTextBlue4:
 				'¿Qué nivel de preparación física se necesita para realizarlo?',
-			auxText3:
-				'Desarrollo de capacidades básicas de la fuerza (explosiva, potencia, máxima, resistencia).• Desarrollo de capacidades básicas de la flexibilidad (Pasiva, activa, dinámica).• Aumento de eficiencia biomecánica.• Prevención o tratamiento de lesiones• Mejora en el rendimiento deportivo. • Aumento del conocimiento en relación al movimiento.',
-			faqs:'FAQS',
-			fq:'Preguntas frecuentes'
+			auxText3: {
+				item1: '•Desarrollo de capacidades básicas de la fuerza (explosiva, potencia, máxima, resistencia).',
+				item2: '• Desarrollo de capacidades básicas de la flexibilidad (Pasiva, activa, dinámica).',
+				item3: '• Aumento de eficiencia biomecánica.',
+				item4:'• Prevención o tratamiento de lesiones',
+				item5: '• Mejora en el rendimiento deportivo. ',
+				item6: '• Aumento del conocimiento en relación al movimiento.',
+			},
+			faqs: 'FAQS',
+			fq: 'Preguntas frecuentes',
 		},
 	},
 	navbar: {

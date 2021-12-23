@@ -1,17 +1,19 @@
 import './Help.scss';
 import { useTranslation } from 'react-i18next';
 import Button from '../../components/Button/Button';
+import Title from '../../components/Title/Title';
 import HelpAccordionBlue from './HelpAccordionBlue';
 
-const HelpAccordion = ({accordionType='icon'}) => {
+
+const HelpAccordion = ({icon='icon'}) => {
 	const { t } = useTranslation();
 	return (
 		<div>
 			<div className='accordion  ' id='accordionExample'>
 				<div className='accordion-item  '>
-					<h2 className='accordion-header  ' id='headingTwo'>
+					<h2 className='accordion-header ' id='headingTwo'>
 						<button
-							className='accordion-button  bg-light text-dark'
+							className='accordion-button  bg-light text-dark '
 							type='button'
 							data-bs-toggle='collapse'
 							data-bs-target='#collapseTwo'
@@ -23,13 +25,16 @@ const HelpAccordion = ({accordionType='icon'}) => {
 					</h2>
 					<div
 						id='collapseTwo'
-						className='accordion-collapse collapse'
+						className='accordion-collapse collapse '
 						aria-labelledby='headingTwo'
 						data-bs-parent='#accordionExample'
 					>
 						<div className='accordion-body row'>
-							<div className='col-12'>
-								<p>{t('help.main.accordionInside1')}</p>
+							<div className='col-12 my-2 '>
+								<Title
+									type='title4 '
+									text={t('help.main.accordionInside1')}
+								/>
 							</div>
 							<div className='col-4'>
 								<div className='col-12'>
@@ -46,9 +51,9 @@ const HelpAccordion = ({accordionType='icon'}) => {
 									cols='21'
 									className='col-12 border border-1 rounded-3'
 								></textarea>
-								<button className='customBtn w-50 h-60  '>
-									{t('help.main.btnSend')}
-								</button>
+							</div>
+							<div className='col-12 d-flex justify-content-end'>
+								<Button title={t('help.main.btnSend')} size='sm' />
 							</div>
 						</div>
 					</div>
@@ -73,19 +78,22 @@ const HelpAccordion = ({accordionType='icon'}) => {
 						data-bs-parent='#accordionExample'
 					>
 						<div className='accordion-body'>
+							<Title type='title4' text={t('help.main.faqs')}/>
+							<p>{t('help.main.fq')}</p>
 							<HelpAccordionBlue />
 						</div>
 					</div>
 				</div>
 			</div>
 			<div>
+				{/* TODO  cambiar button por componente Button*/}
 				<button
-					className={`accordion-button bg-light  text-dark accordion-button--${accordionType}`}
+					className={`accordion-button bg-light  text-dark accordion-button--${icon}`}
 				>
 					{t('help.main.btn2')}
 				</button>
 				<button
-					className={`accordion-button bg-light  text-dark accordion-button--${accordionType}`}
+					className={`accordion-button bg-light  text-dark accordion-button--${icon}`}
 				>
 					{t('help.main.btn3')}
 				</button>

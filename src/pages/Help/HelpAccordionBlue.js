@@ -2,16 +2,16 @@ import './Help.scss';
 import { useTranslation } from 'react-i18next';
 import Button from '../../components/Button/Button';
 import AuxText from '../../components/AuxText/AuxText';
-const HelpAccordionBlue = ({accordionType='blue',color='color'}) => {
-    const {t}=useTranslation();
+import Paragraph from '../../components/Paragraph/Paragraph';
+const HelpAccordionBlue = ({ accordionType = 'blue', color = 'color' }) => {
+	const { t } = useTranslation();
 	return (
-		<div className='accordion accordion-flush ' id='accordionFlushExample'>
-			<p className='fs-4 pt-2 mb-0'>{t('help.main.faqs')}</p>
-			<p >{t('help.main.fq')}</p>
+		<div className='accordion accordion-flush   ' id='accordionFlushExample'>
+			
 			<div className='accordion-item'>
 				<h2 className='accordion-header' id='flush-headingOne'>
 					<button
-						className={`accordion-button accordion-button--${accordionType} `}
+						className={`accordion-button rounded-top accordion-button--${accordionType} `}
 						type='button'
 						data-bs-toggle='collapse'
 						data-bs-target='#flush-collapseOne'
@@ -27,15 +27,42 @@ const HelpAccordionBlue = ({accordionType='blue',color='color'}) => {
 					aria-labelledby='flush-headingOne'
 					data-bs-parent='#accordionFlushExample'
 				>
-					<div className={`accordion-body accordion-body--${color}`}>
-						{t('help.main.auxText3')}
+					<div
+						className={`accordion-body accordion-body--${color} col-12`}
+					>
+						<div className='col-11 p-3 '>
+							<Paragraph
+								text={t('help.main.auxText3.item1')}
+								type='light'
+							/>
+							<Paragraph
+								text={t('help.main.auxText3.item2')}
+								type='light'
+							/>
+							<Paragraph
+								text={t('help.main.auxText3.item3')}
+								type='light'
+							/>
+							<Paragraph
+								text={t('help.main.auxText3.item4')}
+								type='light'
+							/>
+							<Paragraph
+								text={t('help.main.auxText3.item5')}
+								type='light'
+							/>
+							<Paragraph
+								text={t('help.main.auxText3.item6')}
+								type='light'
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div className='accordion-item'>
 				<h2 className='accordion-header' id='flush-headingTwo'>
 					<button
-						className={`accordion-button accordion-button--${accordionType}  `}
+						className={`accordion-button border-1 accordion-button--${accordionType}  `}
 						type='button'
 						data-bs-toggle='collapse'
 						data-bs-target='#flush-collapseTwo'
@@ -62,7 +89,7 @@ const HelpAccordionBlue = ({accordionType='blue',color='color'}) => {
 			<div className='accordion-item'>
 				<h2 className='accordion-header' id='flush-headingThree'>
 					<button
-						className={`accordion-button  accordion-button--${accordionType}  `}
+						className={`accordion-button  border-1 accordion-button--${accordionType}  `}
 						type='button'
 						data-bs-toggle='collapse'
 						data-bs-target='#flush-collapseThree'
@@ -92,7 +119,7 @@ const HelpAccordionBlue = ({accordionType='blue',color='color'}) => {
 			<div className='accordion-item'>
 				<h2 className='accordion-header' id='flush-headingFour'>
 					<button
-						className={`accordion-button accordion-button--${accordionType} `}
+						className={`accordion-button rounded-bottom accordion-button--${accordionType} `}
 						type='button'
 						data-bs-toggle='collapse'
 						data-bs-target='#flush-collapseFour'

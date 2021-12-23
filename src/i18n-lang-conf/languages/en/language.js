@@ -172,7 +172,12 @@ export default {
 			accordionTextBlue4:
 				'What level of physical preparation is needed to do it?',
 			auxText3:
-				' Development of basic strength capabilities (explosive, power, maximum, resistance). • Development of basic flexibility capabilities (passive, active, dynamic). • Increased biomechanical efficiency. • Prevention or treatment of injuries • Improvement in the sports performance. • Increased knowledge in relation to movement. ',
+				{item1:'• Development of basic strength capabilities (explosive, power, maximum, resistance).', 
+				item2:'• Development of basic flexibility capabilities (passive, active, dynamic).',
+				item3:'• Increased biomechanical efficiency.',
+				item4:'• Prevention or treatment of injuries.',
+				item5:'• Improvement in the sports performance.',
+				item6:'• Increased knowledge in relation to movement. '},
 			faqs: 'FAQS',
 			fq: 'Frequent questions',
 		},
