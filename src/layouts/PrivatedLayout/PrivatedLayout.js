@@ -18,7 +18,7 @@ const PrivatedLayout = () => {
 		dispatch(getUserInfoAction());
 	}, []);
 	return (
-		<div>
+		<div className='col-12'>
 			<Button onClick={onLogout} title='logout' />
 			<Outlet />
 			{goals?.length === 3 && <Navbar />}

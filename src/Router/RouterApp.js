@@ -26,8 +26,7 @@ import WeightHeight from '../pages/welcome/WeightHeight/WeightHeight';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
-	const { role } = useSelector((store) => store.user);
-	const { goals } = useSelector((store) => store.user);
+	const { role, goals } = useSelector((store) => store.user);
 
 	const savedToken = localStorage.getItem('token');
 

@@ -182,9 +182,38 @@ export default {
 	help: {
 		main: {
 			aboutUs: 'Sobre nosotros',
-			elTemplo: 'El Templo',
+			elTemplo: 'EL TEMPLO',
 			auxText1:
-				'El Templo es un espacio de entrenamiento funcional y alternativo para personas entrenadas y no entrenadas... etc',
+				'El Templo es un espacio de entrenamiento funcional y alternativo para personas entrenadas y no entrenadas.Desde acrobacia libre a gimnasia deportiva, levantamiento de pesas a calistenia y movimiento natural.Es un lugar de introspección y autoconocimiento que busca transmitir los pilares del cuidado y superación personal a través del entrenamiento físico y mental.',
+			rectangle324: 'Cuerpo,alma,mente',
+			btn1: 'Ver mas',
+			mission: 'MISION Y VISION',
+			auxText2:
+				'El Templo tiene como Misión introducir al público a nuevos sistemas de entrenamientos, culturizar e instruir a sus integrantes en el mundo del movimiento como estilo de vida y no como compromiso social y fines puramente estéticos. Ser mejores humanos a través de nuestras acciones y comportamientos.',
+			accordionText1: '¿Tienes dudas sobre tu entrenamiento?',
+			accordionInside1: 'Contacta al coach',
+			accordionInside2: 'Asunto:',
+			accordionInside3: 'Mensaje:',
+			btnSend: 'Enviar',
+			accordionText2: '¿Tienes dudas sobre cómo funciona la app?',
+			btn2: 'Terminos y condiciones',
+			btn3: 'Contacto',
+			accordionTextBlue1: '¿Cuáles son los objetivos del programa ?',
+			accordionTextBlue2: '¿Cuándo subo de nivel?',
+			accordionTextBlue3:
+				'¿Qué estará contemplado dentro de un entrenamiento diario?',
+			accordionTextBlue4:
+				'¿Qué nivel de preparación física se necesita para realizarlo?',
+			auxText3: {
+				item1: '•Desarrollo de capacidades básicas de la fuerza (explosiva, potencia, máxima, resistencia).',
+				item2: '• Desarrollo de capacidades básicas de la flexibilidad (Pasiva, activa, dinámica).',
+				item3: '• Aumento de eficiencia biomecánica.',
+				item4: '• Prevención o tratamiento de lesiones',
+				item5: '• Mejora en el rendimiento deportivo. ',
+				item6: '• Aumento del conocimiento en relación al movimiento.',
+			},
+			faqs: 'FAQS',
+			fq: 'Preguntas frecuentes',
 		},
 	},
 	navbar: {
@@ -206,6 +235,7 @@ export default {
 		verifyEmail: 'Verificar Email',
 		enabledVerified: 'Comprobando Cuenta',
 		register: 'Registro',
+		help: 'Ayuda',
 		emailRegisterSended: 'Confirma tu Email',
 	},
 	user: {

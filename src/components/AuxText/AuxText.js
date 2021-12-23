@@ -1,7 +1,8 @@
-const AuxText = ({ text, style }) => {
+import './AuxText.scss';
+const AuxText = ({ text }) => {
 	return (
-		<div style={style}>
-			<p>{text}</p>
+		<div>
+			<p className='auxText'>{text}</p>
 		</div>
 	);
 };

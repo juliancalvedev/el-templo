@@ -9,11 +9,11 @@ export const PATHS = {
 	ENABLED_VERIFIED: 'enabled-verified',
 	REGISTER: 'register',
 	WELCOME: 'welcome',
-	REGISTER: 'register',
 	EMAIL_REGISTER_SENDED: 'email-register-sended',
 	MAIN_GOALS: 'main-goals',
 	TRAINING_LEVEL: 'training-level',
 	WEIGHT_HEIGHT: 'weight-height',
+	HELP: 'help',
 };
 
 export const TOPBAR_TEXTS = {
@@ -26,4 +26,6 @@ export const TOPBAR_TEXTS = {
 	[PATHS.VERIFY_EMAIL]: 'topBar.verifyEmail',
 	[PATHS.ENABLED_VERIFIED]: 'topBar.enabledVerified',
 	[PATHS.REGISTER]: 'topBar.register',
+	[PATHS.HELP]: 'topBar.help',
+	[PATHS.EMAIL_REGISTER_SENDED]: 'topBar.emailRegisterSended',
 };
