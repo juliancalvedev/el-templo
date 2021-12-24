@@ -15,7 +15,6 @@ const Help = () => {
 	const removeBtn=()=>{getBtn.remove()}
 
 	return (
-
 		<MainContainer>
 			<div className='text-center col-12'>
 				<Title type='title1' text={t('help.main.aboutUs')} />
@@ -23,16 +22,14 @@ const Help = () => {
 				<img
 					className='d-inline-block'
 					width='100%'
-
 					src='https://d500.epimg.net/cincodias/imagenes/2019/05/02/lifestyle/1556809482_591063_1556811610_noticia_normal.jpg'
 				/>
-				<div className='col-11 m-auto my-1'>
-
-
+				<div className='col-11 m-auto  my-1'>
 					<AuxText text={t('help.main.auxText1')} />
+					<AuxText text={t('help.main.auxText12')} />
+					<AuxText text={t('help.main.auxText13')} />
 				</div>
 				<p className=' d-flex  justify-content-center align-items-center col-12 rectangle324  '>
-
 					{t('help.main.rectangle324')}
 				</p>
 
@@ -50,11 +47,11 @@ const Help = () => {
 					<div className='card card-body'>
 						<Title type='title3' text={t('help.main.mission')} />
 						<div className='col-11 m-auto my-1'>
-
-						<AuxText text={t('help.main.auxText2')} />
+							<AuxText text={t('help.main.auxText2')} />
+							<AuxText text={t('help.main.auxText21')} />
 						</div>
-						
-						<HelpAccordion/>
+
+						<HelpAccordion />
 					</div>
 				</div>
 			</div>
