@@ -19,7 +19,7 @@ function App() {
 		dispatch(checkLoggedUserAction());
 	}, []);
 	return (
-		<div className='App'>
+		<div className='App container-fluid'>
 			<RouterApp />
 			
 		</div>
