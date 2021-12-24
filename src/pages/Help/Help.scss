@@ -30,24 +30,25 @@
 	color: #2e4f77;
 }
 .accordion-button {
-	display: flex;
-	align-items: center;
 
 
-	padding:2vh;
+	padding-top:2vh;
+	padding-bottom:2vh;
 	font-family: $font-1;
 	font-weight: 600;
 	font-size: 11px;
 	line-height: 1px;
 	
-
 	&--icon {
 		&:not(.collapsed) {
 			&::after {
+				
 				background-image: none;
+
 			}
 		}
-		&::after {
+		&::after {	
+	
 			background-image: none;
 			background-color: none;
 		}
@@ -83,12 +84,16 @@
 .accordion-button:not(.collapsed)::after {
 
    background-size: 15px ;
-    
+
+	margin-right:1%;
 }
 .accordion-button::after {
 
    background-size: 15px ;
    	display: flex;
      align-items: start;
+	
+	
+	 
 
 }

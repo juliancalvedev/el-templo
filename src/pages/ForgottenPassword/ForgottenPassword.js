@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { startPasswordRecoveryAction } from '../../redux/auth';
 import { useTranslation } from 'react-i18next';
+import MainContainer from '../../components/MainContainer/MainContainer';
 
 const ForgottenPassword = () => {
 	const { t } = useTranslation();
@@ -20,7 +21,7 @@ const ForgottenPassword = () => {
 		dispatch(startPasswordRecoveryAction({ email }));
 	};
 	return (
-		<div className='container d-flex justify-content-center align-items-center '>
+		<MainContainer>
 			<form className=''>
 				<Title text={t('auth.forgotPassword1.title')} />
 
@@ -36,7 +37,7 @@ const ForgottenPassword = () => {
 					title={t('auth.forgotPassword1.btnAccept')}
 				/>
 			</form>
-		</div>
+		</MainContainer>
 	);
 };
 

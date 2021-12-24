@@ -19,14 +19,13 @@ const HelpAccordion = ({icon='icon'}) => {
 							data-bs-target='#collapseTwo'
 							aria-expanded='false'
 							aria-controls='collapseTwo'
-							
 						>
 							{t('help.main.accordionText1')}
 						</button>
 					</h2>
 					<div
 						id='collapseTwo'
-						className='accordion-collapse collapse '
+						className='accordion-collapse collapse  '
 						aria-labelledby='headingTwo'
 						data-bs-parent='#accordionExample'
 					>
@@ -36,6 +35,7 @@ const HelpAccordion = ({icon='icon'}) => {
 									type='title4 '
 									text={t('help.main.accordionInside1')}
 								/>
+								
 							</div>
 							<div className='col-4'>
 								<div className='col-12'>
@@ -62,7 +62,7 @@ const HelpAccordion = ({icon='icon'}) => {
 				<div className='accordion-item'>
 					<h2 className='accordion-header' id='headingThree'>
 						<button
-							className='accordion-button bg-light text-dark'
+							className='accordion-button bg-light text-dark '
 							type='button'
 							data-bs-toggle='collapse'
 							data-bs-target='#collapseThree'

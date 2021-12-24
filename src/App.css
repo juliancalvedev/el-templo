@@ -3,6 +3,8 @@
 	justify-content: space-between;
 	flex-direction: column;
 	align-items: center;
+	width: 100vw;
+	/* overflow: hidden; */
 }
 
 .card-body{
@@ -11,7 +13,7 @@
 .accordion-button:not(.collapsed)::after {
 
    background-size: 15px ;
-    
+
 }
 .accordion-button::after {
 
@@ -19,4 +21,11 @@
    background-size: 15px ;
    	
 
+}
+
+.container-fluid {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	overflow: scroll;
 }
