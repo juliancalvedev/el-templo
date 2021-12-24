@@ -103,7 +103,7 @@ export default {
 				btnBack: 'Back',
 			},
 		},
-		welcome: {},
+
 		onboard1: {},
 		onboard2: {},
 		forgotPassword1: {
@@ -117,6 +117,39 @@ export default {
 			newPassword: 'New password',
 			repeatNewPassword: 'Repeat new password',
 			btnUpdatePassword: 'Update password',
+		},
+	},
+	welcome: {
+		main: {
+			title: "Welcome to 'El Templo'",
+			hello: 'Hello',
+			auxText:
+				'Before continuing, we need to know you a little more, so we can customize your plan to suit you.',
+			btnLetsBegin: "Let's begin",
+		},
+		goals: {
+			tellUs: 'Tell Us',
+			mainGoals: 'What are your main goals?',
+			'': '', // Default
+			STRENGTH: 'Strength',
+			FLEX: 'Flex',
+			LOSE_WEIGHT: 'Lose weight',
+			TONE_UP: 'Tone up',
+			GAIN_STAMINA: 'Gain stamina',
+		},
+		trainingLevel: {
+			title: "What's your current training level?",
+			auxText: 'This will help your coach to advise you properly.',
+			amateur: 'Amateur',
+			professional: 'Professional',
+		},
+		weightHeight: {
+			title: 'Complete the last personal data.',
+			weight: 'Weight',
+			height: 'Height',
+			kilos: 'Kilos',
+			meters: 'Meters',
+			enter: 'Enter',
 		},
 	},
 	profile: {
@@ -171,13 +204,14 @@ export default {
 			accordionTextBlue3: 'What will be included in a daily training?',
 			accordionTextBlue4:
 				'What level of physical preparation is needed to do it?',
-			auxText3:
-				{item1:'• Development of basic strength capabilities (explosive, power, maximum, resistance).', 
-				item2:'• Development of basic flexibility capabilities (passive, active, dynamic).',
-				item3:'• Increased biomechanical efficiency.',
-				item4:'• Prevention or treatment of injuries.',
-				item5:'• Improvement in the sports performance.',
-				item6:'• Increased knowledge in relation to movement. '},
+			auxText3: {
+				item1: '• Development of basic strength capabilities (explosive, power, maximum, resistance).',
+				item2: '• Development of basic flexibility capabilities (passive, active, dynamic).',
+				item3: '• Increased biomechanical efficiency.',
+				item4: '• Prevention or treatment of injuries.',
+				item5: '• Improvement in the sports performance.',
+				item6: '• Increased knowledge in relation to movement. ',
+			},
 			faqs: 'FAQS',
 			fq: 'Frequent questions',
 		},

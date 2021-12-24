@@ -1,4 +1,4 @@
-import './AuxText.scss'
+import './AuxText.scss';
 const AuxText = ({ text }) => {
 	return (
 		<div>

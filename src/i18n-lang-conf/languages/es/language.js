@@ -105,9 +105,6 @@ export default {
 				btnBack: 'volver',
 			},
 		},
-		welcome: {},
-		onboard1: {},
-		onboard2: {},
 
 		forgotPassword1: {
 			title: 'Olvidaste tu contraseña?',
@@ -120,6 +117,39 @@ export default {
 			newPassword: 'Nueva contraseña',
 			repeatNewPassword: 'Repite nueva contraseña',
 			btnUpdatePassword: 'Actualizar contraseña',
+		},
+	},
+	welcome: {
+		main: {
+			title: 'Bienvenido a El Templo',
+			hello: '¡Hola',
+			auxText:
+				'Antes de seguir, necesitamos conocerte un poco más, así podremos personalizar tu plan a medida.',
+			btnLetsBegin: '¡Empecemos!',
+		},
+		goals: {
+			tellUs: 'Contanos',
+			mainGoals: '¿Cuáles son tus objetivos principales?',
+			'': '', // Default
+			STRENGTH: 'Fuerza',
+			FLEX: 'Flexibilidad',
+			LOSE_WEIGHT: 'Perder peso',
+			TONE_UP: 'Tonificar',
+			GAIN_STAMINA: 'Ganar resistencia',
+		},
+		trainingLevel: {
+			title: '¿Cuál es tu nivel de entrenamiento actual?',
+			auxText: 'Esto ayudará a tu entrenador a asesorarte adecuadamente.',
+			amateur: 'Principiante',
+			professional: 'Profesional',
+		},
+		weightHeight: {
+			title: 'Completa estos ultimos datos personales.',
+			weight: 'Peso',
+			height: 'Altura',
+			kilos: 'Kilos',
+			meters: 'Metros',
+			enter: 'Entrar',
 		},
 	},
 	profile: {
@@ -178,7 +208,7 @@ export default {
 				item1: '•Desarrollo de capacidades básicas de la fuerza (explosiva, potencia, máxima, resistencia).',
 				item2: '• Desarrollo de capacidades básicas de la flexibilidad (Pasiva, activa, dinámica).',
 				item3: '• Aumento de eficiencia biomecánica.',
-				item4:'• Prevención o tratamiento de lesiones',
+				item4: '• Prevención o tratamiento de lesiones',
 				item5: '• Mejora en el rendimiento deportivo. ',
 				item6: '• Aumento del conocimiento en relación al movimiento.',
 			},
