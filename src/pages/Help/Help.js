@@ -24,12 +24,12 @@ const Help = () => {
 				/>
 
 				<AuxText text={t('help.main.auxText1')} />
-				<p className=' d-flex  justify-content-center align-items-center col-12 rectangle324  '>
+				<p className=' d-flex  justify-content-center align-items-center col-12  rectangle324  '>
 					{t('help.main.rectangle324')}
 				</p>
 
 				<button
-					className='btnCollapsed'
+					className='btnCollapsed col-6 '
 					type='button'
 					data-bs-toggle='collapse'
 					data-bs-target='#collapseExample'
