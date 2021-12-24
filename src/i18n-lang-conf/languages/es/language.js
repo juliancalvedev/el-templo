@@ -59,9 +59,9 @@ export default {
 			btnConfirm: 'Reenviar correo electronico',
 		},
 		register: {
-			title: 'Registro',
 			firstNamePlaceholder: 'Nombre',
 			lastNamePlaceholder: 'Apellido',
+			sexTitle:'Sexo',
 			sex1: 'Masculino',
 			sex2: 'Femenino',
 			sex3: 'Otro',

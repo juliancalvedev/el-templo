@@ -58,9 +58,9 @@ export default {
 			btnConfirm: 'Resend email',
 		},
 		register: {
-			title: 'Register',
 			firstNamePlaceholder: 'Name',
 			lastNamePlaceholder: 'Last Name',
+			sexTitle:'Sex',
 			sex1: 'Male',
 			sex2: 'Female',
 			sex3: 'Other',
@@ -72,7 +72,7 @@ export default {
 			country2: 'USA',
 			country3: 'Mexico',
 			dateOfBirth: 'Date of birth',
-			btnRegister: 'Check in',
+			btnRegister: 'Register',
 
 			//RegisterValidate:
 			firstNameError: 'Please, enter your name',
