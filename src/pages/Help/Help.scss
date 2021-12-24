@@ -1,0 +1,97 @@
+@import '../../styles/variables';
+
+.rectangle324 {
+	background-color: $fourth;
+	height: 53px;
+	margin-left: 0%;
+	top: 526px;
+	font-family: $font-1;
+	font-size: 18px;
+	line-height: 24px;
+	color: #ffffff;
+}
+.btnCollapsed {
+	height: 44px;
+	width: 193px;
+	left: 109px;
+	top: 590px;
+	border-radius: 0px;
+
+	border: 2px solid #2e4f77;
+	filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+	border-radius: 15px;
+
+	font-family: $font-1;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 19px;
+	/* identical to box height */
+
+	text-align: center;
+
+	color: #2e4f77;
+}
+.accordion-button {
+	display: flex;
+	align-items: flex-start;
+
+	width: 100%;
+
+	font-family: $font-1;
+	font-weight: 600;
+	font-size: 11px;
+	line-height: 1px;
+	padding-bottom: 0px;
+
+	&--icon {
+		&:not(.collapsed) {
+			&::after {
+				background-image: none;
+			}
+		}
+		&::after {
+			background-image: none;
+			background-color: none;
+		}
+	}
+
+	&--blue {
+		&:not(.collapsed) {
+			background-color: $tertiary;
+			color: $nineth;
+		}
+		background-color: $tertiary;
+		color: $nineth;
+		font-weight: 300;
+padding-top: 7px;
+		padding-bottom: 4px;
+		line-height: 1rem;
+	}
+}
+.accordion-body {
+	align-items: start;
+	font-family: $font-1;
+	font-weight: 300;
+	font-size: 11px;
+  margin: 0;
+  padding: 0;
+
+	&--color {
+		background-color: $tertiary;
+		color: $nineth;
+		padding: 0px;
+	}
+}
+.accordion-button:not(.collapsed)::after {
+
+   background-size: 15px ;
+    
+}
+.accordion-button::after {
+
+   background-size: 15px ;
+   	display: flex;
+     align-items: start;
+
+}

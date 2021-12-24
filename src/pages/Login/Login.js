@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { loginAction } from '../../redux/auth';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
+import { PATHS } from '../../constants/paths';
 
 
 const Login = () => {
@@ -17,7 +18,7 @@ const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
-	const callback = () => navigate('/enabled-verified');
+	const callback = () => navigate(`/${PATHS.ENABLED_VERIFIED}`);
 
 	const handleChangeEmail = (e) => {
 		setEmail(e.target.value);
