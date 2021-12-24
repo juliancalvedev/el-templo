@@ -53,15 +53,7 @@ const WeightHeight = () => {
 	};
 
 	const handleSubmit = () => {
-		dispatch(
-			// 	addWeightAndHeightToTrainingInfo(
-			// 		{
-			// 			weight: selectedWeight,
-			// 			height: selectedHeight,
-			// 		},
-			callback
-			// )
-		);
+		callback();
 		navigate(`/${PATHS.BASE_URL}`);
 	};
 

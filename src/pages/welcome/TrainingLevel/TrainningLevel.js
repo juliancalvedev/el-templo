@@ -7,14 +7,15 @@ import { addLevelToTrainingInfo } from '../../../redux/user';
 import AuxText from '../../../components/AuxText/AuxText';
 import Title from '../../../components/Title/Title';
 import { PATHS } from '../../../constants/paths';
+import InputRange from '../../../components/InputRange/InputRange';
+import Button from '../../../components/Button/Button';
+import ButtonPagination from '../../../components/ButtonPagination/ButtonPagination';
 const TrainingLevel = () => {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	const trainingLevel = useSelector(
-		(store) => store.user.trainingInfo.trainingLevel
-	);
+	const { trainingLevel } = useSelector((store) => store?.user?.trainingInfo);
 	const [selectedLevel, setSelectedLevel] = useState(trainingLevel);
 
 	const changeLevel = (e) => setSelectedLevel(parseInt(e.target.value));
@@ -33,31 +34,19 @@ const TrainingLevel = () => {
 			<AuxText text={t('welcome.trainingLevel.auxText')} />
 
 			<form className='container d-flex justify-content-center align-items-center flex-column col-12'>
-				<div className='form-group col-10'>
-					<label htmlFor='level' className='form-label'></label>
-					<input
-						id='level'
-						type='range'
-						className='form-range'
-						defaultValue={trainingLevel}
-						min='1'
-						max='5'
-						step='1'
-						onChange={changeLevel}
-					/>
-				</div>
+				<InputRange
+					id='level'
+					min='1'
+					max='5'
+					defaultValue={trainingLevel}
+					onChange={changeLevel}
+				/>
 				<div className='container d-flex justify-content-between'>
 					<AuxText text={t('welcome.trainingLevel.amateur')} />
 					<AuxText text={t('welcome.trainingLevel.professional')} />
 				</div>
 			</form>
-			<button
-				className='btnNext'
-				type='button'
-				onClick={toWeightAndHeight}
-			>
-				{'>'}
-			</button>
+			<ButtonPagination direction='right' onClick={toWeightAndHeight} />
 		</div>
 	);
 };

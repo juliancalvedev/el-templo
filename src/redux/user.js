@@ -4,7 +4,6 @@ import { getUserInfo } from '../services/user';
 const GET_USER_INFO = 'GET_USER_INFO';
 const SET_GOALS_TRAINING_INFO = 'SET_GOALS_TRAINING_INFO';
 const SET_LEVEL_TRAINING_INFO = 'SET_LEVEL_TRAINING_INFO';
-const SET_WEIGHT_HEIGHT_TRAINING_INFO = 'SET_WEIGHT_HEIGHT_TRAINING_INFO';
 const ERROR = 'ERROR';
 
 const defaultValue = {
@@ -49,16 +48,6 @@ export default function UserReducer(state = defaultValue, { type, payload }) {
 				trainingInfo: { ...state.trainingInfo, trainingLevel: payload },
 				error: false,
 			};
-		case SET_WEIGHT_HEIGHT_TRAINING_INFO:
-			return {
-				...state,
-				trainingInfo: {
-					...state.trainingInfo,
-					weight: payload.weight,
-					height: payload.height,
-				},
-				error: false,
-			};
 		default:
 			return state;
 	}
@@ -96,12 +85,3 @@ export const addLevelToTrainingInfo = (data) => (dispatch) => {
 		payload: data.trainingLevel,
 	});
 };
-
-export const addWeightAndHeightToTrainingInfo =
-	(data, callback) => (dispatch) => {
-		// dispatch({
-		// 	type: SET_WEIGHT_HEIGHT_TRAINING_INFO,
-		// 	payload: data,
-		// });
-		callback();
-	};

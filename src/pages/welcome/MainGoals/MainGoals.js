@@ -9,6 +9,7 @@ import './mainGoals.scss';
 import { PATHS } from '../../../constants/paths';
 import { useDispatch, useSelector } from 'react-redux';
 import { addGoalsToTrainingInfo } from '../../../redux/user';
+import ButtonPagination from '../../../components/ButtonPagination/ButtonPagination';
 
 const MainGoals = () => {
 	const { t } = useTranslation();
@@ -105,17 +106,15 @@ const MainGoals = () => {
 						)
 				)}
 			</div>
-			<button
+
+			<ButtonPagination
 				disabled={
 					selectedGoals[0] === '' ||
 					selectedGoals[1] === '' ||
 					selectedGoals[2] === ''
 				}
-				className='btnNext'
 				onClick={toTrainingLevel}
-			>
-				{'>'}
-			</button>
+			/>
 		</div>
 	);
 };
