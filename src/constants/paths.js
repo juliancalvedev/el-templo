@@ -7,8 +7,13 @@ export const PATHS = {
 	FORGOTTEN_PASSWORD: 'forgotten-password',
 	VERIFY_EMAIL: 'verify-email',
 	ENABLED_VERIFIED: 'enabled-verified',
-	REGISTER:'register',
-	EMAIL_REGISTER_SENDED:'email-register-sended',
+	REGISTER: 'register',
+	WELCOME: 'welcome',
+	EMAIL_REGISTER_SENDED: 'email-register-sended',
+	MAIN_GOALS: 'main-goals',
+	TRAINING_LEVEL: 'training-level',
+	WEIGHT_HEIGHT: 'weight-height',
+	HELP: 'help',
 };
 
 export const TOPBAR_TEXTS = {
@@ -21,5 +26,6 @@ export const TOPBAR_TEXTS = {
 	[PATHS.VERIFY_EMAIL]: 'topBar.verifyEmail',
 	[PATHS.ENABLED_VERIFIED]: 'topBar.enabledVerified',
 	[PATHS.REGISTER]: 'topBar.register',
-	[PATHS.EMAIL_REGISTER_SENDED]:'topBar.emailRegisterSended',
+	[PATHS.HELP]: 'topBar.help',
+	[PATHS.EMAIL_REGISTER_SENDED]: 'topBar.emailRegisterSended',
 };

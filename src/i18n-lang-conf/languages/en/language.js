@@ -83,7 +83,7 @@ export default {
 			countryError: 'Please, select your Country.',
 			dateOfBirthError: 'Please, enter your date of birth',
 		},
-	
+
 		emailVerified: {
 			title: 'Your E-mail has been correctly verified.',
 			titleError: 'The link is invalid or has expired. ',
@@ -103,7 +103,7 @@ export default {
 				btnBack: 'Back',
 			},
 		},
-		welcome: {},
+
 		onboard1: {},
 		onboard2: {},
 		forgotPassword1: {
@@ -117,6 +117,39 @@ export default {
 			newPassword: 'New password',
 			repeatNewPassword: 'Repeat new password',
 			btnUpdatePassword: 'Update password',
+		},
+	},
+	welcome: {
+		main: {
+			title: "Welcome to 'El Templo'",
+			hello: 'Hello',
+			auxText:
+				'Before continuing, we need to know you a little more, so we can customize your plan to suit you.',
+			btnLetsBegin: "Let's begin",
+		},
+		goals: {
+			tellUs: 'Tell Us',
+			mainGoals: 'What are your main goals?',
+			'': '', // Default
+			STRENGTH: 'Strength',
+			FLEX: 'Flex',
+			LOSE_WEIGHT: 'Lose weight',
+			TONE_UP: 'Tone up',
+			GAIN_STAMINA: 'Gain stamina',
+		},
+		trainingLevel: {
+			title: "What's your current training level?",
+			auxText: 'This will help your coach to advise you properly.',
+			amateur: 'Amateur',
+			professional: 'Professional',
+		},
+		weightHeight: {
+			title: 'Complete the last personal data.',
+			weight: 'Weight',
+			height: 'Height',
+			kilos: 'Kilos',
+			meters: 'Meters',
+			enter: 'Enter',
 		},
 	},
 	profile: {
@@ -151,7 +184,36 @@ export default {
 			aboutUs: 'About us',
 			elTemplo: 'El Templo',
 			auxText1:
-				"El Templo' it's a functional alternative trainning space, for advanced and also for beginers.",
+				'El Templo is a functional and alternative training space for trained and untrained people, from free acrobatics to sports gymnastics, weightlifting to calisthenics and natural movement. through physical and mental training.',
+			rectangle324: 'Body,soul,mind',
+			btn1: 'See more',
+			mission: 'MISSION & VISION',
+			auxText2:
+				'The Mission of El Templo is to introduce the public to new training systems, to cultivate and instruct its members in the world of movement as a lifestyle and not as a social commitment and purely aesthetic purposes. Be better humans through our actions and behaviors.',
+			accordionText1: 'Do you have questions about your training?',
+			accordionInside1: 'Contact the coach',
+			accordionInside2: 'Matter:',
+			accordionInside3: 'Message:',
+			btnSend: 'Send',
+
+			accordionText2: 'Do you have questions about how the app works?',
+			btn2: 'Terms & conditions',
+			btn3: 'Contact',
+			accordionTextBlue1: 'What are the objectives of the program ?',
+			accordionTextBlue2: 'When do I level up?',
+			accordionTextBlue3: 'What will be included in a daily training?',
+			accordionTextBlue4:
+				'What level of physical preparation is needed to do it?',
+			auxText3: {
+				item1: '• Development of basic strength capabilities (explosive, power, maximum, resistance).',
+				item2: '• Development of basic flexibility capabilities (passive, active, dynamic).',
+				item3: '• Increased biomechanical efficiency.',
+				item4: '• Prevention or treatment of injuries.',
+				item5: '• Improvement in the sports performance.',
+				item6: '• Increased knowledge in relation to movement. ',
+			},
+			faqs: 'FAQS',
+			fq: 'Frequent questions',
 		},
 	},
 	navbar: {
@@ -172,8 +234,9 @@ export default {
 		forgottenPassword: 'Forgot you Password?',
 		verifyEmail: 'Verify Email',
 		enabledVerified: 'Checking Account',
-		register:'Register',
-		emailRegisterSended:'Confirm Email',
+		register: 'Register',
+		help: 'Help',
+		emailRegisterSended: 'Confirm Email',
 	},
 	user: {
 		changeUserPassword: {

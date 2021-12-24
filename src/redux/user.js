@@ -2,6 +2,8 @@ import { getUserInfo } from '../services/user';
 
 // ACTION TYPES
 const GET_USER_INFO = 'GET_USER_INFO';
+const SET_GOALS_TRAINING_INFO = 'SET_GOALS_TRAINING_INFO';
+const SET_LEVEL_TRAINING_INFO = 'SET_LEVEL_TRAINING_INFO';
 const ERROR = 'ERROR';
 
 const defaultValue = {
@@ -16,6 +18,12 @@ const defaultValue = {
 	role: null,
 	endEnabledDate: null,
 	startEnabledDate: null,
+	trainingInfo: {
+		goals: ['', '', ''],
+		trainingLevel: 0,
+		weight: 0,
+		height: 0,
+	},
 };
 
 // REDUCER
@@ -28,6 +36,18 @@ export default function UserReducer(state = defaultValue, { type, payload }) {
 			return { ...state, ...payload, error: false };
 		case ERROR:
 			return { ...state, error: true };
+		case SET_GOALS_TRAINING_INFO:
+			return {
+				...state,
+				trainingInfo: { ...state.trainingInfo, goals: payload },
+				error: false,
+			};
+		case SET_LEVEL_TRAINING_INFO:
+			return {
+				...state,
+				trainingInfo: { ...state.trainingInfo, trainingLevel: payload },
+				error: false,
+			};
 		default:
 			return state;
 	}
@@ -51,4 +71,17 @@ export const getUserInfoAction = () => async (dispatch) => {
 			type: ERROR,
 		});
 	}
+};
+
+export const addGoalsToTrainingInfo = (data) => (dispatch) => {
+	dispatch({
+		type: SET_GOALS_TRAINING_INFO,
+		payload: data.goals,
+	});
+};
+export const addLevelToTrainingInfo = (data) => (dispatch) => {
+	dispatch({
+		type: SET_LEVEL_TRAINING_INFO,
+		payload: data.trainingLevel,
+	});
 };
