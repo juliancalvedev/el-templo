@@ -1,7 +1,7 @@
 export const navStyles = {
 	color: 'black',
 	width: '100vw',
-	height: '50px',
+	height: '10vh',
 	display: 'flex',
 	justifySelf: 'start',
 	alignItems: 'center',
