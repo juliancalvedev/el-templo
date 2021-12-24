@@ -1,7 +1,8 @@
+import './AuxText.scss'
 const AuxText = ({ text }) => {
 	return (
 		<div>
-			<p>{text}</p>
+			<p className='auxText'>{text}</p>
 		</div>
 	);
 };

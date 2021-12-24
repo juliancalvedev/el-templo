@@ -21,6 +21,8 @@ const useForm = (RegisterValidate) => {
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const callback = () => navigate(`/${PATHS.EMAIL_REGISTER_SENDED}`);
+	
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
