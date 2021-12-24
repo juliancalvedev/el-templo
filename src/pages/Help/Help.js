@@ -14,12 +14,12 @@ const Help = () => {
 	const removeBtn=()=>{getBtn.remove()}
 
 	return (
-		<div classNameName=' container col-12 d-flex justify-content-center'>
-			<div className='container  text-center cont1 col-11'>
+		<div classNameName='  col-12 d-flex justify-content-center'>
+			<div className='  text-center cont1 col-11'>
 				<Title type='title1' text={t('help.main.aboutUs')} />
 				<Title type='title3' text={t('help.main.elTemplo')} />
 				<img
-					className='container d-inline-block  '
+					className=' d-inline-block  '
 					src='https://d500.epimg.net/cincodias/imagenes/2019/05/02/lifestyle/1556809482_591063_1556811610_noticia_normal.jpg'
 				/>
 
