@@ -8,6 +8,9 @@ import Title from '../../components/Title/Title';
 import AuxText from '../../components/AuxText/AuxText';
 import Button from '../../components/Button/Button';
 import { PATHS } from '../../constants/paths';
+import MainContainer from '../../components/MainContainer/MainContainer';
+import ImgCorreo from './ImgCorreo';
+import ImgDownArrow from './ImgDownArrow';
 
 const VerifiedEmail = () => {
 	const { t } = useTranslation();
@@ -29,7 +32,7 @@ const VerifiedEmail = () => {
 	}, []);
 
 	return (
-		<div className='container d-flex justify-content-center col '>
+		<MainContainer top>
 			{isLoading ? (
 				<div>
 					<h1>{t('global.loading')}</h1>
@@ -38,15 +41,35 @@ const VerifiedEmail = () => {
 					</div>
 				</div>
 			) : (
-				<div>
+				<div className='col-12 d-flex flex-column align-items-center'>
 					{isVerified ? (
-						<div>
-							<Title text={t('auth.emailVerified.title')} />
-							<AuxText text={t('auth.emailVerified.auxText')} />
-							<Button
-								title={t('auth.emailVerified.btnNext')}
-								onClick={navigateToLoggin}
-							/>
+						<div className='col-12 h-100 d-flex flex-column align-items-center justify-content-between '>
+							<div
+								className='col-12 '
+								style={{ textAlign: 'center' }}
+							>
+								<Title text={t('auth.emailVerified.title')} />
+							</div>
+							<div>
+								<ImgCorreo />
+							</div>
+							<div className='col-12 d-flex flex-column align-items-center justify-content-between '>
+								<AuxText
+									text={t('auth.emailVerified.auxText')}
+								/>
+								<ImgDownArrow />
+							</div>
+							<div
+								className='col-10'
+								style={{
+									marginBottom: '18%',
+								}}
+							>
+								<Button
+									title={t('auth.emailVerified.btnNext')}
+									onClick={navigateToLoggin}
+								/>
+							</div>
 						</div>
 					) : (
 						<div>
@@ -59,7 +82,7 @@ const VerifiedEmail = () => {
 					)}
 				</div>
 			)}
-		</div>
+		</MainContainer>
 	);
 };
 
