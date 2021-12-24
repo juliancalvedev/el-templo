@@ -8,6 +8,7 @@ import { loginAction } from '../../redux/auth';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
+import MainContainer from '../../components/MainContainer/MainContainer';
 
 
 const Login = () => {
@@ -31,7 +32,8 @@ const Login = () => {
 		dispatch(loginAction({ email, password, callback }));
 	};
 	return (
-		<div className='container-login '>
+	<MainContainer full>
+		<div className='contain-login '>
 			<img className='imagen' src='https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimagesvc.meredithcorp.io%2Fv3%2Fmm%2Fimage%3Furl%3Dhttps%253A%252F%252Fstatic.onecms.io%252Fwp-content%252Fuploads%252Fsites%252F20%252F2016%252F07%252Ftori-bowie-a-435.jpg&q=85' />
 			<form className='login'>
 				<Title text={t('auth.login.title')} />
@@ -53,6 +55,7 @@ const Login = () => {
 				<Button onClick={handleSubmit} title={t('auth.login.btnLogin')} />
 			</form>
 		</div>
+		</MainContainer>	
 	);
 };
 
