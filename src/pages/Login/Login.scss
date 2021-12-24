@@ -1,0 +1,24 @@
+.container-login{
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
+
+}
+.imagen{
+    filter: grayscale(1);
+    
+}
+.login{
+    margin-top: 50%;
+    position: absolute;
+}
+
+@media (min-width: 992px) { 
+    .imagen{
+    filter: grayscale(1);
+    height: 100vh;
+}
+    .login{
+   margin-top: 10%;
+    position: absolute;
+}  }
