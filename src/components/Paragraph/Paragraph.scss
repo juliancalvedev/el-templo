@@ -1,8 +1,6 @@
 @import '../../styles/variables.scss';
 .paragraph{
 
-     
-
 text-align: start;
 font-family: $font-1;
 font-weight: 300;
@@ -11,5 +9,7 @@ font-size: 11px;
     
   
     &--dark{color:$tenth;}
-    &--light{color:$nineth;}
+    &--light{color:$nineth;
+    font-size: 12px;
+}
 }

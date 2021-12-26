@@ -34,45 +34,55 @@ const Login = () => {
 	};
 	return (
 		<MainContainer full>
-			<div className='login-container col-12 '>
-			
-				
-				<div className='Welcome'>
-					<Title  text={t('auth.login.title')} />
-				</div>
-				<div className='contnue'>
-					<Paragraph  text={t('auth.login.subtitle')} />
-				</div>
+			<div className='login-container col-12'>
+				<div className='col-11 d-flex flex-column '>
+					<div className='welcome  pt-3 text-light col-12  '>
+						<Title type='title1' text={t('auth.login.title')} />
+					</div>
+					<div className='continue col-8  '>
+						<Paragraph type='light' text={t('auth.login.subtitle')} />
+					</div>
 
-				<div className='login'>
-					<form >
-						<Input
-							className='input'
-							value={email}
-							handleChange={handleChangeEmail}
-							type='email'
-							placeholder={t('auth.login.emailPlaceholder')}
-						/>
-						<Input
-							className='input'
-							value={password}
-							handleChange={handleChangePassword}
-							type='password'
-							placeholder={t('auth.login.passwordPlaceholder')}
-						/>
-						<Button
-							onClick={handleSubmit}
-							title={t('auth.login.btnLogin')}
-						/>
-						<Link className='recovery' to='/forgotten-password'>
-							{t('auth.login.recovery')}
+					<div className='login col-12 '>
+						<form>
+							<div className='col-12 mb-2 bg-info'>
+								<Input
+									value={email}
+									handleChange={handleChangeEmail}
+									type='email'
+									placeholder={t('auth.login.emailPlaceholder')}
+								/>
+							</div>
+							<div className='col-12 mb-3 bg-info'>
+								<Input
+									value={password}
+									handleChange={handleChangePassword}
+									type='password'
+									placeholder={t('auth.login.passwordPlaceholder')}
+								/>
+							</div>
+							<Button
+								onClick={handleSubmit}
+								title={t('auth.login.btnLogin')}
+							/>
+							<div className='col-12 d-flex justify-content-end  '>
+								<Link
+									className='text-light text-decoration-none recovery'
+									to='/forgotten-password'
+								>
+									{t('auth.login.recovery')}
+								</Link>
+							</div>
+						</form>
+					</div>
+					<div className='d-flex justify-content-center col-12 h-50 align-items-center '>
+						<Link
+							className='text-light text-decoration-none register '
+							to='/register'
+						>
+							{t('auth.login.register')}
 						</Link>
-					</form>
-				</div>
-				<div className='register'>
-					<Link  to='/register'>
-						{t('auth.login.register')}
-					</Link>
+					</div>
 				</div>
 			</div>
 		</MainContainer>
