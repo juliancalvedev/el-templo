@@ -1,4 +1,4 @@
-const ImgDownArrow = () => {
+const ImgEmailVerified = () => {
 	return (
 		<div>
 			<svg
@@ -17,4 +17,4 @@ const ImgDownArrow = () => {
 	);
 };
 
-export default ImgDownArrow;
+export default ImgEmailVerified;
