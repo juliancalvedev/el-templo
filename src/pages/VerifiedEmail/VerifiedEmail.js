@@ -9,8 +9,8 @@ import AuxText from '../../components/AuxText/AuxText';
 import Button from '../../components/Button/Button';
 import { PATHS } from '../../constants/paths';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import ImgCorreo from './ImgCorreo';
-import ImgDownArrow from './ImgDownArrow';
+import ImgEmailVerified from '../../images/ImgEmailVerified';
+import ImgDownArrow from '../../images/ImgDownArrow';
 
 const VerifiedEmail = () => {
 	const { t } = useTranslation();
@@ -51,7 +51,7 @@ const VerifiedEmail = () => {
 								<Title text={t('auth.emailVerified.title')} />
 							</div>
 							<div>
-								<ImgCorreo />
+								<ImgEmailVerified />
 							</div>
 							<div className='col-12 d-flex flex-column align-items-center justify-content-between '>
 								<AuxText
