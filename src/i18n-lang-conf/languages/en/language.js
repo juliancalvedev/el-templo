@@ -46,7 +46,7 @@ export default {
 		login: {
 			title: 'Welcome',
 			subtitle: 'Login to continue',
-			emailPlaceholder: 'Email@email.com',
+			emailPlaceholder: 'Email',
 			passwordPlaceholder: 'Password',
 			recovery: 'Forgotten password?',
 			btnLogin: 'Log In',

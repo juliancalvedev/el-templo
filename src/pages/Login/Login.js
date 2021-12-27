@@ -10,7 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Paragraph from '../../components/Paragraph/Paragraph';
-
+import Eye from './Eye';
 
 const Login = () => {
 	const { t } = useTranslation();
@@ -32,9 +32,12 @@ const Login = () => {
 	const handleSubmit = () => {
 		dispatch(loginAction({ email, password, callback }));
 	};
+	const handleShow=()=>{
+		
+	}
 	return (
 		<MainContainer full>
-			<div className='login-container col-12'>
+			<div className='login-container col-12 '>
 				<div className='col-11 d-flex flex-column '>
 					<div className='welcome  pt-3 text-light col-12  '>
 						<Title type='title1' text={t('auth.login.title')} />
@@ -43,24 +46,26 @@ const Login = () => {
 						<Paragraph type='light' text={t('auth.login.subtitle')} />
 					</div>
 
-					<div className='login col-12 '>
+					<div className=' login col-12'>
 						<form>
-							<div className='col-12 mb-2 bg-info'>
-								<Input
-									value={email}
-									handleChange={handleChangeEmail}
-									type='email'
-									placeholder={t('auth.login.emailPlaceholder')}
-								/>
-							</div>
-							<div className='col-12 mb-3 bg-info'>
-								<Input
-									value={password}
-									handleChange={handleChangePassword}
-									type='password'
-									placeholder={t('auth.login.passwordPlaceholder')}
-								/>
-							</div>
+							<Input
+								className='input col-12 mb-2 py-2 '
+								value={email}
+								handleChange={handleChangeEmail}
+								type='email'
+								placeholder={t('auth.login.emailPlaceholder')}
+							/>
+
+							<Input
+								className='input col-12 mb-3 py-2'
+								value={password}
+								handleChange={handleChangePassword}
+								type='password'
+								placeholder={t('auth.login.passwordPlaceholder')}
+							/>
+							<Eye handleChange={handleShow}/>
+							
+
 							<Button
 								onClick={handleSubmit}
 								title={t('auth.login.btnLogin')}
@@ -75,7 +80,7 @@ const Login = () => {
 							</div>
 						</form>
 					</div>
-					<div className='d-flex justify-content-center col-12 h-50 align-items-center '>
+					<div className='d-flex justify-content-center col-12   '>
 						<Link
 							className='text-light text-decoration-none register '
 							to='/register'

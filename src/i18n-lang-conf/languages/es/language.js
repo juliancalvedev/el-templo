@@ -46,7 +46,7 @@ export default {
 		login: {
 			title: 'Bienvenido!',
 			subtitle:'Inicia sesión para continuar',
-			emailPlaceholder: 'correo@correo.com',
+			emailPlaceholder: 'Email',
 			passwordPlaceholder: 'Contraseña',
 			recovery: '¿Olvidaste tu contraseña?',
 			btnLogin: 'Iniciar sesión',

@@ -4,44 +4,50 @@
     background-size: cover;
     display: flex;
     justify-content: center;
-    
-    
-
-}
-
+  }
 .welcome{
 margin-top: 21%;
-
-
-
-
 }
-
 .continue{
     padding-top:0;
-    
 }
-
-
 .login{
     margin-top:15%;
-   
 }
+.input{
+    background: $eleventh;
+border:none;
+border-radius: 15px;
+text-indent: 2%;
+-webkit-text-fill-color: $nineth;
 
+}
+.eye{ 
+   
+    position: absolute;
+
+transform: translate(1900%,-260%);}
 .recovery{
     font-size: 12px;
 }
 .register{
-    font-size: 12px;
-    
+    margin-top: 50%;
+    font-size: 12px;    
 }
-
 @media (min-width: 992px) { 
-    .imagen{
-    filter: grayscale(1);
-    height: 100vh;
+.login-container{
+        position: absolute;
 }
-    .login{
-   margin-top: 10%;
-    position: absolute;
-}  }
+.login{padding-left: 30%;
+padding-right: 30%;
+margin: 0;
+}
+.welcome{padding-top: 30%;
+    padding-left: 30%;}
+.continue{padding-left: 30%;}
+.input{width: 100%}
+.register{
+    margin-top: 10%;
+    font-size: 12px;
+    margin-bottom:auto;
+} }
