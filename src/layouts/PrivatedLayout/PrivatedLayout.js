@@ -21,7 +21,11 @@ const PrivatedLayout = () => {
 
 	const showNavbar = () => {
 		if (emailIsVerified && enabled && goals?.length === 3) {
-			if (SHOW_NAVBAR.some((e) => e === currentLocation)) {
+			if (
+				SHOW_NAVBAR.some(
+					(showingRoute) => showingRoute === currentLocation
+				)
+			) {
 				return true;
 			}
 		} else {
