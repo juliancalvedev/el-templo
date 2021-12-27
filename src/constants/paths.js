@@ -16,6 +16,8 @@ export const PATHS = {
 	HELP: 'help',
 };
 
+export const SHOW_NAVBAR = [PATHS.BASE_URL];
+
 export const TOPBAR_TEXTS = {
 	[PATHS.BASE_URL]: 'topBar.main',
 	[PATHS.USERS_LIST]: 'topBar.usersList',
