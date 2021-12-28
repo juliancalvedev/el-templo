@@ -53,9 +53,9 @@ export const Register = () => {
 
 	return (
 		<MainContainer full>
-			<form className='Register col-12' onSubmit={handleSubmit}>
-				<div className='contBaseInputs  px-3 mt-4 col-12'>
-					<div className='baseI64 d-flex align-items-center justify-content-start   '>
+			<form className='Register' onSubmit={handleSubmit}>
+				<div className='contBaseInputs px-3 mt-4 col-12 '>
+					<div className='baseI64 d-flex align-items-center justify-content-start '>
 						<input
 							className='rounded-circle'
 							id='file'
@@ -68,10 +68,10 @@ export const Register = () => {
 							src={baseImage}
 							onClick={clickFile}
 						/>
-						<div className='inputsNL col-12 '>
+						<div className='inputsNL col-9 '>
 							<div className='fName '>
 								<Input
-									className='inputs col-9 rounded-pill'
+									className='inputs col-12 rounded-pill'
 									type='firstName'
 									name='firstName'
 									placeholder={t('auth.register.firstNamePlaceholder')}
@@ -88,9 +88,9 @@ export const Register = () => {
 									</p>
 								)}
 							</div>
-							<div className='lastN mt-2'>
+							<div className='lastN mt-2 '>
 								<Input
-									className='inputs col-9 rounded-pill'
+									className='inputs col-12 rounded-pill'
 									type='lastName'
 									name='lastName'
 									placeholder={t('auth.register.lastNamePlaceholder')}
@@ -173,10 +173,10 @@ export const Register = () => {
 						</div>
 					</div>
 				</div>
-				<div className='inputsP2 col-12 m-3'>
+				<div className='inputsP2  m-3'>
 					<div className='form-inputs mb-3'>
 						<Input
-							className='inputs col-11 rounded-pill '
+							className='inputs col-12 rounded-pill '
 							type='email'
 							name='email'
 							placeholder={t('auth.register.emailPlaceholder')}
@@ -189,7 +189,7 @@ export const Register = () => {
 					</div>
 					<div className='form-inputs mb-3'>
 						<Input
-							className='inputs col-11 rounded-pill'
+							className='inputs col-12 rounded-pill'
 							type='password'
 							name='password'
 							placeholder={t('auth.register.passwordPlaceholder')}
@@ -208,7 +208,7 @@ export const Register = () => {
 					</div>
 					<div className='form-inputs mb-3'>
 						<Input
-							className='inputs col-11 rounded-pill '
+							className='inputs col-12 rounded-pill '
 							type='password'
 							name='password2'
 							placeholder={t('auth.register.password2Placeholder')}
@@ -223,7 +223,7 @@ export const Register = () => {
 					</div>
 					<div className='form-inputs '>
 						<select
-							className='inputs mb-3 col-11 rounded-pill'
+							className='inputs mb-3 col-12 rounded-pill'
 							value={values.country}
 							onChange={handleChange}
 							name='country'
@@ -247,7 +247,7 @@ export const Register = () => {
 							{t('auth.register.dateOfBirth')}
 						</label>
 						<Input
-							className='inputs col-11 rounded-pill '
+							className='inputs col-12 rounded-pill '
 							type='date'
 							name='dateOfBirth'
 							value={values.dateOfBirth}
