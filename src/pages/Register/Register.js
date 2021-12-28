@@ -243,7 +243,7 @@ export const Register = () => {
 						)}
 					</div>
 					<div className='form-inputs mb-4'>
-						<label className='nameInput'>
+						<label className='nameInput2'>
 							{t('auth.register.dateOfBirth')}
 						</label>
 						<Input
@@ -283,7 +283,7 @@ export const Register = () => {
 					<p className='TC d-flex justify-content-center mb-0'>
 						{t('auth.register.termsAndConditions1')}
 					</p>
-					<Link className='TC d-flex justify-content-center' to=''>
+					<Link className='TC2 d-flex justify-content-center' to=''>
 						{t('auth.register.termsAndConditions2')}
 					</Link>
 				</div>

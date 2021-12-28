@@ -74,7 +74,7 @@ export default {
 			country2: 'USA',
 			country3: 'Mexico',
 			dateOfBirth: 'Fecha de nacimiento',
-			btnRegister: 'Registrarse',
+			btnRegister: 'Registrarme',
 			termsAndConditions1: 'Al registrarse y crear su cuenta, acepta los',
 			termsAndConditions2: 'Terminos y condiciones',
 
