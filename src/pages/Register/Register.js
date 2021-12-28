@@ -52,7 +52,7 @@ export const Register = () => {
 	};
 
 	return (
-		<MainContainer full>
+		<MainContainer top>
 			<form className='Register' onSubmit={handleSubmit}>
 				<div className='contBaseInputs px-3 mt-4 col-12 '>
 					<div className='baseI64 d-flex align-items-center justify-content-start '>
