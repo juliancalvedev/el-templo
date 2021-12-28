@@ -1,50 +1,74 @@
 
 @import '../../styles/variables';
 
-
 $btnradius: #2E4F77;
 $btnradius2: #CED4DA;
 $textTitle:#15212D;
-.input1{
+
+.inputs{
  
     background: rgba(255, 255, 255, 0.6);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     height: 40px;
-}
+    border: none;
+    text-indent: 5%;
 
+}
 .nameInput{
 color: $textTitle;
-font-family: Red Hat Text;
+font-family: $font-1;
 font-size: 18px;
 font-style: normal;
-font-weight: 500;
+font-weight: bold;
 line-height: 24px;
 letter-spacing: 0em;
 text-align: left;
-
-    
+font-style: normal; 
+   
 }
+
 .btnCheck1{
- border-radius: 20px 0px 0px 20px;
- background-color: $btnradius;
- color:$btnradius2;
- height:34px;
- 
+border-radius: 20px 0px 0px 20px;
+background-color: $btnradius;
+color:#FFF;
+line-height: 100%;
+font-size: 14px;
+font-family: $font-1;
+height: 50%;
 }
 .btnCheck2{
 background-color: $btnradius2;
 border-radius: 0px;
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 color:$btnradius;
-height:34px;
-
+line-height: 100%;
+font-size: 14px;
+font-family: $font-1;
+height: 50%;
 
 }
 .btnCheck3{
 background-color: $btnradius;
 border-radius: 0px 20px 20px 0px;
-color: $btnradius2;
-height:34px;
+color: #FFF;
+line-height: 100%;
+font-size: 14px;
+font-family: $font-1;
+height: 50%;
+}
 
+.conteinerPass{
+font-size: 11px;
+font-family: $font-1;
+color:#5A5A5A;
+}
+
+.TC{
+font-size: 11px;
+font-family: $font-1;
 
 }
+
+
+
 
