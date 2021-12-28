@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import Title from '../../components/Title/Title';
 import './Register.scss'
 import MainContainer from '../../components/MainContainer/MainContainer';
+import { Link } from 'react-router-dom';
 
 
 export const Register = () => {
@@ -282,9 +283,9 @@ export const Register = () => {
 					<p className='TC d-flex justify-content-center mb-0'>
 						{t('auth.register.termsAndConditions1')}
 					</p>
-					<a className='TC d-flex justify-content-center' href=''>
+					<Link className='TC d-flex justify-content-center' to=''>
 						{t('auth.register.termsAndConditions2')}
-					</a>
+					</Link>
 				</div>
 			</form>
 		</MainContainer>
