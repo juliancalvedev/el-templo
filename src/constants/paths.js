@@ -31,4 +31,5 @@ export const TOPBAR_TEXTS = {
 	[PATHS.REGISTER]: 'topBar.register',
 	[PATHS.HELP]: 'topBar.help',
 	[PATHS.EMAIL_REGISTER_SENDED]: 'topBar.emailRegisterSended',
+	[PATHS.CONTACT]: 'topBar.contact',
 };
