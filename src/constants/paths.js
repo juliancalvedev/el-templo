@@ -14,6 +14,7 @@ export const PATHS = {
 	TRAINING_LEVEL: 'training-level',
 	WEIGHT_HEIGHT: 'weight-height',
 	HELP: 'help',
+	CONTACT: 'contact',
 };
 
 export const SHOW_NAVBAR = [PATHS.BASE_URL];
