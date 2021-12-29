@@ -19,12 +19,15 @@ import Help from '../pages/Help/Help';
 import { PATHS } from '../constants/paths';
 import TopBar from '../components/TopBar/TopBar';
 import MyProfile from '../pages/MyProfile/MyProfile';
+import Welcome from '../pages/welcome/Welcome/Welcome';
 import EmailRegisterSended from '../pages/EmailRegisterSended/EmailRegisterSended';
-
+import MainGoals from '../pages/welcome/MainGoals/MainGoals';
+import TrainingLevel from '../pages/welcome/TrainingLevel/TrainningLevel';
+import WeightHeight from '../pages/welcome/WeightHeight/WeightHeight';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
-	const { role } = useSelector((store) => store.user);
+	const { role, goals } = useSelector((store) => store.user);
 
 	const savedToken = localStorage.getItem('token');
 
@@ -46,11 +49,31 @@ const RouterApp = () => {
 								/>
 							</Route>
 						)}
+						{goals?.length === 0 && (
+							<Route>
+								<Route
+									path={PATHS.BASE_URL}
+									element={<Welcome />}
+								/>
+								<Route
+									path={PATHS.MAIN_GOALS}
+									element={<MainGoals />}
+								/>
+								<Route
+									path={PATHS.TRAINING_LEVEL}
+									element={<TrainingLevel />}
+								/>
+								<Route
+									path={PATHS.WEIGHT_HEIGHT}
+									element={<WeightHeight />}
+								/>
+							</Route>
+						)}
 						<Route
 							path={PATHS.CHANGE_USER_PASSWORD}
 							element={<ChangeUserPassword />}
 						/>
-						
+
 						<Route path={PATHS.HELP} element={<Help />} />
 					</Route>
 				) : (
@@ -58,7 +81,10 @@ const RouterApp = () => {
 						<Route index element={<Landing />} />
 						<Route path={PATHS.LOGIN} element={<Login />} />
 						<Route path={PATHS.REGISTER} element={<Register />} />
-						<Route path={PATHS.EMAIL_REGISTER_SENDED} element={<EmailRegisterSended />}/>
+						<Route
+							path={PATHS.EMAIL_REGISTER_SENDED}
+							element={<EmailRegisterSended />}
+						/>
 
 						<Route
 							path={PATHS.PASSWORD_RECOVERY}

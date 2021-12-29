@@ -17,7 +17,7 @@ const PrivatedLayout = () => {
 		
 			<Button onClick={logoutAction} title='logout' />
 			<Outlet />
-			<Navbar/>
+			<Navbar />
 		</div>
 	);
 };

@@ -11,7 +11,12 @@ export const PATHS = {
 	MY_PROFILE: 'my-profile',
 	REGISTER:'register',
 	HELP:'help',
-	EMAIL_REGISTER_SENDED:'email-register-sended',
+	WELCOME: 'welcome',
+	EMAIL_REGISTER_SENDED: 'email-register-sended',
+	MAIN_GOALS: 'main-goals',
+	TRAINING_LEVEL: 'training-level',
+	WEIGHT_HEIGHT: 'weight-height',
+	HELP: 'help',
 };
 
 export const TOPBAR_TEXTS = {
@@ -25,6 +30,7 @@ export const TOPBAR_TEXTS = {
 	[PATHS.ENABLED_VERIFIED]: 'topBar.enabledVerified',
 	[PATHS.REGISTER]: 'topBar.register',
 	[PATHS.MY_PROFILE]: 'topBar.myProfile',
-	[PATHS.HELP]:'topBar.help',
 	[PATHS.EMAIL_REGISTER_SENDED]:'topBar.emailRegisterSended',
+	[PATHS.HELP]: 'topBar.help',
+	[PATHS.EMAIL_REGISTER_SENDED]: 'topBar.emailRegisterSended',
 };

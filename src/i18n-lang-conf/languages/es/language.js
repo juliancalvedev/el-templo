@@ -128,6 +128,8 @@ export default {
 			btnLetsBegin: '¡Empecemos!',
 		},
 		goals: {
+			tellUs: 'Contanos',
+			mainGoals: '¿Cuáles son tus objetivos principales?',
 			'': '', // Default
 			STRENGTH: 'Fuerza',
 			FLEX: 'Flexibilidad',
@@ -135,13 +137,26 @@ export default {
 			TONE_UP: 'Tonificar',
 			GAIN_STAMINA: 'Ganar resistencia',
 		},
+		trainingLevel: {
+			title: '¿Cuál es tu nivel de entrenamiento actual?',
+			auxText: 'Esto ayudará a tu entrenador a asesorarte adecuadamente.',
+			amateur: 'Principiante',
+			professional: 'Profesional',
+		},
+		weightHeight: {
+			title: 'Completa estos ultimos datos personales.',
+			weight: 'Peso',
+			height: 'Altura',
+			kilos: 'Kilos',
+			meters: 'Metros',
+			enter: 'Entrar',
+		},
 	},
 	profile: {
 		profile: {},
 		editProfile: {},
 		editPassword: {},
 	},
-
 
 	training: {
 		leveling: {},
@@ -193,7 +208,7 @@ export default {
 				item1: '•Desarrollo de capacidades básicas de la fuerza (explosiva, potencia, máxima, resistencia).',
 				item2: '• Desarrollo de capacidades básicas de la flexibilidad (Pasiva, activa, dinámica).',
 				item3: '• Aumento de eficiencia biomecánica.',
-				item4:'• Prevención o tratamiento de lesiones',
+				item4: '• Prevención o tratamiento de lesiones',
 				item5: '• Mejora en el rendimiento deportivo. ',
 				item6: '• Aumento del conocimiento en relación al movimiento.',
 			},
@@ -233,21 +248,23 @@ export default {
 			repeatNewPassword: 'Repetir contraseña nueva',
 			submitPassword: 'Cambiar contraseña',
 		},
-		myProfile:{
+		myProfile: {
+			personalInfo: 'Personal info',
 			level: 'Nivel',
 			completedTrainings: 'Entrenamientos realizados',
 			memberSince: 'Miembro desde',
-			editProfile: 'Editar perfil',
+			edit: 'Editar',
+			profile: 'perfil',
 			editInfo: 'EDITAR',
-			endEnabledDate: 'Suscripción activa hasta el día ',
+			endEnabledDate: 'Suscripción activa hasta el día: ',
 			aboutYou: 'Sobre vos',
-			trainingLevel: 'Nivel de entrenamiento',
+			trainingLevel: 'Nivel de entrenamiento: ',
 			goals: 'Objetivos',
 			personalInfo: 'Datos personales',
 			height: 'Altura',
 			weight: 'Peso',
 			logOut: 'Cerrar sesión',
-			password: 'Password'
+			password: 'Password',
 		},
 	},
 };
