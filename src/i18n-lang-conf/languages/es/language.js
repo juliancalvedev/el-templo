@@ -88,9 +88,9 @@ export default {
 		},
 
 		emailVerified: {
-			title: 'Tu E-mail ha sido verificado correctamente.',
+			title: 'Tu correo electrónico ha sido confirmado correctamente',
 			titleError: 'El link no es válido o ha caducado.',
-			auxText: 'Todo listo para comenzar!',
+			auxText: 'Ya está todo listo para comenzar',
 			btnNext: 'Siguiente',
 		},
 		enabledVerified: {
