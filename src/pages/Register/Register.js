@@ -53,7 +53,7 @@ export const Register = () => {
 
 	return (
 		<MainContainer top>
-			<form className='Register' onSubmit={handleSubmit}>
+			<form className='register' onSubmit={handleSubmit}>
 				<div className='contBaseInputs px-3 mt-4 col-12 '>
 					<div className='baseI64 d-flex align-items-center justify-content-start '>
 						<input
@@ -71,7 +71,7 @@ export const Register = () => {
 						<div className='inputsNL col-9 '>
 							<div className='fName '>
 								<Input
-									className='inputs col-12 rounded-pill'
+									className='inputs col-12 '
 									type='firstName'
 									name='firstName'
 									placeholder={t('auth.register.firstNamePlaceholder')}
@@ -90,7 +90,7 @@ export const Register = () => {
 							</div>
 							<div className='lastN mt-2 '>
 								<Input
-									className='inputs col-12 rounded-pill'
+									className='inputs col-12 '
 									type='lastName'
 									name='lastName'
 									placeholder={t('auth.register.lastNamePlaceholder')}
@@ -122,7 +122,7 @@ export const Register = () => {
 								{t('auth.register.sexTitle')}
 							</label>
 						</div>
-						<div className=' btnCheck'>
+						<div className='btnCheck'>
 							<input
 								type='radio'
 								className='btn-check  '
@@ -176,7 +176,7 @@ export const Register = () => {
 				<div className='inputsP2  m-3'>
 					<div className='form-inputs mb-3'>
 						<Input
-							className='inputs col-12 rounded-pill '
+							className='inputs col-12 '
 							type='email'
 							name='email'
 							placeholder={t('auth.register.emailPlaceholder')}
@@ -189,7 +189,7 @@ export const Register = () => {
 					</div>
 					<div className='form-inputs mb-3'>
 						<Input
-							className='inputs col-12 rounded-pill'
+							className='inputs col-12 '
 							type='password'
 							name='password'
 							placeholder={t('auth.register.passwordPlaceholder')}
@@ -202,7 +202,7 @@ export const Register = () => {
 							</p>
 						)}
 
-						<label className='conteinerPass mt-0 col-10 text-end'>
+						<label className='conteinerPass mt-0 col-11 text-end'>
 							{t('auth.register.passwordRequirement')}
 						</label>
 					</div>
@@ -223,7 +223,7 @@ export const Register = () => {
 					</div>
 					<div className='form-inputs '>
 						<select
-							className='inputs mb-3 col-12 rounded-pill'
+							className='inputs mb-3 col-12'
 							value={values.country}
 							onChange={handleChange}
 							name='country'
@@ -247,7 +247,7 @@ export const Register = () => {
 							{t('auth.register.dateOfBirth')}
 						</label>
 						<Input
-							className='inputs col-12 rounded-pill '
+							className='inputs col-12  '
 							type='date'
 							name='dateOfBirth'
 							value={values.dateOfBirth}

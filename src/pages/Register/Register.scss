@@ -1,80 +1,60 @@
-
 @import '../../styles/variables';
 
-$btnradius: #2E4F77;
-$btnradius2: #CED4DA;
-$textTitle:#15212D;
-
-.inputs{
- 
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    height: 40px;
-    border: none;
-    text-indent: 5%;
-
+.inputs {
+	background: $nineth;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	height: 40px;
+	border: none;
+	text-indent: 4%;
+	border-radius: 15px;
 }
-.nameInput{
-color: $textTitle;
-font-family: $font-1;
-font-size: 15px;
-font-style: normal;
-font-weight: bold;
-line-height: 24px;
-letter-spacing: 0em;
-text-align: left;
-font-style: normal; 
-   
+.nameInput {
+	color: $sixth;
+	font-size: 100%;
+	font-style: normal;
+	font-weight: bold;
+	line-height: 24px;
+	text-align: left;
+	font-style: normal;
 }
 
-.btnCheck1{
-border-radius: 20px 0px 0px 20px;
-background-color: $btnradius;
-color:#FFF;
-line-height: 100%;
-font-size: 14px;
-font-family: $font-1;
-height: 50%;
+.btnCheck1 {
+	border-radius: 20px 0px 0px 20px;
+	background-color: $tertiary;
+	color: $nineth;
+	line-height: 100%;
+	font-size: 84%;
+	height: 50%;
 }
-.btnCheck2{
-background-color: $btnradius2;
-border-radius: 0px;
-box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-color:$btnradius;
-line-height: 100%;
-font-size: 14px;
-font-family: $font-1;
-height: 50%;
-
+.btnCheck2 {
+	background-color: $thirteenth;
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+	color: $tertiary;
+	line-height: 100%;
+	font-size: 84%;
+	font-family: $font-1;
+	height: 50%;
 }
-.btnCheck3{
-background-color: $btnradius;
-border-radius: 0px 20px 20px 0px;
-color: #FFF;
-line-height: 100%;
-font-size: 14px;
-font-family: $font-1;
-height: 50%;
+.btnCheck3 {
+	background-color: $tertiary;
+	border-radius: 0px 20px 20px 0px;
+	color: $nineth;
+	line-height: 100%;
+	font-size: 84%;
+	font-family: $font-1;
+	height: 50%;
 }
 
-.conteinerPass{
-font-size: 11px;
-font-family: $font-1;
-color:#5A5A5A;
+.conteinerPass {
+	font-size: 75%;
+	font-family: $font-1;
+	color: $seventh;
 }
 
-.TC{
-font-size: 11px;
-font-family: $font-1;
-
+.TC {
+	font-size: 65%;
 }
-.TC2{
-font-size: 11px;
-font-family: $font-1;
-color:#C59980;
-
+.TC2 {
+	font-size: 65%;
+	color: $fourth;
 }
-
-
-
-
