@@ -10,7 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Paragraph from '../../components/Paragraph/Paragraph';
-import Eye from './Eye';
+import InputIcon from '../../components/InputIcon/InputIcon';
 
 const Login = () => {
 	const { t } = useTranslation();
@@ -32,9 +32,7 @@ const Login = () => {
 	const handleSubmit = () => {
 		dispatch(loginAction({ email, password, callback }));
 	};
-	const handleShow=()=>{
-		
-	}
+	
 	return (
 		<MainContainer full>
 			<div className='login-container col-12 '>
@@ -56,15 +54,16 @@ const Login = () => {
 								placeholder={t('auth.login.emailPlaceholder')}
 							/>
 
-							<Input
-								className='input col-12 mb-3 py-2'
+							<InputIcon
 								value={password}
 								handleChange={handleChangePassword}
 								type='password'
 								placeholder={t('auth.login.passwordPlaceholder')}
+								
 							/>
-							<Eye handleChange={handleShow}/>
-							
+							 
+								
+						
 
 							<Button
 								onClick={handleSubmit}
