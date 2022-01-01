@@ -32,7 +32,15 @@ const Login = () => {
 	const handleSubmit = () => {
 		dispatch(loginAction({ email, password, callback }));
 	};
-	
+	  const [type, setType] = useState('password');
+
+		const onClickIcon = () => {
+			if (type === 'text') {
+				setType('password');
+			} else {
+				setType('text');
+			}
+		};
 	return (
 		<MainContainer full>
 			<div className='login-container col-12 '>
@@ -59,7 +67,7 @@ const Login = () => {
 								handleChange={handleChangePassword}
 								type='password'
 								placeholder={t('auth.login.passwordPlaceholder')}
-								
+								onClick={{onClickIcon(icon)}}
 							/>
 							 
 								
