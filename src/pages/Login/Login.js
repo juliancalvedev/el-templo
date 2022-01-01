@@ -19,7 +19,7 @@ const Login = () => {
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-
+const [showPassword, setShowPassword] = useState('password');
 	const callback = () => navigate(`/${PATHS.ENABLED_VERIFIED}`);
 
 	const handleChangeEmail = (e) => {
@@ -32,15 +32,16 @@ const Login = () => {
 	const handleSubmit = () => {
 		dispatch(loginAction({ email, password, callback }));
 	};
-	  const [type, setType] = useState('password');
+	 
 
 		const onClickIcon = () => {
-			if (type === 'text') {
-				setType('password');
-			} else {
-				setType('text');
-			}
-		};
+		if (showPassword==='password') {
+			setShowPassword('text');
+		}
+		if (showPassword === 'text') {
+			setShowPassword('password');
+		}
+	};
 	return (
 		<MainContainer full>
 			<div className='login-container col-12 '>
@@ -63,15 +64,14 @@ const Login = () => {
 							/>
 
 							<InputIcon
+								className='input col-12 mb-2 py-2 '
+								iconType='eye'
 								value={password}
-								handleChange={handleChangePassword}
-								type='password'
+								handlechange={handleChangePassword}
+								type={showPassword}
 								placeholder={t('auth.login.passwordPlaceholder')}
-								onClick={{onClickIcon(icon)}}
+								onClickIcon={onClickIcon}
 							/>
-							 
-								
-						
 
 							<Button
 								onClick={handleSubmit}
