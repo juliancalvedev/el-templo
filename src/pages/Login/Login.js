@@ -64,7 +64,6 @@ const [showPassword, setShowPassword] = useState('password');
 							/>
 
 							<InputIcon
-								className='input col-12 mb-2 py-2 '
 								iconType='eye'
 								value={password}
 								handlechange={handleChangePassword}
@@ -73,10 +72,12 @@ const [showPassword, setShowPassword] = useState('password');
 								onClickIcon={onClickIcon}
 							/>
 
-							<Button
-								onClick={handleSubmit}
-								title={t('auth.login.btnLogin')}
-							/>
+							<div className='mt-4'>
+								<Button
+									onClick={handleSubmit}
+									title={t('auth.login.btnLogin')}
+								/>
+							</div>
 							<div className='col-12 d-flex justify-content-end  '>
 								<Link
 									className='text-light text-decoration-none recovery'
