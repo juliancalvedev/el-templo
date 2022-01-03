@@ -14,20 +14,17 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import UserImage from '../../components/UserImage/UserImage';
 import ImportantBar from '../../components/ImportantBar/ImportantBar';
 import { Link } from 'react-router-dom';
-import { putTrainingInfo } from '../../services/user';
+import TrainingStatus from '../../utils/trainingStatus.js';
 
 const MyProfile = () => {
 	const { t } = useTranslation();
+	const training = TrainingStatus();
+
 	const navigate = useNavigate();
-	const {
-		startEnabledDate,
-		endEnabledDate,
-		goals,
-		height,
-		weight,
-		trainingLevel,
-	} = useSelector((store) => store.user);
-	const UserLevel = useSelector((store) => store.user);
+
+	const { startEnabledDate, endEnabledDate, goals, height, weight } =
+		useSelector((store) => store.user);
+	const { trainingLevel } = useSelector((store) => store.user.trainingInfo);
 	const user = useSelector((store) => store.user);
 	console.log(user);
 	const handleNavigate = () => {
@@ -115,7 +112,7 @@ const MyProfile = () => {
 						customStyles='training-level-text'
 						text={`${`${t(
 							'user.myProfile.trainingLevel'
-						)}  inicial`}`}
+						)}  ${training}`}`}
 					/>
 				</div>
 
