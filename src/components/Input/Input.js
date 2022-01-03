@@ -1,4 +1,6 @@
-const Input = ({ id, name, placeholder, type, handleChange, className, value }) => {
+
+
+const Input = ({ id, name, placeholder, type, handleChange,className, value }) => {
 	return (
 		<div>
 			<input

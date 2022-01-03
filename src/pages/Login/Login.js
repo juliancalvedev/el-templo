@@ -19,17 +19,22 @@ const Login = () => {
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-const [showPassword, setShowPassword] = useState('password');
+
+	const [showPassword, setShowPassword] = useState('password');
+	
 	const callback = () => navigate(`/${PATHS.ENABLED_VERIFIED}`);
 
 	const handleChangeEmail = (e) => {
 		setEmail(e.target.value);
 	};
 	const handleChangePassword = (e) => {
+		
 		setPassword(e.target.value);
 	};
 
 	const handleSubmit = () => {
+		
+
 		dispatch(loginAction({ email, password, callback }));
 	};
 	 
@@ -42,6 +47,7 @@ const [showPassword, setShowPassword] = useState('password');
 			setShowPassword('password');
 		}
 	};
+	
 	return (
 		<MainContainer full>
 			<div className='login-container col-12 '>
@@ -66,7 +72,7 @@ const [showPassword, setShowPassword] = useState('password');
 							<InputIcon
 								iconType='eye'
 								value={password}
-								handlechange={handleChangePassword}
+							onChange={handleChangePassword}
 								type={showPassword}
 								placeholder={t('auth.login.passwordPlaceholder')}
 								onClickIcon={onClickIcon}
