@@ -50,7 +50,8 @@ export default {
 			passwordPlaceholder: 'Password',
 			recovery: 'Forgotten password?',
 			btnLogin: 'Log In',
-			register: 'you have not an account?Register here',
+			register1: 'you have not an account?',
+			register2:'Register here',
 		},
 		emailConfirm: {
 			title: 'Confirm your email',

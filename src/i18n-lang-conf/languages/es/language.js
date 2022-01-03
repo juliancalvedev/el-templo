@@ -50,7 +50,8 @@ export default {
 			passwordPlaceholder: 'Contraseña',
 			recovery: '¿Olvidaste tu contraseña?',
 			btnLogin: 'Iniciar sesión',
-			register:'No tenés cuenta?Registrate acá'
+			register1:'No tenés cuenta?',
+			register2:'Registrate acá',
 		},
 
 		emailConfirm: {

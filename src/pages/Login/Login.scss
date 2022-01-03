@@ -5,16 +5,16 @@
     display: flex;
     justify-content: center;
   }
-.welcome{
+.login__welcome{
 margin-top: 21%;
 }
-.continue{
+.login__continue{
     padding-top:0;
 }
-.login{
+.login__form{
     margin-top:13%;
 }
-.input{
+.login__input{
     background: $eleventh;
 border:none;
 border-radius: 15px;
@@ -29,28 +29,31 @@ border-radius: 15px;
 text-indent: 2%;
 -webkit-text-fill-color: $nineth;
     }
-.recovery{
+.login__recovery{
     font-size: 12px;
+    color:$fifth;
 }
-.register{
+.login__register{
     margin-top: 50%;
     font-size: 12px;    
+   color: $fifth;
 }
 @media (min-width: 992px) { 
 .login-container{
         position: absolute;
 }
-.login{padding-left: 30%;
+.login__form{padding-left: 30%;
 padding-right: 30%;
 margin: 0;
 }
-.welcome{padding-top: 30%;
+.login__welcome{padding-top: 30%;
     padding-left: 30%;}
-.continue{padding-left: 30%;}
-.input{width: 100%}
-.register{
+.login__continue{padding-left: 30%;}
+.login__input{width: 100%}
+.login__register{
     margin-top: 10%;
     font-size: 12px;
     margin-bottom:auto;
+   
 } 
 }

@@ -20,9 +20,11 @@ const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
-	const [showPassword, setShowPassword] = useState('password');
+	const [inputType, setInputType] = useState('password');
 	
 	const callback = () => navigate(`/${PATHS.ENABLED_VERIFIED}`);
+	const toRegister = () => navigate(`/${PATHS.REGISTER}`);
+	const toForgottenPassword = () => navigate(`/${PATHS.FORGOTTEN_PASSWORD}`);
 
 	const handleChangeEmail = (e) => {
 		setEmail(e.target.value);
@@ -40,11 +42,11 @@ const Login = () => {
 	 
 
 		const onClickIcon = () => {
-		if (showPassword==='password') {
-			setShowPassword('text');
+		if (inputType==='password') {
+			setInputType('text');
 		}
-		if (showPassword === 'text') {
-			setShowPassword('password');
+		if (inputType === 'text') {
+			setInputType('password');
 		}
 	};
 	
@@ -52,17 +54,17 @@ const Login = () => {
 		<MainContainer full>
 			<div className='login-container col-12 '>
 				<div className='col-11 d-flex flex-column '>
-					<div className='welcome  pt-3 text-light col-12  '>
+					<div className='login__welcome  pt-3 text-light col-12  '>
 						<Title type='title1' text={t('auth.login.title')} />
 					</div>
-					<div className='continue col-8  '>
+					<div className='login__continue col-8  '>
 						<Paragraph type='light' text={t('auth.login.subtitle')} />
 					</div>
 
-					<div className=' login col-12'>
+					<div className=' login__form col-12'>
 						<form>
 							<Input
-								className='input col-12 mb-2 py-2 '
+								className='login__input col-12 mb-2 py-2 '
 								value={email}
 								handleChange={handleChangeEmail}
 								type='email'
@@ -72,8 +74,8 @@ const Login = () => {
 							<InputIcon
 								iconType='eye'
 								value={password}
-							onChange={handleChangePassword}
-								type={showPassword}
+								onChange={handleChangePassword}
+								type={inputType}
 								placeholder={t('auth.login.passwordPlaceholder')}
 								onClickIcon={onClickIcon}
 							/>
@@ -85,22 +87,25 @@ const Login = () => {
 								/>
 							</div>
 							<div className='col-12 d-flex justify-content-end  '>
-								<Link
-									className='text-light text-decoration-none recovery'
-									to='/forgotten-password'
+								<p
+									className=' text-decoration-none login__recovery'
+									onClick={toForgottenPassword}
 								>
 									{t('auth.login.recovery')}
-								</Link>
+								</p>
 							</div>
 						</form>
 					</div>
 					<div className='d-flex justify-content-center col-12   '>
-						<Link
-							className='text-light text-decoration-none register '
-							to='/register'
+						<p className='text-light login__register '>
+							{t('auth.login.register1')}
+						</p>
+						<p
+							className='text-decoration-none login__register '
+							onClick={toRegister}
 						>
-							{t('auth.login.register')}
-						</Link>
+							{t('auth.login.register2')}
+						</p>
 					</div>
 				</div>
 			</div>
