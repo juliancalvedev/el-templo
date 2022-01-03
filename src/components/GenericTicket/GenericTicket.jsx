@@ -10,9 +10,8 @@ const GenericTicket = ({ text1, text2, mode }) => {
 			<div className='text-1-container'>
 				<p className='generic-ticket-text'>{text1}</p>
 			</div>
-			<div>
-				<p className='generic-ticket-text'>{text2}</p>
-			</div>
+
+			<p className='generic-ticket-text'>{text2}</p>
 		</div>
 	);
 };
