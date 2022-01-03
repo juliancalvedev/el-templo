@@ -44,6 +44,7 @@ const TopBar = () => {
 				)}
 
 				<Title
+					type='title5'
 					customStyles='textStyles'
 					text={t(translatingPath(currentLocation))}
 				/>
