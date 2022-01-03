@@ -5,7 +5,7 @@ const UserImage = () => {
 	return (
 		<div>
 			<img
-				className='profileImage'
+				className='img1'
 				src={`data:image/png;base64,${img}`}
 				alt='User_Image'
 			/>

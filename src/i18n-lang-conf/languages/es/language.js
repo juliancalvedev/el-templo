@@ -252,7 +252,7 @@ export default {
 			submitPassword: 'Cambiar contraseña',
 		},
 		myProfile: {
-			personalInfo: 'Personal info',
+			personalInfo: 'Información personal',
 			level: 'Nivel',
 			completedTrainings: 'Entrenamientos realizados',
 			memberSince: 'Miembro desde',
