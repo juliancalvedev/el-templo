@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { textStyles, backBtnStyles, onHide, navStyles } from './TopBarStyles';
 import { useTranslation } from 'react-i18next';
 import { TOPBAR_TEXTS } from '../../constants/paths';
+import './TopBar.scss';
 
 import Title from '../../components/Title/Title';
 
@@ -28,27 +28,23 @@ const TopBar = () => {
 	});
 
 	return (
-		<div>
-			<nav className='navbar-light bg-light' style={navStyles}>
+		<div className='col-12'>
+			<nav className='navbar-light bg-light navStyles col-12'>
 				{mainPath ? (
 					<button
-						className='navbar-brand'
-						style={backBtnStyles}
+						className='navbar-brand backBtnStyles'
 						onClick={back}
 					>
 						{'ᐸ'}
 					</button>
 				) : (
-					<button
-						className='navbar-brand'
-						style={(backBtnStyles, onHide)}
-					>
+					<button className='navbar-brand backBtnStyles onHide'>
 						{'ᐸ'}
 					</button>
 				)}
 
 				<Title
-					style={textStyles}
+					customStyles='textStyles'
 					text={t(translatingPath(currentLocation))}
 				/>
 			</nav>

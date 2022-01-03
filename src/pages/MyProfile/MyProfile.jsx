@@ -124,22 +124,24 @@ const MyProfile = () => {
 						customStyles='user-profile-goals'
 						text={t('user.myProfile.goals')}
 					/>
-					<div className='col-12 d-flex flex-column  '>
-						<GenericTicket
-							mode='list'
-							text1='1 '
-							text2={`${t(`welcome.goals.${goals?.[0]}`)}`}
-						/>
-						<GenericTicket
-							mode='list'
-							text1='2'
-							text2={`${t(`welcome.goals.${goals?.[1]}`)}`}
-						/>
-						<GenericTicket
-							mode='list'
-							text1='3'
-							text2={`${t(`welcome.goals.${goals?.[2]}`)}`}
-						/>
+					<div className='col-12 d-flex flex-column ticket-box '>
+						<div className='goals-box'>
+							<GenericTicket
+								mode='list'
+								text1='1 '
+								text2={`${t(`welcome.goals.${goals?.[0]}`)}`}
+							/>
+							<GenericTicket
+								mode='list'
+								text1='2'
+								text2={`${t(`welcome.goals.${goals?.[1]}`)}`}
+							/>
+							<GenericTicket
+								mode='list'
+								text1='3'
+								text2={`${t(`welcome.goals.${goals?.[2]}`)}`}
+							/>
+						</div>
 
 						<AuxText
 							customStyles='user-profile-goals'

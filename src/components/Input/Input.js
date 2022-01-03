@@ -1,6 +1,12 @@
-import './Input.scss'
-
-const Input = ({ id, name, placeholder, type, handleChange, param, value }) => {
+const Input = ({
+	id,
+	name,
+	placeholder,
+	type,
+	handleChange,
+	className,
+	value,
+}) => {
 	return (
 		<div>
 			<input
@@ -9,9 +15,8 @@ const Input = ({ id, name, placeholder, type, handleChange, param, value }) => {
 				placeholder={placeholder}
 				type={type}
 				onChange={handleChange}
-				className={param}
+				className={className}
 				value={value}
-				
 			/>
 		</div>
 	);
