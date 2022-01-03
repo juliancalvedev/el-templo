@@ -13,7 +13,7 @@ const Contact = () => {
 				style={{ height: '25%', marginTop: '15%' }}
 			>
 				<ImgBlueSeparator customStyles={'top-separator'} />
-				<Title text={`Av.Constitución`} />
+				<Title text={`Av.Constitución`} style={{ margin: '0px' }} />
 				<Title text={`6745`} />
 				<ImgArrobaElTemplo />
 				<ImgBlueSeparator customStyles='bottom-separator' />

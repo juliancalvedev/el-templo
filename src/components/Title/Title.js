@@ -1,13 +1,9 @@
 import './title.scss';
 
-const Title = ({ text, type = 'dark' }) => {
+const Title = ({ text, type = 'dark', style }) => {
 	return (
 		<div>
-			<h1
-				className={`title  title--${type} `}
-				// TODO cambiar el style por el customStyles del otro PR
-				style={{ margin: '0px' }}
-			>
+			<h1 className={`title  title--${type} `} style={style}>
 				{text}
 			</h1>
 		</div>
