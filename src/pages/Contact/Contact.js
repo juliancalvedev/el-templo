@@ -14,7 +14,7 @@ const Contact = () => {
 			>
 				<ImgBlueSeparator customStyles={'top-separator'} />
 				<Title text={`Av.Constitución`} style={{ margin: '0px' }} />
-				<Title text={`6745`} />
+				<Title text={`6745`} style={{ marginBottom: '15px' }} />
 				<ImgArrobaElTemplo />
 				<ImgBlueSeparator customStyles='bottom-separator' />
 
