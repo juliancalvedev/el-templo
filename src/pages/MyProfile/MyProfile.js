@@ -15,11 +15,12 @@ import UserImage from '../../components/UserImage/UserImage';
 import ImportantBar from '../../components/ImportantBar/ImportantBar';
 import { Link } from 'react-router-dom';
 import TrainingStatus from '../../utils/trainingStatus.js';
+import {UserTrainingLevel} from '../../constants/userLevel'
 
 const MyProfile = () => {
 	const { t } = useTranslation();
 	const training = TrainingStatus();
-
+	UserTrainingLevel()
 	const navigate = useNavigate();
 
 	const { startEnabledDate, endEnabledDate, goals, height, weight } =
