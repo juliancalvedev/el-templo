@@ -7,9 +7,6 @@
 	/* overflow: hidden; */
 }
 
-.card-body {
-	padding: 0;
-}
 .accordion-button:not(.collapsed)::after {
 	background-size: 15px;
 }

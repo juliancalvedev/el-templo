@@ -3,20 +3,16 @@ import Title from '../../components/Title/Title';
 import ImgArrobaElTemplo from '../../images/ImgArrobaElTemplo';
 import ImgBlueSeparator from '../../images/ImgBlueSeparator';
 import { ImgDiagonalRectangle } from '../../images/ImgDiagonalRectangle';
-import './Contact.scss';
 
 const Contact = () => {
 	return (
 		<MainContainer top>
-			<div
-				className='d-flex flex-column align-items-center justify-content-between col-12'
-				style={{ height: '25%', marginTop: '15%' }}
-			>
-				<ImgBlueSeparator customStyles={'top-separator'} />
+			<div className='d-flex flex-column align-items-center justify-content-between col-12 h-25 mt-5'>
+				<ImgBlueSeparator customStyles='mb-4 mt-3' />
 				<Title text={`Av.Constitución`} style={{ margin: '0px' }} />
 				<Title text={`6745`} style={{ marginBottom: '15px' }} />
 				<ImgArrobaElTemplo />
-				<ImgBlueSeparator customStyles='bottom-separator' />
+				<ImgBlueSeparator customStyles='mt-1' />
 
 				<div className='align-self-end mt-5'>
 					<ImgDiagonalRectangle />
