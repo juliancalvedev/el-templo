@@ -14,6 +14,7 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import UserImage from '../../components/UserImage/UserImage';
 import ImportantBar from '../../components/ImportantBar/ImportantBar';
 import { Link } from 'react-router-dom';
+import { putTrainingInfo } from '../../services/user';
 
 const MyProfile = () => {
 	const { t } = useTranslation();
@@ -26,11 +27,11 @@ const MyProfile = () => {
 		weight,
 		trainingLevel,
 	} = useSelector((store) => store.user);
-	const userData = useSelector((store) => store.user);
-	console.log(userData);
-
+	const UserLevel = useSelector((store) => store.user);
+	const user = useSelector((store) => store.user);
+	console.log(user);
 	const handleNavigate = () => {
-		navigate(`/${PATHS.CHANGE_USER_PASSWORD}`, { replace: true });
+		navigate(`/${PATHS.CHANGE_USER_PASSWORD}`);
 	};
 	const dispatch = useDispatch();
 	const onLogout = () => {
@@ -75,13 +76,11 @@ const MyProfile = () => {
 						<Link className='edit-profile-link' to='/edit-profile'>
 							<div className='d-flex flex-column justify-content-center align-items-center edit-profile-box '>
 								<ImgEditProfile />
-								<div>
-									<AuxText
-										customStyles='editProfile-text'
-										text={`${t('user.myProfile.edit')}`}
-									/>
-
+								<div className='d-flex flex-column'>
 									<p className='editProfile-text'>
+										{t('user.myProfile.edit')}
+									</p>
+									<p className='editProfile-text1'>
 										{t('user.myProfile.profile')}
 									</p>
 								</div>
@@ -90,7 +89,7 @@ const MyProfile = () => {
 					</div>
 				</div>
 
-				<div className=' subscription-box'>
+				<div className=' subscription-box col-12 '>
 					{/* C */}
 					<ImportantBar
 						text={`${t('user.myProfile.endEnabledDate')}${cutDate(
@@ -143,7 +142,7 @@ const MyProfile = () => {
 						/>
 
 						<AuxText
-							customStyles='user-profile-data'
+							customStyles='user-profile-goals'
 							text={t('user.myProfile.personalInfo')}
 						/>
 						<GenericTicket
@@ -166,7 +165,7 @@ const MyProfile = () => {
 					/>
 					<Button
 						title={t('user.myProfile.logOut')}
-						mode='flatDanger'
+						mode='flat-Danger'
 						onClick={onLogout}
 					/>
 				</div>

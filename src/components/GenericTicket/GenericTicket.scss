@@ -2,7 +2,7 @@
 .generic-ticket {
 	height: 40px;
 	border-radius: 15px;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: $shadow020;
 	margin-top: 8px;
 	color: $tertiary;
 	font-weight: 600;

@@ -31,7 +31,7 @@
 			background-color: $nineth;
 			color: $sixth;
 		}
-		&Danger {
+		&-Danger {
 			@include flatBtn();
 			color: $fourth;
 			&:hover {
