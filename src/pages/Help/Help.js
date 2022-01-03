@@ -11,8 +11,10 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 
 const Help = () => {
 	const { t } = useTranslation();
-	const getBtn=document.querySelector('.btnCollapsed');
-	const removeBtn=()=>{getBtn.remove()}
+	const getBtn = document.querySelector('.btnCollapsed');
+	const removeBtn = () => {
+		getBtn.remove();
+	};
 
 	return (
 		<MainContainer>
@@ -24,7 +26,7 @@ const Help = () => {
 					width='100%'
 					src='https://d500.epimg.net/cincodias/imagenes/2019/05/02/lifestyle/1556809482_591063_1556811610_noticia_normal.jpg'
 				/>
-				<div className='col-11 m-auto  my-3'>
+				<div className='col-11 m-auto my-1'>
 					<AuxText text={t('help.main.auxText1')} />
 					<AuxText text={t('help.main.auxText12')} />
 					<AuxText text={t('help.main.auxText13')} />
@@ -44,7 +46,7 @@ const Help = () => {
 				</button>
 
 				<div className='collapse ' id='collapseExample'>
-					<div className='card card-body'>
+					<div className='card p-0'>
 						<Title type='title3' text={t('help.main.mission')} />
 						<div className='col-11 m-auto my-1'>
 							<AuxText text={t('help.main.auxText2')} />

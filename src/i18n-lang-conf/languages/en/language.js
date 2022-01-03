@@ -248,6 +248,7 @@ export default {
 		register: 'Register',
 		help: 'Help',
 		emailRegisterSended: 'Confirm Email',
+		contact: 'Contact',
 	},
 	user: {
 		changeUserPassword: {

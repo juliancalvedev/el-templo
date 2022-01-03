@@ -1,9 +1,11 @@
 import './title.scss';
 
-const Title = ({ text, type = 'dark' }, customStyles) => {
+const Title = ({ text, type = 'dark', style }) => {
 	return (
 		<div>
-			<h1 className={`title m-1 title--${type} ${customStyles}`}>{text}</h1>
+			<h1 className={`title  title--${type}`} style={style}>
+				{text}
+			</h1>
 		</div>
 	);
 };

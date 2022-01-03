@@ -245,6 +245,7 @@ export default {
 		register: 'Registro',
 		help: 'Ayuda',
 		emailRegisterSended: 'Confirma tu Email',
+		contact: 'Contacto',
 	},
 	user: {
 		changeUserPassword: {

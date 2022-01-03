@@ -7,20 +7,13 @@
 	/* overflow: hidden; */
 }
 
-.card-body{
-	padding:0;
-}
 .accordion-button:not(.collapsed)::after {
 
    background-size: 15px ;
 
 }
 .accordion-button::after {
-
-
-   background-size: 15px ;
-   	
-
+	background-size: 15px;
 }
 
 .container-fluid {
