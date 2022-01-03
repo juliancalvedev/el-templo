@@ -67,7 +67,6 @@ const MyProfile = () => {
 								</p>
 							</div>
 						</div>
-						<a className='link' href=''></a>
 					</div>
 					<div className=' justify-content-end col-2 h-100 d-flex align-items-start '>
 						<Link className='edit-profile-link' to='/edit-profile'>
@@ -101,7 +100,7 @@ const MyProfile = () => {
 						text={`${t('user.myProfile.aboutYou')}`}
 					/>
 
-					<Link className='about-you-link' to='/'>
+					<Link className='about-you-link' to='/edit-about-you'>
 						{t('user.myProfile.editInfo')}
 					</Link>
 				</div>
