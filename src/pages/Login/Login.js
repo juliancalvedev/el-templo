@@ -61,7 +61,7 @@ const Login = () => {
 						<Paragraph type='light' text={t('auth.login.subtitle')} />
 					</div>
 
-					<div className=' login__form col-12'>
+					<div className=' login__form col-12 mb-5 '>
 						<form>
 							<Input
 								className='login__input col-12 mb-2 py-2 '
@@ -87,25 +87,26 @@ const Login = () => {
 								/>
 							</div>
 							<div className='col-12 d-flex justify-content-end  '>
-								<p
-									className=' text-decoration-none login__recovery'
+								<Paragraph 
+									type='yellow'
 									onClick={toForgottenPassword}
-								>
-									{t('auth.login.recovery')}
-								</p>
+								
+									text={t('auth.login.recovery')}
+								/>
 							</div>
 						</form>
 					</div>
-					<div className='d-flex justify-content-center col-12   '>
-						<p className='text-light login__register '>
-							{t('auth.login.register1')}
-						</p>
-						<p
-							className='text-decoration-none login__register '
+					<div className='d-flex flex-colum justify-content-center align-items-center mt-5 pt-5  '>
+						<Paragraph type='light' 
+							text={t('auth.login.register1')}
+						/>
+						<Paragraph
+						
+							type='yellow'
 							onClick={toRegister}
-						>
-							{t('auth.login.register2')}
-						</p>
+						
+							text={t('auth.login.register2')}
+						/>
 					</div>
 				</div>
 			</div>

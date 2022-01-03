@@ -50,7 +50,7 @@ export default {
 			passwordPlaceholder: 'Contraseña',
 			recovery: '¿Olvidaste tu contraseña?',
 			btnLogin: 'Iniciar sesión',
-			register1:'No tenés cuenta?',
+			register1:'¿No tenés cuenta?',
 			register2:'Registrate acá',
 		},
 
