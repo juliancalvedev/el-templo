@@ -1,13 +1,11 @@
 import { useSelector } from 'react-redux';
 
 const UserImage = () => {
-    const {
-		img
-	} = useSelector((store) => store.user);
+	const { img } = useSelector((store) => store.user);
 	return (
 		<div>
 			<img
-				className='img1'
+				className='profile-image'
 				src={`data:image/png;base64,${img}`}
 				alt='User_Image'
 			/>
