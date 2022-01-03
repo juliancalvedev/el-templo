@@ -26,7 +26,7 @@ const MyProfile = () => {
 		useSelector((store) => store.user);
 	const { trainingLevel } = useSelector((store) => store.user.trainingInfo);
 	const user = useSelector((store) => store.user);
-	console.log(user);
+
 	const handleNavigate = () => {
 		navigate(`/${PATHS.CHANGE_USER_PASSWORD}`);
 	};
