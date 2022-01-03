@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../../axios/axiosInstance';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import './mainGoals.scss';
 
 import AuxText from '../../../components/AuxText/AuxText';
 import Title from '../../../components/Title/Title';
-import './mainGoals.scss';
 import { PATHS } from '../../../constants/paths';
 import { useDispatch, useSelector } from 'react-redux';
 import { addGoalsToTrainingInfo } from '../../../redux/user';
@@ -62,7 +62,7 @@ const MainGoals = () => {
 			<Title text={t('welcome.goals.tellUs')} />
 			<AuxText text={t('welcome.goals.mainGoals')} />
 
-			<div className='showing-inputs'>
+			<div className='showing-inputs col-12'>
 				<div
 					className='goal-field goal-1 d-flex'
 					onClick={() => deleteGoal(0)}

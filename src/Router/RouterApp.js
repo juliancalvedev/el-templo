@@ -31,6 +31,8 @@ const RouterApp = () => {
 
 	const savedToken = localStorage.getItem('token');
 
+	console.log(goals);
+
 	return (
 		<BrowserRouter>
 			<TopBar />

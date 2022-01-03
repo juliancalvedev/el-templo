@@ -16,12 +16,11 @@ const Landing = () => {
 	return (
 		<MainContainer top>
 			<div className='landing-container col-12'>
-
 				<div className='col-11 d-flex flex-column justify-content-between'>
 					<div className='col-12'>
 						<LanguageSelector />
 						<div className='m-auto d-flex justify-content-center col-8'>
-							<ElTemploLogo/>
+							<ElTemploLogo />
 						</div>
 					</div>
 					<div className='col-12 pb-5'>
@@ -29,14 +28,12 @@ const Landing = () => {
 						<Button
 							onClick={handleSubmitLogin}
 							title={t('auth.landing.btnLogin')}
-							/>
+						/>
 						<Button
 							onClick={handleSubmitRegister}
 							title={t('auth.landing.btnRegister')}
-							/>
-
+						/>
 					</div>
-
 				</div>
 			</div>
 		</MainContainer>
