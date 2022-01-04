@@ -32,6 +32,10 @@
 
 	.input__divided--centerLine {
 		background-color: $thirteenth;
+		// TODO este BoxShadow puede ser opcional,
+		// porque en Figma no se ve bien si tiene
+		// un efecto de blur o qué...
+		box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 
 		width: 1px;
 		height: 40px;
