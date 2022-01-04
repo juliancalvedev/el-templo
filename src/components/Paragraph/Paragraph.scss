@@ -1,15 +1,14 @@
 @import '../../styles/variables.scss';
-.paragraph{
+.paragraph {
+	text-align: start;
+	font-family: $font-1;
+	font-weight: 300;
+	font-size: 11px;
 
-     
-
-text-align: start;
-font-family: $font-1;
-font-weight: 300;
-font-size: 11px;
-
-    
-  
-    &--dark{color:$tenth;}
-    &--light{color:$nineth;}
+	&--dark {
+		color: $sixth;
+	}
+	&--light {
+		color: $nineth;
+	}
 }

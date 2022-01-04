@@ -11,6 +11,8 @@ import Button from '../../../components/Button/Button';
 import Title from '../../../components/Title/Title';
 import { PATHS } from '../../../constants/paths';
 import { useTranslation } from 'react-i18next';
+import InputDivided from '../../../components/InputDivided/InputDivided';
+import MainContainer from '../../../components/MainContainer/MainContainer';
 
 const WeightHeight = () => {
 	const { t } = useTranslation();
@@ -23,20 +25,6 @@ const WeightHeight = () => {
 
 	const [selectedWeight, setSelectedWeight] = useState(userWeight);
 	const [selectedHeight, setSelectedHeight] = useState(userHeight);
-
-	const generateWeightNums = () => {
-		let weightNums = [];
-		for (let i = 0; i <= 200; i++) weightNums.push(i); // PESO
-		return weightNums;
-	};
-	const weights = generateWeightNums(); // PESO
-
-	const generateHeights = () => {
-		let heights = [];
-		for (let i = 0.5; i <= 2.5; i = i + 0.01) heights.push(i.toFixed(2)); // ALTURA
-		return heights;
-	};
-	const heights = generateHeights(); // ALTURA
 
 	const handleChange = (e, type) => {
 		if (type === 'weight') setSelectedWeight(e.target.value); // PESO
@@ -58,47 +46,33 @@ const WeightHeight = () => {
 	};
 
 	return (
-		<div className='d-flex justify-content-center  flex-column'>
-			<Title text={t('welcome.weightHeight.title')} />
+		<MainContainer>
+			<div className='d-flex flex-column justify-content-center'>
+				<Title text={t('welcome.weightHeight.title')} />
 
-			<div className='form-group d-flex'>
-				<label className='col-3' htmlFor='weight'>
-					{t('welcome.weightHeight.weight')}
-				</label>
-				<select
-					className='form-control col-6'
-					style={{ width: '25%' }}
-					id='weight'
-					onChange={(e) => handleChange(e, 'weight')}
-				>
-					{weights.map((num) => (
-						<option key={num}>{num}</option> // PESAJES
-					))}
-				</select>
-				<p>{t('welcome.weightHeight.kilos')}</p>
-			</div>
+				<div className='form-group d-flex'>
+					<InputDivided
+						text1={t('welcome.weightHeight.weight')}
+						text2={t('welcome.weightHeight.kilos')}
+						onChange={handleChange}
+						type='weight'
+					/>
+				</div>
 
-			<div className='form-group d-flex'>
-				<label className='col-3' htmlFor='height'>
-					{t('welcome.weightHeight.height')}
-				</label>
-				<select
-					className='form-control col-6'
-					style={{ width: '25%' }}
-					id='height'
-					onChange={(e) => handleChange(e, 'height')}
-				>
-					{heights.map((num) => (
-						<option key={num}>{num}</option> // ALTURAS
-					))}
-				</select>
-				<p>{t('welcome.weightHeight.meters')}</p>
+				<div className='form-group d-flex'>
+					<InputDivided
+						text1={t('welcome.weightHeight.height')}
+						text2={t('welcome.weightHeight.meters')}
+						onChange={handleChange}
+						type='height'
+					/>
+				</div>
+				<Button
+					title={t('welcome.weightHeight.enter')}
+					onClick={handleSubmit}
+				/>
 			</div>
-			<Button
-				title={t('welcome.weightHeight.enter')}
-				onClick={handleSubmit}
-			/>
-		</div>
+		</MainContainer>
 	);
 };
 
