@@ -66,7 +66,8 @@ export default {
 			sex3: 'Other',
 			emailPlaceholder: 'Email',
 			passwordPlaceholder: 'Password',
-			passwordRequirement: '(Must contain at least 6 letters and 1 number)',
+			passwordRequirement:
+				'(Must contain at least 6 letters and 1 number)',
 			password2Placeholder: 'Confirm Your Password',
 			countrySelection: 'Country',
 			country1: 'Argentina',
@@ -269,6 +270,13 @@ export default {
 			weight: 'Weight',
 			logOut: 'Log out',
 			password: 'Password',
+		},
+		trainingLevels: {
+			beginner: 'Beginner',
+			amateur: 'Amateur',
+			intermediate: 'Intermediate',
+			advanced: 'Advanced',
+			expert: 'Expert',
 		},
 	},
 };

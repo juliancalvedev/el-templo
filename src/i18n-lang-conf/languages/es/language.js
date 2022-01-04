@@ -252,7 +252,7 @@ export default {
 			submitPassword: 'Cambiar contraseña',
 		},
 		myProfile: {
-			personalInfo: 'Personal info',
+			personalInfo: 'Información personal',
 			level: 'Nivel',
 			completedTrainings: 'Entrenamientos realizados',
 			memberSince: 'Miembro desde',
@@ -268,6 +268,13 @@ export default {
 			weight: 'Peso',
 			logOut: 'Cerrar sesión',
 			password: 'Password',
+		},
+		trainingLevels: {
+			beginner: 'Principiante',
+			amateur: 'Aficionado',
+			intermediate: 'Intermedio',
+			advanced: 'Avanzado',
+			expert: 'Experto',
 		},
 	},
 };

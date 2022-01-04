@@ -14,12 +14,11 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import UserImage from '../../components/UserImage/UserImage';
 import ImportantBar from '../../components/ImportantBar/ImportantBar';
 import { Link } from 'react-router-dom';
-import TrainingStatus from '../../utils/trainingStatus.js';
+import { UserTrainingLevel } from '../../constants/userLevel';
 
 const MyProfile = () => {
 	const { t } = useTranslation();
-	const training = TrainingStatus();
-
+	const level = UserTrainingLevel();
 	const navigate = useNavigate();
 
 	const { startEnabledDate, endEnabledDate, goals, height, weight } =
@@ -40,7 +39,7 @@ const MyProfile = () => {
 			<div className=' col-12 my-profile-body flex-col'>
 				<div className='d-flex col-11  user-level-box justify-content-between '>
 					<div className=' col-4 h-100 justify-content-center d-flex align-items-center'>
-						<UserImage />
+						<UserImage mode='small' />
 					</div>
 					<div className='d-flex flex-column col-6 h-100 '>
 						{/* LEVEL AND TEXT */}
@@ -111,7 +110,7 @@ const MyProfile = () => {
 						customStyles='training-level-text'
 						text={`${`${t(
 							'user.myProfile.trainingLevel'
-						)}  ${training}`}`}
+						)}  ${level}`}`}
 					/>
 				</div>
 
