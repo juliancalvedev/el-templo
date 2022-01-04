@@ -31,9 +31,7 @@ function App() {
 
   return (
     <div className="App container-fluid">
-      {isError && <h1>{message}</h1>}
-
-      <Toast message='asdasdasd' />
+      {isError && <Toast message={message} />}
       <RouterApp />
     </div>
   );
