@@ -2,19 +2,16 @@
 
 .rectangle324 {
 	background-color: $fourth;
-	height: 53px;
-	margin-left: 0%;
-	top: 526px;
+	padding-top:3vh;
+	padding-bottom:3vh;
 	font-family: $font-1;
 	font-size: 18px;
 	line-height: 24px;
 	color: #ffffff;
 }
 .btnCollapsed {
-	height: 44px;
-	width: 193px;
-	left: 109px;
-	top: 590px;
+	padding-top:2vh;
+	padding-bottom:2vh;
 	border-radius: 0px;
 
 	border: 2px solid #2e4f77;
@@ -33,24 +30,25 @@
 	color: #2e4f77;
 }
 .accordion-button {
-	display: flex;
-	align-items: flex-start;
 
-	width: 100%;
 
+	padding-top:2vh;
+	padding-bottom:2vh;
 	font-family: $font-1;
 	font-weight: 600;
 	font-size: 11px;
 	line-height: 1px;
-	padding-bottom: 0px;
-
+	
 	&--icon {
 		&:not(.collapsed) {
 			&::after {
+				
 				background-image: none;
+
 			}
 		}
-		&::after {
+		&::after {	
+	
 			background-image: none;
 			background-color: none;
 		}
@@ -64,8 +62,8 @@
 		background-color: $tertiary;
 		color: $nineth;
 		font-weight: 300;
-padding-top: 7px;
-		padding-bottom: 4px;
+
+		
 		line-height: 1rem;
 	}
 }
@@ -80,18 +78,22 @@ padding-top: 7px;
 	&--color {
 		background-color: $tertiary;
 		color: $nineth;
-		padding: 0px;
+		padding: 0;
 	}
 }
 .accordion-button:not(.collapsed)::after {
 
    background-size: 15px ;
-    
+
+	margin-right:1%;
 }
 .accordion-button::after {
 
    background-size: 15px ;
    	display: flex;
      align-items: start;
+	
+	
+	 
 
 }
