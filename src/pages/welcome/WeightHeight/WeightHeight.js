@@ -11,6 +11,7 @@ import Button from '../../../components/Button/Button';
 import Title from '../../../components/Title/Title';
 import { PATHS } from '../../../constants/paths';
 import { useTranslation } from 'react-i18next';
+import InputDivided from '../../../components/InputDivided/InputDivided';
 
 const WeightHeight = () => {
 	const { t } = useTranslation();
@@ -77,7 +78,7 @@ const WeightHeight = () => {
 				</select>
 				<p>{t('welcome.weightHeight.kilos')}</p>
 			</div>
-
+			<InputDivided text1='Altura' text2='Mt' />
 			<div className='form-group d-flex'>
 				<label className='col-3' htmlFor='height'>
 					{t('welcome.weightHeight.height')}

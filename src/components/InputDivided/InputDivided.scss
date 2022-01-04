@@ -1,0 +1,50 @@
+@import '../../styles/variables.scss';
+
+.input__divided {
+	background-color: $nineth;
+
+	height: 40px;
+
+	// TODO Eliminar border cuando la page tenga imagen de fondo
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 30px;
+
+	.input__divided--label {
+		color: $tertiary;
+
+		text-indent: 1rem;
+		font-size: 1rem;
+		font-weight: 500;
+	}
+
+	.input__divided--centerLine {
+		background-color: $thirteenth;
+
+		width: 1px;
+		height: 40px;
+	}
+	.input__divided--auxTextContainer {
+		padding-right: 5%;
+
+		.input__divided--input {
+			color: $tertiary;
+			border: none;
+
+			width: 100%;
+
+			margin: 0% 3%;
+
+			text-indent: 1rem;
+			text-align: end;
+			font-size: 1rem;
+			font-weight: 500;
+		}
+
+		.input__divided--auxText {
+			color: $tertiary;
+
+			font-size: 1rem;
+			font-weight: 500;
+		}
+	}
+}
