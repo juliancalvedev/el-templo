@@ -15,6 +15,8 @@ import UserImage from '../../components/UserImage/UserImage';
 import ImportantBar from '../../components/ImportantBar/ImportantBar';
 import { Link } from 'react-router-dom';
 import { UserTrainingLevel } from '../../constants/userLevel';
+import SubTitle from '../../components/SubTitle/SubTitle';
+import Title from '../../components/Title/Title';
 
 const MyProfile = () => {
 	const { t } = useTranslation();
@@ -39,31 +41,38 @@ const MyProfile = () => {
 			<div className=' col-12 my-profile-body flex-col'>
 				<div className='d-flex col-11  user-level-box justify-content-between '>
 					<div className=' col-4 h-100 justify-content-center d-flex align-items-center'>
-						<UserImage mode='small' />
+						<UserImage />
 					</div>
 					<div className='d-flex flex-column col-6 h-100 '>
 						{/* LEVEL AND TEXT */}
 						<div className=' level-and-profile mt-3 col-12 d-flex justify-content-between '>
 							<div className=' d-flex justify-content-center col-9 levelAndEdit'>
-								<p className=' align-self-center userLevel'>{`${t(
-									'user.myProfile.level'
-								)} ${trainingLevel}`}</p>
+								<Title
+									type='title5'
+									customStyles=' align-self-center'
+									text={`${t(
+										'user.myProfile.level'
+									)} ${trainingLevel}`}
+								/>
 							</div>
 						</div>
 						{/* LEVEL AND TEXT */}
 						<div className='userLevel-box-texts col-12'>
 							<div className='d-flex flex-column justify-content-center date-container '>
-								<p className='userProfileDate'>
-									{`${t(
+								<AuxText
+									mode='nowrap'
+									text={`${t(
 										'user.myProfile.completedTrainings'
-									)}: 00`}{' '}
-								</p>
+									)}: 00`}
+								/>
 
-								<p className='userProfileDate'>
-									{`${t(
+								<AuxText
+									mode='nowrap'
+									className='userProfileDate'
+									text={`${t(
 										'user.myProfile.memberSince'
 									)}: ${cutDate(`${startEnabledDate}`)}`}
-								</p>
+								/>
 							</div>
 						</div>
 					</div>
@@ -72,12 +81,16 @@ const MyProfile = () => {
 							<div className='d-flex flex-column justify-content-center align-items-center edit-profile-box '>
 								<ImgEditProfile />
 								<div className='d-flex flex-column'>
-									<p className='editProfile-text'>
-										{t('user.myProfile.edit')}
-									</p>
-									<p className='editProfile-text1'>
-										{t('user.myProfile.profile')}
-									</p>
+									<AuxText
+										mode='small'
+										className='editProfile-text'
+										text={t('user.myProfile.edit')}
+									/>
+									<AuxText
+										mode='small'
+										className='editProfile-text1'
+										text={t('user.myProfile.profile')}
+									/>
 								</div>
 							</div>
 						</Link>
