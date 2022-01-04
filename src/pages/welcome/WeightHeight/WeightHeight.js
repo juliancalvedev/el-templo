@@ -44,7 +44,8 @@ const WeightHeight = () => {
 		callback();
 		navigate(`/${PATHS.BASE_URL}`);
 	};
-
+	console.log(selectedHeight, 'Altura');
+	console.log(selectedWeight, 'Peso');
 	return (
 		<MainContainer>
 			<div className='d-flex flex-column justify-content-center'>
@@ -54,8 +55,9 @@ const WeightHeight = () => {
 					<InputDivided
 						text1={t('welcome.weightHeight.weight')}
 						text2={t('welcome.weightHeight.kilos')}
-						onChange={handleChange}
-						type='weight'
+						onChange={(e, name) => handleChange(e, name)}
+						type='text'
+						name='weight'
 					/>
 				</div>
 
@@ -63,8 +65,9 @@ const WeightHeight = () => {
 					<InputDivided
 						text1={t('welcome.weightHeight.height')}
 						text2={t('welcome.weightHeight.meters')}
-						onChange={handleChange}
-						type='height'
+						onChange={(e, name) => handleChange(e, name)}
+						type='text'
+						name='height'
 					/>
 				</div>
 				<Button
