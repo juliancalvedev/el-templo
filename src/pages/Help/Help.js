@@ -28,13 +28,15 @@ const Help = () => {
 				/>
 				<div className='col-11 m-auto my-1'>
 					<AuxText text={t('help.main.auxText1')} />
+					<AuxText text={t('help.main.auxText12')} />
+					<AuxText text={t('help.main.auxText13')} />
 				</div>
 				<p className=' d-flex  justify-content-center align-items-center col-12 rectangle324  '>
 					{t('help.main.rectangle324')}
 				</p>
 
 				<button
-					className='btnCollapsed'
+					className='btnCollapsed col-6 '
 					type='button'
 					data-bs-toggle='collapse'
 					data-bs-target='#collapseExample'
@@ -48,6 +50,7 @@ const Help = () => {
 						<Title type='title3' text={t('help.main.mission')} />
 						<div className='col-11 m-auto my-1'>
 							<AuxText text={t('help.main.auxText2')} />
+							<AuxText text={t('help.main.auxText21')} />
 						</div>
 
 						<HelpAccordion />
