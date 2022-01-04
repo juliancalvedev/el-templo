@@ -7,6 +7,7 @@
 	border: none;
 	text-indent: 4%;
 	border-radius: 15px;
+	
 }
 .nameInput {
 	color: $sixth;
@@ -27,14 +28,14 @@
 	height: 50%;
 }
 .btnCheck2 {
-	background-color: $thirteenth;
-	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-	color: $tertiary;
+	background-color: $tertiary;
+	color: $nineth;
 	line-height: 100%;
 	font-size: 84%;
 	font-family: $font-1;
 	height: 50%;
 }
+
 .btnCheck3 {
 	background-color: $tertiary;
 	border-radius: 0px 20px 20px 0px;
@@ -45,12 +46,19 @@
 	height: 50%;
 }
 
+.btn-check:checked +.btn-all ,.btn-all:checked{
+    background-color: $thirteenth;
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: $tertiary;
+}
 .conteinerPass {
 	font-size: 75%;
 	font-family: $font-1;
 	color: $seventh;
 }
-
+.baseI64-2 {
+	border-radius: 50%;
+}
 .TC {
 	font-size: 65%;
 }

@@ -57,16 +57,19 @@ export const Register = () => {
 				<div className='contBaseInputs px-3 mt-4 col-12 '>
 					<div className='baseI64 d-flex align-items-center justify-content-start '>
 						<input
-							className='rounded-circle'
+							className='baseImg-1 '
 							id='file'
 							type='file'
 							onChange={handleClickimg}
 							hidden
+							value={values.img}
 						/>
 						<img
-							className='baseImg col-3 rounded-circle'
+							className='baseImg-2 col-3 rounded-circle '
 							src={baseImage}
+							name='img'
 							onClick={clickFile}
+							value={values.img}
 						/>
 						<div className='inputsNL col-9 '>
 							<div className='fName '>
@@ -133,7 +136,7 @@ export const Register = () => {
 								onChange={handleChange}
 							/>
 							<label
-								className='btn btn-outline btnCheck1  col-4 '
+								className='btn btn-outline btn-all btnCheck1  col-4 '
 								htmlFor='btnradio1'
 							>
 								{t('auth.register.sex1')}
@@ -149,7 +152,7 @@ export const Register = () => {
 								onChange={handleChange}
 							/>
 							<label
-								className='btn btn-outline btnCheck2 col-4   '
+								className='btn btn-outline btn-all btnCheck2 col-4   '
 								htmlFor='btnradio2'
 							>
 								{t('auth.register.sex2')}
@@ -165,7 +168,7 @@ export const Register = () => {
 								onChange={handleChange}
 							/>
 							<label
-								className='btn btn-outline btnCheck3 col-4 '
+								className='btn btn-outline btn-all btnCheck3 col-4 '
 								htmlFor='btnradio3'
 							>
 								{t('auth.register.sex3')}
@@ -274,7 +277,8 @@ export const Register = () => {
 							!values.password,
 							!values.password2,
 							!values.country,
-							!values.dateOfBirth)
+							!values.dateOfBirth
+							)
 						}
 						onClick={handleSubmit}
 						title={t('auth.register.btnRegister')}

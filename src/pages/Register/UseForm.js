@@ -34,7 +34,7 @@ const useForm = (RegisterValidate) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const callback = () => navigate(`/${PATHS.ENABLED_VERIFIED}`);
+		const callback = () => navigate(`/${PATHS.EMAIL_REGISTER_SENDED}`);
 		const auxErrors = RegisterValidate(values);
 		setErrors(auxErrors);
 

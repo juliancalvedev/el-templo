@@ -32,6 +32,7 @@ export const RegisterValidate = (values,) => {
 };
 
 export const HasErrors = (values) => {
+
 	if (!values.firstName.trim()) {
 		return true;
 	}
