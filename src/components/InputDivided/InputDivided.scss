@@ -16,19 +16,6 @@
 		font-size: 1rem;
 		font-weight: 500;
 	}
-	.input__divided--input {
-		color: $tertiary;
-		border: none;
-
-		width: 60%;
-
-		margin: 0% 10%;
-
-		text-indent: 1rem;
-		text-align: center;
-		font-size: 1rem;
-		font-weight: 500;
-	}
 
 	.input__divided--centerLine {
 		background-color: $thirteenth;
@@ -38,6 +25,21 @@
 	}
 	.input__divided--auxTextContainer {
 		padding-right: 5%;
+
+		.input__divided--input {
+			color: $tertiary;
+			border: none;
+
+			width: 100%;
+
+			margin: 0% 3%;
+
+			text-indent: 1rem;
+			text-align: end;
+			font-size: 1rem;
+			font-weight: 500;
+		}
+
 		.input__divided--auxText {
 			color: $tertiary;
 
