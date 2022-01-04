@@ -7,7 +7,7 @@ const defaultValue = {
 const NEW_ERROR = 'NEW_ERROR';
 const CLEAN_ERROR = 'CLEAN_ERROR';
 
-export default function errorReducer( state = defaultValue, { type, payload }) {
+export default function ErrorReducer( state = defaultValue, { type, payload }) {
 
     switch(type){
         case NEW_ERROR: return {...state, isError: true, message: payload.message, code: payload.code };

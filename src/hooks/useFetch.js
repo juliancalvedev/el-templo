@@ -3,28 +3,37 @@ import { useDispatch } from 'react-redux';
 import { cleanErrorAction, setErrorAction } from '../redux/error';
 
 
-const useFetch = (service) => {
+const useFetch = ({service}) => {
 
     const dispatch = useDispatch();
 
-    const [data, setData] = useState(null);
+    const [resp, setResp] = useState(null);
     const [error, setError] = useState(null);
 
     const apiCall = async () => {
-        const { data, error } = await service();
-        setData(data);
-        setError(error);
+        try{
+
+            const response = await service();
+            const { data, problem } = response?.data;
+            console.log('problem', data);
+            setResp(data);
+            setError(problem);
+        } catch( err ){
+            
+
+            console.log('err', err.message);
+        }
     }
 
     useEffect(() => {
-        if(data){
+        if(resp){
             dispatch(cleanErrorAction())
         } else if(error){
             dispatch(setErrorAction(error))
         }
-    }, [error, data]);
+    }, [error, resp]);
 
-    return [data, error, apiCall]
+    return [resp, error, apiCall]
 }
 
 export default useFetch;
