@@ -19,7 +19,7 @@ const InputDivided = ({ text1, text2, onChange, type }) => {
 					className='input__divided--input d-flex justify-content-center'
 					onChange={onChange}
 					type={type}
-				>
+				></input>
 				<p className='input__divided--auxText d-flex justify-content-end m-0'>
 					{text2}
 				</p>
