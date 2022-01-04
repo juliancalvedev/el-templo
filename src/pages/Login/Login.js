@@ -55,7 +55,7 @@ const Login = () => {
 			<div className='login-container col-12 '>
 				<div className='login-container__opacity d-flex justify-content-center col-12 '>
 					<div className='col-11 d-flex flex-column '>
-						<div className='login__welcome  pt-3 text-light col-12  '>
+						<div className='login__welcome mt-5 pt-4 text-light col-12  '>
 							<Title type='title1' text={t('auth.login.title')} />
 						</div>
 						<div className='login__continue col-8  '>
