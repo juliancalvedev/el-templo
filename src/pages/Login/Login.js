@@ -53,60 +53,57 @@ const Login = () => {
 	return (
 		<MainContainer full>
 			<div className='login-container col-12 '>
-				<div className='col-11 d-flex flex-column '>
-					<div className='login__welcome  pt-3 text-light col-12  '>
-						<Title type='title1' text={t('auth.login.title')} />
-					</div>
-					<div className='login__continue col-8  '>
-						<Paragraph type='light' text={t('auth.login.subtitle')} />
-					</div>
+				<div className='login-container__opacity d-flex justify-content-center col-12 '>
+					<div className='col-11 d-flex flex-column '>
+						<div className='login__welcome  pt-3 text-light col-12  '>
+							<Title type='title1' text={t('auth.login.title')} />
+						</div>
+						<div className='login__continue col-8  '>
+							<Paragraph type='light' text={t('auth.login.subtitle')} />
+						</div>
 
-					<div className=' login__form col-12 mb-5 '>
-						<form>
-							<Input
-								className='login__input col-12 mb-2 py-2 '
-								value={email}
-								handleChange={handleChangeEmail}
-								type='email'
-								placeholder={t('auth.login.emailPlaceholder')}
-							/>
-
-							<InputIcon
-								iconType='eye'
-								value={password}
-								onChange={handleChangePassword}
-								type={inputType}
-								placeholder={t('auth.login.passwordPlaceholder')}
-								onClickIcon={onClickIcon}
-							/>
-
-							<div className='mt-4'>
-								<Button
-									onClick={handleSubmit}
-									title={t('auth.login.btnLogin')}
+						<div className=' login__form col-12 mb-5 '>
+							<form>
+								<Input
+									className='login__input col-12 mb-2 py-2 '
+									value={email}
+									handleChange={handleChangeEmail}
+									type='email'
+									placeholder={t('auth.login.emailPlaceholder')}
 								/>
-							</div>
-							<div className='col-12 d-flex justify-content-end  '>
-								<Paragraph 
-									type='yellow'
-									onClick={toForgottenPassword}
-								
-									text={t('auth.login.recovery')}
+
+								<InputIcon
+									iconType='eye'
+									value={password}
+									onChange={handleChangePassword}
+									type={inputType}
+									placeholder={t('auth.login.passwordPlaceholder')}
+									onClickIcon={onClickIcon}
 								/>
-							</div>
-						</form>
-					</div>
-					<div className='d-flex flex-colum justify-content-center align-items-center mt-5 pt-5  '>
-						<Paragraph type='light' 
-							text={t('auth.login.register1')}
-						/>
-						<Paragraph
-						
-							type='yellow'
-							onClick={toRegister}
-						
-							text={t('auth.login.register2')}
-						/>
+
+								<div className='mt-4'>
+									<Button
+										onClick={handleSubmit}
+										title={t('auth.login.btnLogin')}
+									/>
+								</div>
+								<div className='col-12 d-flex justify-content-end  '>
+									<Paragraph
+										type='yellow'
+										onClick={toForgottenPassword}
+										text={t('auth.login.recovery')}
+									/>
+								</div>
+							</form>
+						</div>
+						<div className='d-flex flex-colum justify-content-center align-items-center mt-5 pt-5  '>
+							<Paragraph type='light' text={t('auth.login.register1')} />
+							<Paragraph
+								type='yellow'
+								onClick={toRegister}
+								text={t('auth.login.register2')}
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
