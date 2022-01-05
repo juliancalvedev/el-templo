@@ -193,7 +193,7 @@ export default {
 			auxText12:'Desde acrobacia libre a gimnasia deportiva, levantamiento de pesas a calistenia y movimiento natural.',
 
 			auxText13:	'Es un lugar de introspección y autoconocimiento que busca transmitir los pilares del cuidado y superación personal a través del entrenamiento físico y mental.',
-			rectangle324: 'Cuerpo,alma,mente',
+			rectangle324: 'Cuerpo, alma, mente',
 			btn1: 'Ver mas',
 			mission: 'MISION Y VISION',
 			auxText2:'El Templo tiene como Misión introducir al público a nuevos sistemas de entrenamientos, culturizar e instruir a sus integrantes en el mundo del movimiento como estilo de vida y no como compromiso social y fines puramente estéticos.',

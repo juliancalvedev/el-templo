@@ -78,9 +78,9 @@ const HelpAccordion = ({icon='icon'}) => {
 						aria-labelledby='headingThree'
 						data-bs-parent='#accordionExample'
 					>
-						<div className='accordion-body '>
+						<div className='accordion-body my-3'>
 							<Title type='title4' text={t('help.main.faqs')} />
-							<p>{t('help.main.fq')}</p>
+							<p className='my-2 '>{t('help.main.fq')}</p>
 							<HelpAccordionBlue />
 						</div>
 					</div>

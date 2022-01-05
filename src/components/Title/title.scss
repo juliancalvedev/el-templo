@@ -35,7 +35,12 @@
 	}
 	&--title4 {
 		font-family: $font-1;
-		font-size: 16px;
+		font-size: 17px;
+	
+		margin:0;
+		padding: 0;
+		line-height: 1;
+		
 	}
 	&--title5 {
 		font-size: 1.12rem;

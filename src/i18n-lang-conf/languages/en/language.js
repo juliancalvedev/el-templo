@@ -197,7 +197,7 @@ export default {
 				'From free acrobatics to gymnastics, weightlifting to calisthenics and natural movement.',
 			auxText13:
 				'It is a place of introspection and self-knowledge that seeks to transmit the pillars of personal care and improvement through physical and mental training.',
-			rectangle324: 'Body,soul,mind',
+			rectangle324: 'Body, soul, mind',
 			btn1: 'See more',
 			mission: 'MISSION & VISION',
 			auxText2:'The Mission of El Templo is to introduce the public to new training systems, to cultivate and instruct its members in the world of movement as a lifestyle and not as a social commitment and purely aesthetic purposes.',
