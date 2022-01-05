@@ -1,4 +1,4 @@
-import Eye from '../../Icons/Eye';
+import Eye from '../../assets/Icons/Eye';
 import Input from '../Input/Input';
 import { useState } from 'react';
 import './InputIcon.scss';

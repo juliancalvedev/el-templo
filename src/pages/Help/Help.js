@@ -4,10 +4,10 @@ import '../../components/Title/title.scss';
 import AuxText from '../../components/AuxText/AuxText';
 import './Help.scss';
 
-import Button from '../../components/Button/Button';
 import '../../components/Button/button.scss';
 import HelpAccordion from './HelpAccordion';
 import MainContainer from '../../components/MainContainer/MainContainer';
+import Text from '../../components/Text/Text';
 
 const Help = () => {
 	const { t } = useTranslation();
@@ -19,8 +19,8 @@ const Help = () => {
 	return (
 		<MainContainer>
 			<div className='text-center col-12'>
-				<Title type='title1' text={t('help.main.aboutUs')} />
-				<Title type='title3' text={t('help.main.elTemplo')} />
+				<Text bold size='lg' text={t('help.main.aboutUs')} />
+				<Text title text={t('help.main.elTemplo')} />
 				<img
 					className='d-inline-block'
 					width='100%'

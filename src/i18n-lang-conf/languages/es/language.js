@@ -44,7 +44,7 @@ export default {
 		},
 
 		login: {
-			title: 'Bienvenido!',
+			title: '¡Bienvenido!',
 			subtitle:'Inicia sesión para continuar',
 			emailPlaceholder: 'Email',
 			passwordPlaceholder: 'Contraseña',
@@ -256,4 +256,8 @@ export default {
 			submitPassword: 'Cambiar contraseña',
 		},
 	},
+	errors: {
+		generic: 'Oops, ocurrió un error.',
+		authentication: 'Email o contraseña invalidos.'
+	}
 };
