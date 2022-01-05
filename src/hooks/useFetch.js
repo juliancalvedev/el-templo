@@ -1,17 +1,39 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { cleanErrorAction, setErrorAction } from '../redux/error';
 
-const useFetch = (service) => {
 
-    const [data, setData] = useState(null);
+const useFetch = ({service}) => {
+
+    const dispatch = useDispatch();
+
+    const [resp, setResp] = useState(null);
     const [error, setError] = useState(null);
 
     const apiCall = async () => {
-        const { data, error } = await service();
-        setData(data);
-        setError(error);
+        try{
+
+            const response = await service();
+            const { data, problem } = response?.data;
+            console.log('problem', data);
+            setResp(data);
+            setError(problem);
+        } catch( err ){
+            
+
+            console.log('err', err.message);
+        }
     }
 
-    return [data, error, apiCall]
+    useEffect(() => {
+        if(resp){
+            dispatch(cleanErrorAction())
+        } else if(error){
+            dispatch(setErrorAction(error))
+        }
+    }, [error, resp]);
+
+    return [resp, error, apiCall]
 }
 
 export default useFetch;

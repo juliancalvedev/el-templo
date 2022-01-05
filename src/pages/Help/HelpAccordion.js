@@ -9,9 +9,9 @@ const HelpAccordion = ({icon='icon'}) => {
 	const { t } = useTranslation();
 	return (
 		<div>
-			<div className='accordion  ' id='accordionExample'>
+			<div className='accordion col-12 ' id='accordionExample'>
 				<div className='accordion-item  '>
-					<h2 className='accordion-header ' id='headingTwo'>
+					<h2 className='accordion-header ' id='headingTwo '>
 						<button
 							className='accordion-button  bg-light text-dark '
 							type='button'
@@ -25,7 +25,7 @@ const HelpAccordion = ({icon='icon'}) => {
 					</h2>
 					<div
 						id='collapseTwo'
-						className='accordion-collapse collapse '
+						className='accordion-collapse collapse  '
 						aria-labelledby='headingTwo'
 						data-bs-parent='#accordionExample'
 					>
@@ -35,6 +35,7 @@ const HelpAccordion = ({icon='icon'}) => {
 									type='title4 '
 									text={t('help.main.accordionInside1')}
 								/>
+								
 							</div>
 							<div className='col-4'>
 								<div className='col-12'>
@@ -61,7 +62,7 @@ const HelpAccordion = ({icon='icon'}) => {
 				<div className='accordion-item'>
 					<h2 className='accordion-header' id='headingThree'>
 						<button
-							className='accordion-button bg-light text-dark'
+							className='accordion-button bg-light text-dark '
 							type='button'
 							data-bs-toggle='collapse'
 							data-bs-target='#collapseThree'
@@ -77,8 +78,8 @@ const HelpAccordion = ({icon='icon'}) => {
 						aria-labelledby='headingThree'
 						data-bs-parent='#accordionExample'
 					>
-						<div className='accordion-body'>
-							<Title type='title4' text={t('help.main.faqs')}/>
+						<div className='accordion-body '>
+							<Title type='title4' text={t('help.main.faqs')} />
 							<p>{t('help.main.fq')}</p>
 							<HelpAccordionBlue />
 						</div>

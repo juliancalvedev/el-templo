@@ -23,13 +23,38 @@ const WeightHeight = () => {
 	const userHeight = useSelector((store) => store.user.trainingInfo.height);
 	const trainingInfo = useSelector((store) => store.user.trainingInfo);
 
+	console.log(userHeight, 'User H');
+	console.log(userWeight, 'User Ww');
 	const [selectedWeight, setSelectedWeight] = useState(userWeight);
 	const [selectedHeight, setSelectedHeight] = useState(userHeight);
 
-	const handleChange = (e, type) => {
-		if (type === 'weight') setSelectedWeight(e.target.value); // PESO
-		if (type === 'height') setSelectedHeight(e.target.value); // ALTURA
+	const onChangeWeight = (e, type) => {
+		const number = e.target.value;
+
+		console.log(number.match(/^\d+/));
+
+		// 	if (type === 'weight') setSelectedWeight(e.target.value); // PESO
+		// 	console.log('Weight cambió');
+		// };
+
+		// const onChangeHeight = (e, type) => {
+		// 	console.log('Height cambió');
+		// 	if (type === 'height') setSelectedHeight(e.target.value); // ALTURA
+		// };
 	};
+
+	function isNumericKey(event) {
+		var charCode = event.which ? event.which : event.keyCode;
+		if (
+			charCode != 46 &&
+			charCode > 31 &&
+			(charCode < 48 || charCode > 57)
+		) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	const callback = async () => {
 		await putTrainingInfo({
@@ -46,6 +71,7 @@ const WeightHeight = () => {
 	};
 	console.log(selectedHeight, 'Altura');
 	console.log(selectedWeight, 'Peso');
+
 	return (
 		<MainContainer>
 			<div className='d-flex flex-column justify-content-center'>
@@ -55,9 +81,14 @@ const WeightHeight = () => {
 					<InputDivided
 						text1={t('welcome.weightHeight.weight')}
 						text2={t('welcome.weightHeight.kilos')}
-						onChange={(e, name) => handleChange(e, name)}
+						name='pepe'
+						// onChange={(e) => numbersOnly(e)}
 						type='text'
-						name='weight'
+						min='20'
+						max='400'
+						maxLength='4'
+						defaultValue={selectedWeight}
+						onKeyPress={(event) => isNumericKey(event)}
 					/>
 				</div>
 
@@ -65,9 +96,9 @@ const WeightHeight = () => {
 					<InputDivided
 						text1={t('welcome.weightHeight.height')}
 						text2={t('welcome.weightHeight.meters')}
-						onChange={(e, name) => handleChange(e, name)}
+						// onChange={onChangeHeight}
 						type='text'
-						name='height'
+						defaultValue={selectedHeight}
 					/>
 				</div>
 				<Button
