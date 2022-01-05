@@ -1,6 +1,6 @@
 import './button.scss';
 const SIZE_STYLES = {
-	sm: 'col-3 h-50 py-3 px-4 d-flex align-items-center rounded-4',
+	sm: 'col-3 h-50 py-3 px-4  d-flex  align-items-center rounded-4',
 	md: 'col-5',
 	lg: 'col-12',
 };
