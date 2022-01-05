@@ -19,7 +19,7 @@ const Help = () => {
 	return (
 		<MainContainer>
 			<div className='text-center col-12'>
-				<Text bold size='lg' text={t('help.main.aboutUs')} />
+				<Text bold size={4} text={t('help.main.aboutUs')} />
 				<Text title text={t('help.main.elTemplo')} />
 				<img
 					className='d-inline-block'

@@ -41,7 +41,7 @@ const Login = () => {
 
   useEffect(() => {
     if (data) {
-      dispatch(loginAction({ data: {token: data?.token, email}, callback  }));
+      dispatch(loginAction({ data: {token: data?.token, email}, callback }));
     }
   }, [data]);
 
@@ -60,7 +60,7 @@ const Login = () => {
         <div className="login-container__opacity d-flex justify-content-center col-12 pt-2">
           <div className="col-11 d-flex flex-column ">
             <div className="mt-5 pt-4 col-12">
-              <Text size='lg' color={2} bold text={t("auth.login.title")} />
+              <Text size={4} color={2} bold text={t("auth.login.title")} />
             </div>
               <Text color={2} text={t("auth.login.subtitle")} />
 
@@ -89,7 +89,7 @@ const Login = () => {
                 <div className="col-12 d-flex justify-content-end  ">
                   <Text
                     color={3}
-                    size='xs'
+                    size={1}
                     underline
                     onClick={toForgottenPassword}
                     text={t("auth.login.recovery")}
@@ -98,9 +98,11 @@ const Login = () => {
               </form>
             </div>
             <div className="d-flex flex-colum justify-content-center align-items-center mt-5 pt-5 h-20 ">
-                <Text size='xs' color={2} text={t("auth.login.register1")} />
+                <Text size={1} color={2} text={t("auth.login.register1")} />
                 <Text
-                  size='xs' color={3} underline 
+                  size={1}
+                  color={3}
+                  underline 
                   onClick={toRegister}
                   text={t("auth.login.register2")}
                   className='p-1'

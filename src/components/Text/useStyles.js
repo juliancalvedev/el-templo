@@ -1,11 +1,11 @@
 const useStyles = ({ title , bold, underline, size, color, className }) => {
 
     const fontSizes = {
-        xs: 'xs',
-        sm: 'sm',
-        md: 'md',
-        lg: 'lg',
-        xl: 'xl'
+        1: '1',
+        2: '2',
+        3: '3',
+        4: '4',
+        5: '5'
     }
 
     const colors = {
