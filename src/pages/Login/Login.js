@@ -55,7 +55,7 @@ const Login = () => {
   };
 
   return (
-    <MainContainer color={2} back>
+    <MainContainer topbar color={2} back>
       <div className="login-container col-12">
         <div className="login-container__opacity d-flex justify-content-center col-12 pt-2">
           <div className="col-11 d-flex flex-column ">
