@@ -5,12 +5,12 @@ import useStyles from './useStyles';
 import { IconBack } from '../../assets/Icons/IconBack';
 import Text from '../Text/Text';
 
-const TopBar = ({ text, color = 1, bg = 'none', back = false }) => {
+const TopBar = ({ text, color = 1, bg = 'none', back = false, shadow }) => {
 	const navigate = useNavigate();
 
 	const handleClick = () => navigate(-1);
 
-	const styles = useStyles({ bg, color, back });
+	const styles = useStyles({ bg, color, back, shadow });
 
 	return (
 		<div className={styles.container}>

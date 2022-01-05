@@ -1,6 +1,5 @@
 import "./Login.scss";
 import Input from "../../components/Input/Input";
-import Title from "../../components/Title/Title";
 import Button from "../../components/Button/Button";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -9,12 +8,10 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { PATHS } from "../../constants/paths";
 import MainContainer from "../../components/MainContainer/MainContainer";
-import Paragraph from "../../components/Paragraph/Paragraph";
 import InputIcon from "../../components/InputIcon/InputIcon";
 import { login } from "../../services/auth";
 import useFetch from "../../hooks/useFetch";
 import Text from "../../components/Text/Text";
-import TopBar from "../../components/TopBar/TopBar";
 
 const Login = () => {
   const { t } = useTranslation();
