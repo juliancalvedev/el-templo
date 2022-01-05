@@ -23,38 +23,33 @@ const WeightHeight = () => {
 	const userHeight = useSelector((store) => store.user.trainingInfo.height);
 	const trainingInfo = useSelector((store) => store.user.trainingInfo);
 
-	console.log(userHeight, 'User H');
-	console.log(userWeight, 'User Ww');
 	const [selectedWeight, setSelectedWeight] = useState(userWeight);
 	const [selectedHeight, setSelectedHeight] = useState(userHeight);
 
-	const onChangeWeight = (e, type) => {
-		const number = e.target.value;
+	const onWeightChange = (event) => {
+		const validCharacters = '01234567890.';
+		const { value } = event.target;
 
-		console.log(number.match(/^\d+/));
+		let flag = true;
+		const isvalid = () => {
+			for (let i = 1; i < 11; i++) {
+				if (value[value.length - 1] == validCharacters[i]) {
+					flag = true;
+					break;
+				} else {
+					flag = false;
+				}
+			}
+		};
+		isvalid();
 
-		// 	if (type === 'weight') setSelectedWeight(e.target.value); // PESO
-		// 	console.log('Weight cambió');
-		// };
-
-		// const onChangeHeight = (e, type) => {
-		// 	console.log('Height cambió');
-		// 	if (type === 'height') setSelectedHeight(e.target.value); // ALTURA
-		// };
-	};
-
-	function isNumericKey(event) {
-		var charCode = event.which ? event.which : event.keyCode;
-		if (
-			charCode != 46 &&
-			charCode > 31 &&
-			(charCode < 48 || charCode > 57)
-		) {
-			return true;
-		} else {
-			return false;
+		if (flag) {
+			setSelectedWeight(parseInt(value));
 		}
-	}
+		if (value === '') {
+			setSelectedWeight('');
+		}
+	};
 
 	const callback = async () => {
 		await putTrainingInfo({
@@ -69,8 +64,6 @@ const WeightHeight = () => {
 		callback();
 		navigate(`/${PATHS.BASE_URL}`);
 	};
-	console.log(selectedHeight, 'Altura');
-	console.log(selectedWeight, 'Peso');
 
 	return (
 		<MainContainer>
@@ -79,20 +72,20 @@ const WeightHeight = () => {
 
 				<div className='form-group d-flex'>
 					<InputDivided
+						id='weight'
 						text1={t('welcome.weightHeight.weight')}
 						text2={t('welcome.weightHeight.kilos')}
-						name='pepe'
-						// onChange={(e) => numbersOnly(e)}
+						// onKeyPress={(e) => validateNo(e)}
+						onChange={(e) => onWeightChange(e)}
 						type='text'
 						min='20'
 						max='400'
-						maxLength='4'
-						defaultValue={selectedWeight}
-						onKeyPress={(event) => isNumericKey(event)}
+						maxLength='3'
+						value={selectedWeight}
 					/>
 				</div>
 
-				<div className='form-group d-flex'>
+				{/* <div className='form-group d-flex'>
 					<InputDivided
 						text1={t('welcome.weightHeight.height')}
 						text2={t('welcome.weightHeight.meters')}
@@ -100,7 +93,7 @@ const WeightHeight = () => {
 						type='text'
 						defaultValue={selectedHeight}
 					/>
-				</div>
+				</div> */}
 				<Button
 					title={t('welcome.weightHeight.enter')}
 					onClick={handleSubmit}
