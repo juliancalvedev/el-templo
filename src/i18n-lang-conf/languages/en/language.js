@@ -44,11 +44,14 @@ export default {
 		},
 
 		login: {
-			title: 'Login',
-			emailPlaceholder: 'Email@email.com',
+			title: 'Welcome',
+			subtitle: 'Login to continue',
+			emailPlaceholder: 'Email',
 			passwordPlaceholder: 'Password',
 			recovery: 'Forgotten password?',
 			btnLogin: 'Log In',
+			register1: 'you have not an account?',
+			register2:'Register here',
 		},
 		emailConfirm: {
 			title: 'Confirm your email',
@@ -152,8 +155,8 @@ export default {
 			title: 'Complete the last personal data.',
 			weight: 'Weight',
 			height: 'Height',
-			kilos: 'Kilos',
-			meters: 'Meters',
+			kilos: 'Kg',
+			meters: 'Mt',
 			enter: 'Enter',
 		},
 	},
@@ -189,12 +192,16 @@ export default {
 			aboutUs: 'About us',
 			elTemplo: 'El Templo',
 			auxText1:
-				'El Templo is a functional and alternative training space for trained and untrained people, from free acrobatics to sports gymnastics, weightlifting to calisthenics and natural movement. through physical and mental training.',
+				'The Temple is a functional and alternative training space for trained and untrained people.',
+			auxText12:
+				'From free acrobatics to gymnastics, weightlifting to calisthenics and natural movement.',
+			auxText13:
+				'It is a place of introspection and self-knowledge that seeks to transmit the pillars of personal care and improvement through physical and mental training.',
 			rectangle324: 'Body,soul,mind',
 			btn1: 'See more',
 			mission: 'MISSION & VISION',
-			auxText2:
-				'The Mission of El Templo is to introduce the public to new training systems, to cultivate and instruct its members in the world of movement as a lifestyle and not as a social commitment and purely aesthetic purposes. Be better humans through our actions and behaviors.',
+			auxText2:'The Mission of El Templo is to introduce the public to new training systems, to cultivate and instruct its members in the world of movement as a lifestyle and not as a social commitment and purely aesthetic purposes.',
+			auxText21:	' Be better humans through our actions and behaviors.',
 			accordionText1: 'Do you have questions about your training?',
 			accordionInside1: 'Contact the coach',
 			accordionInside2: 'Matter:',
@@ -244,6 +251,7 @@ export default {
 		myProfile: 'My Profile',
 		help: 'Help',
 		emailRegisterSended: 'Confirm Email',
+		contact: 'Contact',
 	},
 	user: {
 		changeUserPassword: {
@@ -279,4 +287,8 @@ export default {
 			expert: 'Expert',
 		},
 	},
+	errors: {
+		generic: 'Oops, an error occurred.',
+		authentication: 'Email or password wrong.'
+	}
 };

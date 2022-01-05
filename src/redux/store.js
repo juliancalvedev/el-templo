@@ -2,11 +2,13 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 import AuthReducer from './auth';
+import ApiReducer from './api';
 import UserReducer from './user';
 
 const rootReducer = combineReducers({
 	auth: AuthReducer,
 	user: UserReducer,
+	api: ApiReducer
 	//Aca hay que agregar los otros reducers que se requieran
 });
 

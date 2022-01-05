@@ -9,13 +9,12 @@ import GenericTicket from '../../components/GenericTicket/GenericTicket';
 import { logoutAction } from '../../redux/auth';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import ImgEditProfile from '../../images/ImgEditProfile';
+import EditUserIcon from './EditUserIcon';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import UserImage from '../../components/UserImage/UserImage';
 import ImportantBar from '../../components/ImportantBar/ImportantBar';
 import { Link } from 'react-router-dom';
 import { UserTrainingLevel } from '../../constants/userLevel';
-import SubTitle from '../../components/SubTitle/SubTitle';
 import Title from '../../components/Title/Title';
 
 const MyProfile = () => {
@@ -26,7 +25,6 @@ const MyProfile = () => {
 	const { startEnabledDate, endEnabledDate, goals, height, weight } =
 		useSelector((store) => store.user);
 	const { trainingLevel } = useSelector((store) => store.user.trainingInfo);
-	const user = useSelector((store) => store.user);
 
 	const handleNavigate = () => {
 		navigate(`/${PATHS.CHANGE_USER_PASSWORD}`);
@@ -79,16 +77,14 @@ const MyProfile = () => {
 					<div className=' justify-content-end col-2 h-100 d-flex align-items-start '>
 						<Link className='edit-profile-link' to='/edit-profile'>
 							<div className='d-flex flex-column justify-content-center align-items-center edit-profile-box '>
-								<ImgEditProfile />
-								<div className='d-flex flex-column'>
+								<div className='d-flex flex-column edit-profile-box justify-content-center align-items-center'>
+									<EditUserIcon />
 									<AuxText
-										mode='small'
-										className='editProfile-text'
+										mode='small1'
 										text={t('user.myProfile.edit')}
 									/>
 									<AuxText
-										mode='small'
-										className='editProfile-text1'
+										mode='mini'
 										text={t('user.myProfile.profile')}
 									/>
 								</div>

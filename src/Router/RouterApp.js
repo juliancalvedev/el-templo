@@ -17,13 +17,13 @@ import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
 import UsersList from '../pages/admin/UsersList/UsersList';
 import Help from '../pages/Help/Help';
 import { PATHS } from '../constants/paths';
-import TopBar from '../components/TopBar/TopBar';
 import MyProfile from '../pages/MyProfile/MyProfile';
 import Welcome from '../pages/welcome/Welcome/Welcome';
 import EmailRegisterSended from '../pages/EmailRegisterSended/EmailRegisterSended';
 import MainGoals from '../pages/welcome/MainGoals/MainGoals';
 import TrainingLevel from '../pages/welcome/TrainingLevel/TrainningLevel';
 import WeightHeight from '../pages/welcome/WeightHeight/WeightHeight';
+import Contact from '../pages/Contact/Contact';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -33,11 +33,13 @@ const RouterApp = () => {
 
 	return (
 		<BrowserRouter>
-			<TopBar />
 			<Routes>
 				{savedToken ? (
 					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
-						<Route path={PATHS.MY_PROFILE} element={<MyProfile />} />
+						<Route
+							path={PATHS.MY_PROFILE}
+							element={<MyProfile />}
+						/>
 						{role === ROLES.ADMIN && (
 							<Route
 								path={PATHS.BASE_URL}
@@ -75,6 +77,7 @@ const RouterApp = () => {
 						/>
 
 						<Route path={PATHS.HELP} element={<Help />} />
+						<Route path={PATHS.CONTACT} element={<Contact />} />
 					</Route>
 				) : (
 					<Route path={PATHS.BASE_URL} element={<PublicLayout />}>

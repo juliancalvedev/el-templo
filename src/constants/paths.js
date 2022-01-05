@@ -17,6 +17,7 @@ export const PATHS = {
 	TRAINING_LEVEL: 'training-level',
 	WEIGHT_HEIGHT: 'weight-height',
 	HELP: 'help',
+	CONTACT: 'contact',
 };
 
 export const SHOW_NAVBAR = [PATHS.BASE_URL];
@@ -35,4 +36,5 @@ export const TOPBAR_TEXTS = {
 	[PATHS.EMAIL_REGISTER_SENDED]:'topBar.emailRegisterSended',
 	[PATHS.HELP]: 'topBar.help',
 	[PATHS.EMAIL_REGISTER_SENDED]: 'topBar.emailRegisterSended',
+	[PATHS.CONTACT]: 'topBar.contact',
 };
