@@ -25,7 +25,6 @@ const TopBar = ({ text, color = 1, bg = 'none', back = false, shadow }) => {
 
 					<Text
 						text={text}
-						bold
 						color={color}
 						className='p-1'
 					/>
