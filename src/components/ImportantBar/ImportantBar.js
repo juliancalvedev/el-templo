@@ -3,7 +3,7 @@ import './ImportantBar.scss';
 const ImportantBar = ({ text }) => {
 	return (
 		<div className='importantBox col-12'>
-			<p className=' importantBoxWhiteText '>{text}</p>
+			<p className=' importantBoxWhiteText  '>{text}</p>
 		</div>
 	);
 };

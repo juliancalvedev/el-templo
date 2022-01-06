@@ -15,7 +15,7 @@ import UserImage from '../../components/UserImage/UserImage';
 import ImportantBar from '../../components/ImportantBar/ImportantBar';
 import { Link } from 'react-router-dom';
 import { UserTrainingLevel } from '../../constants/userLevel';
-import Title from '../../components/Title/Title';
+import Text from '../../components/Text/Text';
 
 const MyProfile = () => {
 	const { t } = useTranslation();
@@ -37,59 +37,57 @@ const MyProfile = () => {
 	return (
 		<MainContainer top>
 			<div className=' col-12 my-profile-body flex-col'>
-				<div className='d-flex col-11  user-level-box justify-content-between '>
-					<div className=' col-4 h-100 justify-content-center d-flex align-items-center'>
+				<div
+					className='d-flex
+				  justify-content-center col-10 user-level-box '
+				>
+					<div className='col-4 d-flex justify-content-center align-items-center'>
 						<UserImage />
 					</div>
-					<div className='d-flex flex-column col-6 h-100 '>
-						{/* LEVEL AND TEXT */}
-						<div className=' level-and-profile mt-3 col-12 d-flex justify-content-between '>
-							<div className=' d-flex justify-content-center col-9 levelAndEdit'>
-								<Title
-									type='title5'
-									customStyles=' align-self-center'
+					<div className='d-flex flex-column col-8'>
+						<div className=' d-flex col-12 justify-content-between align-items-center level-and-edit'>
+							<div className=' d-flex justify-content-center col-7 align-items-center '>
+								<Text
+									size='4'
+									bold
 									text={`${t(
 										'user.myProfile.level'
 									)} ${trainingLevel}`}
 								/>
 							</div>
-						</div>
-						{/* LEVEL AND TEXT */}
-						<div className='userLevel-box-texts col-12'>
-							<div className='d-flex flex-column justify-content-center date-container '>
-								<AuxText
-									mode='nowrap'
-									text={`${t(
-										'user.myProfile.completedTrainings'
-									)}: 00`}
-								/>
 
-								<AuxText
-									mode='nowrap'
-									className='userProfileDate'
-									text={`${t(
-										'user.myProfile.memberSince'
-									)}: ${cutDate(`${startEnabledDate}`)}`}
+							<div className='d-flex flex-column col-10 edit-profile-box justify-content-center align-items-center'>
+								<EditUserIcon />
+								<Text
+									size='1'
+									text={t('user.myProfile.edit')}
+								/>
+								<Text
+									size='1'
+									text={t('user.myProfile.profile')}
 								/>
 							</div>
 						</div>
-					</div>
-					<div className=' justify-content-end col-2 h-100 d-flex align-items-start '>
-						<Link className='edit-profile-link' to='/edit-profile'>
-							<div className='d-flex flex-column justify-content-center align-items-center edit-profile-box '>
-								<div className='d-flex flex-column edit-profile-box justify-content-center align-items-center'>
-									<EditUserIcon />
-									<AuxText
-										mode='small1'
-										text={t('user.myProfile.edit')}
-									/>
-									<AuxText
-										mode='mini'
-										text={t('user.myProfile.profile')}
-									/>
-								</div>
-							</div>
-						</Link>
+
+						<div className='d-flex flex-column justify-content-around'>
+							<Text
+								size='1'
+								bold
+								className='mt-2'
+								text={`${t(
+									'user.myProfile.completedTrainings'
+								)}: 00`}
+							/>
+
+							<Text
+								size='1'
+								bold
+								className='mt-2'
+								text={`${t(
+									'user.myProfile.memberSince'
+								)}: ${cutDate(`${startEnabledDate}`)}`}
+							/>
+						</div>
 					</div>
 				</div>
 
@@ -103,8 +101,8 @@ const MyProfile = () => {
 				</div>
 
 				<div className='about-you-box d-flex col-12 justify-content-between align-items-center'>
-					<AuxText
-						customStyles='about-you-text'
+					<Text
+						className=''
 						text={`${t('user.myProfile.aboutYou')}`}
 					/>
 
