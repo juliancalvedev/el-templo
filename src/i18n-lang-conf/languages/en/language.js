@@ -51,7 +51,7 @@ export default {
 			recovery: 'Forgotten password?',
 			btnLogin: 'Log In',
 			register1: 'you have not an account?',
-			register2:'Register here',
+			register2: 'Register here',
 		},
 		emailConfirm: {
 			title: 'Confirm your email',
@@ -155,8 +155,8 @@ export default {
 			title: 'Complete the last personal data.',
 			weight: 'Weight',
 			height: 'Height',
-			kilos: 'Kg',
-			meters: 'Mt',
+			kilos: 'KG',
+			meters: 'MT',
 			enter: 'Enter',
 		},
 	},
@@ -200,8 +200,9 @@ export default {
 			rectangle324: 'Body,soul,mind',
 			btn1: 'See more',
 			mission: 'MISSION & VISION',
-			auxText2:'The Mission of El Templo is to introduce the public to new training systems, to cultivate and instruct its members in the world of movement as a lifestyle and not as a social commitment and purely aesthetic purposes.',
-			auxText21:	' Be better humans through our actions and behaviors.',
+			auxText2:
+				'The Mission of El Templo is to introduce the public to new training systems, to cultivate and instruct its members in the world of movement as a lifestyle and not as a social commitment and purely aesthetic purposes.',
+			auxText21: ' Be better humans through our actions and behaviors.',
 			accordionText1: 'Do you have questions about your training?',
 			accordionInside1: 'Contact the coach',
 			accordionInside2: 'Matter:',
@@ -262,6 +263,6 @@ export default {
 	},
 	errors: {
 		generic: 'Oops, an error occurred.',
-		authentication: 'Email or password wrong.'
-	}
+		authentication: 'Email or password wrong.',
+	},
 };

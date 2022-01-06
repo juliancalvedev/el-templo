@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-	addWeightAndHeightToTrainingInfo,
-	getUserInfoAction,
-} from '../../../redux/user';
+import { getUserInfoAction } from '../../../redux/user';
 import { putTrainingInfo } from '../../../services/user';
 import { useNavigate } from 'react-router-dom';
 
 import Button from '../../../components/Button/Button';
 import Title from '../../../components/Title/Title';
+import Text from '../../../components/Text/Text';
 import { PATHS } from '../../../constants/paths';
 import { useTranslation } from 'react-i18next';
 import InputDivided from '../../../components/InputDivided/InputDivided';
@@ -23,8 +21,8 @@ const WeightHeight = () => {
 	const userHeight = useSelector((store) => store.user.trainingInfo.height);
 	const trainingInfo = useSelector((store) => store.user.trainingInfo);
 
-	const [selectedWeight, setSelectedWeight] = useState(userWeight);
-	const [selectedHeight, setSelectedHeight] = useState(userHeight);
+	const [selectedWeight, setSelectedWeight] = useState('');
+	const [selectedHeight, setSelectedHeight] = useState('');
 
 	// Función para validar el número del inputo PESO
 	const onWeightChange = (event) => {
@@ -32,8 +30,8 @@ const WeightHeight = () => {
 		const { value } = event.target;
 
 		let flag = true;
-		const isvalid = () => {
-			for (let i = 1; i < 11; i++) {
+		const charIsValid = () => {
+			for (let i = 1; i < 12; i++) {
 				if (value[value.length - 1] == validCharacters[i]) {
 					flag = true;
 					break;
@@ -42,7 +40,7 @@ const WeightHeight = () => {
 				}
 			}
 		};
-		isvalid();
+		charIsValid();
 
 		if (flag) {
 			setSelectedWeight(parseInt(value));
@@ -57,9 +55,10 @@ const WeightHeight = () => {
 		const validCharacters = '01234567890.';
 		const { value } = event.target;
 
+		console.log(value);
 		let flag = true;
-		const isvalid = () => {
-			for (let i = 1; i < 11; i++) {
+		const charIsValid = () => {
+			for (let i = 1; i < 12; i++) {
 				if (value[value.length - 1] == validCharacters[i]) {
 					flag = true;
 					break;
@@ -68,7 +67,7 @@ const WeightHeight = () => {
 				}
 			}
 		};
-		isvalid();
+		charIsValid();
 
 		if (flag) {
 			setSelectedHeight(parseInt(value));
@@ -107,19 +106,23 @@ const WeightHeight = () => {
 						min='20'
 						max='400'
 						maxLength='3'
-						// value={selectedWeight}
 						placeholder='0'
+						value={selectedWeight}
 					/>
 				</div>
 
 				<div className='form-group d-flex'>
 					<InputDivided
+						id='height'
 						text1={t('welcome.weightHeight.height')}
 						text2={t('welcome.weightHeight.meters')}
-						onChange={onWeightChange}
+						onChange={onHeightChange}
 						type='text'
-						// value={selectedHeight}
+						min='1'
+						max='3'
+						maxLength='4'
 						placeholder='1.00'
+						value={selectedHeight}
 					/>
 				</div>
 				<Button

@@ -2,6 +2,7 @@ import React from 'react';
 
 import './InputDivided.scss';
 
+import Text from '../Text/Text';
 const InputDivided = ({
 	text1,
 	text2,
@@ -20,7 +21,7 @@ const InputDivided = ({
 		<div className='input__divided d-flex justify-content-between align-items-center col-11 mt-2 mb-2'>
 			<div className='d-flex justify-content-between align-items-center col-6'>
 				<label className='input__divided--label mb-1' htmlFor={id}>
-					{text1}
+					<Text text={text1} size='3' />
 				</label>
 			</div>
 			<div>
@@ -43,9 +44,9 @@ const InputDivided = ({
 					maxLength={maxLength}
 					placeholder={placeholder}
 				></input>
-				<p className='input__divided--auxText d-flex justify-content-end m-0'>
-					{text2}
-				</p>
+				<div className='input__divided--auxText d-flex justify-content-end m-0'>
+					<Text text={text2} size='3' />
+				</div>
 			</div>
 		</div>
 	);

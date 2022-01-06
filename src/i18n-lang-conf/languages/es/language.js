@@ -45,13 +45,13 @@ export default {
 
 		login: {
 			title: '¡Bienvenido!',
-			subtitle:'Inicia sesión para continuar',
+			subtitle: 'Inicia sesión para continuar',
 			emailPlaceholder: 'Email',
 			passwordPlaceholder: 'Contraseña',
 			recovery: '¿Olvidaste tu contraseña?',
 			btnLogin: 'Iniciar sesión',
-			register1:'¿No tenés cuenta?',
-			register2:'Registrate acá',
+			register1: '¿No tenés cuenta?',
+			register2: 'Registrate acá',
 		},
 
 		emailConfirm: {
@@ -153,8 +153,8 @@ export default {
 			title: 'Completa estos ultimos datos personales.',
 			weight: 'Peso',
 			height: 'Altura',
-			kilos: 'Kg',
-			meters: 'Mt',
+			kilos: 'KG',
+			meters: 'MT',
 			enter: 'Entrar',
 		},
 	},
@@ -189,15 +189,20 @@ export default {
 		main: {
 			aboutUs: 'Sobre nosotros',
 			elTemplo: 'EL TEMPLO',
-			auxText1:'El Templo es un espacio de entrenamiento funcional y alternativo para personas entrenadas y no entrenadas.',
-			auxText12:'Desde acrobacia libre a gimnasia deportiva, levantamiento de pesas a calistenia y movimiento natural.',
+			auxText1:
+				'El Templo es un espacio de entrenamiento funcional y alternativo para personas entrenadas y no entrenadas.',
+			auxText12:
+				'Desde acrobacia libre a gimnasia deportiva, levantamiento de pesas a calistenia y movimiento natural.',
 
-			auxText13:	'Es un lugar de introspección y autoconocimiento que busca transmitir los pilares del cuidado y superación personal a través del entrenamiento físico y mental.',
+			auxText13:
+				'Es un lugar de introspección y autoconocimiento que busca transmitir los pilares del cuidado y superación personal a través del entrenamiento físico y mental.',
 			rectangle324: 'Cuerpo,alma,mente',
 			btn1: 'Ver mas',
 			mission: 'MISION Y VISION',
-			auxText2:'El Templo tiene como Misión introducir al público a nuevos sistemas de entrenamientos, culturizar e instruir a sus integrantes en el mundo del movimiento como estilo de vida y no como compromiso social y fines puramente estéticos.',
-			auxText21:	'Ser mejores humanos a través de nuestras acciones y comportamientos.',
+			auxText2:
+				'El Templo tiene como Misión introducir al público a nuevos sistemas de entrenamientos, culturizar e instruir a sus integrantes en el mundo del movimiento como estilo de vida y no como compromiso social y fines puramente estéticos.',
+			auxText21:
+				'Ser mejores humanos a través de nuestras acciones y comportamientos.',
 			accordionText1: '¿Tienes dudas sobre tu entrenamiento?',
 			accordionInside1: 'Contacta al coach',
 			accordionInside2: 'Asunto:',
@@ -258,6 +263,6 @@ export default {
 	},
 	errors: {
 		generic: 'Oops, ocurrió un error.',
-		authentication: 'Email o contraseña invalidos.'
-	}
+		authentication: 'Email o contraseña invalidos.',
+	},
 };
