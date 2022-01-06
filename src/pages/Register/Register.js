@@ -4,10 +4,10 @@ import { RegisterValidate } from './RegisterValidate';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import { useTranslation } from 'react-i18next';
-import Title from '../../components/Title/Title';
 import './Register.scss'
 import MainContainer from '../../components/MainContainer/MainContainer';
 import { Link } from 'react-router-dom';
+import UserImage from '../../components/UserImage/UserImage';
 
 
 export const Register = () => {
@@ -26,7 +26,9 @@ export const Register = () => {
 		const file = e.target.files[0];
 		const base64 = await convertBase64(file);
 		setBaseImage(base64);
+		
 	};
+
 	const clickFile = () => {
 		document.getElementById('file').click();
 	};
@@ -47,30 +49,33 @@ export const Register = () => {
 				reject(error);
 			};
 		});
+		
 
 		//Base64
 	};
 
 	return (
 		<MainContainer top>
-			<form className='register' onSubmit={handleSubmit}>
+			<form className='register col-12' onSubmit={handleSubmit}>
 				<div className='contBaseInputs px-3 mt-4 col-12 '>
-					<div className='baseI64 d-flex align-items-center justify-content-start '>
+					<div className='baseI64 d-flex align-items-center col-12 '>
 						<input
-							className='baseImg-1 '
+							className='base-img1 '
 							id='file'
 							type='file'
+							accept='.jpeg, .png, .jpg'
 							onChange={handleClickimg}
 							hidden
 							value={values.img}
 						/>
-						<img
-							className='baseImg-2 col-3 rounded-circle '
+						<UserImage
+							className='base-img2  '
 							src={baseImage}
 							name='img'
 							onClick={clickFile}
 							value={values.img}
 						/>
+
 						<div className='inputsNL col-9 '>
 							<div className='fName '>
 								<Input
@@ -211,7 +216,7 @@ export const Register = () => {
 					</div>
 					<div className='form-inputs mb-3'>
 						<Input
-							className='inputs col-12 rounded-pill '
+							className='inputs col-12  '
 							type='password'
 							name='password2'
 							placeholder={t('auth.register.password2Placeholder')}
@@ -224,9 +229,9 @@ export const Register = () => {
 							</p>
 						)}
 					</div>
-					<div className='form-inputs '>
+					<div className='form-inputs__select '>
 						<select
-							className='inputs mb-3 col-12'
+							className='inputs__select mb-3 col-12'
 							value={values.country}
 							onChange={handleChange}
 							name='country'
@@ -277,8 +282,7 @@ export const Register = () => {
 							!values.password,
 							!values.password2,
 							!values.country,
-							!values.dateOfBirth
-							)
+							!values.dateOfBirth)
 						}
 						onClick={handleSubmit}
 						title={t('auth.register.btnRegister')}
