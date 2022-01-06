@@ -40,4 +40,19 @@
 			}
 		}
 	}
+	&--empty {
+		background-color: $nineth;
+
+		border: 2px solid $tertiary;
+		height: 40px;
+		border-radius: 15px;
+		color: $tertiary;
+		font-size: 1rem;
+	}
+}
+// Elimina hover de Bootstrap
+.customBtn--empty:hover {
+	background-color: $nineth;
+	color: $tertiary;
+	border: 2px solid $tertiary;
 }

@@ -99,10 +99,11 @@ export default {
 		},
 		enabledVerified: {
 			emailNotVerified: {
-				title: 'Tu cuenta aún no ha sido verificada.',
+				title: 'Tu cuenta aún no ha sido verificada',
 				auxText:
-					'Entra al Link que te hemos enviado al email. Y sigue los pasos.',
-				btnResendEmail: 'Reenviar correo electrónico',
+					'Entra al link del correo electrónico que te hemos enviado y sigue los pasos',
+				btnResendEmail: 'Reenviar',
+				hasNotEmail: '¿No te llegó el correo electrónico?',
 			},
 			accountNotEnabled: {
 				title: 'Tu cuenta no se encuentra habilitada',

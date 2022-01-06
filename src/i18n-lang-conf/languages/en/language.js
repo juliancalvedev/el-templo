@@ -100,10 +100,11 @@ export default {
 		},
 		enabledVerified: {
 			emailNotVerified: {
-				title: 'Your account has not been verified yet.',
+				title: 'Your account has not been verified yet',
 				auxText:
-					'Enter the Link that we have sent you to the email. And follow the steps.',
-				btnResendEmail: 'Resend Email',
+					'Enter the Link that we have sent you to the email and follow the steps',
+				btnResendEmail: 'Resend',
+				hasNotEmail: 'The Email has not arrived?',
 			},
 			accountNotEnabled: {
 				title: 'Your account is not enabled.',

@@ -33,7 +33,7 @@ const ImgCorreo = () => {
 				<path
 					d='M151.504 67.7262L158.528 74.7501L171.405 57.1904'
 					stroke='white'
-					stroke-width='5'
+					strokeWidth='5'
 				/>
 				<defs>
 					<filter

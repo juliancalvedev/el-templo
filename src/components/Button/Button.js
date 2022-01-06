@@ -12,12 +12,13 @@ const Button = ({
 	type = 'button',
 	size = 'md',
 	mode,
+	customType,
 }) => {
 	return (
 		<div className=''>
 			<button
 				disabled={disabled}
-				className={`btn btn-primary customBtn customBtn--${mode} ${SIZE_STYLES[size]}`}
+				className={`btn btn-primary customBtn customBtn--${mode} customBtn--${customType} ${SIZE_STYLES[size]}`}
 				onClick={onClick}
 				type={type}
 			>
