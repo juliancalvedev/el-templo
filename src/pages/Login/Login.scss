@@ -16,16 +16,15 @@
 .login__continue{
     padding-top:0;
 }
-.login__form{
-    margin-top:13%;
-}
+
 .login__input{
     background: $eleventh;
 border:none;
 border-radius: 15px;
 text-indent: 2%;
 -webkit-text-fill-color: $nineth;
-
+outline: none;
+width: 100%
 }
 .eye{ 
     background: $eleventh;
@@ -52,7 +51,6 @@ margin: 0;
 .login__welcome{padding-top: 30%;
     padding-left: 30%;}
 .login__continue{padding-left: 30%;}
-.login__input{width: 100%}
 .login__register{
     margin-top: 10%;
     font-size: 12px;

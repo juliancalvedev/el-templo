@@ -26,6 +26,7 @@ const WeightHeight = () => {
 	const [selectedWeight, setSelectedWeight] = useState(userWeight);
 	const [selectedHeight, setSelectedHeight] = useState(userHeight);
 
+	// Función para validar el número del inputo PESO
 	const onWeightChange = (event) => {
 		const validCharacters = '01234567890.';
 		const { value } = event.target;
@@ -51,6 +52,32 @@ const WeightHeight = () => {
 		}
 	};
 
+	// Función para validar el número del inputo ALTURA
+	const onHeightChange = (event) => {
+		const validCharacters = '01234567890.';
+		const { value } = event.target;
+
+		let flag = true;
+		const isvalid = () => {
+			for (let i = 1; i < 11; i++) {
+				if (value[value.length - 1] == validCharacters[i]) {
+					flag = true;
+					break;
+				} else {
+					flag = false;
+				}
+			}
+		};
+		isvalid();
+
+		if (flag) {
+			setSelectedHeight(parseInt(value));
+		}
+		if (value === '') {
+			setSelectedHeight('');
+		}
+	};
+
 	const callback = async () => {
 		await putTrainingInfo({
 			...trainingInfo,
@@ -67,7 +94,7 @@ const WeightHeight = () => {
 
 	return (
 		<MainContainer>
-			<div className='d-flex flex-column justify-content-center'>
+			<div className='d-flex flex-column'>
 				<Title text={t('welcome.weightHeight.title')} />
 
 				<div className='form-group d-flex'>
@@ -75,25 +102,26 @@ const WeightHeight = () => {
 						id='weight'
 						text1={t('welcome.weightHeight.weight')}
 						text2={t('welcome.weightHeight.kilos')}
-						// onKeyPress={(e) => validateNo(e)}
-						onChange={(e) => onWeightChange(e)}
+						onChange={onWeightChange}
 						type='text'
 						min='20'
 						max='400'
 						maxLength='3'
-						value={selectedWeight}
+						// value={selectedWeight}
+						placeholder='0'
 					/>
 				</div>
 
-				{/* <div className='form-group d-flex'>
+				<div className='form-group d-flex'>
 					<InputDivided
 						text1={t('welcome.weightHeight.height')}
 						text2={t('welcome.weightHeight.meters')}
-						// onChange={onChangeHeight}
+						onChange={onWeightChange}
 						type='text'
-						defaultValue={selectedHeight}
+						// value={selectedHeight}
+						placeholder='1.00'
 					/>
-				</div> */}
+				</div>
 				<Button
 					title={t('welcome.weightHeight.enter')}
 					onClick={handleSubmit}

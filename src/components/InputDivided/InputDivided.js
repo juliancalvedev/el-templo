@@ -14,7 +14,7 @@ const InputDivided = ({
 	defaultValue,
 	value,
 	maxLength,
-	pattern,
+	placeholder,
 }) => {
 	return (
 		<div className='input__divided d-flex justify-content-between align-items-center col-11 mt-2 mb-2'>
@@ -41,7 +41,7 @@ const InputDivided = ({
 					defaultValue={defaultValue}
 					value={value}
 					maxLength={maxLength}
-					pattern={pattern}
+					placeholder={placeholder}
 				></input>
 				<p className='input__divided--auxText d-flex justify-content-end m-0'>
 					{text2}

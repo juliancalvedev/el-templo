@@ -260,4 +260,8 @@ export default {
 			submitPassword: 'Change Password',
 		},
 	},
+	errors: {
+		generic: 'Oops, an error occurred.',
+		authentication: 'Email or password wrong.'
+	}
 };
