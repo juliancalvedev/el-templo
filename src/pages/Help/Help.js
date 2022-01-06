@@ -20,7 +20,8 @@ const Help = () => {
 		<MainContainer color={2} text={t('help.main.help')} bg={1} back>
 			<div className='text-center col-12 mt-5 pt-2'>
 				<Text bold size={4} text={t('help.main.aboutUs')} />
-				<Text  title size={4} text={t('help.main.elTemplo')} />
+
+				<Text font={2} size={5} text={t('help.main.elTemplo')} />
 				<img
 					className='d-inline-block'
 					width='100%'
@@ -47,8 +48,8 @@ const Help = () => {
 
 				<div className='collapse ' id='collapseExample'>
 					<div className='card p-0'>
-						<Text title size={4} text={t('help.main.mission')} />
-					
+						<Text font={2} size={5} text={t('help.main.mission')} />
+
 						<div className='col-11 m-auto mt-2 mb-4'>
 							<AuxText text={t('help.main.auxText2')} />
 							<AuxText text={t('help.main.auxText21')} />
