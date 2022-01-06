@@ -2,11 +2,10 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import Title from '../../../components/Title/Title';
-import AuxText from '../../../components/AuxText/AuxText';
 import Button from '../../../components/Button/Button';
 import { PATHS } from '../../../constants/paths';
 import Text from '../../../components/Text/Text';
+import MainContainer from '../../../components/MainContainer/MainContainer';
 
 const Welcome = () => {
 	const { t } = useTranslation();
@@ -16,16 +15,21 @@ const Welcome = () => {
 	const toOnboarding = () => navigate(`/${PATHS.MAIN_GOALS}`);
 
 	return (
-		<div className='container d-flex justify-content-center align-items-center flex-column'>
-			<Title text={t('welcome.main.title')} />
-			<h3>{`${t('welcome.main.hello')} ${firstName}!`}</h3>
-			<Text size={3} text={t('welcome.main.auxText')} />
+		<MainContainer>
+			<div className='d-flex flex-column align-items-center col-11'>
+				<Text text={t('welcome.main.title')} size='5' />
+				<Text
+					text={`${t('welcome.main.hello')} ${firstName}!`}
+					size='4'
+				/>
+				<Text text={t('welcome.main.auxText')} size='3' />
 
-			<Button
-				title={t('welcome.main.btnLetsBegin')}
-				onClick={toOnboarding}
-			/>
-		</div>
+				<Button
+					title={t('welcome.main.btnLetsBegin')}
+					onClick={toOnboarding}
+				/>
+			</div>
+		</MainContainer>
 	);
 };
 
