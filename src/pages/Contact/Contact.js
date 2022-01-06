@@ -1,8 +1,8 @@
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Title from '../../components/Title/Title';
-import ImgArrobaElTemplo from '../../images/ImgArrobaElTemplo';
-import ImgBlueSeparator from '../../images/ImgBlueSeparator';
-import { ImgDiagonalRectangle } from '../../images/ImgDiagonalRectangle';
+import ImgArrobaElTemplo from '../../assets/images/ImgArrobaElTemplo';
+import ImgBlueSeparator from '../../assets/images/ImgBlueSeparator';
+import { ImgDiagonalRectangle } from '../../assets/images/ImgDiagonalRectangle';
 
 const Contact = () => {
 	return (

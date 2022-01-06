@@ -55,7 +55,7 @@ export const Register = () => {
 	};
 
 	return (
-		<MainContainer top>
+		<MainContainer  topBar='mt-2' bg color='1' back text='Register' >
 			<form className='register col-12' onSubmit={handleSubmit}>
 				<div className='contBaseInputs px-3 mt-4 col-12 '>
 					<div className='baseI64 d-flex align-items-center col-12 '>
