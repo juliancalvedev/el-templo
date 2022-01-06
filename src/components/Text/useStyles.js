@@ -1,4 +1,4 @@
-const useStyles = ({ title , bold, underline, size, color, className }) => {
+const useStyles = ({ bold, underline, size, color, className, font }) => {
 
     const fontSizes = {
         1: '1',
@@ -15,8 +15,13 @@ const useStyles = ({ title , bold, underline, size, color, className }) => {
         4: '4',
     }
 
+    const fontFamilies = {
+        1: 1,
+        2: 2
+    }
+
     return {
-        text: `text__font--${title ? '2' : '1'} 
+        text: `text__font--${fontFamilies[font]} 
         ${bold && 'text--bold'} 
         ${underline && 'text--underline'} 
         text__size--${fontSizes[size]} 
