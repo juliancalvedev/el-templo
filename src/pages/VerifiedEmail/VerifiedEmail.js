@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { verifyEmailToBackEnd } from '../../services/auth';
 
-import Title from '../../components/Title/Title';
+import Text from '../../components/Text/Text';
 import AuxText from '../../components/AuxText/AuxText';
 import Button from '../../components/Button/Button';
 import { PATHS } from '../../constants/paths';
@@ -48,7 +48,7 @@ const VerifiedEmail = () => {
 								className='col-12 '
 								style={{ textAlign: 'center' }}
 							>
-								<Title text={t('auth.emailVerified.title')} />
+								<Text text={t('auth.emailVerified.title')} />
 							</div>
 							<div>
 								<ImgEmailVerified />
@@ -73,7 +73,7 @@ const VerifiedEmail = () => {
 						</div>
 					) : (
 						<div>
-							<Title text={t('auth.emailVerified.titleError')} />
+							<Text text={t('auth.emailVerified.titleError')} />
 							<Button
 								title={t('auth.emailVerified.btnNext')}
 								onClick={navigateToLoggin}
