@@ -1,6 +1,5 @@
 import "./Login.scss";
 import Input from "../../components/Input/Input";
-import Title from "../../components/Title/Title";
 import Button from "../../components/Button/Button";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -9,10 +8,10 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { PATHS } from "../../constants/paths";
 import MainContainer from "../../components/MainContainer/MainContainer";
-import Paragraph from "../../components/Paragraph/Paragraph";
 import InputIcon from "../../components/InputIcon/InputIcon";
 import { login } from "../../services/auth";
 import useFetch from "../../hooks/useFetch";
+import Text from "../../components/Text/Text";
 
 const Login = () => {
   const { t } = useTranslation();
@@ -26,6 +25,7 @@ const Login = () => {
 
   const [data, error, apiCall] = useFetch({
     service: () => login({ email, password }),
+    globalLoader: true
   });
 
   const callback = () => navigate(`/${PATHS.ENABLED_VERIFIED}`);
@@ -41,7 +41,7 @@ const Login = () => {
 
   useEffect(() => {
     if (data) {
-      dispatch(loginAction({ data: {token: data?.token, email}, callback  }));
+      dispatch(loginAction({ data: {token: data?.token, email}, callback }));
     }
   }, [data]);
 
@@ -55,18 +55,16 @@ const Login = () => {
   };
 
   return (
-    <MainContainer full>
-      <div className="login-container col-12 ">
-        <div className="login-container__opacity d-flex justify-content-center col-12 ">
+    <MainContainer topbar color={2} back>
+      <div className="login-container col-12">
+        <div className="login-container__opacity d-flex justify-content-center col-12 pt-2">
           <div className="col-11 d-flex flex-column ">
-            <div className="login__welcome mt-5 pt-4 text-light col-12  ">
-              <Title type="title1" text={t("auth.login.title")} />
+            <div className="mt-5 pt-4 col-12">
+              <Text size={4} color={2} bold text={t("auth.login.title")} />
             </div>
-            <div className="login__continue col-8  ">
-              <Paragraph type="light" text={t("auth.login.subtitle")} />
-            </div>
+              <Text color={2} text={t("auth.login.subtitle")} />
 
-            <div className=" login__form col-12 mb-5 ">
+            <div className="col-12 mb-5 pt-4 mt-5">
               <form>
                 <Input
                   className="login__input col-12 mb-2 py-2 "
@@ -89,21 +87,26 @@ const Login = () => {
                   <Button onClick={apiCall} title={t("auth.login.btnLogin")} />
                 </div>
                 <div className="col-12 d-flex justify-content-end  ">
-                  <Paragraph
-                    type="yellow"
+                  <Text
+                    color={3}
+                    size={1}
+                    underline
                     onClick={toForgottenPassword}
                     text={t("auth.login.recovery")}
                   />
                 </div>
               </form>
             </div>
-            <div className="d-flex flex-colum justify-content-center align-items-center mt-5 pt-5  ">
-              <Paragraph type="light" text={t("auth.login.register1")} />
-              <Paragraph
-                type="yellow"
-                onClick={toRegister}
-                text={t("auth.login.register2")}
-              />
+            <div className="d-flex flex-colum justify-content-center align-items-center mt-5 pt-5 h-20 ">
+                <Text size={1} color={2} text={t("auth.login.register1")} />
+                <Text
+                  size={1}
+                  color={3}
+                  underline 
+                  onClick={toRegister}
+                  text={t("auth.login.register2")}
+                  className='p-1'
+                />
             </div>
           </div>
         </div>

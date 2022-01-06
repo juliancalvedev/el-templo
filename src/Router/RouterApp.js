@@ -33,7 +33,6 @@ const RouterApp = () => {
 
 	return (
 		<BrowserRouter>
-			<TopBar />
 			<Routes>
 				{savedToken ? (
 					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>

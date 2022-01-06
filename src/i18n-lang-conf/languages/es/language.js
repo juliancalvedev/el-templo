@@ -44,7 +44,7 @@ export default {
 		},
 
 		login: {
-			title: 'Bienvenido!',
+			title: '¡Bienvenido!',
 			subtitle:'Inicia sesión para continuar',
 			emailPlaceholder: 'Email',
 			passwordPlaceholder: 'Contraseña',
@@ -187,6 +187,7 @@ export default {
 	},
 	help: {
 		main: {
+			help:'Ayuda',
 			aboutUs: 'Sobre nosotros',
 			elTemplo: 'EL TEMPLO',
 			auxText1:'El Templo es un espacio de entrenamiento funcional y alternativo para personas entrenadas y no entrenadas.',
@@ -256,4 +257,8 @@ export default {
 			submitPassword: 'Cambiar contraseña',
 		},
 	},
+	errors: {
+		generic: 'Oops, ocurrió un error.',
+		authentication: 'Email o contraseña invalidos.'
+	}
 };

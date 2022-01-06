@@ -2,6 +2,7 @@ import './Help.scss';
 import { useTranslation } from 'react-i18next';
 import Button from '../../components/Button/Button';
 import Title from '../../components/Title/Title';
+import Text from '../../components/Text/Text';
 import HelpAccordionBlue from './HelpAccordionBlue';
 import Input from '../../components/Input/Input';
 
@@ -30,22 +31,26 @@ const HelpAccordion = ({icon='icon'}) => {
 						data-bs-parent='#accordionExample'
 					>
 						<div className='accordion-body row'>
-							<div className='col-12 my-4 '>
-								<Title
-									type='title4 '
+							<div className='col-12 my-4 d-flex justify-content-start pr-3'>
+								<Text
+									bold
+									color={1}
+									size={3}
 									text={t('help.main.accordionInside1')}
 								/>
 							</div>
-							<div className='col-3 px-0 mt-1'>
-								<div className='col-12 d-flex justify-content-end '>
-									<Title
-										type='title6'
+							<div className='col-3  mt-1'>
+								<div className='col-12 d-flex justify-content-start pr-3'>
+									<Text
+										color={1}
+										size={2}
 										text={t('help.main.accordionInside2')}
 									/>
 								</div>
-								<div className='col-12 d-flex justify-content-end mx-0 pt-3 '>
-									<Title
-										type='title6'
+								<div className='col-12 d-flex justify-content-start mx-0 pt-3 pr-3'>
+									<Text
+										color={1}
+										size={2}
 										text={t('help.main.accordionInside3')}
 									/>
 								</div>
@@ -53,12 +58,12 @@ const HelpAccordion = ({icon='icon'}) => {
 							<div className='col-9 pl-0'>
 								<Input
 									type='text'
-									className='col-12 border border-1  input__asunto p-2 mb-1'
+									className='col-12 border border-1  input__style p-2 mb-1'
 								/>
 								<textarea
 									rows='5'
 									cols='21'
-									className='col-12 textarea__msj input__asunto border border-1  mt-1
+									className='col-12  input__style border border-1  mt-1
 									p-3'
 								></textarea>
 							</div>
@@ -87,9 +92,20 @@ const HelpAccordion = ({icon='icon'}) => {
 						aria-labelledby='headingThree'
 						data-bs-parent='#accordionExample'
 					>
-						<div className='accordion-body my-3'>
-							<Title type='title4' text={t('help.main.faqs')} />
-							<p className='my-2 '>{t('help.main.fq')}</p>
+						<div className='accordion-body '>
+							<Text
+								bold
+								className='d-flex justify-content-start mt-3 px-2 '
+								color={1}
+								size={3}
+								text={t('help.main.faqs')}
+							/>
+							<Text
+								color={1}
+								size={2}
+								className='d-flex justify-content-start mb-2 px-2'
+								text={t('help.main.fq')}
+							/>
 							<HelpAccordionBlue />
 						</div>
 					</div>

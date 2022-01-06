@@ -3,11 +3,11 @@ import Title from '../../components/Title/Title';
 import '../../components/Title/title.scss';
 import AuxText from '../../components/AuxText/AuxText';
 import './Help.scss';
-
-import Button from '../../components/Button/Button';
+import TopBar from '../../components/TopBar/TopBar';
 import '../../components/Button/button.scss';
 import HelpAccordion from './HelpAccordion';
 import MainContainer from '../../components/MainContainer/MainContainer';
+import Text from '../../components/Text/Text';
 
 const Help = () => {
 	const { t } = useTranslation();
@@ -17,14 +17,10 @@ const Help = () => {
 	};
 
 	return (
-		<MainContainer>
-			<div className='text-center col-12'>
-				<div className='my-1 pt-1'>
-					<Title type='title1' text={t('help.main.aboutUs')} />
-				</div>
-				<div className='my-3'>
-					<Title type='title3' text={t('help.main.elTemplo')} />
-				</div>
+		<MainContainer color={2} text={t('help.main.help')} bg={1} back>
+			<div className='text-center col-12 mt-5 pt-2'>
+				<Text bold size={4} text={t('help.main.aboutUs')} />
+				<Text  title size={4} text={t('help.main.elTemplo')} />
 				<img
 					className='d-inline-block'
 					width='100%'
@@ -51,7 +47,8 @@ const Help = () => {
 
 				<div className='collapse ' id='collapseExample'>
 					<div className='card p-0'>
-						<Title type='title3' text={t('help.main.mission')} />
+						<Text title size={4} text={t('help.main.mission')} />
+					
 						<div className='col-11 m-auto mt-2 mb-4'>
 							<AuxText text={t('help.main.auxText2')} />
 							<AuxText text={t('help.main.auxText21')} />

@@ -9,8 +9,8 @@ import AuxText from '../../components/AuxText/AuxText';
 import Button from '../../components/Button/Button';
 import { PATHS } from '../../constants/paths';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import ImgEmailVerified from '../../images/ImgEmailVerified';
-import ImgDownArrow from '../../images/ImgDownArrow';
+import ImgEmailVerified from '../../assets/images/ImgEmailVerified';
+import ImgDownArrow from '../../assets/images/ImgDownArrow';
 
 const VerifiedEmail = () => {
 	const { t } = useTranslation();

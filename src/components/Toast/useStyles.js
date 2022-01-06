@@ -1,8 +1,9 @@
 const useStyles = () => {
 
     return {
-        container: 'fixed-top col-12 d-flex justify-content-end',
-        body: 'bg-danger p-3 col-sm-6 text-white rounded'
+        container: 'position-fixed col-12 d-flex justify-content-end toast-container p-1',
+        body: 'bg-danger py-3 px-4 col-12 text-white rounded',
+        text: 'p-0 m-0'
     }
 }
 

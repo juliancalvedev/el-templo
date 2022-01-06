@@ -189,6 +189,7 @@ export default {
 	},
 	help: {
 		main: {
+			help:'Help',
 			aboutUs: 'About us',
 			elTemplo: 'El Templo',
 			auxText1:
@@ -260,4 +261,8 @@ export default {
 			submitPassword: 'Change Password',
 		},
 	},
+	errors: {
+		generic: 'Oops, an error occurred.',
+		authentication: 'Email or password wrong.'
+	}
 };
