@@ -20,7 +20,7 @@ const Help = () => {
 		<MainContainer>
 			<div className='text-center col-12'>
 				<Text bold size={4} text={t('help.main.aboutUs')} />
-				<Text title text={t('help.main.elTemplo')} />
+				<Text font={2} size={5} text={t('help.main.elTemplo')} />
 				<img
 					className='d-inline-block'
 					width='100%'
