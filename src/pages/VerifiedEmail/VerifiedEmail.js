@@ -80,7 +80,6 @@ const VerifiedEmail = () => {
 								<Button
 									title={t('auth.emailVerified.btnNext')}
 									onClick={navigateToLoggin}
-									size='lg'
 								/>
 							</div>
 						</div>
