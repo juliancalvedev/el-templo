@@ -9,7 +9,7 @@ import GenericTicket from '../../components/GenericTicket/GenericTicket';
 import { logoutAction } from '../../redux/auth';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import EditUserIcon from './EditUserIcon';
+import EditUserIcon from '../../assets/Icons/EditUserIcon';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import UserImage from '../../components/UserImage/UserImage';
 import ImportantBar from '../../components/ImportantBar/ImportantBar';
@@ -35,8 +35,14 @@ const MyProfile = () => {
 	};
 
 	return (
-		<MainContainer top>
-			<div className=' col-12 my-profile-body flex-col'>
+		<MainContainer
+			topbar
+			color='2'
+			bg='1'
+			back
+			text={t('user.myProfile.myProfile')}
+		>
+			<div className=' col-12 my-profile-body flex-col mt-5 '>
 				<div
 					className='d-flex
 				  justify-content-center col-10 user-level-box '
@@ -55,18 +61,19 @@ const MyProfile = () => {
 									)} ${trainingLevel}`}
 								/>
 							</div>
-
-							<div className='d-flex flex-column col-10 edit-profile-box justify-content-center align-items-center'>
-								<EditUserIcon />
-								<Text
-									size='1'
-									text={t('user.myProfile.edit')}
-								/>
-								<Text
-									size='1'
-									text={t('user.myProfile.profile')}
-								/>
-							</div>
+							<Link className='link' to='edit-profile'>
+								<div className='d-flex flex-column col-10 edit-profile-box justify-content-center align-items-center'>
+									<EditUserIcon />
+									<Text
+										size='1'
+										text={t('user.myProfile.edit')}
+									/>
+									<Text
+										size='1'
+										text={t('user.myProfile.profile')}
+									/>
+								</div>
+							</Link>
 						</div>
 
 						<div className='d-flex flex-column justify-content-around'>
@@ -100,9 +107,9 @@ const MyProfile = () => {
 					/>
 				</div>
 
-				<div className='about-you-box d-flex col-12 justify-content-between align-items-center'>
+				<div className='about-you-box  d-flex col-12 justify-content-between align-items-center'>
 					<Text
-						className=''
+						className='m-4'
 						text={`${t('user.myProfile.aboutYou')}`}
 					/>
 
