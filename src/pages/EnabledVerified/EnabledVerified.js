@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { resendVerifyEmail } from '../../services/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { PATHS } from '../../constants/paths';
 
