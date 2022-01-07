@@ -19,12 +19,11 @@ import Text from '../../components/Text/Text';
 
 const MyProfile = () => {
 	const { t } = useTranslation();
-	const level = UserTrainingLevel();
+	const USERTrainingLevel = UserTrainingLevel();
 	const navigate = useNavigate();
 
-	const { startEnabledDate, endEnabledDate, goals, height, weight } =
+	const { startEnabledDate, endEnabledDate, goals, height, weight, level } =
 		useSelector((store) => store.user);
-	const { trainingLevel } = useSelector((store) => store.user.trainingInfo);
 
 	const handleNavigate = () => {
 		navigate(`/${PATHS.CHANGE_USER_PASSWORD}`);
@@ -54,11 +53,11 @@ const MyProfile = () => {
 						<div className=' d-flex col-12 justify-content-between align-items-center level-and-edit'>
 							<div className=' d-flex justify-content-center col-7 align-items-center '>
 								<Text
-									size='4'
+									size='3'
 									bold
 									text={`${t(
 										'user.myProfile.level'
-									)} ${trainingLevel}`}
+									)} ${level}`}
 								/>
 							</div>
 							<Link className='link' to='edit-profile'>
@@ -79,7 +78,6 @@ const MyProfile = () => {
 						<div className='d-flex flex-column justify-content-around'>
 							<Text
 								size='1'
-								bold
 								className='mt-2'
 								text={`${t(
 									'user.myProfile.completedTrainings'
@@ -88,7 +86,6 @@ const MyProfile = () => {
 
 							<Text
 								size='1'
-								bold
 								className='mt-2'
 								text={`${t(
 									'user.myProfile.memberSince'
@@ -124,7 +121,7 @@ const MyProfile = () => {
 						customStyles='training-level-text'
 						text={`${`${t(
 							'user.myProfile.trainingLevel'
-						)}  ${level}`}`}
+						)}  ${USERTrainingLevel}`}`}
 					/>
 				</div>
 
