@@ -10,15 +10,16 @@
 	font-weight: 300;
 	font-size: 11px;
 
+	&--yellow {
+		color: $fifth;
+		font-size: 12px;
+	}
+
 	&--dark {
-		color: $tenth;
+		color: $sixth;
 	}
 	&--light {
 		color: $nineth;
-		font-size: 12px;
-	}
-	&--yellow {
-		color: $fifth;
 		font-size: 12px;
 	}
 }

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { verifyEmailToBackEnd } from '../../services/auth';
 
-import Title from '../../components/Title/Title';
+import Text from '../../components/Text/Text';
 import AuxText from '../../components/AuxText/AuxText';
 import Button from '../../components/Button/Button';
 import { PATHS } from '../../constants/paths';
@@ -32,7 +32,7 @@ const VerifiedEmail = () => {
 	}, []);
 
 	return (
-		<MainContainer top>
+		<MainContainer>
 			{isLoading ? (
 				<div>
 					<h1>{t('global.loading')}</h1>
@@ -44,20 +44,32 @@ const VerifiedEmail = () => {
 				<div className='col-12 d-flex flex-column align-items-center'>
 					{isVerified ? (
 						<div className='col-12 h-100 d-flex flex-column align-items-center justify-content-between '>
-							<div
-								className='col-12 '
-								style={{ textAlign: 'center' }}
-							>
-								<Title text={t('auth.emailVerified.title')} />
+							<div className='col-10 text-center mt-4 pt-5'>
+								<Text
+									text={t('auth.emailVerified.title')}
+									size='4'
+									bold
+								/>
 							</div>
-							<div>
+							<div className='mt-5'>
 								<ImgEmailVerified />
 							</div>
 							<div className='col-12 d-flex flex-column align-items-center justify-content-between '>
-								<AuxText
-									text={t('auth.emailVerified.auxText')}
-								/>
-								<ImgDownArrow />
+								<div
+									className='mb-5'
+									style={{ marginTop: '-5%' }}
+								>
+									<Text
+										text={t('auth.emailVerified.auxText')}
+										size='3'
+									/>
+								</div>
+								<div
+									className='mt-3'
+									style={{ marginBottom: '-6%' }}
+								>
+									<ImgDownArrow />
+								</div>
 							</div>
 							<div
 								className='col-10'
@@ -73,7 +85,7 @@ const VerifiedEmail = () => {
 						</div>
 					) : (
 						<div>
-							<Title text={t('auth.emailVerified.titleError')} />
+							<Text text={t('auth.emailVerified.titleError')} />
 							<Button
 								title={t('auth.emailVerified.btnNext')}
 								onClick={navigateToLoggin}

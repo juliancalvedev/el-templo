@@ -50,7 +50,7 @@ const WeightHeight = () => {
 		}
 	};
 
-	// Función para validar el número del inputo ALTURA
+	// Función para validar el número del input ALTURA
 	const onHeightChange = (event) => {
 		const validCharacters = '01234567890.';
 		const { value } = event.target;

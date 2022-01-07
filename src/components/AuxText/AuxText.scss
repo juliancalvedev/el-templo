@@ -8,6 +8,18 @@
 	line-height: 16px;
 	letter-spacing: 0em;
 	text-align: left;
+<<<<<<< HEAD
 	color: $tenth;
 	margin: 0;
+=======
+	color: $sixth;
+	margin: 0;
+	&--small1 {
+		font-weight: 400;
+		size: 10px;
+	}
+	&--clip {
+		text-overflow: clip;
+	}
+>>>>>>> 1f372cae363971e323189dd5c783c78d9f33e7df
 }

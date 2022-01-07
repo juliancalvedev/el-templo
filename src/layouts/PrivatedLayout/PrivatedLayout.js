@@ -39,7 +39,7 @@ const PrivatedLayout = () => {
 
 	return (
 		<div className='col-12'>
-			<Button onClick={onLogout} title='logout' />
+			<Button onClick={logoutAction} title='logout' />
 			<Outlet />
 			{showNavbar() && <Navbar />}
 		</div>

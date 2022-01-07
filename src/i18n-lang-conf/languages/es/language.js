@@ -99,10 +99,11 @@ export default {
 		},
 		enabledVerified: {
 			emailNotVerified: {
-				title: 'Tu cuenta aún no ha sido verificada.',
+				title: 'Tu cuenta aún no ha sido verificada',
 				auxText:
-					'Entra al Link que te hemos enviado al email. Y sigue los pasos.',
-				btnResendEmail: 'Reenviar correo electrónico',
+					'Entra al link del correo electrónico que te hemos enviado y sigue los pasos',
+				btnResendEmail: 'Reenviar',
+				hasNotEmail: '¿No te llegó el correo electrónico?',
 			},
 			accountNotEnabled: {
 				title: 'Tu cuenta no se encuentra habilitada',
@@ -187,6 +188,7 @@ export default {
 	},
 	help: {
 		main: {
+			help: 'Ayuda',
 			aboutUs: 'Sobre nosotros',
 			elTemplo: 'EL TEMPLO',
 			auxText1:
@@ -196,7 +198,7 @@ export default {
 
 			auxText13:
 				'Es un lugar de introspección y autoconocimiento que busca transmitir los pilares del cuidado y superación personal a través del entrenamiento físico y mental.',
-			rectangle324: 'Cuerpo,alma,mente',
+			rectangle324: 'Cuerpo, alma, mente',
 			btn1: 'Ver mas',
 			mission: 'MISION Y VISION',
 			auxText2:
@@ -248,6 +250,8 @@ export default {
 		verifyEmail: 'Verificar Email',
 		enabledVerified: 'Comprobando Cuenta',
 		register: 'Registro',
+		emailRegisterSended: 'Confirma tu Email',
+		myProfile: 'Mi perfil',
 		help: 'Ayuda',
 		emailRegisterSended: 'Confirma tu Email',
 		contact: 'Contacto',
@@ -259,6 +263,32 @@ export default {
 			newPassword: 'Nueva contraseña',
 			repeatNewPassword: 'Repetir contraseña nueva',
 			submitPassword: 'Cambiar contraseña',
+		},
+		myProfile: {
+			personalInfo: 'Información personal',
+			level: 'Nivel',
+			completedTrainings: 'Entrenamientos realizados',
+			memberSince: 'Miembro desde',
+			edit: 'Editar',
+			profile: 'perfil',
+			editInfo: 'EDITAR',
+			endEnabledDate: 'Suscripción activa hasta el día: ',
+			aboutYou: 'Sobre vos',
+			trainingLevel: 'Nivel de entrenamiento: ',
+			goals: 'Objetivos',
+			personalInfo: 'Datos personales',
+			height: 'Altura',
+			weight: 'Peso',
+			logOut: 'Cerrar sesión',
+			password: 'Cambiar contraseña',
+			myProfile: 'Perfil',
+		},
+		trainingLevels: {
+			beginner: 'Principiante',
+			amateur: 'Aficionado',
+			intermediate: 'Intermedio',
+			advanced: 'Avanzado',
+			expert: 'Experto',
 		},
 	},
 	errors: {

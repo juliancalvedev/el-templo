@@ -100,10 +100,11 @@ export default {
 		},
 		enabledVerified: {
 			emailNotVerified: {
-				title: 'Your account has not been verified yet.',
+				title: 'Your account has not been verified yet',
 				auxText:
-					'Enter the Link that we have sent you to the email. And follow the steps.',
-				btnResendEmail: 'Resend Email',
+					'Enter the Link that we have sent you to the email and follow the steps',
+				btnResendEmail: 'Resend',
+				hasNotEmail: 'The Email has not arrived?',
 			},
 			accountNotEnabled: {
 				title: 'Your account is not enabled.',
@@ -189,6 +190,7 @@ export default {
 	},
 	help: {
 		main: {
+			help:'Help',
 			aboutUs: 'About us',
 			elTemplo: 'El Templo',
 			auxText1:
@@ -197,7 +199,7 @@ export default {
 				'From free acrobatics to gymnastics, weightlifting to calisthenics and natural movement.',
 			auxText13:
 				'It is a place of introspection and self-knowledge that seeks to transmit the pillars of personal care and improvement through physical and mental training.',
-			rectangle324: 'Body,soul,mind',
+			rectangle324: 'Body, soul, mind',
 			btn1: 'See more',
 			mission: 'MISSION & VISION',
 			auxText2:
@@ -248,6 +250,8 @@ export default {
 		verifyEmail: 'Verify Email',
 		enabledVerified: 'Checking Account',
 		register: 'Register',
+		emailRegisterSended: 'Confirm Email',
+		myProfile: 'My Profile',
 		help: 'Help',
 		emailRegisterSended: 'Confirm Email',
 		contact: 'Contact',
@@ -259,6 +263,32 @@ export default {
 			newPassword: 'New password',
 			repeatNewPassword: 'Repeat New Password',
 			submitPassword: 'Change Password',
+		},
+		myProfile: {
+			personalInfo: 'Datos personales',
+			level: 'Level',
+			completedTrainings: 'Completed Trainings',
+			memberSince: 'Member since',
+			edit: 'Edit',
+			profile: 'profile',
+			editInfo: 'Edit',
+			endEnabledDate: 'Subscription active until: ',
+			aboutYou: 'About you',
+			trainingLevel: 'Training level: ',
+			goals: 'Goals',
+			personalInfo: 'Personal info',
+			height: 'Height',
+			weight: 'Weight',
+			logOut: 'Log out',
+			password: 'Password',
+			myProfile: 'Profile',
+		},
+		trainingLevels: {
+			beginner: 'Beginner',
+			amateur: 'Amateur',
+			intermediate: 'Intermediate',
+			advanced: 'Advanced',
+			expert: 'Expert',
 		},
 	},
 	errors: {

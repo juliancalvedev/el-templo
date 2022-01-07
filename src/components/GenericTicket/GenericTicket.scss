@@ -1,0 +1,29 @@
+@import '../../styles/variables';
+.generic-ticket {
+	height: 40px;
+	border-radius: 15px;
+	box-shadow: $shadow020;
+	margin-top: 8px;
+	color: $tertiary;
+	font-weight: 600;
+	text-indent: 10px;
+	padding-right: 1rem;
+
+	&--list {
+		display: flex;
+		justify-content: start;
+	}
+	&--separated {
+		display: flex;
+		justify-content: space-between;
+	}
+	.text-1-container {
+		padding: 0px 5px;
+		display: flex;
+		align-items: center;
+	}
+	.generic-ticket-text {
+		margin: 0px;
+		padding: 0px;
+	}
+}

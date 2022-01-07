@@ -3,7 +3,7 @@ import Title from '../../components/Title/Title';
 import '../../components/Title/title.scss';
 import AuxText from '../../components/AuxText/AuxText';
 import './Help.scss';
-
+import TopBar from '../../components/TopBar/TopBar';
 import '../../components/Button/button.scss';
 import HelpAccordion from './HelpAccordion';
 import MainContainer from '../../components/MainContainer/MainContainer';
@@ -17,21 +17,22 @@ const Help = () => {
 	};
 
 	return (
-		<MainContainer>
-			<div className='text-center col-12'>
+		<MainContainer color={2} text={t('help.main.help')} bg={1} back>
+			<div className='text-center col-12 mt-5 pt-2'>
 				<Text bold size={4} text={t('help.main.aboutUs')} />
+
 				<Text font={2} size={5} text={t('help.main.elTemplo')} />
 				<img
 					className='d-inline-block'
 					width='100%'
 					src='https://d500.epimg.net/cincodias/imagenes/2019/05/02/lifestyle/1556809482_591063_1556811610_noticia_normal.jpg'
 				/>
-				<div className='col-11 m-auto my-1'>
+				<div className='col-11 m-auto my-3'>
 					<AuxText text={t('help.main.auxText1')} />
 					<AuxText text={t('help.main.auxText12')} />
 					<AuxText text={t('help.main.auxText13')} />
 				</div>
-				<p className=' d-flex  justify-content-center align-items-center col-12 rectangle324  '>
+				<p className=' d-flex  justify-content-center align-items-center col-12 rectangle324 py-3 '>
 					{t('help.main.rectangle324')}
 				</p>
 
@@ -47,8 +48,9 @@ const Help = () => {
 
 				<div className='collapse ' id='collapseExample'>
 					<div className='card p-0'>
-						<Title type='title3' text={t('help.main.mission')} />
-						<div className='col-11 m-auto my-1'>
+						<Text font={2} size={5} text={t('help.main.mission')} />
+
+						<div className='col-11 m-auto mt-2 mb-4'>
 							<AuxText text={t('help.main.auxText2')} />
 							<AuxText text={t('help.main.auxText21')} />
 						</div>
