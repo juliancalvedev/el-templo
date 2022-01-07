@@ -15,12 +15,21 @@
 		left: 0;
 		z-index: -1;
 	}
-	.topText__container {
+
+	.weightHeight__topText--container {
 		background-color: $tertiary;
 		height: 160px;
 		padding-top: 55px;
 		.weightHeight__topText {
 			margin-left: 24px;
 		}
+	}
+	.weightHeight__input--container {
+		margin-top: 60px;
+	}
+
+	.weightHeight__btn--container {
+		position: absolute;
+		bottom: 55px;
 	}
 }

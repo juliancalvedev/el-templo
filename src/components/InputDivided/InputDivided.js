@@ -18,7 +18,7 @@ const InputDivided = ({
 	placeholder,
 }) => {
 	return (
-		<div className='input__divided d-flex justify-content-between align-items-center col-11 mt-2 mb-2'>
+		<div className='input__divided d-flex justify-content-between align-items-center col-11 m-0 p-0'>
 			<div className='d-flex justify-content-between align-items-center col-6'>
 				<label className='input__divided--label mb-1' htmlFor={id}>
 					<Text text={text1} size='3' />

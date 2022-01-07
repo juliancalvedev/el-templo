@@ -98,7 +98,10 @@ const MainGoals = () => {
 					>
 						<p className='numbers'>1</p>
 						<div className='d-flex justify-content-between align-items-center col-12 '>
-							<p className='goals goal1'>
+							<p
+								className='goals goal1'
+								style={{ marginLeft: '23px' }}
+							>
 								{t(`welcome.goals.${selectedGoals[0]}`)}
 							</p>
 							<div className='crossIcon crossIcon1'>

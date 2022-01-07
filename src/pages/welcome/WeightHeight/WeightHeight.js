@@ -91,14 +91,14 @@ const WeightHeight = () => {
 	};
 
 	return (
-		// TODO Cuando termine la funcionalidad de esto, luego terminar los Estilos
 		<MainContainer back={true} bg='1' color='2'>
-			<div className='weightHeight__container  d-flex flex-column justify-content-start align-items-center col-12'>
+			<div className='weightHeight__container d-flex flex-column justify-content-start align-items-center col-12'>
 				<div className='weightHeight__backgroundImg'></div>
 
-				<div className='topText__container col-12'>
+				<div className='weightHeight__topText--container col-12'>
 					<div className='weightHeight__topText col-10'>
 						<Text
+							className='topText__container--title'
 							text={t('welcome.weightHeight.title')}
 							size='4'
 							bold
@@ -106,43 +106,44 @@ const WeightHeight = () => {
 						/>
 					</div>
 				</div>
-				<div className='form-group d-flex'>
-					<label className='col-3' htmlFor='weight'>
-						{t('welcome.weightHeight.weight')}
-					</label>
-					<select
-						className='form-control col-6'
-						style={{ width: '25%' }}
-						id='weight'
-						onChange={(e) => handleChange(e, 'weight')}
-					>
-						{weights.map((num) => (
-							<option key={num}>{num}</option> // PESAJES
-						))}
-					</select>
-					<p>{t('welcome.weightHeight.kilos')}</p>
-				</div>
 
-				<div className='form-group d-flex'>
-					<label className='col-3' htmlFor='height'>
-						{t('welcome.weightHeight.height')}
-					</label>
-					<select
-						className='form-control col-6'
-						style={{ width: '25%' }}
-						id='height'
-						onChange={(e) => handleChange(e, 'height')}
-					>
-						{heights.map((num) => (
-							<option key={num}>{num}</option> // ALTURAS
-						))}
-					</select>
-					<p>{t('welcome.weightHeight.meters')}</p>
+				<div className='weightHeight__input--container d-flex flex-column justify-content-center align-items-center col-12'>
+					<div className='form-group d-flex flex-column justify-content-center align-items-center m-1 col-12 '>
+						<InputDivided
+							id='weight'
+							text1={t('welcome.weightHeight.weight')}
+							text2={t('welcome.weightHeight.kilos')}
+							onChange={onWeightChange}
+							type='text'
+							min='20'
+							max='400'
+							maxLength='3'
+							placeholder='0'
+							value={selectedWeight}
+						/>
+					</div>
+
+					<div className='form-group d-flex flex-column justify-content-center align-items-center m-1 col-12'>
+						<InputDivided
+							id='height'
+							text1={t('welcome.weightHeight.height')}
+							text2={t('welcome.weightHeight.meters')}
+							onChange={onHeightChange}
+							type='text'
+							min='1'
+							max='3'
+							maxLength='4'
+							placeholder='1.00'
+							value={selectedHeight}
+						/>
+					</div>
 				</div>
-				<Button
-					title={t('welcome.weightHeight.enter')}
-					onClick={handleSubmit}
-				/>
+				<div className='weightHeight__btn--container'>
+					<Button
+						title={t('welcome.weightHeight.enter')}
+						onClick={handleSubmit}
+					/>
+				</div>
 			</div>
 		</MainContainer>
 	);
