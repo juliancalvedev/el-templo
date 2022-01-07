@@ -3,8 +3,7 @@ import { axiosInstance } from '../../../axios/axiosInstance';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import AuxText from '../../../components/AuxText/AuxText';
-import Title from '../../../components/Title/Title';
+import Cross from '../../../assets/Icons/Cross';
 import Text from '../../../components/Text/Text';
 import MainContainer from '../../../components/MainContainer/MainContainer';
 import './mainGoals.scss';
@@ -51,6 +50,17 @@ const MainGoals = () => {
 		setSelectedGoals(auxArr);
 	};
 
+	const disableBtnNext = () => {
+		if (
+			selectedGoals[0] === '' ||
+			selectedGoals[1] === '' ||
+			selectedGoals[2] === ''
+		) {
+			return 'disabled';
+		} else {
+			return '';
+		}
+	};
 	useEffect(() => {
 		getGoals();
 	}, []);
@@ -61,7 +71,7 @@ const MainGoals = () => {
 
 	return (
 		<MainContainer back={true} bg='1' color='2'>
-			<div className='mainGoals__container  d-flex flex-column justify-content-between align-items-center col-12'>
+			<div className='mainGoals__container  d-flex flex-column justify-content-start align-items-center col-12'>
 				<div className='maingGoals__backgroundImg'></div>
 				<div className='topText__container col-12'>
 					<Text
@@ -79,37 +89,53 @@ const MainGoals = () => {
 					/>
 				</div>
 
-				<div className='showing-inputs'>
+				<div className='showing-inputs d-flex flex-column align-items-center col-11'>
 					<div
-						className='goal-field goal-1 d-flex'
+						className='goal-field goal-1 d-flex col-12'
 						onClick={() => deleteGoal(0)}
 					>
 						<p className='numbers'>1</p>
-						<p className='goals'>
-							{t(`welcome.goals.${selectedGoals[0]}`)}
-						</p>
+						<div className='d-flex justify-content-between align-items-center col-12 '>
+							<p className='goals goal1'>
+								{t(`welcome.goals.${selectedGoals[0]}`)}
+							</p>
+							<div className='crossIcon crossIcon1'>
+								<Cross />
+							</div>
+						</div>
 					</div>
+
 					<div
-						className='goal-field goal-2 d-flex'
+						className='goal-field goal-2 d-flex col-12 '
 						onClick={() => deleteGoal(1)}
 					>
 						<p className='numbers'>2</p>
-						<p className='goals'>
-							{t(`welcome.goals.${selectedGoals[1]}`)}
-						</p>
+						<div className='d-flex justify-content-between align-items-center col-12'>
+							<p className='goals '>
+								{t(`welcome.goals.${selectedGoals[1]}`)}
+							</p>
+							<div className='crossIcon'>
+								<Cross />
+							</div>
+						</div>
 					</div>
 					<div
-						className='goal-field goal-3 d-flex'
+						className='goal-field goal-3 d-flex col-12'
 						onClick={() => deleteGoal(2)}
 					>
 						<p className='numbers'>3</p>
-						<p className='goals'>
-							{t(`welcome.goals.${selectedGoals[2]}`)}
-						</p>
+						<div className='d-flex justify-content-between align-items-center col-12'>
+							<p className='goals'>
+								{t(`welcome.goals.${selectedGoals[2]}`)}
+							</p>
+							<div className='crossIcon'>
+								<Cross />
+							</div>
+						</div>
 					</div>
 				</div>
 
-				<div className='selectable-goals d-flex flex-wrap'>
+				<div className='selectable-goals d-flex flex-wrap col-11'>
 					{arrGoals?.map(
 						(goal, i) =>
 							!selectedGoals.includes(goal) && (
@@ -118,20 +144,26 @@ const MainGoals = () => {
 									className='goals-tags'
 									onClick={() => addNewGoal(goal)}
 								>
-									{t(`welcome.goals.${goal}`)}
+									<Text
+										text={t(`welcome.goals.${goal}`)}
+										size='1'
+										color={2}
+									/>
 								</button>
 							)
 					)}
 				</div>
-
-				<ButtonPagination
-					disabled={
-						selectedGoals[0] === '' ||
-						selectedGoals[1] === '' ||
-						selectedGoals[2] === ''
-					}
-					onClick={toTrainingLevel}
-				/>
+				<div className='mainGoals__btnPag--container'>
+					<ButtonPagination
+						disabled={
+							selectedGoals[0] === '' ||
+							selectedGoals[1] === '' ||
+							selectedGoals[2] === ''
+						}
+						onClick={toTrainingLevel}
+						className={disableBtnNext()}
+					/>
+				</div>
 			</div>
 		</MainContainer>
 	);

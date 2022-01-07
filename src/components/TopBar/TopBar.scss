@@ -9,7 +9,7 @@
 	&__bg {
 		&--1 {
 			background-color: $tertiary;
-		};
+		}
 		&--2 {
 			background-color: $eighth;
 		}
@@ -17,4 +17,7 @@
 			background-color: transparent;
 		}
 	}
+}
+.iconBack {
+	margin-left: 9px;
 }

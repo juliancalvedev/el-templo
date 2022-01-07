@@ -5,6 +5,7 @@ const ButtonPagination = ({
 	onClick,
 	title,
 	disabled,
+	className,
 	type = 'button',
 	direction = 'right',
 }) => {
@@ -12,7 +13,7 @@ const ButtonPagination = ({
 		<div>
 			<button
 				disabled={disabled}
-				className={`btn btn-primary customBtnPagination`}
+				className={` customBtnPagination ${className}`}
 				onClick={onClick}
 				type={type}
 			>
