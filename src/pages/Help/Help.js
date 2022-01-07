@@ -27,7 +27,7 @@ const Help = () => {
 					src='https://d500.epimg.net/cincodias/imagenes/2019/05/02/lifestyle/1556809482_591063_1556811610_noticia_normal.jpg'
 				/>
 				<div className='col-11 m-auto my-1'>
-					<AuxText text={t('help.main.auxText1')} />
+					<Text size={2} text={t('help.main.auxText1')} />
 					<AuxText text={t('help.main.auxText12')} />
 					<AuxText text={t('help.main.auxText13')} />
 				</div>
