@@ -35,6 +35,10 @@
 			text-indent: 1rem;
 			text-align: end;
 		}
+		.input__divided--input:focus {
+			outline: none;
+			border: none;
+		}
 
 		.input__divided--auxText {
 			color: $tertiary;

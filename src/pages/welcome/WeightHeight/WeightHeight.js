@@ -70,9 +70,9 @@ const WeightHeight = () => {
 		charIsValid();
 
 		if (flag) {
-			setSelectedHeight(parseInt(value));
+			setSelectedHeight(value);
 		}
-		if (value === '') {
+		if (value === '' || value === NaN) {
 			setSelectedHeight('');
 		}
 	};
