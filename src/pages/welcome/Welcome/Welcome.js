@@ -38,7 +38,7 @@ const Welcome = () => {
 					<Text text={t('welcome.main.auxText')} size='3' color='1' />
 				</div>
 				<div className='mb-5 pb-2'>
-					<Button
+					<Button // TODO Arreglar Button cuando el componete esté listo
 						title={t('welcome.main.btnLetsBegin')}
 						onClick={toOnboarding}
 					/>
