@@ -4,9 +4,7 @@
 	background-image: url(https://www.aestheticascetics.com/wp-content/uploads/2020/08/Empty-Gym-scaled.jpg);
 	background-size: cover;
 	background-position-y: 50%;
-	filter: brightness(
-		40%
-	); // TODO Filtro puede ser removido con la imagen final
+	filter: brightness(40%) opacity(80%); // TODO Filtro debe ser adaptado a la imagen final que se utilice.
 
 	z-index: -1;
 
