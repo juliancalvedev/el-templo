@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-	addWeightAndHeightToTrainingInfo,
-	getUserInfoAction,
-} from '../../../redux/user';
+import { getUserInfoAction } from '../../../redux/user';
 import { putTrainingInfo } from '../../../services/user';
 import { useNavigate } from 'react-router-dom';
 
 import Button from '../../../components/Button/Button';
 import Title from '../../../components/Title/Title';
+import Text from '../../../components/Text/Text';
 import { PATHS } from '../../../constants/paths';
 import { useTranslation } from 'react-i18next';
+import InputDivided from '../../../components/InputDivided/InputDivided';
+import MainContainer from '../../../components/MainContainer/MainContainer';
 
 const WeightHeight = () => {
 	const { t } = useTranslation();
@@ -21,26 +21,60 @@ const WeightHeight = () => {
 	const userHeight = useSelector((store) => store.user.trainingInfo.height);
 	const trainingInfo = useSelector((store) => store.user.trainingInfo);
 
-	const [selectedWeight, setSelectedWeight] = useState(userWeight);
-	const [selectedHeight, setSelectedHeight] = useState(userHeight);
+	const [selectedWeight, setSelectedWeight] = useState('');
+	const [selectedHeight, setSelectedHeight] = useState('');
 
-	const generateWeightNums = () => {
-		let weightNums = [];
-		for (let i = 0; i <= 200; i++) weightNums.push(i); // PESO
-		return weightNums;
+	// Función para validar el número del inputo PESO
+	const onWeightChange = (event) => {
+		const validCharacters = '01234567890.';
+		const { value } = event.target;
+
+		let flag = true;
+		const charIsValid = () => {
+			for (let i = 1; i < 12; i++) {
+				if (value[value.length - 1] == validCharacters[i]) {
+					flag = true;
+					break;
+				} else {
+					flag = false;
+				}
+			}
+		};
+		charIsValid();
+
+		if (flag) {
+			setSelectedWeight(parseInt(value));
+		}
+		if (value === '') {
+			setSelectedWeight('');
+		}
 	};
-	const weights = generateWeightNums(); // PESO
 
-	const generateHeights = () => {
-		let heights = [];
-		for (let i = 0.5; i <= 2.5; i = i + 0.01) heights.push(i.toFixed(2)); // ALTURA
-		return heights;
-	};
-	const heights = generateHeights(); // ALTURA
+	// Función para validar el número del input ALTURA
+	const onHeightChange = (event) => {
+		const validCharacters = '01234567890.';
+		const { value } = event.target;
 
-	const handleChange = (e, type) => {
-		if (type === 'weight') setSelectedWeight(e.target.value); // PESO
-		if (type === 'height') setSelectedHeight(e.target.value); // ALTURA
+		console.log(value);
+		let flag = true;
+		const charIsValid = () => {
+			for (let i = 1; i < 12; i++) {
+				if (value[value.length - 1] == validCharacters[i]) {
+					flag = true;
+					break;
+				} else {
+					flag = false;
+				}
+			}
+		};
+		charIsValid();
+
+		if (flag) {
+			setSelectedHeight(value);
+		}
+		if (value === '' || value === NaN) {
+			setSelectedHeight('');
+		}
 	};
 
 	const callback = async () => {
@@ -58,47 +92,45 @@ const WeightHeight = () => {
 	};
 
 	return (
-		<div className='d-flex justify-content-center  flex-column'>
-			<Title text={t('welcome.weightHeight.title')} />
+		<MainContainer>
+			<div className='d-flex flex-column'>
+				<Title text={t('welcome.weightHeight.title')} />
 
-			<div className='form-group d-flex'>
-				<label className='col-3' htmlFor='weight'>
-					{t('welcome.weightHeight.weight')}
-				</label>
-				<select
-					className='form-control col-6'
-					style={{ width: '25%' }}
-					id='weight'
-					onChange={(e) => handleChange(e, 'weight')}
-				>
-					{weights.map((num) => (
-						<option key={num}>{num}</option> // PESAJES
-					))}
-				</select>
-				<p>{t('welcome.weightHeight.kilos')}</p>
-			</div>
+				<div className='form-group d-flex'>
+					<InputDivided
+						id='weight'
+						text1={t('welcome.weightHeight.weight')}
+						text2={t('welcome.weightHeight.kilos')}
+						onChange={onWeightChange}
+						type='text'
+						min='20'
+						max='400'
+						maxLength='3'
+						placeholder='0'
+						value={selectedWeight}
+					/>
+				</div>
 
-			<div className='form-group d-flex'>
-				<label className='col-3' htmlFor='height'>
-					{t('welcome.weightHeight.height')}
-				</label>
-				<select
-					className='form-control col-6'
-					style={{ width: '25%' }}
-					id='height'
-					onChange={(e) => handleChange(e, 'height')}
-				>
-					{heights.map((num) => (
-						<option key={num}>{num}</option> // ALTURAS
-					))}
-				</select>
-				<p>{t('welcome.weightHeight.meters')}</p>
+				<div className='form-group d-flex'>
+					<InputDivided
+						id='height'
+						text1={t('welcome.weightHeight.height')}
+						text2={t('welcome.weightHeight.meters')}
+						onChange={onHeightChange}
+						type='text'
+						min='1'
+						max='3'
+						maxLength='4'
+						placeholder='1.00'
+						value={selectedHeight}
+					/>
+				</div>
+				<Button
+					title={t('welcome.weightHeight.enter')}
+					onClick={handleSubmit}
+				/>
 			</div>
-			<Button
-				title={t('welcome.weightHeight.enter')}
-				onClick={handleSubmit}
-			/>
-		</div>
+		</MainContainer>
 	);
 };
 

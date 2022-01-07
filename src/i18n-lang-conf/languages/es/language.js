@@ -154,8 +154,8 @@ export default {
 			title: 'Completa estos ultimos datos personales.',
 			weight: 'Peso',
 			height: 'Altura',
-			kilos: 'Kg',
-			meters: 'Mt',
+			kilos: 'KG',
+			meters: 'MT',
 			enter: 'Entrar',
 		},
 	},
@@ -188,7 +188,7 @@ export default {
 	},
 	help: {
 		main: {
-			help:'Ayuda',
+			help: 'Ayuda',
 			aboutUs: 'Sobre nosotros',
 			elTemplo: 'EL TEMPLO',
 			auxText1:
@@ -196,7 +196,8 @@ export default {
 			auxText12:
 				'Desde acrobacia libre a gimnasia deportiva, levantamiento de pesas a calistenia y movimiento natural.',
 
-			auxText13:	'Es un lugar de introspección y autoconocimiento que busca transmitir los pilares del cuidado y superación personal a través del entrenamiento físico y mental.',
+			auxText13:
+				'Es un lugar de introspección y autoconocimiento que busca transmitir los pilares del cuidado y superación personal a través del entrenamiento físico y mental.',
 			rectangle324: 'Cuerpo, alma, mente',
 			btn1: 'Ver mas',
 			mission: 'MISION Y VISION',
