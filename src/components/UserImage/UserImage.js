@@ -14,9 +14,9 @@ const UserImage = ({ mode }) => {
 	};
 	useEffect(() => {
 		if (img === '') {
-			setFlag(false);
-		} else {
 			setFlag(true);
+		} else {
+			setFlag(false);
 		}
 	}, []);
 
