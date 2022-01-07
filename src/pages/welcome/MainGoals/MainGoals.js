@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../../axios/axiosInstance';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import './mainGoals.scss';
 
 import Cross from '../../../assets/Icons/Cross';
 import Text from '../../../components/Text/Text';

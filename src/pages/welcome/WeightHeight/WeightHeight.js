@@ -10,6 +10,7 @@ import Button from '../../../components/Button/Button';
 import Text from '../../../components/Text/Text';
 import { PATHS } from '../../../constants/paths';
 import { useTranslation } from 'react-i18next';
+import InputDivided from '../../../components/InputDivided/InputDivided';
 import MainContainer from '../../../components/MainContainer/MainContainer';
 
 const WeightHeight = () => {
@@ -17,30 +18,62 @@ const WeightHeight = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	const userWeight = useSelector((store) => store.user.trainingInfo.weight);
-	const userHeight = useSelector((store) => store.user.trainingInfo.height);
 	const trainingInfo = useSelector((store) => store.user.trainingInfo);
 
-	const [selectedWeight, setSelectedWeight] = useState(userWeight);
-	const [selectedHeight, setSelectedHeight] = useState(userHeight);
+	const [selectedWeight, setSelectedWeight] = useState('');
+	const [selectedHeight, setSelectedHeight] = useState('');
 
-	const generateWeightNums = () => {
-		let weightNums = [];
-		for (let i = 0; i <= 200; i++) weightNums.push(i); // PESO
-		return weightNums;
+	// Función para validar el número del inputo PESO
+	const onWeightChange = (event) => {
+		const validCharacters = '01234567890.';
+		const { value } = event.target;
+
+		let flag = true;
+		const charIsValid = () => {
+			for (let i = 1; i < 12; i++) {
+				if (value[value.length - 1] === validCharacters[i]) {
+					flag = true;
+					break;
+				} else {
+					flag = false;
+				}
+			}
+		};
+		charIsValid();
+
+		if (flag) {
+			setSelectedWeight(parseInt(value));
+		}
+		if (value === '') {
+			setSelectedWeight('');
+		}
 	};
-	const weights = generateWeightNums(); // PESO
 
-	const generateHeights = () => {
-		let heights = [];
-		for (let i = 0.5; i <= 2.5; i = i + 0.01) heights.push(i.toFixed(2)); // ALTURA
-		return heights;
-	};
-	const heights = generateHeights(); // ALTURA
+	// Función para validar el número del input ALTURA
+	const onHeightChange = (event) => {
+		const validCharacters = '01234567890.';
+		const { value } = event.target;
 
-	const handleChange = (e, type) => {
-		if (type === 'weight') setSelectedWeight(e.target.value); // PESO
-		if (type === 'height') setSelectedHeight(e.target.value); // ALTURA
+		console.log(value);
+		let flag = true;
+		const charIsValid = () => {
+			for (let i = 1; i < 12; i++) {
+				if (value[value.length - 1] === validCharacters[i]) {
+					flag = true;
+					break;
+				} else {
+					flag = false;
+				}
+			}
+		};
+		charIsValid();
+
+		if (flag) {
+			setSelectedHeight(value);
+		}
+		if (value === '' || value === NaN) {
+			setSelectedHeight('');
+		}
 	};
 
 	const callback = async () => {

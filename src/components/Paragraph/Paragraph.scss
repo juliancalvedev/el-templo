@@ -1,17 +1,25 @@
 @import '../../styles/variables.scss';
-.paragraph{
+.paragraph {
+	text-align: start;
+	font-family: $font-1;
+	font-weight: 300;
+	font-size: 11px;
 
-text-align: start;
-font-family: $font-1;
-font-weight: 300;
-font-size: 11px;
+	text-align: start;
+	font-family: $font-1;
+	font-weight: 300;
+	font-size: 11px;
 
-    
-  
-    &--dark{color:$sixth;}
-    &--light{color:$nineth;
-    font-size: 12px;
-}
-    &--yellow{color:$fifth;
-    font-size: 12px;}
+	&--yellow {
+		color: $fifth;
+		font-size: 12px;
+	}
+
+	&--dark {
+		color: $sixth;
+	}
+	&--light {
+		color: $nineth;
+		font-size: 12px;
+	}
 }

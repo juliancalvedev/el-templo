@@ -4,7 +4,6 @@
 	flex-direction: column;
 	align-items: center;
 	width: 100vw;
-	/* overflow: hidden; */
 }
 
 .accordion-button:not(.collapsed)::after {
@@ -17,6 +16,4 @@
 .container-fluid {
 	padding: 0;
 	margin: 0;
-	width: 100%;
-	overflow: scroll;
 }
