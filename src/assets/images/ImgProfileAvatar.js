@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ImgProfileAvatar = () => {
+const NoProfileImg = () => {
 	return (
 		//<div style={{ width: '50px', height: '50px' }}>
 		<svg
@@ -26,4 +26,4 @@ const ImgProfileAvatar = () => {
 	);
 };
 
-export default ImgProfileAvatar;
+export default NoProfileImg;

@@ -21,8 +21,7 @@ const MyProfile = () => {
 	const { t } = useTranslation();
 	const level = UserTrainingLevel();
 	const navigate = useNavigate();
-	const { data } = useSelector((store) => store.user);
-	console.log(data);
+
 	const { startEnabledDate, endEnabledDate, goals, height, weight } =
 		useSelector((store) => store.user);
 	const { trainingLevel } = useSelector((store) => store.user.trainingInfo);
