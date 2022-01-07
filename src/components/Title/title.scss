@@ -8,7 +8,7 @@
 
 
 	&--dark {
-		color: $tenth;
+		color:$sixth;
 	}
 	&--light {
 		color: $nineth;
@@ -35,10 +35,24 @@
 	}
 	&--title4 {
 		font-family: $font-1;
-		font-size: 16px;
+		font-size: 18px;
+	font-weight: normal;
+		margin:0;
+		padding: 0;
+		line-height: 24px;
+		
 	}
 	&--title5 {
 		font-size: 1.12rem;
 		color: $sixth;
+	}
+	&--title6 {
+	font-family: $font-1;
+		font-size: 15px;
+	font-weight: normal;
+		margin:0;
+		padding: 0;
+		line-height: 24px;
+		
 	}
 }

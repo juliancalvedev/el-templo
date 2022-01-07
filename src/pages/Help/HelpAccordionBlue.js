@@ -30,7 +30,7 @@ const HelpAccordionBlue = ({ accordionType = 'blue', color = 'color' }) => {
 					<div
 						className={`accordion-body accordion-body--${color} col-12`}
 					>
-						<div className='col-11 p-3 '>
+						<div className='col-11 px-3 py-2 '>
 							<Paragraph
 								text={t('help.main.auxText3.item1')}
 								type='light'
