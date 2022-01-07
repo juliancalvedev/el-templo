@@ -145,9 +145,9 @@ export default {
 			GAIN_STAMINA: 'Ganar resistencia',
 		},
 		trainingLevel: {
-			title: '¿Cuál es tu nivel de entrenamiento actual?',
+			title: '¿Cuál es tu nivel de entrenamiento?',
 			auxText: 'Esto ayudará a tu entrenador a asesorarte adecuadamente.',
-			amateur: 'Principiante',
+			amateur: 'Amateur',
 			professional: 'Profesional',
 		},
 		weightHeight: {
@@ -188,7 +188,7 @@ export default {
 	},
 	help: {
 		main: {
-			help:'Ayuda',
+			help: 'Ayuda',
 			aboutUs: 'Sobre nosotros',
 			elTemplo: 'EL TEMPLO',
 			auxText1:
@@ -196,7 +196,8 @@ export default {
 			auxText12:
 				'Desde acrobacia libre a gimnasia deportiva, levantamiento de pesas a calistenia y movimiento natural.',
 
-			auxText13:	'Es un lugar de introspección y autoconocimiento que busca transmitir los pilares del cuidado y superación personal a través del entrenamiento físico y mental.',
+			auxText13:
+				'Es un lugar de introspección y autoconocimiento que busca transmitir los pilares del cuidado y superación personal a través del entrenamiento físico y mental.',
 			rectangle324: 'Cuerpo, alma, mente',
 			btn1: 'Ver mas',
 			mission: 'MISION Y VISION',

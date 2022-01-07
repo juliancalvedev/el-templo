@@ -73,6 +73,7 @@ const MainGoals = () => {
 		<MainContainer back={true} bg='1' color='2'>
 			<div className='mainGoals__container  d-flex flex-column justify-content-start align-items-center col-12'>
 				<div className='maingGoals__backgroundImg'></div>
+
 				<div className='topText__container col-12'>
 					<Text
 						className='topText__container--title'
