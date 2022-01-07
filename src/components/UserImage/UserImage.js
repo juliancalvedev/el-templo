@@ -1,28 +1,32 @@
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
+import ImgProfileAvatar from '../../assets/images/ImgProfileAvatar';
 import './UserImage.scss';
 
 const UserImage = ({ mode }) => {
 	const { img } = useSelector((store) => store.user);
 
-	let avatar;
+	const [flag, setFlag] = useState(false);
 
 	const base64ToPng = () => {
-		avatar = `data:image/png;base64,${img}`;
+		const showUserImg = `data:image/png;base64,${img}`;
+		return showUserImg;
 	};
-	if (img != '') {
-		base64ToPng();
-	} else {
-		avatar =
-			'https://yca.org.ar/wp-content/uploads/sites/4/2019/06/perfil-avatar-hombre-icono-redondo_24640-14044.jpg';
-	}
+	useEffect(() => {
+		if (img === '') {
+			setFlag(false);
+		} else {
+			setFlag(true);
+		}
+	}, []);
+
 	return (
-		<div>
-			<img
-				className={`user-profile-image user-profile-image--${mode}`}
-				src={avatar}
-				alt='User_Image'
-			/>
+		<div className='user__profile--image'>
+			{flag ? (
+				<ImgProfileAvatar />
+			) : (
+				<img className='user__profile--image' src={base64ToPng()} />
+			)}
 		</div>
 	);
 };
