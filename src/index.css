@@ -1,7 +1,10 @@
-body, html {
+body,
+html {
 	width: 100vw;
 	height: 100vh;
-	/* overflow: hidden; */
+
+	/* Esto impide el scroll horizontal en toda la web. */
+	overflow-x: hidden;
 }
 
 body {
