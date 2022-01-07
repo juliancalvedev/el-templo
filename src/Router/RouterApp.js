@@ -17,7 +17,7 @@ import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
 import UsersList from '../pages/admin/UsersList/UsersList';
 import Help from '../pages/Help/Help';
 import { PATHS } from '../constants/paths';
-import TopBar from '../components/TopBar/TopBar';
+import MyProfile from '../pages/MyProfile/MyProfile';
 import Welcome from '../pages/welcome/Welcome/Welcome';
 import EmailRegisterSended from '../pages/EmailRegisterSended/EmailRegisterSended';
 import MainGoals from '../pages/welcome/MainGoals/MainGoals';
@@ -36,6 +36,10 @@ const RouterApp = () => {
 			<Routes>
 				{savedToken ? (
 					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
+						<Route
+							path={PATHS.MY_PROFILE}
+							element={<MyProfile />}
+						/>
 						{role === ROLES.ADMIN && (
 							<Route
 								path={PATHS.BASE_URL}
