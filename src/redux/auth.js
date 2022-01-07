@@ -1,4 +1,4 @@
-import { login, startPasswordRecovery, register } from '../services/auth';
+import { startPasswordRecovery, register } from '../services/auth';
 
 // DEFAULT VALUE
 const defaultValue = {

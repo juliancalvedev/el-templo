@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 import Button from '../../../components/Button/Button';
 import Title from '../../../components/Title/Title';
-import Text from '../../../components/Text/Text';
 import { PATHS } from '../../../constants/paths';
 import { useTranslation } from 'react-i18next';
 import InputDivided from '../../../components/InputDivided/InputDivided';
@@ -17,8 +16,6 @@ const WeightHeight = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	const userWeight = useSelector((store) => store.user.trainingInfo.weight);
-	const userHeight = useSelector((store) => store.user.trainingInfo.height);
 	const trainingInfo = useSelector((store) => store.user.trainingInfo);
 
 	const [selectedWeight, setSelectedWeight] = useState('');
@@ -32,7 +29,7 @@ const WeightHeight = () => {
 		let flag = true;
 		const charIsValid = () => {
 			for (let i = 1; i < 12; i++) {
-				if (value[value.length - 1] == validCharacters[i]) {
+				if (value[value.length - 1] === validCharacters[i]) {
 					flag = true;
 					break;
 				} else {
@@ -59,7 +56,7 @@ const WeightHeight = () => {
 		let flag = true;
 		const charIsValid = () => {
 			for (let i = 1; i < 12; i++) {
-				if (value[value.length - 1] == validCharacters[i]) {
+				if (value[value.length - 1] === validCharacters[i]) {
 					flag = true;
 					break;
 				} else {
