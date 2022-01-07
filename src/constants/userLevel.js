@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 export const UserTrainingLevel = () => {
 	const { t } = useTranslation();
 	const { trainingLevel } = useSelector((store) => store.user);
-	let level = trainingLevel;
+	let userTrainingLevel = trainingLevel;
 
 	const levels = {
 		1: t('user.trainingLevels.beginner'),
@@ -13,7 +13,7 @@ export const UserTrainingLevel = () => {
 		4: t('user.trainingLevels.advanced'),
 		5: t('user.trainingLevels.expert'),
 	};
-	const user_trainingLevel = levels[level];
+	const user_trainingLevel = levels[userTrainingLevel];
 
 	return user_trainingLevel;
 };
