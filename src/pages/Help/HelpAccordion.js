@@ -2,8 +2,9 @@ import './Help.scss';
 import { useTranslation } from 'react-i18next';
 import Button from '../../components/Button/Button';
 import Title from '../../components/Title/Title';
+import Text from '../../components/Text/Text';
 import HelpAccordionBlue from './HelpAccordionBlue';
-
+import Input from '../../components/Input/Input';
 
 const HelpAccordion = ({icon='icon'}) => {
 	const { t } = useTranslation();
@@ -30,27 +31,40 @@ const HelpAccordion = ({icon='icon'}) => {
 						data-bs-parent='#accordionExample'
 					>
 						<div className='accordion-body row'>
-							<div className='col-12 my-2 '>
-								<Title
-									type='title4 '
+							<div className='col-12 my-4 d-flex justify-content-start pr-3'>
+								<Text
+									bold
+									color={1}
+									size={3}
 									text={t('help.main.accordionInside1')}
 								/>
-								
 							</div>
-							<div className='col-4'>
-								<div className='col-12'>
-									<p>{t('help.main.accordionInside2')}</p>
+							<div className='col-3  mt-1'>
+								<div className='col-12 d-flex justify-content-start pr-3'>
+									<Text
+										color={1}
+										size={2}
+										text={t('help.main.accordionInside2')}
+									/>
 								</div>
-								<div className='col-12'>
-									<p>{t('help.main.accordionInside3')}</p>
+								<div className='col-12 d-flex justify-content-start mx-0 pt-3 pr-3'>
+									<Text
+										color={1}
+										size={2}
+										text={t('help.main.accordionInside3')}
+									/>
 								</div>
 							</div>
-							<div className='col-8 '>
-								<input className='col-12 border border-1 rounded-pill '></input>
+							<div className='col-9 pl-0'>
+								<Input
+									type='text'
+									className='col-12 border border-1  input__style p-2 mb-1'
+								/>
 								<textarea
-									rows='3'
+									rows='5'
 									cols='21'
-									className='col-12 border border-1 rounded-3'
+									className='col-12  input__style border border-1  mt-1
+									p-3'
 								></textarea>
 							</div>
 							<div className='col-12 d-flex justify-content-end'>
@@ -79,8 +93,19 @@ const HelpAccordion = ({icon='icon'}) => {
 						data-bs-parent='#accordionExample'
 					>
 						<div className='accordion-body '>
-							<Title type='title4' text={t('help.main.faqs')} />
-							<p>{t('help.main.fq')}</p>
+							<Text
+								bold
+								className='d-flex justify-content-start mt-3 px-2 '
+								color={1}
+								size={3}
+								text={t('help.main.faqs')}
+							/>
+							<Text
+								color={1}
+								size={2}
+								className='d-flex justify-content-start mb-2 px-2'
+								text={t('help.main.fq')}
+							/>
 							<HelpAccordionBlue />
 						</div>
 					</div>
