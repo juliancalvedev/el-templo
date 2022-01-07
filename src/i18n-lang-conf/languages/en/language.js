@@ -190,6 +190,7 @@ export default {
 	},
 	help: {
 		main: {
+			help:'Help',
 			aboutUs: 'About us',
 			elTemplo: 'El Templo',
 			auxText1:
@@ -198,7 +199,7 @@ export default {
 				'From free acrobatics to gymnastics, weightlifting to calisthenics and natural movement.',
 			auxText13:
 				'It is a place of introspection and self-knowledge that seeks to transmit the pillars of personal care and improvement through physical and mental training.',
-			rectangle324: 'Body,soul,mind',
+			rectangle324: 'Body, soul, mind',
 			btn1: 'See more',
 			mission: 'MISSION & VISION',
 			auxText2:
