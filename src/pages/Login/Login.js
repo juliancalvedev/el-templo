@@ -1,6 +1,6 @@
 import "./Login.scss";
 import Input from "../../components/Input/Input";
-import Button from "../../components/Button/Button";
+import Button from "../../components/CustomButton/Button";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginAction } from "../../redux/auth";
@@ -97,9 +97,7 @@ const Login = () => {
                   feedback={t('global.errors.validPassword')}
                 />
 
-                <div className="mt-4">
-                  <Button onClick={apiCall} title={t("auth.login.btnLogin")} />
-                </div>
+                <Button onClick={apiCall} text={t("auth.login.btnLogin")} />
                 <div className="col-12 d-flex justify-content-end  ">
                   <Text
                     color={3}
