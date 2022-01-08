@@ -6,7 +6,7 @@ import { ImgDiagonalRectangle } from '../../assets/images/ImgDiagonalRectangle';
 
 const Contact = () => {
 	return (
-		<MainContainer top>
+		<MainContainer>
 			<div className='d-flex flex-column align-items-center justify-content-between col-12 h-25 mt-5'>
 				<ImgBlueSeparator customStyles='mb-4 mt-3' />
 				<Title text={`Av.Constitución`} style={{ margin: '0px' }} />

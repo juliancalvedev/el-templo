@@ -4,7 +4,6 @@ import { RegisterValidate } from './RegisterValidate';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import { useTranslation } from 'react-i18next';
-import Title from '../../components/Title/Title';
 import './Register.scss'
 import MainContainer from '../../components/MainContainer/MainContainer';
 import { Link } from 'react-router-dom';
@@ -15,7 +14,7 @@ export const Register = () => {
 	const { handleChange, values, handleSubmit, errors } =
 		useForm(RegisterValidate);
 
-	
+
 	//Base64
 
 	const [baseImage, setBaseImage] = useState(
@@ -52,7 +51,7 @@ export const Register = () => {
 	};
 
 	return (
-		<MainContainer>
+		<MainContainer scroll>
 			<form className='register' onSubmit={handleSubmit}>
 				<div className='contBaseInputs px-3 mt-4 col-12 '>
 					<div className='baseI64 d-flex align-items-center justify-content-start '>
@@ -67,16 +66,16 @@ export const Register = () => {
 							className='baseImg col-3 rounded-circle'
 							src={baseImage}
 							onClick={clickFile}
+							alt="img"
 						/>
 						<div className='inputsNL col-9 '>
 							<div className='fName '>
 								<Input
-									className='inputs col-12 '
 									type='firstName'
 									name='firstName'
 									placeholder={t('auth.register.firstNamePlaceholder')}
 									value={values.firstName}
-									handleChange={handleChange}
+									onChange={handleChange}
 								/>
 								{errors.firstName && (
 									<p>
@@ -90,12 +89,11 @@ export const Register = () => {
 							</div>
 							<div className='lastN mt-2 '>
 								<Input
-									className='inputs col-12 '
 									type='lastName'
 									name='lastName'
 									placeholder={t('auth.register.lastNamePlaceholder')}
 									value={values.lastName}
-									handleChange={handleChange}
+									onChange={handleChange}
 								/>
 								{errors.lastName && (
 									<p>
@@ -268,13 +266,13 @@ export const Register = () => {
 					<Button
 						disabled={
 							(!values.firstName,
-							!values.lastName,
-							!values.sex,
-							!values.email,
-							!values.password,
-							!values.password2,
-							!values.country,
-							!values.dateOfBirth)
+								!values.lastName,
+								!values.sex,
+								!values.email,
+								!values.password,
+								!values.password2,
+								!values.country,
+								!values.dateOfBirth)
 						}
 						onClick={handleSubmit}
 						title={t('auth.register.btnRegister')}

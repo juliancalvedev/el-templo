@@ -51,13 +51,13 @@ const PasswordRecoveryForm = () => {
 				placeholder={t('auth.passwordRecoveryForm.newPassword')}
 				type='password'
 				value={password}
-				handleChange={handleChangePassword}
+				onChange={handleChangePassword}
 			/>
 			<Input
 				placeholder={t('auth.passwordRecoveryForm.repeatNewPassword')}
 				type='password'
 				value={repeatPassword}
-				handleChange={handleChangeRepeatPassword}
+				onChange={handleChangeRepeatPassword}
 			/>
 
 			<Button

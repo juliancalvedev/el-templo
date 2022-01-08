@@ -1,7 +1,7 @@
-const useStyles = ({scroll}) => {
+const useStyles = ({ scroll }) => {
     return {
         container: 'col-12 d-flex full-height flex-column',
-        bodyContainer: `main-container--noXscroll col-12 d-flex justify-content-center ${!scroll && 'h-100'}`
+        bodyContainer: `col-12 d-flex justify-content-center ${!scroll ? 'h-100' : 'main-container--noXscroll'}`
     }
 }
 

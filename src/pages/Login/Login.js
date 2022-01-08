@@ -8,7 +8,6 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { PATHS } from "../../constants/paths";
 import MainContainer from "../../components/MainContainer/MainContainer";
-import InputIcon from "../../components/InputIcon/InputIcon";
 import { login } from "../../services/auth";
 import useFetch from "../../hooks/useFetch";
 import Text from "../../components/Text/Text";
@@ -33,18 +32,18 @@ const Login = () => {
 
   const toRegister = () => navigate(`/${PATHS.REGISTER}`);
   const toForgottenPassword = () => navigate(`/${PATHS.FORGOTTEN_PASSWORD}`);
-  
+
   const handleChangeEmail = (e) => {
     setEmail(e.target.value);
   };
   const handleChangePassword = (e) => {
     setPassword(e.target.value);
   };
-  
+
   const onCloseAlert = () => {
     setShowAlert(false);
   }
-  
+
   useEffect(() => {
     if (data) {
       if (data.token) {
@@ -56,7 +55,7 @@ const Login = () => {
       }
       else if (!data.enabled) {
         setShowAlert(true);
-      } 
+      }
     }
   }, [data]);
 
@@ -70,32 +69,32 @@ const Login = () => {
   };
 
   return (
-    <MainContainer topbar color={2} back>
+    <MainContainer color={2} back>
       <div className="login-container col-12">
         <div className="login-container__opacity d-flex justify-content-center col-12 pt-2">
-          <div className="col-11 d-flex flex-column ">
-            <div className="mt-5 pt-4 col-12">
-              <Text size={4} color={2} bold text={t("auth.login.title")} />
-            </div>
-            <Text color={2} text={t("auth.login.subtitle")} />
+          <div className="col-11 d-flex flex-column pt-5 mt-4">
+            <Text justify="start" size={4} color={2} bold text={t("auth.login.title")} />
+            <Text justify="start" color={2} text={t("auth.login.subtitle")} />
 
             <div className="col-12 mb-5 pt-4 mt-5">
               <form>
                 <Input
-                  className="login__input col-12 mb-2 py-2 "
                   value={email}
-                  handleChange={handleChangeEmail}
+                  onChange={handleChangeEmail}
                   type="email"
                   placeholder={t("auth.login.emailPlaceholder")}
+                  transparent
                 />
 
-                <InputIcon
-                  iconType="eye"
+                <Input
+                  icon="eye"
                   value={password}
                   onChange={handleChangePassword}
                   type={inputType}
                   placeholder={t("auth.login.passwordPlaceholder")}
                   onClickIcon={onClickIcon}
+                  transparent
+                  isValid
                 />
 
                 <div className="mt-4">

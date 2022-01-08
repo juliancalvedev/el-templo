@@ -35,7 +35,6 @@ const MyProfile = () => {
 
 	return (
 		<MainContainer
-			topbar
 			color='2'
 			bg='1'
 			back

@@ -27,7 +27,7 @@ const ForgottenPassword = () => {
 
 				<Input
 					value={email}
-					handleChange={handleChangeEmail}
+					onChange={handleChangeEmail}
 					type='email'
 					placeholder={t('auth.forgotPassword1.emailPlaceholder')}
 				/>

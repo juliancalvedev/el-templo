@@ -1,9 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import Title from '../../components/Title/Title';
 import '../../components/Title/title.scss';
 import AuxText from '../../components/AuxText/AuxText';
 import './Help.scss';
-import TopBar from '../../components/TopBar/TopBar';
 import '../../components/Button/button.scss';
 import HelpAccordion from './HelpAccordion';
 import MainContainer from '../../components/MainContainer/MainContainer';
@@ -18,7 +16,7 @@ const Help = () => {
 
 	return (
 		<MainContainer color={2} text={t('help.main.help')} bg={1} back>
-			<div className='text-center col-12 mt-5 pt-2'>
+			<div className='text-center col-12 mt-5 pt-4'>
 				<Text bold size={4} text={t('help.main.aboutUs')} />
 
 				<Text font={2} size={5} text={t('help.main.elTemplo')} />
@@ -27,10 +25,10 @@ const Help = () => {
 					width='100%'
 					src='https://d500.epimg.net/cincodias/imagenes/2019/05/02/lifestyle/1556809482_591063_1556811610_noticia_normal.jpg'
 				/>
-				<div className='col-11 m-auto my-3'>
-					<AuxText text={t('help.main.auxText1')} />
-					<AuxText text={t('help.main.auxText12')} />
-					<AuxText text={t('help.main.auxText13')} />
+				<div className='col-11 m-auto my-3 d-flex align-items-start flex-column'>
+					<Text justify="start" size={2} text={t('help.main.auxText1')} />
+					<Text justify="start" size={2} text={t('help.main.auxText12')} />
+					<Text justify="start" size={2} text={t('help.main.auxText13')} />
 				</div>
 				<p className=' d-flex  justify-content-center align-items-center col-12 rectangle324 py-3 '>
 					{t('help.main.rectangle324')}

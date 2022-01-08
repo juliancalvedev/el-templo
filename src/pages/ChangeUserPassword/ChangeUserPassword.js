@@ -44,17 +44,17 @@ const ChangeUserPassword = () => {
 
 			<Input
 				placeholder={t('user.changeUserPassword.currentPassword')}
-				handleChange={handleChangeCurrentPassword}
+				onChange={handleChangeCurrentPassword}
 				type='password'
 			/>
 			<Input
 				placeholder={t('user.changeUserPassword.newPassword')}
-				handleChange={handleNewPassword}
+				onChange={handleNewPassword}
 				type='password'
 			/>
 			<Input
 				placeholder={t('user.changeUserPassword.repeatNewPassword')}
-				handleChange={handleRepeatPassword}
+				onChange={handleRepeatPassword}
 				type='password'
 			/>
 			<Button
