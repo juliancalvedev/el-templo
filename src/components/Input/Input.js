@@ -2,6 +2,7 @@ import useStyles from './useStyles';
 import './Input.scss';
 import IconEye from '../../assets/Icons/IconEye';
 import IconCheck from '../../assets/Icons/IconCheck';
+import Text from '../Text/Text';
 
 const ICON = {
     eye: <IconEye />,
@@ -17,7 +18,6 @@ const Input = ({
     isInvalid,
     isValid,
     invalidText,
-    validText,
     feedback,
     transparent,
     icon,
@@ -27,10 +27,11 @@ const Input = ({
 }) => {
 
     const styles = useStyles({ isValid, isInvalid, transparent, className });
+    const feedbackColorType = (isInvalid && 'error') || (transparent && 2);
 
     return (
         <div className={styles.container}>
-            {label && <label className="form-label">{label}</label>}
+            {label && <label className={styles.label}>{label}</label>}
             <div className={styles.inputContent}>
                 <input
                     onChange={onChange}
@@ -44,15 +45,8 @@ const Input = ({
                     <span onClick={onClickIcon}>{isValid ? ICON.check : ICON[icon]}</span>
                 </div>
             </div>
-            {invalidText && <div className="invalid-feedback">
-                {invalidText}
-            </div>}
-            {validText && <div className="valid-feedback">
-                {validText}
-            </div>}
-            {feedback && <div className="feedback">
-                {feedback}
-            </div>}
+                {feedback && <Text color={feedbackColorType} size={1} justify='end' text={feedback} />}
+                {isInvalid && <Text color='error' size={1} justify='end' text={invalidText} />}
         </div>
     )
 }

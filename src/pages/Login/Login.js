@@ -94,7 +94,7 @@ const Login = () => {
                   placeholder={t("auth.login.passwordPlaceholder")}
                   onClickIcon={onClickIcon}
                   transparent
-                  isValid
+                  feedback={t('global.errors.validPassword')}
                 />
 
                 <div className="mt-4">

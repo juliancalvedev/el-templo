@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import ImgProfileAvatar from '../../assets/images/ImgProfileAvatar';
 import './UserImage.scss';
@@ -17,6 +16,7 @@ const UserImage = ({ mode }) => {
 				<img
 					className={`user__profile--image user__profile--image--${mode}`}
 					src={base64ToPng()}
+					alt=''
 				/>
 			) : (
 				<ImgProfileAvatar />

@@ -3,6 +3,8 @@ const useStyles = ({ transparent, isInvalid, isValid, className }) => {
         container: `col-md-4 my-3
         ${ className }`,
 
+        label: 'form-label',
+
         inputContent: `input__content d-flex pr-5 
         input__content--${transparent ? 'transparent' : 'general'} 
         ${isValid ? 'input__content-state--is-valid' : ''} 

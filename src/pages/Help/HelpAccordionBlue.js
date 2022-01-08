@@ -1,7 +1,5 @@
 import './Help.scss';
 import { useTranslation } from 'react-i18next';
-import Button from '../../components/Button/Button';
-import AuxText from '../../components/AuxText/AuxText';
 import Paragraph from '../../components/Paragraph/Paragraph';
 const HelpAccordionBlue = ({ accordionType = 'blue', color = 'color' }) => {
 	const { t } = useTranslation();

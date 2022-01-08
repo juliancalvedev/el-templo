@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { verifyEmailToBackEnd } from '../../services/auth';
 
 import Text from '../../components/Text/Text';
-import AuxText from '../../components/AuxText/AuxText';
 import Button from '../../components/Button/Button';
 import { PATHS } from '../../constants/paths';
 import MainContainer from '../../components/MainContainer/MainContainer';

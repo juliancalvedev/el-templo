@@ -1,5 +1,4 @@
 import React from 'react';
-import AuxText from '../AuxText/AuxText';
 import './GenericTicket.scss';
 
 const GenericTicket = ({ text1, text2, mode }) => {

@@ -1,7 +1,6 @@
 import './Help.scss';
 import { useTranslation } from 'react-i18next';
 import Button from '../../components/Button/Button';
-import Title from '../../components/Title/Title';
 import Text from '../../components/Text/Text';
 import HelpAccordionBlue from './HelpAccordionBlue';
 import Input from '../../components/Input/Input';

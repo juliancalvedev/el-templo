@@ -1,9 +1,6 @@
-const useStyles = ({ transparent = true, isInvalid, isValid }) => {
+const useStyles = () => {
     return {
-        input: `form-control input ${{ ...(transparent && 'input--transparent') },
-            { ...(isInvalid && 'is-invalid') },
-            { ...(isValid && 'is-valid') }
-            }`
+        
     }
 }
 

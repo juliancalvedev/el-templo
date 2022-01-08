@@ -24,6 +24,7 @@ const Help = () => {
 					className='d-inline-block'
 					width='100%'
 					src='https://d500.epimg.net/cincodias/imagenes/2019/05/02/lifestyle/1556809482_591063_1556811610_noticia_normal.jpg'
+					alt=''
 				/>
 				<div className='col-11 m-auto my-3 d-flex align-items-start flex-column'>
 					<Text justify="start" size={2} text={t('help.main.auxText1')} />

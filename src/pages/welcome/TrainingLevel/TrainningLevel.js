@@ -8,7 +8,6 @@ import AuxText from '../../../components/AuxText/AuxText';
 import Title from '../../../components/Title/Title';
 import { PATHS } from '../../../constants/paths';
 import InputRange from '../../../components/InputRange/InputRange';
-import Button from '../../../components/Button/Button';
 import ButtonPagination from '../../../components/ButtonPagination/ButtonPagination';
 const TrainingLevel = () => {
 	const { t } = useTranslation();

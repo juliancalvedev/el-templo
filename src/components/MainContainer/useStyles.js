@@ -1,7 +1,7 @@
 const useStyles = ({ scroll }) => {
     return {
         container: 'col-12 d-flex full-height flex-column',
-        bodyContainer: `col-12 d-flex justify-content-center ${!scroll ? 'h-100' : 'main-container--noXscroll'}`
+        bodyContainer: `col-12 d-flex justify-content-center ${scroll ? 'main-container--noXscroll' : 'h-100'}`
     }
 }
 

@@ -254,7 +254,6 @@ const en = {
 		emailRegisterSended: 'Confirm Email',
 		myProfile: 'My Profile',
 		help: 'Help',
-		emailRegisterSended: 'Confirm Email',
 		contact: 'Contact',
 	},
 	user: {
@@ -266,7 +265,6 @@ const en = {
 			submitPassword: 'Change Password',
 		},
 		myProfile: {
-			personalInfo: 'Datos personales',
 			level: 'Level',
 			completedTrainings: 'Completed Trainings',
 			memberSince: 'Member since',

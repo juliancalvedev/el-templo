@@ -28,8 +28,8 @@ const es = {
 		errors: {
 			required: 'Este campo es requerido.',
 			emailType: 'Debe ser un email válido.',
-			passwordNotEquals: 'Las contraseñas deben ser iguales.',
-			validPassword: 'La contraseña no es válida.',
+			passwordNotEquals: 'Las contraseñas no coinciden',
+			validPassword: '(La contraseña debe contener al menos 6 letras y 1 número)',
 			notAllowedEmail: 'Email no permitido.',
 			number: 'Este campo debe ser un número.',
 			text: 'Este campo deber ser un texto.',
@@ -253,7 +253,6 @@ const es = {
 		emailRegisterSended: 'Confirma tu Email',
 		myProfile: 'Mi perfil',
 		help: 'Ayuda',
-		emailRegisterSended: 'Confirma tu Email',
 		contact: 'Contacto',
 	},
 	user: {
@@ -265,7 +264,6 @@ const es = {
 			submitPassword: 'Cambiar contraseña',
 		},
 		myProfile: {
-			personalInfo: 'Información personal',
 			level: 'Nivel',
 			completedTrainings: 'Entrenamientos realizados',
 			memberSince: 'Miembro desde',
