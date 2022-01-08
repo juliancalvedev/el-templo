@@ -264,7 +264,7 @@ export const Register = () => {
 								!values.dateOfBirth)
 						}
 						onClick={handleSubmit}
-						title={t('auth.register.btnRegister')}
+						text={t('auth.register.btnRegister')}
 					/>
 
 					<p className='TC d-flex justify-content-center mb-0'>

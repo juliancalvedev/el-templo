@@ -41,11 +41,13 @@ const MyProfile = () => {
           />
         </div>
 
-        <div className="about-you-box d-flex col-12 justify-content-between align-items-center px-3">
-          <Text bold text={`${t("user.myProfile.aboutYou")}`} />
+        <div className="about-you-box d-flex col-12 justify-content-between align-items-center p-1">
+          <div className="px-3">
+            <Text bold text={`${t("user.myProfile.aboutYou")}`} />
+          </div>
 
 
-          <Text onClick={handleEditAboutYou} text={t("user.myProfile.editInfo")} />
+          <Button onClick={handleEditAboutYou} text={t("user.myProfile.editInfo")} type={3} size={1} />
         </div>
         <div className="my-profile-stats col-11 ">
           <Text
@@ -91,13 +93,13 @@ const MyProfile = () => {
         </div>
         <div className="col-12">
           <Button
-            title={t("user.myProfile.password")}
-            mode="flat"
+            text={t("user.myProfile.password")}
+            type={4}
             onClick={handleChangePasswordNavigate}
           />
           <Button
-            title={t("user.myProfile.logOut")}
-            mode="flat-Danger"
+            text={t("user.myProfile.logOut")}
+            type={4}
             onClick={onLogout}
           />
         </div>

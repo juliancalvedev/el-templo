@@ -56,7 +56,7 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 										/>
 									</div>
 								</div>
-								<div className='col-12 d-flex justify-content-start mx-0 pt-3 pr-3'>
+								<div className='col-12 d-flex justify-content-start mx-0 pr-3'>
 									<div className='col-3 d-flex align-items-start'>
 
 										<Text
@@ -78,7 +78,7 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 							</div>
 
 							<div className='col-12 d-flex justify-content-end'>
-								<Button title={t('help.main.btnSend')} size='sm' />
+								<Button text={t('help.main.btnSend')} size={1} />
 							</div>
 						</div>
 					</div>

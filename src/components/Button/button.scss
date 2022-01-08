@@ -1,56 +1,33 @@
-@import '../../styles/variables';
+@import '../../styles/variables.scss';
 
-@mixin flatBtn() {
-	width: 100%;
-	height: 56px;
-	background-color: $nineth;
-	margin-top: 1px;
-	display: flex;
-	align-items: center;
-	padding-left: 24px;
-	color: $sixth;
-	border-radius: 0;
+.button {
+    &:not(.button-color--4){
+        border-radius: 15px;
+    }
+    &:not(.button-color--3):not(.button-color--4) {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    &-color {
+        &--1 {
+            background-color: $tertiary;
+        }
+        &--2 {
+            border: 2px solid $tertiary;
+            background-color: $nineth;
+        }
+        &--3 {
+
+        }
+        &--4 {
+            background-color: $nineth;
+            border-top: 2px solid #ccc;
+        }
+    }
 }
 
-.customBtn {
-	width: 100%;
-	height: 42px;
-	background-color: $tertiary;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 15px;
-
-	color: $nineth;
-	margin: 5px;
-	border: none;
-
-	&--flat {
-		@include flatBtn();
-		&:hover {
-			background-color: $nineth;
-			color: $sixth;
-		}
-		&-Danger {
-			@include flatBtn();
-			color: $fourth;
-			&:hover {
-				background-color: $nineth;
-				color: $fourth;
-			}
-		}
-	}
-	&--empty {
-		background-color: $nineth;
-
-		border: 2px solid $tertiary;
-		height: 40px;
-		border-radius: 15px;
-		color: $tertiary;
-		font-size: 1rem;
-	}
-}
-// Elimina hover de Bootstrap
-.customBtn--empty:hover {
-	background-color: $nineth;
-	color: $tertiary;
-	border: 2px solid $tertiary;
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }

@@ -1,11 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import '../../components/Title/title.scss';
-import AuxText from '../../components/AuxText/AuxText';
+import Text from '../../components/Text/Text';
 import './Help.scss';
-import '../../components/Button/button.scss';
 import HelpAccordion from './HelpAccordion';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import Text from '../../components/Text/Text';
 
 const Help = () => {
 	const { t } = useTranslation();
@@ -50,8 +47,8 @@ const Help = () => {
 						<Text font={2} size={5} text={t('help.main.mission')} />
 
 						<div className='col-11 m-auto mt-2 mb-4'>
-							<AuxText text={t('help.main.auxText2')} />
-							<AuxText text={t('help.main.auxText21')} />
+							<Text text={t('help.main.auxText2')} />
+							<Text text={t('help.main.auxText21')} />
 						</div>
 
 						<HelpAccordion />

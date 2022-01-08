@@ -1,5 +1,5 @@
 import Input from '../../components/Input/Input';
-import Title from '../../components/Title/Title';
+import Text from '../../components/Text/Text';
 import Button from '../../components/Button/Button';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -23,7 +23,7 @@ const ForgottenPassword = () => {
 	return (
 		<MainContainer>
 			<form className=''>
-				<Title text={t('auth.forgotPassword1.title')} />
+				<Text text={t('auth.forgotPassword1.title')} />
 
 				<Input
 					value={email}
@@ -34,7 +34,7 @@ const ForgottenPassword = () => {
 				<Button
 					disabled={!email}
 					onClick={handleSubmit}
-					title={t('auth.forgotPassword1.btnAccept')}
+					text={t('auth.forgotPassword1.btnAccept')}
 				/>
 			</form>
 		</MainContainer>

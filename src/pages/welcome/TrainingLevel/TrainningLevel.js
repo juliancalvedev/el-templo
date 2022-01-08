@@ -4,8 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addLevelToTrainingInfo } from '../../../redux/user';
 
-import AuxText from '../../../components/AuxText/AuxText';
-import Title from '../../../components/Title/Title';
+import Text from '../../../components/Text/Text';
 import { PATHS } from '../../../constants/paths';
 import InputRange from '../../../components/InputRange/InputRange';
 import ButtonPagination from '../../../components/ButtonPagination/ButtonPagination';
@@ -30,8 +29,8 @@ const TrainingLevel = () => {
 	};
 	return (
 		<div className='container d-flex justify-content-center align-items-center flex-column col-12'>
-			<Title text={t('welcome.trainingLevel.title')} />
-			<AuxText text={t('welcome.trainingLevel.auxText')} />
+			<Text text={t('welcome.trainingLevel.Text')} />
+			<Text text={t('welcome.trainingLevel.Text')} />
 
 			<form className='container d-flex justify-content-center align-items-center flex-column col-12'>
 				<InputRange
@@ -42,8 +41,8 @@ const TrainingLevel = () => {
 					onChange={changeLevel}
 				/>
 				<div className='container d-flex justify-content-between'>
-					<AuxText text={t('welcome.trainingLevel.amateur')} />
-					<AuxText text={t('welcome.trainingLevel.professional')} />
+					<Text text={t('welcome.trainingLevel.amateur')} />
+					<Text text={t('welcome.trainingLevel.professional')} />
 				</div>
 			</form>
 			<ButtonPagination direction='right' onClick={toWeightAndHeight} />

@@ -1,6 +1,6 @@
 import "./Login.scss";
 import Input from "../../components/Input/Input";
-import Button from "../../components/CustomButton/Button";
+import Button from "../../components/Button/Button";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginAction } from "../../redux/auth";

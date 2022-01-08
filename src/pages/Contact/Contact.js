@@ -1,5 +1,5 @@
 import MainContainer from '../../components/MainContainer/MainContainer';
-import Title from '../../components/Title/Title';
+import Text from '../../components/Text/Text';
 import ImgArrobaElTemplo from '../../assets/images/ImgArrobaElTemplo';
 import ImgBlueSeparator from '../../assets/images/ImgBlueSeparator';
 import { ImgDiagonalRectangle } from '../../assets/images/ImgDiagonalRectangle';
@@ -9,8 +9,8 @@ const Contact = () => {
 		<MainContainer>
 			<div className='d-flex flex-column align-items-center justify-content-between col-12 h-25 mt-5'>
 				<ImgBlueSeparator customStyles='mb-4 mt-3' />
-				<Title text={`Av.Constitución`} style={{ margin: '0px' }} />
-				<Title text={`6745`} style={{ marginBottom: '15px' }} />
+				<Text text={`Av.Constitución`} style={{ margin: '0px' }} />
+				<Text text={`6745`} style={{ marginBottom: '15px' }} />
 				<ImgArrobaElTemplo />
 				<ImgBlueSeparator customStyles='mt-1' />
 

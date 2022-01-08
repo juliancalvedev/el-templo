@@ -1,5 +1,4 @@
 import Button from '../../components/Button/Button';
-import Title from '../../components/Title/Title';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { resendVerifyEmail } from '../../services/auth';
@@ -40,8 +39,7 @@ const EmailRegisterSended = () => {
 
 					<Text justify='start' size={1} text={t('auth.emailConfirm.p3')} />
 					<Button
-						type={'button'}
-						title={t('auth.emailConfirm.btnConfirm')}
+						text={t('auth.emailConfirm.btnConfirm')}
 						onClick={handleSubmit}
 					/>
 				</div>

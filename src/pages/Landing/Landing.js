@@ -1,4 +1,4 @@
-import Button from '../../components/CustomButton/Button';
+import Button from '../../components/Button/Button';
 import { LanguageSelector } from '../../components/LanguageSelector/LanguageSelector';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';

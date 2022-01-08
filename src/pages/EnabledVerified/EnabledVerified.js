@@ -60,12 +60,10 @@ const EnabledVerified = () => {
 								size='1'
 							/>
 							<Button
-								title={t(
+								text={t(
 									'auth.enabledVerified.emailNotVerified.btnResendEmail'
 								)}
-								size='lg'
 								onClick={handleResendVerifyEmail}
-								customType='empty'
 							/>
 						</div>
 					</div>

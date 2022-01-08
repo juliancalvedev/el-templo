@@ -5,7 +5,7 @@ import { putTrainingInfo } from '../../../services/user';
 import { useNavigate } from 'react-router-dom';
 
 import Button from '../../../components/Button/Button';
-import Title from '../../../components/Title/Title';
+import Text from '../../../components/Text/Text';
 import { PATHS } from '../../../constants/paths';
 import { useTranslation } from 'react-i18next';
 import InputDivided from '../../../components/InputDivided/InputDivided';
@@ -91,7 +91,7 @@ const WeightHeight = () => {
 	return (
 		<MainContainer>
 			<div className='d-flex flex-column'>
-				<Title text={t('welcome.weightHeight.title')} />
+				<Text text={t('welcome.weightHeight.title')} />
 
 				<div className='form-group d-flex'>
 					<InputDivided
@@ -123,7 +123,7 @@ const WeightHeight = () => {
 					/>
 				</div>
 				<Button
-					title={t('welcome.weightHeight.enter')}
+					text={t('welcome.weightHeight.enter')}
 					onClick={handleSubmit}
 				/>
 			</div>

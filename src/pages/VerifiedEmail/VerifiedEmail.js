@@ -77,7 +77,7 @@ const VerifiedEmail = () => {
 								}}
 							>
 								<Button
-									title={t('auth.emailVerified.btnNext')}
+									text={t('auth.emailVerified.btnNext')}
 									onClick={navigateToLoggin}
 								/>
 							</div>
@@ -86,7 +86,7 @@ const VerifiedEmail = () => {
 						<div>
 							<Text text={t('auth.emailVerified.titleError')} />
 							<Button
-								title={t('auth.emailVerified.btnNext')}
+								text={t('auth.emailVerified.btnNext')}
 								onClick={navigateToLoggin}
 							/>
 						</div>

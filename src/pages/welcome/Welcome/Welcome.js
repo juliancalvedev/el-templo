@@ -39,7 +39,7 @@ const Welcome = () => {
 				</div>
 				<div className='mb-5 pb-2'>
 					<Button // TODO Arreglar Button cuando el componete esté listo
-						title={t('welcome.main.btnLetsBegin')}
+						text={t('welcome.main.btnLetsBegin')}
 						onClick={toOnboarding}
 					/>
 				</div>
