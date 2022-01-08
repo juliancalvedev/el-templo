@@ -71,7 +71,6 @@ export const Register = () => {
 						<div className='inputsNL col-9 '>
 							<div className='fName '>
 								<Input
-									type='firstName'
 									name='firstName'
 									placeholder={t('auth.register.firstNamePlaceholder')}
 									value={values.firstName}
@@ -89,7 +88,6 @@ export const Register = () => {
 							</div>
 							<div className='lastN mt-2 '>
 								<Input
-									type='lastName'
 									name='lastName'
 									placeholder={t('auth.register.lastNamePlaceholder')}
 									value={values.lastName}
@@ -174,12 +172,11 @@ export const Register = () => {
 				<div className='inputsP2  m-3'>
 					<div className='form-inputs mb-3'>
 						<Input
-							className='inputs col-12 '
 							type='email'
 							name='email'
 							placeholder={t('auth.register.emailPlaceholder')}
 							value={values.email}
-							handleChange={handleChange}
+							onChange={handleChange}
 						/>
 						{errors.email && (
 							<p>{(errors.email = t('auth.register.emailError'))}</p>
@@ -187,31 +184,24 @@ export const Register = () => {
 					</div>
 					<div className='form-inputs mb-3'>
 						<Input
-							className='inputs col-12 '
 							type='password'
 							name='password'
 							placeholder={t('auth.register.passwordPlaceholder')}
 							value={values.password}
-							handleChange={handleChange}
+							onChange={handleChange}
+							feedback={t('global.errors.validPassword')}
+							isInvalid={errors.password}
+							invalidText={t('auth.register.password1Error')}
 						/>
-						{errors.password && (
-							<p>
-								{(errors.password = t('auth.register.password1Error'))}
-							</p>
-						)}
 
-						<label className='conteinerPass mt-0 col-11 text-end'>
-							{t('auth.register.passwordRequirement')}
-						</label>
 					</div>
 					<div className='form-inputs mb-3'>
 						<Input
-							className='inputs col-12 rounded-pill '
 							type='password'
 							name='password2'
 							placeholder={t('auth.register.password2Placeholder')}
 							value={values.password2}
-							handleChange={handleChange}
+							onChange={handleChange}
 						/>
 						{errors.password2 && (
 							<p>
@@ -245,11 +235,10 @@ export const Register = () => {
 							{t('auth.register.dateOfBirth')}
 						</label>
 						<Input
-							className='inputs col-12  '
 							type='date'
 							name='dateOfBirth'
 							value={values.dateOfBirth}
-							handleChange={handleChange}
+							onChange={handleChange}
 						/>
 						{errors.dateOfBirth && (
 							<p>

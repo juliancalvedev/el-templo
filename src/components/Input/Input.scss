@@ -43,11 +43,13 @@
     &--transparent {
       background-color: $nineth;
       &:not(.input-state--is-invalid):not(.input-state--is-valid) {
-
         -webkit-text-fill-color: $nineth;
       }
     }
     &--general {
     }
   }
+}
+input:-webkit-autofill { 
+  -webkit-background-clip: text;
 }
