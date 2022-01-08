@@ -44,7 +44,6 @@ export default function AuthReducer(state = defaultValue, { type, payload }) {
 }
 
 const onLogout = () => {
-	console.log('hola');
 	localStorage.clear();
 };
 // ACTIONS

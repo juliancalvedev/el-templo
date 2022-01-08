@@ -1,4 +1,4 @@
-export default {
+const es = {
 	global: {
 		language: 'Lenguaje',
 		spanish: 'ES',
@@ -105,12 +105,12 @@ export default {
 				btnResendEmail: 'Reenviar',
 				hasNotEmail: '¿No te llegó el correo electrónico?',
 			},
-			accountNotEnabled: {
-				title: 'Tu cuenta no se encuentra habilitada',
-				auxText:
-					'Por favor, ponete en contacto con "El Templo" para más información.',
-				btnBack: 'volver',
-			},
+		},
+		accountNotEnabled: {
+			title: 'Lo sentimos',
+			subtitle: 'Tu membresía no se encuentra activa',
+			description1: 'Recuerda mantener tu cuota al día, para seguir disfrutando de todos los beneficios de “El Templo”.',
+			description2: 'Ante cualquier duda, contactate con el gym.',
 		},
 
 		forgotPassword1: {
@@ -296,3 +296,5 @@ export default {
 		authentication: 'Email o contraseña invalidos.',
 	},
 };
+
+export default es;

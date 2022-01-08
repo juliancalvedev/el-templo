@@ -7,7 +7,6 @@ import { PATHS } from '../../constants/paths';
 import './EnabledVerified.scss';
 
 import Text from '../../components/Text/Text';
-import AuxText from '../../components/AuxText/AuxText';
 import Button from '../../components/Button/Button';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import ImgCorreoNoVerificado from '../../assets/images/ImgCorreoNoVerificado';
@@ -16,7 +15,7 @@ const EnabledVerified = () => {
 	const navigate = useNavigate();
 	const { t } = useTranslation();
 
-	const { emailIsVerified, savedEmail, enabled } = useSelector(
+	const { emailIsVerified, savedEmail } = useSelector(
 		(store) => store.auth
 	);
 
@@ -69,26 +68,6 @@ const EnabledVerified = () => {
 								customType='empty'
 							/>
 						</div>
-					</div>
-				)}
-				{emailIsVerified && !enabled && (
-					<div>
-						<Text
-							text={t(
-								'auth.enabledVerified.accountNotEnabled.title'
-							)}
-						/>
-						<AuxText
-							text={t(
-								'auth.enabledVerified.accountNotEnabled.auxText'
-							)}
-						/>
-						<Button
-							title={t(
-								'auth.enabledVerified.accountNotEnabled.btnBack'
-							)}
-							onClick={navToLogin}
-						/>
 					</div>
 				)}
 			</div>

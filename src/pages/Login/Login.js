@@ -12,6 +12,7 @@ import InputIcon from "../../components/InputIcon/InputIcon";
 import { login } from "../../services/auth";
 import useFetch from "../../hooks/useFetch";
 import Text from "../../components/Text/Text";
+import Alert from "./Alert/Alert";
 
 const Login = () => {
   const { t } = useTranslation();
@@ -21,6 +22,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [showAlert, setShowAlert] = useState(false);
+
   const [inputType, setInputType] = useState("password");
 
   const [data, error, apiCall] = useFetch({
@@ -28,20 +31,32 @@ const Login = () => {
     globalLoader: true
   });
 
-  const callback = () => navigate(`/${PATHS.ENABLED_VERIFIED}`);
   const toRegister = () => navigate(`/${PATHS.REGISTER}`);
   const toForgottenPassword = () => navigate(`/${PATHS.FORGOTTEN_PASSWORD}`);
-
+  
   const handleChangeEmail = (e) => {
     setEmail(e.target.value);
   };
   const handleChangePassword = (e) => {
     setPassword(e.target.value);
   };
-
+  
+  const onCloseAlert = () => {
+    setShowAlert(false);
+  }
+  
   useEffect(() => {
     if (data) {
-      dispatch(loginAction({ data: {token: data?.token, email}, callback }));
+      if (data.token) {
+        const callback = () => navigate(`/${PATHS.LOGIN}`);
+        dispatch(loginAction({ data: { token: data?.token, email }, callback }));
+      }
+      else if (!data.emailIsVerified) {
+        navigate(`/${PATHS.ENABLED_VERIFIED}`)
+      }
+      else if (!data.enabled) {
+        setShowAlert(true);
+      } 
     }
   }, [data]);
 
@@ -62,7 +77,7 @@ const Login = () => {
             <div className="mt-5 pt-4 col-12">
               <Text size={4} color={2} bold text={t("auth.login.title")} />
             </div>
-              <Text color={2} text={t("auth.login.subtitle")} />
+            <Text color={2} text={t("auth.login.subtitle")} />
 
             <div className="col-12 mb-5 pt-4 mt-5">
               <form>
@@ -98,19 +113,20 @@ const Login = () => {
               </form>
             </div>
             <div className="d-flex flex-colum justify-content-center align-items-center mt-5 pt-5 h-20 ">
-                <Text size={1} color={2} text={t("auth.login.register1")} />
-                <Text
-                  size={1}
-                  color={3}
-                  underline 
-                  onClick={toRegister}
-                  text={t("auth.login.register2")}
-                  className='p-1'
-                />
+              <Text size={1} color={2} text={t("auth.login.register1")} />
+              <Text
+                size={1}
+                color={3}
+                underline
+                onClick={toRegister}
+                text={t("auth.login.register2")}
+                className='p-1'
+              />
             </div>
           </div>
         </div>
       </div>
+      <Alert show={showAlert} onClose={onCloseAlert} />
     </MainContainer>
   );
 };

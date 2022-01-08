@@ -1,4 +1,4 @@
-export default {
+const en = {
 	global: {
 		language: 'Language',
 		spanish: 'ES',
@@ -106,11 +106,12 @@ export default {
 				btnResendEmail: 'Resend',
 				hasNotEmail: 'The Email has not arrived?',
 			},
-			accountNotEnabled: {
-				title: 'Your account is not enabled.',
-				auxText: 'Please, contact "El Templo" for more information.',
-				btnBack: 'Back',
-			},
+		},
+		accountNotEnabled: {
+			title: 'We are sorry',
+			subtitle: 'your membership is not active',
+			description1: 'Remember to keep your quota up to date, to continue enjoying all the benefits of "El Templo".',
+			description2: 'If you have any questions, contact the gym.',
 		},
 
 		onboard1: {},
@@ -296,3 +297,5 @@ export default {
 		authentication: 'Email or password wrong.',
 	},
 };
+
+export default en;
