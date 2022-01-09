@@ -77,7 +77,6 @@ const Login = () => {
             <Text justify="start" color={2} text={t("auth.login.subtitle")} />
 
             <div className="col-12 mb-5 pt-4 mt-5">
-              <form>
                 <Input
                   value={email}
                   onChange={handleChangeEmail}
@@ -107,7 +106,6 @@ const Login = () => {
                     text={t("auth.login.recovery")}
                   />
                 </div>
-              </form>
             </div>
             <div className="d-flex flex-colum justify-content-center align-items-center mt-5 pt-5 h-20 ">
               <Text size={1} color={2} text={t("auth.login.register1")} />

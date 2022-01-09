@@ -51,8 +51,8 @@ export const Register = () => {
 	};
 
 	return (
-		<MainContainer scroll>
-			<form className='register' onSubmit={handleSubmit}>
+		<MainContainer scroll back shadow color={1}>
+			<form className='register mt-5' onSubmit={handleSubmit}>
 				<div className='contBaseInputs px-3 mt-4 col-12 '>
 					<div className='baseI64 d-flex align-items-center justify-content-start '>
 						<input

@@ -16,7 +16,7 @@ const Button = ({ text, size = 3, className, onClick, type = 1, disabled }) => {
 
     return (
         <div className={styles.container}>
-            <button disabled={disabled} className={styles.button} onClick={onClick}>
+            <button type="button" disabled={disabled} className={styles.button} onClick={onClick}>
                 <Text justify={type === 4 && 'start'} size={2} color={COLOR_TEXT[type]} bold={type === 3 || type === 4} text={transformedText} />
             </button>
         </div>

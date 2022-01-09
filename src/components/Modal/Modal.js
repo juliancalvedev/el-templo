@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import Button from '../Button/Button';
 import './Modal.scss';
 import useStyles from './useStyles';
 
@@ -26,8 +27,8 @@ const Modal = ({
                         {children}
                     </div>
                     {<div className={styles.footer}>
-                        <button onClick={onClose}>{closeText || t('global.close')}</button>
-                        {acceptButton && <button onClick={onClose && acceptButton?.action}>{acceptButton?.text}</button>}
+                        <Button onClick={onClose} type={3} text={closeText || t('global.close')} />
+                        {acceptButton && <Button text={acceptButton.text} onClick={onClose && acceptButton?.action} />}
                     </div>}
                 </div>
             </div>}
