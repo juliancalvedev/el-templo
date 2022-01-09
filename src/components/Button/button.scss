@@ -20,7 +20,9 @@
         }
         &--4 {
             background-color: $nineth;
-            border-top: 2px solid #ccc;
+            border: 2px solid #ccc;
+            border-left: none;
+            border-right: none;
         }
     }
 }

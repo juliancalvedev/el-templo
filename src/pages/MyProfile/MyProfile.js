@@ -12,6 +12,7 @@ import MainContainer from "../../components/MainContainer/MainContainer";
 import ImportantBar from "../../components/ImportantBar/ImportantBar";
 import Text from "../../components/Text/Text";
 import CardInfo from "./CardInfo/CardInfo";
+import TopSpacing from '../../components/TopSpacing/TopSpacing';
 
 const MyProfile = () => {
   const { t } = useTranslation();
@@ -31,78 +32,77 @@ const MyProfile = () => {
 
   return (
     <MainContainer color="2" bg="1" back text={t("user.myProfile.myProfile")}>
-      <div className=" col-12 my-profile-body flex-col mt-5 ">
-        <CardInfo t={t} startEnabledDate={startEnabledDate} level={level} />
-        <div className=" subscription-box col-12 ">
-          <ImportantBar
-            text={`${t("user.myProfile.endEnabledDate")}${cutDate(
-              `${endEnabledDate}`
-            )}`}
-          />
+      <TopSpacing />
+      <CardInfo t={t} startEnabledDate={startEnabledDate} level={level} />
+      <div className=" subscription-box col-12">
+        <ImportantBar
+          text={`${t("user.myProfile.endEnabledDate")}${cutDate(
+            `${endEnabledDate}`
+          )}`}
+        />
+      </div>
+
+      <div className="d-flex col-12 justify-content-between border align-items-center p-1 mb-2">
+        <div className="px-3">
+          <Text bold text={`${t("user.myProfile.aboutYou")}`} />
         </div>
 
-        <div className="about-you-box d-flex col-12 justify-content-between align-items-center p-1">
-          <div className="px-3">
-            <Text bold text={`${t("user.myProfile.aboutYou")}`} />
+
+        <Button onClick={handleEditAboutYou} text={t("user.myProfile.editInfo")} type={3} size={1} />
+      </div>
+      <div className="my-profile-stats col-11 ">
+        <Text
+          justify="start"
+          bold
+          text={t("user.myProfile.goals")}
+        />
+        <div className="col-12 d-flex flex-column ticket-box ">
+          <div className="goals-box my-2">
+            <GenericTicket
+              mode="list"
+              text1="1 "
+              text2={`${t(`welcome.goals.${goals?.[0]}`)}`}
+            />
+            <GenericTicket
+              mode="list"
+              text1="2"
+              text2={`${t(`welcome.goals.${goals?.[1]}`)}`}
+            />
+            <GenericTicket
+              mode="list"
+              text1="3"
+              text2={`${t(`welcome.goals.${goals?.[2]}`)}`}
+            />
           </div>
 
-
-          <Button onClick={handleEditAboutYou} text={t("user.myProfile.editInfo")} type={3} size={1} />
-        </div>
-        <div className="my-profile-stats col-11 ">
           <Text
             justify="start"
             bold
-            text={t("user.myProfile.goals")}
+            text={t("user.myProfile.personalInfo")}
           />
-          <div className="col-12 d-flex flex-column ticket-box ">
-            <div className="goals-box">
-              <GenericTicket
-                mode="list"
-                text1="1 "
-                text2={`${t(`welcome.goals.${goals?.[0]}`)}`}
-              />
-              <GenericTicket
-                mode="list"
-                text1="2"
-                text2={`${t(`welcome.goals.${goals?.[1]}`)}`}
-              />
-              <GenericTicket
-                mode="list"
-                text1="3"
-                text2={`${t(`welcome.goals.${goals?.[2]}`)}`}
-              />
-            </div>
-
-            <Text
-              justify="start"
-              bold
-              text={t("user.myProfile.personalInfo")}
-            />
-            <GenericTicket
-              mode="separated"
-              text1={t("user.myProfile.weight")}
-              text2={`${weight} KG`}
-            />
-            <GenericTicket
-              mode="separated"
-              text1={t("user.myProfile.height")}
-              text2={`${height} Mt`}
-            />
-          </div>
-        </div>
-        <div className="col-12">
-          <Button
-            text={t("user.myProfile.password")}
-            type={4}
-            onClick={handleChangePasswordNavigate}
+          <GenericTicket
+            mode="separated"
+            text1={t("user.myProfile.weight")}
+            text2={`${weight} KG`}
           />
-          <Button
-            text={t("user.myProfile.logOut")}
-            type={4}
-            onClick={onLogout}
+          <GenericTicket
+            mode="separated"
+            text1={t("user.myProfile.height")}
+            text2={`${height} Mt`}
           />
         </div>
+      </div>
+      <div className="col-12 mt-4">
+        <Button
+          text={t("user.myProfile.password")}
+          type={4}
+          onClick={handleChangePasswordNavigate}
+        />
+        <Button
+          text={t("user.myProfile.logOut")}
+          type={4}
+          onClick={onLogout}
+        />
       </div>
     </MainContainer>
   );

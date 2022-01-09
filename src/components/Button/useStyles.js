@@ -1,4 +1,4 @@
-const useStyles = ({ size, type, className }) => {
+const useStyles = ({ size, type, className = '' }) => {
 
     const BUTTON_SIZE = {
         0: '',
@@ -15,9 +15,9 @@ const useStyles = ({ size, type, className }) => {
     }
 
     return {
-        container: `col-${BUTTON_SIZE[size]} my-1`,
+        container: `col-${BUTTON_SIZE[size]}`,
 
-        button: `btn button py-2 col-12 button-color--${BUTTON_TYPE[type]} ${className}`
+        button: `btn button py-${BUTTON_TYPE[type] === '4' ? '3' : '2'} col-12 button-color--${BUTTON_TYPE[type]} ${className}`
     }
 }
 
