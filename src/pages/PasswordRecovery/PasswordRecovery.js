@@ -10,7 +10,7 @@ const PasswordRecovery = () => {
 	const token = getSearchParams('token');
 
 	const [data, error, apiCall] = useFetch({
-		service: enablePasswordRecovery({ token }),
+		service: () => enablePasswordRecovery({ token }),
 		globalLoader: true
 	})
 
