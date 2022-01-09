@@ -1,5 +1,6 @@
 @import '../../styles/variables';
 
+
 .inputs {
 	background: $nineth;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -7,8 +8,6 @@
 	border: none;
 	text-indent: 4%;
 	border-radius: 15px;
-	
-	
 }
 
 .nameInput {
@@ -21,7 +20,7 @@
 	font-style: normal;
 }
 
-.btnCheck1 {
+.btncheck1 {
 	border-radius: 20px 0px 0px 20px;
 	background-color: $tertiary;
 	color: $nineth;
@@ -29,7 +28,7 @@
 	font-size: 84%;
 	height: 50%;
 }
-.btnCheck2 {
+.btncheck2 {
 	background-color: $tertiary;
 	color: $nineth;
 	line-height: 100%;
@@ -38,7 +37,7 @@
 	height: 50%;
 }
 
-.btnCheck3 {
+.btncheck3 {
 	background-color: $tertiary;
 	border-radius: 0px 20px 20px 0px;
 	color: $nineth;
@@ -48,15 +47,15 @@
 	height: 50%;
 }
 
-.btn-check:checked +.btn-all ,.btn-all:checked{
-    background-color: $thirteenth;
+.btn-check:checked + .btn-all ,.btn-all:checked{
+    background-color:$thirteenth;
 	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: $tertiary;
 }
 .conteinerPass {
 	font-size: 75%;
 	font-family: $font-1;
-	color: $seventh;
+	color:$sixth;
 }
 .TC {
 	font-size: 65%;
@@ -66,38 +65,32 @@
 	color: $fourth;
 }
 select{
- -webkit-appearance:none;
+	-webkit-appearance:none;
    -moz-appearance:none;
    -ms-appearance:none;
+	background: $nineth;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 	height: 40px;
-	text-indent: 4%;
-	border-radius: 15px;
 	border: none;
+	text-indent: 4%;
+	color: $seventh;
+	border-radius: 15px;
+	margin-bottom: 0em;
+
+}
+.chevron-down{
+	position: relative;
+	left:22em; 
+	top:-35px; 
+	pointer-events:none;
+}
+::-webkit-calendar-picker-indicator{
+opacity: 0;
 }
 
-.form-inputs__select{
-   position: relative;
-   display: flex;
-   height: 40px;
-   line-height: 2;
-   background: $nineth;
-   overflow: hidden;
-   border-radius: 15px;
-   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-   border: none;
-}
-.form-inputs__select::after {
-   content: '\25BC';
-   position: absolute;
-   right: 0 ;
-   padding: 0 1em;
-   padding-top: 0.5em;
-   pointer-events:none;
-  
-}
-input[type="date"] {
-    display: -webkit-inline-flex;
-    overflow: hidden;
-    padding-right: 2%;
-	
+.input-date-icon{
+	position: relative;
+	left:22em; 
+	top:-35px; 
+	pointer-events:none;
 }

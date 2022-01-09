@@ -3,7 +3,7 @@
 export const RegisterValidate = (values) => {
 
 	const errors = {};
-	if (!values.img.data) {
+	if (!values.img) {
 		errors.img = {};
 	}
 	if (!values.firstName.trim()) {

@@ -8,6 +8,9 @@ import './Register.scss'
 import MainContainer from '../../components/MainContainer/MainContainer';
 import { Link } from 'react-router-dom';
 import UserImage from '../../components/UserImage/UserImage';
+import InputIcon from '../../components/InputIcon/InputIcon';
+import TopBar from '../../components/TopBar/TopBar';
+
 
 
 export const Register = () => {
@@ -55,15 +58,14 @@ export const Register = () => {
 	};
 
 	return (
-		<MainContainer  topBar='mt-2' bg color='1' back text='Register' >
-			<form className='register col-12' onSubmit={handleSubmit}>
+		<MainContainer text={'Register '} bg={4} color={1} back shadow>
+			<form className='register col-12 mt-5' onSubmit={handleSubmit}>
 				<div className='contBaseInputs px-3 mt-4 col-12 '>
 					<div className='baseI64 d-flex align-items-center col-12 '>
 						<input
 							className='base-img1 '
 							id='file'
 							type='file'
-							accept='.jpeg, .png, .jpg'
 							onChange={handleClickimg}
 							hidden
 							value={values.img}
@@ -130,10 +132,10 @@ export const Register = () => {
 								{t('auth.register.sexTitle')}
 							</label>
 						</div>
-						<div className='btnCheck'>
+						<div className='btnheck'>
 							<input
 								type='radio'
-								className='btn-check  '
+								className='btn-check'
 								name='sex'
 								id='btnradio1'
 								value='F'
@@ -141,7 +143,7 @@ export const Register = () => {
 								onChange={handleChange}
 							/>
 							<label
-								className='btn btn-outline btn-all btnCheck1  col-4 '
+								className='btn-all btn btn-outline  btncheck1  col-4 '
 								htmlFor='btnradio1'
 							>
 								{t('auth.register.sex1')}
@@ -157,7 +159,7 @@ export const Register = () => {
 								onChange={handleChange}
 							/>
 							<label
-								className='btn btn-outline btn-all btnCheck2 col-4   '
+								className='btn btn-outline btn-all btncheck2 col-4   '
 								htmlFor='btnradio2'
 							>
 								{t('auth.register.sex2')}
@@ -173,7 +175,7 @@ export const Register = () => {
 								onChange={handleChange}
 							/>
 							<label
-								className='btn btn-outline btn-all btnCheck3 col-4 '
+								className='btn btn-outline btn-all btncheck3 col-4 checked '
 								htmlFor='btnradio3'
 							>
 								{t('auth.register.sex3')}
@@ -195,7 +197,7 @@ export const Register = () => {
 							<p>{(errors.email = t('auth.register.emailError'))}</p>
 						)}
 					</div>
-					<div className='form-inputs mb-3'>
+					<div className='form-inputs mb-2'>
 						<Input
 							className='inputs col-12 '
 							type='password'
@@ -210,7 +212,7 @@ export const Register = () => {
 							</p>
 						)}
 
-						<label className='conteinerPass mt-0 col-11 text-end'>
+						<label className='conteinerPass mt-0 col-12 text-end'>
 							{t('auth.register.passwordRequirement')}
 						</label>
 					</div>
@@ -229,9 +231,9 @@ export const Register = () => {
 							</p>
 						)}
 					</div>
-					<div className='form-inputs__select '>
+					<div className='form-inputs-select mb-0'>
 						<select
-							className='inputs__select mb-3 col-12'
+							className='inputs__select  col-12'
 							value={values.country}
 							onChange={handleChange}
 							name='country'
@@ -243,17 +245,32 @@ export const Register = () => {
 							<option value='us'>{t('auth.register.country2')}</option>
 							<option value='mexico'>
 								{t('auth.register.country3')}
-							</option>
+							</option>	
 						</select>
+					<div className='chevron-down'>
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								width='16'
+								height='16'
+								fill='currentColor'
+								className='bi bi-chevron-down'
+								viewBox='0 0 16 16'
+							>
+								<path
+									fill='evenodd'
+									d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'
+								/>
+							</svg>
+						</div>
 
 						{errors.country && (
 							<p>{(errors.country = t('auth.register.countryError'))}</p>
 						)}
 					</div>
-					<div className='form-inputs mb-4'>
-						<label className='nameInput2'>
-							{t('auth.register.dateOfBirth')}
-						</label>
+					<label className='nameInput2n mb-0'>
+						{t('auth.register.dateOfBirth')}
+					</label>
+					<div className='input-date '>
 						<Input
 							className='inputs col-12  '
 							type='date'
@@ -261,6 +278,19 @@ export const Register = () => {
 							value={values.dateOfBirth}
 							handleChange={handleChange}
 						/>
+						<div className='input-date-icon'>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='16'
+							height='16'
+							fill='currentColor'
+							className='bi bi-calendar4'
+							viewBox='0 0 16 16'
+						>
+							<path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z' />
+						</svg>	
+						</div>
+						
 						{errors.dateOfBirth && (
 							<p>
 								{
