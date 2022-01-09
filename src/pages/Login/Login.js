@@ -3,7 +3,7 @@ import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { loginAction } from "../../redux/auth";
+import { loginAction, saveEmailAction } from "../../redux/auth";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { PATHS } from "../../constants/paths";
@@ -51,7 +51,8 @@ const Login = () => {
         dispatch(loginAction({ data: { token: data?.token, email }, callback }));
       }
       else if (!data.emailIsVerified) {
-        navigate(`/${PATHS.ENABLED_VERIFIED}`)
+        dispatch(saveEmailAction({ email }));
+        navigate(`/${PATHS.ENABLED_VERIFIED}`);
       }
       else if (!data.enabled) {
         setShowAlert(true);
@@ -77,35 +78,35 @@ const Login = () => {
             <Text justify="start" color={2} text={t("auth.login.subtitle")} />
 
             <div className="col-12 mb-5 pt-4 mt-5">
-                <Input
-                  value={email}
-                  onChange={handleChangeEmail}
-                  type="email"
-                  placeholder={t("auth.login.emailPlaceholder")}
-                  transparent
-                />
+              <Input
+                value={email}
+                onChange={handleChangeEmail}
+                type="email"
+                placeholder={t("auth.login.emailPlaceholder")}
+                transparent
+              />
 
-                <Input
-                  icon="eye"
-                  value={password}
-                  onChange={handleChangePassword}
-                  type={inputType}
-                  placeholder={t("auth.login.passwordPlaceholder")}
-                  onClickIcon={onClickIcon}
-                  transparent
-                  feedback={t('global.errors.validPassword')}
-                />
+              <Input
+                icon="eye"
+                value={password}
+                onChange={handleChangePassword}
+                type={inputType}
+                placeholder={t("auth.login.passwordPlaceholder")}
+                onClickIcon={onClickIcon}
+                transparent
+                feedback={t('global.errors.validPassword')}
+              />
 
-                <Button onClick={apiCall} text={t("auth.login.btnLogin")} />
-                <div className="col-12 d-flex justify-content-end  ">
-                  <Text
-                    color={3}
-                    size={1}
-                    underline
-                    onClick={toForgottenPassword}
-                    text={t("auth.login.recovery")}
-                  />
-                </div>
+              <Button onClick={apiCall} text={t("auth.login.btnLogin")} />
+              <div className="col-12 d-flex justify-content-end  ">
+                <Text
+                  color={3}
+                  size={1}
+                  underline
+                  onClick={toForgottenPassword}
+                  text={t("auth.login.recovery")}
+                />
+              </div>
             </div>
             <div className="d-flex flex-colum justify-content-center align-items-center mt-5 pt-5 h-20 ">
               <Text size={1} color={2} text={t("auth.login.register1")} />

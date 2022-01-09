@@ -61,6 +61,14 @@ export const checkLoggedUserAction = () => (dispatch) => {
 		});
 	}
 };
+
+export const saveEmailAction = ({ email }) => dispatch => {
+	dispatch({
+		type: SAVE_EMAIL,
+		payload: email,
+	});
+}
+
 export const loginAction =
 	({ data, callback }) =>
 	async (dispatch) => {
@@ -69,15 +77,11 @@ export const loginAction =
 		if (data?.token) {
 			localStorage.setItem('token', data.token);
 		}
-		console.log('DATA', data);
 		dispatch({
 			type: LOGIN,
 			payload: data.token,
 		});
-		dispatch({
-			type: SAVE_EMAIL,
-			payload: data.email,
-		});
+
 		callback(); //Navega hacia '/enabled-verified', luego de los dispatchs.
 
 		// El dispatch llama al reducer
