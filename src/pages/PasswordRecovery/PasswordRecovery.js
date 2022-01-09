@@ -15,8 +15,11 @@ const PasswordRecovery = () => {
 	})
 
 	useEffect(() => {
-		apiCall();
-	}, []);
+		if (token) {
+
+			apiCall();
+		}
+	}, [token]);
 
 	return (
 		<div className='password-recovery-main'>
