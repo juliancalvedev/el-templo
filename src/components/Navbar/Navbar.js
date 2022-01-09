@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -9,7 +8,7 @@ const Navbar = () => {
 	const { role } = useSelector((store) => store.user);
 
 	return (
-		<nav className='navbar navbar-dark bg-blue'>
+		<nav className='navbar navbar-dark bg-blue w-100'>
 			<div className='container'>
 				{role === ROLES.ADMIN && (
 					<Link to='/users-list'>{t('navbar.nav.users')}</Link>

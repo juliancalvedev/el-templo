@@ -1,17 +1,61 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
-
-import Title from '../../components/Title/Title';
-import AuxText from '../../components/AuxText/AuxText';
+import Text from '../../components/Text/Text';
+import './Help.scss';
+import HelpAccordion from './HelpAccordion';
+import MainContainer from '../../components/MainContainer/MainContainer';
 
 const Help = () => {
 	const { t } = useTranslation();
+	const getBtn = document.querySelector('.btnCollapsed');
+	const removeBtn = () => {
+		getBtn.remove();
+	};
+
 	return (
-		<div className='container d-flex justify-content-center align-items-center flex-column col'>
-			<Title text={t('help.main.aboutUs')} />
-			<h3>{t('help.main.elTemplo')}</h3>
-			<AuxText text={t('help.main.auxText1')} />
-		</div>
+		<MainContainer color={2} text={t('help.main.help')} bg={1} back>
+			<div className='text-center col-12 mt-5 pt-4'>
+				<Text bold size={4} text={t('help.main.aboutUs')} />
+
+				<Text font={2} size={5} text={t('help.main.elTemplo')} />
+				<img
+					className='d-inline-block'
+					width='100%'
+					src='https://d500.epimg.net/cincodias/imagenes/2019/05/02/lifestyle/1556809482_591063_1556811610_noticia_normal.jpg'
+					alt=''
+				/>
+				<div className='col-11 m-auto my-3 d-flex align-items-start flex-column'>
+					<Text justify="start" size={2} text={t('help.main.auxText1')} />
+					<Text justify="start" size={2} text={t('help.main.auxText12')} />
+					<Text justify="start" size={2} text={t('help.main.auxText13')} />
+				</div>
+				<p className=' d-flex  justify-content-center align-items-center col-12 rectangle324 py-3 '>
+					{t('help.main.rectangle324')}
+				</p>
+
+				<button
+					className='btnCollapsed col-6 '
+					type='button'
+					data-bs-toggle='collapse'
+					data-bs-target='#collapseExample'
+					onClick={removeBtn}
+				>
+					{t('help.main.btn1')}
+				</button>
+
+				<div className='collapse ' id='collapseExample'>
+					<div className='card p-0'>
+						<Text font={2} size={5} text={t('help.main.mission')} />
+
+						<div className='col-11 m-auto mt-2 mb-4'>
+							<Text text={t('help.main.auxText2')} />
+							<Text text={t('help.main.auxText21')} />
+						</div>
+
+						<HelpAccordion />
+					</div>
+				</div>
+			</div>
+		</MainContainer>
 	);
 };
 

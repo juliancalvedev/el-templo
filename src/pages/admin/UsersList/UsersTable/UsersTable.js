@@ -16,7 +16,7 @@ const UsersTable = ({ columns = [], users = [] }) => {
 
 				<tbody>
 					{users?.map((user) => (
-						<tr scope='col' key={rndKey()}>
+						<tr key={rndKey()}>
 							{columns?.map((c) => (
 								<td key={rndKey()}>{user[c]}</td>
 							))}

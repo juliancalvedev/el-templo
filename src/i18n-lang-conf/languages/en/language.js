@@ -1,4 +1,4 @@
-export default {
+const en = {
 	global: {
 		language: 'Language',
 		spanish: 'ES',
@@ -44,14 +44,54 @@ export default {
 		},
 
 		login: {
-			title: 'Login',
-			emailPlaceholder: 'Email@email.com',
+			title: 'Welcome',
+			subtitle: 'Login to continue',
+			emailPlaceholder: 'Email',
 			passwordPlaceholder: 'Password',
 			recovery: 'Forgotten password?',
 			btnLogin: 'Log In',
+			register1: 'you have not an account?',
+			register2: 'Register here',
 		},
-		register: {},
-		emailConfirm: {},
+		emailConfirm: {
+			title: 'Confirm your email',
+			p1: 'you are one step away from starting',
+			p2: 'Confirm your email by clicking on the link we sent, in your inbox.',
+			p3: "Hasn't it reached you? Click here",
+			btnConfirm: 'Resend email',
+		},
+		register: {
+			firstNamePlaceholder: 'Name',
+			lastNamePlaceholder: 'Last Name',
+			sexTitle: 'Sex',
+			sex1: 'Female',
+			sex2: 'Male',
+			sex3: 'Other',
+			emailPlaceholder: 'Email',
+			passwordPlaceholder: 'Password',
+			passwordRequirement:
+				'(Must contain at least 6 letters and 1 number)',
+			password2Placeholder: 'Confirm Your Password',
+			countrySelection: 'Country',
+			country1: 'Argentina',
+			country2: 'USA',
+			country3: 'Mexico',
+			dateOfBirth: 'Date of birth',
+			btnRegister: 'Register',
+			termsAndConditions1:
+				'By registering and creating your account, you agree to the',
+			termsAndConditions2: 'Terms and conditions',
+
+			//RegisterValidate:
+			firstNameError: 'Enter your name',
+			lastNameError: 'Enter your last name',
+			emailError: 'Email address is invalid',
+			password1Error: 'Must contain at least 6 characters and a number',
+			password2Error: 'Password do not match',
+			countryError: 'Select your Country.',
+			dateOfBirthError: 'Enter your date of birth',
+		},
+
 		emailVerified: {
 			title: 'Your E-mail has been correctly verified.',
 			titleError: 'The link is invalid or has expired. ',
@@ -60,18 +100,20 @@ export default {
 		},
 		enabledVerified: {
 			emailNotVerified: {
-				title: 'Your account has not been verified yet.',
+				title: 'Your account has not been verified yet',
 				auxText:
-					'Enter the Link that we have sent you to the email. And follow the steps.',
-				btnResendEmail: 'Resend Email',
-			},
-			accountNotEnabled: {
-				title: 'Your account is not enabled.',
-				auxText: 'Please, contact "El Templo" for more information.',
-				btnBack: 'Back',
+					'Enter the Link that we have sent you to the email and follow the steps',
+				btnResendEmail: 'Resend',
+				hasNotEmail: 'The Email has not arrived?',
 			},
 		},
-		welcome: {},
+		accountNotEnabled: {
+			title: 'We are sorry',
+			subtitle: 'your membership is not active',
+			description1: 'Remember to keep your quota up to date, to continue enjoying all the benefits of "El Templo".',
+			description2: 'If you have any questions, contact the gym.',
+		},
+
 		onboard1: {},
 		onboard2: {},
 		forgotPassword1: {
@@ -85,6 +127,39 @@ export default {
 			newPassword: 'New password',
 			repeatNewPassword: 'Repeat new password',
 			btnUpdatePassword: 'Update password',
+		},
+	},
+	welcome: {
+		main: {
+			title: "Welcome to 'El Templo'",
+			hello: 'Hello',
+			auxText:
+				'Before continuing, we need to know you a little more, so we can customize your plan to suit you.',
+			btnLetsBegin: "Let's begin",
+		},
+		goals: {
+			tellUs: 'Tell Us',
+			mainGoals: 'What are your main goals?',
+			'': '', // Default
+			STRENGTH: 'Strength',
+			FLEX: 'Flex',
+			LOSE_WEIGHT: 'Lose weight',
+			TONE_UP: 'Tone up',
+			GAIN_STAMINA: 'Gain stamina',
+		},
+		trainingLevel: {
+			title: "What's your current training level?",
+			auxText: 'This will help your coach to advise you properly.',
+			amateur: 'Amateur',
+			professional: 'Professional',
+		},
+		weightHeight: {
+			title: 'Complete the last personal data.',
+			weight: 'Weight',
+			height: 'Height',
+			kilos: 'KG',
+			meters: 'MT',
+			enter: 'Enter',
 		},
 	},
 	profile: {
@@ -116,10 +191,45 @@ export default {
 	},
 	help: {
 		main: {
+			help:'Help',
 			aboutUs: 'About us',
 			elTemplo: 'El Templo',
 			auxText1:
-				"El Templo' it's a functional alternative trainning space, for advanced and also for beginers.",
+				'The Temple is a functional and alternative training space for trained and untrained people.',
+			auxText12:
+				'From free acrobatics to gymnastics, weightlifting to calisthenics and natural movement.',
+			auxText13:
+				'It is a place of introspection and self-knowledge that seeks to transmit the pillars of personal care and improvement through physical and mental training.',
+			rectangle324: 'Body, soul, mind',
+			btn1: 'See more',
+			mission: 'MISSION & VISION',
+			auxText2:
+				'The Mission of El Templo is to introduce the public to new training systems, to cultivate and instruct its members in the world of movement as a lifestyle and not as a social commitment and purely aesthetic purposes.',
+			auxText21: ' Be better humans through our actions and behaviors.',
+			accordionText1: 'Do you have questions about your training?',
+			accordionInside1: 'Contact the coach',
+			accordionInside2: 'Matter:',
+			accordionInside3: 'Message:',
+			btnSend: 'Send',
+
+			accordionText2: 'Do you have questions about how the app works?',
+			btn2: 'Terms & conditions',
+			btn3: 'Contact',
+			accordionTextBlue1: 'What are the objectives of the program ?',
+			accordionTextBlue2: 'When do I level up?',
+			accordionTextBlue3: 'What will be included in a daily training?',
+			accordionTextBlue4:
+				'What level of physical preparation is needed to do it?',
+			auxText3: {
+				item1: '• Development of basic strength capabilities (explosive, power, maximum, resistance).',
+				item2: '• Development of basic flexibility capabilities (passive, active, dynamic).',
+				item3: '• Increased biomechanical efficiency.',
+				item4: '• Prevention or treatment of injuries.',
+				item5: '• Improvement in the sports performance.',
+				item6: '• Increased knowledge in relation to movement. ',
+			},
+			faqs: 'FAQS',
+			fq: 'Frequent questions',
 		},
 	},
 	navbar: {
@@ -140,6 +250,11 @@ export default {
 		forgottenPassword: 'Forgot you Password?',
 		verifyEmail: 'Verify Email',
 		enabledVerified: 'Checking Account',
+		register: 'Register',
+		emailRegisterSended: 'Confirm Email',
+		myProfile: 'My Profile',
+		help: 'Help',
+		contact: 'Contact',
 	},
 	user: {
 		changeUserPassword: {
@@ -149,5 +264,36 @@ export default {
 			repeatNewPassword: 'Repeat New Password',
 			submitPassword: 'Change Password',
 		},
+		myProfile: {
+			level: 'Level',
+			completedTrainings: 'Completed Trainings',
+			memberSince: 'Member since',
+			edit: 'Edit',
+			profile: 'profile',
+			editInfo: 'Edit',
+			endEnabledDate: 'Subscription active until: ',
+			aboutYou: 'About you',
+			trainingLevel: 'Training level: ',
+			goals: 'Goals',
+			personalInfo: 'Personal info',
+			height: 'Height',
+			weight: 'Weight',
+			logOut: 'Log out',
+			password: 'Password',
+			myProfile: 'Profile',
+		},
+		trainingLevels: {
+			beginner: 'Beginner',
+			amateur: 'Amateur',
+			intermediate: 'Intermediate',
+			advanced: 'Advanced',
+			expert: 'Expert',
+		},
+	},
+	errors: {
+		generic: 'Oops, an error occurred.',
+		authentication: 'Email or password wrong.',
 	},
 };
+
+export default en;

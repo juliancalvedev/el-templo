@@ -1,4 +1,4 @@
-import { login, startPasswordRecovery } from '../services/auth';
+import { startPasswordRecovery, register } from '../services/auth';
 
 // DEFAULT VALUE
 const defaultValue = {
@@ -14,6 +14,7 @@ const defaultValue = {
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
 const ERROR = 'ERROR';
+const REGISTER = 'REGISTER';
 const START_PASSWORD_RECOVERY = 'START_PASSWORD_RECOVERY';
 const CHECK_LOGGED_USER = 'CHECK_LOGGED_USER';
 const SAVE_EMAIL = 'SAVE_EMAIL';
@@ -26,12 +27,14 @@ export default function AuthReducer(state = defaultValue, { type, payload }) {
 		case CHECK_LOGGED_USER:
 			return { ...state, token: payload };
 		case LOGIN:
-			return { ...state, ...payload, error: false };
+			return { ...state, token: payload, error: false };
 		case LOGOUT:
 			return defaultValue;
 		case ERROR:
 			return { ...state, error: true };
 		case START_PASSWORD_RECOVERY:
+			return { ...state, ...payload, error: false };
+		case REGISTER:
 			return { ...state, ...payload, error: false };
 		case SAVE_EMAIL:
 			return { ...state, savedEmail: payload, error: false };
@@ -59,36 +62,23 @@ export const checkLoggedUserAction = () => (dispatch) => {
 	}
 };
 export const loginAction =
-	({ email, password, callback }) =>
+	({ data, callback }) =>
 	async (dispatch) => {
 		//llamada al back
 
-		try {
-			const response = await login({ email, password });
-			const { data, problem } = response.data;
-			if (problem) {
-				dispatch({
-					type: ERROR,
-				});
-			} else {
-				if (data?.token) {
-					localStorage.setItem('token', data?.token);
-				}
-				dispatch({
-					type: LOGIN,
-					payload: data,
-				});
-				dispatch({
-					type: SAVE_EMAIL,
-					payload: email,
-				});
-				callback(); //Navega hacia '/enabled-verified', luego de los dispatchs.
-			}
-		} catch (error) {
-			dispatch({
-				type: ERROR,
-			});
+		if (data?.token) {
+			localStorage.setItem('token', data.token);
 		}
+		console.log('DATA', data);
+		dispatch({
+			type: LOGIN,
+			payload: data.token,
+		});
+		dispatch({
+			type: SAVE_EMAIL,
+			payload: data.email,
+		});
+		callback(); //Navega hacia '/enabled-verified', luego de los dispatchs.
 
 		// El dispatch llama al reducer
 
@@ -133,6 +123,55 @@ export const startPasswordRecoveryAction =
 		//dispatch de startPasswordRecovery si obtenemos el token
 
 		//dispatch un error
+	};
+
+export const registerAction =
+	({
+		firstName,
+		lastName,
+		sex,
+		email,
+		password,
+		dateOfBirth,
+		country,
+		img,
+		callback,
+	}) =>
+	async (dispatch) => {
+		//llamada al back
+
+		try {
+			const response = await register({
+				firstName,
+				lastName,
+				sex,
+				email,
+				password,
+				dateOfBirth,
+				country,
+				img,
+			});
+			const { data, problem } = response.data;
+			if (problem) {
+				dispatch({
+					type: ERROR,
+				});
+			} else {
+				dispatch({
+					type: REGISTER,
+					payload: data,
+				});
+				dispatch({
+					type: SAVE_EMAIL,
+					payload: email,
+				});
+				callback();
+			}
+		} catch (error) {
+			dispatch({
+				type: ERROR,
+			});
+		}
 	};
 
 //dispatch un error

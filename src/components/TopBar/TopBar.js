@@ -1,56 +1,35 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { textStyles, backBtnStyles, onHide, navStyles } from './TopBarStyles';
-import { useTranslation } from 'react-i18next';
-import { TOPBAR_TEXTS } from '../../constants/paths';
+import { useNavigate } from 'react-router-dom';
+import './TopBar.scss';
 
-import Title from '../../components/Title/Title';
+import useStyles from './useStyles';
+import { IconBack } from '../../assets/Icons/IconBack';
+import Text from '../Text/Text';
 
-const TopBar = () => {
-	const { t } = useTranslation();
+const TopBar = ({ text, color = 1, bg = 'none', back = false, shadow }) => {
 	const navigate = useNavigate();
-	const currentLocation = useLocation().pathname.substring(1);
 
-	const [mainPath, setMainPath] = useState(true);
+	const handleClick = () => navigate(-1);
 
-	const back = () => navigate(-1);
-
-	const translatingPath = (currentPath) => {
-		return TOPBAR_TEXTS[currentPath];
-	};
-
-	useEffect(() => {
-		if (currentLocation === '') {
-			setMainPath(false);
-		} else {
-			setMainPath(true);
-		}
-	});
+	const styles = useStyles({ bg, color, back, shadow });
 
 	return (
-		<div>
-			<nav className='navbar-light bg-dark' style={navStyles}>
-				{mainPath ? (
-					<button
-						className='navbar-brand'
-						style={backBtnStyles}
-						onClick={back}
+		<div className={styles.container}>
+			<nav>
+				<div className={styles.body}>
+					{back && <div
+						className={styles.backArrowBtn}
+						onClick={handleClick}
 					>
-						{'ᐸ'}
-					</button>
-				) : (
-					<button
-						className='navbar-brand'
-						style={(backBtnStyles, onHide)}
-					>
-						{'ᐸ'}
-					</button>
-				)}
+						<IconBack color={styles.icon}/>
+					</div>}
 
-				<Title
-					style={textStyles}
-					text={t(translatingPath(currentLocation))}
-				/>
+					<Text
+						text={text}
+						color={color}
+						className='p-1'
+					/>
+
+				</div>
 			</nav>
 		</div>
 	);

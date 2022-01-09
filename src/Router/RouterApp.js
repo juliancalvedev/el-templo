@@ -10,30 +10,64 @@ import VerifiedEmail from '../pages/VerifiedEmail/VerifiedEmail';
 import ChangeUserPassword from '../pages/ChangeUserPassword/ChangeUserPassword';
 import PasswordRecovery from '../pages/PasswordRecovery/PasswordRecovery';
 import ForgottenPassword from '../pages/ForgottenPassword/ForgottenPassword';
+import Register from '../pages/Register/Register';
 import Landing from '../pages/Landing/Landing';
 import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
+
 import UsersList from '../pages/admin/UsersList/UsersList';
 import Help from '../pages/Help/Help';
 import { PATHS } from '../constants/paths';
-import TopBar from '../components/TopBar/TopBar';
+import MyProfile from '../pages/MyProfile/MyProfile';
+import Welcome from '../pages/welcome/Welcome/Welcome';
+import EmailRegisterSended from '../pages/EmailRegisterSended/EmailRegisterSended';
+import MainGoals from '../pages/welcome/MainGoals/MainGoals';
+import TrainingLevel from '../pages/welcome/TrainingLevel/TrainningLevel';
+import WeightHeight from '../pages/welcome/WeightHeight/WeightHeight';
+import Contact from '../pages/Contact/Contact';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
-	const { role } = useSelector((store) => store.user);
+	const { role, goals } = useSelector((store) => store.user);
 
 	const savedToken = localStorage.getItem('token');
 
 	return (
 		<BrowserRouter>
-			<TopBar />
 			<Routes>
 				{savedToken ? (
 					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
+						<Route
+							path={PATHS.MY_PROFILE}
+							element={<MyProfile />}
+						/>
 						{role === ROLES.ADMIN && (
-							<Route path={PATHS.BASE_URL} element={<AdminLayout />}>
+							<Route
+								path={PATHS.BASE_URL}
+								element={<AdminLayout />}
+							>
 								<Route
 									path={PATHS.USERS_LIST}
 									element={<UsersList />}
+								/>
+							</Route>
+						)}
+						{goals?.length === 0 && (
+							<Route>
+								<Route
+									path={PATHS.BASE_URL}
+									element={<Welcome />}
+								/>
+								<Route
+									path={PATHS.MAIN_GOALS}
+									element={<MainGoals />}
+								/>
+								<Route
+									path={PATHS.TRAINING_LEVEL}
+									element={<TrainingLevel />}
+								/>
+								<Route
+									path={PATHS.WEIGHT_HEIGHT}
+									element={<WeightHeight />}
 								/>
 							</Route>
 						)}
@@ -41,12 +75,20 @@ const RouterApp = () => {
 							path={PATHS.CHANGE_USER_PASSWORD}
 							element={<ChangeUserPassword />}
 						/>
+
 						<Route path={PATHS.HELP} element={<Help />} />
+						<Route path={PATHS.CONTACT} element={<Contact />} />
 					</Route>
 				) : (
 					<Route path={PATHS.BASE_URL} element={<PublicLayout />}>
 						<Route index element={<Landing />} />
 						<Route path={PATHS.LOGIN} element={<Login />} />
+						<Route path={PATHS.REGISTER} element={<Register />} />
+						<Route
+							path={PATHS.EMAIL_REGISTER_SENDED}
+							element={<EmailRegisterSended />}
+						/>
+
 						<Route
 							path={PATHS.PASSWORD_RECOVERY}
 							element={<PasswordRecovery />}
@@ -59,6 +101,7 @@ const RouterApp = () => {
 							path={PATHS.VERIFY_EMAIL}
 							element={<VerifiedEmail />}
 						/>
+
 						<Route
 							path={PATHS.ENABLED_VERIFIED}
 							element={<EnabledVerified />}
