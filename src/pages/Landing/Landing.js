@@ -15,30 +15,28 @@ const Landing = () => {
 	const handleSubmitRegister = () => navigate(`/${PATHS.REGISTER}`);
 	return (
 		<MainContainer>
-			<div className='landing-container col-12'>
-
+			<div className='landing-container col-12 h-100'>
 				<div className='col-11 d-flex flex-column justify-content-between'>
 					<div className='col-12'>
 						<div className='col-12 d-flex justify-content-end'>
 							<LanguageSelector />
 						</div>
 						<div className='m-auto d-flex justify-content-center col-8'>
-							<ElTemploLogo/>
+							<ElTemploLogo />
 						</div>
 					</div>
 					<div className='col-12 pb-5'>
 						<p>{t('auth.landing.haveAccount')}</p>
 						<Button
 							onClick={handleSubmitLogin}
-							title={t('auth.landing.btnLogin')}
-							/>
+							text={t('auth.landing.btnLogin')}
+							className='mb-1'
+						/>
 						<Button
 							onClick={handleSubmitRegister}
-							title={t('auth.landing.btnRegister')}
-							/>
-
+							text={t('auth.landing.btnRegister')}
+						/>
 					</div>
-
 				</div>
 			</div>
 		</MainContainer>

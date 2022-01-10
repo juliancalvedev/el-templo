@@ -5,7 +5,7 @@ import Button from '../../components/Button/Button';
 import { useNavigate } from 'react-router';
 import { onPasswordRecovery } from '../../services/auth';
 import { useTranslation } from 'react-i18next';
-import Title from '../../components/Title/Title';
+import Text from '../../components/Text/Text';
 import { getSearchParams } from '../../utils/searchParams';
 import { PATHS } from '../../constants/paths';
 
@@ -45,23 +45,23 @@ const PasswordRecoveryForm = () => {
 
 	return (
 		<div>
-			<Title text={t('auth.passwordRecoveryForm.title')} />
+			<Text text={t('auth.passwordRecoveryForm.title')} />
 
 			<Input
 				placeholder={t('auth.passwordRecoveryForm.newPassword')}
 				type='password'
 				value={password}
-				handleChange={handleChangePassword}
+				onChange={handleChangePassword}
 			/>
 			<Input
 				placeholder={t('auth.passwordRecoveryForm.repeatNewPassword')}
 				type='password'
 				value={repeatPassword}
-				handleChange={handleChangeRepeatPassword}
+				onChange={handleChangeRepeatPassword}
 			/>
 
 			<Button
-				title={t('auth.passwordRecoveryForm.btnUpdatePassword')}
+				text={t('auth.passwordRecoveryForm.btnUpdatePassword')}
 				onClick={submitChangePassword}
 				disabled={
 					password !== repeatPassword ||

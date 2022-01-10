@@ -1,4 +1,4 @@
-export default {
+const es = {
 	global: {
 		language: 'Lenguaje',
 		spanish: 'ES',
@@ -28,8 +28,9 @@ export default {
 		errors: {
 			required: 'Este campo es requerido.',
 			emailType: 'Debe ser un email válido.',
-			passwordNotEquals: 'Las contraseñas deben ser iguales.',
-			validPassword: 'La contraseña no es válida.',
+			passwordNotEquals: 'Las contraseñas no coinciden',
+			validPassword:
+				'(La contraseña debe contener al menos 6 letras y 1 número)',
 			notAllowedEmail: 'Email no permitido.',
 			number: 'Este campo debe ser un número.',
 			text: 'Este campo deber ser un texto.',
@@ -62,6 +63,7 @@ export default {
 			btnConfirm: 'Reenviar correo electronico',
 		},
 		register: {
+			register: 'Registro',
 			firstNamePlaceholder: 'Nombre',
 			lastNamePlaceholder: 'Apellido',
 			sexTitle: 'Sexo',
@@ -105,12 +107,13 @@ export default {
 				btnResendEmail: 'Reenviar',
 				hasNotEmail: '¿No te llegó el correo electrónico?',
 			},
-			accountNotEnabled: {
-				title: 'Tu cuenta no se encuentra habilitada',
-				auxText:
-					'Por favor, ponete en contacto con "El Templo" para más información.',
-				btnBack: 'volver',
-			},
+		},
+		accountNotEnabled: {
+			title: 'Lo sentimos',
+			subtitle: 'Tu membresía no se encuentra activa',
+			description1:
+				'Recuerda mantener tu cuota al día, para seguir disfrutando de todos los beneficios de “El Templo”.',
+			description2: 'Ante cualquier duda, contactate con el gym.',
 		},
 
 		forgotPassword1: {
@@ -154,8 +157,8 @@ export default {
 			title: 'Completa estos ultimos datos personales.',
 			weight: 'Peso',
 			height: 'Altura',
-			kilos: 'Kg',
-			meters: 'Mt',
+			kilos: 'KG',
+			meters: 'MT',
 			enter: 'Entrar',
 		},
 	},
@@ -188,7 +191,7 @@ export default {
 	},
 	help: {
 		main: {
-			help:'Ayuda',
+			help: 'Ayuda',
 			aboutUs: 'Sobre nosotros',
 			elTemplo: 'EL TEMPLO',
 			auxText1:
@@ -196,7 +199,8 @@ export default {
 			auxText12:
 				'Desde acrobacia libre a gimnasia deportiva, levantamiento de pesas a calistenia y movimiento natural.',
 
-			auxText13:	'Es un lugar de introspección y autoconocimiento que busca transmitir los pilares del cuidado y superación personal a través del entrenamiento físico y mental.',
+			auxText13:
+				'Es un lugar de introspección y autoconocimiento que busca transmitir los pilares del cuidado y superación personal a través del entrenamiento físico y mental.',
 			rectangle324: 'Cuerpo, alma, mente',
 			btn1: 'Ver mas',
 			mission: 'MISION Y VISION',
@@ -249,8 +253,9 @@ export default {
 		verifyEmail: 'Verificar Email',
 		enabledVerified: 'Comprobando Cuenta',
 		register: 'Registro',
-		help: 'Ayuda',
 		emailRegisterSended: 'Confirma tu Email',
+		myProfile: 'Mi perfil',
+		help: 'Ayuda',
 		contact: 'Contacto',
 	},
 	user: {
@@ -261,9 +266,36 @@ export default {
 			repeatNewPassword: 'Repetir contraseña nueva',
 			submitPassword: 'Cambiar contraseña',
 		},
+		myProfile: {
+			level: 'Nivel',
+			completedTrainings: 'Entrenamientos realizados',
+			memberSince: 'Miembro desde',
+			edit: 'Editar',
+			profile: 'perfil',
+			editInfo: 'EDITAR',
+			endEnabledDate: 'Suscripción activa hasta el día: ',
+			aboutYou: 'Sobre vos',
+			trainingLevel: 'Nivel de entrenamiento: ',
+			goals: 'Objetivos',
+			personalInfo: 'Datos personales',
+			height: 'Altura',
+			weight: 'Peso',
+			logOut: 'Cerrar sesión',
+			password: 'Cambiar contraseña',
+			myProfile: 'Perfil',
+		},
+		trainingLevels: {
+			beginner: 'Principiante',
+			amateur: 'Aficionado',
+			intermediate: 'Intermedio',
+			advanced: 'Avanzado',
+			expert: 'Experto',
+		},
 	},
 	errors: {
 		generic: 'Oops, ocurrió un error.',
 		authentication: 'Email o contraseña invalidos.',
 	},
 };
+
+export default es;

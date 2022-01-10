@@ -3,8 +3,6 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router';
 import Navbar from '../../components/Navbar/Navbar';
-import Button from '../../components/Button/Button';
-import { logoutAction } from '../../redux/auth';
 import { getUserInfoAction } from '../../redux/user';
 import { SHOW_NAVBAR } from '../../constants/paths';
 
@@ -14,10 +12,6 @@ const PrivatedLayout = () => {
 		(state) => state.user
 	);
 	const currentLocation = useLocation().pathname.substring(1);
-
-	const onLogout = () => {
-		dispatch(logoutAction());
-	};
 
 	const showNavbar = () => {
 		if (emailIsVerified && enabled && goals?.length === 3) {
@@ -39,7 +33,6 @@ const PrivatedLayout = () => {
 
 	return (
 		<div className='col-12'>
-			<Button onClick={onLogout} title='logout' />
 			<Outlet />
 			{showNavbar() && <Navbar />}
 		</div>

@@ -4,13 +4,10 @@
 	flex-direction: column;
 	align-items: center;
 	width: 100vw;
-	/* overflow: hidden; */
 }
 
 .accordion-button:not(.collapsed)::after {
-
-   background-size: 15px ;
-
+	background-size: 15px;
 }
 .accordion-button::after {
 	background-size: 15px;
@@ -19,6 +16,14 @@
 .container-fluid {
 	padding: 0;
 	margin: 0;
-	width: 100%;
-	overflow: scroll;
 }
+
+/* .top-spacing {
+	margin-top: 50px;
+}
+
+@media screen and (min-width: 1000px) {
+	.top-spacing {
+		margin: 100px;
+	}
+} */

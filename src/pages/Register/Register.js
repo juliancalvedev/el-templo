@@ -2,14 +2,12 @@ import { useState } from 'react';
 import useForm from './UseForm';
 import { RegisterValidate } from './RegisterValidate';
 import Input from '../../components/Input/Input';
-import Button from '../../components/Button/Button';
 import { useTranslation } from 'react-i18next';
 import './Register.scss'
 import MainContainer from '../../components/MainContainer/MainContainer';
 import { Link } from 'react-router-dom';
-import UserImage from '../../components/UserImage/UserImage';
-import InputIcon from '../../components/InputIcon/InputIcon';
 import TopBar from '../../components/TopBar/TopBar';
+import Button from '../../components/Button/Button'
 
 
 
@@ -18,7 +16,7 @@ export const Register = () => {
 	const { handleChange, values, handleSubmit, errors } =
 		useForm(RegisterValidate);
 
-	
+
 	//Base64
 
 	const [baseImage, setBaseImage] = useState(
@@ -58,8 +56,8 @@ export const Register = () => {
 	};
 
 	return (
-		<MainContainer text={'Register '} bg={4} color={1} back shadow>
-			<form className='register col-12 mt-5' onSubmit={handleSubmit}>
+		<MainContainer text={t('auth.register.register')} scroll back shadow bg={2} color={1} >
+			<form className='register top-spacing col-12 mt-5' onSubmit={handleSubmit}>
 				<div className='contBaseInputs px-3 mt-4 col-12 '>
 					<div className='baseI64 d-flex align-items-center col-12 '>
 						<input
@@ -70,23 +68,22 @@ export const Register = () => {
 							hidden
 							value={values.img}
 						/>
-						<UserImage
-							className='base-img2  '
+						<img
+							className='base-img2'
 							src={baseImage}
 							name='img'
 							onClick={clickFile}
 							value={values.img}
+							alt="img"
 						/>
 
 						<div className='inputsNL col-9 '>
 							<div className='fName '>
 								<Input
-									className='inputs col-12 '
-									type='firstName'
 									name='firstName'
 									placeholder={t('auth.register.firstNamePlaceholder')}
 									value={values.firstName}
-									handleChange={handleChange}
+									onChange={handleChange}
 								/>
 								{errors.firstName && (
 									<p>
@@ -100,12 +97,10 @@ export const Register = () => {
 							</div>
 							<div className='lastN mt-2 '>
 								<Input
-									className='inputs col-12 '
-									type='lastName'
 									name='lastName'
 									placeholder={t('auth.register.lastNamePlaceholder')}
 									value={values.lastName}
-									handleChange={handleChange}
+									onChange={handleChange}
 								/>
 								{errors.lastName && (
 									<p>
@@ -186,12 +181,11 @@ export const Register = () => {
 				<div className='inputsP2  m-3'>
 					<div className='form-inputs mb-3'>
 						<Input
-							className='inputs col-12 '
 							type='email'
 							name='email'
 							placeholder={t('auth.register.emailPlaceholder')}
 							value={values.email}
-							handleChange={handleChange}
+							onChange={handleChange}
 						/>
 						{errors.email && (
 							<p>{(errors.email = t('auth.register.emailError'))}</p>
@@ -199,31 +193,24 @@ export const Register = () => {
 					</div>
 					<div className='form-inputs mb-2'>
 						<Input
-							className='inputs col-12 '
 							type='password'
 							name='password'
 							placeholder={t('auth.register.passwordPlaceholder')}
 							value={values.password}
-							handleChange={handleChange}
+							onChange={handleChange}
+							feedback={t('global.errors.validPassword')}
+							isInvalid={errors.password}
+							invalidText={t('auth.register.password1Error')}
 						/>
-						{errors.password && (
-							<p>
-								{(errors.password = t('auth.register.password1Error'))}
-							</p>
-						)}
 
-						<label className='conteinerPass mt-0 col-12 text-end'>
-							{t('auth.register.passwordRequirement')}
-						</label>
 					</div>
 					<div className='form-inputs mb-3'>
 						<Input
-							className='inputs col-12  '
 							type='password'
 							name='password2'
 							placeholder={t('auth.register.password2Placeholder')}
 							value={values.password2}
-							handleChange={handleChange}
+							onChange={handleChange}
 						/>
 						{errors.password2 && (
 							<p>
@@ -231,9 +218,9 @@ export const Register = () => {
 							</p>
 						)}
 					</div>
-					<div className='form-inputs-select mb-0'>
+					<div className='form-inputs-select mb-0  '>
 						<select
-							className='inputs__select  col-12'
+							className='inputs__select col-12'
 							value={values.country}
 							onChange={handleChange}
 							name='country'
@@ -267,16 +254,15 @@ export const Register = () => {
 							<p>{(errors.country = t('auth.register.countryError'))}</p>
 						)}
 					</div>
-					<label className='nameInput2n mb-0'>
+					<label className='nameInput2n mb-0 mt-0'>
 						{t('auth.register.dateOfBirth')}
 					</label>
-					<div className='input-date '>
+					<div className='input-date my-0  '>
 						<Input
-							className='inputs col-12  '
 							type='date'
 							name='dateOfBirth'
 							value={values.dateOfBirth}
-							handleChange={handleChange}
+							onChange={handleChange}
 						/>
 						<div className='input-date-icon'>
 						<svg
@@ -306,16 +292,16 @@ export const Register = () => {
 					<Button
 						disabled={
 							(!values.firstName,
-							!values.lastName,
-							!values.sex,
-							!values.email,
-							!values.password,
-							!values.password2,
-							!values.country,
-							!values.dateOfBirth)
+								!values.lastName,
+								!values.sex,
+								!values.email,
+								!values.password,
+								!values.password2,
+								!values.country,
+								!values.dateOfBirth)
 						}
 						onClick={handleSubmit}
-						title={t('auth.register.btnRegister')}
+						text={t('auth.register.btnRegister')}
 					/>
 
 					<p className='TC d-flex justify-content-center mb-0'>

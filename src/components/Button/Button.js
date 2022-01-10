@@ -1,31 +1,26 @@
+import useStyles from "./useStyles"
 import './button.scss';
-const SIZE_STYLES = {
-	sm: 'col-3 h-50 py-3 px-4 mt-2 d-flex  align-items-center rounded-4',
-	md: 'col-5',
-	lg: 'col-12',
-};
-const Button = ({
-	children,
-	onClick,
-	title,
-	disabled,
-	type = 'button',
-	size = 'md',
-	customType,
-}) => {
-	return (
-		<div className=''>
-			<button
-				disabled={disabled}
-				className={`btn btn-primary customBtn customBtn--${customType} ${SIZE_STYLES[size]}`}
-				onClick={onClick}
-				type={type}
-			>
-				{children}
-				{title}
-			</button>
-		</div>
-	);
-};
+import Text from "../Text/Text";
 
-export default Button;
+const Button = ({ text, size = 3, className, onClick, type = 1, disabled }) => {
+
+    const COLOR_TEXT = {
+        1: '2',
+        2: '5',
+        3: '5'
+    }
+
+    const transformedText = type === 3 ? text.toUpperCase() : text;
+
+    const styles = useStyles({ className, size, type });
+
+    return (
+        <div className={styles.container}>
+            <button type="button" disabled={disabled} className={styles.button} onClick={onClick}>
+                <Text justify={type === 4 && 'start'} size={2} color={COLOR_TEXT[type]} bold={type === 3 || type === 4} text={transformedText} />
+            </button>
+        </div>
+    )
+}
+
+export default Button

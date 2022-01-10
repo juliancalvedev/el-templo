@@ -1,4 +1,4 @@
-export default {
+const en = {
 	global: {
 		language: 'Language',
 		spanish: 'ES',
@@ -61,6 +61,7 @@ export default {
 			btnConfirm: 'Resend email',
 		},
 		register: {
+			register:'Register',
 			firstNamePlaceholder: 'Name',
 			lastNamePlaceholder: 'Last Name',
 			sexTitle: 'Sex',
@@ -106,11 +107,12 @@ export default {
 				btnResendEmail: 'Resend',
 				hasNotEmail: 'The Email has not arrived?',
 			},
-			accountNotEnabled: {
-				title: 'Your account is not enabled.',
-				auxText: 'Please, contact "El Templo" for more information.',
-				btnBack: 'Back',
-			},
+		},
+		accountNotEnabled: {
+			title: 'We are sorry',
+			subtitle: 'your membership is not active',
+			description1: 'Remember to keep your quota up to date, to continue enjoying all the benefits of "El Templo".',
+			description2: 'If you have any questions, contact the gym.',
 		},
 
 		onboard1: {},
@@ -156,8 +158,8 @@ export default {
 			title: 'Complete the last personal data.',
 			weight: 'Weight',
 			height: 'Height',
-			kilos: 'Kg',
-			meters: 'Mt',
+			kilos: 'KG',
+			meters: 'MT',
 			enter: 'Enter',
 		},
 	},
@@ -250,8 +252,9 @@ export default {
 		verifyEmail: 'Verify Email',
 		enabledVerified: 'Checking Account',
 		register: 'Register',
-		help: 'Help',
 		emailRegisterSended: 'Confirm Email',
+		myProfile: 'My Profile',
+		help: 'Help',
 		contact: 'Contact',
 	},
 	user: {
@@ -262,9 +265,36 @@ export default {
 			repeatNewPassword: 'Repeat New Password',
 			submitPassword: 'Change Password',
 		},
+		myProfile: {
+			level: 'Level',
+			completedTrainings: 'Completed Trainings',
+			memberSince: 'Member since',
+			edit: 'Edit',
+			profile: 'profile',
+			editInfo: 'Edit',
+			endEnabledDate: 'Subscription active until: ',
+			aboutYou: 'About you',
+			trainingLevel: 'Training level: ',
+			goals: 'Goals',
+			personalInfo: 'Personal info',
+			height: 'Height',
+			weight: 'Weight',
+			logOut: 'Log out',
+			password: 'Password',
+			myProfile: 'Profile',
+		},
+		trainingLevels: {
+			beginner: 'Beginner',
+			amateur: 'Amateur',
+			intermediate: 'Intermediate',
+			advanced: 'Advanced',
+			expert: 'Expert',
+		},
 	},
 	errors: {
 		generic: 'Oops, an error occurred.',
 		authentication: 'Email or password wrong.',
 	},
 };
+
+export default en;

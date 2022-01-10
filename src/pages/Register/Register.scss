@@ -91,6 +91,22 @@ opacity: 0;
 .input-date-icon{
 	position: relative;
 	left:22em; 
-	top:-35px; 
+	top:-50px; 
 	pointer-events:none;
 }
+
+.base-img2 {
+	width: 5rem;
+	height: 5rem;
+	border-radius: 1000px;
+
+	&--small {
+		width: 3.85rem;
+		height: 3.85rem;
+		border-radius: 1000px;
+	}
+}
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+

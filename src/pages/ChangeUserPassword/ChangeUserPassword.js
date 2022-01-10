@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 
 import './ChangeUserPassword.css';
 import Input from '../../components/Input/Input';
-import Title from '../../components/Title/Title';
+import Text from '../../components/Text/Text';
 import Button from '../../components/Button/Button';
 
 const ChangeUserPassword = () => {
@@ -40,25 +40,25 @@ const ChangeUserPassword = () => {
 
 	return (
 		<div className='change-user-password-body'>
-			<Title text={t('user.changeUserPassword.title')} />
+			<Text text={t('user.changeUserPassword.title')} />
 
 			<Input
 				placeholder={t('user.changeUserPassword.currentPassword')}
-				handleChange={handleChangeCurrentPassword}
+				onChange={handleChangeCurrentPassword}
 				type='password'
 			/>
 			<Input
 				placeholder={t('user.changeUserPassword.newPassword')}
-				handleChange={handleNewPassword}
+				onChange={handleNewPassword}
 				type='password'
 			/>
 			<Input
 				placeholder={t('user.changeUserPassword.repeatNewPassword')}
-				handleChange={handleRepeatPassword}
+				onChange={handleRepeatPassword}
 				type='password'
 			/>
 			<Button
-				title={t('user.changeUserPassword.submitPassword')}
+				text={t('user.changeUserPassword.submitPassword')}
 				disabled={
 					!currentPassword ||
 					newPassword !== repeatPassword ||
