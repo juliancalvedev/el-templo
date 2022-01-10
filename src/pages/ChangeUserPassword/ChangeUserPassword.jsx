@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { changePassword } from '../../services/user';
 import { useNavigate } from 'react-router';
+import MainContainer from '../../components/MainContainer/MainContainer';
 
 import './ChangeUserPassword.css';
 import Input from '../../components/Input/Input';
@@ -39,7 +40,7 @@ const ChangeUserPassword = () => {
 	};
 
 	return (
-		<div className='change-user-password-body'>
+		<MainContainer main-container--noXscroll>
 			<Text text={t('user.changeUserPassword.title')} />
 
 			<Input
@@ -66,7 +67,8 @@ const ChangeUserPassword = () => {
 				}
 				onClick={handleSubmit}
 			/>
-		</div>
+			<h2>hola</h2>
+		</MainContainer>
 	);
 };
 
