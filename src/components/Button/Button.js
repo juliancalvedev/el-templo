@@ -1,5 +1,5 @@
 import useStyles from './useStyles';
-import './button.scss';
+import './Button.scss';
 import Text from '../Text/Text';
 
 const Button = ({ text, size = 3, className, onClick, type = 1, disabled }) => {

@@ -4,15 +4,16 @@ import { changePassword } from '../../services/user';
 import { useNavigate } from 'react-router';
 import MainContainer from '../../components/MainContainer/MainContainer';
 
-import './ChangeUserPassword.css';
 import Input from '../../components/Input/Input';
-import Text from '../../components/Text/Text';
+
 import Button from '../../components/Button/Button';
 
 const ChangeUserPassword = () => {
 	const { t } = useTranslation();
 
 	const navigate = useNavigate();
+
+	const [inputType, setInputType] = useState('password');
 
 	const [currentPassword, setCurrentPassword] = useState('');
 
@@ -38,36 +39,63 @@ const ChangeUserPassword = () => {
 			navigate(-1, { replace: true });
 		}
 	};
+	const onClickIcon = () => {
+		if (inputType === 'password') {
+			setInputType('text');
+		}
+		if (inputType === 'text') {
+			setInputType('password');
+		}
+	};
 
 	return (
-		<MainContainer main-container--noXscroll>
-			<Text text={t('user.changeUserPassword.title')} />
+		<MainContainer back shadow text='Chage User Password'>
+			<div className='col-12 d-flex h-75 flex-column align-items-center justify-content-between'>
+				<div className='col-12 d-flex h-100 flex-column   align-items-center '>
+					<Input
+						icon='eye'
+						placeholder={t(
+							'user.changeUserPassword.currentPassword'
+						)}
+						onChange={handleChangeCurrentPassword}
+						className='col-11'
+						type={inputType}
+						onClickIcon={onClickIcon}
+					/>
+					<Input
+						placeholder={t('user.changeUserPassword.newPassword')}
+						onChange={handleNewPassword}
+						className='col-11'
+						type={inputType}
+						icon='eye'
+						onClickIcon={onClickIcon}
+						feedback={t('global.errors.validPassword')}
+					/>
+					<Input
+						placeholder={t(
+							'user.changeUserPassword.repeatNewPassword'
+						)}
+						onChange={handleRepeatPassword}
+						className='col-11'
+						type={inputType}
+						icon='eye'
+						onClickIcon={onClickIcon}
+					/>
+				</div>
 
-			<Input
-				placeholder={t('user.changeUserPassword.currentPassword')}
-				onChange={handleChangeCurrentPassword}
-				type='password'
-			/>
-			<Input
-				placeholder={t('user.changeUserPassword.newPassword')}
-				onChange={handleNewPassword}
-				type='password'
-			/>
-			<Input
-				placeholder={t('user.changeUserPassword.repeatNewPassword')}
-				onChange={handleRepeatPassword}
-				type='password'
-			/>
-			<Button
-				text={t('user.changeUserPassword.submitPassword')}
-				disabled={
-					!currentPassword ||
-					newPassword !== repeatPassword ||
-					!newPassword
-				}
-				onClick={handleSubmit}
-			/>
-			<h2>hola</h2>
+				<div className='col-10 '>
+					<Button
+						text={t('user.changeUserPassword.submitPassword')}
+						disabled={
+							!currentPassword ||
+							newPassword !== repeatPassword ||
+							!newPassword ||
+							newPassword.length <= 6
+						}
+						onClick={handleSubmit}
+					/>
+				</div>
+			</div>
 		</MainContainer>
 	);
 };

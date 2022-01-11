@@ -23,6 +23,7 @@ const Input = ({
     icon,
     name,
     className,
+    disabled,
     onClickIcon = () => { }
 }) => {
 
@@ -34,6 +35,7 @@ const Input = ({
             {label && <label className={styles.label}>{label}</label>}
             <div className={styles.inputContent}>
                 <input
+                    disabled={disabled}
                     onChange={onChange}
                     type={type}
                     name={name}

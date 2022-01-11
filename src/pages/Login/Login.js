@@ -3,7 +3,7 @@ import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { loginAction } from '../../redux/auth';
+import { loginAction, saveEmailAction } from '../../redux/auth';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
@@ -55,6 +55,7 @@ const Login = () => {
 					})
 				);
 			} else if (!data.emailIsVerified) {
+				dispatch(saveEmailAction({ email }));
 				navigate(`/${PATHS.ENABLED_VERIFIED}`);
 			} else if (!data.enabled) {
 				setShowAlert(true);
@@ -73,8 +74,8 @@ const Login = () => {
 
 	return (
 		<MainContainer color={2} back>
-			<div className='login-container col-12'>
-				<div className='login-container__opacity d-flex justify-content-center col-12 pt-2'>
+			<div className='login-container col-12 h-100'>
+				<div className='login-container login-container__opacity d-flex justify-content-center col-12 h-100 pt-2'>
 					<div className='col-11 d-flex flex-column pt-5 mt-4'>
 						<Text
 							justify='start'
@@ -90,44 +91,40 @@ const Login = () => {
 						/>
 
 						<div className='col-12 mb-5 pt-4 mt-5'>
-							<form>
-								<Input
-									value={email}
-									onChange={handleChangeEmail}
-									type='email'
-									placeholder={t(
-										'auth.login.emailPlaceholder'
-									)}
-									transparent
-								/>
+							<Input
+								value={email}
+								onChange={handleChangeEmail}
+								type='email'
+								placeholder={t('auth.login.emailPlaceholder')}
+								transparent
+							/>
 
-								<Input
-									icon='eye'
-									value={password}
-									onChange={handleChangePassword}
-									type={inputType}
-									placeholder={t(
-										'auth.login.passwordPlaceholder'
-									)}
-									onClickIcon={onClickIcon}
-									transparent
-									feedback={t('global.errors.validPassword')}
-								/>
+							<Input
+								icon='eye'
+								value={password}
+								onChange={handleChangePassword}
+								type={inputType}
+								placeholder={t(
+									'auth.login.passwordPlaceholder'
+								)}
+								onClickIcon={onClickIcon}
+								transparent
+								feedback={t('global.errors.validPassword')}
+							/>
 
-								<Button
-									onClick={apiCall}
-									text={t('auth.login.btnLogin')}
+							<Button
+								onClick={apiCall}
+								text={t('auth.login.btnLogin')}
+							/>
+							<div className='col-12 d-flex justify-content-end  '>
+								<Text
+									color={3}
+									size={1}
+									underline
+									onClick={toForgottenPassword}
+									text={t('auth.login.recovery')}
 								/>
-								<div className='col-12 d-flex justify-content-end  '>
-									<Text
-										color={3}
-										size={1}
-										underline
-										onClick={toForgottenPassword}
-										text={t('auth.login.recovery')}
-									/>
-								</div>
-							</form>
+							</div>
 						</div>
 						<div className='d-flex flex-colum justify-content-center align-items-center mt-5 pt-5 h-20 '>
 							<Text
