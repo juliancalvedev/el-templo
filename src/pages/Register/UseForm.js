@@ -32,6 +32,7 @@ const useForm = (RegisterValidate) => {
 		});
 	};
 
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(values)

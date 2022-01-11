@@ -6,9 +6,9 @@ import { useTranslation } from 'react-i18next';
 import './Register.scss'
 import MainContainer from '../../components/MainContainer/MainContainer';
 import { Link } from 'react-router-dom';
-import TopBar from '../../components/TopBar/TopBar';
 import Button from '../../components/Button/Button'
-
+import TopSpacing from '../../components/TopSpacing/TopSpacing';
+import { useRef } from 'react';
 
 
 export const Register = () => {
@@ -16,6 +16,34 @@ export const Register = () => {
 	const { handleChange, values, handleSubmit, errors } =
 		useForm(RegisterValidate);
 
+ const inputDateRef = useRef();
+ const onFocusDate = () => (inputDateRef.current.type = 'date');
+ const onBlurDate = () => (inputDateRef.current.type = 'text');
+
+
+
+ const [inputType, setInputType] = useState('password');
+const [inputType2, setInputType2] = useState('password');
+
+
+ 
+const onClickIcon = () => {
+	if (inputType === 'password' ) {
+		setInputType('text');
+	}
+	if (inputType === 'text') {
+		setInputType('password');
+	}
+};
+
+const onClickIcon2 = () => {
+	if (inputType2 === 'password') {
+		setInputType2('text');
+	}
+	if (inputType2 === 'text') {
+		setInputType2('password');
+	}
+};
 
 	//Base64
 
@@ -56,8 +84,16 @@ export const Register = () => {
 	};
 
 	return (
-		<MainContainer text={t('auth.register.register')} scroll back shadow bg={2} color={1} >
-			<form className='register top-spacing col-12 mt-5' onSubmit={handleSubmit}>
+		<MainContainer
+			text={t('auth.register.register')}
+			scroll
+			back
+			shadow
+			bg={2}
+			color={1}
+		>
+			<TopSpacing scroll />
+			<form className='register col-12 ' onSubmit={handleSubmit}>
 				<div className='contBaseInputs px-3 mt-4 col-12 '>
 					<div className='baseI64 d-flex align-items-center col-12 '>
 						<input
@@ -74,7 +110,7 @@ export const Register = () => {
 							name='img'
 							onClick={clickFile}
 							value={values.img}
-							alt="img"
+							alt='img'
 						/>
 
 						<div className='inputsNL col-9 '>
@@ -193,24 +229,33 @@ export const Register = () => {
 					</div>
 					<div className='form-inputs mb-2'>
 						<Input
-							type='password'
 							name='password'
 							placeholder={t('auth.register.passwordPlaceholder')}
 							value={values.password}
 							onChange={handleChange}
-							feedback={t('global.errors.validPassword')}
 							isInvalid={errors.password}
 							invalidText={t('auth.register.password1Error')}
+							icon='eye'
+							type={inputType}
+							onClickIcon={onClickIcon}
+							isValid
+							feedback={t('global.errors.validPassword')}
 						/>
-
 					</div>
+
 					<div className='form-inputs mb-3'>
 						<Input
-							type='password'
+							onChange={handleChange}
+							isInvalid={errors.password}
+							invalidText={t('auth.register.password2Error')}
+							icon='eye'
+							type={inputType2}
+							onClickIcon={onClickIcon2}
+							transparent
+							isValid
 							name='password2'
 							placeholder={t('auth.register.password2Placeholder')}
 							value={values.password2}
-							onChange={handleChange}
 						/>
 						{errors.password2 && (
 							<p>
@@ -232,9 +277,9 @@ export const Register = () => {
 							<option value='us'>{t('auth.register.country2')}</option>
 							<option value='mexico'>
 								{t('auth.register.country3')}
-							</option>	
+							</option>
 						</select>
-					<div className='chevron-down'>
+						<div className='chevron-down col-1 d-flex justify-content-center align-items-center'>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
 								width='16'
@@ -254,29 +299,32 @@ export const Register = () => {
 							<p>{(errors.country = t('auth.register.countryError'))}</p>
 						)}
 					</div>
-					<label className='nameInput2n mb-0 mt-0'>
-						{t('auth.register.dateOfBirth')}
-					</label>
+
 					<div className='input-date my-0  '>
-						<Input
-							type='date'
+						<input
+							className='inputs col-12'
+							type='text'
+							placeholder={t('auth.register.dateOfBirth')}
 							name='dateOfBirth'
 							value={values.dateOfBirth}
 							onChange={handleChange}
+							ref={inputDateRef}
+							onFocus={onFocusDate}
+							onBlur={onBlurDate}
 						/>
-						<div className='input-date-icon'>
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							width='16'
-							height='16'
-							fill='currentColor'
-							className='bi bi-calendar4'
-							viewBox='0 0 16 16'
-						>
-							<path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z' />
-						</svg>	
+						<div className='input-date-icon chevron-down col-2 d-flex justify-content-center align-items-center'>
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								width='16'
+								height='16'
+								fill='currentColor'
+								className='bi bi-calendar4'
+								viewBox='0 0 16 16'
+							>
+								<path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z' />
+							</svg>
 						</div>
-						
+
 						{errors.dateOfBirth && (
 							<p>
 								{
@@ -292,13 +340,13 @@ export const Register = () => {
 					<Button
 						disabled={
 							(!values.firstName,
-								!values.lastName,
-								!values.sex,
-								!values.email,
-								!values.password,
-								!values.password2,
-								!values.country,
-								!values.dateOfBirth)
+							!values.lastName,
+							!values.sex,
+							!values.email,
+							!values.password,
+							!values.password2,
+							!values.country,
+							!values.dateOfBirth)
 						}
 						onClick={handleSubmit}
 						text={t('auth.register.btnRegister')}

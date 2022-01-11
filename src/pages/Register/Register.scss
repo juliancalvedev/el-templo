@@ -8,6 +8,8 @@
 	border: none;
 	text-indent: 4%;
 	border-radius: 15px;
+	outline: none;
+	
 }
 
 .nameInput {
@@ -27,6 +29,7 @@
 	line-height: 100%;
 	font-size: 84%;
 	height: 50%;
+	
 }
 .btncheck2 {
 	background-color: $tertiary;
@@ -74,26 +77,17 @@ select{
 	border: none;
 	text-indent: 4%;
 	color: $seventh;
+	display: flex;
 	border-radius: 15px;
 	margin-bottom: 0em;
 
 }
-.chevron-down{
-	position: relative;
-	left:22em; 
-	top:-35px; 
-	pointer-events:none;
-}
+
 ::-webkit-calendar-picker-indicator{
 opacity: 0;
 }
 
-.input-date-icon{
-	position: relative;
-	left:22em; 
-	top:-50px; 
-	pointer-events:none;
-}
+
 
 .base-img2 {
 	width: 5rem;
@@ -105,8 +99,5 @@ opacity: 0;
 		height: 3.85rem;
 		border-radius: 1000px;
 	}
-}
-input[type=date]:required:invalid::-webkit-datetime-edit {
-    color: transparent;
 }
 
