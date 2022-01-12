@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useRef } from 'react';
+import { useState} from 'react';
 import Text from '../../components/Text/Text';
 import './Help.scss';
 import HelpAccordion from './HelpAccordion';
@@ -8,10 +8,14 @@ import TopSpacing from '../../components/TopSpacing/TopSpacing';
 
 const Help = () => {
 	const { t } = useTranslation();
-	const btnHidden = useRef();
-	const removeBtn = () => (btnHidden.current.hidden='hidden');
+	const [showBtn, setShowBtn] = useState(true);
+	const handleChangeBtn= () => {
+		setShowBtn(false);	
+	}
+	
 
 	return (
+
 		<MainContainer color={2} text={t('help.main.help')} bg={1} back scroll>
 			<TopSpacing scroll />
 			<Text bold size={4} text={t('help.main.aboutUs')} />
@@ -32,16 +36,18 @@ const Help = () => {
 				{t('help.main.rectangle324')}
 			</p>
 
-			<button
+			{showBtn?<button
 				className='btnCollapsed col-6 '
 				type='button'
 				data-bs-toggle='collapse'
 				data-bs-target='#collapseExample'
-				onClick={removeBtn}
-				ref={btnHidden}
+				onClick={handleChangeBtn}
+				value={showBtn}
+				
 			>
 				{t('help.main.btn1')}
-			</button>
+				
+			</button>:null}
 
 			<div className='collapse ' id='collapseExample'>
 				<div className='card p-0'>
