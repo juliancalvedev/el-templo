@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { useRef } from 'react';
 import Text from '../../components/Text/Text';
 import './Help.scss';
 import HelpAccordion from './HelpAccordion';
@@ -7,10 +8,8 @@ import TopSpacing from '../../components/TopSpacing/TopSpacing';
 
 const Help = () => {
 	const { t } = useTranslation();
-	const getBtn = document.querySelector('.btnCollapsed');
-	const removeBtn = () => {
-		getBtn.remove();
-	};
+	const btnHidden = useRef();
+	const removeBtn = () => (btnHidden.current.hidden='hidden');
 
 	return (
 		<MainContainer color={2} text={t('help.main.help')} bg={1} back scroll>
@@ -39,6 +38,7 @@ const Help = () => {
 				data-bs-toggle='collapse'
 				data-bs-target='#collapseExample'
 				onClick={removeBtn}
+				ref={btnHidden}
 			>
 				{t('help.main.btn1')}
 			</button>
