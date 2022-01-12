@@ -1,21 +1,22 @@
 import { privatePut, privateGet, privatePost } from '../axios/privateInstance';
 
 const baseURL = '/user';
-export const help = async ({ message, subject }) =>{
-try {
-	const response = await privatePost({
-		url: `${baseURL}/send-email-coach`,
-		body: {
-			message: message,
-			subject: subject,
-		},
-	});
-	const { data, problem } = response.data;
-	return{ data, problem, };
-} catch (error) {
-	alert(error);
-}
-};
+export const help = ({ message, subject }) => 
+	
+		privatePost({
+			url: `${baseURL}/send-email-coach`,
+			body: {
+				message: message,
+				subject: subject,
+			},
+		});
+		
+
+
+		
+
+
+
 export const changePassword = async ({ currentPassword, newPassword }) => {
 	try {
 		const response = await privatePut({
