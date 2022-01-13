@@ -29,7 +29,8 @@ const es = {
 			required: 'Este campo es requerido.',
 			emailType: 'Debe ser un email válido.',
 			passwordNotEquals: 'Las contraseñas no coinciden',
-			validPassword: '(La contraseña debe contener al menos 6 letras y 1 número)',
+			validPassword:
+				'(La contraseña debe contener al menos 6 letras y 1 número)',
 			notAllowedEmail: 'Email no permitido.',
 			number: 'Este campo debe ser un número.',
 			text: 'Este campo deber ser un texto.',
@@ -109,7 +110,8 @@ const es = {
 		accountNotEnabled: {
 			title: 'Lo sentimos',
 			subtitle: 'Tu membresía no se encuentra activa',
-			description1: 'Recuerda mantener tu cuota al día, para seguir disfrutando de todos los beneficios de “El Templo”.',
+			description1:
+				'Recuerda mantener tu cuota al día, para seguir disfrutando de todos los beneficios de “El Templo”.',
 			description2: 'Ante cualquier duda, contactate con el gym.',
 		},
 
@@ -257,7 +259,7 @@ const es = {
 	},
 	user: {
 		changeUserPassword: {
-			title: 'Editar contraseña',
+			title: 'Edición de contraseña',
 			currentPassword: 'Contraseña actual',
 			newPassword: 'Nueva contraseña',
 			repeatNewPassword: 'Repetir contraseña nueva',
