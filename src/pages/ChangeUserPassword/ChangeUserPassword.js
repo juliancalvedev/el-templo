@@ -13,7 +13,11 @@ const ChangeUserPassword = () => {
 
 	const navigate = useNavigate();
 
-	const [inputType, setInputType] = useState('password');
+	const [showCurrentPassword, setShowCurrentPassword] = useState('password');
+
+	const [showNewPasword, setShowNewPassword] = useState('password');
+
+	const [showRepeatPassword, setShowRepeatPassword] = useState('password');
 
 	const [currentPassword, setCurrentPassword] = useState('');
 
@@ -39,12 +43,28 @@ const ChangeUserPassword = () => {
 			navigate(-1, { replace: true });
 		}
 	};
-	const onClickIcon = () => {
-		if (inputType === 'password') {
-			setInputType('text');
+	const onClickCurrentPassword = () => {
+		if (showCurrentPassword === 'password') {
+			setShowCurrentPassword('text');
 		}
-		if (inputType === 'text') {
-			setInputType('password');
+		if (showCurrentPassword === 'text') {
+			setShowCurrentPassword('password');
+		}
+	};
+	const onClickNewPassword = () => {
+		if (showNewPasword === 'password') {
+			setShowNewPassword('text');
+		}
+		if (showNewPasword === 'text') {
+			setShowNewPassword('password');
+		}
+	};
+	const onClickRepeatPassword = () => {
+		if (showRepeatPassword === 'password') {
+			setShowRepeatPassword('text');
+		}
+		if (showRepeatPassword === 'text') {
+			setShowRepeatPassword('password');
 		}
 	};
 
@@ -59,16 +79,16 @@ const ChangeUserPassword = () => {
 						)}
 						onChange={handleChangeCurrentPassword}
 						className='col-11'
-						type={inputType}
-						onClickIcon={onClickIcon}
+						type={showCurrentPassword}
+						onClickIcon={onClickCurrentPassword}
 					/>
 					<Input
 						placeholder={t('user.changeUserPassword.newPassword')}
 						onChange={handleNewPassword}
 						className='col-11'
-						type={inputType}
+						type={showNewPasword}
 						icon='eye'
-						onClickIcon={onClickIcon}
+						onClickIcon={onClickNewPassword}
 						feedback={t('global.errors.validPassword')}
 					/>
 					<Input
@@ -77,9 +97,9 @@ const ChangeUserPassword = () => {
 						)}
 						onChange={handleRepeatPassword}
 						className='col-11'
-						type={inputType}
+						type={showRepeatPassword}
 						icon='eye'
-						onClickIcon={onClickIcon}
+						onClickIcon={onClickRepeatPassword}
 					/>
 				</div>
 
