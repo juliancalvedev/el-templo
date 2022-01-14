@@ -33,17 +33,18 @@ const onClickIcon = () => {
 	}
 	if (inputType === 'text') {
 		setInputType('password');
+	
 	}
 };
-
-const onClickIcon2 = () => {
+	const onClickIcon2 = () => {
 	if (inputType2 === 'password') {
 		setInputType2('text');
 	}
-	if (inputType2 === 'text') {
+	if (inputType2=== 'text') {
 		setInputType2('password');
 	}
 };
+
 
 	//Base64
 
@@ -152,7 +153,7 @@ const onClickIcon2 = () => {
 					</div>
 				</div>
 
-				<div className='inputsRadio justify-content-center align-content-center d-flex mt-4 mb-4 col-12'>
+				<div className='inputsRadio col-md-4 my-3 justify-content-center align-content-center d-flex mt-4 mb-4 col-12'>
 					<div
 						className='inputSexTitle col-10'
 						name='sex'
@@ -263,9 +264,9 @@ const onClickIcon2 = () => {
 							</p>
 						)}
 					</div>
-					<div className='form-inputs-select mb-0  '>
+					<div className='form-inputs-select col-md-4 my-3 '>
 						<select
-							className='inputs__select col-12'
+							className='inputs__select d-flex  pr-5 col-12'
 							value={values.country}
 							onChange={handleChange}
 							name='country'
@@ -279,7 +280,7 @@ const onClickIcon2 = () => {
 								{t('auth.register.country3')}
 							</option>
 						</select>
-						<div className='chevron-down col-1 d-flex justify-content-center align-items-center'>
+						<div className='chevron__down '>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
 								width='16'
@@ -294,15 +295,15 @@ const onClickIcon2 = () => {
 								/>
 							</svg>
 						</div>
-
-						{errors.country && (
-							<p>{(errors.country = t('auth.register.countryError'))}</p>
-						)}
 					</div>
 
-					<div className='input-date my-0  '>
+					{errors.country && (
+						<p>{(errors.country = t('auth.register.countryError'))}</p>
+					)}
+
+					<div className='input__date col-md-4 my-3 relative'>
 						<input
-							className='inputs col-12'
+							className='inputs col-12 d-flex pr-5 '
 							type='text'
 							placeholder={t('auth.register.dateOfBirth')}
 							name='dateOfBirth'
@@ -312,7 +313,7 @@ const onClickIcon2 = () => {
 							onFocus={onFocusDate}
 							onBlur={onBlurDate}
 						/>
-						<div className='input-date-icon chevron-down col-2 d-flex justify-content-center align-items-center'>
+						<div className='input-date-icon justify-content-end align-items-center'>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
 								width='16'
@@ -336,7 +337,7 @@ const onClickIcon2 = () => {
 						)}
 					</div>
 				</div>
-				<div className='col-10 m-4 '>
+				<div className='col-10 m-4 col-md-4 my-3  '>
 					<Button
 						disabled={
 							(!values.firstName,

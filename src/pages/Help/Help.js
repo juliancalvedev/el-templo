@@ -4,6 +4,7 @@ import './Help.scss';
 import HelpAccordion from './HelpAccordion';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import TopSpacing from '../../components/TopSpacing/TopSpacing';
+import { useRef, useState } from 'react';
 
 const Help = () => {
 	const { t } = useTranslation();
@@ -11,6 +12,11 @@ const Help = () => {
 	const removeBtn = () => {
 		getBtn.remove();
 	};
+	const buttonHidden = useRef();
+	const onClickbuttonHidden = () => (buttonHidden.current.hidden='hidden');
+
+	const [showButton, setShowButton] = useState(true);
+	const onClickShow = () => setShowButton(false);
 
 	return (
 		<MainContainer color={2} text={t('help.main.help')} bg={1} back scroll>
@@ -25,24 +31,23 @@ const Help = () => {
 				alt=''
 			/>
 			<div className='col-11 m-auto my-3 d-flex align-items-start flex-column'>
-				<Text justify="start" size={2} text={t('help.main.auxText1')} />
-				<Text justify="start" size={2} text={t('help.main.auxText12')} />
-				<Text justify="start" size={2} text={t('help.main.auxText13')} />
+				<Text justify='start' size={2} text={t('help.main.auxText1')} />
+				<Text justify='start' size={2} text={t('help.main.auxText12')} />
+				<Text justify='start' size={2} text={t('help.main.auxText13')} />
 			</div>
 			<p className=' d-flex  justify-content-center align-items-center col-12 rectangle324 py-3 '>
 				{t('help.main.rectangle324')}
 			</p>
 
-			<button
+			{showButton?<button
 				className='btnCollapsed col-6 '
 				type='button'
 				data-bs-toggle='collapse'
 				data-bs-target='#collapseExample'
-				onClick={removeBtn}
+				onClick={onClickShow}
 			>
 				{t('help.main.btn1')}
-			</button>
-
+			</button>:null}
 			<div className='collapse ' id='collapseExample'>
 				<div className='card p-0'>
 					<Text font={2} size={5} text={t('help.main.mission')} />
@@ -51,8 +56,8 @@ const Help = () => {
 						<Text text={t('help.main.auxText2')} />
 						<Text text={t('help.main.auxText21')} />
 					</div>
-
-					<HelpAccordion />
+			
+						<HelpAccordion/>					
 				</div>
 			</div>
 		</MainContainer>
