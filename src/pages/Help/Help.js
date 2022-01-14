@@ -6,6 +6,7 @@ import HelpAccordion from './HelpAccordion';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import TopSpacing from '../../components/TopSpacing/TopSpacing';
 
+import Button from '../../components/Button/Button';
 const Help = () => {
 	const { t } = useTranslation();
 	const [showBtn, setShowBtn] = useState(true);
@@ -36,20 +37,14 @@ const Help = () => {
 				{t('help.main.rectangle324')}
 			</p>
 
-			{showBtn?<button
-				className='btnCollapsed col-6 '
-				type='button'
-				data-bs-toggle='collapse'
-				data-bs-target='#collapseExample'
+			{showBtn?<Button 
 				onClick={handleChangeBtn}
-				value={showBtn}
+				type={3}
+				text={t('help.main.btn1')}
 				
-			>
-				{t('help.main.btn1')}
-				
-			</button>:null}
+			/>:
 
-			<div className='collapse ' id='collapseExample'>
+			<div >
 				<div className='card p-0'>
 					<Text font={2} size={5} text={t('help.main.mission')} />
 
@@ -68,7 +63,7 @@ const Help = () => {
 
 					<HelpAccordion />
 				</div>
-			</div>
+			</div>}
 		</MainContainer>
 	);
 };
