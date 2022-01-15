@@ -3,48 +3,49 @@ import useForm from './UseForm';
 import { RegisterValidate } from './RegisterValidate';
 import Input from '../../components/Input/Input';
 import { useTranslation } from 'react-i18next';
-import './Register.scss'
+import './Register.scss';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import { Link } from 'react-router-dom';
-import Button from '../../components/Button/Button'
+import Button from '../../components/Button/Button';
 import TopSpacing from '../../components/TopSpacing/TopSpacing';
 import { useRef } from 'react';
-
 
 export const Register = () => {
 	const { t } = useTranslation();
 	const { handleChange, values, handleSubmit, errors } =
 		useForm(RegisterValidate);
 
- const inputDateRef = useRef();
- const onFocusDate = () => (inputDateRef.current.type = 'date');
- const onBlurDate = () => (inputDateRef.current.type = 'text');
+	//inputDate
+	const inputDateRef = useRef();
+	const onFocusDate = () => (inputDateRef.current.type = 'date');
+	const onBlurDate = () => (inputDateRef.current.type = 'text');
+	//inputDate
 
+	/*.....................................................................*/
 
+	//InputPasswordEye
+	const [inputTypePassword, setInputTypePassword] = useState('password');
+	const [inputTypePassword2, setInputTypePassword2] = useState('password');
 
- const [inputType, setInputType] = useState('password');
-const [inputType2, setInputType2] = useState('password');
+	const onClickIconPassword = () => {
+		if (inputTypePassword === 'password') {
+			setInputTypePassword('text');
+		}
+		if (inputTypePassword === 'text') {
+			setInputTypePassword('password');
+		}
+	};
 
-
- 
-const onClickIcon = () => {
-	if (inputType === 'password' ) {
-		setInputType('text');
-	}
-	if (inputType === 'text') {
-		setInputType('password');
-	
-	}
-};
-	const onClickIcon2 = () => {
-	if (inputType2 === 'password') {
-		setInputType2('text');
-	}
-	if (inputType2=== 'text') {
-		setInputType2('password');
-	}
-};
-
+	const onClickIconPassword2 = () => {
+		if (inputTypePassword2 === 'password') {
+			setInputTypePassword2('text');
+		}
+		if (inputTypePassword2 === 'text') {
+			setInputTypePassword2('password');
+		}
+	};
+	//InputPasswordEye
+	/*.....................................................................*/
 
 	//Base64
 
@@ -56,7 +57,6 @@ const onClickIcon = () => {
 		const file = e.target.files[0];
 		const base64 = await convertBase64(file);
 		setBaseImage(base64);
-		
 	};
 
 	const clickFile = () => {
@@ -79,7 +79,6 @@ const onClickIcon = () => {
 				reject(error);
 			};
 		});
-		
 
 		//Base64
 	};
@@ -237,9 +236,9 @@ const onClickIcon = () => {
 							isInvalid={errors.password}
 							invalidText={t('auth.register.password1Error')}
 							icon='eye'
-							type={inputType}
-							onClickIcon={onClickIcon}
-							isValid
+							type={inputTypePassword}
+							onClickIcon={onClickIconPassword}
+							isInvalid={errors.password}
 							feedback={t('global.errors.validPassword')}
 						/>
 					</div>
@@ -250,19 +249,12 @@ const onClickIcon = () => {
 							isInvalid={errors.password}
 							invalidText={t('auth.register.password2Error')}
 							icon='eye'
-							type={inputType2}
-							onClickIcon={onClickIcon2}
-							transparent
-							isValid
+							type={inputTypePassword2}
+							onClickIcon={onClickIconPassword2}
 							name='password2'
 							placeholder={t('auth.register.password2Placeholder')}
 							value={values.password2}
 						/>
-						{errors.password2 && (
-							<p>
-								{(errors.password2 = t('auth.register.password2Error'))}
-							</p>
-						)}
 					</div>
 					<div className='form-inputs-select col-md-4 my-3 '>
 						<select
@@ -280,6 +272,7 @@ const onClickIcon = () => {
 								{t('auth.register.country3')}
 							</option>
 						</select>
+
 						<div className='chevron__down '>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'

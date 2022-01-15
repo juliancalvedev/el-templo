@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
 
 
-
 const useForm = (RegisterValidate) => {
 	const [values, setValues] = useState({
 		firstName: '',
@@ -19,8 +18,8 @@ const useForm = (RegisterValidate) => {
 		country: false,
 		img: '',
 	});
+	
 	const [errors, setErrors] = useState({});
-
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
@@ -31,7 +30,6 @@ const useForm = (RegisterValidate) => {
 			[name]: value,
 		});
 	};
-
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -50,6 +48,7 @@ const useForm = (RegisterValidate) => {
 				dateOfBirth,
 				country,
 				img,
+				
 			} = values;
 			dispatch(
 				registerAction({
