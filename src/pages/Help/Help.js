@@ -4,7 +4,6 @@ import './Help.scss';
 import HelpAccordion from './HelpAccordion';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import TopSpacing from '../../components/TopSpacing/TopSpacing';
-import { useRef, useState } from 'react';
 
 const Help = () => {
 	const { t } = useTranslation();
@@ -12,11 +11,6 @@ const Help = () => {
 	const removeBtn = () => {
 		getBtn.remove();
 	};
-	const buttonHidden = useRef();
-	const onClickbuttonHidden = () => (buttonHidden.current.hidden='hidden');
-
-	const [showButton, setShowButton] = useState(true);
-	const onClickShow = () => setShowButton(false);
 
 	return (
 		<MainContainer color={2} text={t('help.main.help')} bg={1} back scroll>
@@ -39,15 +33,16 @@ const Help = () => {
 				{t('help.main.rectangle324')}
 			</p>
 
-			{showButton?<button
+			<button
 				className='btnCollapsed col-6 '
 				type='button'
 				data-bs-toggle='collapse'
 				data-bs-target='#collapseExample'
-				onClick={onClickShow}
+				onClick={removeBtn}
 			>
 				{t('help.main.btn1')}
-			</button>:null}
+			</button>
+
 			<div className='collapse ' id='collapseExample'>
 				<div className='card p-0'>
 					<Text font={2} size={5} text={t('help.main.mission')} />
@@ -56,8 +51,8 @@ const Help = () => {
 						<Text text={t('help.main.auxText2')} />
 						<Text text={t('help.main.auxText21')} />
 					</div>
-			
-						<HelpAccordion/>					
+
+					<HelpAccordion />
 				</div>
 			</div>
 		</MainContainer>
