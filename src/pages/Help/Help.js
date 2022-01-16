@@ -25,9 +25,9 @@ const Help = () => {
 				alt=''
 			/>
 			<div className='col-11 m-auto my-3 d-flex align-items-start flex-column'>
-				<Text justify="start" size={2} text={t('help.main.auxText1')} />
-				<Text justify="start" size={2} text={t('help.main.auxText12')} />
-				<Text justify="start" size={2} text={t('help.main.auxText13')} />
+				<Text justify='start' size={2} text={t('help.main.auxText1')} />
+				<Text justify='start' size={2} text={t('help.main.auxText12')} />
+				<Text justify='start' size={2} text={t('help.main.auxText13')} />
 			</div>
 			<p className=' d-flex  justify-content-center align-items-center col-12 rectangle324 py-3 '>
 				{t('help.main.rectangle324')}

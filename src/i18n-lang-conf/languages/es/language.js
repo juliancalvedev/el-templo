@@ -29,7 +29,8 @@ const es = {
 			required: 'Este campo es requerido.',
 			emailType: 'Debe ser un email válido.',
 			passwordNotEquals: 'Las contraseñas no coinciden',
-			validPassword: '(La contraseña debe contener al menos 6 letras y 1 número)',
+			validPassword:
+				'(La contraseña debe contener al menos 6 letras y 1 número)',
 			notAllowedEmail: 'Email no permitido.',
 			number: 'Este campo debe ser un número.',
 			text: 'Este campo deber ser un texto.',
@@ -62,16 +63,17 @@ const es = {
 			btnConfirm: 'Reenviar correo electronico',
 		},
 		register: {
+			register: 'Registro',
 			firstNamePlaceholder: 'Nombre',
 			lastNamePlaceholder: 'Apellido',
 			sexTitle: 'Sexo',
 			sex1: 'Femenino',
 			sex2: 'Masculino',
 			sex3: 'Otro',
-			emailPlaceholder: 'Email',
+			emailPlaceholder: 'Email@email.com',
 			passwordPlaceholder: 'Contraseña',
 			passwordRequirement: '(Debe contener al menos 6 letras y 1 numero)',
-			password2Placeholder: 'Repita su contraseña',
+			password2Placeholder: 'Repetir contraseña',
 			countrySelection: 'País',
 			country1: 'Argentina',
 			country2: 'USA',
@@ -109,7 +111,8 @@ const es = {
 		accountNotEnabled: {
 			title: 'Lo sentimos',
 			subtitle: 'Tu membresía no se encuentra activa',
-			description1: 'Recuerda mantener tu cuota al día, para seguir disfrutando de todos los beneficios de “El Templo”.',
+			description1:
+				'Recuerda mantener tu cuota al día, para seguir disfrutando de todos los beneficios de “El Templo”.',
 			description2: 'Ante cualquier duda, contactate con el gym.',
 		},
 

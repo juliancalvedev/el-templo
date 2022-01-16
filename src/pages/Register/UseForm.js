@@ -5,6 +5,7 @@ import { HasErrors } from './RegisterValidate';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
 
+
 const useForm = (RegisterValidate) => {
 	const [values, setValues] = useState({
 		firstName: '',
@@ -17,8 +18,8 @@ const useForm = (RegisterValidate) => {
 		country: false,
 		img: '',
 	});
+	
 	const [errors, setErrors] = useState({});
-
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
@@ -32,6 +33,7 @@ const useForm = (RegisterValidate) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		console.log(values)
 		const callback = () => navigate(`/${PATHS.EMAIL_REGISTER_SENDED}`);
 		const auxErrors = RegisterValidate(values);
 		setErrors(auxErrors);
@@ -46,6 +48,7 @@ const useForm = (RegisterValidate) => {
 				dateOfBirth,
 				country,
 				img,
+				
 			} = values;
 			dispatch(
 				registerAction({
@@ -65,5 +68,4 @@ const useForm = (RegisterValidate) => {
 
 	return { handleChange, handleSubmit, values, errors };
 };
-
 export default useForm;

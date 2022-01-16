@@ -61,13 +61,14 @@ const en = {
 			btnConfirm: 'Resend email',
 		},
 		register: {
+			register:'Register',
 			firstNamePlaceholder: 'Name',
 			lastNamePlaceholder: 'Last Name',
 			sexTitle: 'Sex',
 			sex1: 'Female',
 			sex2: 'Male',
 			sex3: 'Other',
-			emailPlaceholder: 'Email',
+			emailPlaceholder: 'Email@email.com',
 			passwordPlaceholder: 'Password',
 			passwordRequirement:
 				'(Must contain at least 6 letters and 1 number)',

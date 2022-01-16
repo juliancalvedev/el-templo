@@ -1,9 +1,11 @@
 
 
-export const RegisterValidate = (values,) => {
+export const RegisterValidate = (values) => {
 
 	const errors = {};
-
+	if (!values.img) {
+		errors.img = {};
+	}
 	if (!values.firstName.trim()) {
 		errors.firstName = {};
 	}
@@ -32,6 +34,7 @@ export const RegisterValidate = (values,) => {
 };
 
 export const HasErrors = (values) => {
+
 	if (!values.firstName.trim()) {
 		return true;
 	}
@@ -56,6 +59,9 @@ export const HasErrors = (values) => {
 	}
 
 	if (!values.country) {
+		return true;
+	}
+	if (!values.img) {
 		return true;
 	}
 	if (!values.dateOfBirth) {
