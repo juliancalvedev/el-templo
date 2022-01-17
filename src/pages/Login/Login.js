@@ -26,9 +26,26 @@ const Login = () => {
 
   const [inputType, setInputType] = useState("password");
 
+  const callback = () => {
+    if (data) {
+      if (data.token) {
+        const callback = () => navigate(`/${PATHS.LOGIN}`);
+        dispatch(loginAction({ data: { token: data?.token, email }, callback }));
+      }
+      else if (!data.emailIsVerified) {
+        dispatch(saveEmailAction({ email }));
+        navigate(`/${PATHS.ENABLED_VERIFIED}`);
+      }
+      else if (!data.enabled) {
+        setShowAlert(true);
+      }
+    }
+  };
+
   const [data, error, apiCall] = useFetch({
     service: () => login({ email, password }),
-    globalLoader: true
+    globalLoader: true,
+    callback
   });
 
   const toRegister = () => navigate(`/${PATHS.REGISTER}`);
@@ -45,21 +62,7 @@ const Login = () => {
     setShowAlert(false);
   }
 
-  useEffect(() => {
-    if (data) {
-      if (data.token) {
-        const callback = () => navigate(`/${PATHS.LOGIN}`);
-        dispatch(loginAction({ data: { token: data?.token, email }, callback }));
-      }
-      else if (!data.emailIsVerified) {
-        dispatch(saveEmailAction({ email }));
-        navigate(`/${PATHS.ENABLED_VERIFIED}`);
-      }
-      else if (!data.enabled) {
-        setShowAlert(true);
-      }
-    }
-  }, [data]);
+
 
   const onClickIcon = () => {
     if (inputType === "password") {

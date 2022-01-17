@@ -86,7 +86,7 @@ export const Register = () => {
 	return (
 		<MainContainer
 			text={t('auth.register.register')}
-			scroll
+			
 			back
 			shadow
 			bg={2}

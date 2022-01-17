@@ -10,6 +10,7 @@ import Text from '../../components/Text/Text';
 import Button from '../../components/Button/Button';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import ImgCorreoNoVerificado from '../../assets/images/ImgCorreoNoVerificado';
+import useFetch from '../../hooks/useFetch';
 
 const EnabledVerified = () => {
 	const navigate = useNavigate();
@@ -19,15 +20,15 @@ const EnabledVerified = () => {
 		(store) => store.auth
 	);
 
-	const navToLogin = () => navigate(`/${PATHS.LOGIN}`);
 
-	const handleResendVerifyEmail = async () => {
-		await resendVerifyEmail(savedEmail);
-		navToLogin();
-	};
+	const [data, error, apiCall] = useFetch({
+		service: () => resendVerifyEmail(savedEmail),
+		globalLoader: true,
+		callback: () => navigate(`/${PATHS.LOGIN}`)
+	})
 
 	return (
-		<MainContainer>
+		<MainContainer scroll>
 			<div className='d-flex flex-column align-items-center col-12 '>
 				{!emailIsVerified && (
 					<div className='d-flex flex-column align-items-center col-10 '>
@@ -63,7 +64,7 @@ const EnabledVerified = () => {
 								text={t(
 									'auth.enabledVerified.emailNotVerified.btnResendEmail'
 								)}
-								onClick={handleResendVerifyEmail}
+								onClick={apiCall}
 							/>
 						</div>
 					</div>

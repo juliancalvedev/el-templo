@@ -98,37 +98,6 @@ export const logoutAction = () => (dispatch) => {
 	});
 };
 
-export const startPasswordRecoveryAction =
-	({ email }) =>
-	async (dispatch) => {
-		//llamada al back
-
-		try {
-			const response = await startPasswordRecovery({ email });
-			const { data, problem } = response.data;
-			if (problem) {
-				dispatch({
-					type: ERROR,
-				});
-			} else {
-				dispatch({
-					type: START_PASSWORD_RECOVERY,
-					payload: data,
-				});
-			}
-		} catch (error) {
-			dispatch({
-				type: ERROR,
-			});
-		}
-
-		// El dispatch llama al reducer
-
-		//dispatch de startPasswordRecovery si obtenemos el token
-
-		//dispatch un error
-	};
-
 export const registerAction =
 	({
 		firstName,

@@ -2,19 +2,22 @@ import Input from '../../components/Input/Input';
 import Text from '../../components/Text/Text';
 import Button from '../../components/Button/Button';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { startPasswordRecoveryAction } from '../../redux/auth';
 import { useTranslation } from 'react-i18next';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import TopSpacing from '../../components/TopSpacing/TopSpacing';
 import ImgKeyFP from '../../assets/images/ImgKeyFP';
 import ImgPadlockFP from '../../assets/images/ImgPadlockFP';
+import useFetch from '../../hooks/useFetch';
+import { startPasswordRecovery } from '../../services/auth';
+import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../constants/paths';
 
 
 
 const ForgottenPassword = () => {
 	const { t } = useTranslation();
-	const dispatch = useDispatch();
+
+	const navigate = useNavigate();
 
 	const [email, setEmail] = useState('');
 
@@ -22,11 +25,14 @@ const ForgottenPassword = () => {
 		setEmail(e.target.value);
 	};
 
-	const handleSubmit = () => {
-		dispatch(startPasswordRecoveryAction({ email }));
-	};
+	const [data, error, apiCall] = useFetch({
+		service: () => startPasswordRecovery({ email }),
+		globalLoader: true,
+		callback: () => navigate(`/${PATHS.LOGIN}`)
+	})
+
 	return (
-		<MainContainer scroll back shadow bg={2} color={1}>
+		<MainContainer scroll back color={1}>
 			<TopSpacing scroll />
 			<form className='col-12 '>
 				<Text size={4} bold text={t('auth.forgotPassword1.title')} />
@@ -45,12 +51,12 @@ const ForgottenPassword = () => {
 					<ImgKeyFP />
 				</div>
 
-				<div className=' d-flex align-items-center justify-content-center mt-5 '>
+				<div className='d-flex align-items-center justify-content-center mt-5 col-11 m-auto'>
 					<Button
-						size={2}
+						size={3}
 						disabled={!email}
 						type={2}
-						onClick={handleSubmit}
+						onClick={apiCall}
 						text={t('auth.forgotPassword1.btnAccept')}
 					/>
 				</div>
