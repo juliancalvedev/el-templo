@@ -1,3 +1,5 @@
+import './InputRange.scss';
+
 const InputRange = ({ id, defaultValue, min, max, step = '1', onChange }) => {
 	return (
 		<div className='form-group col-10'>
@@ -5,7 +7,7 @@ const InputRange = ({ id, defaultValue, min, max, step = '1', onChange }) => {
 			<input
 				id={id}
 				type='range'
-				className='form-range'
+				className='form-range inputRange'
 				defaultValue={defaultValue}
 				min={min}
 				max={max}

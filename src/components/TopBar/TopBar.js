@@ -16,19 +16,18 @@ const TopBar = ({ text, color = 1, bg = 'none', back = false, shadow }) => {
 		<div className={styles.container}>
 			<nav>
 				<div className={styles.body}>
-					{back && <div
-						className={styles.backArrowBtn}
-						onClick={handleClick}
-					>
-						<IconBack color={styles.icon}/>
-					</div>}
+					{back && (
+						<div
+							className={styles.backArrowBtn}
+							onClick={handleClick}
+						>
+							<div className='iconBack'>
+								<IconBack color={styles.icon} />
+							</div>
+						</div>
+					)}
 
-					<Text
-						text={text}
-						color={color}
-						className='p-1'
-					/>
-
+					<Text text={text} color={color} className='p-1' />
 				</div>
 			</nav>
 		</div>

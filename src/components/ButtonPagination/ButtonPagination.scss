@@ -4,18 +4,23 @@
 	background-color: $tertiary;
 	color: $nineth;
 
-	width: 44px;
+	width: 40px;
 	height: 40px;
 
-	border: 1px solid $thirteenth;
+	border: none;
 	border-radius: 10px;
 
-	padding: 12px 14px 12px 14px;
+	padding: 12px 10px 12px 14px;
 }
 .customBtnPagination:hover {
 	background-color: $tertiary;
-	border: 1px solid $thirteenth;
+	border: none;
 }
+// TODO cuando está disabled el Hover sí se activa, arreglas.
+.disabled {
+	background-color: $twelfth;
+}
+
 .right {
 	transform: scaleX(1);
 }

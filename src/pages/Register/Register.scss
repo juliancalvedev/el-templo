@@ -1,5 +1,6 @@
 @import '../../styles/variables';
 
+
 .inputs {
 	background: $nineth;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -7,7 +8,11 @@
 	border: none;
 	text-indent: 4%;
 	border-radius: 15px;
-}
+	outline: none;
+  }
+	
+
+
 .nameInput {
 	color: $sixth;
 	font-size: 100%;
@@ -18,24 +23,25 @@
 	font-style: normal;
 }
 
-.btnCheck1 {
+.btncheck1 {
 	border-radius: 20px 0px 0px 20px;
 	background-color: $tertiary;
 	color: $nineth;
 	line-height: 100%;
 	font-size: 84%;
 	height: 50%;
+	
 }
-.btnCheck2 {
-	background-color: $thirteenth;
-	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-	color: $tertiary;
+.btncheck2 {
+	background-color: $tertiary;
+	color: $nineth;
 	line-height: 100%;
 	font-size: 84%;
 	font-family: $font-1;
 	height: 50%;
 }
-.btnCheck3 {
+
+.btncheck3 {
 	background-color: $tertiary;
 	border-radius: 0px 20px 20px 0px;
 	color: $nineth;
@@ -45,16 +51,77 @@
 	height: 50%;
 }
 
+.btn-check:checked + .btn-all ,.btn-all:checked{
+    background-color:$thirteenth;
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: $tertiary;
+}
 .conteinerPass {
 	font-size: 75%;
 	font-family: $font-1;
-	color: $seventh;
+	color:$sixth;
 }
-
 .TC {
 	font-size: 65%;
 }
 .TC2 {
 	font-size: 65%;
 	color: $fourth;
+}
+select{
+	-webkit-appearance:none;
+   -moz-appearance:none;
+   -ms-appearance:none;
+	background: $nineth;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	height: 40px;
+	border: none;
+	text-indent: 4%;
+	color: $seventh;
+	border-radius: 15px;
+	margin-bottom: 0em;
+	outline: none;
+}
+
+::-webkit-calendar-picker-indicator{
+opacity: 0;
+}
+
+.chevron__down{
+	position:absolute;
+	left: 91%;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+
+.form-inputs-select{
+	position: relative;
+	align-items: center;
+	justify-content: center;
+}	
+
+.input-date-icon{
+	position:absolute;
+	left: 91%;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+
+.input__date{
+	position: relative;
+	align-items: center;
+	justify-content: center;
+}	
+.base-img2 {
+	width: 5rem;
+	height: 5rem;
+	border-radius: 1000px;
+
+	&--small {
+		width: 3.85rem;
+		height: 3.85rem;
+		border-radius: 1000px;
+	}
 }

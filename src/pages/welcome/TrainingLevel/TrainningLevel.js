@@ -3,11 +3,14 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addLevelToTrainingInfo } from '../../../redux/user';
+import './TrainningLevel.scss';
 
 import Text from '../../../components/Text/Text';
 import { PATHS } from '../../../constants/paths';
 import InputRange from '../../../components/InputRange/InputRange';
 import ButtonPagination from '../../../components/ButtonPagination/ButtonPagination';
+import MainContainer from '../../../components/MainContainer/MainContainer';
+
 const TrainingLevel = () => {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
@@ -28,25 +31,59 @@ const TrainingLevel = () => {
 		navigate(`/${PATHS.WEIGHT_HEIGHT}`);
 	};
 	return (
-		<div className='container d-flex justify-content-center align-items-center flex-column col-12'>
-			<Text text={t('welcome.trainingLevel.Text')} />
-			<Text text={t('welcome.trainingLevel.Text')} />
+		<MainContainer back={true} bg='1' color='2' scroll>
+			<div className='trainningLevel__container d-flex flex-column justify-content-start align-items-center col-12'>
+				<div className='trainningLevel__backgroundImg'></div>
 
-			<form className='container d-flex justify-content-center align-items-center flex-column col-12'>
-				<InputRange
-					id='level'
-					min='1'
-					max='5'
-					defaultValue={trainingLevel}
-					onChange={changeLevel}
-				/>
-				<div className='container d-flex justify-content-between'>
-					<Text text={t('welcome.trainingLevel.amateur')} />
-					<Text text={t('welcome.trainingLevel.professional')} />
+				<div className='trainningLevel__topText--container col-12'>
+					<div className='trainningLevel__topText col-10'>
+						<Text
+							justify='start'
+							text={t('welcome.trainingLevel.title')}
+							size='4'
+							bold
+							color={2}
+						/>
+					</div>
 				</div>
-			</form>
-			<ButtonPagination direction='right' onClick={toWeightAndHeight} />
-		</div>
+
+				<div className='trainningLevel__inputRange--container d-flex flex-column justify-content-center align-items-center col-12'>
+					<form className='d-flex flex-column justify-content-center align-items-center col-12 m-0 p-0'>
+						<InputRange
+							id='level'
+							min='1'
+							max='5'
+							defaultValue={trainingLevel}
+							onChange={changeLevel}
+						/>
+					</form>
+
+					<div className='d-flex align-items-center justify-content-between col-10 m-0 p-0'>
+						<div style={{ marginTop: '-23px' }}>
+							<Text
+								text={t('welcome.trainingLevel.amateur')}
+								color='2'
+								size='1'
+							/>
+						</div>
+						<div style={{ marginTop: '-25px' }}>
+							<Text
+								text={t('welcome.trainingLevel.professional')}
+								color='2'
+								size='1'
+							/>
+						</div>
+					</div>
+				</div>
+
+				<div className='trainningLevel__btnPag--container'>
+					<ButtonPagination
+						direction='right'
+						onClick={toWeightAndHeight}
+					/>
+				</div>
+			</div>
+		</MainContainer>
 	);
 };
 

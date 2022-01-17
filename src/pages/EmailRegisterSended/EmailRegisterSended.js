@@ -14,7 +14,7 @@ const EmailRegisterSended = () => {
 	};
 	return (
 		<MainContainer>
-			<div className='p-4 mt-5 mb-5 d-flex flex-column justify-content-between'>
+			<div className='p-4 mt-5 mb-5 d-flex flex-column justify-content-between h-100'>
 
 				<Text
 					size={4}
