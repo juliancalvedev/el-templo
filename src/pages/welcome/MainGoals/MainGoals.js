@@ -9,6 +9,7 @@ import { PATHS } from '../../../constants/paths';
 import { useDispatch, useSelector } from 'react-redux';
 import { addGoalsToTrainingInfo } from '../../../redux/user';
 import ButtonPagination from '../../../components/ButtonPagination/ButtonPagination';
+import MainContainer from '../../../components/MainContainer/MainContainer';
 
 const MainGoals = () => {
 	const { t } = useTranslation();
@@ -57,6 +58,8 @@ const MainGoals = () => {
 	}, [trainingGoals]);
 
 	return (
+		<MainContainer>
+
 		<div className='container d-flex justify-content-center align-items-center flex-column'>
 			<Text text={t('welcome.goals.tellUs')} />
 			<Text text={t('welcome.goals.mainGoals')} />
@@ -115,6 +118,7 @@ const MainGoals = () => {
 				onClick={toTrainingLevel}
 			/>
 		</div>
+		</MainContainer>
 	);
 };
 

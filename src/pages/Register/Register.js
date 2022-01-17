@@ -12,9 +12,10 @@ import { useRef } from 'react';
 
 export const Register = () => {
 	const { t } = useTranslation();
-	const { handleChange, values, handleSubmit, errors } =
-		useForm(RegisterValidate);
 
+	const [baseImage, setBaseImage] = useState(
+		'https://yca.org.ar/wp-content/uploads/sites/4/2019/06/perfil-avatar-hombre-icono-redondo_24640-14044.jpg'
+	);
 	//inputDate
 	const inputDateRef = useRef();
 	const onFocusDate = () => (inputDateRef.current.type = 'date');
@@ -49,10 +50,6 @@ export const Register = () => {
 
 	//Base64
 
-	const [baseImage, setBaseImage] = useState(
-		'https://yca.org.ar/wp-content/uploads/sites/4/2019/06/perfil-avatar-hombre-icono-redondo_24640-14044.jpg'
-	);
-
 	const uploadImage = async (e) => {
 		const file = e.target.files[0];
 		const base64 = await convertBase64(file);
@@ -83,6 +80,9 @@ export const Register = () => {
 		//Base64
 	};
 
+	const { handleChange, values, handleSubmit, errors } =
+	useForm(RegisterValidate, baseImage);
+
 	return (
 		<MainContainer
 			text={t('auth.register.register')}
@@ -102,14 +102,12 @@ export const Register = () => {
 							type='file'
 							onChange={handleClickimg}
 							hidden
-							value={values.img}
 						/>
 						<img
 							className='base-img2'
 							src={baseImage}
 							name='img'
 							onClick={clickFile}
-							value={values.img}
 							alt='img'
 						/>
 
