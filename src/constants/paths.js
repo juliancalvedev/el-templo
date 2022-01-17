@@ -9,14 +9,12 @@ export const PATHS = {
 	ENABLED_VERIFIED: 'enabled-verified',
 	REGISTER: 'register',
 	MY_PROFILE: 'my-profile',
-	REGISTER:'register',
 	HELP:'help',
 	WELCOME: 'welcome',
 	EMAIL_REGISTER_SENDED: 'email-register-sended',
 	MAIN_GOALS: 'main-goals',
 	TRAINING_LEVEL: 'training-level',
 	WEIGHT_HEIGHT: 'weight-height',
-	HELP: 'help',
 	CONTACT: 'contact',
 };
 

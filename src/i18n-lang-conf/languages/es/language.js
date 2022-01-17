@@ -1,4 +1,4 @@
-export default {
+const es = {
 	global: {
 		language: 'Lenguaje',
 		spanish: 'ES',
@@ -28,8 +28,9 @@ export default {
 		errors: {
 			required: 'Este campo es requerido.',
 			emailType: 'Debe ser un email válido.',
-			passwordNotEquals: 'Las contraseñas deben ser iguales.',
-			validPassword: 'La contraseña no es válida.',
+			passwordNotEquals: 'Las contraseñas no coinciden',
+			validPassword:
+				'(La contraseña debe contener al menos 6 letras y 1 número)',
 			notAllowedEmail: 'Email no permitido.',
 			number: 'Este campo debe ser un número.',
 			text: 'Este campo deber ser un texto.',
@@ -62,16 +63,17 @@ export default {
 			btnConfirm: 'Reenviar correo electronico',
 		},
 		register: {
+			register: 'Registro',
 			firstNamePlaceholder: 'Nombre',
 			lastNamePlaceholder: 'Apellido',
 			sexTitle: 'Sexo',
 			sex1: 'Femenino',
 			sex2: 'Masculino',
 			sex3: 'Otro',
-			emailPlaceholder: 'Email',
+			emailPlaceholder: 'Email@email.com',
 			passwordPlaceholder: 'Contraseña',
 			passwordRequirement: '(Debe contener al menos 6 letras y 1 numero)',
-			password2Placeholder: 'Repita su contraseña',
+			password2Placeholder: 'Repetir contraseña',
 			countrySelection: 'País',
 			country1: 'Argentina',
 			country2: 'USA',
@@ -105,12 +107,13 @@ export default {
 				btnResendEmail: 'Reenviar',
 				hasNotEmail: '¿No te llegó el correo electrónico?',
 			},
-			accountNotEnabled: {
-				title: 'Tu cuenta no se encuentra habilitada',
-				auxText:
-					'Por favor, ponete en contacto con "El Templo" para más información.',
-				btnBack: 'volver',
-			},
+		},
+		accountNotEnabled: {
+			title: 'Lo sentimos',
+			subtitle: 'Tu membresía no se encuentra activa',
+			description1:
+				'Recuerda mantener tu cuota al día, para seguir disfrutando de todos los beneficios de “El Templo”.',
+			description2: 'Ante cualquier duda, contactate con el gym.',
 		},
 
 		forgotPassword1: {
@@ -253,7 +256,6 @@ export default {
 		emailRegisterSended: 'Confirma tu Email',
 		myProfile: 'Mi perfil',
 		help: 'Ayuda',
-		emailRegisterSended: 'Confirma tu Email',
 		contact: 'Contacto',
 	},
 	user: {
@@ -265,7 +267,6 @@ export default {
 			submitPassword: 'Cambiar contraseña',
 		},
 		myProfile: {
-			personalInfo: 'Información personal',
 			level: 'Nivel',
 			completedTrainings: 'Entrenamientos realizados',
 			memberSince: 'Miembro desde',
@@ -296,3 +297,5 @@ export default {
 		authentication: 'Email o contraseña invalidos.',
 	},
 };
+
+export default es;

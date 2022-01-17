@@ -1,4 +1,4 @@
-export default {
+const en = {
 	global: {
 		language: 'Language',
 		spanish: 'ES',
@@ -61,13 +61,14 @@ export default {
 			btnConfirm: 'Resend email',
 		},
 		register: {
+			register:'Register',
 			firstNamePlaceholder: 'Name',
 			lastNamePlaceholder: 'Last Name',
 			sexTitle: 'Sex',
 			sex1: 'Female',
 			sex2: 'Male',
 			sex3: 'Other',
-			emailPlaceholder: 'Email',
+			emailPlaceholder: 'Email@email.com',
 			passwordPlaceholder: 'Password',
 			passwordRequirement:
 				'(Must contain at least 6 letters and 1 number)',
@@ -106,11 +107,12 @@ export default {
 				btnResendEmail: 'Resend',
 				hasNotEmail: 'The Email has not arrived?',
 			},
-			accountNotEnabled: {
-				title: 'Your account is not enabled.',
-				auxText: 'Please, contact "El Templo" for more information.',
-				btnBack: 'Back',
-			},
+		},
+		accountNotEnabled: {
+			title: 'We are sorry',
+			subtitle: 'your membership is not active',
+			description1: 'Remember to keep your quota up to date, to continue enjoying all the benefits of "El Templo".',
+			description2: 'If you have any questions, contact the gym.',
 		},
 
 		onboard1: {},
@@ -253,7 +255,6 @@ export default {
 		emailRegisterSended: 'Confirm Email',
 		myProfile: 'My Profile',
 		help: 'Help',
-		emailRegisterSended: 'Confirm Email',
 		contact: 'Contact',
 	},
 	user: {
@@ -265,7 +266,6 @@ export default {
 			submitPassword: 'Change Password',
 		},
 		myProfile: {
-			personalInfo: 'Datos personales',
 			level: 'Level',
 			completedTrainings: 'Completed Trainings',
 			memberSince: 'Member since',
@@ -296,3 +296,5 @@ export default {
 		authentication: 'Email or password wrong.',
 	},
 };
+
+export default en;

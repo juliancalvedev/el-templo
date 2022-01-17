@@ -1,59 +1,59 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 .login-container {
-	background-image: url('https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimagesvc.meredithcorp.io%2Fv3%2Fmm%2Fimage%3Furl%3Dhttps%253A%252F%252Fstatic.onecms.io%252Fwp-content%252Fuploads%252Fsites%252F20%252F2016%252F07%252Ftori-bowie-a-435.jpg&q=85');
-	background-size: cover;
-	display: flex;
-	justify-content: center;
+  background-image: url("https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimagesvc.meredithcorp.io%2Fv3%2Fmm%2Fimage%3Furl%3Dhttps%253A%252F%252Fstatic.onecms.io%252Fwp-content%252Fuploads%252Fsites%252F20%252F2016%252F07%252Ftori-bowie-a-435.jpg&q=85");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
 }
 .login-container__opacity {
-	background: $sixthOpacity;
+  background: $sixthOpacity;
 }
 
 .login__continue {
-	padding-top: 0;
+  padding-top: 0;
 }
 
 .login__input {
-	background: $eleventh;
-	border: none;
-	border-radius: 15px;
-	text-indent: 2%;
-	-webkit-text-fill-color: $nineth;
-	outline: none;
-	width: 100%;
+  background: $eleventh;
+  border: none;
+  border-radius: 15px;
+  text-indent: 2%;
+  -webkit-text-fill-color: $nineth;
+  outline: none;
+  width: 100%;
 }
 .eye {
-	background: $eleventh;
-	border: none;
-	border-radius: 15px;
-	text-indent: 2%;
-	-webkit-text-fill-color: $nineth;
+  background: $eleventh;
+  border: none;
+  border-radius: 15px;
+  text-indent: 2%;
+  -webkit-text-fill-color: $nineth;
 }
 
 .login__register {
-	margin-top: 50%;
-	font-size: 12px;
-	color: $fifth;
+  margin-top: 50%;
+  font-size: 12px;
+  color: $fifth;
 }
 @media (min-width: 992px) {
-	.login-container {
-		position: absolute;
-	}
-	.login__form {
-		padding-left: 30%;
-		padding-right: 30%;
-		margin: 0;
-	}
-	.login__welcome {
-		padding-top: 30%;
-		padding-left: 30%;
-	}
-	.login__continue {
-		padding-left: 30%;
-	}
-	.login__register {
-		margin-top: 10%;
-		font-size: 12px;
-		margin-bottom: auto;
-	}
+  .login-container {
+    position: absolute;
+  }
+  .login__form {
+    padding-left: 30%;
+    padding-right: 30%;
+    margin: 0;
+  }
+  .login__welcome {
+    padding-top: 30%;
+    padding-left: 30%;
+  }
+  .login__continue {
+    padding-left: 30%;
+  }
+  .login__register {
+    margin-top: 10%;
+    font-size: 12px;
+    margin-bottom: auto;
+  }
 }

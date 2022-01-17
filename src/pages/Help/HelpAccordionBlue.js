@@ -1,8 +1,6 @@
 import './Help.scss';
 import { useTranslation } from 'react-i18next';
-import Button from '../../components/Button/Button';
-import AuxText from '../../components/AuxText/AuxText';
-import Paragraph from '../../components/Paragraph/Paragraph';
+import Text from '../../components/Text/Text';
 const HelpAccordionBlue = ({ accordionType = 'blue', color = 'color' }) => {
 	const { t } = useTranslation();
 	return (
@@ -30,30 +28,42 @@ const HelpAccordionBlue = ({ accordionType = 'blue', color = 'color' }) => {
 					<div
 						className={`accordion-body accordion-body--${color} col-12`}
 					>
-						<div className='col-11 px-3 py-2 '>
-							<Paragraph
+						<div className='col-12 px-3 py-2 d-flex flex-column justify-content-center'>
+							<Text
 								text={t('help.main.auxText3.item1')}
-								type='light'
+								color={1}
+								size={1}
+								justify="start"
 							/>
-							<Paragraph
+							<Text
 								text={t('help.main.auxText3.item2')}
-								type='light'
+								color={1}
+								size={1}
+								justify="start"
 							/>
-							<Paragraph
+							<Text
 								text={t('help.main.auxText3.item3')}
-								type='light'
+								color={1}
+								size={1}
+								justify="start"
 							/>
-							<Paragraph
+							<Text
 								text={t('help.main.auxText3.item4')}
-								type='light'
+								color={1}
+								size={1}
+								justify="start"
 							/>
-							<Paragraph
+							<Text
 								text={t('help.main.auxText3.item5')}
-								type='light'
+								color={1}
+								size={1}
+								justify="start"
 							/>
-							<Paragraph
+							<Text
 								text={t('help.main.auxText3.item6')}
-								type='light'
+								color={1}
+								size={1}
+								justify="start"
 							/>
 						</div>
 					</div>

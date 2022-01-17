@@ -35,7 +35,7 @@ function App() {
 	}, [isError]);
 
 	return (
-		<div className='App container-fluid'>
+		<div className='App container-fluid' id="App">
 			{loading && <Loading />}
 			{isError && <Toast message={t(`errors.${message}`)} />}
 			<RouterApp />
