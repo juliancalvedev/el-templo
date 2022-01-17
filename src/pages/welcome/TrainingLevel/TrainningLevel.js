@@ -31,14 +31,14 @@ const TrainingLevel = () => {
 		navigate(`/${PATHS.WEIGHT_HEIGHT}`);
 	};
 	return (
-		<MainContainer back={true} bg='1' color='2'>
+		<MainContainer back={true} bg='1' color='2' scroll>
 			<div className='trainningLevel__container d-flex flex-column justify-content-start align-items-center col-12'>
 				<div className='trainningLevel__backgroundImg'></div>
 
 				<div className='trainningLevel__topText--container col-12'>
 					<div className='trainningLevel__topText col-10'>
 						<Text
-							className='topText__container--title'
+							justify='start'
 							text={t('welcome.trainingLevel.title')}
 							size='4'
 							bold

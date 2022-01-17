@@ -97,7 +97,6 @@ const Login = () => {
                 onClickIcon={onClickIcon}
                 transparent
                 feedback={t('global.errors.validPassword')}
-                isValid
               />
 
               <Button onClick={apiCall} text={t("auth.login.btnLogin")} />

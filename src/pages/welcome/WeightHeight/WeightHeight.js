@@ -91,8 +91,7 @@ const WeightHeight = () => {
 	};
 
 	return (
-<<<<<<< HEAD
-		<MainContainer back={true} bg='1' color='2'>
+		<MainContainer back={true} bg='1' color='2' scroll>
 			<div className='weightHeight__container d-flex flex-column justify-content-start align-items-center col-12'>
 				<div className='weightHeight__backgroundImg'></div>
 
@@ -100,31 +99,13 @@ const WeightHeight = () => {
 					<div className='weightHeight__topText col-10'>
 						<Text
 							className='topText__container--title'
+							justify='start'
 							text={t('welcome.weightHeight.title')}
 							size='4'
 							bold
 							color={2}
 						/>
 					</div>
-=======
-		<MainContainer>
-			<div className='d-flex flex-column'>
-				<Text text={t('welcome.weightHeight.title')} />
-
-				<div className='form-group d-flex'>
-					<InputDivided
-						id='weight'
-						text1={t('welcome.weightHeight.weight')}
-						text2={t('welcome.weightHeight.kilos')}
-						onChange={onWeightChange}
-						type='text'
-						min='20'
-						max='400'
-						maxLength='3'
-						placeholder='0'
-						value={selectedWeight}
-					/>
->>>>>>> 4dd5d0aab522724e6ff068d9073bc8c46023965b
 				</div>
 
 				<div className='weightHeight__input--container d-flex flex-column justify-content-center align-items-center col-12'>
@@ -160,17 +141,11 @@ const WeightHeight = () => {
 				</div>
 				<div className='weightHeight__btn--container'>
 					<Button
-						title={t('welcome.weightHeight.enter')}
+						text={t('welcome.weightHeight.enter')}
 						onClick={handleSubmit}
+						disabled={!selectedWeight || !selectedHeight}
 					/>
 				</div>
-<<<<<<< HEAD
-=======
-				<Button
-					text={t('welcome.weightHeight.enter')}
-					onClick={handleSubmit}
-				/>
->>>>>>> 4dd5d0aab522724e6ff068d9073bc8c46023965b
 			</div>
 		</MainContainer>
 	);
