@@ -117,9 +117,11 @@ const es = {
 		},
 
 		forgotPassword1: {
-			title: 'Olvidaste tu contraseña?',
-			emailPlaceholder: 'Email@email.com',
-			btnAccept: 'Aceptar',
+			title: '¡Olvidaste tu contraseña?',
+			emailPlaceholder: 'Ingresa tu email',
+			contentForgotPassword:
+				'Enviaremos un email con los pasos a seguir, para cambiar tu contraseña.',
+			btnAccept: 'Enviar',
 		},
 		forgotPassword2: {},
 		passwordRecoveryForm: {
