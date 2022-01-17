@@ -4,6 +4,8 @@ import { getUserInfoAction } from '../../../redux/user';
 import { putTrainingInfo } from '../../../services/user';
 import { useNavigate } from 'react-router-dom';
 
+import './WeightHeight.scss';
+
 import Button from '../../../components/Button/Button';
 import Text from '../../../components/Text/Text';
 import { PATHS } from '../../../constants/paths';
@@ -89,6 +91,22 @@ const WeightHeight = () => {
 	};
 
 	return (
+<<<<<<< HEAD
+		<MainContainer back={true} bg='1' color='2'>
+			<div className='weightHeight__container d-flex flex-column justify-content-start align-items-center col-12'>
+				<div className='weightHeight__backgroundImg'></div>
+
+				<div className='weightHeight__topText--container col-12'>
+					<div className='weightHeight__topText col-10'>
+						<Text
+							className='topText__container--title'
+							text={t('welcome.weightHeight.title')}
+							size='4'
+							bold
+							color={2}
+						/>
+					</div>
+=======
 		<MainContainer>
 			<div className='d-flex flex-column'>
 				<Text text={t('welcome.weightHeight.title')} />
@@ -106,26 +124,53 @@ const WeightHeight = () => {
 						placeholder='0'
 						value={selectedWeight}
 					/>
+>>>>>>> 4dd5d0aab522724e6ff068d9073bc8c46023965b
 				</div>
 
-				<div className='form-group d-flex'>
-					<InputDivided
-						id='height'
-						text1={t('welcome.weightHeight.height')}
-						text2={t('welcome.weightHeight.meters')}
-						onChange={onHeightChange}
-						type='text'
-						min='1'
-						max='3'
-						maxLength='4'
-						placeholder='1.00'
-						value={selectedHeight}
+				<div className='weightHeight__input--container d-flex flex-column justify-content-center align-items-center col-12'>
+					<div className='form-group d-flex flex-column justify-content-center align-items-center m-1 col-12 '>
+						<InputDivided
+							id='weight'
+							text1={t('welcome.weightHeight.weight')}
+							text2={t('welcome.weightHeight.kilos')}
+							onChange={onWeightChange}
+							type='text'
+							min='20'
+							max='400'
+							maxLength='3'
+							placeholder='0'
+							value={selectedWeight}
+						/>
+					</div>
+
+					<div className='form-group d-flex flex-column justify-content-center align-items-center m-1 col-12'>
+						<InputDivided
+							id='height'
+							text1={t('welcome.weightHeight.height')}
+							text2={t('welcome.weightHeight.meters')}
+							onChange={onHeightChange}
+							type='text'
+							min='1'
+							max='3'
+							maxLength='4'
+							placeholder='1.00'
+							value={selectedHeight}
+						/>
+					</div>
+				</div>
+				<div className='weightHeight__btn--container'>
+					<Button
+						title={t('welcome.weightHeight.enter')}
+						onClick={handleSubmit}
 					/>
 				</div>
+<<<<<<< HEAD
+=======
 				<Button
 					text={t('welcome.weightHeight.enter')}
 					onClick={handleSubmit}
 				/>
+>>>>>>> 4dd5d0aab522724e6ff068d9073bc8c46023965b
 			</div>
 		</MainContainer>
 	);

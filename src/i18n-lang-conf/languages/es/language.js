@@ -148,9 +148,9 @@ const es = {
 			GAIN_STAMINA: 'Ganar resistencia',
 		},
 		trainingLevel: {
-			title: '¿Cuál es tu nivel de entrenamiento actual?',
+			title: '¿Cuál es tu nivel de entrenamiento?',
 			auxText: 'Esto ayudará a tu entrenador a asesorarte adecuadamente.',
-			amateur: 'Principiante',
+			amateur: 'Amateur',
 			professional: 'Profesional',
 		},
 		weightHeight: {
