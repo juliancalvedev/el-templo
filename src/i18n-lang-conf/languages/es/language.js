@@ -123,7 +123,7 @@ const es = {
 		},
 		forgotPassword2: {},
 		passwordRecoveryForm: {
-			title: 'Crear nueva contraseña',
+			title: 'Crea tu nueva contraseña',
 			newPassword: 'Nueva contraseña',
 			repeatNewPassword: 'Repite nueva contraseña',
 			btnUpdatePassword: 'Actualizar contraseña',

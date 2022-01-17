@@ -85,7 +85,6 @@ const Login = () => {
                 type="email"
                 placeholder={t("auth.login.emailPlaceholder")}
                 transparent
-                
               />
 
               <Input
