@@ -7,6 +7,7 @@ export const login = ({ email, password }) => axiosInstance.post(`${baseURL}/log
 	password,
 });
 
+
 export const register = ({
 	firstName,
 	lastName,

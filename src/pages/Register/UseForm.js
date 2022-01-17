@@ -1,11 +1,12 @@
-import { useState } from 'react';
-import { registerAction } from '../../redux/auth';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
 import { HasErrors } from './RegisterValidate';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
+import useFetch from '../../hooks/useFetch';
+import { register } from '../../services/auth';
 
-const useForm = (RegisterValidate) => {
+
+const useForm = (RegisterValidate, img) => {
 	const [values, setValues] = useState({
 		firstName: '',
 		lastName: '',
@@ -14,12 +15,18 @@ const useForm = (RegisterValidate) => {
 		password: '',
 		password2: '',
 		dateOfBirth: '',
-		country: false,
-		img: '',
+		country: null,
 	});
-	const [errors, setErrors] = useState({});
 
-	const dispatch = useDispatch();
+	const [data, error, apiCall] = useFetch({
+		service: () => register({
+			...values,
+			img
+		}),
+		globalLoader: true
+	});
+	
+	const [errors, setErrors] = useState({});
 	const navigate = useNavigate();
 
 	const handleChange = (e) => {
@@ -30,40 +37,19 @@ const useForm = (RegisterValidate) => {
 		});
 	};
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		const callback = () => navigate(`/${PATHS.EMAIL_REGISTER_SENDED}`);
+	const handleSubmit = () => {
 		const auxErrors = RegisterValidate(values);
 		setErrors(auxErrors);
 
-		if (!HasErrors(values)) {
-			const {
-				firstName,
-				lastName,
-				sex,
-				email,
-				password,
-				dateOfBirth,
-				country,
-				img,
-			} = values;
-			dispatch(
-				registerAction({
-					firstName,
-					lastName,
-					sex,
-					email,
-					password,
-					dateOfBirth,
-					country,
-					img,
-					callback,
-				})
-			);
-		}
+			apiCall();
 	};
+
+	useEffect(() => {
+		if(data){
+			navigate(`/${PATHS.EMAIL_REGISTER_SENDED}`);
+		}
+	}, [data])
 
 	return { handleChange, handleSubmit, values, errors };
 };
-
 export default useForm;

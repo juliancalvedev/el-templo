@@ -2,30 +2,60 @@ import { useState } from 'react';
 import useForm from './UseForm';
 import { RegisterValidate } from './RegisterValidate';
 import Input from '../../components/Input/Input';
-import Button from '../../components/Button/Button';
 import { useTranslation } from 'react-i18next';
-import './Register.scss'
+import './Register.scss';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import { Link } from 'react-router-dom';
-
+import Button from '../../components/Button/Button';
+import TopSpacing from '../../components/TopSpacing/TopSpacing';
+import { useRef } from 'react';
 
 export const Register = () => {
 	const { t } = useTranslation();
-	const { handleChange, values, handleSubmit, errors } =
-		useForm(RegisterValidate);
-
-
-	//Base64
 
 	const [baseImage, setBaseImage] = useState(
 		'https://yca.org.ar/wp-content/uploads/sites/4/2019/06/perfil-avatar-hombre-icono-redondo_24640-14044.jpg'
 	);
+	//inputDate
+	const inputDateRef = useRef();
+	const onFocusDate = () => (inputDateRef.current.type = 'date');
+	const onBlurDate = () => (inputDateRef.current.type = 'text');
+	//inputDate
+
+	/*.....................................................................*/
+
+	//InputPasswordEye
+	const [inputTypePassword, setInputTypePassword] = useState('password');
+	const [inputTypePassword2, setInputTypePassword2] = useState('password');
+
+	const onClickIconPassword = () => {
+		if (inputTypePassword === 'password') {
+			setInputTypePassword('text');
+		}
+		if (inputTypePassword === 'text') {
+			setInputTypePassword('password');
+		}
+	};
+
+	const onClickIconPassword2 = () => {
+		if (inputTypePassword2 === 'password') {
+			setInputTypePassword2('text');
+		}
+		if (inputTypePassword2 === 'text') {
+			setInputTypePassword2('password');
+		}
+	};
+	//InputPasswordEye
+	/*.....................................................................*/
+
+	//Base64
 
 	const uploadImage = async (e) => {
 		const file = e.target.files[0];
 		const base64 = await convertBase64(file);
 		setBaseImage(base64);
 	};
+
 	const clickFile = () => {
 		document.getElementById('file').click();
 	};
@@ -50,24 +80,37 @@ export const Register = () => {
 		//Base64
 	};
 
+	const { handleChange, values, handleSubmit, errors } =
+	useForm(RegisterValidate, baseImage);
+
 	return (
-		<MainContainer scroll back shadow bg={2} color={1}>
-			<form className='register top-spacing' onSubmit={handleSubmit}>
+		<MainContainer
+			text={t('auth.register.register')}
+			scroll
+			back
+			shadow
+			bg={2}
+			color={1}
+		>
+			<TopSpacing scroll />
+			<form className='register col-12 ' onSubmit={handleSubmit}>
 				<div className='contBaseInputs px-3 mt-4 col-12 '>
-					<div className='baseI64 d-flex align-items-center justify-content-start '>
+					<div className='baseI64 d-flex align-items-center col-12 '>
 						<input
-							className='rounded-circle'
+							className='base-img1 '
 							id='file'
 							type='file'
 							onChange={handleClickimg}
 							hidden
 						/>
 						<img
-							className='baseImg col-3 rounded-circle'
+							className='base-img2'
 							src={baseImage}
+							name='img'
 							onClick={clickFile}
-							alt="img"
+							alt='img'
 						/>
+
 						<div className='inputsNL col-9 '>
 							<div className='fName '>
 								<Input
@@ -107,7 +150,7 @@ export const Register = () => {
 					</div>
 				</div>
 
-				<div className='inputsRadio justify-content-center align-content-center d-flex mt-4 mb-4 col-12'>
+				<div className='inputsRadio col-md-4 my-3 justify-content-center align-content-center d-flex mt-4 mb-4 col-12'>
 					<div
 						className='inputSexTitle col-10'
 						name='sex'
@@ -118,10 +161,10 @@ export const Register = () => {
 								{t('auth.register.sexTitle')}
 							</label>
 						</div>
-						<div className='btnCheck'>
+						<div className='btnheck'>
 							<input
 								type='radio'
-								className='btn-check  '
+								className='btn-check'
 								name='sex'
 								id='btnradio1'
 								value='F'
@@ -129,7 +172,7 @@ export const Register = () => {
 								onChange={handleChange}
 							/>
 							<label
-								className='btn btn-outline btnCheck1  col-4 '
+								className='btn-all btn btn-outline  btncheck1  col-4 '
 								htmlFor='btnradio1'
 							>
 								{t('auth.register.sex1')}
@@ -145,7 +188,7 @@ export const Register = () => {
 								onChange={handleChange}
 							/>
 							<label
-								className='btn btn-outline btnCheck2 col-4   '
+								className='btn btn-outline btn-all btncheck2 col-4   '
 								htmlFor='btnradio2'
 							>
 								{t('auth.register.sex2')}
@@ -161,7 +204,7 @@ export const Register = () => {
 								onChange={handleChange}
 							/>
 							<label
-								className='btn btn-outline btnCheck3 col-4 '
+								className='btn btn-outline btn-all btncheck3 col-4 checked '
 								htmlFor='btnradio3'
 							>
 								{t('auth.register.sex3')}
@@ -182,36 +225,38 @@ export const Register = () => {
 							<p>{(errors.email = t('auth.register.emailError'))}</p>
 						)}
 					</div>
-					<div className='form-inputs mb-3'>
+					<div className='form-inputs mb-2'>
 						<Input
-							type='password'
 							name='password'
 							placeholder={t('auth.register.passwordPlaceholder')}
 							value={values.password}
 							onChange={handleChange}
-							feedback={t('global.errors.validPassword')}
 							isInvalid={errors.password}
 							invalidText={t('auth.register.password1Error')}
+							icon='eye'
+							type={inputTypePassword}
+							onClickIcon={onClickIconPassword}
+							isInvalid={errors.password}
+							feedback={t('global.errors.validPassword')}
 						/>
-
 					</div>
+
 					<div className='form-inputs mb-3'>
 						<Input
-							type='password'
+							onChange={handleChange}
+							isInvalid={errors.password}
+							invalidText={t('auth.register.password2Error')}
+							icon='eye'
+							type={inputTypePassword2}
+							onClickIcon={onClickIconPassword2}
 							name='password2'
 							placeholder={t('auth.register.password2Placeholder')}
 							value={values.password2}
-							onChange={handleChange}
 						/>
-						{errors.password2 && (
-							<p>
-								{(errors.password2 = t('auth.register.password2Error'))}
-							</p>
-						)}
 					</div>
-					<div className='form-inputs '>
+					<div className='form-inputs-select col-md-4 my-3 '>
 						<select
-							className='inputs mb-3 col-12'
+							className='inputs__select d-flex  pr-5 col-12'
 							value={values.country}
 							onChange={handleChange}
 							name='country'
@@ -226,20 +271,52 @@ export const Register = () => {
 							</option>
 						</select>
 
-						{errors.country && (
-							<p>{(errors.country = t('auth.register.countryError'))}</p>
-						)}
+						<div className='chevron__down '>
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								width='16'
+								height='16'
+								fill='currentColor'
+								className='bi bi-chevron-down'
+								viewBox='0 0 16 16'
+							>
+								<path
+									fill='evenodd'
+									d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'
+								/>
+							</svg>
+						</div>
 					</div>
-					<div className='form-inputs mb-4'>
-						<label className='nameInput2'>
-							{t('auth.register.dateOfBirth')}
-						</label>
-						<Input
-							type='date'
+
+					{errors.country && (
+						<p>{(errors.country = t('auth.register.countryError'))}</p>
+					)}
+
+					<div className='input__date col-md-4 my-3 relative'>
+						<input
+							className='inputs col-12 d-flex pr-5 '
+							type='text'
+							placeholder={t('auth.register.dateOfBirth')}
 							name='dateOfBirth'
 							value={values.dateOfBirth}
 							onChange={handleChange}
+							ref={inputDateRef}
+							onFocus={onFocusDate}
+							onBlur={onBlurDate}
 						/>
+						<div className='input-date-icon justify-content-end align-items-center'>
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								width='16'
+								height='16'
+								fill='currentColor'
+								className='bi bi-calendar4'
+								viewBox='0 0 16 16'
+							>
+								<path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z' />
+							</svg>
+						</div>
+
 						{errors.dateOfBirth && (
 							<p>
 								{
@@ -251,17 +328,17 @@ export const Register = () => {
 						)}
 					</div>
 				</div>
-				<div className='col-10 m-4 '>
+				<div className='col-10 m-4 col-md-4 my-3  '>
 					<Button
 						disabled={
 							(!values.firstName,
-								!values.lastName,
-								!values.sex,
-								!values.email,
-								!values.password,
-								!values.password2,
-								!values.country,
-								!values.dateOfBirth)
+							!values.lastName,
+							!values.sex,
+							!values.email,
+							!values.password,
+							!values.password2,
+							!values.country,
+							!values.dateOfBirth)
 						}
 						onClick={handleSubmit}
 						text={t('auth.register.btnRegister')}

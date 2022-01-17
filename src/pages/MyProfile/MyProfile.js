@@ -108,6 +108,7 @@ const MyProfile = () => {
 					text={t('user.myProfile.logOut')}
 					type={4}
 					onClick={onLogout}
+					color='3'
 				/>
 			</div>
 		</MainContainer>

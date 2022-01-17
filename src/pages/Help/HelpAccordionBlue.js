@@ -31,37 +31,37 @@ const HelpAccordionBlue = ({ accordionType = 'blue', color = 'color' }) => {
 						<div className='col-12 px-3 py-2 d-flex flex-column justify-content-center'>
 							<Text
 								text={t('help.main.auxText3.item1')}
-								color={2}
+								color={1}
 								size={1}
 								justify="start"
 							/>
 							<Text
 								text={t('help.main.auxText3.item2')}
-								color={2}
+								color={1}
 								size={1}
 								justify="start"
 							/>
 							<Text
 								text={t('help.main.auxText3.item3')}
-								color={2}
+								color={1}
 								size={1}
 								justify="start"
 							/>
 							<Text
 								text={t('help.main.auxText3.item4')}
-								color={2}
+								color={1}
 								size={1}
 								justify="start"
 							/>
 							<Text
 								text={t('help.main.auxText3.item5')}
-								color={2}
+								color={1}
 								size={1}
 								justify="start"
 							/>
 							<Text
 								text={t('help.main.auxText3.item6')}
-								color={2}
+								color={1}
 								size={1}
 								justify="start"
 							/>

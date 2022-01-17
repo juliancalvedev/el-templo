@@ -19,6 +19,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
+  
   const [password, setPassword] = useState("");
 
   const [showAlert, setShowAlert] = useState(false);
@@ -96,7 +97,6 @@ const Login = () => {
                 onClickIcon={onClickIcon}
                 transparent
                 feedback={t('global.errors.validPassword')}
-                isValid
               />
 
               <Button onClick={apiCall} text={t("auth.login.btnLogin")} />

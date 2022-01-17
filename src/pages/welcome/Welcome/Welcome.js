@@ -18,7 +18,7 @@ const Welcome = () => {
 
 	return (
 		<MainContainer>
-			<div className='welcome__container d-flex flex-column justify-content-between align-items-center col-12'>
+			<div className='welcome__container d-flex flex-column justify-content-between align-items-center col-12 h-100'>
 				<div className='welcome__backgroundImg'></div>
 				<div className='d-flex flex-column justify-content-between h-100 align-items-center col-11'>
 					<div className='mt-5 col-12'>
