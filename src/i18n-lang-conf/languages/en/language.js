@@ -61,7 +61,7 @@ const en = {
 			btnConfirm: 'Resend email',
 		},
 		register: {
-			register:'Register',
+			register: 'Register',
 			firstNamePlaceholder: 'Name',
 			lastNamePlaceholder: 'Last Name',
 			sexTitle: 'Sex',
@@ -70,8 +70,7 @@ const en = {
 			sex3: 'Other',
 			emailPlaceholder: 'Email@email.com',
 			passwordPlaceholder: 'Password',
-			passwordRequirement:
-				'(Must contain at least 6 letters and 1 number)',
+			passwordRequirement: '(Must contain at least 6 letters and 1 number)',
 			password2Placeholder: 'Confirm Your Password',
 			countrySelection: 'Country',
 			country1: 'Argentina',
@@ -111,16 +110,18 @@ const en = {
 		accountNotEnabled: {
 			title: 'We are sorry',
 			subtitle: 'your membership is not active',
-			description1: 'Remember to keep your quota up to date, to continue enjoying all the benefits of "El Templo".',
+			description1:
+				'Remember to keep your quota up to date, to continue enjoying all the benefits of "El Templo".',
 			description2: 'If you have any questions, contact the gym.',
 		},
 
 		onboard1: {},
 		onboard2: {},
 		forgotPassword1: {
-			title: 'Did you forget your password?',
-			emailPlaceholder: 'Email@email.com',
-			btnAccept: 'Accept',
+			title: '¿Did you forget your password?',
+			emailPlaceholder: 'Enter your email',
+			contentForgotPassword:'We will send an email with the steps to follow to change your password.',
+			btnAccept: 'Send',
 		},
 		forgotPassword2: {},
 		passwordRecoveryForm: {
@@ -192,7 +193,7 @@ const en = {
 	},
 	help: {
 		main: {
-			help:'Help',
+			help: 'Help',
 			aboutUs: 'About us',
 			elTemplo: 'El Templo',
 			auxText1:
