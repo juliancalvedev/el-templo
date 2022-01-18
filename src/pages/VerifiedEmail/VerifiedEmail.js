@@ -33,7 +33,7 @@ const VerifiedEmail = () => {
 	return (
 		<MainContainer>
 
-			<div className='col-12 d-flex flex-column align-items-center'>
+			<div className='col-12 d-flex flex-column align-items-center h-100'>
 				{data && (
 					<div className='col-12 h-100 d-flex flex-column align-items-center justify-content-between '>
 						<div className='col-10 text-center mt-4 pt-5'>

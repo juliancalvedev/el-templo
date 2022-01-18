@@ -1,4 +1,4 @@
-const IconEye = () => {
+const IconEye = ({ light }) => {
 	return (
 		<div>
 			<svg
@@ -6,7 +6,7 @@ const IconEye = () => {
 				width='16'
 				height='16'
 				fill='currentColor'
-				className={`bi bi-eye text-light `}
+				className={`bi bi-eye ${ light ? 'text-light' : ''} `}
 				viewBox='0 0 16 16'
 
 			>

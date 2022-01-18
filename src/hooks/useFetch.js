@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { cleanErrorAction, loadingAction, setErrorAction } from '../redux/api';
 
 
-const useFetch = ({service, globalLoader}) => {
+const useFetch = ({service, globalLoader, callback = () => {}}) => {
 
     const dispatch = useDispatch();
 
@@ -28,10 +28,11 @@ const useFetch = ({service, globalLoader}) => {
     
     useEffect(() => {
         if(resp){
-            dispatch(cleanErrorAction())
+            callback();
+            dispatch(cleanErrorAction());
             setLoading(false);
         } else if(error){
-            dispatch(setErrorAction(error))
+            dispatch(setErrorAction(error));
             setLoading(false);
         }
     }, [error, resp]);

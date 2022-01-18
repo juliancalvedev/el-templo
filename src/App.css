@@ -18,6 +18,10 @@
 	margin: 0;
 }
 
+.z-index-master {
+	z-index: 9999;
+}
+
 /* .top-spacing {
 	margin-top: 50px;
 }
