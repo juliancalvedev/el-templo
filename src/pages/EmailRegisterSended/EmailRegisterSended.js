@@ -5,21 +5,29 @@ import { resendVerifyEmail } from '../../services/auth';
 import Text from '../../components/Text/Text';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import IconEmailSended from '../../assets/Icons/IconEmailSended';
+import useFetch from '../../hooks/useFetch';
+import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../constants/paths';
 
 const EmailRegisterSended = () => {
 	const { t } = useTranslation();
 	const { savedEmail } = useSelector((store) => store.auth);
-	const handleSubmit = async () => {
-		await resendVerifyEmail(savedEmail);
-	};
+	const navigate = useNavigate();
+
+	const [data, error, apiCall] = useFetch({
+		service: () => resendVerifyEmail(savedEmail),
+		globalLoader: true,
+		callback: () => navigate(`${PATHS.LOGIN}`)
+	})
+
 	return (
 		<MainContainer>
-			<div className='p-4 mt-5 mb-5 d-flex flex-column justify-content-between h-100'>
 
 				<Text
 					size={4}
 					bold
 					text={t('auth.emailConfirm.title')}
+					className='mt-5'
 				/>
 				<div>
 
@@ -40,10 +48,9 @@ const EmailRegisterSended = () => {
 					<Text justify='start' size={1} text={t('auth.emailConfirm.p3')} />
 					<Button
 						text={t('auth.emailConfirm.btnConfirm')}
-						onClick={handleSubmit}
+						onClick={apiCall}
 					/>
 				</div>
-			</div >
 		</MainContainer>
 	);
 };

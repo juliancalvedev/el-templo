@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { PATHS } from '../../constants/paths';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import './Landing.scss';
 import ElTemploLogo from '../../assets/images/ElTemploLogo';
 import useStyles from './useStyles';
 
