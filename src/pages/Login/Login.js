@@ -62,8 +62,6 @@ const Login = () => {
     setShowAlert(false);
   }
 
-
-
   const onClickIcon = () => {
     if (inputType === "password") {
       setInputType("text");
@@ -102,7 +100,7 @@ const Login = () => {
               />
 
               <Button onClick={apiCall} text={t("auth.login.btnLogin")} />
-              <div className="col-12 d-flex justify-content-end  ">
+              <div className="col-12 d-flex justify-content-end">
                 <Text
                   color={3}
                   size={1}
@@ -120,7 +118,6 @@ const Login = () => {
                 underline
                 onClick={toRegister}
                 text={t("auth.login.register2")}
-                className=''
               />
             </div>
       <Alert show={showAlert} onClose={onCloseAlert} />
