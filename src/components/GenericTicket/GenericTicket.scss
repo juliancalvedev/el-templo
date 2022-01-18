@@ -1,14 +1,17 @@
 @import '../../styles/variables';
 .generic-ticket {
 	height: 40px;
+	margin-top: 8px;
 	border-radius: 15px;
 	box-shadow: $shadow020;
-	margin-top: 8px;
 	color: $sixth;
+	background-color: $sixth;
 	font-weight: 500;
 	text-indent: 10px;
 	padding-right: 1rem;
-
+	.mode {
+		border-left: 3px solid gray;
+	}
 	&--list {
 		display: flex;
 		justify-content: start;
@@ -19,17 +22,24 @@
 	}
 	.text-1-container {
 		padding: 0px 5px;
-		display: flex;
-		align-items: center;
-		margin-top: 1rem;
 	}
 	.text-2-container {
 		padding: 0px 5px;
 		display: flex;
 		align-items: center;
+
+		&--mode {
+			border-right: 3px solid black;
+		}
+	}
+
+	.end__aligned--text {
+		word-spacing: 25px;
 	}
 	.generic-ticket-text {
 		margin: 0px;
 		padding: 0px;
+	}
+	.generic-ticket-stats {
 	}
 }

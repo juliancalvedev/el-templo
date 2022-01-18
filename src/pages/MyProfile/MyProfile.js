@@ -77,6 +77,7 @@ const MyProfile = () => {
 						<GenericTicket
 							mode='list'
 							text1='3'
+							mode='mode'
 							text2={`${t(`welcome.goals.${goals?.[2]}`)}`}
 						/>
 					</div>
@@ -108,7 +109,7 @@ const MyProfile = () => {
 					text={t('user.myProfile.logOut')}
 					type={4}
 					onClick={onLogout}
-					color='3'
+					color='1'
 				/>
 			</div>
 		</MainContainer>
