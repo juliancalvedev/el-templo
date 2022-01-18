@@ -86,13 +86,11 @@ export const Register = () => {
 	return (
 		<MainContainer
 			text={t('auth.register.register')}
-			
 			back
 			shadow
 			bg={2}
 			color={1}
 		>
-			<TopSpacing scroll />
 			<form className='register col-12 ' onSubmit={handleSubmit}>
 				<div className='contBaseInputs px-3 mt-4 col-12 '>
 					<div className='baseI64 d-flex align-items-center col-12 '>

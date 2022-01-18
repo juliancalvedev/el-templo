@@ -14,9 +14,7 @@ const Landing = () => {
 	const handleSubmitLogin = () => navigate(`/${PATHS.LOGIN}`);
 	const handleSubmitRegister = () => navigate(`/${PATHS.REGISTER}`);
 	return (
-		<MainContainer>
-			<div className='landing-container col-12 h-100'>
-				<div className='col-11 d-flex flex-column justify-content-between'>
+		<MainContainer backgroundImg='login'>
 					<div className='col-12'>
 						<div className='col-12 d-flex justify-content-end'>
 							<LanguageSelector />
@@ -37,8 +35,6 @@ const Landing = () => {
 							text={t('auth.landing.btnRegister')}
 						/>
 					</div>
-				</div>
-			</div>
 		</MainContainer>
 	);
 };

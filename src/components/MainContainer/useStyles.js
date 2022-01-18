@@ -1,7 +1,7 @@
-const useStyles = ({ scroll }) => {
+const useStyles = ({ backgroundImg, scroll, topbar }) => {
     return {
-        container: 'col-12 d-flex full-height flex-column',
-        bodyContainer: `col-12 d-flex flex-column align-items-center justify-content-center ${scroll ? 'main-container--noXscroll' : 'h-100'}`
+        container: `col-12 d-flex align-items-center flex-column ${backgroundImg ? 'backgroundImg backgroundImg--' + backgroundImg : ''} full-height`,
+        bodyContainer: `col-11 d-flex flex-column justify-content-between ${scroll ? '' : 'h-100'}`
     }
 }
 
