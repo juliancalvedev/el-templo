@@ -1,17 +1,17 @@
-import "./Login.scss";
-import Input from "../../components/Input/Input";
-import Button from "../../components/Button/Button";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { loginAction, saveEmailAction } from "../../redux/auth";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { PATHS } from "../../constants/paths";
-import MainContainer from "../../components/MainContainer/MainContainer";
-import { login } from "../../services/auth";
-import useFetch from "../../hooks/useFetch";
-import Text from "../../components/Text/Text";
-import Alert from "./Alert/Alert";
+import './Login.scss';
+import Input from '../../components/Input/Input';
+import Button from '../../components/Button/Button';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginAction, saveEmailAction } from '../../redux/auth';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../constants/paths';
+import MainContainer from '../../components/MainContainer/MainContainer';
+import { login } from '../../services/auth';
+import useFetch from '../../hooks/useFetch';
+import Text from '../../components/Text/Text';
+import Alert from './Alert/Alert';
 
 const Login = () => {
   const { t } = useTranslation();

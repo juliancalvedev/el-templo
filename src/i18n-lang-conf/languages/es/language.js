@@ -262,7 +262,7 @@ const es = {
 	},
 	user: {
 		changeUserPassword: {
-			title: 'Editar contraseña',
+			title: 'Edición de contraseña',
 			currentPassword: 'Contraseña actual',
 			newPassword: 'Nueva contraseña',
 			repeatNewPassword: 'Repetir contraseña nueva',
