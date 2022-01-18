@@ -29,7 +29,6 @@ const Input = ({
 	disabled,
 	onClickIcon = () => {},
 }) => {
-	const styles = useStyles({ isValid, isInvalid, transparent, className });
 	const feedbackColorType = (isInvalid && 'error') || (transparent && 2);
 
 	const styles = useStyles({
@@ -39,7 +38,6 @@ const Input = ({
 		className,
 		icon,
 	});
-	const feedbackColorType = (isInvalid && 'error') || (transparent && 2);
 
 	return (
 		<div className={styles.container}>
