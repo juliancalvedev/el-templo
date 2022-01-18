@@ -21,7 +21,7 @@ const TopBar = ({ text, color = 1, bg = 'none', back = false, shadow }) => {
 							className={styles.backArrowBtn}
 							onClick={handleClick}
 						>
-							<div className='iconBack'>
+							<div>
 								<IconBack color={styles.icon} />
 							</div>
 						</div>

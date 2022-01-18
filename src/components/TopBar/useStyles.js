@@ -3,7 +3,7 @@ const useStyles = ({ bg, color, back, shadow }) => {
 		container: `col-12 d-flex align-items-center position-absolute topbar topbar__bg--${bg} ${
 			shadow && 'topbar__shadow'
 		}`,
-		body: `d-flex align-items-center offset-${back ? '1' : '10'}`,
+		body: `d-flex align-items-center`,
 		backArrowBtn: 'border-0',
 		icon: `stroke__color--${color} pl-5`,
 	};
