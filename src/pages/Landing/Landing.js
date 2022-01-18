@@ -6,6 +6,7 @@ import { PATHS } from '../../constants/paths';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import './Landing.scss';
 import ElTemploLogo from '../../assets/images/ElTemploLogo';
+import useStyles from './useStyles';
 
 const Landing = () => {
 	const { t } = useTranslation();
@@ -13,17 +14,20 @@ const Landing = () => {
 
 	const handleSubmitLogin = () => navigate(`/${PATHS.LOGIN}`);
 	const handleSubmitRegister = () => navigate(`/${PATHS.REGISTER}`);
+
+	const styles = useStyles();
+
 	return (
 		<MainContainer backgroundImg='login'>
-					<div className='col-12'>
-						<div className='col-12 d-flex justify-content-end'>
+					<div>
+						<div className={styles.languageSelector}>
 							<LanguageSelector />
 						</div>
-						<div className='m-auto d-flex justify-content-center col-8'>
+						<div className={styles.mainLogo}>
 							<ElTemploLogo />
 						</div>
 					</div>
-					<div className='col-12'>
+					<div>
 						<Button
 							onClick={handleSubmitLogin}
 							text={t('auth.landing.btnLogin')}
