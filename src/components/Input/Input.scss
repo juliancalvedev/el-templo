@@ -3,8 +3,10 @@
 .input {
 	outline: none;
 	border: none;
-	width: 80%;
 	background-color: transparent !important;
+	&--hasIcon {
+		width: 80%;
+	}
 	&-state {
 		&--is-valid {
 			-webkit-text-fill-color: green;
@@ -49,7 +51,4 @@
 		&--general {
 		}
 	}
-}
-input:-webkit-autofill {
-	-webkit-background-clip: text;
 }

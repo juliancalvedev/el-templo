@@ -1,4 +1,4 @@
-const useStyles = ({ transparent, isInvalid, isValid, className }) => {
+const useStyles = ({ transparent, isInvalid, isValid, className, icon }) => {
     return {
         container: `col-md-4 my-3
         ${ className }`,
@@ -10,13 +10,13 @@ const useStyles = ({ transparent, isInvalid, isValid, className }) => {
         ${isValid ? 'input__content-state--is-valid' : ''} 
         ${isInvalid ? 'input__content-state--is-invalid' : ''} `,
         
-        input: `form-control input col-3
+        input: `form-control input col-3 ${icon || isValid ? 'input--hasIcon' : ''}
         input-color--${transparent ? 'transparent ' : 'general'}
         ${isValid ? 'input-state--is-valid' : ''} 
         ${isInvalid ? 'input-state--is-invalid' : ''}
         `,
 
-        iconContainer: 'col-3 d-flex justify-content-center align-items-center'
+        iconContainer: `col-3 d-flex justify-content-center align-items-center ${ icon || isValid ? '' : 'display-none'}`
     }
 }
 

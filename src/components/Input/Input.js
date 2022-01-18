@@ -4,9 +4,12 @@ import IconEye from '../../assets/Icons/IconEye';
 import IconCheck from '../../assets/Icons/IconCheck';
 import Text from '../Text/Text';
 
-const ICON = {
-	eye: <IconEye />,
-	check: <IconCheck />,
+const ICON = ({ transparent }) => {
+	const ICONS = {
+		eye: <IconEye light={transparent} />,
+		check: <IconCheck />,
+	};
+	return ICONS;
 };
 
 const Input = ({
@@ -29,6 +32,15 @@ const Input = ({
 	const styles = useStyles({ isValid, isInvalid, transparent, className });
 	const feedbackColorType = (isInvalid && 'error') || (transparent && 2);
 
+	const styles = useStyles({
+		isValid,
+		isInvalid,
+		transparent,
+		className,
+		icon,
+	});
+	const feedbackColorType = (isInvalid && 'error') || (transparent && 2);
+
 	return (
 		<div className={styles.container}>
 			{label && <label className={styles.label}>{label}</label>}
@@ -42,11 +54,15 @@ const Input = ({
 					value={value}
 					placeholder={placeholder}
 				/>
-				<div className={styles.iconContainer}>
-					<span onClick={onClickIcon}>
-						{isValid ? ICON.check : ICON[icon]}
-					</span>
-				</div>
+				{(icon || isValid) && (
+					<div className={styles.iconContainer}>
+						<span onClick={onClickIcon}>
+							{isValid
+								? ICON().check
+								: ICON({ transparent })?.[icon]}
+						</span>
+					</div>
+				)}
 			</div>
 			{feedback && (
 				<Text
