@@ -65,19 +65,15 @@ const MyProfile = () => {
 				<div className='col-12 d-flex flex-column ticket-box '>
 					<div className='goals-box my-2'>
 						<GenericTicket
-							mode='list'
 							text1='1 '
 							text2={`${t(`welcome.goals.${goals?.[0]}`)}`}
 						/>
 						<GenericTicket
-							mode='list'
 							text1='2'
 							text2={`${t(`welcome.goals.${goals?.[1]}`)}`}
 						/>
 						<GenericTicket
-							mode='list'
 							text1='3'
-							mode='mode'
 							text2={`${t(`welcome.goals.${goals?.[2]}`)}`}
 						/>
 					</div>
@@ -88,12 +84,12 @@ const MyProfile = () => {
 						text={t('user.myProfile.personalInfo')}
 					/>
 					<GenericTicket
-						mode='separated'
+						mode='list'
 						text1={t('user.myProfile.weight')}
 						text3={`${weight} KG`}
 					/>
 					<GenericTicket
-						mode='separated'
+						mode='list'
 						text1={t('user.myProfile.height')}
 						text3={`${height} Mt`}
 					/>
