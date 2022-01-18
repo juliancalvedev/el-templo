@@ -12,9 +12,11 @@ const MainContainer = ({ children, scroll, backgroundImg, ...topbarOptions }) =>
 
 	return (
 		<div className={styles.container}>
-			{topbar && <TopBar {...topbarOptions} />}
-			<div className={styles.bodyContainer}>
-				{children}
+			<div className={styles.mainContainer}>
+				{topbar && <TopBar {...topbarOptions} />}
+				<div className={styles.bodyContainer}>
+					{children}
+				</div>
 			</div>
 		</div>
 	);

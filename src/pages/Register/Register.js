@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import TopSpacing from '../../components/TopSpacing/TopSpacing';
 import { useRef } from 'react';
+import Text from '../../components/Text/Text';
 
 export const Register = () => {
 	const { t } = useTranslation();
@@ -90,8 +91,8 @@ export const Register = () => {
 			shadow
 			bg={2}
 			color={1}
+			scroll
 		>
-			<form className='register col-12 ' onSubmit={handleSubmit}>
 				<div className='contBaseInputs px-3 mt-4 col-12 '>
 					<div className='baseI64 d-flex align-items-center col-12 '>
 						<input
@@ -148,7 +149,7 @@ export const Register = () => {
 					</div>
 				</div>
 
-				<div className='inputsRadio col-md-4 my-3 justify-content-center align-content-center d-flex mt-4 mb-4 col-12'>
+				<div className='inputsRadio my-3 justify-content-center align-content-center d-flex col-12'>
 					<div
 						className='inputSexTitle col-10'
 						name='sex'
@@ -326,7 +327,7 @@ export const Register = () => {
 						)}
 					</div>
 				</div>
-				<div className='col-10 m-4 col-md-4 my-3  '>
+				<div className='mb-5'>
 					<Button
 						disabled={
 							(!values.firstName,
@@ -342,14 +343,11 @@ export const Register = () => {
 						text={t('auth.register.btnRegister')}
 					/>
 
-					<p className='TC d-flex justify-content-center mb-0'>
-						{t('auth.register.termsAndConditions1')}
-					</p>
-					<Link className='TC2 d-flex justify-content-center' to=''>
-						{t('auth.register.termsAndConditions2')}
-					</Link>
+					<Text size='1' text={t('auth.register.termsAndConditions1')} className='mt-1'/>
+						
+					<Text size='1' color={4} underline text={t('auth.register.termsAndConditions2')}/>
+						
 				</div>
-			</form>
 		</MainContainer>
 	);
 };

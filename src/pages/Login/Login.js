@@ -79,7 +79,7 @@ const Login = () => {
 
           </div>
 
-            <div>
+            <div className='pb-5 mb-5'>
               <Input
                 value={email}
                 onChange={handleChangeEmail}
@@ -110,7 +110,7 @@ const Login = () => {
                 />
               </div>
             </div>
-            <div className="d-flex flex-colum justify-content-center align-items-center">
+            <div className="d-flex flex-colum justify-content-center align-items-center pb-5">
               <Text size={1} color={2} text={t("auth.login.register1")} />
               <Text
                 size={1}

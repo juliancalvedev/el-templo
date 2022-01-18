@@ -30,7 +30,7 @@ const es = {
 			emailType: 'Debe ser un email válido.',
 			passwordNotEquals: 'Las contraseñas no coinciden',
 			validPassword:
-				'(La contraseña debe contener al menos 6 letras y 1 número)',
+				'(Debe contener al menos 6 letras y 1 número)',
 			notAllowedEmail: 'Email no permitido.',
 			number: 'Este campo debe ser un número.',
 			text: 'Este campo deber ser un texto.',

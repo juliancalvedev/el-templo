@@ -23,8 +23,7 @@ const Landing = () => {
 							<ElTemploLogo />
 						</div>
 					</div>
-					<div className='col-12 pb-5'>
-						<p>{t('auth.landing.haveAccount')}</p>
+					<div className='col-12'>
 						<Button
 							onClick={handleSubmitLogin}
 							text={t('auth.landing.btnLogin')}
