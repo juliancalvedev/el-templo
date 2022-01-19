@@ -12,7 +12,6 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import ImportantBar from '../../components/ImportantBar/ImportantBar';
 import Text from '../../components/Text/Text';
 import CardInfo from './CardInfo/CardInfo';
-import TopSpacing from '../../components/TopSpacing/TopSpacing';
 
 const MyProfile = () => {
 	const { t } = useTranslation();
@@ -37,8 +36,8 @@ const MyProfile = () => {
 			bg='1'
 			back
 			text={t('user.myProfile.myProfile')}
+			col='12'
 		>
-			<TopSpacing />
 			<CardInfo t={t} startEnabledDate={startEnabledDate} level={level} />
 			<div className=' subscription-box col-12'>
 				<ImportantBar
@@ -60,7 +59,7 @@ const MyProfile = () => {
 					size={1}
 				/>
 			</div>
-			<div className='my-profile-stats col-11 '>
+			<div className='my-profile-stats col-12 '>
 				<Text justify='start' bold text={t('user.myProfile.goals')} />
 				<div className='col-12 d-flex flex-column ticket-box '>
 					<div className='goals-box my-2'>
@@ -100,6 +99,7 @@ const MyProfile = () => {
 					text={t('user.myProfile.password')}
 					type={4}
 					onClick={handleChangePasswordNavigate}
+					size={4}
 				/>
 				<Button
 					text={t('user.myProfile.logOut')}
