@@ -8,12 +8,14 @@ import Text from '../../components/Text/Text';
 import { getSearchParams } from '../../utils/searchParams';
 import { PATHS } from '../../constants/paths';
 import useFetch from '../../hooks/useFetch';
+import useStyles from './useStyles';
 
 const PasswordRecoveryForm = () => {
 	const token = getSearchParams('token');
 
 	const { t } = useTranslation();
 	const navigate = useNavigate();
+	const styles=useStyles();
 
 	const [password, setPassword] = useState('');
 	const [repeatPassword, setRepeatPassword] = useState('');
@@ -44,9 +46,9 @@ const PasswordRecoveryForm = () => {
 	};
 
 	return (
-		<div className='d-flex flex-column justify-content-between h-100'>
+		<div className={styles.container}>
 			<div>
-				<div className='py-3'>
+				<div className={styles.div}>
 					<Text size='4' bold text={t('auth.passwordRecoveryForm.title')} />
 				</div>
 
