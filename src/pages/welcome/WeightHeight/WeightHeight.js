@@ -12,7 +12,7 @@ import { PATHS } from '../../../constants/paths';
 import { useTranslation } from 'react-i18next';
 import InputDivided from '../../../components/InputDivided/InputDivided';
 import MainContainer from '../../../components/MainContainer/MainContainer';
-
+import useFetch from '../../../hooks/useFetch';
 const WeightHeight = () => {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
@@ -75,39 +75,38 @@ const WeightHeight = () => {
 			setSelectedHeight('');
 		}
 	};
-
-	const callback = async () => {
-		await putTrainingInfo({
-			...trainingInfo,
-			weight: selectedWeight,
-			height: selectedHeight,
-		});
+	
+	const callback = () => {
 		dispatch(getUserInfoAction());
-	};
-
-	const handleSubmit = () => {
-		callback();
 		navigate(`/${PATHS.BASE_URL}`);
 	};
 
+	const [data, error, apiCall] = useFetch({
+		service: () => putTrainingInfo({
+			...trainingInfo,
+			weight: selectedWeight,
+			height: selectedHeight,
+		}),
+		globalLoader: true,
+		callback
+	})
+
+
+	const bannerTexts = [
+		<Text
+						justify='start'
+						text={t('welcome.weightHeight.title')}
+						size='4'
+						bold
+						color={2}
+						className='px-4'
+					/>
+	]
+
 	return (
-		<MainContainer back={true} bg='1' color='2' scroll>
-			<div className='weightHeight__container d-flex flex-column justify-content-start align-items-center col-12'>
-				<div className='weightHeight__backgroundImg'></div>
+		<MainContainer back={true} bg='1' color='2' backgroundImg='mainGoals' banner bannerTexts={bannerTexts}>
 
-				<div className='weightHeight__topText--container col-12'>
-					<div className='weightHeight__topText col-10'>
-						<Text
-							className='topText__container--title'
-							justify='start'
-							text={t('welcome.weightHeight.title')}
-							size='4'
-							bold
-							color={2}
-						/>
-					</div>
-				</div>
-
+				<div></div>
 				<div className='weightHeight__input--container d-flex flex-column justify-content-center align-items-center col-12'>
 					<div className='form-group d-flex flex-column justify-content-center align-items-center m-1 col-12 '>
 						<InputDivided
@@ -139,14 +138,11 @@ const WeightHeight = () => {
 						/>
 					</div>
 				</div>
-				<div className='weightHeight__btn--container'>
 					<Button
 						text={t('welcome.weightHeight.enter')}
-						onClick={handleSubmit}
+						onClick={apiCall}
 						disabled={!selectedWeight || !selectedHeight}
 					/>
-				</div>
-			</div>
 		</MainContainer>
 	);
 };
