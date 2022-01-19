@@ -13,11 +13,12 @@ import { useTranslation } from 'react-i18next';
 import InputDivided from '../../../components/InputDivided/InputDivided';
 import MainContainer from '../../../components/MainContainer/MainContainer';
 import useFetch from '../../../hooks/useFetch';
+import useStyles from './useStyles';
 const WeightHeight = () => {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-
+	const styles=useStyles();
 	const trainingInfo = useSelector((store) => store.user.trainingInfo);
 
 	const [selectedWeight, setSelectedWeight] = useState('');
@@ -107,8 +108,8 @@ const WeightHeight = () => {
 		<MainContainer back={true} bg='1' color='2' backgroundImg='mainGoals' banner bannerTexts={bannerTexts}>
 
 				<div></div>
-				<div className='weightHeight__input--container d-flex flex-column justify-content-center align-items-center col-12'>
-					<div className='form-group d-flex flex-column justify-content-center align-items-center m-1 col-12 '>
+				<div className={styles.container}>
+					<div className={styles.input1}>
 						<InputDivided
 							id='weight'
 							text1={t('welcome.weightHeight.weight')}
@@ -123,7 +124,7 @@ const WeightHeight = () => {
 						/>
 					</div>
 
-					<div className='form-group d-flex flex-column justify-content-center align-items-center m-1 col-12'>
+					<div className={styles.input2}>
 						<InputDivided
 							id='height'
 							text1={t('welcome.weightHeight.height')}

@@ -7,6 +7,8 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import TopSpacing from '../../components/TopSpacing/TopSpacing';
 
 import Button from '../../components/Button/Button';
+import useStyles from './useStyles';
+
 const Help = () => {
 	const { t } = useTranslation();
 	const [showBtn, setShowBtn] = useState(true);
@@ -14,7 +16,7 @@ const Help = () => {
 		setShowBtn(false);	
 	}
 	
-
+	const styles=useStyles();
 	return (
 
 		<MainContainer color={2} text={t('help.main.help')} bg={1} back scroll>
@@ -28,12 +30,12 @@ const Help = () => {
 				src='https://d500.epimg.net/cincodias/imagenes/2019/05/02/lifestyle/1556809482_591063_1556811610_noticia_normal.jpg'
 				alt=''
 			/>
-			<div className='col-11 m-auto my-3 d-flex align-items-start flex-column'>
+			<div className={styles.textHelp1}>
 				<Text justify='start' size={2} text={t('help.main.auxText1')} />
 				<Text justify='start' size={2} text={t('help.main.auxText12')} />
 				<Text justify='start' size={2} text={t('help.main.auxText13')} />
 			</div>
-			<p className=' d-flex  justify-content-center align-items-center col-12 rectangle324 py-3 '>
+			<p className={styles.p}>
 				{t('help.main.rectangle324')}
 			</p>
 
@@ -45,10 +47,10 @@ const Help = () => {
 			/>:
 
 			<div >
-				<div className='card p-0'>
+				<div className={styles.card}>
 					<Text font={2} size={5} text={t('help.main.mission')} />
 
-					<div className='col-11 m-auto mt-2 mb-4'>
+					<div className={styles.textHelp2}>
 						<Text
 							justify='start'
 							size={2}

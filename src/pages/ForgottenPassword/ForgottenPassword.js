@@ -10,13 +10,14 @@ import useFetch from '../../hooks/useFetch';
 import { startPasswordRecovery } from '../../services/auth';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
-
+import useStyles from './useStyles';
 
 
 const ForgottenPassword = () => {
 	const { t } = useTranslation();
 
 	const navigate = useNavigate();
+	const styles=useStyles();
 
 	const [email, setEmail] = useState('');
 
@@ -43,7 +44,7 @@ const ForgottenPassword = () => {
 				/>
 				<Text size={2} text={t('auth.forgotPassword1.contentForgotPassword')} />
 			</div>
-				<div className='d-flex align-items-center justify-content-start mb-5'>
+				<div className={styles.img}>
 					<ImgPadlockFP />
 					<ImgKeyFP />
 				</div>

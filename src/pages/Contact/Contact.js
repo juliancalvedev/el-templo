@@ -3,18 +3,19 @@ import Text from '../../components/Text/Text';
 import ImgArrobaElTemplo from '../../assets/images/ImgArrobaElTemplo';
 import ImgBlueSeparator from '../../assets/images/ImgBlueSeparator';
 import { ImgDiagonalRectangle } from '../../assets/images/ImgDiagonalRectangle';
-
+import useStyles from './useStyles';
 const Contact = () => {
+	const styles=useStyles();
 	return (
 		<MainContainer>
-			<div className='d-flex flex-column align-items-center justify-content-between col-12 h-25 mt-5'>
-				<ImgBlueSeparator customStyles='mb-4 mt-3' />
+			<div className={styles.container}>
+				<ImgBlueSeparator customStyles={styles.custom1} />
 				<Text text={`Av.Constitución`} style={{ margin: '0px' }} />
 				<Text text={`6745`} style={{ marginBottom: '15px' }} />
 				<ImgArrobaElTemplo />
-				<ImgBlueSeparator customStyles='mt-1' />
+				<ImgBlueSeparator customStyles={styles.custom2} />
 
-				<div className='align-self-end mt-5'>
+				<div className={styles.diagonal}>
 					<ImgDiagonalRectangle />
 					<ImgDiagonalRectangle />
 					<ImgDiagonalRectangle />

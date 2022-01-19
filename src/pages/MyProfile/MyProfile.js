@@ -13,10 +13,12 @@ import ImportantBar from "../../components/ImportantBar/ImportantBar";
 import Text from "../../components/Text/Text";
 import CardInfo from "./CardInfo/CardInfo";
 import TopSpacing from '../../components/TopSpacing/TopSpacing';
+import useStyles from './useStyles';
 
 const MyProfile = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const styles=useStyles();
 
   const { startEnabledDate, endEnabledDate, goals, height, weight, level } =
     useSelector((store) => store.user);
@@ -31,80 +33,80 @@ const MyProfile = () => {
   };
 
   return (
-    <MainContainer color="2" bg="1" back text={t("user.myProfile.myProfile")}>
-      <TopSpacing />
-      <CardInfo t={t} startEnabledDate={startEnabledDate} level={level} />
-      <div className=" subscription-box col-12">
-        <ImportantBar
-          text={`${t("user.myProfile.endEnabledDate")}${cutDate(
-            `${endEnabledDate}`
-          )}`}
-        />
-      </div>
+		<MainContainer color='2' bg='1' back text={t('user.myProfile.myProfile')}>
+			
+			<CardInfo t={t} startEnabledDate={startEnabledDate} level={level} />
+			<div className={styles.importantBar}>
+				<ImportantBar
+					text={`${t('user.myProfile.endEnabledDate')}${cutDate(
+						`${endEnabledDate}`
+					)}`}
+				/>
+			</div>
 
-      <div className="d-flex col-12 justify-content-between border align-items-center p-1 mb-2">
-        <div className="px-3">
-          <Text bold text={`${t("user.myProfile.aboutYou")}`} />
-        </div>
+			<div className={styles.aboutYou}>
+				<div className={styles.aboutYou2}>
+					<Text bold text={`${t('user.myProfile.aboutYou')}`} />
+				</div>
 
+				<Button
+					onClick={handleEditAboutYou}
+					text={t('user.myProfile.editInfo')}
+					type={3}
+					size={1}
+				/>
+			</div>
+			<div className={styles.goals}>
+				<Text justify='start' bold text={t('user.myProfile.goals')} />
+				<div className={styles.generic}>
+					<div className={styles.genericDiv}>
+						<GenericTicket
+							mode='list'
+							text1='1 '
+							text2={`${t(`welcome.goals.${goals?.[0]}`)}`}
+						/>
+						<GenericTicket
+							mode='list'
+							text1='2'
+							text2={`${t(`welcome.goals.${goals?.[1]}`)}`}
+						/>
+						<GenericTicket
+							mode='list'
+							text1='3'
+							text2={`${t(`welcome.goals.${goals?.[2]}`)}`}
+						/>
+					</div>
 
-        <Button onClick={handleEditAboutYou} text={t("user.myProfile.editInfo")} type={3} size={1} />
-      </div>
-      <div className="my-profile-stats col-11 ">
-        <Text
-          justify="start"
-          bold
-          text={t("user.myProfile.goals")}
-        />
-        <div className="col-12 d-flex flex-column ticket-box ">
-          <div className="goals-box my-2">
-            <GenericTicket
-              mode="list"
-              text1="1 "
-              text2={`${t(`welcome.goals.${goals?.[0]}`)}`}
-            />
-            <GenericTicket
-              mode="list"
-              text1="2"
-              text2={`${t(`welcome.goals.${goals?.[1]}`)}`}
-            />
-            <GenericTicket
-              mode="list"
-              text1="3"
-              text2={`${t(`welcome.goals.${goals?.[2]}`)}`}
-            />
-          </div>
-
-          <Text
-            justify="start"
-            bold
-            text={t("user.myProfile.personalInfo")}
-          />
-          <GenericTicket
-            mode="separated"
-            text1={t("user.myProfile.weight")}
-            text2={`${weight} KG`}
-          />
-          <GenericTicket
-            mode="separated"
-            text1={t("user.myProfile.height")}
-            text2={`${height} Mt`}
-          />
-        </div>
-      </div>
-      <div className="col-12 mt-4">
-        <Button
-          text={t("user.myProfile.password")}
-          type={4}
-          onClick={handleChangePasswordNavigate}
-        />
-        <Button
-          text={t("user.myProfile.logOut")}
-          type={4}
-          onClick={onLogout}
-        />
-      </div>
-    </MainContainer>
+					<Text
+						justify='start'
+						bold
+						text={t('user.myProfile.personalInfo')}
+					/>
+					<GenericTicket
+						mode='separated'
+						text1={t('user.myProfile.weight')}
+						text2={`${weight} KG`}
+					/>
+					<GenericTicket
+						mode='separated'
+						text1={t('user.myProfile.height')}
+						text2={`${height} Mt`}
+					/>
+				</div>
+			</div>
+			<div className={styles.btn}>
+				<Button
+					text={t('user.myProfile.password')}
+					type={4}
+					onClick={handleChangePasswordNavigate}
+				/>
+				<Button
+					text={t('user.myProfile.logOut')}
+					type={4}
+					onClick={onLogout}
+				/>
+			</div>
+		</MainContainer>
   );
 };
 
