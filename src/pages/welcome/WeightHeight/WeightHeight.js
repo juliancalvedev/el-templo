@@ -13,11 +13,12 @@ import { useTranslation } from 'react-i18next';
 import InputDivided from '../../../components/InputDivided/InputDivided';
 import MainContainer from '../../../components/MainContainer/MainContainer';
 import useFetch from '../../../hooks/useFetch';
+import useStyles from './useStyles';
 const WeightHeight = () => {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-
+	const styles=useStyles();
 	const trainingInfo = useSelector((store) => store.user.trainingInfo);
 
 	const [selectedWeight, setSelectedWeight] = useState('');

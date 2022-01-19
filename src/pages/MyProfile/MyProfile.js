@@ -34,7 +34,7 @@ const MyProfile = () => {
 
   return (
 		<MainContainer color='2' bg='1' back text={t('user.myProfile.myProfile')}>
-			<TopSpacing />
+			
 			<CardInfo t={t} startEnabledDate={startEnabledDate} level={level} />
 			<div className={styles.importantBar}>
 				<ImportantBar

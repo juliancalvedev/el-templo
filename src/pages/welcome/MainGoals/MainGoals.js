@@ -12,12 +12,12 @@ import { PATHS } from '../../../constants/paths';
 import { useDispatch, useSelector } from 'react-redux';
 import { addGoalsToTrainingInfo } from '../../../redux/user';
 import ButtonPagination from '../../../components/ButtonPagination/ButtonPagination';
-
+import useStyles from './useStyles';
 const MainGoals = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-
+	const styles=useStyles();
 	const trainingGoals = useSelector((store) => store.user.trainingInfo.goals);
 
 	const [arrGoals, setArrGoals] = useState([]);
@@ -93,56 +93,56 @@ const MainGoals = () => {
 		<MainContainer back={true} bg='1' color='2' backgroundImg='mainGoals' banner bannerTexts={bannerTexts}>
 
 
-				<div className='showing-inputs d-flex flex-column align-items-center'>
+				<div className={styles.container}>
 					<div
-						className='goal-field goal-1 d-flex col-12'
+						className={styles.DG0}
 						onClick={() => deleteGoal(0)}
 					>
 						<p className='numbers'>1</p>
-						<div className='d-flex justify-content-between align-items-center col-12 '>
+						<div className={styles.selected0}>
 							<p
 								className='goals goal1'
 								style={{ marginLeft: '23px' }}
 							>
 								{t(`welcome.goals.${selectedGoals[0]}`)}
 							</p>
-							<div className='crossIcon crossIcon1'>
+							<div className={styles.cross0}>
 								<Cross />
 							</div>
 						</div>
 					</div>
 
 					<div
-						className='goal-field goal-2 d-flex col-12 '
+						className={styles.DG1}
 						onClick={() => deleteGoal(1)}
 					>
 						<p className='numbers'>2</p>
-						<div className='d-flex justify-content-between align-items-center col-12'>
+						<div className={styles.selected1}>
 							<p className='goals '>
 								{t(`welcome.goals.${selectedGoals[1]}`)}
 							</p>
-							<div className='crossIcon'>
+							<div className={styles.cross1}>
 								<Cross />
 							</div>
 						</div>
 					</div>
 					<div
-						className='goal-field goal-3 d-flex col-12'
+						className={styles.DG2}
 						onClick={() => deleteGoal(2)}
 					>
 						<p className='numbers'>3</p>
-						<div className='d-flex justify-content-between align-items-center col-12'>
+						<div className={styles.selected2}>
 							<p className='goals'>
 								{t(`welcome.goals.${selectedGoals[2]}`)}
 							</p>
-							<div className='crossIcon'>
+							<div className={styles.cross2}>
 								<Cross />
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div className='selectable-goals d-flex flex-wrap col-11'>
+				<div className={styles.btn1}>
 					{arrGoals?.map(
 						(goal, i) =>
 							!selectedGoals.includes(goal) && (
@@ -160,7 +160,7 @@ const MainGoals = () => {
 							)
 					)}
 				</div>
-				<div className='d-flex justify-content-end'>
+				<div className={styles.btn2}>
 
 					<ButtonPagination
 						disabled={
