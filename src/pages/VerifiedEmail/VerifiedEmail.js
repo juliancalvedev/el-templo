@@ -32,42 +32,26 @@ const VerifiedEmail = () => {
 
 	return (
 		<MainContainer>
-
-			<div className='col-12 d-flex flex-column align-items-center h-100'>
-				{data && (
-					<div className='col-12 h-100 d-flex flex-column align-items-center justify-content-between '>
-						<div className='col-10 text-center mt-4 pt-5'>
 							<Text
 								text={t('auth.emailVerified.title')}
 								size='4'
 								bold
+								className='mt-5 pt-4'
 							/>
-						</div>
-						<div className='mt-5'>
+						<div className='mt-2 d-flex justify-content-center'>
 							<ImgEmailVerified />
 						</div>
-						<div className='col-12 d-flex flex-column align-items-center justify-content-between '>
 
 							<Text
 								text={t('auth.emailVerified.auxText')}
 								size='3'
 							/>
-						</div>
 
-						<div
-							className='col-10'
-							style={{
-								marginBottom: '18%',
-							}}
-						>
+
 							<Button
 								text={t('auth.emailVerified.btnNext')}
 								onClick={navigateToLoggin}
 							/>
-						</div>
-					</div>
-				)}
-			</div>
 
 		</MainContainer>
 	);

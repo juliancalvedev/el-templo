@@ -44,7 +44,7 @@ const PasswordRecoveryForm = () => {
 	};
 
 	return (
-		<div className='col-10 d-flex flex-column justify-content-between h-100'>
+		<div className='d-flex flex-column justify-content-between h-100'>
 			<div>
 				<div className='py-3'>
 					<Text size='4' bold text={t('auth.passwordRecoveryForm.title')} />

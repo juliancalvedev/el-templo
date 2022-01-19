@@ -1,17 +1,17 @@
-import "./Login.scss";
-import Input from "../../components/Input/Input";
-import Button from "../../components/Button/Button";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { loginAction, saveEmailAction } from "../../redux/auth";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { PATHS } from "../../constants/paths";
-import MainContainer from "../../components/MainContainer/MainContainer";
-import { login } from "../../services/auth";
-import useFetch from "../../hooks/useFetch";
-import Text from "../../components/Text/Text";
-import Alert from "./Alert/Alert";
+import './Login.scss';
+import Input from '../../components/Input/Input';
+import Button from '../../components/Button/Button';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginAction, saveEmailAction } from '../../redux/auth';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../constants/paths';
+import MainContainer from '../../components/MainContainer/MainContainer';
+import { login } from '../../services/auth';
+import useFetch from '../../hooks/useFetch';
+import Text from '../../components/Text/Text';
+import Alert from './Alert/Alert';
 
 const Login = () => {
   const { t } = useTranslation();
@@ -62,8 +62,6 @@ const Login = () => {
     setShowAlert(false);
   }
 
-
-
   const onClickIcon = () => {
     if (inputType === "password") {
       setInputType("text");
@@ -74,14 +72,14 @@ const Login = () => {
   };
 
   return (
-    <MainContainer color={2} back>
-      <div className="login-container col-12 h-100">
-        <div className="login-container login-container__opacity d-flex justify-content-center col-12 h-100 pt-2">
-          <div className="col-11 d-flex flex-column pt-5 mt-4">
-            <Text justify="start" size={4} color={2} bold text={t("auth.login.title")} />
-            <Text justify="start" color={2} text={t("auth.login.subtitle")} />
+    <MainContainer backgroundImg='login' color={2} back>
+          <div>
+                <Text justify="start" size={4} color={2} bold text={t("auth.login.title")} />
+                <Text justify="start" color={2} text={t("auth.login.subtitle")} />
 
-            <div className="col-12 mb-5 pt-4 mt-5">
+          </div>
+
+            <div className='pb-5 mb-5'>
               <Input
                 value={email}
                 onChange={handleChangeEmail}
@@ -102,7 +100,7 @@ const Login = () => {
               />
 
               <Button onClick={apiCall} text={t("auth.login.btnLogin")} />
-              <div className="col-12 d-flex justify-content-end  ">
+              <div className="col-12 d-flex justify-content-end">
                 <Text
                   color={3}
                   size={1}
@@ -112,7 +110,7 @@ const Login = () => {
                 />
               </div>
             </div>
-            <div className="d-flex flex-colum justify-content-center align-items-center mt-5 pt-5 h-20 ">
+            <div className="d-flex flex-colum justify-content-center align-items-center pb-5">
               <Text size={1} color={2} text={t("auth.login.register1")} />
               <Text
                 size={1}
@@ -120,12 +118,8 @@ const Login = () => {
                 underline
                 onClick={toRegister}
                 text={t("auth.login.register2")}
-                className='p-1'
               />
             </div>
-          </div>
-        </div>
-      </div>
       <Alert show={showAlert} onClose={onCloseAlert} />
     </MainContainer>
   );

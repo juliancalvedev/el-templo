@@ -5,30 +5,26 @@ import PasswordRecoveryForm from './PasswordRecoveryForm';
 import PasswordRecoveryError from './PasswordRecoveryError';
 import useFetch from '../../hooks/useFetch';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import TopSpacing from '../../components/TopSpacing/TopSpacing';
-import Input from '../../components/Input/Input';
 
 const PasswordRecovery = () => {
 	const token = getSearchParams('token');
 
 	const [data, error, apiCall] = useFetch({
 		service: () => enablePasswordRecovery({ token }),
-		globalLoader: true
+		globalLoader: true,
 	})
 
 	useEffect(() => {
 		if (token) {
-
 			apiCall();
 		}
 	}, [token]);
 
 	return (
-		<MainContainer>
-			<div className='col-12 d-flex justify-content-center h-100 py-5 mb-4'>
+		<MainContainer back>
 				{data && <PasswordRecoveryForm />}
 				{error && <PasswordRecoveryError />}
-			</div>
+				<div className='mb-3'></div>
 		</MainContainer>
 	);
 };

@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { PATHS } from '../../constants/paths';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import './Landing.scss';
 import ElTemploLogo from '../../assets/images/ElTemploLogo';
+import useStyles from './useStyles';
 
 const Landing = () => {
 	const { t } = useTranslation();
@@ -13,20 +13,20 @@ const Landing = () => {
 
 	const handleSubmitLogin = () => navigate(`/${PATHS.LOGIN}`);
 	const handleSubmitRegister = () => navigate(`/${PATHS.REGISTER}`);
+
+	const styles = useStyles();
+
 	return (
-		<MainContainer>
-			<div className='landing-container col-12 h-100'>
-				<div className='col-11 d-flex flex-column justify-content-between'>
-					<div className='col-12'>
-						<div className='col-12 d-flex justify-content-end'>
+		<MainContainer backgroundImg='login'>
+					<div>
+						<div className={styles.languageSelector}>
 							<LanguageSelector />
 						</div>
-						<div className='m-auto d-flex justify-content-center col-8'>
+						<div className={styles.mainLogo}>
 							<ElTemploLogo />
 						</div>
 					</div>
-					<div className='col-12 pb-5'>
-						<p>{t('auth.landing.haveAccount')}</p>
+					<div>
 						<Button
 							onClick={handleSubmitLogin}
 							text={t('auth.landing.btnLogin')}
@@ -37,8 +37,6 @@ const Landing = () => {
 							text={t('auth.landing.btnRegister')}
 						/>
 					</div>
-				</div>
-			</div>
 		</MainContainer>
 	);
 };
