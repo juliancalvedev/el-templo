@@ -17,7 +17,7 @@ const Welcome = () => {
 
 	return (
 		<MainContainer backgroundImg='welcome1'>
-					<div className='mt-5'>
+					<div className={styles.text}>
 						<Text
 							text={t('welcome.main.title')}
 							size='5'

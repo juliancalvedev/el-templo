@@ -1,5 +1,7 @@
 const useStyles = () => {
-	return {};
+	return {
+		text: 'mt-5',
+	};
 };
 
 export default useStyles;
