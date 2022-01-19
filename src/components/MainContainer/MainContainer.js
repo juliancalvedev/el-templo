@@ -4,11 +4,11 @@ import TopBar from '../TopBar/TopBar';
 import './MainContainer.scss';
 import useStyles from './useStyles';
 
-const MainContainer = ({ children, scroll, backgroundImg, ...topbarOptions }) => {
+const MainContainer = ({ children, scroll, backgroundImg, col = '11', ...topbarOptions }) => {
 
 	const topbar = !isEmpty({ ...topbarOptions });
 
-	const styles = useStyles({scroll, backgroundImg, topbar, banner: topbarOptions?.banner});
+	const styles = useStyles({scroll, backgroundImg, col, banner: topbarOptions?.banner});
 
 	return (
 		<div className={styles.container}>
