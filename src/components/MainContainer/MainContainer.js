@@ -8,7 +8,7 @@ const MainContainer = ({ children, scroll, backgroundImg, ...topbarOptions }) =>
 
 	const topbar = !isEmpty({ ...topbarOptions });
 
-	const styles = useStyles({scroll, backgroundImg, topbar});
+	const styles = useStyles({scroll, backgroundImg, topbar, banner: topbarOptions?.banner});
 
 	return (
 		<div className={styles.container}>

@@ -5,12 +5,12 @@ import useStyles from './useStyles';
 import { IconBack } from '../../assets/Icons/IconBack';
 import Text from '../Text/Text';
 
-const TopBar = ({ text, color = 1, bg = 'none', back = false, shadow }) => {
+const TopBar = ({ text, color = 1, bg = 'none', back = false, shadow, banner, bannerTexts }) => {
 	const navigate = useNavigate();
 
 	const handleClick = () => navigate(-1);
 
-	const styles = useStyles({ bg, color, back, shadow });
+	const styles = useStyles({ bg, color, back, shadow, banner });
 
 	return (
 		<div className={styles.container}>
@@ -30,6 +30,10 @@ const TopBar = ({ text, color = 1, bg = 'none', back = false, shadow }) => {
 					<Text text={text} color={color} className='p-1' />
 				</div>
 			</nav>
+					{bannerTexts && <div className='pb-5'>
+
+					{bannerTexts?.map( bt => bt)}
+					</div>}
 		</div>
 	);
 };

@@ -30,23 +30,22 @@ const TrainingLevel = () => {
 		);
 		navigate(`/${PATHS.WEIGHT_HEIGHT}`);
 	};
+
+	const bannerTexts = [
+		<Text
+						justify='start'
+						text={t('welcome.trainingLevel.title')}
+						size='4'
+						bold
+						color={2}
+						className='px-4'
+					/>
+	]
+
 	return (
-		<MainContainer back={true} bg='1' color='2' scroll>
-			<div className='trainningLevel__container d-flex flex-column justify-content-start align-items-center col-12'>
-				<div className='trainningLevel__backgroundImg'></div>
-
-				<div className='trainningLevel__topText--container col-12'>
-					<div className='trainningLevel__topText col-10'>
-						<Text
-							justify='start'
-							text={t('welcome.trainingLevel.title')}
-							size='4'
-							bold
-							color={2}
-						/>
-					</div>
-				</div>
-
+		<MainContainer back={true} bg='1' color='2' backgroundImg='mainGoals' banner bannerTexts={bannerTexts}>
+			
+				<div></div>
 				<div className='trainningLevel__inputRange--container d-flex flex-column justify-content-center align-items-center col-12'>
 					<form className='d-flex flex-column justify-content-center align-items-center col-12 m-0 p-0'>
 						<InputRange
@@ -76,13 +75,12 @@ const TrainingLevel = () => {
 					</div>
 				</div>
 
-				<div className='trainningLevel__btnPag--container'>
+				<div className='d-flex justify-content-end'>
 					<ButtonPagination
 						direction='right'
 						onClick={toWeightAndHeight}
 					/>
 				</div>
-			</div>
 		</MainContainer>
 	);
 };

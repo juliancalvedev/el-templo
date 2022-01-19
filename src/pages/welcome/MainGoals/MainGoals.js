@@ -70,20 +70,15 @@ const MainGoals = () => {
 		setSelectedGoals(trainingGoals);
 	}, [trainingGoals]);
 
-	return (
-		<MainContainer back={true} bg='1' color='2' scroll>
-			<div className='mainGoals__container  d-flex flex-column align-items-center col-12'>
-				<div className='maingGoals__backgroundImg'></div>
-
-				<div className='topText__container col-12'>
-					<Text
+	const bannerTexts = [
+		<Text
 						justify='start'
 						text={t('welcome.goals.tellUs')}
 						size='4'
 						bold
 						color={2}
 						className='px-4'
-					/>
+					/>,
 					<Text
 						text={t('welcome.goals.mainGoals')}
 						size='3'
@@ -92,9 +87,13 @@ const MainGoals = () => {
 						justify='start'
 						className='px-4'
 					/>
-				</div>
+	]
 
-				<div className='showing-inputs d-flex flex-column align-items-center col-11'>
+	return (
+		<MainContainer back={true} bg='1' color='2' backgroundImg='mainGoals' banner bannerTexts={bannerTexts}>
+
+
+				<div className='showing-inputs d-flex flex-column align-items-center'>
 					<div
 						className='goal-field goal-1 d-flex col-12'
 						onClick={() => deleteGoal(0)}
@@ -161,7 +160,8 @@ const MainGoals = () => {
 							)
 					)}
 				</div>
-				<div className='mainGoals__btnPag--container'>
+				<div className='d-flex justify-content-end'>
+
 					<ButtonPagination
 						disabled={
 							selectedGoals[0] === '' ||
@@ -172,7 +172,6 @@ const MainGoals = () => {
 						className={disableBtnNext()}
 					/>
 				</div>
-			</div>
 		</MainContainer>
 	);
 };

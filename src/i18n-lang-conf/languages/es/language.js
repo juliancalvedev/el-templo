@@ -58,9 +58,9 @@ const es = {
 		emailConfirm: {
 			title: 'Confirma tu email',
 			p1: 'Estás a un paso de comenzar',
-			p2: 'Confirma tu correo electronico haciendo click en el enlace que enviamos, en tu bandeja de entrada.',
-			p3: 'No te ha llegado? Haz click aquí',
-			btnConfirm: 'Reenviar correo electronico',
+			p2: 'Confirma tu correo electronico, haciendo click en el enlace que enviamos, en tu bandeja de entrada o spam.',
+			p3: '¿No te llegó el correo electrónico?',
+			btnConfirm: 'Reenviar',
 		},
 		register: {
 			register: 'Registro',
@@ -117,7 +117,7 @@ const es = {
 		},
 
 		forgotPassword1: {
-			title: '¡Olvidaste tu contraseña?',
+			title: '¿Olvidaste tu contraseña?',
 			emailPlaceholder: 'Ingresa tu email',
 			contentForgotPassword:
 				'Enviaremos un email con los pasos a seguir, para cambiar tu contraseña.',
