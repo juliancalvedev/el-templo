@@ -71,7 +71,6 @@ const ChangeUserPassword = () => {
 
 	return (
 		<MainContainer back shadow text={t('user.changeUserPassword.title')}>
-			<TopSpacing />
 			<div className='col-12 d-flex h-75 flex-column align-items-center justify-content-between'>
 				<div className='col-12 d-flex h-100 flex-column   align-items-center '>
 					<Input
