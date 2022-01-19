@@ -6,17 +6,18 @@ import Button from '../../../components/Button/Button';
 import { PATHS } from '../../../constants/paths';
 import Text from '../../../components/Text/Text';
 import MainContainer from '../../../components/MainContainer/MainContainer';
-
+import useStyles from './useStyles';
 const Welcome = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
+	const styles=useStyles();
 	const { firstName } = useSelector((store) => store.user);
 
 	const toOnboarding = () => navigate(`/${PATHS.MAIN_GOALS}`);
 
 	return (
 		<MainContainer backgroundImg='welcome1'>
-					<div className='mt-5'>
+					<div className={styles.text}>
 						<Text
 							text={t('welcome.main.title')}
 							size='5'

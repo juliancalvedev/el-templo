@@ -11,10 +11,12 @@ import Button from '../../components/Button/Button';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import ImgCorreoNoVerificado from '../../assets/images/ImgCorreoNoVerificado';
 import useFetch from '../../hooks/useFetch';
+import useStyles from './useStyles';
 
 const EnabledVerified = () => {
 	const navigate = useNavigate();
 	const { t } = useTranslation();
+	const styles=useStyles();
 
 	const { emailIsVerified, savedEmail } = useSelector(
 		(store) => store.auth
@@ -29,10 +31,10 @@ const EnabledVerified = () => {
 
 	return (
 		<MainContainer scroll>
-			<div className='d-flex flex-column align-items-center col-12 '>
+			<div className={styles.maincontainer}>
 				{!emailIsVerified && (
-					<div className='d-flex flex-column align-items-center col-10 '>
-						<div className='title__container col-8 text-center'>
+					<div className={styles.container}>
+						<div className={styles.title}>
 							<Text
 								text={t(
 									'auth.enabledVerified.emailNotVerified.title'
@@ -41,7 +43,7 @@ const EnabledVerified = () => {
 								bold
 							/>
 						</div>
-						<div className='mt-3 col-12 text-center'>
+						<div className={styles.text1}>
 							<Text
 								text={t(
 									'auth.enabledVerified.emailNotVerified.auxText'
@@ -49,11 +51,11 @@ const EnabledVerified = () => {
 								size='3'
 							/>
 						</div>
-						<div className='mt-4'>
+						<div className={styles.img}>
 							<ImgCorreoNoVerificado />
 						</div>
 
-						<div className='button__container col-10'>
+						<div className={styles.text2}>
 							<Text
 								text={t(
 									'auth.enabledVerified.emailNotVerified.hasNotEmail'

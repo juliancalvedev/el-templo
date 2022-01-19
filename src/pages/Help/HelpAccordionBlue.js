@@ -1,10 +1,12 @@
 import './Help.scss';
 import { useTranslation } from 'react-i18next';
 import Text from '../../components/Text/Text';
+import useStyles from './useStyles';
 const HelpAccordionBlue = ({ accordionType = 'blue', color = 'color' }) => {
 	const { t } = useTranslation();
+	const styles=useStyles();
 	return (
-		<div className='accordion accordion-flush col-12   ' id='accordionFlushExample'>
+		<div className={styles.containerHAB} id='accordionFlushExample'>
 			
 			<div className='accordion-item'>
 				<h2 className='accordion-header' id='flush-headingOne'>
@@ -28,7 +30,7 @@ const HelpAccordionBlue = ({ accordionType = 'blue', color = 'color' }) => {
 					<div
 						className={`accordion-body accordion-body--${color} col-12`}
 					>
-						<div className='col-12 px-3 py-2 d-flex flex-column justify-content-center'>
+						<div className={styles.textHAB1}>
 							<Text
 								text={t('help.main.auxText3.item1')}
 								color={1}
