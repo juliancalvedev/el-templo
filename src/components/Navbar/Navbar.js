@@ -14,7 +14,6 @@ import IconProfile from '../../assets/Icons/IconProfile';
 import IconProfileActive from '../../assets/Icons/IconProfileActive';
 import IconHelp from '../../assets/Icons/IconHelp';
 import IconHelpActive from '../../assets/Icons/IconHelpActive';
-import { useState } from 'react';
 
 const Navbar = () => {
 	const { t } = useTranslation();
@@ -22,13 +21,11 @@ const Navbar = () => {
 	const styles = useStyles();
 	const { pathname } = useLocation();
 
-	console.log(pathname);
-
 	return (
 		<nav className={styles.navbarContainer}>
 			<div className={styles.iconsContainer}>
 				{role === ROLES.ADMIN && (
-					<Link to='/users-list'>{t('navbar.nav.users')}</Link>
+					<Link to='/users-list'>{t('navbar.nav.users')}</Link> // TODO Icon change pending.
 				)}
 
 				<Link to='/dashboard'>
