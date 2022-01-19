@@ -1,6 +1,7 @@
 const useStyles = () => {
 	return {
-		container: `navbar-container col-12`,
+		navbarContainer: `navbar-container d-flex justify-content-around align-items-center col-12`,
+		iconsContainer: `d-flex justify-content-around align-items-center col-10`,
 	};
 };
 
