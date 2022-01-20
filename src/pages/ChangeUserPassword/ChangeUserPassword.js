@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { changePassword } from '../../services/user';
 import { useNavigate } from 'react-router';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import TopSpacing from '../../components/TopSpacing/TopSpacing';
 
 import Input from '../../components/Input/Input';
 
