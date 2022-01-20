@@ -11,6 +11,8 @@ import TopSpacing from '../../components/TopSpacing/TopSpacing';
 import { useRef } from 'react';
 import Text from '../../components/Text/Text';
 import InputDate from '../../components/InputDate/InputDate';
+import ButtonRadio from '../../components/ButtonRadio/ButtonRadio';
+import InputSelect from '../../components/InputSelect/InputSelect';
 
 
 export const Register = () => {
@@ -150,73 +152,65 @@ export const Register = () => {
 					</div>
 				</div>
 			</div>
-
 			<div className='inputsRadio my-3 justify-content-center align-content-center d-flex col-12'>
-				{/* <div className='inputSexTitle col-10' name='sex' value={values.sex}>
+				<div className='inputSexTitle col-10' name='sex' value={values.sex}>
 					<div className='mb-0 '>
 						<label className='nameInput '>
 							{t('auth.register.sexTitle')}
 						</label>
 					</div>
-					<div className='btnheck'>
-						<input
-							type='radio'
-							className='btn-check'
-							name='sex'
-							id='btnradio1'
-							value='F'
-							checked={values.sex === 'F' ? true : false}
-							onChange={handleChange}
-						/>
-						<label
-							className='btn-all btn btn-outline  btncheck1  col-4 '
-							htmlFor='btnradio1'
-						>
-							{t('auth.register.sex1')}
-						</label>
+					<div className='d-flex col-12'>
+						<div>
+							<ButtonRadio
+								type={'radio'}
+								name={'sex'}
+								id={'btnradio1'}
+								value={'F'}
+								defautchecked={values.sex === 'F' ? true : false}
+								onChange={handleChange}
+								colors={1}
+								htmlFor={'btnradio1'}
+								label={t('auth.register.sex1')}
+							/>
+						</div>
 
-						<input
-							type='radio'
-							className='btn-check'
-							name='sex'
-							id='btnradio2'
-							value='M'
-							checked={values.sex === 'M' ? true : false}
-							onChange={handleChange}
-						/>
-						<label
-							className='btn btn-outline btn-all btncheck2 col-4   '
-							htmlFor='btnradio2'
-						>
-							{t('auth.register.sex2')}
-						</label>
-
-						<input
-							type='radio'
-							className='btn-check'
-							name='sex'
-							id='btnradio3'
-							value='O'
-							checked={values.sex === 'O' ? true : false}
-							onChange={handleChange}
-						/>
-						<label
-							className='btn btn-outline btn-all btncheck3 col-4 checked '
-							htmlFor='btnradio3'
-						>
-							{t('auth.register.sex3')}
-						</label>
+						<div>
+							<ButtonRadio
+								type='radio'
+								name={'sex'}
+								id={'btnradio2'}
+								defaultValue={'M'}
+								defautchecked={values.sex === 'M' ? true : false}
+								onChange={handleChange}
+								colors={2}
+								label={t('auth.register.sex2')}
+								htmlFor={'btnradio2'}
+							/>
+						</div>
+						<div className=''>
+							<ButtonRadio
+								type={'radio'}
+								name={'sex'}
+								id={'btnradio3'}
+								defaultValue={'O'}
+								defautchecked={values.sex === 'F' ? true : false}
+								onChange={handleChange}
+								colors={3}
+								htmlFor={'btnradio3'}
+								label={t('auth.register.sex3')}
+							/>
+						</div>
 					</div>
-				</div> */}
-			
+				</div>
 			</div>
+
 			<div className='inputsP2  m-3'>
 				<div className='form-inputs mb-3'>
 					<Input
 						type='email'
 						name='email'
 						placeholder={t('auth.register.emailPlaceholder')}
-						value={values.email}
+						defaultValue={values.email}
 						onChange={handleChange}
 					/>
 					{errors.email && (
@@ -253,39 +247,18 @@ export const Register = () => {
 					/>
 				</div>
 
-				{/* <div className='form-inputs-select col-md-4 my-3 '>
-						<select
-							className='inputs__select d-flex  pr-5 col-12'
-							value={values.country}
-							onChange={handleChange}
-							name='country'
-						>
-							<option>{t('auth.register.countrySelection')}</option>
-							<option value='argentina'>
-								{t('auth.register.country1')}
-							</option>
-							<option value='us'>{t('auth.register.country2')}</option>
-							<option value='mexico'>
-								{t('auth.register.country3')}
-							</option>
-						</select>
-
-						<div className='chevron__down '>
-							<svg
-								xmlns='http://www.w3.org/2000/svg'
-								width='16'
-								height='16'
-								fill='currentColor'
-								className='bi bi-chevron-down'
-								viewBox='0 0 16 16'
-							>
-								<path
-									fill='evenodd'
-									d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'
-								/>
-							</svg>
-						</div>
-					</div> */}
+				<InputSelect
+					name={'country'}
+					value={values.country}
+					onChange={handleChange}
+					value1={'argentina'}
+					value2={'us'}
+					value3={'mexico'}
+					label={t('auth.register.countrySelection')}
+					option1={t('auth.register.country1')}
+					option2={t('auth.register.country2')}
+					option3={t('auth.register.country3')}
+				/>
 
 				{errors.country && (
 					<p>{(errors.country = t('auth.register.countryError'))}</p>
@@ -295,6 +268,7 @@ export const Register = () => {
 					name='dateOfBirth'
 					value={values.dateOfBirth}
 					onChange={handleChange}
+					type={'date'}
 				/>
 
 				{errors.dateOfBirth && (
@@ -318,7 +292,6 @@ export const Register = () => {
 					}
 					onClick={handleSubmit}
 					text={t('auth.register.btnRegister')}
-					
 				/>
 
 				<Text

@@ -16,11 +16,11 @@ const onBlurDate = () => (inputDateRef.current.type = 'text');
 						type={type}
 						placeholder={placeholder}
 						name={name}
-						value={value}
+						defaultValue={value}
 						onChange={handleChange}
-						ref={ref,inputDateRef}
-						onFocus={onFocus,onFocusDate}
-						onBlur={onBlur,onBlurDate}
+						ref={inputDateRef}
+						onFocus={onFocusDate}
+						onBlur={onBlurDate}
 					/>
 					<div className='input-date-icon justify-content-end align-items-center'>
 					<IconDate/>

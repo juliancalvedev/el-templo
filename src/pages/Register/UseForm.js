@@ -38,6 +38,7 @@ const useForm = (RegisterValidate, img) => {
 	};
 
 	const handleSubmit = () => {
+		console.log(values)
 		const auxErrors = RegisterValidate(values);
 		setErrors(auxErrors);
 

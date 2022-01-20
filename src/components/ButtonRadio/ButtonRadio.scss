@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+
+.label {
+	&-colors {
+		&--1 {
+			border-radius: 20px 0px 0px 20px;
+			background-color: $tertiary;
+			color: $nineth;
+			line-height: 100%;
+			font-size: 84%;
+			height: 50%;
+		}
+		&--2 {
+			background-color: $tertiary;
+			color: $nineth;
+			line-height: 100%;
+			font-size: 84%;
+			font-family: $font-1;
+			height: 50%;
+		}
+		&--3 {
+			background-color: $tertiary;
+			border-radius: 0px 20px 20px 0px;
+			color: $nineth;
+			line-height: 100%;
+			font-size: 84%;
+			font-family: $font-1;
+			height: 50%;
+		}
+	}
+}
+.btn-check:checked + .btn-all ,.btn-all:checked{
+    background-color:$thirteenth;
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: $tertiary;
+}
