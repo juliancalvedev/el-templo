@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { changePassword } from '../../services/user';
 import { useNavigate } from 'react-router';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import TopSpacing from '../../components/TopSpacing/TopSpacing';
 
 import Input from '../../components/Input/Input';
 
@@ -14,7 +13,7 @@ const ChangeUserPassword = () => {
 	const { t } = useTranslation();
 
 	const navigate = useNavigate();
-	const styles=useStyles();
+	const styles = useStyles();
 	const [showCurrentPassword, setShowCurrentPassword] = useState('password');
 
 	const [showNewPasword, setShowNewPassword] = useState('password');
@@ -72,7 +71,6 @@ const ChangeUserPassword = () => {
 
 	return (
 		<MainContainer back shadow text={t('user.changeUserPassword.title')}>
-			<TopSpacing />
 			<div className={styles.container}>
 				<div className={styles.inputs}>
 					<Input
