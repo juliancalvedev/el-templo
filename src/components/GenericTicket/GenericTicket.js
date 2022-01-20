@@ -4,7 +4,7 @@ import Text from '../Text/Text';
 
 const GenericTicket = ({ text1, text2, text3, mode }) => {
 	return (
-		<div className={` generic-ticket  d-flex align-items-center col-12  `}>
+		<div className={` generic-ticket  d-flex align-items-center col-11  `}>
 			<div className={`col-6 d-flex container1 container1--${mode} `}>
 				<div className='col-2 text-1-container '>
 					<Text text={text1} />

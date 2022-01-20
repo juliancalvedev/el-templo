@@ -12,10 +12,12 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import ImportantBar from '../../components/ImportantBar/ImportantBar';
 import Text from '../../components/Text/Text';
 import CardInfo from './CardInfo/CardInfo';
+import useStyles from './useStyles';
 
 const MyProfile = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
+	const styles = useStyles();
 
 	const { startEnabledDate, endEnabledDate, goals, height, weight, level } =
 		useSelector((store) => store.user);
@@ -37,9 +39,10 @@ const MyProfile = () => {
 			back
 			text={t('user.myProfile.myProfile')}
 			col='12'
+			scroll
 		>
 			<CardInfo t={t} startEnabledDate={startEnabledDate} level={level} />
-			<div className=' subscription-box col-12'>
+			<div className={styles.importantBar}>
 				<ImportantBar
 					text={`${t('user.myProfile.endEnabledDate')}${cutDate(
 						`${endEnabledDate}`
@@ -47,8 +50,8 @@ const MyProfile = () => {
 				/>
 			</div>
 
-			<div className='d-flex col-12 justify-content-between border align-items-center p-1 mb-2'>
-				<div className='px-3'>
+			<div className={styles.aboutYou}>
+				<div className={styles.aboutYou2}>
 					<Text bold text={`${t('user.myProfile.aboutYou')}`} />
 				</div>
 
@@ -59,53 +62,55 @@ const MyProfile = () => {
 					size={1}
 				/>
 			</div>
-			<div className='my-profile-stats col-12 '>
+			<div className={styles.textContainer}>
 				<Text justify='start' bold text={t('user.myProfile.goals')} />
-				<div className='col-12 d-flex flex-column ticket-box '>
-					<div className='goals-box my-2'>
-						<GenericTicket
-							text1='1 '
-							text2={`${t(`welcome.goals.${goals?.[0]}`)}`}
-						/>
-						<GenericTicket
-							text1='2'
-							text2={`${t(`welcome.goals.${goals?.[1]}`)}`}
-						/>
-						<GenericTicket
-							text1='3'
-							text2={`${t(`welcome.goals.${goals?.[2]}`)}`}
-						/>
-					</div>
-
-					<Text
-						justify='start'
-						bold
-						text={t('user.myProfile.personalInfo')}
-					/>
-					<GenericTicket
-						mode='list'
-						text1={t('user.myProfile.weight')}
-						text3={`${weight} KG`}
-					/>
-					<GenericTicket
-						mode='list'
-						text1={t('user.myProfile.height')}
-						text3={`${height} Mt`}
-					/>
-				</div>
 			</div>
-			<div className='col-12 mt-4'>
+
+			<div className={styles.generic}>
+				<GenericTicket
+					text1='1 '
+					text2={`${t(`welcome.goals.${goals?.[0]}`)}`}
+				/>
+				<GenericTicket
+					text1='2'
+					text2={`${t(`welcome.goals.${goals?.[1]}`)}`}
+				/>
+				<GenericTicket
+					text1='3'
+					text2={`${t(`welcome.goals.${goals?.[2]}`)}`}
+				/>
+			</div>
+
+			<div className={styles.textContainer}>
+				<Text
+					bold
+					justify='start'
+					text={t('user.myProfile.personalInfo')}
+				/>
+			</div>
+			<div className={styles.generic}>
+				<GenericTicket
+					mode='list'
+					text1={t('user.myProfile.weight')}
+					text3={`${weight} KG`}
+				/>
+				<GenericTicket
+					mode='list'
+					text1={t('user.myProfile.height')}
+					text3={`${height} Mt`}
+				/>
+			</div>
+
+			<div className={styles.btn}>
 				<Button
 					text={t('user.myProfile.password')}
 					type={4}
 					onClick={handleChangePasswordNavigate}
-					size={4}
 				/>
 				<Button
 					text={t('user.myProfile.logOut')}
 					type={4}
 					onClick={onLogout}
-					color='1'
 				/>
 			</div>
 		</MainContainer>

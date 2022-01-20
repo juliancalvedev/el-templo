@@ -10,12 +10,12 @@ import { PATHS } from '../../../constants/paths';
 import InputRange from '../../../components/InputRange/InputRange';
 import ButtonPagination from '../../../components/ButtonPagination/ButtonPagination';
 import MainContainer from '../../../components/MainContainer/MainContainer';
-
+import useStyles from './useStyles';
 const TrainingLevel = () => {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-
+	const styles=useStyles();
 	const { trainingLevel } = useSelector((store) => store?.user?.trainingInfo);
 	const [selectedLevel, setSelectedLevel] = useState(
 		trainingLevel === 0 ? 1 : trainingLevel
@@ -46,8 +46,8 @@ const TrainingLevel = () => {
 		<MainContainer back={true} bg='1' color='2' backgroundImg='mainGoals' banner bannerTexts={bannerTexts}>
 			
 				<div></div>
-				<div className='trainningLevel__inputRange--container d-flex flex-column justify-content-center align-items-center col-12'>
-					<form className='d-flex flex-column justify-content-center align-items-center col-12 m-0 p-0'>
+				<div className={styles.container}>
+					<form className={styles.form}>
 						<InputRange
 							id='level'
 							min='1'
@@ -57,7 +57,7 @@ const TrainingLevel = () => {
 						/>
 					</form>
 
-					<div className='d-flex align-items-center justify-content-between col-10 m-0 p-0'>
+					<div className={styles.text}>
 						<div style={{ marginTop: '-23px' }}>
 							<Text
 								text={t('welcome.trainingLevel.amateur')}
@@ -75,7 +75,7 @@ const TrainingLevel = () => {
 					</div>
 				</div>
 
-				<div className='d-flex justify-content-end'>
+				<div className={styles.btn}>
 					<ButtonPagination
 						direction='right'
 						onClick={toWeightAndHeight}

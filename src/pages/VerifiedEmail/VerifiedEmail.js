@@ -11,11 +11,12 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import ImgEmailVerified from '../../assets/images/ImgEmailVerified';
 import useFetch from '../../hooks/useFetch';
 import { getSearchParams } from '../../utils/searchParams';
-
+import useStyles from './useStyles';
 const VerifiedEmail = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const token = getSearchParams('token');
+ const styles = useStyles();
 
 	const [data, error, apiCall] = useFetch({
 		service: () => verifyEmailToBackEnd({ token }),
@@ -36,9 +37,9 @@ const VerifiedEmail = () => {
 								text={t('auth.emailVerified.title')}
 								size='4'
 								bold
-								className='mt-5 pt-4'
+								className={styles.text}
 							/>
-						<div className='mt-2 d-flex justify-content-center'>
+						<div className={styles.img}>
 							<ImgEmailVerified />
 						</div>
 

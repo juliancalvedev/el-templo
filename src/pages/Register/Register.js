@@ -10,9 +10,11 @@ import Button from '../../components/Button/Button';
 import TopSpacing from '../../components/TopSpacing/TopSpacing';
 import { useRef } from 'react';
 import Text from '../../components/Text/Text';
+import useStyles from './useStyles';
 
 export const Register = () => {
 	const { t } = useTranslation();
+	const styles=useStyles();
 
 	const [baseImage, setBaseImage] = useState(
 		'https://yca.org.ar/wp-content/uploads/sites/4/2019/06/perfil-avatar-hombre-icono-redondo_24640-14044.jpg'
@@ -93,25 +95,25 @@ export const Register = () => {
 			color={1}
 			scroll
 		>
-				<div className='contBaseInputs px-3 mt-4 col-12 '>
-					<div className='baseI64 d-flex align-items-center col-12 '>
+				<div className={styles.Rcontainer}>
+					<div className={styles.base64}>
 						<input
-							className='base-img1 '
+							className={styles.base1}
 							id='file'
 							type='file'
 							onChange={handleClickimg}
 							hidden
 						/>
 						<img
-							className='base-img2'
+							className={styles.base2}
 							src={baseImage}
 							name='img'
 							onClick={clickFile}
 							alt='img'
 						/>
 
-						<div className='inputsNL col-9 '>
-							<div className='fName '>
+						<div className={styles.NL}>
+							<div className={styles.Fname}>
 								<Input
 									name='firstName'
 									placeholder={t('auth.register.firstNamePlaceholder')}
@@ -128,7 +130,7 @@ export const Register = () => {
 									</p>
 								)}
 							</div>
-							<div className='lastN mt-2 '>
+							<div className={styles.Lname}>
 								<Input
 									name='lastName'
 									placeholder={t('auth.register.lastNamePlaceholder')}

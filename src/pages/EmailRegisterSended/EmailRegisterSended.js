@@ -8,11 +8,13 @@ import IconEmailSended from '../../assets/Icons/IconEmailSended';
 import useFetch from '../../hooks/useFetch';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
+import useStyles from './useStyles';
 
 const EmailRegisterSended = () => {
 	const { t } = useTranslation();
 	const { savedEmail } = useSelector((store) => store.auth);
 	const navigate = useNavigate();
+	const styles=useStyles();
 
 	const [data, error, apiCall] = useFetch({
 		service: () => resendVerifyEmail(savedEmail),
@@ -31,12 +33,12 @@ const EmailRegisterSended = () => {
 				/>
 				<div>
 
-					<div className='col-12 d-flex justify-content-center mb-4'>
+					<div className={styles.icon}>
 
 						<IconEmailSended />
 					</div>
 					<div>
-						<div className='mb-2'>
+						<div className={styles.text}>
 
 							<Text size={3} bold text={t('auth.emailConfirm.p1')} />
 						</div>
