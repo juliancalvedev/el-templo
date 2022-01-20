@@ -33,7 +33,7 @@ const ForgottenPassword = () => {
 
 	return (
 		<MainContainer back col='12' backgroundImg='lock' color={1}>
-			<div>
+			<div className='col-11 m-auto'>
 
 				<Text size={4} bold text={t('auth.forgotPassword1.title')} />
 				<Input
@@ -48,6 +48,7 @@ const ForgottenPassword = () => {
 					<ImgPadlockFP />
 					<ImgKeyFP />
 				</div>
+				<div className='col-11 m-auto'>
 
 					<Button
 						size={3}
@@ -57,6 +58,7 @@ const ForgottenPassword = () => {
 						text={t('auth.forgotPassword1.btnAccept')}
 						className='mb-4'
 					/>
+				</div>
 		</MainContainer>
 	);
 };

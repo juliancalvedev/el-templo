@@ -91,7 +91,6 @@ export const Register = () => {
 			text={t('auth.register.register')}
 			back
 			shadow
-			bg={2}
 			color={1}
 			scroll
 		>
