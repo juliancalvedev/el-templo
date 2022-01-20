@@ -1,10 +1,10 @@
 const useStyles = () => {
-    return {
-			container:
-				'col-12 d-flex h-75 flex-column align-items-center justify-content-between',
-			inputs: 'col-12 d-flex h-100 flex-column   align-items-center ',
-			button: 'col-10 ',
-		};
-}
+	return {
+		container:
+			'col-12 d-flex h-75 flex-column align-items-center justify-content-between mt-5',
+		inputs: 'col-12 d-flex h-100 flex-column   align-items-center ',
+		button: 'col-10 ',
+	};
+};
 
-export default useStyles
+export default useStyles;
