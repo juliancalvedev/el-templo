@@ -3,17 +3,17 @@ import { useState } from 'react';
 import { changePassword } from '../../services/user';
 import { useNavigate } from 'react-router';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import TopSpacing from '../../components/TopSpacing/TopSpacing';
 
 import Input from '../../components/Input/Input';
 
 import Button from '../../components/Button/Button';
+import useStyles from './useStyles';
 
 const ChangeUserPassword = () => {
 	const { t } = useTranslation();
 
 	const navigate = useNavigate();
-
+	const styles = useStyles();
 	const [showCurrentPassword, setShowCurrentPassword] = useState('password');
 
 	const [showNewPasword, setShowNewPassword] = useState('password');
@@ -71,9 +71,8 @@ const ChangeUserPassword = () => {
 
 	return (
 		<MainContainer back shadow text={t('user.changeUserPassword.title')}>
-			<TopSpacing />
-			<div className='col-12 d-flex h-75 flex-column align-items-center justify-content-between'>
-				<div className='col-12 d-flex h-100 flex-column   align-items-center '>
+			<div className={styles.container}>
+				<div className={styles.inputs}>
 					<Input
 						icon='eye'
 						placeholder={t(
@@ -105,7 +104,7 @@ const ChangeUserPassword = () => {
 					/>
 				</div>
 
-				<div className='col-10 '>
+				<div className={styles.button}>
 					<Button
 						text={t('user.changeUserPassword.submitPassword')}
 						disabled={

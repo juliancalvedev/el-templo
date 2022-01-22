@@ -283,7 +283,7 @@ const es = {
 			height: 'Altura',
 			weight: 'Peso',
 			logOut: 'Cerrar sesión',
-			password: 'Cambiar contraseña',
+			password: 'Contraseña',
 			myProfile: 'Perfil',
 		},
 		trainingLevels: {

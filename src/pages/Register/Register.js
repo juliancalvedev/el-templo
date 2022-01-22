@@ -13,20 +13,21 @@ import Text from '../../components/Text/Text';
 import InputDate from '../../components/InputDate/InputDate';
 import ButtonRadio from '../../components/ButtonRadio/ButtonRadio';
 import InputSelect from '../../components/InputSelect/InputSelect';
-
+import useStyles from './useStyles';
 
 export const Register = () => {
 	const { t } = useTranslation();
+	const styles = useStyles();
+
+
+
+	/*.....................................................................*/
 
 	const [baseImage, setBaseImage] = useState(
 		'https://yca.org.ar/wp-content/uploads/sites/4/2019/06/perfil-avatar-hombre-icono-redondo_24640-14044.jpg'
 	);
-	
-		 const [framework, setFramework] = useState(1);
 
-			const cambioRadioFramework = (e) => {
-				setFramework(e.target.value);
-			};
+
 	/*.....................................................................*/
 
 	//InputPasswordEye
@@ -85,37 +86,38 @@ export const Register = () => {
 		//Base64
 	};
 
-	const { handleChange, values, handleSubmit, errors } =
-	useForm(RegisterValidate, baseImage);
+	const { handleChange, values, handleSubmit, errors } = useForm(
+		RegisterValidate,
+		baseImage
+	);
 
 	return (
 		<MainContainer
 			text={t('auth.register.register')}
 			back
 			shadow
-			bg={2}
 			color={1}
 			scroll
 		>
-			<div className='contBaseInputs px-3 mt-4 col-12 '>
-				<div className='baseI64 d-flex align-items-center col-12 '>
+			<div className={styles.Rcontainer}>
+				<div className={styles.base64}>
 					<input
-						className='base-img1 '
+						className={styles.base1}
 						id='file'
 						type='file'
 						onChange={handleClickimg}
 						hidden
 					/>
 					<img
-						className='base-img2'
+						className={styles.base2}
 						src={baseImage}
 						name='img'
 						onClick={clickFile}
 						alt='img'
 					/>
 
-					<div className='inputsNL col-9 '>
-						<div className='fName '>
+					<div className={styles.NL}>
+						<div className={styles.Fname}>
 							<Input
 								name='firstName'
 								placeholder={t('auth.register.firstNamePlaceholder')}
@@ -132,7 +134,7 @@ export const Register = () => {
 								</p>
 							)}
 						</div>
-						<div className='lastN mt-2 '>
+						<div className={styles.Lname}>
 							<Input
 								name='lastName'
 								placeholder={t('auth.register.lastNamePlaceholder')}
@@ -159,53 +161,58 @@ export const Register = () => {
 							{t('auth.register.sexTitle')}
 						</label>
 					</div>
-					<div className='d-flex col-12'>
-						<div>
-							<ButtonRadio
-								type={'radio'}
-								name={'sex'}
-								id={'btnradio1'}
-								value={'F'}
-								defautchecked={values.sex === 'F' ? true : false}
-								onChange={handleChange}
-								colors={1}
-								htmlFor={'btnradio1'}
-								label={t('auth.register.sex1')}
-							/>
-						</div>
+					<div>
+						<div className='d-flex col-12'>
+							<div className='col-4'>
+								<ButtonRadio
+									type={'radio'}
+									name={'sex'}
+									id={'btnradio1'}
+									defaultValue={'F'}
+									checked={values.sex === 'F' ? true : false}
+									onChange={handleChange}
+									colors={1}
+									htmlFor={'btnradio1'}
+									label={t('auth.register.sex1')}
+								/>
+							</div>
 
-						<div>
-							<ButtonRadio
-								type='radio'
-								name={'sex'}
-								id={'btnradio2'}
-								defaultValue={'M'}
-								defautchecked={values.sex === 'M' ? true : false}
-								onChange={handleChange}
-								colors={2}
-								label={t('auth.register.sex2')}
-								htmlFor={'btnradio2'}
-							/>
-						</div>
-						<div className=''>
-							<ButtonRadio
-								type={'radio'}
-								name={'sex'}
-								id={'btnradio3'}
-								defaultValue={'O'}
-								defautchecked={values.sex === 'F' ? true : false}
-								onChange={handleChange}
-								colors={3}
-								htmlFor={'btnradio3'}
-								label={t('auth.register.sex3')}
-							/>
+							<div className='col-4'>
+								<ButtonRadio
+									type='radio'
+									name={'sex'}
+									id={'btnradio2'}
+									defaultValue={'M'}
+									checked={values.sex === 'M' ? true : false}
+									onChange={handleChange}
+									colors={2}
+									label={t('auth.register.sex2')}
+									htmlFor={'btnradio2'}
+								/>
+							
+							</div>	
+							<div className='col-4'>
+									<ButtonRadio
+										type={'radio'}
+										name={'sex'}
+										id={'btnradio3'}
+										defaultValue={'O'}
+										checked={values.sex === 'F' ? true : false}
+										onChange={handleChange}
+										colors={3}
+										htmlFor={'btnradio3'}
+										label={t('auth.register.sex3')}
+										size={1}
+										container={1}
+									/>
+								</div>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div className='inputsP2  m-3'>
-				<div className='form-inputs mb-3'>
+			<div className='inputsP2 mt-0 m-3'>
+				<div className='form-inputs  mb-3'>
 					<Input
 						type='email'
 						name='email'
@@ -268,7 +275,6 @@ export const Register = () => {
 					name='dateOfBirth'
 					value={values.dateOfBirth}
 					onChange={handleChange}
-					type={'date'}
 				/>
 
 				{errors.dateOfBirth && (

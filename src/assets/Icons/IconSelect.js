@@ -1,14 +1,15 @@
-const IconSelect = () => {
+const IconSelect = ({className}) => {
     return (
 			
-				<div className='chevron__down '>
+				<div className={className}>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
 						width='16'
 						height='16'
 						fill='currentColor'
-						className='bi bi-chevron-down'
+						className='bi bi-chevron-down '
 						viewBox='0 0 16 16'
+						
 					>
 						<path
 							fill='evenodd'

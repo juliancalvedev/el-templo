@@ -2,7 +2,7 @@ import './Help.scss';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
+import useStyles from './useStyles';
 import useFetch from '../../hooks/useFetch';
 import {help} from '../../services/user';
 import { PATHS } from '../../constants/paths';
@@ -11,9 +11,11 @@ import Text from '../../components/Text/Text';
 import HelpAccordionBlue from './HelpAccordionBlue';
 import Input from '../../components/Input/Input';
 
+
 const HelpAccordion = ({ icon = 'icon' }) => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
+	const styles=useStyles();
 	const [message, setMessage] = useState('');
 	const [subject, setSubject] = useState('');
 
@@ -36,7 +38,7 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 				<div className='accordion-item  '>
 					<h2 className='accordion-header ' id='headingTwo '>
 						<button
-							className='accordion-button  bg-light text-dark '
+							className={styles.buttonHA1}
 							type='button'
 							data-bs-toggle='collapse'
 							data-bs-target='#collapseTwo'
@@ -53,7 +55,7 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 						data-bs-parent='#accordionExample'
 					>
 						<div className='accordion-body row'>
-							<div className='col-12 my-3 d-flex justify-content-start pr-3'>
+							<div className={styles.textHA1}>
 								<Text
 									bold
 									color={1}
@@ -63,7 +65,7 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 							</div>
 							<div className='col-12'>
 								<div className='col-12 d-flex'>
-									<div className='col-3 d-flex align-items-center'>
+									<div className={styles.textHA2}>
 										<Text
 											color={1}
 											size={2}
@@ -79,8 +81,8 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 										/>
 									</div>
 								</div>
-								<div className='col-12 d-flex justify-content-start mx-0 pr-3'>
-									<div className='col-3 d-flex align-items-start'>
+								<div className={styles.textHA3}>
+									<div className={styles.textHA3b}>
 										<Text
 											color={1}
 											size={2}
@@ -93,14 +95,13 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 											onChange={handleChangeMessage}
 											rows='5'
 											cols='21'
-											className='col-12   border border-1  mt-1
-									p-3'
+											className={styles.textarea}
 										></textarea>
 									</div>
 								</div>
 							</div>
 
-							<div className='col-12 d-flex justify-content-end'>
+							<div className={styles.buttonHA2}>
 								<Button
 									onClick={apiCall}
 									text={t('help.main.btnSend')}
@@ -113,7 +114,7 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 				<div className='accordion-item'>
 					<h2 className='accordion-header' id='headingThree'>
 						<button
-							className='accordion-button bg-light text-dark '
+							className={styles.buttonHA3}
 							type='button'
 							data-bs-toggle='collapse'
 							data-bs-target='#collapseThree'
@@ -132,7 +133,7 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 						<div className='accordion-body '>
 							<Text
 								bold
-								className='d-flex justify-content-start mt-3 px-2 '
+								className={styles.textfaqs}
 								color={1}
 								size={3}
 								text={t('help.main.faqs')}
@@ -140,7 +141,7 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 							<Text
 								color={1}
 								size={2}
-								className='d-flex justify-content-start mb-2 px-2'
+								className={styles.textfq}
 								text={t('help.main.fq')}
 							/>
 							<HelpAccordionBlue />
@@ -150,8 +151,10 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 			</div>
 			<div>
 				{/* TODO  cambiar button por componente Button*/}
+				
+				
 				<button
-					className={`accordion-button bg-light  text-dark accordion-button--${icon}`}
+					className={` accordion-button bg-light  text-dark accordion-button--${icon}`}
 					onClick={toTerms}
 				>
 					{t('help.main.btn2')}

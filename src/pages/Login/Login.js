@@ -12,11 +12,13 @@ import { login } from '../../services/auth';
 import useFetch from '../../hooks/useFetch';
 import Text from '../../components/Text/Text';
 import Alert from './Alert/Alert';
+import useStyles from './useStyles';
 
 const Login = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const styles = useStyles();
 
   const [email, setEmail] = useState("");
   
@@ -79,7 +81,7 @@ const Login = () => {
 
           </div>
 
-            <div className='pb-5 mb-5'>
+            <div className={styles.inputs}>
               <Input
                 value={email}
                 onChange={handleChangeEmail}
@@ -100,7 +102,7 @@ const Login = () => {
               />
 
               <Button onClick={apiCall} text={t("auth.login.btnLogin")} />
-              <div className="col-12 d-flex justify-content-end">
+              <div className={styles.textRecovery}>
                 <Text
                   color={3}
                   size={1}
@@ -110,7 +112,7 @@ const Login = () => {
                 />
               </div>
             </div>
-            <div className="d-flex flex-colum justify-content-center align-items-center pb-5">
+            <div className={styles.textRegister}>
               <Text size={1} color={2} text={t("auth.login.register1")} />
               <Text
                 size={1}

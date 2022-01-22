@@ -6,9 +6,10 @@ const useStyles = ({ colors, className = '' }) => {
 	};
 
 	return {
-		container: 'col-12',
-		button: `btn btn-check `,
-		label: `btn btn-outline btn-all col-12 checked label-colors--${BUTTON_TYPES[colors]} ${className}`,
+		
+		containerInput:'mt-1',
+		button: `btn btn-check d-flex justify-content-center align-items-center`,
+		label: `btn col-12 btn-outline btn-all checked label-colors--${BUTTON_TYPES[colors]} ${className}`,
 	};
 };
 
