@@ -29,8 +29,7 @@ const es = {
 			required: 'Este campo es requerido.',
 			emailType: 'Debe ser un email válido.',
 			passwordNotEquals: 'Las contraseñas no coinciden',
-			validPassword:
-				'(Debe contener al menos 6 letras y 1 número)',
+			validPassword: '(Debe contener al menos 6 letras y 1 número)',
 			notAllowedEmail: 'Email no permitido.',
 			number: 'Este campo debe ser un número.',
 			text: 'Este campo deber ser un texto.',
@@ -178,7 +177,9 @@ const es = {
 		training: {},
 		warmUpRoutine: {},
 		trainingRoutine: {},
-		countdown: {},
+		countDown: {
+			getReady: 'Preparate',
+		},
 		liveTraining: {},
 		pause: {},
 		exerciseInfo: {},
