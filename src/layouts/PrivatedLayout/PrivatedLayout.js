@@ -5,7 +5,6 @@ import { Outlet } from 'react-router';
 import Navbar from '../../components/Navbar/Navbar';
 import { getUserInfoAction } from '../../redux/user';
 import { SHOW_NAVBAR } from '../../constants/paths';
-import CountDown from '../../components/CountDown/CountDown';
 
 const PrivatedLayout = () => {
 	const dispatch = useDispatch();
