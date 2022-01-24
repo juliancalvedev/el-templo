@@ -68,14 +68,17 @@ const MyProfile = () => {
 
 			<div className={styles.generic}>
 				<GenericTicket
+					list
 					text1='1 '
 					text2={`${t(`welcome.goals.${goals?.[0]}`)}`}
 				/>
 				<GenericTicket
+					list
 					text1='2'
 					text2={`${t(`welcome.goals.${goals?.[1]}`)}`}
 				/>
 				<GenericTicket
+					list
 					text1='3'
 					text2={`${t(`welcome.goals.${goals?.[2]}`)}`}
 				/>
@@ -90,7 +93,7 @@ const MyProfile = () => {
 			</div>
 			<div className={styles.generic}>
 				<GenericTicket
-					mode='list'
+					mode='stat'
 					text1={t('user.myProfile.weight')}
 					text3={`${weight} KG`}
 				/>
