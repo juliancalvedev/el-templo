@@ -9,7 +9,7 @@ import './CountDown.scss';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const CountDown = () => {
+const CountDown = ({ callback = () => {} }) => {
 	const styles = useStyles();
 	const { t } = useTranslation();
 
@@ -20,6 +20,9 @@ const CountDown = () => {
 			setTimeout(() => {
 				setTimer(timer + 1);
 			}, 1000);
+		}
+		if (timer >= 3) {
+			callback();
 		}
 	});
 
