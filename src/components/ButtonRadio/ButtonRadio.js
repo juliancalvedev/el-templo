@@ -1,3 +1,5 @@
+import { RegisterValidate } from '../../pages/Register/RegisterValidate';
+import useForm from '../../pages/Register/UseForm';
 import './ButtonRadio.scss';
 import useStyles from './useStyles';
 

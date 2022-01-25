@@ -3,20 +3,23 @@ import './Input.scss';
 import IconEye from '../../assets/Icons/IconEye';
 import IconCheck from '../../assets/Icons/IconCheck';
 import Text from '../Text/Text';
+import IconDate from '../../assets/Icons/IconDate';
+import { forwardRef} from 'react';
 
 const ICON = ({ transparent }) => {
 	const ICONS = {
 		eye: <IconEye light={transparent} />,
 		check: <IconCheck />,
+		date:<IconDate/>,
 	};
 	return ICONS;
 };
-
-const Input = ({
+	
+const Input = forwardRef(({
 	label,
 	value,
 	onChange,
-	type = 'text',
+	type ,
 	placeholder,
 	isInvalid,
 	isValid,
@@ -27,10 +30,12 @@ const Input = ({
 	name,
 	className,
 	disabled,
+	onBlur,
+	onFocus,
 	onClickIcon = () => {},
-}) => {
+},ref) => {
+	
 	const feedbackColorType = (isInvalid && 'error') || (transparent && 2);
-
 	const styles = useStyles({
 		isValid,
 		isInvalid,
@@ -44,6 +49,9 @@ const Input = ({
 			{label && <label className={styles.label}>{label}</label>}
 			<div className={styles.inputContent}>
 				<input
+					ref={ref}
+					onBlur={onBlur}
+					onFocus={onFocus}
 					disabled={disabled}
 					onChange={onChange}
 					type={type}
@@ -55,9 +63,8 @@ const Input = ({
 				{(icon || isValid) && (
 					<div className={styles.iconContainer}>
 						<span onClick={onClickIcon}>
-							{isValid
-								? ICON().check
-								: ICON({ transparent })?.[icon]}
+							{isValid ? ICON().check : ICON({ transparent })?.[icon]}
+						
 						</span>
 					</div>
 				)}
@@ -75,6 +82,6 @@ const Input = ({
 			)}
 		</div>
 	);
-};
+})
 
 export default Input;

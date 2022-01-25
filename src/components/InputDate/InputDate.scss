@@ -1,15 +1,22 @@
-@import '../../styles/variables.scss';
+// @import '../../styles/variables.scss';
 
-.input {
-&__content {
-	background: $nineth;
-	height: 40px;
-	border: none;
-	border-radius: 15px;
-	outline: none;
-	text-indent: 5%;		
-}
-&__date{
-	text-indent: 5%;
-}
-};
+// .input {
+// &::-webkit-calendar-picker-indicator{
+// opacity: 0;
+// }
+// &__content {
+	
+// 	background: $nineth;
+// 	height: 40px;
+// 	border: none;
+// 	border-radius: 15px;
+// 	outline: none;
+// 	text-indent: 5%;	
+// }
+// &__date{
+// 	text-indent: 5%;
+// }
+
+
+
+// };

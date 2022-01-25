@@ -3,25 +3,90 @@ import useForm from './UseForm';
 import { RegisterValidate } from './RegisterValidate';
 import Input from '../../components/Input/Input';
 import { useTranslation } from 'react-i18next';
-import './Register.scss';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import TopSpacing from '../../components/TopSpacing/TopSpacing';
-import { useRef } from 'react';
 import Text from '../../components/Text/Text';
 import InputDate from '../../components/InputDate/InputDate';
 import ButtonRadio from '../../components/ButtonRadio/ButtonRadio';
 import InputSelect from '../../components/InputSelect/InputSelect';
 import useStyles from './useStyles';
+import { useRef } from 'react';
+import './Register.scss';
 
 export const Register = () => {
 	const { t } = useTranslation();
 	const styles = useStyles();
 
+	const selectOption = [
+		{ placeholder: t('auth.register.countrySelection'), key: '0' },
+		{ value: 'argentina', name: t('auth.register.country1'), key: '1' },
+		{ value: 'us', name: t('auth.register.country2'), key: '2' },
+		{ value: 'mexico', name: t('auth.register.country3'), key: '3' },
+	]; 
+	const options = (selectOption);
+
+	const ref= useRef();
+	const onFocus = () => (ref.current.type = 'date');
+	const onBlur = () => (ref.current.type = 'text');
+	
 
 
+	
 	/*.....................................................................*/
+
+	const BUTTONS3 = ({ handleChange}) => {
+    
+		return (
+			<div className='d-flex col-12'>
+				<div className='col-4'>
+					<ButtonRadio
+						type={'radio'}
+						name={'sex'}
+						id={'btnradio1'}
+						defaulValue={'F'}
+						checked={values.sex === 'F' ? true : false}
+						onChange={handleChange}
+						colors={1}
+						htmlFor={'btnradio1'}
+						label={t('auth.register.sex1')}
+					/>
+				</div>
+
+				<div className='col-4'>
+					<ButtonRadio
+						type='radio'
+						name={'sex'}
+						id={'btnradio2'}
+						value={'M'}
+						checked={values.sex === 'M' ? true : false}
+						onChange={handleChange}
+						colors={2}
+						label={t('auth.register.sex2')}
+						htmlFor={'btnradio2'}
+					/>
+				</div>
+				<div className='col-4'>
+					<ButtonRadio
+						type={'radio'}
+						name={'sex'}
+						id={'btnradio3'}
+						value={'O'}
+						checked={values.sex === 'F' ? true : false}
+						onChange={handleChange}
+						colors={3}
+						htmlFor={'btnradio3'}
+						label={t('auth.register.sex3')}
+						size={1}
+						container={1}
+					/>
+				</div>
+			</div>
+		);
+	};
+		
+	
 
 	const [baseImage, setBaseImage] = useState(
 		'https://yca.org.ar/wp-content/uploads/sites/4/2019/06/perfil-avatar-hombre-icono-redondo_24640-14044.jpg'
@@ -90,6 +155,7 @@ export const Register = () => {
 		RegisterValidate,
 		baseImage
 	);
+
 
 	return (
 		<MainContainer
@@ -161,53 +227,8 @@ export const Register = () => {
 							{t('auth.register.sexTitle')}
 						</label>
 					</div>
-					<div>
-						<div className='d-flex col-12'>
-							<div className='col-4'>
-								<ButtonRadio
-									type={'radio'}
-									name={'sex'}
-									id={'btnradio1'}
-									defaultValue={'F'}
-									checked={values.sex === 'F' ? true : false}
-									onChange={handleChange}
-									colors={1}
-									htmlFor={'btnradio1'}
-									label={t('auth.register.sex1')}
-								/>
-							</div>
 
-							<div className='col-4'>
-								<ButtonRadio
-									type='radio'
-									name={'sex'}
-									id={'btnradio2'}
-									defaultValue={'M'}
-									checked={values.sex === 'M' ? true : false}
-									onChange={handleChange}
-									colors={2}
-									label={t('auth.register.sex2')}
-									htmlFor={'btnradio2'}
-								/>
-							
-							</div>	
-							<div className='col-4'>
-									<ButtonRadio
-										type={'radio'}
-										name={'sex'}
-										id={'btnradio3'}
-										defaultValue={'O'}
-										checked={values.sex === 'F' ? true : false}
-										onChange={handleChange}
-										colors={3}
-										htmlFor={'btnradio3'}
-										label={t('auth.register.sex3')}
-										size={1}
-										container={1}
-									/>
-								</div>
-						</div>
-					</div>
+					<BUTTONS3 />
 				</div>
 			</div>
 
@@ -256,32 +277,27 @@ export const Register = () => {
 
 				<InputSelect
 					name={'country'}
-					value={values.country}
+					defaulValue={values.country}
 					onChange={handleChange}
-					value1={'argentina'}
-					value2={'us'}
-					value3={'mexico'}
-					label={t('auth.register.countrySelection')}
-					option1={t('auth.register.country1')}
-					option2={t('auth.register.country2')}
-					option3={t('auth.register.country3')}
+					options={options}
 				/>
 
 				{errors.country && (
 					<p>{(errors.country = t('auth.register.countryError'))}</p>
 				)}
-				<InputDate
+				<Input
 					placeholder={t('auth.register.dateOfBirth')}
 					name='dateOfBirth'
 					value={values.dateOfBirth}
 					onChange={handleChange}
+					icon={'date'}
+					ref={ref}
+					onBlur={onBlur}
+					onFocus={onFocus}
 				/>
+				
 
-				{errors.dateOfBirth && (
-					<p>
-						{(errors.dateOfBirth = t('auth.register.dateOfBirthError'))}
-					</p>
-				)}
+			
 			</div>
 
 			<div className='mb-5'>
