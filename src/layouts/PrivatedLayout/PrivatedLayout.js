@@ -5,6 +5,7 @@ import { Outlet } from 'react-router';
 import Navbar from '../../components/Navbar/Navbar';
 import { getUserInfoAction } from '../../redux/user';
 import { SHOW_NAVBAR } from '../../constants/paths';
+import WeeklyCalendar from '../../components/WeeklyCalendar/WeeklyCalendar';
 
 const PrivatedLayout = () => {
 	const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const PrivatedLayout = () => {
 
 	return (
 		<div className='col-12'>
+			<WeeklyCalendar /> {/* TODO BORRAR Calendario Semanal */}
 			<Outlet />
 			{showNavbar() && <Navbar />}
 		</div>
