@@ -5,7 +5,6 @@ import { Outlet } from 'react-router';
 import Navbar from '../../components/Navbar/Navbar';
 import { getUserInfoAction } from '../../redux/user';
 import { SHOW_NAVBAR } from '../../constants/paths';
-import CountDown from '../../components/CountDown/CountDown';
 
 const PrivatedLayout = () => {
 	const dispatch = useDispatch();
@@ -34,9 +33,8 @@ const PrivatedLayout = () => {
 
 	return (
 		<div className='col-12'>
-			<CountDown />
 			<Outlet />
-			{/* {showNavbar() && <Navbar />} */}
+			{showNavbar() && <Navbar />}
 		</div>
 	);
 };
