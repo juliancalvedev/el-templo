@@ -34,7 +34,8 @@ const PrivatedLayout = () => {
 
 	return (
 		<div className='col-12'>
-			<WeeklyCalendar /> {/* TODO BORRAR Calendario Semanal */}
+			{/* TODO BORRAR Calendario Semanal */}
+			<WeeklyCalendar />
 			<Outlet />
 			{showNavbar() && <Navbar />}
 		</div>

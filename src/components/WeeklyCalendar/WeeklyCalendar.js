@@ -5,16 +5,17 @@ import { MONTHS } from '../../constants/months';
 import { useTranslation } from 'react-i18next';
 import TrainedDay from '../TrainedDay/TrainedDay';
 
+// TODO Cambiar esta constante por los datos del BackEnd
 const weeklyTraining = [
 	{
 		day: 'monday',
 		number: 6,
-		trained: false,
+		trained: true,
 	},
 	{
 		day: 'tuesday',
 		number: 7,
-		trained: false,
+		trained: true,
 	},
 	{
 		day: 'wednesday',
@@ -43,12 +44,24 @@ const weeklyTraining = [
 	},
 ];
 
+const daysOfWeek = [
+	'sunday',
+	'monday',
+	'tuesday',
+	'wednesday',
+	'thursday',
+	'friday',
+	'saturday',
+];
+
 const WeeklyCalendar = () => {
 	const styles = useStyles();
 	const { t } = useTranslation();
 
+	const numberDay = new Date().getDay();
 	const currentYear = new Date().getFullYear();
 	const currentMonth = new Date().getMonth();
+	const currentDay = daysOfWeek[numberDay];
 
 	return (
 		<div className={styles.mainContainer}>
@@ -64,7 +77,13 @@ const WeeklyCalendar = () => {
 			</div>
 			<div className={styles.daysContainer}>
 				{weeklyTraining.map(({ day, number, trained }) => (
-					<TrainedDay day={day} number={number} />
+					<TrainedDay
+						key={number}
+						day={t(`daysShort.${day}`)}
+						number={number}
+						trained={trained}
+						today={day === currentDay}
+					/>
 				))}
 			</div>
 		</div>

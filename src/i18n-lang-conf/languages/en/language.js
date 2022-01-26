@@ -50,6 +50,15 @@ const en = {
 		november: 'November',
 		december: 'December',
 	},
+	daysShort: {
+		monday: 'Mon',
+		tuesday: 'Tue',
+		wednesday: 'Wed',
+		thursday: 'Thu',
+		friday: 'Fri',
+		saturday: 'Sat',
+		sunday: 'Sun',
+	},
 
 	auth: {
 		landing: {

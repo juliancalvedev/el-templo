@@ -50,6 +50,15 @@ const es = {
 		november: 'Noviembre',
 		december: 'Diciembre',
 	},
+	daysShort: {
+		monday: 'L',
+		tuesday: 'M',
+		wednesday: 'MI',
+		thursday: 'J',
+		friday: 'V',
+		saturday: 'S',
+		sunday: 'D',
+	},
 
 	auth: {
 		landing: {

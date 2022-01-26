@@ -1,6 +1,10 @@
-const useStyles = () => {
+const useStyles = ({ today }) => {
 	return {
-		container: 'pillContainer d-flex flex-column justify-content-between',
+		notTrained: `pillContainer pillContainer--${
+			today && 'today'
+		} d-flex flex-column justify-content-between`,
+		trained: 'trained d-flex flex-column justify-content-between',
+		today: 'today d-flex flex-column justify-content-between',
 	};
 };
 
