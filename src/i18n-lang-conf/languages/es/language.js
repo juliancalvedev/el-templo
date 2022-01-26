@@ -29,8 +29,7 @@ const es = {
 			required: 'Este campo es requerido.',
 			emailType: 'Debe ser un email válido.',
 			passwordNotEquals: 'Las contraseñas no coinciden',
-			validPassword:
-				'(Debe contener al menos 6 letras y 1 número)',
+			validPassword: '(Debe contener al menos 6 letras y 1 número)',
 			notAllowedEmail: 'Email no permitido.',
 			number: 'Este campo debe ser un número.',
 			text: 'Este campo deber ser un texto.',
@@ -292,6 +291,11 @@ const es = {
 			intermediate: 'Intermedio',
 			advanced: 'Avanzado',
 			expert: 'Experto',
+		},
+		nivelation: {
+			paragraph:
+				'Para adaptar el plan a tu nivel, realiza los siguientes ejercicios. completa la cantidad de repeticiones que puedas',
+			nivelation: 'Nivelación',
 		},
 	},
 	errors: {

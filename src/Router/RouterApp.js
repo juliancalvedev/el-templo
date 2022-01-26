@@ -24,6 +24,7 @@ import MainGoals from '../pages/welcome/MainGoals/MainGoals';
 import TrainingLevel from '../pages/welcome/TrainingLevel/TrainningLevel';
 import WeightHeight from '../pages/welcome/WeightHeight/WeightHeight';
 import Contact from '../pages/Contact/Contact';
+import Nivelation from '../pages/Nivelation/Nivelation';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -39,6 +40,10 @@ const RouterApp = () => {
 						<Route
 							path={PATHS.MY_PROFILE}
 							element={<MyProfile />}
+						/>
+						<Route
+							path={PATHS.NIVELATION}
+							element={<Nivelation />}
 						/>
 						{role === ROLES.ADMIN && (
 							<Route

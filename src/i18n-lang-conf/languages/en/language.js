@@ -70,7 +70,8 @@ const en = {
 			sex3: 'Other',
 			emailPlaceholder: 'Email@email.com',
 			passwordPlaceholder: 'Password',
-			passwordRequirement: '(Must contain at least 6 letters and 1 number)',
+			passwordRequirement:
+				'(Must contain at least 6 letters and 1 number)',
 			password2Placeholder: 'Confirm Your Password',
 			countrySelection: 'Country',
 			country1: 'Argentina',
@@ -120,7 +121,8 @@ const en = {
 		forgotPassword1: {
 			title: '¿Did you forget your password?',
 			emailPlaceholder: 'Enter your email',
-			contentForgotPassword:'We will send an email with the steps to follow to change your password.',
+			contentForgotPassword:
+				'We will send an email with the steps to follow to change your password.',
 			btnAccept: 'Send',
 		},
 		forgotPassword2: {},
@@ -290,6 +292,11 @@ const en = {
 			intermediate: 'Intermediate',
 			advanced: 'Advanced',
 			expert: 'Expert',
+		},
+		nivelation: {
+			paragraph:
+				'To adapt the plan to your level, perform the following exercises. complete as many reps as you can.  ',
+			nivelation: 'Nivelation',
 		},
 	},
 	errors: {
