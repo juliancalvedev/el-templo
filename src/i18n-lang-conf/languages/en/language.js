@@ -51,13 +51,13 @@ const en = {
 		december: 'December',
 	},
 	daysShort: {
-		monday: 'Mon',
-		tuesday: 'Tue',
-		wednesday: 'Wed',
-		thursday: 'Thu',
-		friday: 'Fri',
-		saturday: 'Sat',
-		sunday: 'Sun',
+		monday: 'M',
+		tuesday: 'T',
+		wednesday: 'W',
+		thursday: 'X',
+		friday: 'F',
+		saturday: 'S',
+		sunday: 'X',
 	},
 
 	auth: {
