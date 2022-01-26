@@ -36,6 +36,30 @@ const es = {
 		},
 	},
 
+	month: {
+		january: 'Enero',
+		february: 'Febrero',
+		march: 'Marzo',
+		april: 'Abril',
+		may: 'Mayo',
+		june: 'Junio',
+		july: 'Julio',
+		august: 'Agosto',
+		september: 'Septiembre',
+		october: 'Octubre',
+		november: 'Noviembre',
+		december: 'Diciembre',
+	},
+	daysShort: {
+		monday: 'L',
+		tuesday: 'M',
+		wednesday: 'MI',
+		thursday: 'J',
+		friday: 'V',
+		saturday: 'S',
+		sunday: 'D',
+	},
+
 	auth: {
 		landing: {
 			haveAccount: '¿Ya tenés cuenta?',
