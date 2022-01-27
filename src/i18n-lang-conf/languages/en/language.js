@@ -36,6 +36,30 @@ const en = {
 		},
 	},
 
+	month: {
+		january: 'January',
+		february: 'February',
+		march: 'March',
+		april: 'April',
+		may: 'May',
+		june: 'June',
+		july: 'July',
+		august: 'August',
+		september: 'September',
+		october: 'October',
+		november: 'November',
+		december: 'December',
+	},
+	daysShort: {
+		monday: 'M',
+		tuesday: 'T',
+		wednesday: 'W',
+		thursday: 'X',
+		friday: 'F',
+		saturday: 'S',
+		sunday: 'X',
+	},
+
 	auth: {
 		landing: {
 			haveAccount: 'Have an account?',
@@ -180,7 +204,9 @@ const en = {
 		training: {},
 		warmUpRoutine: {},
 		trainingRoutine: {},
-		countdown: {},
+		countDown: {
+			getReady: 'Get Ready',
+		},
 		liveTraining: {},
 		pause: {},
 		exerciseInfo: {},
