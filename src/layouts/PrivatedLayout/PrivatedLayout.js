@@ -5,7 +5,6 @@ import { Outlet } from 'react-router';
 import Navbar from '../../components/Navbar/Navbar';
 import { getUserInfoAction } from '../../redux/user';
 import { SHOW_NAVBAR } from '../../constants/paths';
-import Chronometer from '../../components/Chronometer/Chronometer';
 
 const PrivatedLayout = () => {
 	const dispatch = useDispatch();
@@ -34,7 +33,6 @@ const PrivatedLayout = () => {
 
 	return (
 		<div className='col-12'>
-			<Chronometer />
 			<Outlet />
 			{showNavbar() && <Navbar />}
 		</div>
