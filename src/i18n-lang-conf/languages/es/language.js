@@ -318,6 +318,11 @@ const es = {
 			advanced: 'Avanzado',
 			expert: 'Experto',
 		},
+		nivelation: {
+			paragraph:
+				'Para adaptar el plan a tu nivel, realiza los siguientes ejercicios. completa la cantidad de repeticiones que puedas',
+			nivelation: 'Nivelación',
+		},
 	},
 	errors: {
 		generic: 'Oops, ocurrió un error.',

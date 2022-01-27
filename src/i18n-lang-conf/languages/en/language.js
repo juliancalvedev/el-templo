@@ -319,6 +319,11 @@ const en = {
 			advanced: 'Advanced',
 			expert: 'Expert',
 		},
+		nivelation: {
+			paragraph:
+				'To adapt the plan to your level, perform the following exercises. complete as many reps as you can.  ',
+			nivelation: 'Nivelation',
+		},
 	},
 	errors: {
 		generic: 'Oops, an error occurred.',
