@@ -17,17 +17,18 @@ import IconHelpActive from '../../assets/Icons/IconHelpActive';
 const Navbar = () => {
 	const { t } = useTranslation();
 	const { role, level } = useSelector((store) => store.user);
+
 	const styles = useStyles();
 	const { pathname } = useLocation();
 
 	const redirection = () => {
-		let redirect;
-		if (level == 0) {
-			redirect = '/nivelation';
+		let path;
+		if (level < 1) {
+			path = '/nivelation';
 		} else {
-			redirect = '/training';
+			path = '/training';
 		}
-		return redirect;
+		return path;
 	};
 
 	return (

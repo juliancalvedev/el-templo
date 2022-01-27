@@ -28,7 +28,7 @@ import Nivelation from '../pages/Nivelation/Nivelation';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
-	const { role, goals } = useSelector((store) => store.user);
+	const { role, goals, level } = useSelector((store) => store.user);
 
 	const savedToken = localStorage.getItem('token');
 
@@ -41,10 +41,13 @@ const RouterApp = () => {
 							path={PATHS.MY_PROFILE}
 							element={<MyProfile />}
 						/>
-						<Route
-							path={PATHS.NIVELATION}
-							element={<Nivelation />}
-						/>
+
+						{level < 1 && (
+							<Route
+								path={PATHS.NIVELATION}
+								element={<Nivelation />}
+							/>
+						)}
 						{role === ROLES.ADMIN && (
 							<Route
 								path={PATHS.BASE_URL}
