@@ -48,11 +48,12 @@ const Chronometer = () => {
 	const stop = () => {
 		clearInterval(interv);
 		if (timer.m < 60) {
-			// If minute is over 60 when auto Stop, can't run again.
+			// If minute is over 60 when Stop, can't run again.
 			setIsRunning(false);
 		}
 	};
 
+	// Function ready to be used.
 	const reset = () => {
 		clearInterval(interv);
 		setTimer({ ms: 0, s: 0, m: 0, h: 0 });
@@ -60,7 +61,7 @@ const Chronometer = () => {
 
 	useEffect(() => {
 		if (timer.m >= 60) {
-			// If passes 60 minutes, auto Stops.
+			// If minutes get to 60, auto Stops.
 			stop();
 		}
 	}, [timer.m]);
