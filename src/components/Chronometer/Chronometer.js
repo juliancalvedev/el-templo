@@ -51,7 +51,6 @@ const Chronometer = ({ onStop }) => {
 			setIsRunning(false);
 		}
 		onStop(timer);
-		// console.log(timer);
 	};
 
 	// Function ready to be used.
