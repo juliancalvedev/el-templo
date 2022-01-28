@@ -1,0 +1,28 @@
+@import '../../styles/variables';
+
+
+.cajita{
+  height: 2vh;
+border-radius: 4px;
+
+}
+.coloreado{
+  background: linear-gradient(90deg, #2E4F77 65.81%, rgba(46, 79, 119, 0) 92.79%);
+height: 2vh;
+  &--1{
+    width:20% ;
+  }
+    &--2{
+    width:40% ;
+  }
+    &--3{
+    width:60% ;
+  }
+    &--4{
+    width:80% ;
+  }
+    &--5{
+    width:100% ;
+    background-color: #2E4F77;
+  }
+}

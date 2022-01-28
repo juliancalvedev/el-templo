@@ -29,11 +29,7 @@ const Navbar = () => {
 				)}
 
 				<Link to='/dashboard'>
-					{pathname === '/dashboard' ? (
-						<IconDashboardActive />
-					) : (
-						<IconDashboard />
-					)}
+					{pathname === '/dashboard' ? <IconDashboardActive />: <IconDashboard />}
 				</Link>
 				<Link to='/training'>
 					{pathname === '/training' ? (
@@ -56,5 +52,5 @@ const Navbar = () => {
 		</nav>
 	);
 };
-
+ 
 export default Navbar;

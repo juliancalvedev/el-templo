@@ -16,6 +16,7 @@ export const PATHS = {
 	TRAINING_LEVEL: 'training-level',
 	WEIGHT_HEIGHT: 'weight-height',
 	CONTACT: 'contact',
+	DASHBOARD: 'dashboard',
 };
 
 export const SHOW_NAVBAR = [PATHS.BASE_URL];
@@ -31,8 +32,9 @@ export const TOPBAR_TEXTS = {
 	[PATHS.ENABLED_VERIFIED]: 'topBar.enabledVerified',
 	[PATHS.REGISTER]: 'topBar.register',
 	[PATHS.MY_PROFILE]: 'topBar.myProfile',
-	[PATHS.EMAIL_REGISTER_SENDED]:'topBar.emailRegisterSended',
+	[PATHS.EMAIL_REGISTER_SENDED]: 'topBar.emailRegisterSended',
 	[PATHS.HELP]: 'topBar.help',
 	[PATHS.EMAIL_REGISTER_SENDED]: 'topBar.emailRegisterSended',
 	[PATHS.CONTACT]: 'topBar.contact',
+	[PATHS.DASHBOARD]: 'topBar.dashboard',
 };

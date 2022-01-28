@@ -237,6 +237,11 @@ const es = {
 			fq: 'Preguntas frecuentes',
 		},
 	},
+	dashboard:{
+		main:{welcome:'Bienvenido',
+			
+		}
+	},
 	navbar: {
 		nav: {
 			myProfile: 'Mi perfil',
