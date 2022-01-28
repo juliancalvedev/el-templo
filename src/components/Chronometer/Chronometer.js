@@ -7,7 +7,7 @@ import IconChronoSmallClock from '../../assets/Icons/IconChronoSmallClock';
 import Text from '../../components/Text/Text';
 import { useEffect, useState } from 'react';
 
-const Chronometer = () => {
+const Chronometer = ({ onStop }) => {
 	const styles = useStyles();
 
 	const [isRunning, setIsRunning] = useState(false);
@@ -20,7 +20,6 @@ const Chronometer = () => {
 
 	const start = () => {
 		setIsRunning(true);
-		// run();
 		setInterv(setInterval(run, 100));
 	};
 
@@ -51,6 +50,8 @@ const Chronometer = () => {
 			// If minute is over 60 when Stop, can't run again.
 			setIsRunning(false);
 		}
+		onStop(timer);
+		// console.log(timer);
 	};
 
 	// Function ready to be used.
