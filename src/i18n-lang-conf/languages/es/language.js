@@ -24,6 +24,8 @@ const es = {
 		logIn: 'Iniciar sesión',
 		password: 'contraseña',
 		loading: 'Cargando...',
+		total: 'Total',
+		time: 'Tiempo',
 
 		errors: {
 			required: 'Este campo es requerido.',

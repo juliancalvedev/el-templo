@@ -24,6 +24,8 @@ const en = {
 		logIn: 'Log In',
 		password: 'Password',
 		loading: 'Loading...',
+		total: 'Total',
+		time: 'Time',
 
 		errors: {
 			required: 'This field is required.',
