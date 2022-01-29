@@ -26,10 +26,11 @@ import WeightHeight from '../pages/welcome/WeightHeight/WeightHeight';
 import Contact from '../pages/Contact/Contact';
 import Dashboard from '../pages/Dashboard/Dashboard';
 
+import Nivelation from '../pages/Nivelation/Nivelation';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
-	const { role, goals } = useSelector((store) => store.user);
+	const { role, goals, level } = useSelector((store) => store.user);
 
 	const savedToken = localStorage.getItem('token');
 
@@ -38,8 +39,17 @@ const RouterApp = () => {
 			<Routes>
 				{savedToken ? (
 					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
-						<Route path={PATHS.MY_PROFILE} element={<MyProfile />} />
+						<Route
+							path={PATHS.MY_PROFILE}
+							element={<MyProfile />}
+						/>
 
+						{level < 1 && (
+							<Route
+								path={PATHS.NIVELATION}
+								element={<Nivelation />}
+							/>
+						)}
 						{role === ROLES.ADMIN && (
 							<Route path={PATHS.BASE_URL} element={<AdminLayout />}>
 								<Route

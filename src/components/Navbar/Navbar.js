@@ -1,5 +1,4 @@
 import useStyles from './useStyles';
-
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -17,9 +16,20 @@ import IconHelpActive from '../../assets/Icons/IconHelpActive';
 
 const Navbar = () => {
 	const { t } = useTranslation();
-	const { role } = useSelector((store) => store.user);
+	const { role, level } = useSelector((store) => store.user);
+
 	const styles = useStyles();
 	const { pathname } = useLocation();
+
+	const redirection = () => {
+		let path;
+		if (level < 1) {
+			path = '/nivelation';
+		} else {
+			path = '/training';
+		}
+		return path;
+	};
 
 	return (
 		<nav className={styles.navbarContainer}>
@@ -31,7 +41,7 @@ const Navbar = () => {
 				<Link to='/dashboard'>
 					{pathname === '/dashboard' ? <IconDashboardActive />: <IconDashboard />}
 				</Link>
-				<Link to='/training'>
+				<Link to={redirection()}>
 					{pathname === '/training' ? (
 						<IconMuscleActive />
 					) : (

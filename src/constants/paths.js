@@ -9,7 +9,7 @@ export const PATHS = {
 	ENABLED_VERIFIED: 'enabled-verified',
 	REGISTER: 'register',
 	MY_PROFILE: 'my-profile',
-	HELP:'help',
+	HELP: 'help',
 	WELCOME: 'welcome',
 	EMAIL_REGISTER_SENDED: 'email-register-sended',
 	MAIN_GOALS: 'main-goals',
@@ -17,6 +17,7 @@ export const PATHS = {
 	WEIGHT_HEIGHT: 'weight-height',
 	CONTACT: 'contact',
 	DASHBOARD: 'dashboard',
+	NIVELATION: 'nivelation',
 };
 
 export const SHOW_NAVBAR = [PATHS.BASE_URL];
