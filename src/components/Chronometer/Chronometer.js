@@ -7,7 +7,7 @@ import IconChronoSmallClock from '../../assets/Icons/IconChronoSmallClock';
 import Text from '../../components/Text/Text';
 import { useEffect, useState } from 'react';
 
-const Chronometer = ({ onStop }) => {
+const Chronometer = ({ onStop = () => {} }) => {
 	const styles = useStyles();
 
 	const [isRunning, setIsRunning] = useState(false);

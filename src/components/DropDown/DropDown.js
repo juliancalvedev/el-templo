@@ -12,7 +12,6 @@ const DropDown = ({ text1 = 'Title', text2 = 'Description' }) => {
 	const handleClick = () => {
 		isFolded ? setIsFolded(false) : setIsFolded(true);
 	};
-	console.log(isFolded);
 
 	return (
 		<div className={styles.mainContainer} onClick={handleClick}>

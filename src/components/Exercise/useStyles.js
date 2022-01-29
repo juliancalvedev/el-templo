@@ -10,6 +10,7 @@ const useStyles = () => {
 		totalTime: 'totalTime',
 		gifContainer: 'gifContainer col-11',
 		dropDownContainer: 'dropDownContainer col-12',
+		chronometerContainer: 'chronometerContainer mt-5',
 	};
 };
 
