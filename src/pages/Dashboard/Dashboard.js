@@ -71,7 +71,7 @@ const Dashboard = ({tres='3'}) => {
 						/>
 					</div>
 					<div>
-						{/* <ImgDashboard/> */}
+						<ImgDashboard/>
 						</div>		
 
 
