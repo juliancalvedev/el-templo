@@ -1,0 +1,42 @@
+@import '../../styles/variables.scss';
+
+.mainContainer {
+	// Make text unselectable
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	.folded {
+		.bar {
+			background-color: $tertiary;
+			color: $nineth;
+			text-indent: 24px;
+			height: 42px;
+		}
+		.arrow {
+			margin-right: 30px;
+		}
+	}
+
+	.unfolded {
+		.bar {
+			background-color: $tertiary;
+			color: $nineth;
+			text-indent: 24px;
+			height: 42px;
+		}
+		.unfolded__arrow {
+			margin-right: 5px;
+			transform: rotate(180deg);
+		}
+		.description__container {
+			// background-color: red;
+			height: 30vh;
+			overflow: hidden;
+			line-height: 1.35;
+
+			margin: 25px;
+		}
+	}
+}

@@ -9,6 +9,7 @@ const useStyles = () => {
 		exerciseName: 'exerciseName',
 		totalTime: 'totalTime',
 		gifContainer: 'gifContainer col-11',
+		dropDownContainer: 'dropDownContainer col-12',
 	};
 };
 
