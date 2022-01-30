@@ -11,6 +11,8 @@ const useStyles = () => {
 		gifContainer: 'gifContainer col-11',
 		dropDownContainer: 'dropDownContainer col-12',
 		chronometerContainer: 'chronometerContainer mt-5',
+		btnNext: 'btnNext d-flex align-items-center',
+		btnNextText: 'btnNext__text',
 	};
 };
 

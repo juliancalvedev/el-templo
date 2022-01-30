@@ -1,9 +1,7 @@
 import './ButtonPagination.scss';
 
 const ButtonPagination = ({
-	children,
 	onClick,
-	title,
 	disabled,
 	className,
 	type = 'button',
@@ -13,7 +11,9 @@ const ButtonPagination = ({
 		<div>
 			<button
 				disabled={disabled}
-				className={` customBtnPagination ${className}`}
+				className={`${
+					disabled ? 'customDisabled' : 'customBtnPagination '
+				} ${className}`}
 				onClick={onClick}
 				type={type}
 			>
@@ -29,7 +29,7 @@ const ButtonPagination = ({
 						xmlns='http://www.w3.org/2000/svg'
 						width='30'
 						height='30'
-						fill='currentColor'
+						fill='white'
 						className='bi bi-chevron-right'
 					>
 						<path

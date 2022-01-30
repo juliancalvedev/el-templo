@@ -24,6 +24,22 @@
 		margin-top: 18px;
 	}
 
-	.chronometerContainer {
+	// .chronometerContainer {
+	// }
+
+	.btnNext {
+		position: absolute;
+		bottom: 4%;
+		right: 8%;
+
+		.btnNext__text {
+			margin-right: 8px;
+
+			// Make text unselectable
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
 	}
 }

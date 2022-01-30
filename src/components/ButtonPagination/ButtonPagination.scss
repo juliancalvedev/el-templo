@@ -16,9 +16,17 @@
 	background-color: $tertiary;
 	border: none;
 }
-// TODO cuando está disabled el Hover sí se activa, arreglas.
-.disabled {
-	background-color: $twelfth;
+
+.customDisabled {
+	background-color: $tertiary;
+	color: $nineth;
+
+	width: 40px;
+	height: 40px;
+
+	border-radius: 10px;
+
+	padding: 12px 4px 12px 14px;
 }
 
 .right {
