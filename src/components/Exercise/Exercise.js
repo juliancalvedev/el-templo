@@ -62,7 +62,7 @@ const Exercise = () => {
 				onClick={handleShowChronometer}
 			>
 				<DropDown
-					height='180px'
+					height={180}
 					shadow
 					text1='Ver descripción del video'
 					text2='El Templo tiene como Misión introducir al público a nuevos sistemas de entrenamientos, culturizar e instruir a sus integrantes en el mundo del movimiento como estilo de vida y no como compromiso social y fines puramente estéticos. Ser mejores humanos a través de nuestras acciones y comportamientos.'

@@ -2,13 +2,13 @@ import useStyles from './useStyles';
 import './DropDown.scss';
 import Text from '../Text/Text';
 import IconDropDownArrow from '../../assets/Icons/IconDropDownArrow';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const DropDown = ({
 	text1 = 'Title',
 	text2 = 'Description',
 	shadow,
-	height = '180px',
+	height = 180,
 }) => {
 	const styles = useStyles({ shadow });
 
@@ -28,6 +28,7 @@ const DropDown = ({
 							<IconDropDownArrow />
 						</div>
 					</div>
+					<div className={styles.descriptionContainerFolded}></div>
 				</div>
 			) : (
 				<div className={styles.unfolded}>
@@ -40,7 +41,7 @@ const DropDown = ({
 					<div
 						className={styles.descriptionContainer}
 						style={{
-							height: `${height}`,
+							height: `${height}px`,
 						}}
 					>
 						<Text text={text2} size='2' justify='left' />
