@@ -4,8 +4,13 @@ import Text from '../Text/Text';
 import IconDropDownArrow from '../../assets/Icons/IconDropDownArrow';
 import { useState } from 'react';
 
-const DropDown = ({ text1 = 'Title', text2 = 'Description' }) => {
-	const styles = useStyles();
+const DropDown = ({
+	text1 = 'Title',
+	text2 = 'Description',
+	shadow,
+	height = '180px',
+}) => {
+	const styles = useStyles({ shadow });
 
 	const [isFolded, setIsFolded] = useState(true);
 
@@ -32,7 +37,12 @@ const DropDown = ({ text1 = 'Title', text2 = 'Description' }) => {
 							<IconDropDownArrow />
 						</div>
 					</div>
-					<div className={styles.descriptionContainer}>
+					<div
+						className={styles.descriptionContainer}
+						style={{
+							height: `${height}`,
+						}}
+					>
 						<Text text={text2} size='2' justify='left' />
 					</div>
 				</div>

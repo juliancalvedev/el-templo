@@ -30,13 +30,18 @@
 			margin-right: 5px;
 			transform: rotate(180deg);
 		}
+
 		.description__container {
 			// background-color: red;
-			height: 30vh;
+			// height: 25vh;
 			overflow: hidden;
 			line-height: 1.35;
 
 			margin: 25px;
+		}
+
+		&--shadow {
+			box-shadow: 0 2px 12px -2px $shadow025;
 		}
 	}
 }
