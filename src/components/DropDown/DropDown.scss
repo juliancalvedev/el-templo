@@ -12,7 +12,6 @@
 		color: $nineth;
 		text-indent: 24px;
 		height: 42px;
-		// border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 		box-shadow: inset 0px -10px 5px -10px rgba(0, 0, 0, 0.3);
 	}
 	.arrow {
@@ -26,42 +25,20 @@
 		margin: 25px;
 	}
 
-	.description__folded {
-		height: 0px;
-
-		// animation-name: dropUp;
-		// animation-timing-function: ease;
-		// animation-duration: 0.3s;
-		// transition: 1s;
-	}
-	@keyframes dropUp {
-		from {
-			height: auto;
-		}
-		to {
-			height: 0px;
-		}
-	}
-	.description__unfolded {
+	.description {
 		overflow: scroll;
-		line-height: 1.35;
 
-		// animation-name: dropDown;
-		// animation-timing-function: ease-in-out;
-		// animation-duration: 0.5s;
-
-		transition: 1s;
+		&--fold {
+			height: 0px;
+			transition: all 0.3s;
+		}
+		&--unfold {
+			height: 200px;
+			transition: all 0.3s;
+		}
 
 		&--shadow {
-			box-shadow: 0px 0px 10px 0px $shadow025;
-		}
-	}
-	@keyframes dropDown {
-		from {
-			height: 0px;
-		}
-		to {
-			height: auto;
+			box-shadow: 0 5px 5px -5px $shadow025;
 		}
 	}
 }

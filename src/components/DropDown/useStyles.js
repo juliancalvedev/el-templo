@@ -1,4 +1,4 @@
-const useStyles = ({ shadow }) => {
+const useStyles = ({ shadow, fold }) => {
 	return {
 		mainContainer:
 			'mainContainer d-flex justify-content-between align-items-center col-12',
@@ -8,9 +8,9 @@ const useStyles = ({ shadow }) => {
 		textContainer: 'textContainer',
 		arrowUnfolded: 'arrow__unfolded',
 		//--------------------------------------
-		descriptionFolded: `description__folded col-12`,
+
 		//---------------------------------------
-		descriptionUnFolded: `description__unfolded description__unfolded--${
+		description: `description--${fold} description--${
 			shadow && 'shadow'
 		}  col-12`,
 	};

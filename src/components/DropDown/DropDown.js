@@ -4,14 +4,17 @@ import Text from '../Text/Text';
 import IconDropDownArrow from '../../assets/Icons/IconDropDownArrow';
 import { useState, useEffect } from 'react';
 
-const DropDown = ({ text = 'Title', shadow, height = false, children }) => {
-	const styles = useStyles({ shadow });
-
+const DropDown = ({ text = 'Title', shadow, children }) => {
 	const [isFolded, setIsFolded] = useState(true);
+	const [fold, setFold] = useState('fold');
 
 	const handleClick = () => {
 		isFolded ? setIsFolded(false) : setIsFolded(true);
+		isFolded ? setFold('unfold') : setFold('fold');
 	};
+
+	const styles = useStyles({ shadow, fold });
+
 	return (
 		<div className={styles.mainContainer} onClick={handleClick}>
 			<div className={styles.dropDownContainer}>
@@ -25,21 +28,9 @@ const DropDown = ({ text = 'Title', shadow, height = false, children }) => {
 						<IconDropDownArrow />
 					</div>
 				</div>
+
 				<div className='col-12'>
-					<div
-						className={
-							isFolded
-								? styles.descriptionFolded
-								: styles.descriptionUnFolded
-						}
-						style={{
-							height: `${
-								height === false
-									? 'auto'
-									: `${isFolded ? 0 : height}px`
-							}`,
-						}}
-					>
+					<div className={styles.description}>
 						{!isFolded && (
 							<div className={styles.textContainer}>
 								{children}
