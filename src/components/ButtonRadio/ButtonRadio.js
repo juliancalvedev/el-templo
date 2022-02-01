@@ -1,5 +1,3 @@
-import { RegisterValidate } from '../../pages/Register/RegisterValidate';
-import useForm from '../../pages/Register/UseForm';
 import './ButtonRadio.scss';
 import useStyles from './useStyles';
 
@@ -7,16 +5,16 @@ const ButtonRadio = ({
 	label,
 	className,
 	onChange,
-	defaultValue,
+	value,
 	htmlFor,
 	name,
-	defautchecked,
+	checked,
 	id,
 	colors,
 	type,
 }) => {
 	const styles = useStyles({className, colors });
-
+	
 	return (
 		<div >
 				<div className={styles.containerInput}>
@@ -26,8 +24,8 @@ const ButtonRadio = ({
 					type={type}
 					name={name}
 					id={id}
-					value={defaultValue}
-					checked={defautchecked}
+					value={value}
+					checked={checked}
 				/>
 				<label className={styles.label} htmlFor={htmlFor}>
 					{label}

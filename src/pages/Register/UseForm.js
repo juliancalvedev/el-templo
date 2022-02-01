@@ -18,7 +18,7 @@ const useForm = (RegisterValidate, img) => {
 		country: null,
 	});
 
-	const [data, error, apiCall] = useFetch({
+	const [data, error, apiCall] = useFetch ({
 		service: () => register({
 			...values,
 			img

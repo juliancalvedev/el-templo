@@ -4,7 +4,7 @@ import IconEye from '../../assets/Icons/IconEye';
 import IconCheck from '../../assets/Icons/IconCheck';
 import Text from '../Text/Text';
 import IconDate from '../../assets/Icons/IconDate';
-import { forwardRef} from 'react';
+
 
 const ICON = ({ transparent }) => {
 	const ICONS = {
@@ -15,7 +15,7 @@ const ICON = ({ transparent }) => {
 	return ICONS;
 };
 	
-const Input = forwardRef(({
+const Input = ({ 
 	label,
 	value,
 	onChange,
@@ -33,7 +33,7 @@ const Input = forwardRef(({
 	onBlur,
 	onFocus,
 	onClickIcon = () => {},
-},ref) => {
+}) => {
 	
 	const feedbackColorType = (isInvalid && 'error') || (transparent && 2);
 	const styles = useStyles({
@@ -49,7 +49,7 @@ const Input = forwardRef(({
 			{label && <label className={styles.label}>{label}</label>}
 			<div className={styles.inputContent}>
 				<input
-					ref={ref}
+				
 					onBlur={onBlur}
 					onFocus={onFocus}
 					disabled={disabled}
@@ -82,6 +82,6 @@ const Input = forwardRef(({
 			)}
 		</div>
 	);
-})
+}
 
 export default Input;

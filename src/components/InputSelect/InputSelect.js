@@ -16,13 +16,13 @@ const InputSelect = ({name,onChange,value,options}) => {
 					onChange={onChange}
 					name={name}
 				>
-					{options.map((selectOption) => (
+					{options.map((selectOption,key) => (
 						<option
 							hidden={selectOption.placeholder}
-							key={selectOption.key}
+							key={key}
 							value={selectOption.value}
 						>
-							{selectOption.name} {selectOption.placeholder}
+							{selectOption.name} 
 						</option>
 					))}
 				</select>
