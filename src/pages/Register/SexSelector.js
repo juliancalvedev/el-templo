@@ -1,15 +1,8 @@
 import { useTranslation } from "react-i18next";
 import ButtonRadio from "../../components/ButtonRadio/ButtonRadio";
 import useStyles from "./useStyles";
-import useForm from './UseForm';
-import { RegisterValidate } from "./RegisterValidate";
 
-const SexSelector = () => {
-
-	const { handleChange, values} = useForm(
-		RegisterValidate,
-		
-	);
+const SexSelector = ({handleChange, values}) => {
 	const { t } = useTranslation();
 	const styles = useStyles();
 
