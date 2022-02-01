@@ -7,61 +7,61 @@
 	-ms-user-select: none;
 	user-select: none;
 
-	.folded {
-		.bar {
-			background-color: $tertiary;
-			color: $nineth;
-			text-indent: 24px;
-			height: 42px;
-		}
-		.arrow {
-			margin-right: 30px;
-		}
-		.description__containerFolded {
-			// height: 100px;
-			background-color: red;
-		}
-		@keyframes dropUp {
-			from {
-			}
-			to {
-				height: 0px;
-			}
-		}
+	.bar {
+		background-color: $tertiary;
+		color: $nineth;
+		text-indent: 24px;
+		height: 42px;
+		// border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		box-shadow: inset 0px -10px 5px -10px rgba(0, 0, 0, 0.3);
+	}
+	.arrow {
+		margin-right: 30px;
+	}
+	.arrow__unfolded {
+		margin-right: 5px;
+		transform: rotate(180deg);
+	}
+	.textContainer {
+		margin: 25px;
 	}
 
-	.unfolded {
-		.bar {
-			background-color: $tertiary;
-			color: $nineth;
-			text-indent: 24px;
-			height: 42px;
-		}
-		.unfolded__arrow {
-			margin-right: 5px;
-			transform: rotate(180deg);
-		}
+	.description__folded {
+		height: 0px;
 
-		.description__container {
-			overflow: hidden;
-			line-height: 1.35;
-
-			margin-top: 25px;
-
-			animation-name: dropDown;
-			animation-timing-function: ease;
-			animation-duration: 0.3s;
+		// animation-name: dropUp;
+		// animation-timing-function: ease;
+		// animation-duration: 0.3s;
+		// transition: 1s;
+	}
+	@keyframes dropUp {
+		from {
+			height: auto;
 		}
-		@keyframes dropDown {
-			from {
-				height: 0px;
-			}
-			to {
-			}
+		to {
+			height: 0px;
 		}
+	}
+	.description__unfolded {
+		overflow: scroll;
+		line-height: 1.35;
+
+		// animation-name: dropDown;
+		// animation-timing-function: ease-in-out;
+		// animation-duration: 0.5s;
+
+		transition: 1s;
 
 		&--shadow {
-			box-shadow: 0 2px 12px -2px $shadow025;
+			box-shadow: 0px 0px 10px 0px $shadow025;
+		}
+	}
+	@keyframes dropDown {
+		from {
+			height: 0px;
+		}
+		to {
+			height: auto;
 		}
 	}
 }

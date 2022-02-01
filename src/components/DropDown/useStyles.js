@@ -2,17 +2,17 @@ const useStyles = ({ shadow }) => {
 	return {
 		mainContainer:
 			'mainContainer d-flex justify-content-between align-items-center col-12',
+		dropDownContainer: 'col-12',
 		bar: 'bar d-flex justify-content-between align-items-center col-12',
-		//--------------------------------------
-		folded: 'folded d-flex justify-content-between align-items-center col-12',
 		arrow: 'arrow',
-		descriptionContainerFolded: `description__containerFolded col-10`,
+		textContainer: 'textContainer',
+		arrowUnfolded: 'arrow__unfolded',
+		//--------------------------------------
+		descriptionFolded: `description__folded col-12`,
 		//---------------------------------------
-		unfolded: `unfolded unfolded--${
+		descriptionUnFolded: `description__unfolded description__unfolded--${
 			shadow && 'shadow'
-		} d-flex flex-column justify-content-between align-items-center col-12`,
-		unfoldedArrow: 'unfolded__arrow',
-		descriptionContainer: `description__container col-10 `,
+		}  col-12`,
 	};
 };
 

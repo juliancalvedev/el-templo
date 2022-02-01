@@ -4,12 +4,7 @@ import Text from '../Text/Text';
 import IconDropDownArrow from '../../assets/Icons/IconDropDownArrow';
 import { useState, useEffect } from 'react';
 
-const DropDown = ({
-	text1 = 'Title',
-	text2 = 'Description',
-	shadow,
-	height = 180,
-}) => {
+const DropDown = ({ text = 'Title', shadow, height = false, children }) => {
 	const styles = useStyles({ shadow });
 
 	const [isFolded, setIsFolded] = useState(true);
@@ -17,37 +12,42 @@ const DropDown = ({
 	const handleClick = () => {
 		isFolded ? setIsFolded(false) : setIsFolded(true);
 	};
-
 	return (
 		<div className={styles.mainContainer} onClick={handleClick}>
-			{isFolded ? (
-				<div className={styles.folded}>
-					<div className={styles.bar}>
-						<Text text={text1} bold color={6} />
-						<div className={styles.arrow}>
-							<IconDropDownArrow />
-						</div>
-					</div>
-					<div className={styles.descriptionContainerFolded}></div>
-				</div>
-			) : (
-				<div className={styles.unfolded}>
-					<div className={styles.bar}>
-						<Text text={text1} bold color={6} />
-						<div className={styles.unfoldedArrow}>
-							<IconDropDownArrow />
-						</div>
-					</div>
+			<div className={styles.dropDownContainer}>
+				<div className={styles.bar}>
+					<Text text={text} bold color={6} />
 					<div
-						className={styles.descriptionContainer}
+						className={
+							isFolded ? styles.arrow : styles.arrowUnfolded
+						}
+					>
+						<IconDropDownArrow />
+					</div>
+				</div>
+				<div className='col-12'>
+					<div
+						className={
+							isFolded
+								? styles.descriptionFolded
+								: styles.descriptionUnFolded
+						}
 						style={{
-							height: `${height}px`,
+							height: `${
+								height === false
+									? 'auto'
+									: `${isFolded ? 0 : height}px`
+							}`,
 						}}
 					>
-						<Text text={text2} size='2' justify='left' />
+						{!isFolded && (
+							<div className={styles.textContainer}>
+								{children}
+							</div>
+						)}
 					</div>
 				</div>
-			)}
+			</div>
 		</div>
 	);
 };
