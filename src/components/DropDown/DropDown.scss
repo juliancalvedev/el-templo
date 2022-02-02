@@ -21,20 +21,17 @@
 		margin-right: 5px;
 		transform: rotate(180deg);
 	}
+
 	.textContainer {
 		margin: 25px;
 	}
-
 	.description {
-		overflow: scroll;
-
 		&--fold {
 			height: 0px;
-			transition: all 0.3s;
 		}
+
 		&--unfold {
-			height: 200px;
-			transition: all 0.3s;
+			overflow: scroll;
 		}
 
 		&--shadow {

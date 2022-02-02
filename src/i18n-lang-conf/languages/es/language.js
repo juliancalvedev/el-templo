@@ -213,6 +213,12 @@ const es = {
 		questionary: {},
 	},
 
+	exercise: {
+		exerciseNumber: 'Ejercicio n°',
+		watchVideoDescription: 'Ver descripción del video',
+		nextExercise: 'SIGUIENTE EJERCICIO',
+	},
+
 	appStart: {
 		animation: {},
 		incompleteDashboard: {},

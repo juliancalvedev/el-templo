@@ -216,6 +216,12 @@ const en = {
 		questionary: {},
 	},
 
+	exercise: {
+		exerciseNumber: 'Exercise n°',
+		watchVideoDescription: 'See video description',
+		nextExercise: 'NEXT EXERCISE',
+	},
+
 	appStart: {
 		animation: {},
 		incompleteDashboard: {},

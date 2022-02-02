@@ -6,9 +6,12 @@ import DropDown from '../DropDown/DropDown';
 import Chronometer from '../../components/Chronometer/Chronometer';
 import ButtonPagination from '../../components/ButtonPagination/ButtonPagination';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import MainContainer from '../MainContainer/MainContainer';
 
 const Exercise = () => {
 	const styles = useStyles();
+	const { t } = useTranslation();
 
 	//Cambiar el totalTime para que sume uno cada vez que el reloj cambia de estado con useEffect
 	const [totalTime, setTotalTime] = useState({ ms: 0, s: 0, m: 0 });
@@ -39,69 +42,83 @@ const Exercise = () => {
 	};
 
 	return (
-		<div className={styles.exerciseContainer}>
-			<div className={styles.titleContainer}>
-				<div className={styles.titleText}>
-					<div>
-						<Text text='Ejercicio n°1' bold size='4' />
+		<MainContainer col='12' scroll={true}>
+			<div className={styles.exerciseContainer}>
+				<div className={styles.titleContainer}>
+					<div className={styles.titleText}>
+						<div>
+							<Text
+								//  TODO Poner el numero de ejecicio del objeto
+								text={`${t('exercise.exerciseNumber')}1`}
+								bold
+								size='4'
+							/>
+						</div>
+						<div className={styles.exerciseName}>
+							<Text
+								// TODO Hacer la traducción para los ejercicios con una constante
+								text='Abdominales bolita'
+								bold
+								size='3'
+							/>
+						</div>
 					</div>
-					<div className={styles.exerciseName}>
-						<Text text='Abdominales bolita' bold size='3' />
+					<div className={styles.totalTime}>
+						<TotalTime totalTime={timeToShow} />
 					</div>
 				</div>
-				<div className={styles.totalTime}>
-					<TotalTime totalTime={timeToShow} />
+
+				<div className={styles.gifContainer}>
+					<img
+						className={styles.gif}
+						src='https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/580a5a1f-5c74-4979-b281-ba5db2377742.gif?ClientID=vimeo-core-prod&Date=1643826390&Signature=58c0ed026f7d7b278ff1cd28f28d1b3997f1eba8'
+					></img>
 				</div>
-			</div>
 
-			<div className={styles.gifContainer}>
-				{/* TODO acá va el gif, y hay que eliminar el rectángulo negro */}
-			</div>
-
-			<div
-				className={styles.dropDownContainer}
-				onClick={handleShowChronometer}
-			>
-				<DropDown
-					height={200}
-					shadow
-					fold='unfold'
-					text='Ver descripción del video'
+				<div
+					className={styles.dropDownContainer}
+					onClick={handleShowChronometer}
 				>
-					<Text
-						text='comportamientos. El Templo tiene como Misión introducir al público a nuevos sistemas de entrenamientos, culturizar e instruir a sus integrantes en el mundo del movimiento como estilo de vida y no como compromiso social y fines puramente estéticos. Ser mejores humanos a través de nuestras acciones y comportamientos.'
-						size='2'
-						justify='left'
-					/>
-				</DropDown>
-			</div>
-
-			{showChronometer && (
-				<div className={styles.chronometerContainer}>
-					<Chronometer
-						onStop={onStop}
-						// Value mantiene el tiempo si el componente desaparece y reaparece.
-						value={{
-							ms: totalTime.ms,
-							s: totalTime.s,
-							m: totalTime.m,
-						}}
-					/>
+					<DropDown
+						shadow
+						fold='unfold'
+						text={t('exercise.watchVideoDescription')}
+					>
+						<Text
+							text='Descripción del video'
+							size='2'
+							justify='left'
+						/>
+					</DropDown>
 				</div>
-			)}
 
-			<div className={styles.btnNext}>
-				<div className={styles.btnNextText}>
-					<Text
-						text={'SIGUIENTE EJERCICIO'}
-						size='2'
-						bold
-						color={5}
-					/>
+				{showChronometer && (
+					<div className={styles.chronometerContainer}>
+						<Chronometer
+							onStop={onStop}
+							// Value mantiene el tiempo si el componente desaparece y reaparece.
+							value={{
+								ms: totalTime.ms,
+								s: totalTime.s,
+								m: totalTime.m,
+							}}
+						/>
+					</div>
+				)}
+
+				<div className={styles.btnNextContainer}>
+					<div className={styles.btnNextText}>
+						<Text
+							text={t('exercise.nextExercise')}
+							size='2'
+							bold
+							color={5}
+						/>
+					</div>
+					<ButtonPagination disabled={btnNextIsDisabled} />
 				</div>
-				<ButtonPagination disabled={btnNextIsDisabled} />
 			</div>
-		</div>
+		</MainContainer>
 	);
 };
 
