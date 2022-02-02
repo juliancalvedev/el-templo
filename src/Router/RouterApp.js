@@ -42,7 +42,6 @@ const RouterApp = () => {
 							path={PATHS.MY_PROFILE}
 							element={<MyProfile />}
 						/>
-						<Route path={PATHS.NEW_LEVEL} element={<NewLevel />} />
 
 						{level < 1 && (
 							<Route
