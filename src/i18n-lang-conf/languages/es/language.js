@@ -264,7 +264,7 @@ const es = {
 	dashboard: {
 		main: {
 			welcome: 'Bienvenido',
-			level3: 'Nivel 3',
+			level: 'Nivel',
 			summary: 'Resumen de mi progreso',
 			see: 'VER DETALLE',
 			progress:

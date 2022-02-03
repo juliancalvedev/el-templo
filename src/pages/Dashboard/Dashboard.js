@@ -12,15 +12,17 @@ import NavBar from '../../components/Navbar/Navbar';
 // import useStyles from './useStyles';
 
 
+
 const Dashboard = ({
 	uno ='1',
 	dos = '2',
 	tres = '3',
 	cuatro = '4',
 	cinco = '5',
+
 }) => {
 	const { t } = useTranslation();
-	const { firstName } = useSelector((store) => store.user);
+	const { firstName,level } = useSelector((store) => store.user);
 	const [summary,setSummary]= useState(true);
 	const handleChange=()=>{
 		setSummary(false);
@@ -51,7 +53,7 @@ const Dashboard = ({
 						<div className='col-12 d-flex  '>
 							<Text
 								className={'mx-4'}
-								text={t('dashboard.main.level3')}
+								text={`${t('dashboard.main.level')} ${level}`}
 								bold
 								size={4}
 							/>
@@ -60,7 +62,7 @@ const Dashboard = ({
 							<div className={`coloreado coloreado--${tres}`}></div>
 						</div>
 						<div>
-							<Text justify={'end'} size='1' text={'N4'} />
+							<Text justify={'end'} size='1' text={'N3'} />
 						</div>
 					</div>
 				</div>
@@ -73,8 +75,9 @@ const Dashboard = ({
 					<div className='col-7  d-flex justify-content-center align-items-center'>
 						<Text bold text={t('dashboard.main.summary')} />
 					</div>
-					<div className='col-5 d-flex'>
+					<div className='col-5'>
 						<Button
+						size={1}
 							onClick={handleChange}
 							type={3}
 							text={t('dashboard.main.see')}
