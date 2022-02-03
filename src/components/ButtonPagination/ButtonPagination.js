@@ -16,9 +16,9 @@ const ButtonPagination = ({
 	const styles = useStyles();
 
 	return (
-		<div className='d-flex align-items-center'>
+		<div className={styles.btnPaginationMainContainer}>
 			{textLeft && (
-				<div className='m-2'>
+				<div className={styles.btnPaginationText}>
 					<Text
 						text={textLeft}
 						size={textSize}
