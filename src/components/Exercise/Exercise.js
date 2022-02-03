@@ -91,7 +91,7 @@ const Exercise = () => {
 						/>
 					</DropDown>
 				</div>
-
+				{/* TODO Manejar qué hace el cronómetro si, mientras está corriendo, se dezpliega el DropDown. */}
 				{showChronometer && (
 					<div className={styles.chronometerContainer}>
 						<Chronometer
