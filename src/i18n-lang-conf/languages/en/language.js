@@ -262,7 +262,17 @@ const en = {
 		},
 	},
 	dashboard: {
-		main: { welcome: 'Welcome' },
+		main: {
+			welcome: 'Welcome',
+			level3: 'Level 3',
+			summary: 'progress summary',
+			see: 'SEE DETAIL',
+			progress:
+				'As you progress in your workouts, your progress will be seen here.',
+				
+			btn: 'Start training',
+			
+		},
 	},
 	navbar: {
 		nav: {
