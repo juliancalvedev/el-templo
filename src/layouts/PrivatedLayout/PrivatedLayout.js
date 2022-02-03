@@ -6,9 +6,6 @@ import Navbar from '../../components/Navbar/Navbar';
 import { getUserInfoAction } from '../../redux/user';
 import { SHOW_NAVBAR } from '../../constants/paths';
 
-import Exercise from '../../components/Exercise/Exercise';
-import MainContainer from '../../components/MainContainer/MainContainer';
-
 const PrivatedLayout = () => {
 	const dispatch = useDispatch();
 	const { emailIsVerified, enabled, goals } = useSelector(
@@ -35,14 +32,10 @@ const PrivatedLayout = () => {
 	}, []);
 
 	return (
-		<MainContainer color='2' back bg='1' col='12'>
-			<Exercise />
-		</MainContainer>
-
-		// <div className='col-12'>
-		// 	<Outlet />
-		// 	{showNavbar() && <Navbar />}
-		// </div>
+		<div className='col-12'>
+			<Outlet />
+			{showNavbar() && <Navbar />}
+		</div>
 	);
 };
 

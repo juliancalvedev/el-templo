@@ -1,24 +1,45 @@
+import Text from '../Text/Text';
 import './ButtonPagination.scss';
+import useStyles from './useStyles.js';
 
 const ButtonPagination = ({
 	onClick,
 	disabled,
-	className,
 	type = 'button',
-	direction = 'right',
+	direction = 'right', // Direction options: 'left', 'right'.
+	textRight = false,
+	textLeft = false,
+	textSize = '2',
+	textColor = '5',
+	textBold,
 }) => {
+	const styles = useStyles();
+
 	return (
-		<div>
+		<div className='d-flex align-items-center'>
+			{textLeft && (
+				<div className='m-2'>
+					<Text
+						text={textLeft}
+						size={textSize}
+						bold={textBold}
+						color={textColor}
+					/>
+				</div>
+			)}
+
 			<button
 				disabled={disabled}
-				className={`${
-					disabled ? 'customDisabled' : 'customBtnPagination '
-				} ${className}`}
+				className={
+					disabled
+						? styles.customDisabled
+						: styles.customBtnPagination
+				}
 				onClick={onClick}
 				type={type}
 			>
 				<div
-					className={`${direction}`}
+					className={direction}
 					style={{
 						scale: '1.7',
 						paddingTop: '3px',
@@ -39,6 +60,17 @@ const ButtonPagination = ({
 					</svg>
 				</div>
 			</button>
+
+			{textRight && (
+				<div className='m-2'>
+					<Text
+						text={textRight}
+						size={textSize}
+						bold={textBold}
+						color={textColor}
+					/>
+				</div>
+			)}
 		</div>
 	);
 };

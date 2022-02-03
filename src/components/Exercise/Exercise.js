@@ -107,15 +107,11 @@ const Exercise = () => {
 				)}
 
 				<div className={styles.btnNextContainer}>
-					<div className={styles.btnNextText}>
-						<Text
-							text={t('exercise.nextExercise')}
-							size='2'
-							bold
-							color={5}
-						/>
-					</div>
-					<ButtonPagination disabled={btnNextIsDisabled} />
+					<ButtonPagination
+						textLeft={t('exercise.nextExercise')}
+						textBold
+						disabled={btnNextIsDisabled}
+					/>
 				</div>
 			</div>
 		</MainContainer>

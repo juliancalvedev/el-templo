@@ -16,8 +16,8 @@ const DropDown = ({ text = 'Title', shadow, children, height = 'auto' }) => {
 	const styles = useStyles({ shadow, fold });
 
 	return (
-		<div className={styles.mainContainer}>
-			<div className={styles.dropDownContainer}>
+		<div className={styles.dropDownMainContainer}>
+			<div className={styles.dropDownFixContainer}>
 				<div className={styles.bar} onClick={handleClick}>
 					<Text text={text} bold color={6} />
 					<div

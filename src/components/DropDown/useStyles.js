@@ -1,8 +1,8 @@
 const useStyles = ({ shadow, fold }) => {
 	return {
-		mainContainer:
-			'mainContainer d-flex justify-content-between align-items-center col-12',
-		dropDownContainer: 'col-12',
+		dropDownMainContainer:
+			'dropDown__mainContainer d-flex justify-content-between align-items-center col-12',
+		dropDownFixContainer: 'col-12',
 		bar: 'bar d-flex justify-content-between align-items-center col-12',
 		arrow: 'arrow',
 		arrowUnfolded: 'arrow__unfolded',
