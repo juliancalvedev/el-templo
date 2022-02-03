@@ -34,11 +34,12 @@ const useForm = (RegisterValidate, img) => {
 		setValues({
 			...values,
 			[name]: value,
+			
 		});
+		;
 	};
 
 	const handleSubmit = () => {
-		console.log(values)
 		const auxErrors = RegisterValidate(values);
 		setErrors(auxErrors);
 

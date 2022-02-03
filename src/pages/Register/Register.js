@@ -10,8 +10,8 @@ import TopSpacing from '../../components/TopSpacing/TopSpacing';
 import Text from '../../components/Text/Text';
 import InputSelect from '../../components/InputSelect/InputSelect';
 import useStyles from './useStyles';
-import SexSelector from './SexSelector';
 import './Register.scss';
+import ButtonRadio from '../../components/ButtonRadio/ButtonRadio';
 
 export const Register = () => {
 	const { t } = useTranslation();
@@ -170,7 +170,48 @@ export const Register = () => {
 					<div className={styles.labelSex}>
 						<Text size='3' text={t('auth.register.sexTitle')} bold />
 					</div>
-					<SexSelector onChange={handleChange} />
+					<div className={styles.containerButtonsRadio}>
+						<div className={styles.ButtonRadio}>
+							<ButtonRadio
+								type={'radio'}
+								name={'sex'}
+								id={'btnradio1'}
+								value={'F'}
+								checked={values.sex === 'F' ? true : false}
+								onChange={handleChange}
+								stylesButtonRadio={1}
+								htmlFor={'btnradio1'}
+								label={t('auth.register.sex1')}
+							/>
+						</div>
+
+						<div className={styles.ButtonRadio}>
+							<ButtonRadio
+								type='radio'
+								name={'sex'}
+								id={'btnradio2'}
+								value={'M'}
+								checked={values.sex === 'M' ? true : false}
+								onChange={handleChange}
+								stylesButtonRadio={2}
+								label={t('auth.register.sex2')}
+								htmlFor={'btnradio2'}
+							/>
+						</div>
+						<div className={styles.ButtonRadio}>
+							<ButtonRadio
+								type={'radio'}
+								name={'sex'}
+								id={'btnradio3'}
+								value={'O'}
+								checked={values.sex === 'O' ? true : false}
+								onChange={handleChange}
+								stylesButtonRadio={3}
+								htmlFor={'btnradio3'}
+								label={t('auth.register.sex3')}
+							/>
+						</div>
+					</div>
 				</div>
 			</div>
 
@@ -232,7 +273,7 @@ export const Register = () => {
 					name='dateOfBirth'
 					value={values.dateOfBirth}
 					onChange={handleChange}
-					icon={'date'}
+					icon='date'
 					type={type}
 					onBlur={onBlur}
 					onFocus={onFocus}

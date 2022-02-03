@@ -2,22 +2,22 @@ import './ButtonRadio.scss';
 import useStyles from './useStyles';
 
 const ButtonRadio = ({
-	label,
-	className,
-	onChange,
-	value,
-	htmlFor,
-	name,
-	checked,
-	id,
-	colors,
 	type,
+	name,
+	id,
+	value,
+	checked,
+	label,
+	htmlFor,
+	className,
+	stylesButtonRadio,
+	onChange,
 }) => {
-	const styles = useStyles({className, colors });
-	
+	const styles = useStyles({ className, stylesButtonRadio });
+
 	return (
-		<div >
-				<div className={styles.containerInput}>
+		<div>
+			<div className={styles.containerInput}>
 				<input
 					className={styles.button}
 					onChange={onChange}
@@ -31,7 +31,6 @@ const ButtonRadio = ({
 					{label}
 				</label>
 			</div>
-		
 		</div>
 	);
 };

@@ -9,11 +9,11 @@ const useStyles = () => {
 		Lname: 'lastN mt-2 ',
 		inputsRadio:'my-3 justify-content-center align-content-center d-flex col-12',
 		sexTitle:'col-10',
-		labelSex:'mb-0 ustify-content-center align-content-center d-flex',
+		labelSex:'mb-0 d-flex',
 		Rcontainer2:'mt-0',
 		buttonInput:'mt-3',
 		textTermsAndConditions1:'mt-1',
-		containerButtonsRadio:'d-flex col-12',
+		containerButtonsRadio:'d-flex col-12 col-md-4',
 		ButtonRadio:'col-4',
 	};
 };
