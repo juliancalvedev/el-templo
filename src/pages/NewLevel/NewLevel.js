@@ -18,7 +18,7 @@ const NewLevel = () => {
 	return (
 		<MainContainer col='12' back>
 			<div className={styles.mainContainer}>
-				<div className='textContainer'>
+				<div className={styles.textContainer}>
 					<Text text={t('user.newLevel.title')} font='2' size='5' />
 					<Text
 						text={t('user.newLevel.subtitle')}
@@ -28,9 +28,9 @@ const NewLevel = () => {
 					/>
 				</div>
 				<div>
-					<div className='NewLevelAnimated '>
+					<div className={styles.animatedBox}>
 						<Text
-							className='AnimatedLevel'
+							className={styles.animatedLevel}
 							text='3'
 							color='5'
 							bold
