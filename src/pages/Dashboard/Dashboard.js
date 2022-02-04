@@ -9,7 +9,7 @@ import Button from "../../components/Button/Button";
 import ImgDashboard from "../../assets/images/ImgDashboard";
 import WeeklyCalendar from "../../components/WeeklyCalendar/WeeklyCalendar";
 import NavBar from '../../components/Navbar/Navbar';
-// import useStyles from './useStyles';
+import useStyles from './useStyless';
 
 
 
@@ -27,7 +27,7 @@ const Dashboard = ({
 	const handleChange=()=>{
 		setSummary(false);
 	}
-
+const styles=useStyles();
 	return (
 		<MainContainer
 			color={1}
@@ -37,20 +37,16 @@ const Dashboard = ({
 			col='12'
 		>
 			<div
-				className='  d-flex flex-column align-items-center
-					h-100 col-12 
-                '
+				className={styles.container}
 			>
 				<div
-					className=' d-flex align-items-center  py-5
-					 col-11  
-                '
+					className={styles.div}
 				>
-					<div className='col-3  d-flex h-100 align-items-center justify-content-center '>
+					<div className={styles.userimg}>
 						<UserImage />
 					</div>
-					<div className='col-9 h-100   '>
-						<div className='col-12 d-flex  '>
+					<div className={styles.containerColor}>
+						<div className={styles.textLevel}>
 							<Text
 								className={'mx-4'}
 								text={`${t('dashboard.main.level')} ${level}`}
@@ -58,7 +54,7 @@ const Dashboard = ({
 								size={4}
 							/>
 						</div>
-						<div className='col-12   bg-light cajita'>
+						<div className={styles.cajita}>
 							<div className={`coloreado coloreado--${tres}`}></div>
 						</div>
 						<div>
@@ -67,15 +63,15 @@ const Dashboard = ({
 					</div>
 				</div>
 
-				<div className='col-12  d-flex  '>
+				<div className={styles.calendar}>
 					<WeeklyCalendar />
 				</div>
 {/* alinear bien el ver detalle */}
-				<div className='col-12  d-flex  my-3 '>
-					<div className='col-7  d-flex justify-content-center align-items-center'>
+				<div className={styles.line}>
+					<div className={styles.summary}>
 						<Text bold text={t('dashboard.main.summary')} />
 					</div>
-					<div className='col-5'>
+					<div className={styles.see}>
 						<Button
 						size={1}
 							onClick={handleChange}
@@ -92,7 +88,7 @@ const Dashboard = ({
 								text={t('dashboard.main.progress')}
 							/>
 						</div>
-						<div className='d-flex justify-content-center'>
+						<div className={styles.img}>
 							<ImgDashboard />
 						</div>
 					</div>
@@ -105,7 +101,7 @@ const Dashboard = ({
 						/>
 					</div>
 				)}
-				<div className='btn h-100 d-flex align-items-center  '>
+				<div className={styles.btn}>
 					<Button
 						
 						type={2}
