@@ -9,7 +9,7 @@ import Button from "../../components/Button/Button";
 import ImgDashboard from "../../assets/images/ImgDashboard";
 import WeeklyCalendar from "../../components/WeeklyCalendar/WeeklyCalendar";
 import NavBar from '../../components/Navbar/Navbar';
-import useStyles from './useStyless';
+import useStyles from './useStyles';
 
 
 
