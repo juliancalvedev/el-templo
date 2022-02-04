@@ -6,10 +6,10 @@ const useStyles = ({ shadow, fold }) => {
 		bar: 'bar d-flex justify-content-between align-items-center col-12',
 		arrow: 'arrow',
 		arrowUnfolded: 'arrow__unfolded',
-		textContainer: 'textContainer',
-		//--------------------------------------
 
-		//---------------------------------------
+		dropDownDescriptionContainer:
+			'd-flex flex-column justify-content-start col-12',
+		textContainer: 'textContainer',
 		description: `description--${fold} description--${
 			shadow && 'shadow'
 		}  col-12`,

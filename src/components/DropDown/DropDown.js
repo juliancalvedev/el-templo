@@ -29,7 +29,7 @@ const DropDown = ({ text = 'Title', shadow, children, height = 'auto' }) => {
 					</div>
 				</div>
 
-				<div className='d-flex flex-column justify-content-start col-12'>
+				<div className={styles.dropDownDescriptionContainer}>
 					<div className={styles.description}>
 						{!isFolded && (
 							<div
