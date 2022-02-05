@@ -36,6 +36,30 @@ const es = {
 		},
 	},
 
+	month: {
+		january: 'Enero',
+		february: 'Febrero',
+		march: 'Marzo',
+		april: 'Abril',
+		may: 'Mayo',
+		june: 'Junio',
+		july: 'Julio',
+		august: 'Agosto',
+		september: 'Septiembre',
+		october: 'Octubre',
+		november: 'Noviembre',
+		december: 'Diciembre',
+	},
+	daysShort: {
+		monday: 'L',
+		tuesday: 'M',
+		wednesday: 'MI',
+		thursday: 'J',
+		friday: 'V',
+		saturday: 'S',
+		sunday: 'D',
+	},
+
 	auth: {
 		landing: {
 			haveAccount: '¿Ya tenés cuenta?',
@@ -293,6 +317,11 @@ const es = {
 			intermediate: 'Intermedio',
 			advanced: 'Avanzado',
 			expert: 'Experto',
+		},
+		nivelation: {
+			paragraph:
+				'Para adaptar el plan a tu nivel, realiza los siguientes ejercicios. completa la cantidad de repeticiones que puedas',
+			nivelation: 'Nivelación',
 		},
 	},
 	errors: {

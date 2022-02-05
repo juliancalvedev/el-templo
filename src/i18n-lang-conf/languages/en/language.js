@@ -36,6 +36,30 @@ const en = {
 		},
 	},
 
+	month: {
+		january: 'January',
+		february: 'February',
+		march: 'March',
+		april: 'April',
+		may: 'May',
+		june: 'June',
+		july: 'July',
+		august: 'August',
+		september: 'September',
+		october: 'October',
+		november: 'November',
+		december: 'December',
+	},
+	daysShort: {
+		monday: 'M',
+		tuesday: 'T',
+		wednesday: 'W',
+		thursday: 'X',
+		friday: 'F',
+		saturday: 'S',
+		sunday: 'X',
+	},
+
 	auth: {
 		landing: {
 			haveAccount: 'Have an account?',
@@ -294,6 +318,11 @@ const en = {
 			intermediate: 'Intermediate',
 			advanced: 'Advanced',
 			expert: 'Expert',
+		},
+		nivelation: {
+			paragraph:
+				'To adapt the plan to your level, perform the following exercises. complete as many reps as you can.  ',
+			nivelation: 'Nivelation',
 		},
 	},
 	errors: {
