@@ -11,7 +11,7 @@ import Text from '../../components/Text/Text';
 import InputSelect from '../../components/InputSelect/InputSelect';
 import useStyles from './useStyles';
 import './Register.scss';
-import ButtonRadio from '../../components/ButtonRadio/ButtonRadio';
+import SexSelector from './SexSelector';
 
 export const Register = () => {
 	const { t } = useTranslation();
@@ -99,6 +99,7 @@ export const Register = () => {
 
 	const { handleChange, values, handleSubmit, errors } = useForm(
 		RegisterValidate,
+	
 		baseImage
 	);
 
@@ -170,48 +171,12 @@ export const Register = () => {
 					<div className={styles.labelSex}>
 						<Text size='3' text={t('auth.register.sexTitle')} bold />
 					</div>
-					<div className={styles.containerButtonsRadio}>
-						<div className={styles.ButtonRadio}>
-							<ButtonRadio
-								type={'radio'}
-								name={'sex'}
-								id={'btnradio1'}
-								value={'F'}
-								checked={values.sex === 'F' ? true : false}
-								onChange={handleChange}
-								stylesButtonRadio={1}
-								htmlFor={'btnradio1'}
-								label={t('auth.register.sex1')}
-							/>
-						</div>
-
-						<div className={styles.ButtonRadio}>
-							<ButtonRadio
-								type='radio'
-								name={'sex'}
-								id={'btnradio2'}
-								value={'M'}
-								checked={values.sex === 'M' ? true : false}
-								onChange={handleChange}
-								stylesButtonRadio={2}
-								label={t('auth.register.sex2')}
-								htmlFor={'btnradio2'}
-							/>
-						</div>
-						<div className={styles.ButtonRadio}>
-							<ButtonRadio
-								type={'radio'}
-								name={'sex'}
-								id={'btnradio3'}
-								value={'O'}
-								checked={values.sex === 'O' ? true : false}
-								onChange={handleChange}
-								stylesButtonRadio={3}
-								htmlFor={'btnradio3'}
-								label={t('auth.register.sex3')}
-							/>
-						</div>
-					</div>
+					<SexSelector
+						checkedF={values.sex === 'F' ? true : false}
+						checkedM={values.sex === 'M' ? true : false}
+						checkedO={values.sex === 'O' ? true : false}
+						handleChange={handleChange}
+					/>
 				</div>
 			</div>
 
@@ -273,7 +238,7 @@ export const Register = () => {
 					name='dateOfBirth'
 					value={values.dateOfBirth}
 					onChange={handleChange}
-					icon='date'
+					icon={'date'}
 					type={type}
 					onBlur={onBlur}
 					onFocus={onFocus}

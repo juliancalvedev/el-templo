@@ -6,7 +6,9 @@ import useFetch from '../../hooks/useFetch';
 import { register } from '../../services/auth';
 
 
-const useForm = (RegisterValidate, img) => {
+
+
+const useForm = ( RegisterValidate, img) => {
 	const [values, setValues] = useState({
 		firstName: '',
 		lastName: '',
@@ -40,6 +42,7 @@ const useForm = (RegisterValidate, img) => {
 	};
 
 	const handleSubmit = () => {
+		
 		const auxErrors = RegisterValidate(values);
 		setErrors(auxErrors);
 
