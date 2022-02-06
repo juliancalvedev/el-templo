@@ -5,6 +5,8 @@ import { Outlet } from 'react-router';
 import Navbar from '../../components/Navbar/Navbar';
 import { getUserInfoAction } from '../../redux/user';
 import { SHOW_NAVBAR } from '../../constants/paths';
+import Exercise from '../../components/Exercise/Exercise';
+import MainContainer from '../../components/MainContainer/MainContainer';
 
 const PrivatedLayout = () => {
 	const dispatch = useDispatch();
@@ -32,10 +34,14 @@ const PrivatedLayout = () => {
 	}, []);
 
 	return (
-		<div className='col-12'>
-			<Outlet />
-			{showNavbar() && <Navbar />}
-		</div>
+		<MainContainer back bg='1' color='2' col='12'>
+			<Exercise />
+		</MainContainer>
+
+		// <div className='col-12'>
+		// 	<Outlet />
+		// 	{showNavbar() && <Navbar />}
+		// </div>
 	);
 };
 

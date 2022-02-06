@@ -22,20 +22,21 @@
 		transform: rotate(180deg);
 	}
 
-	.textContainer {
-		margin: 25px;
-	}
-	.description {
-		&--fold {
-			height: 0px;
-		}
-
-		&--unfold {
-			overflow: scroll;
-		}
-
+	.content-parent {
+		height: 0px;
+		overflow: hidden;
+		transition: height 0.5s ease;
 		&--shadow {
-			box-shadow: 0 5px 5px -5px $shadow025;
+			box-shadow: 0 4px 5px -3px $shadow025;
 		}
+	}
+
+	.content {
+		// background-color: red;
+		height: auto;
+		overflow: hidden;
+		padding: 25px;
+		line-height: 1.3;
+		transition: height 0.5s ease;
 	}
 }

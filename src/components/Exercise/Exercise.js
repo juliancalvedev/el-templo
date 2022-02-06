@@ -79,13 +79,11 @@ const Exercise = () => {
 					className={styles.dropDownContainer}
 					onClick={handleShowChronometer}
 				>
-					<DropDown
-						shadow
-						fold='unfold'
-						text={t('exercise.watchVideoDescription')}
-					>
+					<DropDown text={t('exercise.watchVideoDescription')} shadow>
 						<Text
-							text='Descripción del video'
+							text={
+								'El Templo tiene como Misión introducir al público a nuevos sistemas de entrenamientos, culturizar e instruir a sus integrantes en el mundo del movimiento como estilo de vida y no como compromiso social y fines puramente estéticos. Ser mejores humanos a través de nuestras acciones y comportamientos.'
+							}
 							size='2'
 							justify='left'
 						/>
