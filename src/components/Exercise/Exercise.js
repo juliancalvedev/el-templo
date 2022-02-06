@@ -83,12 +83,13 @@ const Exercise = () => {
 						<Text
 							text={
 								'El Templo tiene como Misión introducir al público a nuevos sistemas de entrenamientos, culturizar e instruir a sus integrantes en el mundo del movimiento como estilo de vida y no como compromiso social y fines puramente estéticos. Ser mejores humanos a través de nuestras acciones y comportamientos.'
-							}
+							} // TODO Descripción del contenido del DropDown
 							size='2'
 							justify='left'
 						/>
 					</DropDown>
 				</div>
+
 				{/* TODO Manejar qué hace el cronómetro si, mientras está corriendo, se dezpliega el DropDown. */}
 				{showChronometer && (
 					<div className={styles.chronometerContainer}>
