@@ -35,8 +35,8 @@ const DropDown = ({
 						? {
 								height: `${
 									height === true
-										? contentParentRef.current.scrollHeight // This set the Auto value of height.
-										: height
+										? contentParentRef.current.scrollHeight // Auto value of height.
+										: height // Custom & specific value of height.
 								}px`,
 						  }
 						: { height: '0px' }
