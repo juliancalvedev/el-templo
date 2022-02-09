@@ -5,7 +5,6 @@ import { PATHS } from '../../constants/paths';
 import useFetch from '../../hooks/useFetch';
 import { register } from '../../services/auth';
 
-
 const useForm = (RegisterValidate, img) => {
 	const [values, setValues] = useState({
 		firstName: '',
@@ -19,13 +18,14 @@ const useForm = (RegisterValidate, img) => {
 	});
 
 	const [data, error, apiCall] = useFetch({
-		service: () => register({
-			...values,
-			img
-		}),
-		globalLoader: true
+		service: () =>
+			register({
+				...values,
+				img,
+			}),
+		globalLoader: true,
 	});
-	
+
 	const [errors, setErrors] = useState({});
 	const navigate = useNavigate();
 
@@ -41,14 +41,14 @@ const useForm = (RegisterValidate, img) => {
 		const auxErrors = RegisterValidate(values);
 		setErrors(auxErrors);
 
-			apiCall();
+		apiCall();
 	};
 
 	useEffect(() => {
-		if(data){
+		if (data) {
 			navigate(`/${PATHS.EMAIL_REGISTER_SENDED}`);
 		}
-	}, [data])
+	}, [data]);
 
 	return { handleChange, handleSubmit, values, errors };
 };
