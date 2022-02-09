@@ -25,6 +25,7 @@ import TrainingLevel from '../pages/welcome/TrainingLevel/TrainningLevel';
 import WeightHeight from '../pages/welcome/WeightHeight/WeightHeight';
 import Contact from '../pages/Contact/Contact';
 import Nivelation from '../pages/Nivelation/Nivelation';
+import NewLevel from '../pages/NewLevel/NewLevel';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -83,7 +84,6 @@ const RouterApp = () => {
 							path={PATHS.CHANGE_USER_PASSWORD}
 							element={<ChangeUserPassword />}
 						/>
-
 						<Route path={PATHS.HELP} element={<Help />} />
 						<Route path={PATHS.CONTACT} element={<Contact />} />
 					</Route>
