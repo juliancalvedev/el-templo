@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import UsersTable from './UsersTable/UsersTable';
 import { getUsers } from '../../../services/admin';
+import MainContainer from '../../../components/MainContainer/MainContainer';
 
 const UsersList = () => {
 	const [users, setUsers] = useState([]);
@@ -20,20 +21,27 @@ const UsersList = () => {
 	}, []);
 
 	return (
-		<div>
-			<UsersTable
-				columns={[
-					'firstName',
-					'lastName',
-					'email',
-					'sex',
-					'country',
-					'enabled',
-					'options',
-				]}
-				users={users}
-			/>
-		</div>
+		<MainContainer col='12' scroll>
+			<div style={{ overflow: 'scroll' }}>
+				<UsersTable
+					columns={[
+						'_id',
+						'email',
+						'firstName',
+						'lastName',
+						'dateOfBirth',
+						'sex',
+						'country',
+						'enabled',
+						'level',
+						'endEnabledDate',
+						'startEnabledDate',
+						// 'options',
+					]}
+					users={users}
+				/>
+			</div>
+		</MainContainer>
 	);
 };
 
