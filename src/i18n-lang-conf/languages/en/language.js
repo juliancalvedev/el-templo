@@ -336,6 +336,11 @@ const en = {
 				'To adapt the plan to your level, perform the following exercises. complete as many reps as you can.  ',
 			nivelation: 'Nivelation',
 		},
+		newLevel: {
+			title: 'Congratulations!',
+			subtitle: 'Your level is',
+			button: 'Go to my training',
+		},
 	},
 	errors: {
 		generic: 'Oops, an error occurred.',

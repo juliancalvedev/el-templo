@@ -335,6 +335,11 @@ const es = {
 				'Para adaptar el plan a tu nivel, realiza los siguientes ejercicios. completa la cantidad de repeticiones que puedas',
 			nivelation: 'Nivelación',
 		},
+		newLevel: {
+			title: '¡Felicitaciones!',
+			subtitle: 'Tu nivel es',
+			button: 'Ir a mi entrenamiento',
+		},
 	},
 	errors: {
 		generic: 'Oops, ocurrió un error.',
