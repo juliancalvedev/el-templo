@@ -10,8 +10,8 @@ import TopSpacing from '../../components/TopSpacing/TopSpacing';
 import Text from '../../components/Text/Text';
 import InputSelect from '../../components/InputSelect/InputSelect';
 import useStyles from './useStyles';
-import './Register.scss';
 import SexSelector from './SexSelector';
+import './Register.scss';
 
 export const Register = () => {
 	const { t } = useTranslation();
@@ -99,7 +99,7 @@ export const Register = () => {
 
 	const { handleChange, values, handleSubmit, errors } = useForm(
 		RegisterValidate,
-	
+
 		baseImage
 	);
 
@@ -224,7 +224,7 @@ export const Register = () => {
 				</div>
 
 				<InputSelect
-					name={'country'}
+					name='country'
 					defaulValue={values.country}
 					onChange={handleChange}
 					options={options}

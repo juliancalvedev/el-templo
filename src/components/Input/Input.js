@@ -5,21 +5,20 @@ import IconCheck from '../../assets/Icons/IconCheck';
 import Text from '../Text/Text';
 import IconDate from '../../assets/Icons/IconDate';
 
-
 const ICON = ({ transparent }) => {
 	const ICONS = {
 		eye: <IconEye light={transparent} />,
 		check: <IconCheck />,
-		date:<IconDate/>,
+		date: <IconDate />,
 	};
 	return ICONS;
 };
-	
-const Input = ({ 
+
+const Input = ({
 	label,
 	value,
 	onChange,
-	type ,
+	type = 'text',
 	placeholder,
 	isInvalid,
 	isValid,
@@ -30,11 +29,10 @@ const Input = ({
 	name,
 	className,
 	disabled,
-	onBlur,
-	onFocus,
+	onBlur = () => {},
+	onFocus = () => {},
 	onClickIcon = () => {},
 }) => {
-	
 	const feedbackColorType = (isInvalid && 'error') || (transparent && 2);
 	const styles = useStyles({
 		isValid,
@@ -49,7 +47,6 @@ const Input = ({
 			{label && <label className={styles.label}>{label}</label>}
 			<div className={styles.inputContent}>
 				<input
-				
 					onBlur={onBlur}
 					onFocus={onFocus}
 					disabled={disabled}
@@ -64,7 +61,6 @@ const Input = ({
 					<div className={styles.iconContainer}>
 						<span onClick={onClickIcon}>
 							{isValid ? ICON().check : ICON({ transparent })?.[icon]}
-						
 						</span>
 					</div>
 				)}
@@ -82,6 +78,6 @@ const Input = ({
 			)}
 		</div>
 	);
-}
+};
 
 export default Input;

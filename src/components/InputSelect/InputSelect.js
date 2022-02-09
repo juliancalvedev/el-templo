@@ -2,12 +2,10 @@ import IconSelect from '../../assets/Icons/IconSelect';
 import useStyles from './useStyles';
 import './InputSelect.scss';
 
+const InputSelect = ({ name, onChange, value, options }) => {
+	const styles = useStyles();
 
-const InputSelect = ({name,onChange,value,options}) => {
-    const styles = useStyles();
-	
-	
-  return (
+	return (
 		<div className={styles.container}>
 			<div className={styles.select}>
 				<select
@@ -16,13 +14,13 @@ const InputSelect = ({name,onChange,value,options}) => {
 					onChange={onChange}
 					name={name}
 				>
-					{options.map((selectOption,key) => (
+					{options.map((selectOption, key) => (
 						<option
 							hidden={selectOption.placeholder}
 							key={key}
 							value={selectOption.value}
 						>
-							{selectOption.name} 
+							{selectOption.name}
 						</option>
 					))}
 				</select>
@@ -31,7 +29,7 @@ const InputSelect = ({name,onChange,value,options}) => {
 				</div>
 			</div>
 		</div>
-  );
+	);
 };
 
 export default InputSelect;

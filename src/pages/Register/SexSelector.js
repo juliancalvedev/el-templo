@@ -14,7 +14,7 @@ const SexSelector = ({handleChange,checkedF,checkedM,checkedO}) => {
 				<div className={styles.ButtonRadio}>
 					<ButtonRadio
 						type='radio'
-						name='sex'
+						name={'sex'}
 						id='btnradio1'
 						value='F'
 						checked={checkedF}
@@ -28,7 +28,7 @@ const SexSelector = ({handleChange,checkedF,checkedM,checkedO}) => {
 				<div className={styles.ButtonRadio}>
 					<ButtonRadio
 						type='radio'
-						name='sex'
+						name={'sex'}
 						id='btnradio2'
 						value='M'
 						checked={checkedM}
@@ -41,7 +41,7 @@ const SexSelector = ({handleChange,checkedF,checkedM,checkedO}) => {
 				<div className={styles.ButtonRadio}>
 					<ButtonRadio
 						type='radio'
-						name='sex'
+						name={'sex'}
 						id='btnradio3'
 						value='O'
 						checked={checkedO}

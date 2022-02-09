@@ -1,12 +1,9 @@
 const useStyles = () => {
-
-
 	return {
 		container: 'input__content col-md-4 my-3 ',
 		select: ' col-12 d-flex pr-5',
-		select1: 'input col-10  input__select',
-		chevron:
-			'col-2  d-flex justify-content-center align-items-center ',
+		select1: 'input col-10  input-selector__select',
+		chevron: 'col-2  d-flex justify-content-center align-items-center ',
 	};
 };
 

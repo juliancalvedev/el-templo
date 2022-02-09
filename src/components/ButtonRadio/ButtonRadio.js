@@ -12,7 +12,6 @@ const ButtonRadio = ({
 	className,
 	stylesButtonRadio,
 	onChange,
-
 }) => {
 	const styles = useStyles({ className, stylesButtonRadio });
 
@@ -27,7 +26,6 @@ const ButtonRadio = ({
 					id={id}
 					value={value}
 					checked={checked}
-					
 				/>
 				<label className={styles.label} htmlFor={htmlFor}>
 					{label}
