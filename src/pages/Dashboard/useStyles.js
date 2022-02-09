@@ -1,5 +1,12 @@
-const useStyles = () => {
+const useStyles = ({colored}) => {
+	const DASHBOARD_TYPE={
+		1: '1',
+		2: '2',
+		3: '3',
+		4: '4',
+		5: '5',
 	
+	}
 
 	return {
 		container: '  d-flex flex-column align-items-center h-100 col-12  ',
@@ -14,7 +21,7 @@ const useStyles = () => {
 		see: 'col-5',
 		img: 'd-flex justify-content-center',
 		btn: 'btn h-100 d-flex align-items-center  ',
-		boxColor:`colored colored--${three}`,
+		boxColor:`colored colored--${DASHBOARD_TYPE[colored]}`,
 	};
 };
 

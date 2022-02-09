@@ -13,21 +13,14 @@ import useStyles from './useStyles';
 
 
 
-const Dashboard = ({
-	one ='1',
-	two = '2',
-	three = '3',
-	four= '4',
-	five = '5',
-
-}) => {
+const Dashboard = ({colored='3'}) => {
 	const { t } = useTranslation();
 	const { firstName,level } = useSelector((store) => store.user);
 	const [summary,setSummary]= useState(true);
 	const handleChange=()=>{
 		setSummary(false);
 	}
-const styles=useStyles();
+const styles=useStyles({colored});
 	return (
 		<MainContainer
 			color={1}
@@ -55,7 +48,8 @@ const styles=useStyles();
 							/>
 						</div>
 						<div className={styles.boxcontainer}>
-							<div className={styles.boxColor}></div>
+							<div className={styles.boxColor}
+							></div>
 						</div>
 						<div>
 							<Text justify={'end'} size='1' text={'N3'} />
