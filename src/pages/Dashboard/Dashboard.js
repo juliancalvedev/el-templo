@@ -14,11 +14,11 @@ import useStyles from './useStyles';
 
 
 const Dashboard = ({
-	uno ='1',
-	dos = '2',
-	tres = '3',
-	cuatro = '4',
-	cinco = '5',
+	one ='1',
+	two = '2',
+	three = '3',
+	four= '4',
+	five = '5',
 
 }) => {
 	const { t } = useTranslation();
@@ -54,8 +54,8 @@ const styles=useStyles();
 								size={4}
 							/>
 						</div>
-						<div className={styles.cajita}>
-							<div className={`coloreado coloreado--${tres}`}></div>
+						<div className={styles.boxcontainer}>
+							<div className={styles.boxColor}></div>
 						</div>
 						<div>
 							<Text justify={'end'} size='1' text={'N3'} />

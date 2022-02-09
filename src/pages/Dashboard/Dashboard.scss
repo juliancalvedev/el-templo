@@ -1,13 +1,13 @@
 @import '../../styles/variables';
 
 
-.cajita{
+.boxcontainer{
   height: 2vh;
 border: 1px solid white;
 border-radius: 4px ;
 box-shadow: $shadow310;
 }
-.coloreado{
+.colored{
   background: linear-gradient(90deg, #2E4F77 65.81%, rgba(46, 79, 119, 0) 92.79%);
 height: 2vh;
 
