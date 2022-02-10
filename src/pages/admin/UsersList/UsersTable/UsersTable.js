@@ -1,6 +1,15 @@
 import { randomHexadecimal as rndKey } from '../../../../utils/mathUtils';
+import { useNavigate } from 'react-router-dom';
+import Button from '../../../../components/Button/Button';
+import { PATHS } from '../../../../constants/paths';
 
 const UsersTable = ({ columns = [], users = [] }) => {
+	const navigate = useNavigate();
+
+	const handleClick = ({ user }) => {
+		navigate(`/${PATHS.ADMIN_USER_INFO}`, { state: { user: user } });
+	};
+
 	return (
 		<div>
 			<table className='table'>
@@ -18,7 +27,22 @@ const UsersTable = ({ columns = [], users = [] }) => {
 					{users?.map((user) => (
 						<tr key={rndKey()}>
 							{columns?.map((c) => (
-								<td key={rndKey()}>{user[c]}</td>
+								<td key={rndKey()}>
+									{c === 'options' ? (
+										<div>
+											<Button
+												text='Ver'
+												onClick={() =>
+													handleClick({
+														user: user,
+													})
+												}
+											/>
+										</div>
+									) : (
+										user[c]
+									)}
+								</td>
 							))}
 						</tr>
 					))}

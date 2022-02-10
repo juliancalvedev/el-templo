@@ -22,7 +22,7 @@ const UsersList = () => {
 
 	return (
 		<MainContainer col='12' scroll>
-			<div style={{ overflow: 'scroll' }}>
+			<div style={{ overflowX: 'scroll' }}>
 				<UsersTable
 					columns={[
 						'_id',
@@ -36,7 +36,7 @@ const UsersList = () => {
 						'level',
 						'endEnabledDate',
 						'startEnabledDate',
-						// 'options',
+						'options',
 					]}
 					users={users}
 				/>

@@ -6,8 +6,6 @@ import Navbar from '../../components/Navbar/Navbar';
 import { getUserInfoAction } from '../../redux/user';
 import { SHOW_NAVBAR } from '../../constants/paths';
 
-import UsersList from '../../pages/admin/UsersList/UsersList';
-
 const PrivatedLayout = () => {
 	const dispatch = useDispatch();
 	const { emailIsVerified, enabled, goals } = useSelector(
@@ -35,9 +33,8 @@ const PrivatedLayout = () => {
 
 	return (
 		<div className='col-12'>
-			<UsersList />
-			{/* <Outlet />
-			{showNavbar() && <Navbar />} */}
+			<Outlet />
+			{showNavbar() && <Navbar />}
 		</div>
 	);
 };

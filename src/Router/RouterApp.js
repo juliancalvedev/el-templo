@@ -26,6 +26,7 @@ import WeightHeight from '../pages/welcome/WeightHeight/WeightHeight';
 import Contact from '../pages/Contact/Contact';
 import Nivelation from '../pages/Nivelation/Nivelation';
 import NewLevel from '../pages/NewLevel/NewLevel';
+import { UserInfo } from '../pages/admin/UsersList/UserInfo/UserInfo';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -42,7 +43,6 @@ const RouterApp = () => {
 							path={PATHS.MY_PROFILE}
 							element={<MyProfile />}
 						/>
-
 						{level < 1 && (
 							<Route
 								path={PATHS.NIVELATION}
@@ -57,6 +57,10 @@ const RouterApp = () => {
 								<Route
 									path={PATHS.USERS_LIST}
 									element={<UsersList />}
+								/>
+								<Route
+									path={PATHS.ADMIN_USER_INFO}
+									element={<UserInfo />}
 								/>
 							</Route>
 						)}
@@ -86,6 +90,16 @@ const RouterApp = () => {
 						/>
 						<Route path={PATHS.HELP} element={<Help />} />
 						<Route path={PATHS.CONTACT} element={<Contact />} />
+						{/* TODO Quitar esta ruta de acá --------------------------------------*/}
+						<Route
+							path={PATHS.USERS_LIST}
+							element={<UsersList />}
+						/>
+						<Route
+							path={PATHS.ADMIN_USER_INFO}
+							element={<UserInfo />}
+						/>
+						{/* TODO ---------------------------------------------------------------- */}
 					</Route>
 				) : (
 					<Route path={PATHS.BASE_URL} element={<PublicLayout />}>

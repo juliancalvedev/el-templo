@@ -17,6 +17,7 @@ export const PATHS = {
 	WEIGHT_HEIGHT: 'weight-height',
 	CONTACT: 'contact',
 	NIVELATION: 'nivelation',
+	ADMIN_USER_INFO: 'admin-user-info',
 };
 
 export const SHOW_NAVBAR = [PATHS.BASE_URL];
