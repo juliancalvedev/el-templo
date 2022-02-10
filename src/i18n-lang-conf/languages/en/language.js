@@ -24,6 +24,8 @@ const en = {
 		logIn: 'Log In',
 		password: 'Password',
 		loading: 'Loading...',
+		total: 'Total',
+		time: 'Time',
 
 		errors: {
 			required: 'This field is required.',
@@ -212,6 +214,12 @@ const en = {
 		exerciseInfo: {},
 		finishTraining: {},
 		questionary: {},
+	},
+
+	exercise: {
+		exerciseNumber: 'Exercise n°',
+		watchVideoDescription: 'See video description',
+		nextExercise: 'NEXT EXERCISE',
 	},
 
 	appStart: {

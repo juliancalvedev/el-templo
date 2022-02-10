@@ -7,12 +7,16 @@ import IconChronoSmallClock from '../../assets/Icons/IconChronoSmallClock';
 import Text from '../../components/Text/Text';
 import { useEffect, useState } from 'react';
 
-const Chronometer = ({ onStop }) => {
+const Chronometer = ({ onStop = () => {}, value = { ms: 0, s: 0, m: 0 } }) => {
 	const styles = useStyles();
 
 	const [isRunning, setIsRunning] = useState(false);
 
-	const [timer, setTimer] = useState({ ms: 0, s: 0, m: 0 });
+	const [timer, setTimer] = useState({
+		ms: value.ms,
+		s: value.s,
+		m: value.m,
+	});
 	const [interv, setInterv] = useState();
 	const showTime = `${timer.m >= 10 ? '' : '0'}${timer.m}:${
 		timer.s >= 10 ? '' : '0'

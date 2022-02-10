@@ -24,6 +24,8 @@ const es = {
 		logIn: 'Iniciar sesión',
 		password: 'contraseña',
 		loading: 'Cargando...',
+		total: 'Total',
+		time: 'Tiempo',
 
 		errors: {
 			required: 'Este campo es requerido.',
@@ -209,6 +211,12 @@ const es = {
 		exerciseInfo: {},
 		finishTraining: {},
 		questionary: {},
+	},
+
+	exercise: {
+		exerciseNumber: 'Ejercicio n°',
+		watchVideoDescription: 'Ver descripción del video',
+		nextExercise: 'SIGUIENTE EJERCICIO',
 	},
 
 	appStart: {
