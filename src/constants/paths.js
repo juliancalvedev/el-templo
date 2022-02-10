@@ -16,6 +16,7 @@ export const PATHS = {
 	TRAINING_LEVEL: 'training-level',
 	WEIGHT_HEIGHT: 'weight-height',
 	CONTACT: 'contact',
+	DASHBOARD: 'dashboard',
 	NIVELATION: 'nivelation',
 };
 
@@ -36,4 +37,5 @@ export const TOPBAR_TEXTS = {
 	[PATHS.HELP]: 'topBar.help',
 	[PATHS.EMAIL_REGISTER_SENDED]: 'topBar.emailRegisterSended',
 	[PATHS.CONTACT]: 'topBar.contact',
+	[PATHS.DASHBOARD]: 'topBar.dashboard',
 };

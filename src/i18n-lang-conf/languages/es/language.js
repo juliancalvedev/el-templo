@@ -269,6 +269,18 @@ const es = {
 			fq: 'Preguntas frecuentes',
 		},
 	},
+	dashboard: {
+		main: {
+			welcome: 'Bienvenido',
+			level: 'Nivel',
+			summary: 'Resumen de mi progreso',
+			see: 'VER DETALLE',
+			progress:
+				'A medida que avances en tus entrenamientos, acá se van a ver tus progresos.',
+			btn:'Comenzar a entrenar',
+			
+		},
+	},
 	navbar: {
 		nav: {
 			myProfile: 'Mi perfil',

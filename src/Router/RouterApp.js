@@ -24,6 +24,8 @@ import MainGoals from '../pages/welcome/MainGoals/MainGoals';
 import TrainingLevel from '../pages/welcome/TrainingLevel/TrainningLevel';
 import WeightHeight from '../pages/welcome/WeightHeight/WeightHeight';
 import Contact from '../pages/Contact/Contact';
+import Dashboard from '../pages/Dashboard/Dashboard';
+
 import Nivelation from '../pages/Nivelation/Nivelation';
 import NewLevel from '../pages/NewLevel/NewLevel';
 
@@ -50,10 +52,7 @@ const RouterApp = () => {
 							/>
 						)}
 						{role === ROLES.ADMIN && (
-							<Route
-								path={PATHS.BASE_URL}
-								element={<AdminLayout />}
-							>
+							<Route path={PATHS.BASE_URL} element={<AdminLayout />}>
 								<Route
 									path={PATHS.USERS_LIST}
 									element={<UsersList />}
@@ -62,10 +61,7 @@ const RouterApp = () => {
 						)}
 						{goals?.length === 0 && (
 							<Route>
-								<Route
-									path={PATHS.BASE_URL}
-									element={<Welcome />}
-								/>
+								<Route path={PATHS.BASE_URL} element={<Welcome />} />
 								<Route
 									path={PATHS.MAIN_GOALS}
 									element={<MainGoals />}
@@ -86,6 +82,7 @@ const RouterApp = () => {
 						/>
 						<Route path={PATHS.HELP} element={<Help />} />
 						<Route path={PATHS.CONTACT} element={<Contact />} />
+						<Route path={PATHS.DASHBOARD} element={<Dashboard/>} />
 					</Route>
 				) : (
 					<Route path={PATHS.BASE_URL} element={<PublicLayout />}>

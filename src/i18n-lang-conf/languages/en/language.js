@@ -96,8 +96,7 @@ const en = {
 			sex3: 'Other',
 			emailPlaceholder: 'Email@email.com',
 			passwordPlaceholder: 'Password',
-			passwordRequirement:
-				'(Must contain at least 6 letters and 1 number)',
+			passwordRequirement: '(Must contain at least 6 letters and 1 number)',
 			password2Placeholder: 'Confirm Your Password',
 			countrySelection: 'Country',
 			country1: 'Argentina',
@@ -268,6 +267,19 @@ const en = {
 			},
 			faqs: 'FAQS',
 			fq: 'Frequent questions',
+		},
+	},
+	dashboard: {
+		main: {
+			welcome: 'Welcome',
+			level: 'Level ',
+			summary: 'progress summary',
+			see: 'SEE DETAIL',
+			progress:
+				'As you progress in your workouts, your progress will be seen here.',
+				
+			btn: 'Start training',
+			
 		},
 	},
 	navbar: {

@@ -39,11 +39,7 @@ const Navbar = () => {
 				)}
 
 				<Link to='/dashboard'>
-					{pathname === '/dashboard' ? (
-						<IconDashboardActive />
-					) : (
-						<IconDashboard />
-					)}
+					{pathname === '/dashboard' ? <IconDashboardActive />: <IconDashboard />}
 				</Link>
 				<Link to={redirection()}>
 					{pathname === '/training' ? (
@@ -66,5 +62,5 @@ const Navbar = () => {
 		</nav>
 	);
 };
-
+ 
 export default Navbar;
