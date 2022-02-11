@@ -26,7 +26,7 @@ import WeightHeight from '../pages/welcome/WeightHeight/WeightHeight';
 import Contact from '../pages/Contact/Contact';
 import Nivelation from '../pages/Nivelation/Nivelation';
 import NewLevel from '../pages/NewLevel/NewLevel';
-import { UserInfo } from '../pages/admin/UsersList/UserInfo/UserInfo';
+import { AdminUserInfo } from '../pages/admin/UsersList/AdminUserInfo/AdminUserInfo';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -39,31 +39,22 @@ const RouterApp = () => {
 			<Routes>
 				{savedToken ? (
 					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
-						<Route
-							path={PATHS.MY_PROFILE}
-							element={<MyProfile />}
-						/>
-						{level < 1 && (
-							<Route
-								path={PATHS.NIVELATION}
-								element={<Nivelation />}
-							/>
-						)}
 						{role === ROLES.ADMIN && (
 							<Route
 								path={PATHS.BASE_URL}
 								element={<AdminLayout />}
 							>
 								<Route
-									path={PATHS.USERS_LIST}
+									path={PATHS.ADMIN_USERS_LIST}
 									element={<UsersList />}
 								/>
 								<Route
 									path={PATHS.ADMIN_USER_INFO}
-									element={<UserInfo />}
+									element={<AdminUserInfo />}
 								/>
 							</Route>
 						)}
+
 						{goals?.length === 0 && (
 							<Route>
 								<Route
@@ -84,6 +75,18 @@ const RouterApp = () => {
 								/>
 							</Route>
 						)}
+
+						{level < 1 && (
+							<Route
+								path={PATHS.NIVELATION}
+								element={<Nivelation />}
+							/>
+						)}
+
+						<Route
+							path={PATHS.MY_PROFILE}
+							element={<MyProfile />}
+						/>
 						<Route
 							path={PATHS.CHANGE_USER_PASSWORD}
 							element={<ChangeUserPassword />}

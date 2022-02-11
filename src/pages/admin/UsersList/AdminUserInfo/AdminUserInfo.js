@@ -4,7 +4,7 @@ import Button from '../../../../components/Button/Button';
 import Text from '../../../../components/Text/Text';
 import MainContainer from '../../../../components/MainContainer/MainContainer';
 
-export const UserInfo = () => {
+export const AdminUserInfo = () => {
 	const navigate = useNavigate();
 
 	const location = useLocation();
@@ -26,7 +26,7 @@ export const UserInfo = () => {
 		startEnabledDate,
 	} = location.state.user;
 
-	const handleButtonBack = () => navigate(`/${PATHS.USERS_LIST}`);
+	const handleButtonBack = () => navigate(`/${PATHS.ADMIN_USERS_LIST}`);
 
 	return (
 		<MainContainer col='12'>
