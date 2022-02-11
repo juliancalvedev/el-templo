@@ -90,16 +90,6 @@ const RouterApp = () => {
 						/>
 						<Route path={PATHS.HELP} element={<Help />} />
 						<Route path={PATHS.CONTACT} element={<Contact />} />
-						{/* TODO Quitar esta ruta de acá --------------------------------------*/}
-						<Route
-							path={PATHS.USERS_LIST}
-							element={<UsersList />}
-						/>
-						<Route
-							path={PATHS.ADMIN_USER_INFO}
-							element={<UserInfo />}
-						/>
-						{/* TODO ---------------------------------------------------------------- */}
 					</Route>
 				) : (
 					<Route path={PATHS.BASE_URL} element={<PublicLayout />}>
