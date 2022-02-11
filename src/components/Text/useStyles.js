@@ -22,6 +22,7 @@ const useStyles = ({
 		4: '4',
 		5: '5',
 		6: '6',
+		link: 'link',
 		error: 'error',
 	};
 

@@ -28,13 +28,14 @@ import Dashboard from '../pages/Dashboard/Dashboard';
 
 import Nivelation from '../pages/Nivelation/Nivelation';
 import NewLevel from '../pages/NewLevel/NewLevel';
+import Admin from '../pages/admin/Admin';
+import AdminExercises from '../pages/admin/AdminExercises/AdminExercises';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
 	const { role, goals, level } = useSelector((store) => store.user);
 
 	const savedToken = localStorage.getItem('token');
-
 	return (
 		<BrowserRouter>
 			<Routes>
@@ -52,16 +53,27 @@ const RouterApp = () => {
 							/>
 						)}
 						{role === ROLES.ADMIN && (
-							<Route path={PATHS.BASE_URL} element={<AdminLayout />}>
+							<Route
+								path={PATHS.BASE_URL}
+								element={<AdminLayout />}
+							>
+								<Route path={PATHS.ADMIN} element={<Admin />} />
 								<Route
 									path={PATHS.USERS_LIST}
 									element={<UsersList />}
+								/>
+								<Route
+									path={PATHS.ADMIN_EXERCISES}
+									element={<AdminExercises />}
 								/>
 							</Route>
 						)}
 						{goals?.length === 0 && (
 							<Route>
-								<Route path={PATHS.BASE_URL} element={<Welcome />} />
+								<Route
+									path={PATHS.BASE_URL}
+									element={<Welcome />}
+								/>
 								<Route
 									path={PATHS.MAIN_GOALS}
 									element={<MainGoals />}
@@ -82,7 +94,7 @@ const RouterApp = () => {
 						/>
 						<Route path={PATHS.HELP} element={<Help />} />
 						<Route path={PATHS.CONTACT} element={<Contact />} />
-						<Route path={PATHS.DASHBOARD} element={<Dashboard/>} />
+						<Route path={PATHS.DASHBOARD} element={<Dashboard />} />
 					</Route>
 				) : (
 					<Route path={PATHS.BASE_URL} element={<PublicLayout />}>

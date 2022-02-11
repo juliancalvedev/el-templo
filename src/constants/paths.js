@@ -1,5 +1,7 @@
 export const PATHS = {
 	BASE_URL: '',
+	ADMIN: 'admin',
+	ADMIN_EXERCISES: 'admin-exercises',
 	USERS_LIST: 'users-list',
 	CHANGE_USER_PASSWORD: 'change-user-password',
 	LOGIN: 'login',
@@ -18,6 +20,7 @@ export const PATHS = {
 	CONTACT: 'contact',
 	DASHBOARD: 'dashboard',
 	NIVELATION: 'nivelation',
+	TRAINING: 'training',
 };
 
 export const SHOW_NAVBAR = [PATHS.BASE_URL];
