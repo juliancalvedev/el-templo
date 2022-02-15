@@ -58,7 +58,10 @@
 			color: $nineth;
 		}
 		&--link {
-			color: rgb(0, 0, 255);
+			color: #0d6efd;
+		}
+		&--link-selected {
+			color: $sixteenth;
 		}
 		&--error {
 			color: red;

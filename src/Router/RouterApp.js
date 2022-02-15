@@ -59,7 +59,7 @@ const RouterApp = () => {
 							>
 								<Route path={PATHS.ADMIN} element={<Admin />} />
 								<Route
-									path={PATHS.USERS_LIST}
+									path={PATHS.ADMIN_USERS_LIST}
 									element={<UsersList />}
 								/>
 								<Route

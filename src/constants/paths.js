@@ -2,7 +2,7 @@ export const PATHS = {
 	BASE_URL: '',
 	ADMIN: 'admin',
 	ADMIN_EXERCISES: 'admin-exercises',
-	USERS_LIST: 'users-list',
+	ADMIN_USERS_LIST: 'admin-users-list',
 	CHANGE_USER_PASSWORD: 'change-user-password',
 	LOGIN: 'login',
 	PASSWORD_RECOVERY: 'password-recovery',
@@ -27,7 +27,7 @@ export const SHOW_NAVBAR = [PATHS.BASE_URL];
 
 export const TOPBAR_TEXTS = {
 	[PATHS.BASE_URL]: 'topBar.main',
-	[PATHS.USERS_LIST]: 'topBar.usersList',
+	[PATHS.ADMIN_USERS_LIST]: 'topBar.usersList',
 	[PATHS.CHANGE_USER_PASSWORD]: 'topBar.changeUserPassword',
 	[PATHS.LOGIN]: 'topBar.login',
 	[PATHS.PASSWORD_RECOVERY]: 'topBar.passwordRecovery',

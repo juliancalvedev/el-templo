@@ -3,7 +3,7 @@ import { randomHexadecimal as rndKey } from '../../../../utils/mathUtils';
 
 const UsersTable = ({ columns = [], users = [] }) => {
 	return (
-		<MainContainer back>
+		<MainContainer>
 			<div>
 				<table className='table'>
 					<thead>
