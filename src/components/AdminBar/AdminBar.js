@@ -3,8 +3,10 @@ import Text from '../../components/Text/Text';
 import { PATHS } from '../../constants/paths';
 import useStyles from './useStyles';
 import './AdminBar.scss';
+import { useTranslation } from 'react-i18next';
 
 const AdminBar = () => {
+	const { t } = useTranslation();
 	const styles = useStyles();
 	const currentLocation = useLocation().pathname.substring(1);
 
@@ -21,7 +23,7 @@ const AdminBar = () => {
 		<div className={styles.adminBarContainer}>
 			<div>
 				<Text
-					text={'Usuarios'}
+					text={t('adminBar.users')}
 					onClick={toUsersList}
 					color={
 						currentLocation === 'admin-users-list'
@@ -34,7 +36,7 @@ const AdminBar = () => {
 
 			<div>
 				<Text
-					text={'Ejercicios'}
+					text={t('adminBar.exercises')}
 					onClick={toExercises}
 					color={
 						currentLocation === 'admin-exercises'

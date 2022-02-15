@@ -290,6 +290,10 @@ const es = {
 			admin: 'Admin',
 		},
 	},
+	adminBar: {
+		users: 'Usuarios',
+		exercises: 'Ejercicios',
+	},
 	topBar: {
 		main: 'El Templo',
 		usersList: 'Usuarios',

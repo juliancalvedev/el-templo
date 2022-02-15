@@ -292,6 +292,10 @@ const en = {
 			admin: 'Admin',
 		},
 	},
+	adminBar: {
+		users: 'Users',
+		exercises: 'Exercises',
+	},
 	topBar: {
 		main: 'El Templo',
 		usersList: 'Users',
