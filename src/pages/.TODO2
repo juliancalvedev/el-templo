@@ -2,6 +2,10 @@
   -Al clickear el link de verificación del mail, lleva a una ruta https://el-templo.web.app, 
     con toda la pantalla en blanco. Al refrescar nada ocurre, el usuario No Es Verificado.
   -El link de Terminos y condiciones, no hace nada.
+  -El input SexSelector está chuequísimo.
+  -El input Pais, no abre al tocar en cuaqluier lugar del input, sino en un area de la izquierda
+    de tamaño variable.
+
 
 - Al entrar con El Mail Verificado, pero la cuenta No Habilitida, se muestra la pantalla 
 'Aún no ha sido verificado.'
