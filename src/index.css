@@ -1,6 +1,8 @@
 body,
 html {
-	width: 100vw;
+	/* CORREGIR */
+	width: 800px;
+	/* width: 100vw; */
 	height: 100vh;
 
 	/* Esto impide el scroll horizontal en toda la web. */

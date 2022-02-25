@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
-
 .main-container {
+	
 	&--scroll {
 		min-height: 100vh;
 	}
@@ -41,5 +41,5 @@
 
 .main-container--noXscroll {
 	overflow: hidden;
-	width: 100vw;
+	// width: 100vw;
 }

@@ -33,17 +33,11 @@
 
 	}
 
-	.about-you-box {
-		height: 56px;
-		box-shadow: 0px 1px 6px $shadow025;
+	.aboutYou__container {
+		background-color: red;
 
-		.about-you-link {
-			text-decoration: none;
-			color: $tertiary;
-			margin: 0% 7% 0% 0%;
-			font-size: 14px;
-			font-weight: 600;
-			letter-spacing: 1px;
+		.aboutYout__btnEdit{
+			background-color: blue;
 		}
 	}
 	.training-level-box {

@@ -15,7 +15,7 @@ const useStyles = ({ size, type, className = '' }) => {
     }
 
     return {
-        container: `col-${BUTTON_SIZE[size]}`,
+        container: `col-${BUTTON_SIZE[size]}  `,
 
         button: `btn button py-${BUTTON_TYPE[type] === '4' ? '3' : '2'} col-12 button-color--${BUTTON_TYPE[type]} ${className}`
     }
