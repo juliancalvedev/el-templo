@@ -3,6 +3,8 @@ export const PATHS = {
 	ADMIN: 'admin',
 	ADMIN_EXERCISES: 'admin-exercises',
 	ADMIN_USERS_LIST: 'admin-users-list',
+	ADMIN_USER_INFO: 'admin-user-info',
+	
 	CHANGE_USER_PASSWORD: 'change-user-password',
 	LOGIN: 'login',
 	PASSWORD_RECOVERY: 'password-recovery',

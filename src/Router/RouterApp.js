@@ -1,10 +1,10 @@
-import { useSelector } from 'react-redux';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import {useSelector} from 'react-redux';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import PrivatedLayout from '../layouts/PrivatedLayout/PrivatedLayout';
 import PublicLayout from '../layouts/PublicLayout/PublicLayout';
 import AdminLayout from '../layouts/AdminLayout/AdminLayout';
 
-import { ROLES } from '../constants/roles';
+import {ROLES} from '../constants/roles';
 import Login from '../pages/Login/Login';
 import VerifiedEmail from '../pages/VerifiedEmail/VerifiedEmail';
 import ChangeUserPassword from '../pages/ChangeUserPassword/ChangeUserPassword';
@@ -16,7 +16,7 @@ import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
 
 import UsersList from '../pages/admin/UsersList/UsersList';
 import Help from '../pages/Help/Help';
-import { PATHS } from '../constants/paths';
+import {PATHS} from '../constants/paths';
 import MyProfile from '../pages/MyProfile/MyProfile';
 import Welcome from '../pages/welcome/Welcome/Welcome';
 import EmailRegisterSended from '../pages/EmailRegisterSended/EmailRegisterSended';
@@ -27,13 +27,13 @@ import Contact from '../pages/Contact/Contact';
 import Dashboard from '../pages/Dashboard/Dashboard';
 
 import Nivelation from '../pages/Nivelation/Nivelation';
-import NewLevel from '../pages/NewLevel/NewLevel';
+import {AdminUserInfo} from '../pages/admin/UsersList/AdminUserInfo/AdminUserInfo';
 import Admin from '../pages/admin/Admin';
 import AdminExercises from '../pages/admin/AdminExercises/AdminExercises';
 
 const RouterApp = () => {
-	const { token } = useSelector((store) => store.auth);
-	const { role, goals, level } = useSelector((store) => store.user);
+	const {token} = useSelector((store) => store.auth);
+	const {role, goals, level} = useSelector((store) => store.user);
 
 	const savedToken = localStorage.getItem('token');
 	return (
@@ -41,17 +41,6 @@ const RouterApp = () => {
 			<Routes>
 				{savedToken ? (
 					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
-						<Route
-							path={PATHS.MY_PROFILE}
-							element={<MyProfile />}
-						/>
-
-						{level < 1 && (
-							<Route
-								path={PATHS.NIVELATION}
-								element={<Nivelation />}
-							/>
-						)}
 						{role === ROLES.ADMIN && (
 							<Route
 								path={PATHS.BASE_URL}
@@ -63,11 +52,16 @@ const RouterApp = () => {
 									element={<UsersList />}
 								/>
 								<Route
+									path={PATHS.ADMIN_USER_INFO}
+									element={<AdminUserInfo />}
+								/>
+								<Route
 									path={PATHS.ADMIN_EXERCISES}
 									element={<AdminExercises />}
 								/>
 							</Route>
 						)}
+
 						{goals?.length === 0 && (
 							<Route>
 								<Route
@@ -88,6 +82,18 @@ const RouterApp = () => {
 								/>
 							</Route>
 						)}
+
+						{level < 1 && (
+							<Route
+								path={PATHS.NIVELATION}
+								element={<Nivelation />}
+							/>
+						)}
+
+						<Route
+							path={PATHS.MY_PROFILE}
+							element={<MyProfile />}
+						/>
 						<Route
 							path={PATHS.CHANGE_USER_PASSWORD}
 							element={<ChangeUserPassword />}
