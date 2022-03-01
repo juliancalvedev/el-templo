@@ -1,26 +1,24 @@
 import { useEffect, useState } from 'react';
 import UsersTable from './UsersTable/UsersTable';
+import AdminBar from '../../../components/AdminBar/AdminBar';
+import useFetch from '../../../hooks/useFetch';
 import { getUsers } from '../../../services/admin';
 
 const UsersList = () => {
-	const [users, setUsers] = useState([]);
+	const [test, setTest] = useState(0);
 
-	const onGetUsers = async () => {
-		const { data, problem } = await getUsers();
-
-		if (problem) {
-			alert('PROBLEM DETECTED IN GET USERS');
-		} else {
-			setUsers(data.users);
-		}
-	};
-
+	const [data, error, apiCall] = useFetch({
+		service: () => getUsers(),
+		globalLoader: true,
+	});
 	useEffect(() => {
-		onGetUsers();
+		setTest(test + 1);
+		apiCall();
 	}, []);
 
 	return (
 		<div>
+			<AdminBar />
 			<UsersTable
 				columns={[
 					'firstName',
@@ -31,7 +29,7 @@ const UsersList = () => {
 					'enabled',
 					'options',
 				]}
-				users={users}
+				users={data?.users}
 			/>
 		</div>
 	);

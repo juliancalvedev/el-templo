@@ -277,8 +277,7 @@ const es = {
 			see: 'VER DETALLE',
 			progress:
 				'A medida que avances en tus entrenamientos, acá se van a ver tus progresos.',
-			btn:'Comenzar a entrenar',
-			
+			btn: 'Comenzar a entrenar',
 		},
 	},
 	navbar: {
@@ -288,7 +287,12 @@ const es = {
 			help: 'Ayuda',
 			training: 'Entrenamiento',
 			users: 'Usuarios',
+			admin: 'Admin',
 		},
+	},
+	adminBar: {
+		users: 'Usuarios',
+		exercises: 'Ejercicios',
 	},
 	topBar: {
 		main: 'El Templo',

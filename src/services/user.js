@@ -1,21 +1,14 @@
 import { privatePut, privateGet, privatePost } from '../axios/privateInstance';
 
 const baseURL = '/user';
-export const help = ({ message, subject }) => 
-	
-		privatePost({
-			url: `${baseURL}/send-email-coach`,
-			body: {
-				message: message,
-				subject: subject,
-			},
-		});
-		
-
-
-		
-
-
+export const help = ({ message, subject }) =>
+	privatePost({
+		url: `${baseURL}/send-email-coach`,
+		body: {
+			message: message,
+			subject: subject,
+		},
+	});
 
 export const changePassword = async ({ currentPassword, newPassword }) => {
 	try {

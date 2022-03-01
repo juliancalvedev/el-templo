@@ -17,6 +17,7 @@
 
 	&--underline {
 		text-decoration: underline;
+		text-underline-offset: 24%;
 	}
 
 	&__size {
@@ -55,6 +56,12 @@
 		}
 		&--6 {
 			color: $nineth;
+		}
+		&--link {
+			color: #0d6efd;
+		}
+		&--link-selected {
+			color: $sixteenth;
 		}
 		&--error {
 			color: red;

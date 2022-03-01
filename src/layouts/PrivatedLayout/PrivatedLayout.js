@@ -8,10 +8,10 @@ import { SHOW_NAVBAR } from '../../constants/paths';
 
 const PrivatedLayout = () => {
 	const dispatch = useDispatch();
+	const currentLocation = useLocation().pathname.substring(1);
 	const { emailIsVerified, enabled, goals } = useSelector(
 		(state) => state.user
 	);
-	const currentLocation = useLocation().pathname.substring(1);
 
 	const showNavbar = () => {
 		if (emailIsVerified && enabled && goals?.length === 3) {
