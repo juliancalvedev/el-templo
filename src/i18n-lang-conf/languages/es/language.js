@@ -24,6 +24,8 @@ const es = {
 		logIn: 'Iniciar sesión',
 		password: 'contraseña',
 		loading: 'Cargando...',
+		total: 'Total',
+		time: 'Tiempo',
 
 		errors: {
 			required: 'Este campo es requerido.',
@@ -211,6 +213,12 @@ const es = {
 		questionary: {},
 	},
 
+	exercise: {
+		exerciseNumber: 'Ejercicio n°',
+		watchVideoDescription: 'Ver descripción del video',
+		nextExercise: 'SIGUIENTE EJERCICIO',
+	},
+
 	appStart: {
 		animation: {},
 		incompleteDashboard: {},
@@ -261,6 +269,17 @@ const es = {
 			fq: 'Preguntas frecuentes',
 		},
 	},
+	dashboard: {
+		main: {
+			welcome: 'Bienvenido',
+			level: 'Nivel',
+			summary: 'Resumen de mi progreso',
+			see: 'VER DETALLE',
+			progress:
+				'A medida que avances en tus entrenamientos, acá se van a ver tus progresos.',
+			btn: 'Comenzar a entrenar',
+		},
+	},
 	navbar: {
 		nav: {
 			myProfile: 'Mi perfil',
@@ -268,7 +287,12 @@ const es = {
 			help: 'Ayuda',
 			training: 'Entrenamiento',
 			users: 'Usuarios',
+			admin: 'Admin',
 		},
+	},
+	adminBar: {
+		users: 'Usuarios',
+		exercises: 'Ejercicios',
 	},
 	topBar: {
 		main: 'El Templo',

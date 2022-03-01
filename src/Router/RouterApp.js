@@ -1,10 +1,10 @@
-import { useSelector } from 'react-redux';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import {useSelector} from 'react-redux';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import PrivatedLayout from '../layouts/PrivatedLayout/PrivatedLayout';
 import PublicLayout from '../layouts/PublicLayout/PublicLayout';
 import AdminLayout from '../layouts/AdminLayout/AdminLayout';
 
-import { ROLES } from '../constants/roles';
+import {ROLES} from '../constants/roles';
 import Login from '../pages/Login/Login';
 import VerifiedEmail from '../pages/VerifiedEmail/VerifiedEmail';
 import ChangeUserPassword from '../pages/ChangeUserPassword/ChangeUserPassword';
@@ -16,7 +16,7 @@ import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
 
 import UsersList from '../pages/admin/UsersList/UsersList';
 import Help from '../pages/Help/Help';
-import { PATHS } from '../constants/paths';
+import {PATHS} from '../constants/paths';
 import MyProfile from '../pages/MyProfile/MyProfile';
 import Welcome from '../pages/welcome/Welcome/Welcome';
 import EmailRegisterSended from '../pages/EmailRegisterSended/EmailRegisterSended';
@@ -24,16 +24,18 @@ import MainGoals from '../pages/welcome/MainGoals/MainGoals';
 import TrainingLevel from '../pages/welcome/TrainingLevel/TrainningLevel';
 import WeightHeight from '../pages/welcome/WeightHeight/WeightHeight';
 import Contact from '../pages/Contact/Contact';
+import Dashboard from '../pages/Dashboard/Dashboard';
+
 import Nivelation from '../pages/Nivelation/Nivelation';
-import NewLevel from '../pages/NewLevel/NewLevel';
-import { AdminUserInfo } from '../pages/admin/UsersList/AdminUserInfo/AdminUserInfo';
+import {AdminUserInfo} from '../pages/admin/UsersList/AdminUserInfo/AdminUserInfo';
+import Admin from '../pages/admin/Admin';
+import AdminExercises from '../pages/admin/AdminExercises/AdminExercises';
 
 const RouterApp = () => {
-	const { token } = useSelector((store) => store.auth);
-	const { role, goals, level } = useSelector((store) => store.user);
+	const {token} = useSelector((store) => store.auth);
+	const {role, goals, level} = useSelector((store) => store.user);
 
 	const savedToken = localStorage.getItem('token');
-
 	return (
 		<BrowserRouter>
 			<Routes>
@@ -44,6 +46,7 @@ const RouterApp = () => {
 								path={PATHS.BASE_URL}
 								element={<AdminLayout />}
 							>
+								<Route path={PATHS.ADMIN} element={<Admin />} />
 								<Route
 									path={PATHS.ADMIN_USERS_LIST}
 									element={<UsersList />}
@@ -51,6 +54,10 @@ const RouterApp = () => {
 								<Route
 									path={PATHS.ADMIN_USER_INFO}
 									element={<AdminUserInfo />}
+								/>
+								<Route
+									path={PATHS.ADMIN_EXERCISES}
+									element={<AdminExercises />}
 								/>
 							</Route>
 						)}
@@ -93,6 +100,7 @@ const RouterApp = () => {
 						/>
 						<Route path={PATHS.HELP} element={<Help />} />
 						<Route path={PATHS.CONTACT} element={<Contact />} />
+						<Route path={PATHS.DASHBOARD} element={<Dashboard />} />
 					</Route>
 				) : (
 					<Route path={PATHS.BASE_URL} element={<PublicLayout />}>

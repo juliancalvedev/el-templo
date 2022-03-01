@@ -1,6 +1,10 @@
 export const PATHS = {
 	BASE_URL: '',
-	ADMIN_USERS_LIST: 'users-list',
+	ADMIN: 'admin',
+	ADMIN_EXERCISES: 'admin-exercises',
+	ADMIN_USERS_LIST: 'admin-users-list',
+	ADMIN_USER_INFO: 'admin-user-info',
+	
 	CHANGE_USER_PASSWORD: 'change-user-password',
 	LOGIN: 'login',
 	PASSWORD_RECOVERY: 'password-recovery',
@@ -16,8 +20,9 @@ export const PATHS = {
 	TRAINING_LEVEL: 'training-level',
 	WEIGHT_HEIGHT: 'weight-height',
 	CONTACT: 'contact',
+	DASHBOARD: 'dashboard',
 	NIVELATION: 'nivelation',
-	ADMIN_USER_INFO: 'admin-user-info',
+	TRAINING: 'training',
 };
 
 export const SHOW_NAVBAR = [PATHS.BASE_URL];
@@ -37,4 +42,5 @@ export const TOPBAR_TEXTS = {
 	[PATHS.HELP]: 'topBar.help',
 	[PATHS.EMAIL_REGISTER_SENDED]: 'topBar.emailRegisterSended',
 	[PATHS.CONTACT]: 'topBar.contact',
+	[PATHS.DASHBOARD]: 'topBar.dashboard',
 };

@@ -1,26 +1,24 @@
 import { useEffect, useState } from 'react';
 import UsersTable from './UsersTable/UsersTable';
+import AdminBar from '../../../components/AdminBar/AdminBar';
+import useFetch from '../../../hooks/useFetch';
 import { getUsers } from '../../../services/admin';
 import MainContainer from '../../../components/MainContainer/MainContainer';
 
 const UsersList = () => {
-	const [users, setUsers] = useState([]);
+	const [test, setTest] = useState(0);
 
-	const onGetUsers = async () => {
-		const { data, problem } = await getUsers();
-
-		if (problem) {
-			alert('PROBLEM DETECTED IN GET USERS');
-		} else {
-			setUsers(data.users);
-		}
-	};
-
+	const [data, error, apiCall] = useFetch({
+		service: () => getUsers(),
+		globalLoader: true,
+	});
 	useEffect(() => {
-		onGetUsers();
+		setTest(test + 1);
+		apiCall();
 	}, []);
 
 	return (
+<<<<<<< HEAD
 		<MainContainer col='12' scroll>
 			<div style={{ overflowX: 'scroll' }}>
 				<UsersTable
@@ -42,6 +40,23 @@ const UsersList = () => {
 				/>
 			</div>
 		</MainContainer>
+=======
+		<div>
+			<AdminBar />
+			<UsersTable
+				columns={[
+					'firstName',
+					'lastName',
+					'email',
+					'sex',
+					'country',
+					'enabled',
+					'options',
+				]}
+				users={data?.users}
+			/>
+		</div>
+>>>>>>> 2527f8a73775f31a48182af43d9063b4c5382067
 	);
 };
 

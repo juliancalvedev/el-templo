@@ -13,6 +13,7 @@ import IconProfile from '../../assets/Icons/IconProfile';
 import IconProfileActive from '../../assets/Icons/IconProfileActive';
 import IconHelp from '../../assets/Icons/IconHelp';
 import IconHelpActive from '../../assets/Icons/IconHelpActive';
+import { PATHS } from '../../constants/paths';
 
 const Navbar = () => {
 	const { t } = useTranslation();
@@ -35,32 +36,36 @@ const Navbar = () => {
 		<nav className={styles.navbarContainer}>
 			<div className={styles.iconsContainer}>
 				{role === ROLES.ADMIN && (
-					<Link to='/users-list'>{t('navbar.nav.users')}</Link> // TODO Icon change pending.
+					<Link to={PATHS.ADMIN}>{t('navbar.nav.admin')}</Link>
 				)}
 
-				<Link to='/dashboard'>
-					{pathname === '/dashboard' ? (
+				<Link to={PATHS.DASHBOARD}>
+					{pathname === PATHS.DASHBOARD ? (
 						<IconDashboardActive />
 					) : (
 						<IconDashboard />
 					)}
 				</Link>
 				<Link to={redirection()}>
-					{pathname === '/training' ? (
+					{pathname === PATHS.TRAINING ? (
 						<IconMuscleActive />
 					) : (
 						<IconMuscle />
 					)}
 				</Link>
-				<Link to='/my-profile'>
-					{pathname === '/my-profile' ? (
+				<Link to={PATHS.MY_PROFILE}>
+					{pathname === PATHS.MY_PROFILE ? (
 						<IconProfileActive />
 					) : (
 						<IconProfile />
 					)}
 				</Link>
-				<Link to='/help'>
-					{pathname === '/help' ? <IconHelpActive /> : <IconHelp />}
+				<Link to={PATHS.HELP}>
+					{pathname === PATHS.HELP ? (
+						<IconHelpActive />
+					) : (
+						<IconHelp />
+					)}
 				</Link>
 			</div>
 		</nav>

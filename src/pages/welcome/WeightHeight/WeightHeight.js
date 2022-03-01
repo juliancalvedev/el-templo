@@ -24,7 +24,7 @@ const WeightHeight = () => {
 	const [selectedWeight, setSelectedWeight] = useState('');
 	const [selectedHeight, setSelectedHeight] = useState('');
 
-	// Función para validar el número del inputo PESO
+	// Función para validar el número del input PESO
 	const onWeightChange = (event) => {
 		const validCharacters = '01234567890.';
 		const { value } = event.target;

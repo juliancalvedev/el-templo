@@ -15,116 +15,128 @@ import Alert from './Alert/Alert';
 import useStyles from './useStyles';
 
 const Login = () => {
-  const { t } = useTranslation();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const styles = useStyles();
+	const { t } = useTranslation();
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const styles = useStyles();
 
-  const [email, setEmail] = useState("");
-  
-  const [password, setPassword] = useState("");
+	const [email, setEmail] = useState('');
 
-  const [showAlert, setShowAlert] = useState(false);
+	const [password, setPassword] = useState('');
 
-  const [inputType, setInputType] = useState("password");
+	const [showAlert, setShowAlert] = useState(false);
 
-  const callback = () => {
-    if (data) {
-      if (data.token) {
-        const callback = () => navigate(`/${PATHS.LOGIN}`);
-        dispatch(loginAction({ data: { token: data?.token, email }, callback }));
-      }
-      else if (!data.emailIsVerified) {
-        dispatch(saveEmailAction({ email }));
-        navigate(`/${PATHS.ENABLED_VERIFIED}`);
-      }
-      else if (!data.enabled) {
-        setShowAlert(true);
-      }
-    }
-  };
+	const [inputType, setInputType] = useState('password');
 
-  const [data, error, apiCall] = useFetch({
-    service: () => login({ email, password }),
-    globalLoader: true,
-    callback
-  });
+	const callback = () => {
+		if (data) {
+			if (data.token) {
+				const callback = () => navigate(`/${PATHS.LOGIN}`);
+				dispatch(
+					loginAction({
+						data: { token: data?.token, email },
+						callback,
+					})
+				);
+			} else if (!data.emailIsVerified) {
+				dispatch(saveEmailAction({ email }));
+				navigate(`/${PATHS.ENABLED_VERIFIED}`);
+			} else if (!data.enabled) {
+				setShowAlert(true);
+			}
+		}
+	};
 
-  const toRegister = () => navigate(`/${PATHS.REGISTER}`);
-  const toForgottenPassword = () => navigate(`/${PATHS.FORGOTTEN_PASSWORD}`);
+	const [data, error, apiCall] = useFetch({
+		service: () => login({ email, password }),
+		globalLoader: true,
+		callback,
+	});
 
-  const handleChangeEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  const handleChangePassword = (e) => {
-    setPassword(e.target.value);
-  };
+	const toRegister = () => navigate(`/${PATHS.REGISTER}`);
+	const toForgottenPassword = () => navigate(`/${PATHS.FORGOTTEN_PASSWORD}`);
 
-  const onCloseAlert = () => {
-    setShowAlert(false);
-  }
+	const handleChangeEmail = (e) => {
+		setEmail(e.target.value);
+	};
+	const handleChangePassword = (e) => {
+		setPassword(e.target.value);
+	};
 
-  const onClickIcon = () => {
-    if (inputType === "password") {
-      setInputType("text");
-    }
-    if (inputType === "text") {
-      setInputType("password");
-    }
-  };
+	const onCloseAlert = () => {
+		setShowAlert(false);
+	};
 
-  return (
-    <MainContainer backgroundImg='login' color={2} back>
-          <div>
-                <Text justify="start" size={4} color={2} bold text={t("auth.login.title")} />
-                <Text justify="start" color={2} text={t("auth.login.subtitle")} />
+	const onClickIcon = () => {
+		if (inputType === 'password') {
+			setInputType('text');
+		}
+		if (inputType === 'text') {
+			setInputType('password');
+		}
+	};
 
-          </div>
+	return (
+		<MainContainer backgroundImg='login' color={2} back>
+			<div>
+				<Text
+					justify='start'
+					size={4}
+					color={2}
+					bold
+					text={t('auth.login.title')}
+				/>
+				<Text
+					justify='start'
+					color={2}
+					text={t('auth.login.subtitle')}
+				/>
+			</div>
 
-            <div className={styles.inputs}>
-              <Input
-                value={email}
-                onChange={handleChangeEmail}
-                type="email"
-                placeholder={t("auth.login.emailPlaceholder")}
-                transparent
-              />
+			<div className={styles.inputs}>
+				<Input
+					value={email}
+					onChange={handleChangeEmail}
+					type='email'
+					placeholder={t('auth.login.emailPlaceholder')}
+					transparent
+				/>
 
-              <Input
-                icon="eye"
-                value={password}
-                onChange={handleChangePassword}
-                type={inputType}
-                placeholder={t("auth.login.passwordPlaceholder")}
-                onClickIcon={onClickIcon}
-                transparent
-                feedback={t('global.errors.validPassword')}
-              />
+				<Input
+					icon='eye'
+					value={password}
+					onChange={handleChangePassword}
+					type={inputType}
+					placeholder={t('auth.login.passwordPlaceholder')}
+					onClickIcon={onClickIcon}
+					transparent
+					feedback={t('global.errors.validPassword')}
+				/>
 
-              <Button onClick={apiCall} text={t("auth.login.btnLogin")} />
-              <div className={styles.textRecovery}>
-                <Text
-                  color={3}
-                  size={1}
-                  underline
-                  onClick={toForgottenPassword}
-                  text={t("auth.login.recovery")}
-                />
-              </div>
-            </div>
-            <div className={styles.textRegister}>
-              <Text size={1} color={2} text={t("auth.login.register1")} />
-              <Text
-                size={1}
-                color={3}
-                underline
-                onClick={toRegister}
-                text={t("auth.login.register2")}
-              />
-            </div>
-      <Alert show={showAlert} onClose={onCloseAlert} />
-    </MainContainer>
-  );
+				<Button onClick={apiCall} text={t('auth.login.btnLogin')} />
+				<div className={styles.textRecovery}>
+					<Text
+						color={3}
+						size={1}
+						underline
+						onClick={toForgottenPassword}
+						text={t('auth.login.recovery')}
+					/>
+				</div>
+			</div>
+			<div className={styles.textRegister}>
+				<Text size={1} color={2} text={t('auth.login.register1')} />
+				<Text
+					size={1}
+					color={3}
+					underline
+					onClick={toRegister}
+					text={t('auth.login.register2')}
+				/>
+			</div>
+			<Alert show={showAlert} onClose={onCloseAlert} />
+		</MainContainer>
+	);
 };
 
 export default Login;

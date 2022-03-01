@@ -16,18 +16,15 @@ import useStyles from './useStyles';
 const EnabledVerified = () => {
 	const navigate = useNavigate();
 	const { t } = useTranslation();
-	const styles=useStyles();
+	const styles = useStyles();
 
-	const { emailIsVerified, savedEmail } = useSelector(
-		(store) => store.auth
-	);
-
+	const { emailIsVerified, savedEmail } = useSelector((store) => store.auth);
 
 	const [data, error, apiCall] = useFetch({
 		service: () => resendVerifyEmail(savedEmail),
 		globalLoader: true,
-		callback: () => navigate(`/${PATHS.LOGIN}`)
-	})
+		callback: () => navigate(`/${PATHS.LOGIN}`),
+	});
 
 	return (
 		<MainContainer scroll>

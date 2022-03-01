@@ -1,0 +1,46 @@
+@import '../../styles/variables.scss';
+
+.exercise__container {
+	width: 100vw;
+	height: 93vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	.title__container {
+		.title__container--text {
+			margin-left: 20px;
+		}
+
+		.totalTime {
+			margin-right: 20px;
+		}
+	}
+
+	.gifContainer {
+		.gif {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.dropDownContainer {
+		margin-top: 18px;
+	}
+
+	// .chronometerContainer {
+	// }
+
+	.btnNext__container {
+		margin-top: 50px;
+		padding-right: 20px;
+
+		.btnNext__text {
+			margin-right: 8px;
+
+			// Make text unselectable
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+	}
+}
