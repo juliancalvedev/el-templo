@@ -16,12 +16,13 @@ const VerifiedEmail = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const token = getSearchParams('token');
- const styles = useStyles();
+
+	const styles = useStyles();
 
 	const [data, error, apiCall] = useFetch({
 		service: () => verifyEmailToBackEnd({ token }),
-		globalLoader: true
-	})
+		globalLoader: true,
+	});
 
 	const navigateToLoggin = () => navigate(`/${PATHS.LOGIN}`);
 
@@ -33,27 +34,22 @@ const VerifiedEmail = () => {
 
 	return (
 		<MainContainer>
-							<Text
-								text={t('auth.emailVerified.title')}
-								size='4'
-								bold
-								className={styles.text}
-							/>
-						<div className={styles.img}>
-							<ImgEmailVerified />
-						</div>
+			<Text
+				text={t('auth.emailVerified.title')}
+				size='4'
+				bold
+				className={styles.text}
+			/>
+			<div className={styles.img}>
+				<ImgEmailVerified />
+			</div>
 
-							<Text
-								text={t('auth.emailVerified.auxText')}
-								size='3'
-							/>
+			<Text text={t('auth.emailVerified.auxText')} size='3' />
 
-
-							<Button
-								text={t('auth.emailVerified.btnNext')}
-								onClick={navigateToLoggin}
-							/>
-
+			<Button
+				text={t('auth.emailVerified.btnNext')}
+				onClick={navigateToLoggin}
+			/>
 		</MainContainer>
 	);
 };
