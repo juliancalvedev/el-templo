@@ -1,7 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { PATHS } from '../../../../constants/paths';
 import Button from '../../../../components/Button/Button';
-import Text from '../../../../components/Text/Text';
 import MainContainer from '../../../../components/MainContainer/MainContainer';
 
 export const AdminUserInfo = () => {
