@@ -1,6 +1,7 @@
 @import '../../styles/variables.scss';
 
 .navbar-container {
+	max-width: 800px;
 	background-color: $tertiary;
 
 	height: 56px;
