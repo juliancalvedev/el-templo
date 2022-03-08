@@ -28,7 +28,7 @@ const Modal = ({
                     </div>
                     {<div className={styles.footer}>
                         <Button onClick={onClose} type={3} text={closeText || t('global.close')} />
-                        {acceptButton && <Button text={acceptButton.text} onClick={onClose && acceptButton?.action} />}
+                        {acceptButton && <button text={acceptButton.text} onClick={onClose && acceptButton?.action} />}
                     </div>}
                 </div>
             </div>}
