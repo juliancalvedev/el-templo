@@ -51,17 +51,20 @@ const MyProfile = () => {
 			</div>
 
 			<div className={styles.aboutYou}>
-				<div className={styles.aboutYou2}>
+				<div className={styles.aboutYouText}>
 					<Text bold text={`${t('user.myProfile.aboutYou')}`} />
 				</div>
-
+				<div className={styles.aboutYouBtnEdit} >
+							
 				<Button
 					onClick={handleEditAboutYou}
 					text={t('user.myProfile.editInfo')}
 					type={3}
 					size={1}
 				/>
-			</div>
+				</div>
+
+				</div>
 			<div className={styles.textContainer}>
 				<Text justify='start' bold text={t('user.myProfile.goals')} />
 			</div>
