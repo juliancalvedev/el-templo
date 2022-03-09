@@ -2,9 +2,9 @@ const useStyles = () => {
 	return {
 		importantBar: ' subscription-box col-12',
 		aboutYou:
-			'd-flex aboutYou__container col-12   ',
-		aboutYouText: 'px-3',
-		aboutYouBtnEdit: 'aboutYout__btnEdit' ,
+			' py-1 col-12 d-flex flex-row align-items-center justify-content-between aboutYouBox ',
+		aboutYouText: 'px-3 col-4',
+		aboutYouBtnEdit: 'aboutYout__btnEdit col-3' ,
 		goals: 'my-profile-stats d-flex flex-column  ',
 		generic:
 			'col-12 d-flex flex-column ticket-box justify-content-center align-items-center',

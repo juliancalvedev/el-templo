@@ -1,7 +1,8 @@
 @import '../../styles/variables.scss';
 
 .button {
-	
+	border:0;
+	background-color: transparent;
 	&:not(.button-color--4) {
 		border-radius: 15px;
 	}

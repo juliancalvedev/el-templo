@@ -4,10 +4,15 @@ import ImgArrobaElTemplo from '../../assets/images/ImgArrobaElTemplo';
 import ImgBlueSeparator from '../../assets/images/ImgBlueSeparator';
 import { ImgDiagonalRectangle } from '../../assets/images/ImgDiagonalRectangle';
 import useStyles from './useStyles';
+import { useTranslation } from 'react-i18next';
+
 const Contact = () => {
+
 	const styles=useStyles();
+	const { t } = useTranslation();
+
 	return (
-		<MainContainer>
+		<MainContainer back shadow text={t('topBar.contact')}>
 			<div className={styles.container}>
 				<ImgBlueSeparator customStyles={styles.custom1} />
 				<Text text={`Av.Constitución`} style={{ margin: '0px' }} />

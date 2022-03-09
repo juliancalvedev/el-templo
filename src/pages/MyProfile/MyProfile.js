@@ -59,7 +59,7 @@ const MyProfile = () => {
 				<Button
 					onClick={handleEditAboutYou}
 					text={t('user.myProfile.editInfo')}
-					type={1}
+					type={3}
 					size={1}
 				/>
 				</div>
