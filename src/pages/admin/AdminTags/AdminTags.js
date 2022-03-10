@@ -16,7 +16,7 @@ const AdminTags = () => {
 	const [newTagData, setNewTagData] = useState({
 		titleES: '',
 		titleEN: '',
-		bodyPart: '',
+		bodyPart: 'Seleccione Categoría',
 	});
 	const [bodyParts, setBodyParts] = useState([]);
 
@@ -46,19 +46,18 @@ const AdminTags = () => {
 		if (type === 'en') {
 			setNewTagData({...newTagData, titleEN: e.target.value});
 		}
-      if(type === 'select'){
-         setNewTagData({...newTagData, bodyPart: e.target.value});
-
-      }
+		if (type === 'select') {
+			setNewTagData({...newTagData, bodyPart: e.target.value});
+		}
 	};
 
 	const onSubmitModal = async () => {
 		console.log(newTagData);
-      try{
-         postNewTag(newTagData)
-      }catch(error){
-         console.log(error)
-      } 
+		// try{
+		// postNewTag(newTagData)
+		// }catch(error){
+		//    console.log(error)
+		// }
 	};
 
 	return (
@@ -79,11 +78,15 @@ const AdminTags = () => {
 						value={newTagData.titleEN}
 						onChange={(e) => handleInputChange({e: e, type: 'en'})}
 					/>
+					// TODO arreglar el Default del Select.
 					<InputSelect
-						name='Categoría'
+						label='Categoría'
+						name='categoria'
 						options={bodyParts}
 						value={newTagData.bodyPart}
-						onChange={(e) => handleInputChange({e: e, type: 'select'})}
+						onChange={(e) =>
+							handleInputChange({e: e, type: 'select'})
+						}
 					/>
 					<Button text='Guardar Tag' onClick={onSubmitModal} />
 				</div>
