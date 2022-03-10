@@ -2,7 +2,7 @@ import IconSelect from '../../assets/Icons/IconSelect';
 import useStyles from './useStyles';
 import './InputSelect.scss';
 
-const InputSelect = ({name, onChange, value, options, label}) => {
+const InputSelect = ({name, onChange, value, options, label, style}) => {
 	const styles = useStyles();
 
 	return (
@@ -15,10 +15,11 @@ const InputSelect = ({name, onChange, value, options, label}) => {
 						value={value}
 						onChange={onChange}
 						name={name}
+						style={style}
 					>
 						{options.map((selectOption, key) => (
-							<option key={key} value={selectOption}>
-								{selectOption}
+							<option key={key} value={selectOption} >
+								{selectOption[0].toUpperCase() + selectOption.substring(1)}
 							</option>
 						))}
 					</select>
