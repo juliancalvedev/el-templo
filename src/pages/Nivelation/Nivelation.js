@@ -29,7 +29,7 @@ const Nivelation = () => {
 			</div>
 
 			<div className={styles.container}>
-				<Button text={t('global.next')} />
+				<Button text={t('global.next')} size="5" />
 			</div>
 		</MainContainer>
 	);

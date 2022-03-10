@@ -109,8 +109,10 @@ export const Register = () => {
 			back
 			shadow
 			color={1}
-			scroll
 		>
+			<div className={styles.main} >
+
+			
 			<div className={styles.Rcontainer}>
 				<div className={styles.base64}>
 					<input
@@ -166,7 +168,7 @@ export const Register = () => {
 					</div>
 				</div>
 			</div>
-			<div className={styles.inputsRadio}>
+			{/* <div className={styles.inputsRadio}>
 				<div className={styles.sexTitle} value={values.sex}>
 					<div className={styles.labelSex}>
 						<Text size='3' text={t('auth.register.sexTitle')} bold />
@@ -178,7 +180,7 @@ export const Register = () => {
 						handleChange={handleChange}
 					/>
 				</div>
-			</div>
+			</div> */}
 
 			<div className={styles.Rcontainer2}>
 				<div>
@@ -204,7 +206,6 @@ export const Register = () => {
 						icon='eye'
 						type={inputTypePassword}
 						onClickIcon={onClickIconPassword}
-						isInvalid={errors.password}
 						feedback={t('global.errors.validPassword')}
 					/>
 				</div>
@@ -273,6 +274,7 @@ export const Register = () => {
 					underline
 					text={t('auth.register.termsAndConditions2')}
 				/>
+			</div>
 			</div>
 		</MainContainer>
 	);
