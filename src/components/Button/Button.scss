@@ -1,7 +1,7 @@
 @import '../../styles/variables.scss';
 
 .button {
-	border:0;
+	border: 0;
 	background-color: transparent;
 	&:not(.button-color--4) {
 		border-radius: 15px;
@@ -24,6 +24,10 @@
 			border: 2px solid #ccc;
 			border-left: none;
 			border-right: none;
+		}
+		&--5 {
+			border: 2px solid rgba(219, 17, 17, 0.534);
+			background-color: rgba(202, 19, 19, 0.24);
 		}
 	}
 }

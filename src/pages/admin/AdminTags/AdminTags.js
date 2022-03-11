@@ -20,7 +20,11 @@ const AdminTags = () => {
 	});
 	const [bodyParts, setBodyParts] = useState([]);
 	const [tagsList, setTagsList] = useState([]);
+	const [refreshList, setRefreshList] = useState(true);
+	const [filterTags, setFilterTags] = useState('');
 	const defaultOption = 'Seleccione Categoría';
+
+	console.log(filterTags);
 
 	useEffect(() => {
 		const getBodyParts = async () => {
@@ -32,7 +36,7 @@ const AdminTags = () => {
 			}
 		};
 		getBodyParts();
-	}, []);
+	}, [refreshList]);
 
 	useEffect(() => {
 		const getTagsList = async () => {
@@ -63,6 +67,9 @@ const AdminTags = () => {
 		if (type === 'select') {
 			setNewTagData({...newTagData, bodyPart: e.target.value});
 		}
+		if (type === 'filter') {
+			setFilterTags(e.target.value);
+		}
 	};
 
 	const onSubmitModal = async () => {
@@ -75,6 +82,7 @@ const AdminTags = () => {
 			try {
 				postNewTag(newTagData);
 				setShowModal(!showModal);
+				setRefreshList(!refreshList);
 			} catch (error) {
 				console.log(error);
 			}
@@ -85,57 +93,138 @@ const AdminTags = () => {
 
 	return (
 		<MainContainer col='12' scroll>
-			<Modal
-				show={showModal}
-				onClose={() => toggleModal({clear: true})}
-				header='Crear Nuevo Tag'
+			<div
+				className='d-flex flex-column justify-content-start'
+				style={{height: '100vh'}}
 			>
-				<div className='d-flex flex-column'>
-					<Input
-						label='Nombre en Español'
-						value={newTagData.titleES}
-						onChange={(e) => handleInputChange({e: e, type: 'es'})}
-					/>
-					<Input
-						label='Nombre en Inglés'
-						value={newTagData.titleEN}
-						onChange={(e) => handleInputChange({e: e, type: 'en'})}
-					/>
+				<Modal
+					show={showModal}
+					onClose={() => toggleModal({clear: true})}
+					header='Crear Nuevo Tag'
+				>
+					<div className='d-flex flex-column'>
+						<Input
+							label='Nombre en Español'
+							value={newTagData.titleES}
+							onChange={(e) =>
+								handleInputChange({e: e, type: 'es'})
+							}
+						/>
+						<Input
+							label='Nombre en Inglés'
+							value={newTagData.titleEN}
+							onChange={(e) =>
+								handleInputChange({e: e, type: 'en'})
+							}
+						/>
 
-					<InputSelect
-						label='Categoría'
-						name='categoria'
-						options={bodyParts}
-						value={newTagData.bodyPart}
-						onChange={(e) =>
-							handleInputChange({e: e, type: 'select'})
-						}
-						style={
-							newTagData.bodyPart === defaultOption ||
-							newTagData.bodyPart === ''
-								? {color: 'red'}
-								: {color: 'blue'}
-						}
-					/>
-					<Button text='Guardar Tag' onClick={onSubmitModal} />
+						<InputSelect
+							label='Categoría'
+							name='categoria'
+							options={bodyParts}
+							value={newTagData.bodyPart}
+							onChange={(e) =>
+								handleInputChange({e: e, type: 'select'})
+							}
+							style={
+								newTagData.bodyPart === defaultOption ||
+								newTagData.bodyPart === ''
+									? {color: 'red'}
+									: {color: 'blue'}
+							}
+						/>
+						<Button text='Guardar Tag' onClick={onSubmitModal} />
+					</div>
+				</Modal>
+
+				<div
+					style={{
+						position: 'fixed',
+						top: 0,
+						width: ' 100%',
+						backgroundColor: 'rgba(11,11,11,.5)',
+					}}
+				>
+					<div className='mt-4'>
+						<Button
+							text='Nuevo Tag'
+							onClick={toggleModal}
+							size='3'
+							type={2}
+						/>
+					</div>
+
+					<div className='col-10'>
+						<Input
+							placeholder='Filtrar por nombre de tag'
+							value={filterTags}
+							onChange={(e) =>
+								handleInputChange({e: e, type: 'filter'})
+							}
+						/>
+					</div>
 				</div>
-			</Modal>
 
-			<div className='mt-4'>
-				<Button text='Nuevo Tag' onClick={toggleModal} size='3' type={2}/>
-			</div>
+				<div
+					className='col-12 d-flex flex-column justify-content-center align-items-center'
+					style={{marginTop: '140px'}}
+				>
+					<div className='col-12 mb-5 pb-3 d-flex flex-column align-items-center'>
+						{tagsList
+							?.filter((tag) =>
+								tag.titleES?.includes(filterTags.toLowerCase()) ||
+								tag.titleES?.includes(filterTags.toUpperCase())
+							)
+							?.map((tag) => {
+								return (
+									<div
+										key={tag._id}
+										className='col-12 d-flex flex-row justify-content-center'
+										style={{
+											borderBottom: '1px solid black',
+											boxShadow:
+												'0 4px 12px -2px rgba(11,11,11,.3)',
+										}}
+									>
+										<div className='col-12 d-flex flex-row justify-content-betwen align-items-center'>
+											<div
+												style={{
+													paddingTop: '6%',
+													marginLeft: '10%',
+													width: '25%',
+												}}
+											>
+												<p>{tag.titleES}</p>
+											</div>
 
-			<div className='col-12 d-flex flex-column justify-content-center align-items-center'>
-				<div className='col-10 mb-5'>
-					{tagsList.map((tag, i) => {
-						return (
-							<div style={{margin: '20px 0px'}} key={i}>
-								<Button
-									text={`${tag.titleES} - ${tag.bodyPart}`}
-								/>
-							</div>
-						);
-					})}
+											<div
+												style={{
+													paddingTop: '6%',
+													width: '25%',
+												}}
+											>
+												<p>{tag.bodyPart}</p>
+											</div>
+
+											<div style={{width: '25%'}}>
+												<Button
+													text={'Editar'}
+													size={2}
+												/>
+											</div>
+
+											<div style={{width: '25%'}}>
+												<Button
+													text={'Borrar'}
+													size={2}
+													type={5}
+												/>
+											</div>
+										</div>
+									</div>
+								);
+							})}
+					</div>
 				</div>
 			</div>
 		</MainContainer>
