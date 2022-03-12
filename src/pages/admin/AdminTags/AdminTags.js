@@ -4,27 +4,43 @@ import Input from '../../../components/Input/Input';
 import MainContainer from '../../../components/MainContainer/MainContainer';
 import Modal from '../../../components/Modal/Modal';
 import InputSelect from '../../../components/InputSelect/InputSelect';
-import {getBodyParts, getTags, postNewTag} from '../../../services/admin';
-import {useDispatch} from 'react-redux';
-import {getBodyPartsAction} from '../../../redux/user';
+import {deleteTag, getTags, postNewTag} from '../../../services/admin';
 import {privateGet} from '../../../axios/privateInstance';
+import Spinner from '../../../components/Spinner/Spinner';
+import './AdminTags.scss';
+import Text from '../../../components/Text/Text';
+import ButtonRadio from '../../../components/ButtonRadio/ButtonRadio';
 
 const AdminTags = () => {
-	const dispatch = useDispatch();
-
-	const [showModal, setShowModal] = useState(false);
 	const [newTagData, setNewTagData] = useState({
 		titleES: '',
 		titleEN: '',
 		bodyPart: [],
 	});
+	const [showModalCreateTag, setShowModalCreateTag] = useState(false);
+	const [showModalConfirmDeleteTag, setShowModalConfirmDeleteTag] =
+		useState(false);
+
+	const [isLoading, setIsLoading] = useState(false);
+	const [confirmDeleteTag, setConfirmDeleteTag] = useState(false);
+	const [deleteId, setDeleteId] = useState('');
+
 	const [bodyParts, setBodyParts] = useState([]);
 	const [tagsList, setTagsList] = useState([]);
+
 	const [refreshList, setRefreshList] = useState(true);
 	const [filterTags, setFilterTags] = useState('');
 	const defaultOption = 'Seleccione Categoría';
 
-	console.log(filterTags);
+	const tableStyles = (tag) => {
+		return `col-12 d-flex flex-row justify-content-center ${
+			tag.bodyPart === 'upper' && 'upperColor'
+		} ${tag.bodyPart === 'middle' && 'middleColor'} ${
+			tag.bodyPart === 'bottom' && 'bottomColor'
+		}`;
+	};
+
+	const refreshListTrigger = () => setRefreshList(!refreshList);
 
 	useEffect(() => {
 		const getBodyParts = async () => {
@@ -48,13 +64,13 @@ const AdminTags = () => {
 			}
 		};
 		getTagsList();
-	}, [showModal]);
+	}, [showModalCreateTag, refreshList]);
 
-	const toggleModal = (clear) => {
-		if (clear) {
+	const toggleModalCreateNewTag = (clearForm) => {
+		if (clearForm) {
 			setNewTagData({titleES: '', titleEN: '', bodyPart: ''});
 		}
-		setShowModal(!showModal);
+		setShowModalCreateTag(!showModalCreateTag);
 	};
 
 	const handleInputChange = ({e, type}) => {
@@ -72,24 +88,51 @@ const AdminTags = () => {
 		}
 	};
 
-	const onSubmitModal = async () => {
+	const onSubmitCreateNewTag = async () => {
 		if (
 			newTagData.bodyPart !== defaultOption &&
 			newTagData.bodyPart !== '' &&
 			newTagData.titleEN !== '' &&
 			newTagData.titleES !== ''
 		) {
+			setIsLoading(true);
 			try {
-				postNewTag(newTagData);
-				setShowModal(!showModal);
-				setRefreshList(!refreshList);
+				await postNewTag(newTagData);
+				setShowModalCreateTag(!showModalCreateTag);
+				refreshListTrigger();
+			} catch (error) {
+				console.log(error);
+			} finally {
+				setIsLoading(false);
+			}
+		}
+	};
+
+	const actionDeleteTag = async () => {
+		setIsLoading(true);
+		if (confirmDeleteTag) {
+			try {
+				await deleteTag(deleteId);
+				setDeleteId('');
+				setShowModalConfirmDeleteTag(false);
+				setConfirmDeleteTag(false);
+				refreshListTrigger();
 			} catch (error) {
 				console.log(error);
 			}
-		} else {
-			// ---
 		}
+		setIsLoading(false);
 	};
+
+	useEffect(() => {
+		actionDeleteTag();
+	}, [confirmDeleteTag]);
+
+	const handleDeleteTag = async (id) => {
+		setDeleteId(id);
+		setShowModalConfirmDeleteTag(true);
+	};
+	const toggleConfirmDeleteTag = () => setConfirmDeleteTag(!confirmDeleteTag);
 
 	return (
 		<MainContainer col='12' scroll>
@@ -97,64 +140,26 @@ const AdminTags = () => {
 				className='d-flex flex-column justify-content-start'
 				style={{height: '100vh'}}
 			>
-				<Modal
-					show={showModal}
-					onClose={() => toggleModal({clear: true})}
-					header='Crear Nuevo Tag'
-				>
-					<div className='d-flex flex-column'>
-						<Input
-							label='Nombre en Español'
-							value={newTagData.titleES}
-							onChange={(e) =>
-								handleInputChange({e: e, type: 'es'})
-							}
-						/>
-						<Input
-							label='Nombre en Inglés'
-							value={newTagData.titleEN}
-							onChange={(e) =>
-								handleInputChange({e: e, type: 'en'})
-							}
-						/>
-
-						<InputSelect
-							label='Categoría'
-							name='categoria'
-							options={bodyParts}
-							value={newTagData.bodyPart}
-							onChange={(e) =>
-								handleInputChange({e: e, type: 'select'})
-							}
-							style={
-								newTagData.bodyPart === defaultOption ||
-								newTagData.bodyPart === ''
-									? {color: 'red'}
-									: {color: 'blue'}
-							}
-						/>
-						<Button text='Guardar Tag' onClick={onSubmitModal} />
-					</div>
-				</Modal>
-
+				{/* ▼▼▼▼▼▼ TopBar ▼▼▼▼▼▼ */}
 				<div
 					style={{
 						position: 'fixed',
 						top: 0,
-						width: ' 100%',
+						width: '100%',
+						maxWidth: '800px',
 						backgroundColor: 'rgba(11,11,11,.5)',
 					}}
 				>
 					<div className='mt-4'>
 						<Button
 							text='Nuevo Tag'
-							onClick={toggleModal}
+							onClick={toggleModalCreateNewTag}
 							size='3'
 							type={2}
 						/>
 					</div>
 
-					<div className='col-10'>
+					<div className='col-10 d-flex'>
 						<Input
 							placeholder='Filtrar por nombre de tag'
 							value={filterTags}
@@ -162,48 +167,60 @@ const AdminTags = () => {
 								handleInputChange({e: e, type: 'filter'})
 							}
 						/>
+						<input type='checkbox' />
+						
 					</div>
 				</div>
+				{/* ▲▲▲▲▲▲ TopBar ▲▲▲▲▲▲ */}
 
+				{/* ▼▼▼▼▼▼ List ▼▼▼▼▼▼ */}
 				<div
 					className='col-12 d-flex flex-column justify-content-center align-items-center'
 					style={{marginTop: '140px'}}
 				>
 					<div className='col-12 mb-5 pb-3 d-flex flex-column align-items-center'>
 						{tagsList
-							?.filter((tag) =>
-								tag.titleES?.includes(filterTags.toLowerCase()) ||
-								tag.titleES?.includes(filterTags.toUpperCase())
+							?.filter(
+								(tag) =>
+									tag.titleES
+										?.toLowerCase()
+										.includes(filterTags.toLowerCase()) ||
+									tag.titleEN
+										?.toLowerCase()
+										.includes(filterTags.toLowerCase())
 							)
 							?.map((tag) => {
 								return (
 									<div
 										key={tag._id}
-										className='col-12 d-flex flex-row justify-content-center'
+										className={
+											true
+												? tableStyles(tag)
+												: 'col-12 d-flex flex-row justify-content-center'
+										}
 										style={{
 											borderBottom: '1px solid black',
 											boxShadow:
 												'0 4px 12px -2px rgba(11,11,11,.3)',
+											height: '60px',
 										}}
 									>
 										<div className='col-12 d-flex flex-row justify-content-betwen align-items-center'>
 											<div
 												style={{
-													paddingTop: '6%',
-													marginLeft: '10%',
+													marginLeft: '5%',
 													width: '25%',
 												}}
 											>
-												<p>{tag.titleES}</p>
+												<Text text={tag.titleES} />
 											</div>
 
 											<div
 												style={{
-													paddingTop: '6%',
 													width: '25%',
 												}}
 											>
-												<p>{tag.bodyPart}</p>
+												<Text text={tag.bodyPart} />
 											</div>
 
 											<div style={{width: '25%'}}>
@@ -218,6 +235,9 @@ const AdminTags = () => {
 													text={'Borrar'}
 													size={2}
 													type={5}
+													onClick={() =>
+														handleDeleteTag(tag._id)
+													}
 												/>
 											</div>
 										</div>
@@ -226,6 +246,78 @@ const AdminTags = () => {
 							})}
 					</div>
 				</div>
+				{/* ▲▲▲▲▲▲ List ▲▲▲▲▲▲ */}
+
+				{/* ▼▼▼▼▼▼ Modal Create New Tag ▼▼▼▼▼▼ */}
+				<Modal
+					show={showModalCreateTag}
+					onClose={() => toggleModalCreateNewTag({clearForm: true})}
+					header='Crear Nuevo Tag'
+				>
+					<div className='d-flex flex-column align-items-center'>
+						{isLoading && <Spinner />}
+						<Input
+							label='Nombre en Español'
+							value={newTagData.titleES}
+							onChange={(e) =>
+								handleInputChange({e: e, type: 'es'})
+							}
+						/>
+						<Input
+							label='Nombre en Inglés'
+							value={newTagData.titleEN}
+							onChange={(e) =>
+								handleInputChange({e: e, type: 'en'})
+							}
+						/>
+						<div className='w-100'>
+							<InputSelect
+								label='Categoría'
+								name='categoria'
+								options={bodyParts}
+								value={newTagData.bodyPart}
+								onChange={(e) =>
+									handleInputChange({e: e, type: 'select'})
+								}
+								style={
+									newTagData.bodyPart === defaultOption ||
+									newTagData.bodyPart === ''
+										? {color: 'red'}
+										: {color: 'blue'}
+								}
+							/>
+						</div>
+						<Button
+							text='Guardar Tag'
+							onClick={onSubmitCreateNewTag}
+						/>
+					</div>
+				</Modal>
+				{/* ▲▲▲▲▲▲ Modal Create New Tag ▲▲▲▲▲▲ */}
+
+				{/* ▼▼▼▼▼▼ Modal Delete  ▼▼▼▼▼▼ */}
+				<div className='col-12'>
+					<Modal
+						show={showModalConfirmDeleteTag}
+						onClose={() => setShowModalConfirmDeleteTag(false)}
+						header='¿Eliminar Tag?'
+					>
+						<div className='d-flex flex-column align-items-center'>
+							{isLoading && (
+								<div className='pb-4'>
+									<Spinner />
+								</div>
+							)}
+							<Button
+								text={'Eliminar Tag'}
+								size={3}
+								type={5}
+								onClick={toggleConfirmDeleteTag}
+							/>
+						</div>
+					</Modal>
+				</div>
+				{/* ▲▲▲▲▲▲ Modal Delete ▲▲▲▲▲▲ */}
 			</div>
 		</MainContainer>
 	);
