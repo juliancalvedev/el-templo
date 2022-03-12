@@ -220,7 +220,7 @@ const AdminTags = () => {
 											<div
 												style={{
 													marginLeft: '5%',
-													width: '25%',
+													width: '40%',
 												}}
 											>
 												<Text text={tag.titleES} />
