@@ -10,6 +10,7 @@ import Spinner from '../../../components/Spinner/Spinner';
 import './AdminTags.scss';
 import Text from '../../../components/Text/Text';
 import ButtonRadio from '../../../components/ButtonRadio/ButtonRadio';
+import InputCheck from '../../../components/InputChenk/InputCheck';
 
 const AdminTags = () => {
 	const [newTagData, setNewTagData] = useState({
@@ -22,6 +23,7 @@ const AdminTags = () => {
 		useState(false);
 
 	const [isLoading, setIsLoading] = useState(false);
+	const [isColorChecked, setIsColorChecked] = useState(false);
 	const [confirmDeleteTag, setConfirmDeleteTag] = useState(false);
 	const [deleteId, setDeleteId] = useState('');
 
@@ -159,16 +161,25 @@ const AdminTags = () => {
 						/>
 					</div>
 
-					<div className='col-10 d-flex'>
-						<Input
-							placeholder='Filtrar por nombre de tag'
-							value={filterTags}
-							onChange={(e) =>
-								handleInputChange({e: e, type: 'filter'})
-							}
-						/>
-						<input type='checkbox' />
-						
+					<div className='col-12 d-flex justify-content-between align-items-center'>
+						<div className='col-10'>
+							<Input
+								placeholder='Filtrar por nombre de tag'
+								value={filterTags}
+								onChange={(e) =>
+									handleInputChange({e: e, type: 'filter'})
+								}
+							/>
+						</div>
+
+						<div className='m-3'>
+							<InputCheck
+								checked={isColorChecked}
+								onChange={() =>
+									setIsColorChecked(!isColorChecked)
+								}
+							/>
+						</div>
 					</div>
 				</div>
 				{/* ▲▲▲▲▲▲ TopBar ▲▲▲▲▲▲ */}
@@ -194,7 +205,7 @@ const AdminTags = () => {
 									<div
 										key={tag._id}
 										className={
-											true
+											isColorChecked
 												? tableStyles(tag)
 												: 'col-12 d-flex flex-row justify-content-center'
 										}
