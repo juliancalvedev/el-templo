@@ -1,19 +1,19 @@
 @import '../../styles/variables';
 
 .label {
+	cursor: pointer;
+	
 	&-stylesButtonRadio {
 		&--1 {
 			border-radius: 20px 0px 0px 20px;
 			background-color: $tertiary;
 			color: $nineth;
-			line-height: 120%;
 			font-size: 84%;
 			height: 50%;
 		}
 		&--2 {
 			background-color: $tertiary;
 			color: $nineth;
-			line-height: 120%;
 			font-size: 84%;
 			font-family: $font-1;
 			height: 50%;
@@ -22,7 +22,6 @@
 			background-color: $tertiary;
 			border-radius: 0px 20px 20px 0px;
 			color: $nineth;
-			line-height: 120%;
 			font-size: 84%;
 			font-family: $font-1;
 			height: 50%;

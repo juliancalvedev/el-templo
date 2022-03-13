@@ -109,6 +109,7 @@ export const Register = () => {
 			back
 			shadow
 			color={1}
+			scroll
 		>
 			<div className={styles.main} >
 
@@ -168,7 +169,7 @@ export const Register = () => {
 					</div>
 				</div>
 			</div>
-			{/* <div className={styles.inputsRadio}>
+			<div className={styles.inputsRadio}>
 				<div className={styles.sexTitle} value={values.sex}>
 					<div className={styles.labelSex}>
 						<Text size='3' text={t('auth.register.sexTitle')} bold />
@@ -180,7 +181,7 @@ export const Register = () => {
 						handleChange={handleChange}
 					/>
 				</div>
-			</div> */}
+			</div>
 
 			<div className={styles.Rcontainer2}>
 				<div>

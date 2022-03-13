@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import useStyles from './useStyles';
 import  ButtonRadio from '../../components/ButtonRadio/ButtonRadio';
-
+import './SexSelector.scss'
 
 
 const SexSelector = ({handleChange,checkedF,checkedM,checkedO}) => {
@@ -9,7 +9,7 @@ const SexSelector = ({handleChange,checkedF,checkedM,checkedO}) => {
 		const styles = useStyles();
 		    
   return (
-		<div>
+		
 			<div className={styles.containerButtonsRadio}>
 				<div className={styles.ButtonRadio}>
 					<ButtonRadio
@@ -52,7 +52,7 @@ const SexSelector = ({handleChange,checkedF,checkedM,checkedO}) => {
 					/>
 				</div>
 			</div>
-		</div>
+		
   );
 };
 

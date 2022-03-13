@@ -16,7 +16,6 @@ const ButtonRadio = ({
 	const styles = useStyles({ className, stylesButtonRadio });
 
 	return (
-		<div>
 			<div className={styles.containerInput}>
 				<input
 					className={styles.button}
@@ -31,7 +30,6 @@ const ButtonRadio = ({
 					{label}
 				</label>
 			</div>
-		</div>
 	);
 };
 

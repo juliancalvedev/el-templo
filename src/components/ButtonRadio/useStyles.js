@@ -6,9 +6,9 @@ const useStyles = ({ stylesButtonRadio, className = '' }) => {
 	};
 
 	return {
-		containerInput: 'mt-1',
-		button: `btn btn-check d-flex justify-content-center align-items-center`,
-		label: `btn col-12 btn-outline btn-all checked label-stylesButtonRadio--${BUTTONRADIO_TYPES[stylesButtonRadio]} ${className}`,
+		containerInput: 'mt-1 col-12',
+		button: `btn-check d-flex justify-content-center align-items-center`,
+		label: ` py-1 d-flex align-items-center justify-content-center col-12 btn-outline btn-all checked label-stylesButtonRadio--${BUTTONRADIO_TYPES[stylesButtonRadio]} ${className}`,
 	};
 };
 
