@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-const InputCheck = ({label, className, id, onClick, onChange, checked}) => {
+const InputSwitch = ({label, className, id, onClick, onChange, checked}) => {
 	return (
 		<div className='form-check form-switch'>
 			<input
@@ -18,4 +18,4 @@ const InputCheck = ({label, className, id, onClick, onChange, checked}) => {
 	);
 };
 
-export default InputCheck;
+export default InputSwitch;

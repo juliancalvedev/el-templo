@@ -1,78 +1,118 @@
 import React, {useEffect, useState} from 'react';
+import useFetch from '../../../hooks/useFetch';
 import Button from '../../../components/Button/Button';
 import Input from '../../../components/Input/Input';
 import MainContainer from '../../../components/MainContainer/MainContainer';
 import Modal from '../../../components/Modal/Modal';
 import InputSelect from '../../../components/InputSelect/InputSelect';
-import {deleteTag, getTags, postNewTag} from '../../../services/admin';
-import {privateGet} from '../../../axios/privateInstance';
-import Spinner from '../../../components/Spinner/Spinner';
-import './AdminTags.scss';
+import {
+	deleteTag,
+	getBodyParts,
+	getTagsList,
+	postNewTag,
+	putEditedTag,
+} from '../../../services/admin';
 import Text from '../../../components/Text/Text';
-import ButtonRadio from '../../../components/ButtonRadio/ButtonRadio';
-import InputCheck from '../../../components/InputChenk/InputCheck';
+
+const defaultOption = 'Seleccione Categoría';
 
 const AdminTags = () => {
 	const [newTagData, setNewTagData] = useState({
+		id: '',
 		titleES: '',
 		titleEN: '',
 		bodyPart: [],
 	});
-	const [showModalCreateTag, setShowModalCreateTag] = useState(false);
+
+	const [bodyPartsOptions, setBodyPartsOptions] = useState([]);
+	const [showModalSetTag, setShowModalSetTag] = useState(false);
 	const [showModalConfirmDeleteTag, setShowModalConfirmDeleteTag] =
 		useState(false);
 
-	const [isLoading, setIsLoading] = useState(false);
-	const [isColorChecked, setIsColorChecked] = useState(false);
 	const [confirmDeleteTag, setConfirmDeleteTag] = useState(false);
-	const [deleteId, setDeleteId] = useState('');
+	const [tagToDelete, setTagToDelete] = useState({
+		id: '',
+		titleES: '',
+		titleEN: '',
+	});
 
-	const [bodyParts, setBodyParts] = useState([]);
-	const [tagsList, setTagsList] = useState([]);
+	const [isEditingTag, setIsEditingTag] = useState(false);
 
 	const [refreshList, setRefreshList] = useState(true);
 	const [filterTags, setFilterTags] = useState('');
-	const defaultOption = 'Seleccione Categoría';
 
-	const tableStyles = (tag) => {
-		return `col-12 d-flex flex-row justify-content-center ${
-			tag.bodyPart === 'upper' && 'upperColor'
-		} ${tag.bodyPart === 'middle' && 'middleColor'} ${
-			tag.bodyPart === 'bottom' && 'bottomColor'
-		}`;
-	};
+	const [tagsList, errorTagsList, apiCallGetTagsList] = useFetch({
+		service: () => getTagsList(),
+		globalLoader: true,
+		callback: () => {},
+	});
+
+	const [bodyParts, errorGetBodyParts, apiCallGetBodyParts] = useFetch({
+		service: () => getBodyParts(),
+		globalLoader: true,
+		callback: () => {
+			const aux = bodyParts?.bodyParts;
+			setBodyPartsOptions([defaultOption, ...aux]);
+		},
+	});
+
+	const [newTagResponse, errorPostNewTag, apiCallCreateNewTag] = useFetch({
+		service: () => postNewTag(newTagData),
+		globalLoader: true,
+		callback: () => {
+			refreshListTrigger();
+		},
+	});
+
+	const [editTagResponse, errorEditTag, apiCallEditTag] = useFetch({
+		service: () => putEditedTag(newTagData),
+		globalLoader: true,
+		callback: () => {
+			refreshListTrigger();
+		},
+	});
+
+	const [deleteTagResponse, errorDeleteTag, apiCallDeleteTag] = useFetch({
+		service: () => deleteTag(tagToDelete.id),
+		globalLoader: true,
+		callback: () => {
+			setTagToDelete('');
+			setShowModalConfirmDeleteTag(false);
+
+			setConfirmDeleteTag(false);
+			refreshListTrigger();
+		},
+	});
+
+	const lang = localStorage.getItem('lang').toUpperCase();
 
 	const refreshListTrigger = () => setRefreshList(!refreshList);
 
 	useEffect(() => {
-		const getBodyParts = async () => {
-			try {
-				const {data} = await privateGet({url: `/public/body-parts`});
-				setBodyParts([defaultOption, ...data.data.bodyParts]);
-			} catch (error) {
-				return error;
-			}
-		};
-		getBodyParts();
-	}, [refreshList]);
+		apiCallGetBodyParts();
+	}, []);
 
 	useEffect(() => {
-		const getTagsList = async () => {
-			try {
-				const {data} = await getTags();
-				setTagsList(data.data.tags);
-			} catch (error) {
-				return error;
-			}
-		};
-		getTagsList();
-	}, [showModalCreateTag, refreshList]);
+		apiCallGetTagsList();
+	}, [showModalSetTag, refreshList]);
 
 	const toggleModalCreateNewTag = (clearForm) => {
 		if (clearForm) {
 			setNewTagData({titleES: '', titleEN: '', bodyPart: ''});
 		}
-		setShowModalCreateTag(!showModalCreateTag);
+		setShowModalSetTag(!showModalSetTag);
+		if (isEditingTag) setIsEditingTag(false);
+	};
+
+	const toggleModalEditTag = (tag) => {
+		setIsEditingTag(true);
+		setNewTagData({
+			id: tag._id,
+			titleES: tag.titleES,
+			titleEN: tag.titleEN,
+			bodyPart: tag.bodyPart,
+		});
+		setShowModalSetTag(!showModalSetTag);
 	};
 
 	const handleInputChange = ({e, type}) => {
@@ -90,48 +130,42 @@ const AdminTags = () => {
 		}
 	};
 
-	const onSubmitCreateNewTag = async () => {
+	const onSubmitFormTag = () => {
 		if (
 			newTagData.bodyPart !== defaultOption &&
 			newTagData.bodyPart !== '' &&
 			newTagData.titleEN !== '' &&
 			newTagData.titleES !== ''
 		) {
-			setIsLoading(true);
 			try {
-				await postNewTag(newTagData);
-				setShowModalCreateTag(!showModalCreateTag);
+				if (isEditingTag) {
+					apiCallEditTag();
+				} else {
+					apiCallCreateNewTag();
+				}
+				setShowModalSetTag(!showModalSetTag);
 				refreshListTrigger();
 			} catch (error) {
 				console.log(error);
-			} finally {
-				setIsLoading(false);
 			}
 		}
 	};
 
-	const actionDeleteTag = async () => {
-		setIsLoading(true);
+	const actionDeleteTag = () => {
 		if (confirmDeleteTag) {
-			try {
-				await deleteTag(deleteId);
-				setDeleteId('');
-				setShowModalConfirmDeleteTag(false);
-				setConfirmDeleteTag(false);
-				refreshListTrigger();
-			} catch (error) {
-				console.log(error);
-			}
+			apiCallDeleteTag();
 		}
-		setIsLoading(false);
 	};
-
 	useEffect(() => {
 		actionDeleteTag();
 	}, [confirmDeleteTag]);
 
-	const handleDeleteTag = async (id) => {
-		setDeleteId(id);
+	const handleDeleteTag = (tag) => {
+		setTagToDelete({
+			id: tag._id,
+			titleEN: tag.titleEN,
+			titleES: tag.titleES,
+		});
 		setShowModalConfirmDeleteTag(true);
 	};
 	const toggleConfirmDeleteTag = () => setConfirmDeleteTag(!confirmDeleteTag);
@@ -171,15 +205,6 @@ const AdminTags = () => {
 								}
 							/>
 						</div>
-
-						<div className='m-3'>
-							<InputCheck
-								checked={isColorChecked}
-								onChange={() =>
-									setIsColorChecked(!isColorChecked)
-								}
-							/>
-						</div>
 					</div>
 				</div>
 				{/* ▲▲▲▲▲▲ TopBar ▲▲▲▲▲▲ */}
@@ -190,7 +215,7 @@ const AdminTags = () => {
 					style={{marginTop: '140px'}}
 				>
 					<div className='col-12 mb-5 pb-3 d-flex flex-column align-items-center'>
-						{tagsList
+						{tagsList?.tags
 							?.filter(
 								(tag) =>
 									tag.titleES
@@ -204,11 +229,7 @@ const AdminTags = () => {
 								return (
 									<div
 										key={tag._id}
-										className={
-											isColorChecked
-												? tableStyles(tag)
-												: 'col-12 d-flex flex-row justify-content-center'
-										}
+										className='col-12 d-flex flex-row justify-content-center'
 										style={{
 											borderBottom: '1px solid black',
 											boxShadow:
@@ -223,7 +244,9 @@ const AdminTags = () => {
 													width: '40%',
 												}}
 											>
-												<Text text={tag.titleES} />
+												<Text
+													text={tag[`title${lang}`]}
+												/>
 											</div>
 
 											<div
@@ -238,6 +261,9 @@ const AdminTags = () => {
 												<Button
 													text={'Editar'}
 													size={2}
+													onClick={() =>
+														toggleModalEditTag(tag)
+													}
 												/>
 											</div>
 
@@ -247,7 +273,7 @@ const AdminTags = () => {
 													size={2}
 													type={5}
 													onClick={() =>
-														handleDeleteTag(tag._id)
+														handleDeleteTag(tag)
 													}
 												/>
 											</div>
@@ -259,14 +285,13 @@ const AdminTags = () => {
 				</div>
 				{/* ▲▲▲▲▲▲ List ▲▲▲▲▲▲ */}
 
-				{/* ▼▼▼▼▼▼ Modal Create New Tag ▼▼▼▼▼▼ */}
+				{/* ▼▼▼▼▼▼ Modal Set New Tag ▼▼▼▼▼▼ */}
 				<Modal
-					show={showModalCreateTag}
+					show={showModalSetTag}
 					onClose={() => toggleModalCreateNewTag({clearForm: true})}
-					header='Crear Nuevo Tag'
+					header={`${isEditingTag ? 'Editar' : 'Crear Nuevo'} Tag`}
 				>
 					<div className='d-flex flex-column align-items-center'>
-						{isLoading && <Spinner />}
 						<Input
 							label='Nombre en Español'
 							value={newTagData.titleES}
@@ -285,22 +310,24 @@ const AdminTags = () => {
 							<InputSelect
 								label='Categoría'
 								name='categoria'
-								options={bodyParts}
-								value={newTagData.bodyPart}
+								options={bodyPartsOptions}
+								value={newTagData?.bodyPart}
 								onChange={(e) =>
 									handleInputChange({e: e, type: 'select'})
 								}
 								style={
-									newTagData.bodyPart === defaultOption ||
-									newTagData.bodyPart === ''
+									newTagData?.bodyPart === defaultOption ||
+									newTagData?.bodyPart === ''
 										? {color: 'red'}
 										: {color: 'blue'}
 								}
 							/>
 						</div>
 						<Button
-							text='Guardar Tag'
-							onClick={onSubmitCreateNewTag}
+							text={`${
+								isEditingTag ? 'Guardar Cambios' : 'Crear Tag'
+							}`}
+							onClick={onSubmitFormTag}
 						/>
 					</div>
 				</Modal>
@@ -313,18 +340,18 @@ const AdminTags = () => {
 						onClose={() => setShowModalConfirmDeleteTag(false)}
 						header='¿Eliminar Tag?'
 					>
-						<div className='d-flex flex-column align-items-center'>
-							{isLoading && (
-								<div className='pb-4'>
-									<Spinner />
-								</div>
-							)}
-							<Button
-								text={'Eliminar Tag'}
-								size={3}
-								type={5}
-								onClick={toggleConfirmDeleteTag}
-							/>
+						<div className='col-12 d-flex flex-column justify-content-between' >
+							<div className='mb-4'>
+								<Text text={tagToDelete[`title${lang}`]} size={4} color={5} bold/>
+							</div>
+							<div className='d-flex flex-column align-items-center'>
+								<Button
+									text={'Eliminar Tag'}
+									size={3}
+									type={5}
+									onClick={toggleConfirmDeleteTag}
+								/>
+							</div>
 						</div>
 					</Modal>
 				</div>

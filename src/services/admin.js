@@ -1,11 +1,22 @@
-import {privateDelete, privateGet, privatePost} from '../axios/privateInstance';
+import {
+	privateDelete,
+	privateGet,
+	privatePost,
+	privatePut,
+} from '../axios/privateInstance';
 
 const baseURL = '/admin';
 
 export const getUsers = () => privateGet({url: `${baseURL}/users`});
 
-export const postNewTag = (body) => privatePost({url: `${baseURL}/tag`, body});
+export const postNewTag = ({titleES, titleEN, bodyPart}) =>
+	privatePost({url: `${baseURL}/tag`, body: {titleES, titleEN, bodyPart}});
 
-export const getTags = () => privateGet({url: `${baseURL}/tag`});
+export const putEditedTag = ({id, titleES, titleEN, bodyPart}) =>
+	privatePut({url: `${baseURL}/tag/${id}`, body: {titleES, titleEN, bodyPart}});
+
+export const getTagsList = () => privateGet({url: `${baseURL}/tag`});
 
 export const deleteTag = (id) => privateDelete({url: `${baseURL}/tag/${id}`});
+
+export const getBodyParts = () => privateGet({url: `/public/body-parts`});
