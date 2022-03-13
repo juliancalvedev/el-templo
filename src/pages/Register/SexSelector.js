@@ -3,13 +3,12 @@ import useStyles from './useStyles';
 import  ButtonRadio from '../../components/ButtonRadio/ButtonRadio';
 
 
-
 const SexSelector = ({handleChange,checkedF,checkedM,checkedO}) => {
     const { t } = useTranslation();
 		const styles = useStyles();
 		    
   return (
-		<div>
+		
 			<div className={styles.containerButtonsRadio}>
 				<div className={styles.ButtonRadio}>
 					<ButtonRadio
@@ -52,7 +51,7 @@ const SexSelector = ({handleChange,checkedF,checkedM,checkedO}) => {
 					/>
 				</div>
 			</div>
-		</div>
+		
   );
 };
 

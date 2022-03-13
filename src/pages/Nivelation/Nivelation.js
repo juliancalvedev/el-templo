@@ -10,7 +10,7 @@ const Nivelation = () => {
 	const { t } = useTranslation();
 	const styles = useStyles();
 	return (
-		<MainContainer back col='11' h-100>
+		<MainContainer back col='11' h-100 scroll>
 			<div className={styles.textContainer}>
 				<Text
 					text={t('user.nivelation.nivelation')}
