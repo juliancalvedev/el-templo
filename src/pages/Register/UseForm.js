@@ -14,7 +14,7 @@ const useForm = (RegisterValidate, img) => {
 		password: '',
 		password2: '',
 		dateOfBirth: '',
-		country: null,
+		country: '',
 	});
 
 	const [data, error, apiCall] = useFetch({

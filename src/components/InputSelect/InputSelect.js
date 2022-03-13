@@ -7,7 +7,7 @@ const InputSelect = ({name, onChange, value, options, label, style}) => {
 
 	return (
 		<div>
-				<label name={name}>{label}</label>
+			<label name={name}>{label}</label>
 			<div className={styles.container}>
 				<div className={styles.select}>
 					<select
@@ -18,8 +18,8 @@ const InputSelect = ({name, onChange, value, options, label, style}) => {
 						style={style}
 					>
 						{options.map((selectOption, key) => (
-							<option key={key} value={selectOption} >
-								{selectOption[0].toUpperCase() + selectOption.substring(1)}
+							<option key={key} value={selectOption.value}>
+								{selectOption.name}
 							</option>
 						))}
 					</select>

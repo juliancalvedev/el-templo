@@ -14,7 +14,7 @@ import {
 } from '../../../services/admin';
 import Text from '../../../components/Text/Text';
 
-const defaultOption = 'Seleccione Categoría';
+const defaultOption = {value: null, name: 'Seleccione Categoría'};
 
 const AdminTags = () => {
 	const [newTagData, setNewTagData] = useState({
@@ -51,7 +51,9 @@ const AdminTags = () => {
 		service: () => getBodyParts(),
 		globalLoader: true,
 		callback: () => {
-			const aux = bodyParts?.bodyParts;
+			const aux = bodyParts?.bodyParts.map((b)=>{
+				return { name: b, value:b }
+			});
 			setBodyPartsOptions([defaultOption, ...aux]);
 		},
 	});
@@ -78,7 +80,6 @@ const AdminTags = () => {
 		callback: () => {
 			setTagToDelete('');
 			setShowModalConfirmDeleteTag(false);
-
 			setConfirmDeleteTag(false);
 			refreshListTrigger();
 		},
@@ -218,12 +219,10 @@ const AdminTags = () => {
 						{tagsList?.tags
 							?.filter(
 								(tag) =>
-									tag.titleES
-										?.toLowerCase()
-										.includes(filterTags.toLowerCase()) ||
-									tag.titleEN
+									tag[`title${lang}`]
 										?.toLowerCase()
 										.includes(filterTags.toLowerCase())
+								
 							)
 							?.map((tag) => {
 								return (
