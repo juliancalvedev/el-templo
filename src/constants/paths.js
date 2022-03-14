@@ -4,6 +4,7 @@ export const PATHS = {
 	ADMIN_EXERCISES: 'admin-exercises',
 	ADMIN_USERS_LIST: 'admin-users-list',
 	ADMIN_USER_INFO: 'admin-user-info',
+	ADMIN_TAGS: 'admin-tags',
 	
 	CHANGE_USER_PASSWORD: 'change-user-password',
 	LOGIN: 'login',

@@ -12,6 +12,7 @@ const UsersList = () => {
 		service: () => getUsers(),
 		globalLoader: true,
 	});
+	
 	useEffect(() => {
 		setTest(test + 1);
 		apiCall();

@@ -30,6 +30,7 @@ import Nivelation from '../pages/Nivelation/Nivelation';
 import {AdminUserInfo} from '../pages/admin/UsersList/AdminUserInfo/AdminUserInfo';
 import Admin from '../pages/admin/Admin';
 import AdminExercises from '../pages/admin/AdminExercises/AdminExercises';
+import AdminTags from '../pages/admin/AdminTags/AdminTags';
 
 const RouterApp = () => {
 	const {token} = useSelector((store) => store.auth);
@@ -58,6 +59,10 @@ const RouterApp = () => {
 								<Route
 									path={PATHS.ADMIN_EXERCISES}
 									element={<AdminExercises />}
+								/>
+								<Route
+									path={PATHS.ADMIN_TAGS}
+									element={<AdminTags />}
 								/>
 							</Route>
 						)}

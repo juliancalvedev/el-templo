@@ -12,6 +12,7 @@ const Text = ({
 	font = 1,
 	className,
 	justify = 'center',
+	customStyles,
 	onClick = () => {},
 }) => {
 	const styles = useStyles({
@@ -26,7 +27,7 @@ const Text = ({
 
 	return (
 		<div className={styles.container}>
-			<p onClick={onClick} className={styles.text}>
+			<p onClick={onClick} className={styles.text} styles={{customStyles}}>
 				{text}
 			</p>
 		</div>
