@@ -353,6 +353,28 @@ const es = {
 			button: 'Ir a mi entrenamiento',
 		},
 	},
+	admin: {
+		tags: {
+			deleteTag: 'Eliminar Tag',
+			deleteTagQuestion: '¿Eliminar Tag?',
+			edit: 'Editar',
+			delete: 'Eliminar',
+			filterByTagName: 'Filtrar por nombre de Tag',
+			createNewTag: 'Crear Nuevo Tag',
+			editTag: 'Editar Tag',
+			createTag: 'Crear Tag',
+			saveChanges: 'Guardar Cambios',
+			category: 'Categoría',
+			englishName: 'Nombre en Inglés',
+			spanishName: 'Nombgre en Español',
+			bodyPart: {
+				default: 'Seleccione una categoría',
+				upper: 'Superior',
+				middle: 'Medio',
+				bottom: 'Inferior',
+			},
+		},
+	},
 	errors: {
 		generic: 'Oops, ocurrió un error.',
 		authentication: 'Email o contraseña invalidos.',

@@ -355,6 +355,28 @@ const en = {
 			button: 'Go to my training',
 		},
 	},
+	admin: {
+		tags: {
+			deleteTag: 'Delete Tag',
+			deleteTagQuestion: 'Delete Tag?',
+			edit: 'Edit',
+			delete: 'Delete',
+			filterByTagName: 'Filter by Tag name',
+			createNewTag: 'Create New Tag',
+			editTag: 'Edit Tag',
+			createTag: 'Create Tag',
+			saveChanges: 'Save Changes',
+			category: 'Category',
+			englishName: 'English Name',
+			spanishName: 'Spanish Name',
+			bodyPart: {
+				default: 'Select a Category',
+				upper: 'Upper',
+				middle: 'Middle',
+				bottom: 'Bottom',
+			},
+		},
+	},
 	errors: {
 		generic: 'Oops, an error occurred.',
 		authentication: 'Email or password wrong.',

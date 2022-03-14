@@ -13,10 +13,13 @@ import {
 	putEditedTag,
 } from '../../../services/admin';
 import Text from '../../../components/Text/Text';
+import {useTranslation} from 'react-i18next';
 
-const defaultOption = {value: null, name: 'Seleccione Categoría'};
+const defaultOption = {value: null, name: 'default'};
 
 const AdminTags = () => {
+	const {t} = useTranslation();
+
 	const [newTagData, setNewTagData] = useState({
 		id: '',
 		titleES: '',
@@ -51,8 +54,8 @@ const AdminTags = () => {
 		service: () => getBodyParts(),
 		globalLoader: true,
 		callback: () => {
-			const aux = bodyParts?.bodyParts.map((b)=>{
-				return { name: b, value:b }
+			const aux = bodyParts?.bodyParts.map((b) => {
+				return {name: b, value: b};
 			});
 			setBodyPartsOptions([defaultOption, ...aux]);
 		},
@@ -189,7 +192,7 @@ const AdminTags = () => {
 				>
 					<div className='mt-4'>
 						<Button
-							text='Nuevo Tag'
+							text={t('admin.tags.createNewTag')}
 							onClick={toggleModalCreateNewTag}
 							size='3'
 							type={2}
@@ -199,7 +202,7 @@ const AdminTags = () => {
 					<div className='col-12 d-flex justify-content-between align-items-center'>
 						<div className='col-10'>
 							<Input
-								placeholder='Filtrar por nombre de tag'
+								placeholder={t('admin.tags.filterByTagName')}
 								value={filterTags}
 								onChange={(e) =>
 									handleInputChange({e: e, type: 'filter'})
@@ -217,12 +220,10 @@ const AdminTags = () => {
 				>
 					<div className='col-12 mb-5 pb-3 d-flex flex-column align-items-center'>
 						{tagsList?.tags
-							?.filter(
-								(tag) =>
-									tag[`title${lang}`]
-										?.toLowerCase()
-										.includes(filterTags.toLowerCase())
-								
+							?.filter((tag) =>
+								tag[`title${lang}`]
+									?.toLowerCase()
+									.includes(filterTags.toLowerCase())
 							)
 							?.map((tag) => {
 								return (
@@ -253,12 +254,12 @@ const AdminTags = () => {
 													width: '25%',
 												}}
 											>
-												<Text text={tag.bodyPart} />
+												<Text text={t(`admin.tags.bodyPart.${tag.bodyPart}`)} />
 											</div>
 
 											<div style={{width: '25%'}}>
 												<Button
-													text={'Editar'}
+													text={t('admin.tags.edit')}
 													size={2}
 													onClick={() =>
 														toggleModalEditTag(tag)
@@ -268,7 +269,7 @@ const AdminTags = () => {
 
 											<div style={{width: '25%'}}>
 												<Button
-													text={'Borrar'}
+													text={t('admin.tags.delete')}
 													size={2}
 													type={5}
 													onClick={() =>
@@ -288,18 +289,18 @@ const AdminTags = () => {
 				<Modal
 					show={showModalSetTag}
 					onClose={() => toggleModalCreateNewTag({clearForm: true})}
-					header={`${isEditingTag ? 'Editar' : 'Crear Nuevo'} Tag`}
+					header={isEditingTag ? t(`admin.tags.editTag`) : t(`admin.tags.createNewTag`) }
 				>
 					<div className='d-flex flex-column align-items-center'>
 						<Input
-							label='Nombre en Español'
+							label={t(`admin.tags.spanishName`)}
 							value={newTagData.titleES}
 							onChange={(e) =>
 								handleInputChange({e: e, type: 'es'})
 							}
 						/>
 						<Input
-							label='Nombre en Inglés'
+							label={t(`admin.tags.englishName`)}
 							value={newTagData.titleEN}
 							onChange={(e) =>
 								handleInputChange({e: e, type: 'en'})
@@ -307,24 +308,31 @@ const AdminTags = () => {
 						/>
 						<div className='w-100'>
 							<InputSelect
-								label='Categoría'
-								name='categoria'
-								options={bodyPartsOptions}
+								label={t(`admin.tags.category`)}
+								name='category'
+								options={bodyPartsOptions.map((part) => {
+									return {
+										value: part.value,
+										name: t(`admin.tags.bodyPart.${part.name}`),
+									};
+								})}
 								value={newTagData?.bodyPart}
 								onChange={(e) =>
 									handleInputChange({e: e, type: 'select'})
 								}
 								style={
-									newTagData?.bodyPart === defaultOption ||
+									newTagData?.bodyPart === 'Seleccione una categoría' ||
+									newTagData?.bodyPart === 'Select a Category' ||
 									newTagData?.bodyPart === ''
-										? {color: 'red'}
-										: {color: 'blue'}
+									? {color: 'red'}
+									: {color: 'blue'}
 								}
-							/>
+								/>
+								{console.log(newTagData?.bodyPart)}
 						</div>
 						<Button
 							text={`${
-								isEditingTag ? 'Guardar Cambios' : 'Crear Tag'
+								isEditingTag ? t(`admin.tags.saveChanges`) : t(`admin.tags.createTag`)
 							}`}
 							onClick={onSubmitFormTag}
 						/>
@@ -337,15 +345,20 @@ const AdminTags = () => {
 					<Modal
 						show={showModalConfirmDeleteTag}
 						onClose={() => setShowModalConfirmDeleteTag(false)}
-						header='¿Eliminar Tag?'
+						header={t('admin.tags.deleteTagQuestion')}
 					>
-						<div className='col-12 d-flex flex-column justify-content-between' >
+						<div className='col-12 d-flex flex-column justify-content-between'>
 							<div className='mb-4'>
-								<Text text={tagToDelete[`title${lang}`]} size={4} color={5} bold/>
+								<Text
+									text={tagToDelete[`title${lang}`]}
+									size={4}
+									color={5}
+									bold
+								/>
 							</div>
 							<div className='d-flex flex-column align-items-center'>
 								<Button
-									text={'Eliminar Tag'}
+									text={t('admin.tags.deleteTag')}
 									size={3}
 									type={5}
 									onClick={toggleConfirmDeleteTag}
