@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import useStyles from '../../pages/Register/useStyles';
+import useStyles from './useStyles';
 import  ButtonRadio from '../ButtonRadio/ButtonRadio';
 
 

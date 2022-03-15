@@ -1,6 +1,6 @@
 const useStyles = ({ transparent, isInvalid, isValid, className, icon }) => {
     return {
-        container: `col-12 my-3 
+        container: `col-12 my-2 
         ${ className }`,
 
         label: 'form-label',

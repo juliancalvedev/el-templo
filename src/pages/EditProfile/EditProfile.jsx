@@ -1,6 +1,7 @@
 import MainContainer from '../../components/MainContainer/MainContainer';
-import GenericTicket from '../../components/GenericTicket/GenericTicket'
+import Input from '../../components/Input/Input'
 import UserImage from '../../components/UserImage/UserImage'
+import SexSelector from '../../components/SexSelector/SexSelector';
 
 import './EditProfile.scss';
 import useStyles from './useStyles.js'
@@ -14,9 +15,12 @@ const EditProfile = () => {
           <UserImage />
         </div>
         <div className={styles.userName} >
-          <GenericTicket list text1={''} />
-          <GenericTicket list text1={''} />
+          <Input />
+          <Input />
         </div>
+      </div>
+      <div className='SexSelection' >
+        <SexSelector />
       </div>
     </MainContainer>
   )
