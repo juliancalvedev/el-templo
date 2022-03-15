@@ -10,26 +10,28 @@ const Nivelation = () => {
 	const { t } = useTranslation();
 	const styles = useStyles();
 	return (
-		<MainContainer back col='11' h-100 scroll>
-			<div className={styles.textContainer}>
-				<Text
-					text={t('user.nivelation.nivelation')}
-					size='4'
-					font='1'
-					bold
-				/>
+		<MainContainer back col='11'>
+			<div className={styles.Main} >
+				<div className={styles.textContainer}>
+					<Text
+						text={t('user.nivelation.nivelation')}
+						size='4'
+						font='1'
+						bold
+					/>
 
-				<Text
-					text={t('user.nivelation.paragraph')}
-					className={styles.paragraph}
-				/>
-			</div>
-			<div className={styles.imageContainer}>
-				<NivelationMuscle className={styles.muscleImage} />
-			</div>
+					<Text
+						text={t('user.nivelation.paragraph')}
+						className={styles.paragraph}
+					/>
+				</div>
+				<div className={styles.imageContainer}>
+					<NivelationMuscle className={styles.muscleImage} />
+				</div>
 
-			<div className={styles.container}>
-				<Button text={t('global.next')} size="5" />
+				<div className={styles.container}>
+					<Button text={t('global.next')} size="5" />
+				</div>
 			</div>
 		</MainContainer>
 	);
