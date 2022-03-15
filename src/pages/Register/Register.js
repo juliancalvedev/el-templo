@@ -10,7 +10,7 @@ import TopSpacing from '../../components/TopSpacing/TopSpacing';
 import Text from '../../components/Text/Text';
 import InputSelect from '../../components/InputSelect/InputSelect';
 import useStyles from './useStyles';
-import SexSelector from './SexSelector';
+import SexSelector from '../../components/SexSelector/SexSelector';
 import './Register.scss';
 
 export const Register = () => {

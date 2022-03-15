@@ -14,8 +14,8 @@ const useStyles = () => {
 		Rcontainer2:'mt-0 d-flex flex-column col-12 justify-content-center',
 		buttonInput:'mt-3 d-flex flex-column col-12 justify-content-center',
 		textTermsAndConditions1:'mt-1',
-		containerButtonsRadio:'d-flex col-12 buttonsRadio',
-		ButtonRadio:'col-4 d-flex align-items-center justify-content-center',
+		
+		
 	};
 };
 

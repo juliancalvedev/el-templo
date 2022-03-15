@@ -24,6 +24,7 @@ export const PATHS = {
 	DASHBOARD: 'dashboard',
 	NIVELATION: 'nivelation',
 	TRAINING: 'training',
+	EDIT_PROFILE: 'edit-profile',
 };
 
 export const SHOW_NAVBAR = [PATHS.BASE_URL];
@@ -44,4 +45,5 @@ export const TOPBAR_TEXTS = {
 	[PATHS.EMAIL_REGISTER_SENDED]: 'topBar.emailRegisterSended',
 	[PATHS.CONTACT]: 'topBar.contact',
 	[PATHS.DASHBOARD]: 'topBar.dashboard',
+	[PATHS.EDIT_PROFILE] : 'topBar.editProfile',
 };
