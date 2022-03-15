@@ -34,7 +34,7 @@ const PrivatedLayout = () => {
 	return (
 		<div className='col-12'>
 			<Outlet />
-			{showNavbar() && <Navbar />}
+			
 		</div>
 	);
 };

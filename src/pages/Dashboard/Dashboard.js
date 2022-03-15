@@ -13,14 +13,14 @@ import useStyles from './useStyles';
 
 
 
-const Dashboard = ({colored='3'}) => {
+const Dashboard = ({ colored = '3' }) => {
 	const { t } = useTranslation();
-	const { firstName,level } = useSelector((store) => store.user);
-	const [summary,setSummary]= useState(true);
-	const handleChange=()=>{
+	const { firstName, level } = useSelector((store) => store.user);
+	const [summary, setSummary] = useState(true);
+	const handleChange = () => {
 		setSummary(false);
 	}
-const styles=useStyles({colored});
+	const styles = useStyles({ colored });
 	return (
 		<MainContainer
 			color={1}
@@ -28,82 +28,82 @@ const styles=useStyles({colored});
 			shadow
 			back
 			col='12'
+			scroll
+			navbar
 		>
-			<div
-				className={styles.container}
-			>
-				<div
-					className={styles.div}
-				>
-					<div className={styles.userimg}>
-						<UserImage />
-					</div>
-					<div className={styles.containerColor}>
-						<div className={styles.textLevel}>
-							<Text
-								className={'mx-4'}
-								text={`${t('dashboard.main.level')} ${level}`}
-								bold
-								size={4}
-							/>
-						</div>
-						<div className={styles.boxcontainer}>
-							<div className={styles.boxColor}
-							></div>
-						</div>
-						<div>
-							<Text justify={'end'} size='1' text={'N3'} />
-						</div>
-					</div>
-				</div>
 
-				<div className={styles.calendar}>
-					<WeeklyCalendar />
+			<div
+				className={styles.div}
+			>
+				<div className={styles.userimg}>
+					<UserImage />
 				</div>
-{/* alinear bien el ver detalle */}
-				<div className={styles.line}>
-					<div className={styles.summary}>
-						<Text bold text={t('dashboard.main.summary')} />
-					</div>
-					<div className={styles.see}>
-						<Button
-						size={1}
-							onClick={handleChange}
-							type={3}
-							text={t('dashboard.main.see')}
-						/>
-					</div>
-				</div>
-				{summary ? (
-					<div>
-						<div>
-							<Text
-								className='mx-2 '
-								text={t('dashboard.main.progress')}
-							/>
-						</div>
-						<div className={styles.img}>
-							<ImgDashboard />
-						</div>
-					</div>
-				) : (
-					<div>
+				<div className={styles.containerColor}>
+					<div className={styles.textLevel}>
 						<Text
-							text={
-								'*partes de cuerpo y porcentaje con iconos y numeros*horas entrenadas a la semana con icono'
-							}
+							className={'mx-4'}
+							text={`${t('dashboard.main.level')} ${level}`}
+							bold
+							size={4}
 						/>
 					</div>
-				)}
-				<div className={styles.btn}>
+					<div className={styles.boxcontainer}>
+						<div className={styles.boxColor}
+						></div>
+					</div>
+					<div>
+						<Text justify={'end'} size='1' text={'N3'} />
+					</div>
+				</div>
+			</div>
+
+			<div className={styles.calendar}>
+				<WeeklyCalendar />
+			</div>
+			{/* alinear bien el ver detalle */}
+			<div className={styles.line}>
+				<div className={styles.summary}>
+					<Text bold text={t('dashboard.main.summary')} />
+				</div>
+				<div className={styles.see}>
 					<Button
-						
-						type={2}
-						text={t('dashboard.main.btn')}
+						size={2}
+						onClick={handleChange}
+						type={3}
+						text={t('dashboard.main.see')}
 					/>
 				</div>
-				<NavBar />
 			</div>
+			{summary ? (
+				<div>
+					<div>
+						<Text
+							className='mx-2 '
+							text={t('dashboard.main.progress')}
+						/>
+					</div>
+					<div className={styles.img}>
+						<ImgDashboard />
+					</div>
+				</div>
+			) : (
+				<div>
+					<Text
+						text={
+							'*partes de cuerpo y porcentaje con iconos y numeros*horas entrenadas a la semana con icono'
+						}
+					/>
+				</div>
+			)}
+			<div className={styles.btn}>
+				<Button
+					size={3}
+					type={2}
+					text={t('dashboard.main.btn')}
+				/>
+			</div>
+			
+
 		</MainContainer>
 	);
 };

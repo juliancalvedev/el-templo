@@ -22,10 +22,8 @@ const AdminLayout = () => {
 	return (
 		<div className='col-12'>
 			<Outlet />
-			{/* 
-			Este condicional es para activar el Navbar en algunas pages si y otras no.
-			{showNavbar() && <Navbar />} */}
-			<Navbar />
+			
+			
 		</div>
 	);
 };
