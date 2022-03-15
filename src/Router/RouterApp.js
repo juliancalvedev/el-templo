@@ -43,11 +43,11 @@ const RouterApp = () => {
 			<Routes>
 				{savedToken ? (
 					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
-						{role === ROLES.ADMIN && (
+						{/* {role === ROLES.ADMIN && (
 							<Route
-								path={PATHS.BASE_URL}
+							path={PATHS.ADMIN}
 								element={<AdminLayout />}
-							>
+							> */}
 								<Route path={PATHS.ADMIN} element={<Admin />} />
 								<Route
 									path={PATHS.ADMIN_USERS_LIST}
@@ -65,8 +65,8 @@ const RouterApp = () => {
 									path={PATHS.ADMIN_TAGS}
 									element={<AdminTags />}
 								/>
-							</Route>
-						)}
+							{/* </Route>
+						)} */}
 
 						{goals?.length === 0 && (
 							<Route>
