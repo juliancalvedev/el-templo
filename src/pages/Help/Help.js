@@ -19,7 +19,7 @@ const Help = () => {
 	const styles=useStyles();
 	return (
 
-		<MainContainer color={2} text={t('help.main.help')} bg={1} back scroll col='12'>
+		<MainContainer color={2} text={t('help.main.help')} bg={1} back navbar scroll col='12'>
 			<Text bold size={4} text={t('help.main.aboutUs')} className='mt-3'/>
 
 			<Text font={2} size={5} text={t('help.main.elTemplo')} />

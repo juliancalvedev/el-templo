@@ -16,7 +16,7 @@ const Welcome = () => {
 	const toOnboarding = () => navigate(`/${PATHS.MAIN_GOALS}`);
 
 	return (
-		<MainContainer backgroundImg='welcome1'>
+		<MainContainer backgroundImg='welcome1' >
 					<div className={styles.text}>
 						<Text
 							text={t('welcome.main.title')}

@@ -1,14 +1,15 @@
 import React from 'react';
 import { isEmpty } from '../../utils/objectUtils';
+import Navbar from '../Navbar/Navbar';
 import TopBar from '../TopBar/TopBar';
 import './MainContainer.scss';
 import useStyles from './useStyles';
 
-const MainContainer = ({ children, scroll, backgroundImg, col = '11', ...topbarOptions }) => {
+const MainContainer = ({ children, scroll, backgroundImg, col = '11', navbar, ...topbarOptions }) => {
 
 	const topbar = !isEmpty({ ...topbarOptions });
 
-	const styles = useStyles({scroll, backgroundImg, col, banner: topbarOptions?.banner});
+	const styles = useStyles({scroll, backgroundImg, col, banner: topbarOptions?.banner, navbar});
 
 	return (
 		<div className={styles.container}>
@@ -18,6 +19,7 @@ const MainContainer = ({ children, scroll, backgroundImg, col = '11', ...topbarO
 					{children}
 				</div>
 			</div>
+			{navbar && <Navbar />}
 		</div>
 	);
 };
