@@ -10,7 +10,7 @@ const useStyles = ({colored}) => {
 
 	return {
 		container: '  d-flex flex-column align-items-center h-100 col-12  ',
-		div: ' d-flex align-items-center  py-3 col-11  ',
+		div: ' d-flex align-items-center m-auto justify-content-center py-3 col-11  ',
 		userimg: 'col-3  d-flex h-100 align-items-center justify-content-center ',
 		containerColor: 'col-9 h-100   ',
 		textLevel: 'col-12 d-flex  ',

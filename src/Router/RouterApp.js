@@ -31,6 +31,7 @@ import {AdminUserInfo} from '../pages/admin/UsersList/AdminUserInfo/AdminUserInf
 import Admin from '../pages/admin/Admin';
 import AdminConfigScreen from '../pages/admin/AdminCofing/AdminConfig';
 import AdminTags from '../pages/admin/AdminTags/AdminTags';
+import NivelationExercise from '../pages/Nivelation/NidelationExercise/NivelationExercise';
 
 const RouterApp = () => {
 	const {token} = useSelector((store) => store.auth);
@@ -91,10 +92,16 @@ const RouterApp = () => {
 						)}
 
 						{level < 1 && (
-							<Route
-								path={PATHS.NIVELATION}
-								element={<Nivelation />}
-							/>
+							<Route>
+								<Route
+									path={PATHS.NIVELATION}
+									element={<Nivelation />}
+								/>
+								<Route
+									path={PATHS.NIVELATION_EXERCISE}
+									element={<NivelationExercise />}
+								/>
+							</Route>
 						)}
 						<Route
 							path={

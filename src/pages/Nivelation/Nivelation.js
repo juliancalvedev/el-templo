@@ -5,10 +5,18 @@ import useStyles from './useStyles';
 import Button from '../../components/Button/Button';
 import { useTranslation } from 'react-i18next';
 import NivelationMuscle from '../../assets/images/NivelationMuscle';
+import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../constants/paths';
 
 const Nivelation = () => {
 	const { t } = useTranslation();
 	const styles = useStyles();
+	const navigation = useNavigate();
+
+	const redirect = () => {
+		navigation(`/${PATHS.NIVELATION_EXERCISE}`);
+	}
+
 	return (
 		<MainContainer back col='11'>
 			<div className={styles.Main} >
@@ -30,7 +38,7 @@ const Nivelation = () => {
 				</div>
 
 				<div className={styles.container}>
-					<Button text={t('global.next')} size="5" />
+					<Button onClick={redirect} text={t('global.next')} size="5" />
 				</div>
 			</div>
 		</MainContainer>

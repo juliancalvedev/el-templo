@@ -23,6 +23,7 @@ export const PATHS = {
 	CONTACT: 'contact',
 	DASHBOARD: 'dashboard',
 	NIVELATION: 'nivelation',
+	NIVELATION_EXERCISE: 'nivelation-exercise',
 	TRAINING: 'training',
 };
 
