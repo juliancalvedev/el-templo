@@ -14,10 +14,12 @@ import IconProfileActive from '../../assets/Icons/IconProfileActive';
 import IconHelp from '../../assets/Icons/IconHelp';
 import IconHelpActive from '../../assets/Icons/IconHelpActive';
 import {PATHS} from '../../constants/paths';
+import Text from '../Text/Text';
 
 const Navbar = () => {
 	const {t} = useTranslation();
 	const {role, level} = useSelector((store) => store.user);
+	const currentLocation = useLocation().pathname.substring(1);
 
 	const styles = useStyles();
 	const {pathname} = useLocation();
@@ -30,14 +32,22 @@ const Navbar = () => {
 			navigate(`/${PATHS.TRAINING}`);
 		}
 	};
-
 	return (
 		<nav className={styles.navbarContainer}>
 			<div className={styles.iconsContainer}>
 				{role === ROLES.ADMIN && (
-					<span onClick={() => navigate(`/${PATHS.BASE_URL}`)}>
-						ADMIN
-					</span>
+					<Text
+					// TODO traducir
+						text={'Admin'} 
+						onClick={() => navigate(`/${PATHS.BASE_URL}`)}
+						color={
+							currentLocation.includes('admin') ||
+							currentLocation === ''
+								? 'linkSelected'
+								: 'link'
+						}
+						underline
+					/>
 				)}
 
 				<span onClick={() => navigate(`/${PATHS.DASHBOARD}`)}>

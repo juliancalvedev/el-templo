@@ -29,7 +29,7 @@ import Dashboard from '../pages/Dashboard/Dashboard';
 import Nivelation from '../pages/Nivelation/Nivelation';
 import {AdminUserInfo} from '../pages/admin/UsersList/AdminUserInfo/AdminUserInfo';
 import Admin from '../pages/admin/Admin';
-import AdminExercises from '../pages/admin/AdminExercises/AdminExercises';
+import AdminConfigScreen from '../pages/admin/AdminCofing/AdminConfig';
 import AdminTags from '../pages/admin/AdminTags/AdminTags';
 
 const RouterApp = () => {
@@ -71,7 +71,10 @@ const RouterApp = () => {
 									index
 									element={<Admin />}
 								/>
-
+								<Route
+									path={PATHS.ADMIN_CONFIG}
+									element={<AdminConfigScreen />}
+								/>
 								<Route
 									path={PATHS.ADMIN_USERS_LIST}
 									element={<UsersList />}
@@ -79,10 +82,6 @@ const RouterApp = () => {
 								<Route
 									path={PATHS.ADMIN_USER_INFO}
 									element={<AdminUserInfo />}
-								/>
-								<Route
-									path={PATHS.ADMIN_EXERCISES}
-									element={<AdminExercises />}
 								/>
 								<Route
 									path={PATHS.ADMIN_TAGS}
