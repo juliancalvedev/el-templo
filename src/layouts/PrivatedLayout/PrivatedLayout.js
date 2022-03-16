@@ -30,7 +30,7 @@ const PrivatedLayout = () => {
 	useEffect(() => {
 		dispatch(getUserInfoAction());
 	}, []);
-
+console.log('PRIVATED LAY OUT')
 	return (
 		<div className='col-12'>
 			<Outlet />

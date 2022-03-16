@@ -18,12 +18,10 @@ const AdminLayout = () => {
 	// 		return false;
 	// 	}
 	// };
-
+console.log('ADMIN LAY OUT')
 	return (
 		<div className='col-12'>
 			<Outlet />
-			
-			
 		</div>
 	);
 };
