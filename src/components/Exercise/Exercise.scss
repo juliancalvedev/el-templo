@@ -1,10 +1,7 @@
 @import '../../styles/variables.scss';
 
 .exercise__container {
-	width: 100vw;
-	height: 93vh;
-	overflow-x: hidden;
-	overflow-y: auto;
+	// height: 93vh;
 	.title__container {
 		.title__container--text {
 			margin-left: 20px;

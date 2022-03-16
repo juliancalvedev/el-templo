@@ -9,10 +9,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import MainContainer from '../MainContainer/MainContainer';
 
-const Exercise = () => {
-	const styles = useStyles();
+const Exercise = ({title, video, description}) => {
 	const { t } = useTranslation();
-
+	
 	//Cambiar el totalTime para que sume uno cada vez que el reloj cambia de estado con useEffect
 	const [totalTime, setTotalTime] = useState({ ms: 0, s: 0, m: 0 });
 	const [chronometerTime, setChronometerTime] = useState({
@@ -22,11 +21,11 @@ const Exercise = () => {
 	});
 	const [showChronometer, setShowChronometer] = useState(true);
 	const [btnNextIsDisabled, setBtnNextIsDisabled] = useState(true);
-
+	
 	const timeToShow = `${totalTime.m}:${totalTime.s <= 9 ? '0' : ''}${
 		totalTime.s
 	}`;
-
+	
 	const onStop = (time) => {
 		const mili = time.ms;
 		const sec = time.s;
@@ -36,20 +35,22 @@ const Exercise = () => {
 		}
 		setTotalTime({ ms: mili, s: sec, m: min });
 	};
-
+	
 	const handleShowChronometer = () => {
-		showChronometer ? setShowChronometer(false) : setShowChronometer(true);
+		
+		setShowChronometer(!showChronometer)
 	};
-
+	
+	const styles = useStyles({showChronometer});
 	return (
-		<MainContainer col='12' scroll={true}>
+		<MainContainer col='12'>
 			<div className={styles.exerciseContainer}>
 				<div className={styles.titleContainer}>
 					<div className={styles.titleText}>
 						<div>
 							<Text
 								//  TODO Poner el numero de ejecicio del objeto
-								text={`${t('exercise.exerciseNumber')}1`}
+								text={title}
 								bold
 								size='4'
 							/>
@@ -69,10 +70,11 @@ const Exercise = () => {
 				</div>
 
 				<div className={styles.gifContainer}>
-					<img
+					{/* <img
 						className={styles.gif}
-						src='https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/580a5a1f-5c74-4979-b281-ba5db2377742.gif?ClientID=vimeo-core-prod&Date=1643826390&Signature=58c0ed026f7d7b278ff1cd28f28d1b3997f1eba8'
-					></img>
+						src={video}
+					></img> */}
+					<iframe src={video} className={styles.gif} width="100%" height="100%" frameBorder="0" allow="autoplay"></iframe>
 				</div>
 
 				<div
@@ -81,9 +83,7 @@ const Exercise = () => {
 				>
 					<DropDown text={t('exercise.watchVideoDescription')} shadow>
 						<Text
-							text={
-								'El Templo tiene como Misión introducir al público a nuevos sistemas de entrenamientos, culturizar e instruir a sus integrantes en el mundo del movimiento como estilo de vida y no como compromiso social y fines puramente estéticos. Ser mejores humanos a través de nuestras acciones y comportamientos.'
-							} // TODO Descripción del contenido del DropDown
+							text={description}
 							size='2'
 							justify='left'
 						/>
@@ -91,7 +91,6 @@ const Exercise = () => {
 				</div>
 
 				{/* TODO Manejar qué hace el cronómetro si, mientras está corriendo, se dezpliega el DropDown. */}
-				{showChronometer && (
 					<div className={styles.chronometerContainer}>
 						<Chronometer
 							onStop={onStop}
@@ -103,7 +102,6 @@ const Exercise = () => {
 							}}
 						/>
 					</div>
-				)}
 
 				<div className={styles.btnNextContainer}>
 					<ButtonPagination
