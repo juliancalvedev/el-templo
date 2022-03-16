@@ -37,36 +37,12 @@ const RouterApp = () => {
 	const {role, goals, level} = useSelector((store) => store.user);
 
 	const savedToken = localStorage.getItem('token');
+
 	return (
 		<BrowserRouter>
 			<Routes>
 				{savedToken ? (
 					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
-						{role === ROLES.ADMIN && (
-							<Route
-								path={PATHS.BASE_URL}
-								element={<AdminLayout />}
-							>
-								<Route path={PATHS.ADMIN} element={<Admin />} />
-								<Route
-									path={PATHS.ADMIN_USERS_LIST}
-									element={<UsersList />}
-								/>
-								<Route
-									path={PATHS.ADMIN_USER_INFO}
-									element={<AdminUserInfo />}
-								/>
-								<Route
-									path={PATHS.ADMIN_EXERCISES}
-									element={<AdminExercises />}
-								/>
-								<Route
-									path={PATHS.ADMIN_TAGS}
-									element={<AdminTags />}
-								/>
-							</Route>
-						)}
-
 						{goals?.length === 0 && (
 							<Route>
 								<Route
@@ -88,12 +64,47 @@ const RouterApp = () => {
 							</Route>
 						)}
 
+						{role === ROLES.ADMIN && (
+							<Route>
+								<Route
+									path={PATHS.BASE_URL}
+									index
+									element={<Admin />}
+								/>
+
+								<Route
+									path={PATHS.ADMIN_USERS_LIST}
+									element={<UsersList />}
+								/>
+								<Route
+									path={PATHS.ADMIN_USER_INFO}
+									element={<AdminUserInfo />}
+								/>
+								<Route
+									path={PATHS.ADMIN_EXERCISES}
+									element={<AdminExercises />}
+								/>
+								<Route
+									path={PATHS.ADMIN_TAGS}
+									element={<AdminTags />}
+								/>
+							</Route>
+						)}
+
 						{level < 1 && (
 							<Route
 								path={PATHS.NIVELATION}
 								element={<Nivelation />}
 							/>
 						)}
+						<Route
+							path={
+								role !== ROLES.ADMIN
+									? PATHS.BASE_URL
+									: PATHS.DASHBOARD
+							}
+							element={<Dashboard />}
+						/>
 
 						<Route
 							path={PATHS.MY_PROFILE}
@@ -105,7 +116,6 @@ const RouterApp = () => {
 						/>
 						<Route path={PATHS.HELP} element={<Help />} />
 						<Route path={PATHS.CONTACT} element={<Contact />} />
-						<Route path={PATHS.DASHBOARD} element={<Dashboard />} />
 					</Route>
 				) : (
 					<Route path={PATHS.BASE_URL} element={<PublicLayout />}>
