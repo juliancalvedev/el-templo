@@ -16,7 +16,7 @@ const AdminBar = () => {
 		navigate(`/${PATHS.ADMIN_USERS_LIST}`);
 	};
 	const toExercises = () => {
-		navigate(`/${PATHS.ADMIN_EXERCISES}`);
+		navigate(`/${PATHS.ADMIN_CONFIG}`);
 	};
 
 	return (
@@ -39,7 +39,7 @@ const AdminBar = () => {
 					text={t('adminBar.exercises')}
 					onClick={toExercises}
 					color={
-						currentLocation === 'admin-exercises'
+						currentLocation === 'admin-config'
 							? 'linkSelected'
 							: 'link'
 					}

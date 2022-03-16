@@ -19,7 +19,7 @@ const UsersList = () => {
 	}, []);
 
 	return (
-		<MainContainer col='12' scroll>
+		<MainContainer col='12' scroll navbar>
 			<div style={{overflowX: 'scroll'}}>
 				<UsersTable
 					columns={[

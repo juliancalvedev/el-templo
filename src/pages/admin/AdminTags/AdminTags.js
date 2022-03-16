@@ -175,7 +175,7 @@ const AdminTags = () => {
 	const toggleConfirmDeleteTag = () => setConfirmDeleteTag(!confirmDeleteTag);
 
 	return (
-		<MainContainer col='12' scroll>
+		<MainContainer col='12' navbar scroll>
 			<div
 				className='d-flex flex-column justify-content-start'
 				style={{height: '100vh'}}
