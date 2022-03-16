@@ -1,8 +1,8 @@
 import useStyles from './useStyles';
-import { Link, useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { ROLES } from '../../constants/roles';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
+import {useTranslation} from 'react-i18next';
+import {useSelector} from 'react-redux';
+import {ROLES} from '../../constants/roles';
 
 import './Navbar.scss';
 import IconDashboard from '../../assets/Icons/IconDashboard';
@@ -13,60 +13,71 @@ import IconProfile from '../../assets/Icons/IconProfile';
 import IconProfileActive from '../../assets/Icons/IconProfileActive';
 import IconHelp from '../../assets/Icons/IconHelp';
 import IconHelpActive from '../../assets/Icons/IconHelpActive';
-import { PATHS } from '../../constants/paths';
+import {PATHS} from '../../constants/paths';
+import Text from '../Text/Text';
 
 const Navbar = () => {
-	const { t } = useTranslation();
-	const { role, level } = useSelector((store) => store.user);
+	const {t} = useTranslation();
+	const {role, level} = useSelector((store) => store.user);
+	const currentLocation = useLocation().pathname.substring(1);
 
 	const styles = useStyles();
-	const { pathname } = useLocation();
+	const {pathname} = useLocation();
+	const navigate = useNavigate();
 
 	const redirection = () => {
-		let path;
 		if (level < 1) {
-			path = '/nivelation';
+			navigate(`/${PATHS.NIVELATION}`);
 		} else {
-			path = '/training';
+			navigate(`/${PATHS.TRAINING}`);
 		}
-		return path;
 	};
-
 	return (
 		<nav className={styles.navbarContainer}>
 			<div className={styles.iconsContainer}>
 				{role === ROLES.ADMIN && (
-					<Link to={PATHS.ADMIN}>{t('navbar.nav.admin')}</Link>
+					<Text
+					// TODO traducir
+						text={'Admin'} 
+						onClick={() => navigate(`/${PATHS.BASE_URL}`)}
+						color={
+							currentLocation.includes('admin') ||
+							currentLocation === ''
+								? 'linkSelected'
+								: 'link'
+						}
+						underline
+					/>
 				)}
 
-				<Link to={PATHS.DASHBOARD}>
+				<span onClick={() => navigate(`/${PATHS.DASHBOARD}`)}>
 					{pathname === PATHS.DASHBOARD ? (
 						<IconDashboardActive />
 					) : (
 						<IconDashboard />
 					)}
-				</Link>
-				<Link to={redirection()}>
+				</span>
+				<span onClick={redirection}>
 					{pathname === PATHS.TRAINING ? (
 						<IconMuscleActive />
 					) : (
 						<IconMuscle />
 					)}
-				</Link>
-				<Link to={PATHS.MY_PROFILE}>
+				</span>
+				<span onClick={() => navigate(`/${PATHS.MY_PROFILE}`)}>
 					{pathname === PATHS.MY_PROFILE ? (
 						<IconProfileActive />
 					) : (
 						<IconProfile />
 					)}
-				</Link>
-				<Link to={PATHS.HELP}>
+				</span>
+				<span onClick={() => navigate(`/${PATHS.HELP}`)}>
 					{pathname === PATHS.HELP ? (
 						<IconHelpActive />
 					) : (
 						<IconHelp />
 					)}
-				</Link>
+				</span>
 			</div>
 		</nav>
 	);

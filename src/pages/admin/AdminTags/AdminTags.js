@@ -175,7 +175,7 @@ const AdminTags = () => {
 	const toggleConfirmDeleteTag = () => setConfirmDeleteTag(!confirmDeleteTag);
 
 	return (
-		<MainContainer col='12' scroll>
+		<MainContainer col='12' navbar scroll>
 			<div
 				className='d-flex flex-column justify-content-start'
 				style={{height: '100vh'}}
@@ -254,7 +254,11 @@ const AdminTags = () => {
 													width: '25%',
 												}}
 											>
-												<Text text={t(`admin.tags.bodyPart.${tag.bodyPart}`)} />
+												<Text
+													text={t(
+														`admin.tags.bodyPart.${tag.bodyPart}`
+													)}
+												/>
 											</div>
 
 											<div style={{width: '25%'}}>
@@ -269,7 +273,9 @@ const AdminTags = () => {
 
 											<div style={{width: '25%'}}>
 												<Button
-													text={t('admin.tags.delete')}
+													text={t(
+														'admin.tags.delete'
+													)}
 													size={2}
 													type={5}
 													onClick={() =>
@@ -289,7 +295,11 @@ const AdminTags = () => {
 				<Modal
 					show={showModalSetTag}
 					onClose={() => toggleModalCreateNewTag({clearForm: true})}
-					header={isEditingTag ? t(`admin.tags.editTag`) : t(`admin.tags.createNewTag`) }
+					header={
+						isEditingTag
+							? t(`admin.tags.editTag`)
+							: t(`admin.tags.createNewTag`)
+					}
 				>
 					<div className='d-flex flex-column align-items-center'>
 						<Input
@@ -313,7 +323,9 @@ const AdminTags = () => {
 								options={bodyPartsOptions.map((part) => {
 									return {
 										value: part.value,
-										name: t(`admin.tags.bodyPart.${part.name}`),
+										name: t(
+											`admin.tags.bodyPart.${part.name}`
+										),
 									};
 								})}
 								value={newTagData?.bodyPart}
@@ -321,18 +333,21 @@ const AdminTags = () => {
 									handleInputChange({e: e, type: 'select'})
 								}
 								style={
-									newTagData?.bodyPart === 'Seleccione una categoría' ||
-									newTagData?.bodyPart === 'Select a Category' ||
+									newTagData?.bodyPart ===
+										'Seleccione una categoría' ||
+									newTagData?.bodyPart ===
+										'Select a Category' ||
 									newTagData?.bodyPart === ''
-									? {color: 'red'}
-									: {color: 'blue'}
+										? {color: 'red'}
+										: {color: 'blue'}
 								}
-								/>
-								{console.log(newTagData?.bodyPart)}
+							/>
 						</div>
 						<Button
 							text={`${
-								isEditingTag ? t(`admin.tags.saveChanges`) : t(`admin.tags.createTag`)
+								isEditingTag
+									? t(`admin.tags.saveChanges`)
+									: t(`admin.tags.createTag`)
 							}`}
 							onClick={onSubmitFormTag}
 						/>

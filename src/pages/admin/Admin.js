@@ -3,7 +3,7 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 
 const Admin = () => {
 	return (
-		<MainContainer col='12'>
+		<MainContainer col='12' navbar scroll>
 			<AdminBar />
 		</MainContainer>
 	);

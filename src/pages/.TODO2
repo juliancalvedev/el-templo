@@ -50,3 +50,5 @@
   -Le falta el TopBar.
 
 - si no hay imagen, que aparezca la imagen por default, Y si no hay img y creas la cuenta o editas el perfil y sigue sin haber img, que no se envie al backend la default img, que el front decida si mostrar la img por defecto o la del back
+
+- hacer que el onClick de los inputs funcione (date y select)
