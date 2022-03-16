@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import MainContainer from '../MainContainer/MainContainer';
 
-const Exercise = ({title, video, description}) => {
+const Exercise = ({title, video, description, onNext}) => {
 	const { t } = useTranslation();
 	
 	//Cambiar el totalTime para que sume uno cada vez que el reloj cambia de estado con useEffect
@@ -37,7 +37,6 @@ const Exercise = ({title, video, description}) => {
 	};
 	
 	const handleShowChronometer = () => {
-		
 		setShowChronometer(!showChronometer)
 	};
 	
@@ -70,10 +69,6 @@ const Exercise = ({title, video, description}) => {
 				</div>
 
 				<div className={styles.gifContainer}>
-					{/* <img
-						className={styles.gif}
-						src={video}
-					></img> */}
 					<iframe src={video} className={styles.gif} width="100%" height="100%" frameBorder="0" allow="autoplay"></iframe>
 				</div>
 
@@ -108,6 +103,7 @@ const Exercise = ({title, video, description}) => {
 						textLeft={t('exercise.nextExercise')}
 						textBold
 						disabled={btnNextIsDisabled}
+						onClick={onNext}
 					/>
 				</div>
 			</div>
