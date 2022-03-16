@@ -7,7 +7,7 @@ const InputSelect = ({name, onChange, value, options, label, style}) => {
 
 	return (
 		<div>
-			<label name={name}>{label}</label>
+			{label && <label name={name}>{label}</label>}
 			<div className={styles.container}>
 				<div className={styles.select}>
 					<select
@@ -18,7 +18,7 @@ const InputSelect = ({name, onChange, value, options, label, style}) => {
 						style={style}
 					>
 						{options.map((selectOption, key) => (
-							<option key={key} value={selectOption.value}>
+							<option key={key} hidden={selectOption?.hidden} value={selectOption.value}>
 								{selectOption.name}
 							</option>
 						))}

@@ -25,6 +25,7 @@ import TrainingLevel from '../pages/welcome/TrainingLevel/TrainningLevel';
 import WeightHeight from '../pages/welcome/WeightHeight/WeightHeight';
 import Contact from '../pages/Contact/Contact';
 import Dashboard from '../pages/Dashboard/Dashboard';
+import EditProfile from '../pages/EditProfile/EditProfile';
 
 import Nivelation from '../pages/Nivelation/Nivelation';
 import {AdminUserInfo} from '../pages/admin/UsersList/AdminUserInfo/AdminUserInfo';
@@ -115,6 +116,10 @@ const RouterApp = () => {
 						<Route
 							path={PATHS.MY_PROFILE}
 							element={<MyProfile />}
+						/>
+						<Route 
+							path={PATHS.EDIT_PROFILE}
+							element={<EditProfile />}
 						/>
 						<Route
 							path={PATHS.CHANGE_USER_PASSWORD}
