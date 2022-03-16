@@ -4,30 +4,20 @@ import {RegisterValidate} from './RegisterValidate';
 import Input from '../../components/Input/Input';
 import {useTranslation} from 'react-i18next';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import {Link} from 'react-router-dom';
 import Button from '../../components/Button/Button';
-import TopSpacing from '../../components/TopSpacing/TopSpacing';
 import Text from '../../components/Text/Text';
 import InputSelect from '../../components/InputSelect/InputSelect';
 import useStyles from './useStyles';
-import SexSelector from './SexSelector';
+import SexSelector from '../../components/SexSelector/SexSelector';
 import './Register.scss';
+import { Countries } from '../../constants/countries';
+
 
 export const Register = () => {
 	const {t} = useTranslation();
 	const styles = useStyles();
-
-	const selectOption = [
-		{
-			value: '',
-			placeholder: true,
-			name: t('auth.register.countrySelection'),
-		},
-		{value: 'argentina', name: t('auth.register.country1')},
-		{value: 'us', name: t('auth.register.country2')},
-		{value: 'mexico', name: t('auth.register.country3')},
-	];
-	const options = selectOption;
+	const countries = Countries({ t });
+	
 
 	const [type, setType] = useState('text');
 	const onFocus = () => setType('date');
@@ -239,7 +229,7 @@ export const Register = () => {
 						name='country'
 						defaulValue={values.country}
 						onChange={handleChange}
-						options={options}
+						options={countries}
 					/>
 
 					{errors.country && (

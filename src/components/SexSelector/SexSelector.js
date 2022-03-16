@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import useStyles from './useStyles';
-import  ButtonRadio from '../../components/ButtonRadio/ButtonRadio';
+import  ButtonRadio from '../ButtonRadio/ButtonRadio';
 
 
 const SexSelector = ({handleChange,checkedF,checkedM,checkedO}) => {
