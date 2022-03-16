@@ -11,6 +11,9 @@ import useStyles from './useStyles';
 import SexSelector from '../../components/SexSelector/SexSelector';
 import './Register.scss';
 import { Countries } from '../../constants/countries';
+import { imgToBase64 } from '../../utils/base64';
+import UserImage from '../../components/UserImage/UserImage';
+import { PROFILE_IMAGE_DEFAULT } from '../../constants/profileImageDefault';
 
 
 export const Register = () => {
@@ -25,9 +28,7 @@ export const Register = () => {
 
 	/*.....................................................................*/
 
-	const [baseImage, setBaseImage] = useState(
-		'https://yca.org.ar/wp-content/uploads/sites/4/2019/06/perfil-avatar-hombre-icono-redondo_24640-14044.jpg'
-	);
+	const [baseImage, setBaseImage] = useState('');
 
 	/*.....................................................................*/
 
@@ -57,39 +58,14 @@ export const Register = () => {
 
 	//Base64
 
-	const uploadImage = async (e) => {
-		const file = e.target.files[0];
-		const base64 = await convertBase64(file);
-		setBaseImage(base64);
-	};
 
 	const clickFile = () => {
 		document.getElementById('file').click();
 	};
-	const handleClickimg = (e) => {
-		uploadImage(e);
-	};
-
-	const convertBase64 = (file) => {
-		return new Promise((resolve, reject) => {
-			const fileReader = new FileReader();
-			fileReader.readAsDataURL(file);
-
-			fileReader.onload = () => {
-				resolve(fileReader.result);
-			};
-
-			fileReader.onerror = (error) => {
-				reject(error);
-			};
-		});
-
-		//Base64
-	};
+	const onChangeImg64 = (e) => imgToBase64({e, setter: setBaseImage});
 
 	const {handleChange, values, handleSubmit, errors} = useForm(
 		RegisterValidate,
-
 		baseImage
 	);
 
@@ -108,16 +84,10 @@ export const Register = () => {
 							className={styles.base1}
 							id='file'
 							type='file'
-							onChange={handleClickimg}
+							onChange={onChangeImg64}
 							hidden
 						/>
-						<img
-							className={styles.base2}
-							src={baseImage}
-							name='img'
-							onClick={clickFile}
-							alt='img'
-						/>
+						<UserImage edit onClick={clickFile} img={baseImage} />
 
 						<div className={styles.NL}>
 							<div className={styles.Fname}>

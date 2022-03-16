@@ -19,7 +19,7 @@ const MyProfile = () => {
 	const navigate = useNavigate();
 	const styles = useStyles();
 
-	const { startEnabledDate, endEnabledDate, goals, height, weight, level } =
+	const { startEnabledDate, endEnabledDate, goals, height, weight, level, img} =
 		useSelector((store) => store.user);
 
 	const handleChangePasswordNavigate = () =>
@@ -41,7 +41,7 @@ const MyProfile = () => {
 			col='12'
 			scroll
 		>
-			<CardInfo t={t} startEnabledDate={startEnabledDate} level={level} />
+			<CardInfo t={t} startEnabledDate={startEnabledDate} img={img} level={level} />
 			<div className={styles.importantBar}>
 				<ImportantBar
 					text={`${t('user.myProfile.endEnabledDate')}${cutDate(
