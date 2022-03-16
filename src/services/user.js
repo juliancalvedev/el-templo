@@ -31,12 +31,12 @@ export const editProfile =({img, firstName, lastName, sex, country, dateOfBirth 
 		 privatePut({
 			url: `${baseURL}/edit-basic-info`,
 			body: {
-				img: img,
-				firstName: firstName,
-				lastName: lastName,
-				sex: sex,
-				country: country,
-				dateOfBirth: dateOfBirth,
+				img,
+				firstName,
+				lastName,
+				sex,
+				country,
+				dateOfBirth,
 
 			},
 		});

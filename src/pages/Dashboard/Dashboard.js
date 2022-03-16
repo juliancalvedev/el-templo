@@ -15,7 +15,7 @@ import useStyles from './useStyles';
 
 const Dashboard = ({ colored = '3' }) => {
 	const { t } = useTranslation();
-	const { firstName, level } = useSelector((store) => store.user);
+	const { firstName, level, img } = useSelector((store) => store.user);
 	const [summary, setSummary] = useState(true);
 	const handleChange = () => {
 		setSummary(false);
@@ -26,7 +26,6 @@ const Dashboard = ({ colored = '3' }) => {
 			color={1}
 			text={`${t('dashboard.main.welcome')} ${firstName}!`}
 			shadow
-			back
 			col='12'
 			scroll
 			navbar
@@ -36,7 +35,7 @@ const Dashboard = ({ colored = '3' }) => {
 				className={styles.div}
 			>
 				<div className={styles.userimg}>
-					<UserImage />
+					<UserImage img={img} />
 				</div>
 				<div className={styles.containerColor}>
 					<div className={styles.textLevel}>

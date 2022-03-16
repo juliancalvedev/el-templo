@@ -1,22 +1,23 @@
-import { useSelector } from 'react-redux';
-import ImgProfileAvatar from '../../assets/images/ImgProfileAvatar';
+import EditAvatar from '../../assets/Icons/EditAvatar';
 import './UserImage.scss';
+import useStyles from './useStyles';
+import { PROFILE_IMAGE_DEFAULT } from '../../constants/profileImageDefault';
 
-const UserImage = ({ mode, onClick, src, value, name }) => {
-	const { img } = useSelector((store) => store.user);
-
-
+const UserImage = ({ edit, onClick, img }) => {
+	const styles = useStyles()
+	console.log('IMG', img);
 	return (
-		<div className='user__profile--image'>
-			{img ? (
-				<img
-				className={`user__profile--image user__profile--image--${mode}`}
-				src={img}
-				alt='no hay foto'
-			/>
-				) : (
-					<ImgProfileAvatar />
-			)}
+		<div className={styles.userImage} onClick={onClick} >
+			
+			  {img ? (
+			<div className='user__profile--image' style={{ backgroundImage: `url('${img}')`, height: '80px', width: '80px', backgroundSize: '100%'}}>
+				{ edit &&  <EditAvatar />}
+			</div>
+			) : (
+			<div className='user__profile--image' style={{ backgroundImage: `url('${PROFILE_IMAGE_DEFAULT}')`, height: '80px', width: '80px', backgroundSize: '100%'}}>
+				{ edit &&  <EditAvatar />}
+			</div>
+			)} 
 		</div>
 	);
 };

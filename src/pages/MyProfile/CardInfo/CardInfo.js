@@ -6,7 +6,7 @@ import { PATHS } from '../../../constants/paths';
 import { cutDate } from '../../../utils/date';
 import useStyles from './useStyles';
 
-const CardInfo = ({ level, t, startEnabledDate }) => {
+const CardInfo = ({ level, img, t, startEnabledDate }) => {
 	const navigation = useNavigate();
 
 	const onClickIcon = () => navigation(`/${PATHS.EDIT_PROFILE}`);
@@ -16,7 +16,7 @@ const CardInfo = ({ level, t, startEnabledDate }) => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.imageContainer}>
-				<UserImage />
+				<UserImage img={img} />
 			</div>
 			<div className={styles.textContainer}>
 				<Text

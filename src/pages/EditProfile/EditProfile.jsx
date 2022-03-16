@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { cutDate } from '../../utils/date'
 import useFetch from '../../hooks/useFetch'
+import { useEffect, useState } from 'react'
 import Text from '../../components/Text/Text'
 import { useNavigate } from 'react-router-dom'
 import Input from '../../components/Input/Input'
@@ -9,19 +10,24 @@ import UserImage from '../../components/UserImage/UserImage'
 import InputSelect from '../../components/InputSelect/InputSelect'
 import SexSelector from '../../components/SexSelector/SexSelector'
 import MainContainer from '../../components/MainContainer/MainContainer';
-
-
 import { Countries } from '../../constants/countries';
+import { editProfile} from '../../services/user'
+import { imgToBase64 } from '../../utils/base64'
 import { useTranslation } from 'react-i18next';
+import { PATHS } from '../../constants/paths'
 import { useSelector } from 'react-redux';
 import useStyles from './useStyles.js'
 import './EditProfile.scss';
-import { editProfile } from '../../services/user'
+import { getUserInfoAction } from '../../redux/user'
 
 const EditProfile = () => {
+  
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const { firstName, lastName, sex, country, dateOfBirth, img } = useSelector((store) => store.user);
-  const [values, setValues] = useState({ firstName, lastName, country, dateOfBirth, img, sex });
+  const [values, setValues] = useState({ firstName, lastName, country, dateOfBirth, sex });
+  const [baseImage, setBaseImage] = useState(img);
+
   const { t } = useTranslation();
   const countries = Countries({ t });
 
@@ -33,34 +39,47 @@ const EditProfile = () => {
   }
 
   useEffect(() => {
-    setValues({ firstName, lastName, country, dateOfBirth: cutDate(dateOfBirth), img, sex });
-  }, [firstName,])
+    setValues({ firstName, lastName, country, dateOfBirth: cutDate(dateOfBirth), sex });
+    setBaseImage(img);
+  }, [firstName])
 
-  console.log({firstName, lastName, country, dateOfBirth: cutDate(dateOfBirth)});
+  const dispatchInfo = () => {
+    dispatch(getUserInfoAction())
+    navigate(`/${PATHS.MY_PROFILE}`, { replace:true})
+  }
 
   const [data, error, apiCall] = useFetch({
-    service: () => editProfile({ ...values }),
+    service: () => editProfile({ ...values, img: baseImage }),
     globalLoader: true,
-    callback : () => navigate(-1)
-    
+    callback: () => dispatchInfo()
+
   });
-  
+
 
   const styles = useStyles();
   const clickFile = () => {
-		document.getElementById('file').click();
-	};
+    document.getElementById('file').click();
+  };
 
 
   const [type, setType] = useState('text');
   const onFocus = () => setType('date');
   const onBlur = () => setType('text');
 
+  const handleClickImage = (e) => imgToBase64({ e, setter: setBaseImage });
+
   return (
     <MainContainer back text='Edicion de perfil' shadow >
       <div className={styles.ImgAndName} >
         <div className={styles.userImg} >
-          <UserImage />
+          <input
+            className={styles.base1}
+            id='file'
+            type='file'
+            onChange={handleClickImage}
+            hidden
+          />
+          <UserImage small edit onClick={clickFile} img={baseImage} />
         </div>
         <div className={styles.userName} >
           <Input name='firstName' onChange={onChange} value={values.firstName} />
@@ -68,7 +87,7 @@ const EditProfile = () => {
         </div>
         {/*  */}
       </div>
-      <div className={styles.SexSelection} > 
+      <div className={styles.SexSelection} >
         <div className={styles.textSex}>
 
           <Text text='Sexo' bold />
@@ -77,7 +96,7 @@ const EditProfile = () => {
       </div>
 
       <div className={styles.inputBox} >
-        
+
 
         <InputSelect
           value={values.country}
