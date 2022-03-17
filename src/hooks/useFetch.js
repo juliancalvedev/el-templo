@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { cleanErrorAction, loadingAction, setErrorAction } from '../redux/api';
 
 
-const useFetch = ({service, globalLoader, callback = () => {}}) => {
+const useFetch = ({service, globalLoader, callback = () => {}, callNow = false}) => {
 
     const dispatch = useDispatch();
 
@@ -36,6 +36,12 @@ const useFetch = ({service, globalLoader, callback = () => {}}) => {
             setLoading(false);
         }
     }, [error, resp]);
+
+    useEffect(() => {
+        if(callNow){
+            apiCall();
+        }
+    }, [])
 
     return [resp, error, apiCall, loading]
 }

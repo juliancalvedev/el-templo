@@ -11,6 +11,7 @@ const NivelationExercise = () => {
   const [data, error, apiCall] = useFetch({
     service: () => getNivelationRoutine(),
     globalLoader: true,
+    callNow: true,
     callback: () => {
       if(data?.response){
 
@@ -25,17 +26,13 @@ const NivelationExercise = () => {
 
   const [training, setTraining] = useState({});
 
-  useEffect(() => {
-    apiCall();
-  }, []);
-
   return (
     <MainContainer color={2} text={t('user.nivelation.nivelation')} bg={1} back scroll col={12}>
 
       {stepper === 0 && <Exercise
-        title={training?.adaptation1?.exercise1?.exercise?.[`title${localStorage.getItem('lang').toUpperCase()}`]}
+        title={training?.adaptation1?.exercise1?.exercise?.[`title${localStorage?.getItem('lang')?.toUpperCase()}`]}
         video={training?.adaptation1?.exercise1?.exercise?.video}
-        description={training?.adaptation1?.exercise1?.exercise?.[`description${localStorage.getItem('lang').toUpperCase()}`]}
+        description={training?.adaptation1?.exercise1?.exercise?.[`description${localStorage?.getItem('lang')?.toUpperCase()}`]}
         onNext={() => setNextExercise(nextExercise + 1)}
         />}
     </MainContainer>

@@ -5,7 +5,6 @@ import { PROFILE_IMAGE_DEFAULT } from '../../constants/profileImageDefault';
 
 const UserImage = ({ edit, onClick, img }) => {
 	const styles = useStyles()
-	console.log('IMG', img);
 	return (
 		<div className={styles.userImage} onClick={onClick} >
 			

@@ -42,7 +42,7 @@ const Exercise = ({title, video, description, onNext}) => {
 	
 	const styles = useStyles({showChronometer});
 	return (
-		<MainContainer col='12'>
+		<MainContainer col='12' scroll>
 			<div className={styles.exerciseContainer}>
 				<div className={styles.titleContainer}>
 					<div className={styles.titleText}>
@@ -54,22 +54,14 @@ const Exercise = ({title, video, description, onNext}) => {
 								size='4'
 							/>
 						</div>
-						<div className={styles.exerciseName}>
-							<Text
-								// TODO Hacer la traducción para los ejercicios con una constante
-								text='Abdominales bolita'
-								bold
-								size='3'
-							/>
-						</div>
 					</div>
-					<div className={styles.totalTime}>
+					{/* <div className={styles.totalTime}>
 						<TotalTime totalTime={timeToShow} />
-					</div>
+					</div> */}
 				</div>
 
 				<div className={styles.gifContainer}>
-					<iframe src={video} className={styles.gif} width="100%" height="100%" frameBorder="0" allow="autoplay"></iframe>
+					<iframe src={video} className={styles.gif} frameBorder="0" allow="autoplay"></iframe>
 				</div>
 
 				<div

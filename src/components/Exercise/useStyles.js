@@ -8,8 +8,8 @@ const useStyles = ({showChronometer}) => {
 			'title__container--text d-flex flex-column align-items-start',
 		exerciseName: 'exerciseName',
 		totalTime: 'totalTime',
-		gifContainer: 'gifContainer col-11',
-		gif: 'gif',
+		gifContainer: 'col-12 video-container',
+		gif: 'video-iframe',
 		dropDownContainer: 'dropDownContainer col-12',
 		chronometerContainer: `chronometerContainer mt-5 ${showChronometer ? '' : 'd-none'}`,
 		btnNextContainer:
