@@ -78,7 +78,7 @@ const WeightHeight = () => {
 
 	const callback = () => {
 		dispatch(getUserInfoAction());
-		navigate(`/${PATHS.BASE_URL}`);
+		navigate(`/${PATHS.DASHBOARD}`);
 	};
 
 	const [data, error, apiCall] = useFetch({

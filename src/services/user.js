@@ -51,9 +51,7 @@ export const getUserInfo = async () => {
 	}
 };
 
-export const putTrainingInfo = async (trainingInfo) => {
-	try {
-		const response = await privatePut({
+export const putTrainingInfo = async (trainingInfo) => privatePut({
 			url: `${baseURL}/edit-training-info`,
 			body: {
 				goals: trainingInfo.goals,
@@ -61,11 +59,4 @@ export const putTrainingInfo = async (trainingInfo) => {
 				weight: trainingInfo.weight,
 				height: trainingInfo.height,
 			},
-		});
-		const { data, problem } = response.data;
-
-		return { data, problem };
-	} catch (error) {
-		alert(error);
-	}
-};
+		})
