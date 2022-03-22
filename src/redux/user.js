@@ -11,6 +11,8 @@ const defaultValue = {
 	email: null,
 	firstName: null,
 	lastName: null,
+	level: null,
+	experience: 0,
 	dateOfBirth: null,
 	sex: null,
 	country: null,
@@ -53,24 +55,12 @@ export default function UserReducer(state = defaultValue, { type, payload }) {
 	}
 }
 
-export const getUserInfoAction = () => async (dispatch) => {
-	try {
-		const { data, problem } = await getUserInfo();
-		if (problem) {
-			dispatch({
-				type: ERROR,
-			});
-		} else {
-			dispatch({
-				type: GET_USER_INFO,
-				payload: data?.user,
-			});
-		}
-	} catch (error) {
-		dispatch({
-			type: ERROR,
-		});
-	}
+export const getUserInfoAction = (data) => async (dispatch) => {
+	dispatch({
+		type: GET_USER_INFO,
+		payload: data,
+	});
+	
 };
 
 export const addGoalsToTrainingInfo = (data) => (dispatch) => {

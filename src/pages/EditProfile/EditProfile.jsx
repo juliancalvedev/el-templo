@@ -11,7 +11,7 @@ import InputSelect from '../../components/InputSelect/InputSelect'
 import SexSelector from '../../components/SexSelector/SexSelector'
 import MainContainer from '../../components/MainContainer/MainContainer';
 import { Countries } from '../../constants/countries';
-import { editProfile} from '../../services/user'
+import { editProfile, getUserInfo} from '../../services/user'
 import { imgToBase64 } from '../../utils/base64'
 import { useTranslation } from 'react-i18next';
 import { PATHS } from '../../constants/paths'
@@ -27,6 +27,7 @@ const EditProfile = () => {
   const { firstName, lastName, sex, country, dateOfBirth, img } = useSelector((store) => store.user);
   const [values, setValues] = useState({ firstName, lastName, country, dateOfBirth, sex });
   const [baseImage, setBaseImage] = useState(img);
+  const [callGetUserInfo, setCallGetUserInfo] = useState(false);
 
   const { t } = useTranslation();
   const countries = Countries({ t });
@@ -41,19 +42,30 @@ const EditProfile = () => {
   useEffect(() => {
     setValues({ firstName, lastName, country, dateOfBirth: cutDate(dateOfBirth), sex });
     setBaseImage(img);
-  }, [firstName])
+  }, [firstName]);
 
-  const dispatchInfo = () => {
-    dispatch(getUserInfoAction())
-    navigate(`/${PATHS.MY_PROFILE}`, { replace:true})
-  }
+  const [updated, errorUpdateInfo, updateInfo] = useFetch({
+		service: () => getUserInfo(),
+		globalLoader: true,
+		callback: () => {
+			dispatch(getUserInfoAction(updated?.user));
+      navigate(`/${PATHS.MY_PROFILE}`, { replace:true})
+		}
+	})
+
 
   const [data, error, apiCall] = useFetch({
     service: () => editProfile({ ...values, img: baseImage }),
     globalLoader: true,
-    callback: () => dispatchInfo()
+    callback: () => setCallGetUserInfo(true)
 
   });
+
+  useEffect(() => {
+    if(callGetUserInfo){
+      updateInfo();
+    }
+  }, [callGetUserInfo]);
 
 
   const styles = useStyles();
