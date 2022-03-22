@@ -110,7 +110,7 @@ const Login = () => {
 					placeholder={t('auth.login.passwordPlaceholder')}
 					onClickIcon={onClickIcon}
 					transparent
-					feedback={t('global.errors.validPassword')}
+					
 				/>
 
 				<Button onClick={apiCall} text={t('auth.login.btnLogin')} />
