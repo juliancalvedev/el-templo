@@ -1,13 +1,14 @@
 import AdminBar from '../../../components/AdminBar/AdminBar';
 import MainContainer from '../../../components/MainContainer/MainContainer';
 import Button from '../../../components/Button/Button';
-import {useNavigate} from 'react-router-dom';
-import {PATHS} from '../../../constants/paths';
+import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../../constants/paths';
 
 const AdminConfigScreen = () => {
 	const navigate = useNavigate();
 
 	const navigateToTags = () => navigate(`/${PATHS.ADMIN_TAGS}`);
+	const navigateToExercises = () => navigate(`/${PATHS.ADMIN_EXERCISES}`)
 
 	return (
 		<MainContainer col='12' navbar scroll>
@@ -28,6 +29,7 @@ const AdminConfigScreen = () => {
 					/>
 					<Button
 						text='Adminsitrar Ejercicios'
+						onClick={navigateToExercises}
 						size={2}
 						className='mt-3'
 					/>

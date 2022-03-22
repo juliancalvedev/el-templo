@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import useFetch from '../../../hooks/useFetch';
 import Button from '../../../components/Button/Button';
 import Input from '../../../components/Input/Input';
@@ -13,12 +13,12 @@ import {
 	putEditedTag,
 } from '../../../services/admin';
 import Text from '../../../components/Text/Text';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-const defaultOption = {value: null, name: 'default'};
+const defaultOption = { value: null, name: 'default' };
 
 const AdminTags = () => {
-	const {t} = useTranslation();
+	const { t } = useTranslation();
 
 	const [newTagData, setNewTagData] = useState({
 		id: '',
@@ -44,24 +44,24 @@ const AdminTags = () => {
 	const [refreshList, setRefreshList] = useState(true);
 	const [filterTags, setFilterTags] = useState('');
 
-	const [tagsList, errorTagsList, apiCallGetTagsList] = useFetch({
+	const [tagsListResponse, tagsListError, apiCallGetTagsList] = useFetch({
 		service: () => getTagsList(),
 		globalLoader: true,
-		callback: () => {},
+		callback: () => { },
 	});
 
-	const [bodyParts, errorGetBodyParts, apiCallGetBodyParts] = useFetch({
+	const [bodyPartsResponse, getBodyPartsError, apiCallGetBodyParts] = useFetch({
 		service: () => getBodyParts(),
 		globalLoader: true,
 		callback: () => {
-			const aux = bodyParts?.bodyParts.map((b) => {
-				return {name: b, value: b};
+			const aux = bodyPartsResponse?.bodyParts.map((b) => {
+				return { name: b, value: b };
 			});
 			setBodyPartsOptions([defaultOption, ...aux]);
 		},
 	});
 
-	const [newTagResponse, errorPostNewTag, apiCallCreateNewTag] = useFetch({
+	const [newTagResponse, postNewTagError, apiCallCreateNewTag] = useFetch({
 		service: () => postNewTag(newTagData),
 		globalLoader: true,
 		callback: () => {
@@ -69,7 +69,7 @@ const AdminTags = () => {
 		},
 	});
 
-	const [editTagResponse, errorEditTag, apiCallEditTag] = useFetch({
+	const [editTagResponse, editTagError, apiCallEditTag] = useFetch({
 		service: () => putEditedTag(newTagData),
 		globalLoader: true,
 		callback: () => {
@@ -77,7 +77,7 @@ const AdminTags = () => {
 		},
 	});
 
-	const [deleteTagResponse, errorDeleteTag, apiCallDeleteTag] = useFetch({
+	const [deleteTagResponse, deleteTagError, apiCallDeleteTag] = useFetch({
 		service: () => deleteTag(tagToDelete.id),
 		globalLoader: true,
 		callback: () => {
@@ -102,7 +102,7 @@ const AdminTags = () => {
 
 	const toggleModalCreateNewTag = (clearForm) => {
 		if (clearForm) {
-			setNewTagData({titleES: '', titleEN: '', bodyPart: ''});
+			setNewTagData({ titleES: '', titleEN: '', bodyPart: '' });
 		}
 		setShowModalSetTag(!showModalSetTag);
 		if (isEditingTag) setIsEditingTag(false);
@@ -119,15 +119,15 @@ const AdminTags = () => {
 		setShowModalSetTag(!showModalSetTag);
 	};
 
-	const handleInputChange = ({e, type}) => {
+	const handleInputChange = ({ e, type }) => {
 		if (type === 'es') {
-			setNewTagData({...newTagData, titleES: e.target.value});
+			setNewTagData({ ...newTagData, titleES: e.target.value });
 		}
 		if (type === 'en') {
-			setNewTagData({...newTagData, titleEN: e.target.value});
+			setNewTagData({ ...newTagData, titleEN: e.target.value });
 		}
 		if (type === 'select') {
-			setNewTagData({...newTagData, bodyPart: e.target.value});
+			setNewTagData({ ...newTagData, bodyPart: e.target.value });
 		}
 		if (type === 'filter') {
 			setFilterTags(e.target.value);
@@ -178,7 +178,7 @@ const AdminTags = () => {
 		<MainContainer col='12' navbar scroll>
 			<div
 				className='d-flex flex-column justify-content-start'
-				style={{height: '100vh'}}
+				style={{ height: '100vh' }}
 			>
 				{/* ▼▼▼▼▼▼ TopBar ▼▼▼▼▼▼ */}
 				<div
@@ -205,7 +205,7 @@ const AdminTags = () => {
 								placeholder={t('admin.tags.filterByTagName')}
 								value={filterTags}
 								onChange={(e) =>
-									handleInputChange({e: e, type: 'filter'})
+									handleInputChange({ e: e, type: 'filter' })
 								}
 							/>
 						</div>
@@ -216,10 +216,10 @@ const AdminTags = () => {
 				{/* ▼▼▼▼▼▼ List ▼▼▼▼▼▼ */}
 				<div
 					className='col-12 d-flex flex-column justify-content-center align-items-center'
-					style={{marginTop: '140px'}}
+					style={{ marginTop: '140px' }}
 				>
 					<div className='col-12 mb-5 pb-3 d-flex flex-column align-items-center'>
-						{tagsList?.tags
+						{tagsListResponse?.tags
 							?.filter((tag) =>
 								tag[`title${lang}`]
 									?.toLowerCase()
@@ -261,7 +261,7 @@ const AdminTags = () => {
 												/>
 											</div>
 
-											<div style={{width: '25%'}}>
+											<div style={{ width: '25%' }}>
 												<Button
 													text={t('admin.tags.edit')}
 													size={2}
@@ -271,7 +271,7 @@ const AdminTags = () => {
 												/>
 											</div>
 
-											<div style={{width: '25%'}}>
+											<div style={{ width: '25%' }}>
 												<Button
 													text={t(
 														'admin.tags.delete'
@@ -294,7 +294,7 @@ const AdminTags = () => {
 				{/* ▼▼▼▼▼▼ Modal Set New Tag ▼▼▼▼▼▼ */}
 				<Modal
 					show={showModalSetTag}
-					onClose={() => toggleModalCreateNewTag({clearForm: true})}
+					onClose={() => toggleModalCreateNewTag({ clearForm: true })}
 					header={
 						isEditingTag
 							? t(`admin.tags.editTag`)
@@ -306,14 +306,14 @@ const AdminTags = () => {
 							label={t(`admin.tags.spanishName`)}
 							value={newTagData.titleES}
 							onChange={(e) =>
-								handleInputChange({e: e, type: 'es'})
+								handleInputChange({ e: e, type: 'es' })
 							}
 						/>
 						<Input
 							label={t(`admin.tags.englishName`)}
 							value={newTagData.titleEN}
 							onChange={(e) =>
-								handleInputChange({e: e, type: 'en'})
+								handleInputChange({ e: e, type: 'en' })
 							}
 						/>
 						<div className='w-100'>
@@ -330,25 +330,24 @@ const AdminTags = () => {
 								})}
 								value={newTagData?.bodyPart}
 								onChange={(e) =>
-									handleInputChange({e: e, type: 'select'})
+									handleInputChange({ e: e, type: 'select' })
 								}
 								style={
 									newTagData?.bodyPart ===
 										'Seleccione una categoría' ||
-									newTagData?.bodyPart ===
+										newTagData?.bodyPart ===
 										'Select a Category' ||
-									newTagData?.bodyPart === ''
-										? {color: 'red'}
-										: {color: 'blue'}
+										newTagData?.bodyPart === ''
+										? { color: 'red' }
+										: { color: 'blue' }
 								}
 							/>
 						</div>
 						<Button
-							text={`${
-								isEditingTag
+							text={`${isEditingTag
 									? t(`admin.tags.saveChanges`)
 									: t(`admin.tags.createTag`)
-							}`}
+								}`}
 							onClick={onSubmitFormTag}
 						/>
 					</div>

@@ -33,6 +33,8 @@ import Admin from '../pages/admin/Admin';
 import AdminConfigScreen from '../pages/admin/AdminCofing/AdminConfig';
 import AdminTags from '../pages/admin/AdminTags/AdminTags';
 import NivelationExercise from '../pages/Nivelation/NivelationExercise/NivelationExercise';
+import AdminExercises from '../pages/admin/AdminExercises/AdminExercises';
+import AdminCreateEditExercise from '../pages/admin/AdminExercises/AdminCreateEditExercise/AdminCreateEditExercise';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -88,6 +90,14 @@ const RouterApp = () => {
 								<Route
 									path={PATHS.ADMIN_TAGS}
 									element={<AdminTags />}
+								/>
+								<Route
+									path={PATHS.ADMIN_EXERCISES}
+									element={<AdminExercises />}
+								/>
+								<Route
+									path={PATHS.ADMIN_CREATE_EDIT_EXERCISE}
+									element={<AdminCreateEditExercise />}
 								/>
 							</Route>
 						)}
