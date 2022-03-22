@@ -1,10 +1,10 @@
-import {useSelector} from 'react-redux';
-import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import PrivatedLayout from '../layouts/PrivatedLayout/PrivatedLayout';
 import PublicLayout from '../layouts/PublicLayout/PublicLayout';
 import AdminLayout from '../layouts/AdminLayout/AdminLayout';
 
-import {ROLES} from '../constants/roles';
+import { ROLES } from '../constants/roles';
 import Login from '../pages/Login/Login';
 import VerifiedEmail from '../pages/VerifiedEmail/VerifiedEmail';
 import ChangeUserPassword from '../pages/ChangeUserPassword/ChangeUserPassword';
@@ -16,7 +16,7 @@ import EnabledVerified from '../pages/EnabledVerified/EnabledVerified';
 
 import UsersList from '../pages/admin/UsersList/UsersList';
 import Help from '../pages/Help/Help';
-import {PATHS} from '../constants/paths';
+import { PATHS } from '../constants/paths';
 import MyProfile from '../pages/MyProfile/MyProfile';
 import Welcome from '../pages/welcome/Welcome/Welcome';
 import EmailRegisterSended from '../pages/EmailRegisterSended/EmailRegisterSended';
@@ -28,15 +28,15 @@ import Dashboard from '../pages/Dashboard/Dashboard';
 import EditProfile from '../pages/EditProfile/EditProfile';
 
 import Nivelation from '../pages/Nivelation/Nivelation';
-import {AdminUserInfo} from '../pages/admin/UsersList/AdminUserInfo/AdminUserInfo';
+import { AdminUserInfo } from '../pages/admin/UsersList/AdminUserInfo/AdminUserInfo';
 import Admin from '../pages/admin/Admin';
 import AdminConfigScreen from '../pages/admin/AdminCofing/AdminConfig';
 import AdminTags from '../pages/admin/AdminTags/AdminTags';
 import NivelationExercise from '../pages/Nivelation/NivelationExercise/NivelationExercise';
 
 const RouterApp = () => {
-	const {token} = useSelector((store) => store.auth);
-	const {role, goals, level} = useSelector((store) => store.user);
+	const { token } = useSelector((store) => store.auth);
+	const { role, goals, level } = useSelector((store) => store.user);
 
 	const savedToken = localStorage.getItem('token');
 
@@ -117,7 +117,7 @@ const RouterApp = () => {
 							path={PATHS.MY_PROFILE}
 							element={<MyProfile />}
 						/>
-						<Route 
+						<Route
 							path={PATHS.EDIT_PROFILE}
 							element={<EditProfile />}
 						/>
