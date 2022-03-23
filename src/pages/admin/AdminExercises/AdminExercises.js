@@ -28,12 +28,12 @@ const AdminExercises = () => {
     }
 
     return (
-        <MainContainer col='12' navbar scroll back shadow text='PEPE' >
+        <MainContainer col='12' navbar scroll shadow back text='Administrar Ejercicios' >
             {/* ▼▼▼▼▼▼ TopBar ▼▼▼▼▼▼ */}
             <div
                 style={{
                     position: 'fixed',
-                    top: 0,
+                    top: 53,
                     width: '100%',
                     maxWidth: '800px',
                     backgroundColor: 'rgba(11,11,11,.5)',
