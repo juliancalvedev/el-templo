@@ -8,19 +8,19 @@ import Text from "../../components/Text/Text";
 import Button from "../../components/Button/Button";
 import ImgDashboard from "../../assets/images/ImgDashboard";
 import WeeklyCalendar from "../../components/WeeklyCalendar/WeeklyCalendar";
-import NavBar from '../../components/Navbar/Navbar';
 import useStyles from './useStyles';
 
 
 
-const Dashboard = ({ colored = '3' }) => {
+const Dashboard = () => {
 	const { t } = useTranslation();
-	const { firstName, level, img } = useSelector((store) => store.user);
+	const { firstName, level, img, experience } = useSelector((store) => store.user);
 	const [summary, setSummary] = useState(true);
 	const handleChange = () => {
 		setSummary(false);
 	}
-	const styles = useStyles({ colored });
+	const styles = useStyles();
+	const xp = ((100 * experience) / 24) + 4;
 	return (
 		<MainContainer
 			color={1}
@@ -47,11 +47,10 @@ const Dashboard = ({ colored = '3' }) => {
 						/>
 					</div>
 					<div className={styles.boxcontainer}>
-						<div className={styles.boxColor}
-						></div>
+						<div className={styles.boxColor} style={{width: `${xp}%`}}></div>
 					</div>
 					<div>
-						<Text justify={'end'} size='1' text={'N3'} />
+						<Text justify={'end'} size='1' text={level + 1} />
 					</div>
 				</div>
 			</div>

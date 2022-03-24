@@ -42,14 +42,7 @@ export const editProfile =({img, firstName, lastName, sex, country, dateOfBirth 
 		});
 
 
-export const getUserInfo = async () => {
-	try {
-		const userInfo = await privateGet({ url: `${baseURL}/info` });
-		return userInfo.data;
-	} catch (error) {
-		return error;
-	}
-};
+export const getUserInfo = async () => privateGet({ url: `${baseURL}/info` });
 
 export const putTrainingInfo = async (trainingInfo) => privatePut({
 			url: `${baseURL}/edit-training-info`,
