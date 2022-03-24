@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import Button from '../../../../components/Button/Button'
 import Input from '../../../../components/Input/Input'
 import InputSelect from '../../../../components/InputSelect/InputSelect'
 import MainContainer from '../../../../components/MainContainer/MainContainer'
+import Tag from '../../../../components/Tag/Tag'
 import Text from '../../../../components/Text/Text'
 import TextArea from '../../../../components/TextArea/TextArea'
 import useFetch from '../../../../hooks/useFetch'
-import { getTagsList } from '../../../../services/admin'
+import { getTagsList, postNewExercise } from '../../../../services/admin'
 
 const AdminCreateEditExercise = () => {
     const lang = localStorage.getItem('lang').toUpperCase();
@@ -35,6 +37,12 @@ const AdminCreateEditExercise = () => {
         },
     });
 
+    const [newExerciseResponse, newExerciseError, apiCallCreateNewExercise] = useFetch({
+        service: () => postNewExercise(newExerciseData),
+        globalLoader: true,
+        callback: () => { },
+    });
+
     const handleOnChangeInputs = (e) => {
         setNewExerciseData({
             ...newExerciseData,
@@ -42,10 +50,10 @@ const AdminCreateEditExercise = () => {
         })
     }
 
-    const onClickTag = (e) => {
+    const addTag = (e) => {
         const tagId = e.target.value
         if (tagId !== 'default') { // Prevent Default
-            if (!newExerciseData?.tags.some((el) => el === tagId)) { // If actualy exists, doesn't adds again.
+            if (!newExerciseData?.tags.some((tag) => tag === tagId)) { // If does exists, doesn't adds it again.
                 setNewExerciseData({
                     ...newExerciseData,
                     tags: [...newExerciseData.tags, tagId]
@@ -53,12 +61,39 @@ const AdminCreateEditExercise = () => {
             }
         }
     }
-    // console.log(newExerciseData?.tags)
-    console.log(tagsList)
+    const deleteTag = (tag) => {
+        const auxArr = [...newExerciseData?.tags]
+
+        for (let i = 0; i < auxArr.length; i++) {
+            if (auxArr[i] === tag) {
+                auxArr.splice(auxArr.indexOf(tag), 1)
+            }
+        }
+        setNewExerciseData({
+            ...newExerciseData,
+            tags: auxArr
+        })
+    }
+    const onSubmit = () => {
+        // TODO Poner validaciones para que no se puedan envíar ningún campo vacío, y mínimo un Tag.
+        apiCallCreateNewExercise()
+    }
+
+    console.log(newExerciseData)
+    // console.log(tagsList)
     return (
         <MainContainer col='12' navbar scroll topbar back bg={1} color={2} text={'Crear Nuevo Ejercicio'} >
             <div className='col-12 d-flex flex-column justify-content-start align-items-center h-100'>
                 <div className='col-10 d-flex flex-column align-items-center'>
+                    <Input
+                        label={
+                            // t(`admin.tags.englishName`)
+                            'Video'
+                        }
+                        placeholder='<iframe>...'
+                        name='video'
+                        onChange={handleOnChangeInputs}
+                    />
                     <Input
                         label={
                             // t(`admin.tags.englishName`)
@@ -98,7 +133,7 @@ const AdminCreateEditExercise = () => {
                                     'Tags'
                                 }
                                 name='tags'
-                                onClick={(e) => onClickTag(e)}
+                                onClick={(e) => addTag(e)}
                                 options={tagsList?.map((tag) => {
                                     return {
                                         value: tag._id,
@@ -113,12 +148,20 @@ const AdminCreateEditExercise = () => {
                             <Text text={'Cargando Tags'} />
                         </div>
                     }
-                    <div className='col-10 d-flex flex-column align-items-center'>
+                    <div className='col-12 d-flex align-items-center flex-wrap mt-2 pb-4'>
                         {newExerciseData?.tags?.map((tag) => {
                             const tagToShow = tagsList.find(e => e._id === tag)
-                            return tagToShow.titleES
+                            return <Tag
+                                key={tag}
+                                text={`${tagToShow[`title${lang}`]}`}
+                                onClick={() => deleteTag(tag)}
+                            />
                         })}
                     </div>
+                </div>
+
+                <div className='col-10 my-3'>
+                    <Button text='Crear Ejercicio' onClick={onSubmit} />
                 </div>
             </div>
         </MainContainer>

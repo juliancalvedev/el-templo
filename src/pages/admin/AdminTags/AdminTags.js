@@ -343,13 +343,15 @@ const AdminTags = () => {
 								}
 							/>
 						</div>
-						<Button
-							text={`${isEditingTag
+						<div className='my-3 col-12'>
+							<Button
+								text={`${isEditingTag
 									? t(`admin.tags.saveChanges`)
 									: t(`admin.tags.createTag`)
-								}`}
-							onClick={onSubmitFormTag}
-						/>
+									}`}
+								onClick={onSubmitFormTag}
+							/>
+						</div>
 					</div>
 				</Modal>
 				{/* ▲▲▲▲▲▲ Modal Create New Tag ▲▲▲▲▲▲ */}

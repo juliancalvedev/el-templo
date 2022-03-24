@@ -7,16 +7,36 @@ import {
 
 const baseURL = '/admin';
 
-export const getUsers = () => privateGet({url: `${baseURL}/users`});
+export const getUsers = () => privateGet({ url: `${baseURL}/users` });
 
-export const postNewTag = ({titleES, titleEN, bodyPart}) =>
-	privatePost({url: `${baseURL}/tag`, body: {titleES, titleEN, bodyPart}});
+export const postNewTag = ({ titleES, titleEN, bodyPart }) =>
+	privatePost({ url: `${baseURL}/tag`, body: { titleES, titleEN, bodyPart } });
 
-export const putEditedTag = ({id, titleES, titleEN, bodyPart}) =>
-	privatePut({url: `${baseURL}/tag/${id}`, body: {titleES, titleEN, bodyPart}});
+export const postNewExercise = ({
+	titleES,
+	titleEN,
+	descriptionES,
+	descriptionEN,
+	tags,
+	video }) => {
+	privatePost({
+		url: `${baseURL}/exercise`, body: {
+			titleES,
+			titleEN,
+			descriptionES,
+			descriptionEN,
+			tags,
+			video
+		}
+	});
+}
 
-export const getTagsList = () => privateGet({url: `${baseURL}/tag`});
+export const putEditedTag = ({ id, titleES, titleEN, bodyPart }) =>
+	privatePut({ url: `${baseURL}/tag/${id}`, body: { titleES, titleEN, bodyPart } });
 
-export const deleteTag = (id) => privateDelete({url: `${baseURL}/tag/${id}`});
+export const getTagsList = () => privateGet({ url: `${baseURL}/tag` });
 
-export const getBodyParts = () => privateGet({url: `/public/body-parts`});
+export const deleteTag = (id) => privateDelete({ url: `${baseURL}/tag/${id}` });
+
+export const getBodyParts = () => privateGet({ url: `/public/body-parts` });
+
