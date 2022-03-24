@@ -28,13 +28,13 @@ const InputSelect = ({
 						style={style}
 						multiple={multiple}
 						readOnly={readOnly}
+						onClick={onClick}
 					>
 						{options.map((selectOption, key) => (
 							<option
 								key={key}
 								hidden={selectOption?.hidden}
 								value={selectOption.value}
-								onClick={onClick}
 							>
 								{selectOption.name}
 							</option>

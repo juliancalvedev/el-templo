@@ -28,8 +28,9 @@ const AdminCreateEditExercise = () => {
         apiCallGetTagsList()
     }, [])
 
-
-    // console.log(tagsList?.tags[0]._id)
+    const onClickTag = (e) => {
+        console.log(e.target.value)
+    }
 
     return (
         <MainContainer col='12' navbar scroll topbar back bg={1} color={2} text={'Crear Nuevo Ejercicio'} >
@@ -68,13 +69,11 @@ const AdminCreateEditExercise = () => {
                                     'Tags'
                                 }
                                 name='tags'
-                                // =======================================
-                                // Hacer que el input select pase un ID
-                                // =======================================
+                                onClick={(e) => onClickTag(e)}
                                 options={tagsList?.tags?.map((tag) => {
                                     return {
-                                        id: tag._id,
-                                        name: `${tag[`title${lang}`]}`
+                                        value: tag._id,
+                                        name: `${tag[`title${lang}`]}`,
                                     };
                                 })}
                                 value={true}
