@@ -9,6 +9,10 @@ const baseURL = '/admin';
 
 export const getUsers = () => privateGet({ url: `${baseURL}/users` });
 
+export const getExercises = () => privateGet({ url: `${baseURL}/exercise` });
+
+export const getExerciseById = ({ id }) => privateGet({ url: `${baseURL}/exercise/${id}` });
+
 export const postNewTag = ({ titleES, titleEN, bodyPart }) =>
 	privatePost({ url: `${baseURL}/tag`, body: { titleES, titleEN, bodyPart } });
 

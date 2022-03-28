@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
 import Button from '../../../../components/Button/Button'
 import Input from '../../../../components/Input/Input'
 import InputSelect from '../../../../components/InputSelect/InputSelect'
@@ -8,11 +9,13 @@ import Tag from '../../../../components/Tag/Tag'
 import Text from '../../../../components/Text/Text'
 import TextArea from '../../../../components/TextArea/TextArea'
 import useFetch from '../../../../hooks/useFetch'
-import { getTagsList, postNewExercise } from '../../../../services/admin'
+import { getExerciseById, getTagsList, postNewExercise } from '../../../../services/admin'
 
 const AdminCreateEditExercise = () => {
     const lang = localStorage.getItem('lang').toUpperCase();
     const { t } = useTranslation()
+    const location = useLocation()
+
 
     const [newExerciseData, setNewExerciseData] = useState({
         titleES: '',
@@ -23,7 +26,42 @@ const AdminCreateEditExercise = () => {
         video: ''
     });
     const [tagsList, setTagsList] = useState();
-    const [submitIsDisabled, setSubmitIsDisabled] = useState(true)
+    const [submitIsDisabled, setSubmitIsDisabled] = useState(true);
+    const [exerciseIdToEdit, setExerciseIdToEdit] = useState(null);
+    const [isEditing, setIsEditing] = useState(false)
+
+    const [exerciseToEditResponse, exerciseToEditError, apiCallExerciseToEdit] = useFetch({
+        service: () => getExerciseById({ id: exerciseIdToEdit }),
+        globalLoader: true,
+        callback: () => {
+            setNewExerciseData({
+                titleES: exerciseToEditResponse?.exercise?.titleES,
+                titleEN: exerciseToEditResponse?.exercise?.titleEN,
+                descriptionES: exerciseToEditResponse?.exercise?.descriptionES,
+                descriptionEN: exerciseToEditResponse?.exercise?.descriptionEN,
+                tags: exerciseToEditResponse?.exercise?.tags,
+                video: exerciseToEditResponse?.exercise?.video
+            })
+        },
+    });
+
+    useEffect(() => {
+        const id = location?.state?.id
+        if (id === undefined) {
+            setIsEditing(false)
+        } else {
+            setIsEditing(true)
+        }
+        setExerciseIdToEdit(id)
+    }, [])
+
+    useEffect(() => {
+        if (isEditing) {
+            apiCallExerciseToEdit()
+        }
+    }, [isEditing])
+
+    console.log('is Editing; ', isEditing)
 
     const [tagsListFetch, tagsListError, apiCallGetTagsList] = useFetch({
         service: () => getTagsList(),
@@ -100,6 +138,8 @@ const AdminCreateEditExercise = () => {
     // console.log(tagsList)
     // console.log(alerts)
 
+    // console.log(newExerciseData)
+
     return (
         // TODO Poner Translate al TopBar
         <MainContainer col='12' navbar scroll topbar back bg={1} color={2} text={'Crear Nuevo Ejercicio'} >
@@ -167,13 +207,16 @@ const AdminCreateEditExercise = () => {
                         </div>
                     }
                     <div className='col-12 d-flex align-items-center flex-wrap mt-2 pb-4'>
-                        {newExerciseData?.tags?.map((tag) => {
-                            const tagToShow = tagsList.find(e => e._id === tag)
-                            return <Tag
-                                key={tag}
-                                text={`${tagToShow[`title${lang}`]}`}
-                                onClick={() => deleteTag(tag)}
-                            />
+                        {newExerciseData?.tags?.map((tag, i) => {
+                            // TODO Revisar por qué el tagToShow está undefined
+                            const tagToShow = tagsList?.find(e => e?._id === tag)
+                            return (
+                                <Tag
+                                    key={i}
+                                    text={`${tagToShow[`title${lang}`]}`}
+                                    onClick={() => deleteTag(tag)}
+                                />
+                            )
                         })}
                     </div>
                 </div>
