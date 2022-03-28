@@ -2,7 +2,7 @@ import React from 'react'
 import useStyles from './useStyles';
 import './TextArea.scss'
 
-
+// TODO revisar el margen interior del text area (que no existe y debería existir)
 const TextArea = ({
     onBlur,
     onFocus,

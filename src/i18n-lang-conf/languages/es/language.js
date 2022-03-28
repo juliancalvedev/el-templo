@@ -374,6 +374,19 @@ const es = {
 				bottom: 'Inferior',
 			},
 		},
+		exercises: {
+			video: 'Video',
+			spanishName: 'Nombre en Español',
+			spanishDescription: 'Descripción en Español',
+			englishName: 'Nombre en Inglés',
+			englishDescription: 'Descripción en Inglés',
+			tags: 'Tags',
+			minOneTag: 'Por favor, establezca al menos un Tag.',
+			loadingTags: 'Cargando Tags...',
+			reviewFields: 'Por favor, asegúrese que todos los campos estén completos.',
+			createExercise: 'Crear Ejercicio',
+
+		}
 	},
 	errors: {
 		generic: 'Oops, ocurrió un error.',
