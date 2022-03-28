@@ -5,3 +5,6 @@
  - Revisar en ADMIN_USER_INFO el tema de cómo se pasan las props por el navigate,
  y cambiarlo por solo pasar el id, 
 y hacer un nuevo fetch en la nueva página
+
+- revisar en ADMIN_CREATE_EDIT_EXERCISE, a veces, auqnue la petición sea correcta, 
+sale el toast rojo de error.

@@ -12,7 +12,6 @@ const PrivatedLayout = () => {
 		globalLoader: true,
 		callNow: true,
 		callback: () => {
-			// console.log(data.user);
 			dispatch(getUserInfoAction(data?.user));
 		}
 	})

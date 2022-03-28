@@ -23,7 +23,7 @@ export const postNewExercise = ({
 	descriptionEN,
 	tags,
 	video }) => {
-	privatePost({
+	return privatePost({
 		url: `${baseURL}/exercise`, body: {
 			titleES,
 			titleEN,
@@ -31,6 +31,20 @@ export const postNewExercise = ({
 			descriptionEN,
 			tags,
 			video
+		}
+	});
+}
+
+export const putEditExercise = ({ id, body }) => {
+
+	return privatePut({
+		url: `${baseURL}/exercise/${id}`, body: {
+			titleES: body.titleES,
+			titleEN: body.titleEN,
+			descriptionES: body.descriptionES,
+			descriptionEN: body.descriptionEN,
+			tags: body.tags,
+			video: body.video
 		}
 	});
 }

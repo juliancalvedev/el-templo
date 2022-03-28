@@ -385,6 +385,10 @@ const es = {
 			loadingTags: 'Cargando Tags...',
 			reviewFields: 'Por favor, asegúrese que todos los campos estén completos.',
 			createExercise: 'Crear Ejercicio',
+			saveChanges: 'Guardar Cambios',
+			createNewExercise: 'Crear Nuevo Ejercicio',
+			editExercise: 'Editar Ejercicio',
+			loadingTags: 'Cargando Tags...'
 
 		}
 	},

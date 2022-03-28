@@ -387,6 +387,11 @@ const en = {
 			loadingTags: 'Loading Tags...',
 			reviewFields: 'Please, check all fields.',
 			createExercise: 'Create Exercise',
+			saveChanges: 'Save Changes',
+			createNewExercise: 'Create New Exercise',
+			editExercise: 'Edit Exercise',
+			loadingTags: 'Loading Tags...'
+
 
 		}
 	},

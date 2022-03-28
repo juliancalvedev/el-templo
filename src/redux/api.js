@@ -9,18 +9,17 @@ const NEW_ERROR = 'NEW_ERROR';
 const CLEAN_ERROR = 'CLEAN_ERROR';
 const LOADING = 'LOADING';
 
-export default function ApiReducer( state = defaultValue, { type, payload }) {
+export default function ApiReducer(state = defaultValue, { type, payload }) {
 
-    switch(type){
-        case NEW_ERROR: return {...state, isError: true, message: payload.message, code: payload.code, loading: false };
-        case LOADING: return {...state, isError: false, loading: true };
-        case CLEAN_ERROR: return {...state, ...defaultValue};
+    switch (type) {
+        case NEW_ERROR: return { ...state, isError: true, message: payload.message, code: payload.code, loading: false };
+        case LOADING: return { ...state, isError: false, loading: true };
+        case CLEAN_ERROR: return { ...state, ...defaultValue };
         default: return state;
     }
 };
 
 export const setErrorAction = error => dispatch => {
-
     dispatch({
         type: NEW_ERROR,
         payload: {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Button from '../../../../components/Button/Button'
 import Input from '../../../../components/Input/Input'
 import InputSelect from '../../../../components/InputSelect/InputSelect'
@@ -8,14 +8,15 @@ import MainContainer from '../../../../components/MainContainer/MainContainer'
 import Tag from '../../../../components/Tag/Tag'
 import Text from '../../../../components/Text/Text'
 import TextArea from '../../../../components/TextArea/TextArea'
+import { PATHS } from '../../../../constants/paths'
 import useFetch from '../../../../hooks/useFetch'
-import { getExerciseById, getTagsList, postNewExercise } from '../../../../services/admin'
+import { getExerciseById, getTagsList, postNewExercise, putEditExercise } from '../../../../services/admin'
 
 const AdminCreateEditExercise = () => {
     const lang = localStorage.getItem('lang').toUpperCase();
-    const { t } = useTranslation()
-    const location = useLocation()
-
+    const { t } = useTranslation();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const [newExerciseData, setNewExerciseData] = useState({
         titleES: '',
@@ -29,21 +30,7 @@ const AdminCreateEditExercise = () => {
     const [submitIsDisabled, setSubmitIsDisabled] = useState(true);
     const [exerciseIdToEdit, setExerciseIdToEdit] = useState(null);
     const [isEditing, setIsEditing] = useState(false)
-
-    const [exerciseToEditResponse, exerciseToEditError, apiCallExerciseToEdit] = useFetch({
-        service: () => getExerciseById({ id: exerciseIdToEdit }),
-        globalLoader: true,
-        callback: () => {
-            setNewExerciseData({
-                titleES: exerciseToEditResponse?.exercise?.titleES,
-                titleEN: exerciseToEditResponse?.exercise?.titleEN,
-                descriptionES: exerciseToEditResponse?.exercise?.descriptionES,
-                descriptionEN: exerciseToEditResponse?.exercise?.descriptionEN,
-                tags: exerciseToEditResponse?.exercise?.tags,
-                video: exerciseToEditResponse?.exercise?.video
-            })
-        },
-    });
+    const [editingExercise, setEditingExercise] = useState();
 
     useEffect(() => {
         const id = location?.state?.id
@@ -51,8 +38,8 @@ const AdminCreateEditExercise = () => {
             setIsEditing(false)
         } else {
             setIsEditing(true)
+            setExerciseIdToEdit(id)
         }
-        setExerciseIdToEdit(id)
     }, [])
 
     useEffect(() => {
@@ -60,8 +47,6 @@ const AdminCreateEditExercise = () => {
             apiCallExerciseToEdit()
         }
     }, [isEditing])
-
-    console.log('is Editing; ', isEditing)
 
     const [tagsListFetch, tagsListError, apiCallGetTagsList] = useFetch({
         service: () => getTagsList(),
@@ -78,10 +63,34 @@ const AdminCreateEditExercise = () => {
         },
     });
 
+    const [exerciseToEditResponse, exerciseToEditError, apiCallExerciseToEdit] = useFetch({
+        service: () => getExerciseById({ id: exerciseIdToEdit }),
+        globalLoader: true,
+        callback: () => {
+            setNewExerciseData({
+                titleES: exerciseToEditResponse?.exercise?.titleES,
+                titleEN: exerciseToEditResponse?.exercise?.titleEN,
+                descriptionES: exerciseToEditResponse?.exercise?.descriptionES,
+                descriptionEN: exerciseToEditResponse?.exercise?.descriptionEN,
+                tags: exerciseToEditResponse?.exercise?.tags.map(tag => tag._id),
+                video: exerciseToEditResponse?.exercise?.video
+            })
+        },
+    });
+
     const [newExerciseResponse, newExerciseError, apiCallCreateNewExercise] = useFetch({
         service: () => postNewExercise(newExerciseData),
         globalLoader: true,
-        callback: () => { },
+        callback: () => { navigate(`/${PATHS.ADMIN_EXERCISES}`) },
+    });
+
+    const [editExerciseResponse, editExerciseError, apiCallEditExercise] = useFetch({
+        service: () => putEditExercise({
+            id: exerciseIdToEdit,
+            body: newExerciseData
+        }),
+        globalLoader: true,
+        callback: () => { navigate(`/${PATHS.ADMIN_EXERCISES}`) },
     });
 
     const handleOnChangeInputs = (e) => {
@@ -117,7 +126,10 @@ const AdminCreateEditExercise = () => {
     }
 
     const onSubmit = () => {
-        apiCallCreateNewExercise()
+        isEditing ?
+            apiCallEditExercise()
+            :
+            apiCallCreateNewExercise()
     }
 
     useEffect(() => {
@@ -134,33 +146,44 @@ const AdminCreateEditExercise = () => {
         }
     }, [newExerciseData])
 
-    // console.log(newExerciseData)
-    // console.log(tagsList)
-    // console.log(alerts)
-
-    // console.log(newExerciseData)
-
     return (
-        // TODO Poner Translate al TopBar
-        <MainContainer col='12' navbar scroll topbar back bg={1} color={2} text={'Crear Nuevo Ejercicio'} >
+        <MainContainer
+            col='12'
+            navbar
+            scroll
+            topbar
+            back
+            bg={1}
+            color={2}
+            text={
+                isEditing ?
+                    t(`admin.exercises.editExercise`)
+                    :
+                    t('admin.exercises.createNewExercise')
+            }
+        >
             <div className='col-12 d-flex flex-column justify-content-start align-items-center h-100'>
                 <div className='col-10 d-flex flex-column align-items-center'>
                     <Input
                         label={t(`admin.exercises.video`)}
                         placeholder='<iframe>...'
                         name='video'
+                        value={newExerciseData.video}
                         onChange={handleOnChangeInputs}
                     />
                     <Input
                         label={t(`admin.exercises.spanishName`)}
                         placeholder={t(`admin.exercises.spanishName`)}
                         name='titleES'
+                        value={newExerciseData.titleES}
                         onChange={handleOnChangeInputs}
                     />
                     <TextArea
                         label={t(`admin.exercises.spanishDescription`)}
                         placeholder={t(`admin.exercises.spanishDescription`)}
                         name='descriptionES'
+                        value={newExerciseData.descriptionES}
+
                         onChange={handleOnChangeInputs}
                     />
                     <Input
@@ -168,11 +191,15 @@ const AdminCreateEditExercise = () => {
                         placeholder={t(`admin.exercises.englishName`)}
                         onChange={handleOnChangeInputs}
                         name='titleEN'
+                        value={newExerciseData.titleEN}
+
                     />
                     <TextArea
                         label={t(`admin.exercises.englishDescription`)}
                         placeholder={t(`admin.exercises.englishDescription`)}
                         name='descriptionEN'
+                        value={newExerciseData.descriptionEN}
+
                         onChange={handleOnChangeInputs}
                     />
                     {tagsList ?
@@ -203,18 +230,17 @@ const AdminCreateEditExercise = () => {
                         </div>
                         :
                         <div className='mt-4'>
-                            <Text text={'Cargando Tags'} />
+                            <Text text={t('admin.exercises.loadingTags')} />
                         </div>
                     }
                     <div className='col-12 d-flex align-items-center flex-wrap mt-2 pb-4'>
                         {newExerciseData?.tags?.map((tag, i) => {
-                            // TODO Revisar por qué el tagToShow está undefined
                             const tagToShow = tagsList?.find(e => e?._id === tag)
                             return (
                                 <Tag
                                     key={i}
-                                    text={`${tagToShow[`title${lang}`]}`}
-                                    onClick={() => deleteTag(tag)}
+                                    text={tagToShow?.[`title${lang}`]}
+                                    onClick={() => { deleteTag(tag) }}
                                 />
                             )
                         })}
@@ -222,10 +248,18 @@ const AdminCreateEditExercise = () => {
                 </div>
 
                 <div className='col-10 my-3'>
-                    <Button text={t('admin.exercises.createExercise')} onClick={onSubmit} disabled={submitIsDisabled} />
+                    <Button
+                        text={
+                            isEditing ?
+                                t(`admin.exercises.saveChanges`)
+                                :
+                                t('admin.exercises.createExercise')
+                        } onClick={onSubmit}
+                        disabled={submitIsDisabled}
+                    />
                 </div>
             </div>
-        </MainContainer>
+        </MainContainer >
     )
 }
 
