@@ -376,6 +376,24 @@ const en = {
 				bottom: 'Bottom',
 			},
 		},
+		exercises: {
+			video: 'Video',
+			spanishName: 'Spanish Name',
+			spanishDescription: 'Spanish Description',
+			englishName: 'English Name',
+			englishDescription: 'English Description',
+			tags: 'Tags',
+			minOneTag: 'Please, choise at less one Tag',
+			loadingTags: 'Loading Tags...',
+			reviewFields: 'Please, check all fields.',
+			createExercise: 'Create Exercise',
+			saveChanges: 'Save Changes',
+			createNewExercise: 'Create New Exercise',
+			editExercise: 'Edit Exercise',
+			loadingTags: 'Loading Tags...'
+
+
+		}
 	},
 	errors: {
 		generic: 'Oops, an error occurred.',

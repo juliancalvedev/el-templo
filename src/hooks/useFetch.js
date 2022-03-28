@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { cleanErrorAction, loadingAction, setErrorAction } from '../redux/api';
 
 
-const useFetch = ({service, globalLoader, callback = () => {}, callNow = false}) => {
+const useFetch = ({ service, globalLoader, callback = () => { }, callNow = false }) => {
 
     const dispatch = useDispatch();
 
@@ -12,33 +12,33 @@ const useFetch = ({service, globalLoader, callback = () => {}, callNow = false})
     const [loading, setLoading] = useState(false);
 
     const apiCall = async () => {
-        try{
+        try {
             setLoading(true);
-            if(globalLoader) {
+            if (globalLoader) {
                 dispatch(loadingAction());
             }
             const response = await service();
             const { data, problem } = response?.data;
             setResp(data);
             setError(problem);
-        } catch( err ){
+        } catch (err) {
             setError({ message: 'generic', code: 500 })
         }
     }
-    
+
     useEffect(() => {
-        if(resp){
+        if (resp) {
             callback();
             dispatch(cleanErrorAction());
             setLoading(false);
-        } else if(error){
+        } else if (error) {
             dispatch(setErrorAction(error));
             setLoading(false);
         }
     }, [error, resp]);
 
     useEffect(() => {
-        if(callNow){
+        if (callNow) {
             apiCall();
         }
     }, [])

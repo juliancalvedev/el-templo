@@ -5,7 +5,9 @@ export const PATHS = {
 	ADMIN_USERS_LIST: 'admin-users-list',
 	ADMIN_USER_INFO: 'admin-user-info',
 	ADMIN_TAGS: 'admin-tags',
-	
+	ADMIN_EXERCISES: 'admin-exercises',
+	ADMIN_CREATE_EDIT_EXERCISE: 'admin-create-edit-exercise',
+
 	CHANGE_USER_PASSWORD: 'change-user-password',
 	LOGIN: 'login',
 	PASSWORD_RECOVERY: 'password-recovery',
@@ -46,5 +48,5 @@ export const TOPBAR_TEXTS = {
 	[PATHS.EMAIL_REGISTER_SENDED]: 'topBar.emailRegisterSended',
 	[PATHS.CONTACT]: 'topBar.contact',
 	[PATHS.DASHBOARD]: 'topBar.dashboard',
-	[PATHS.EDIT_PROFILE] : 'topBar.editProfile',
+	[PATHS.EDIT_PROFILE]: 'topBar.editProfile',
 };

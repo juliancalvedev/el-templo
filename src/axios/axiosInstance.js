@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.response.use((config) => {
-    if(config.status === 403){
+    if (config.status === 403) {
         localStorage.clear();
         window.location.href = '/';
     }

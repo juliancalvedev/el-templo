@@ -1,8 +1,8 @@
-import {useEffect} from 'react';
-import {useDispatch} from 'react-redux';
-import {Outlet} from 'react-router';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Outlet } from 'react-router';
 import useFetch from '../../hooks/useFetch';
-import {getUserInfoAction} from '../../redux/user';
+import { getUserInfoAction } from '../../redux/user';
 import { getUserInfo } from '../../services/user';
 
 const PrivatedLayout = () => {
@@ -12,7 +12,6 @@ const PrivatedLayout = () => {
 		globalLoader: true,
 		callNow: true,
 		callback: () => {
-			console.log(data.user);
 			dispatch(getUserInfoAction(data?.user));
 		}
 	})
