@@ -35,6 +35,8 @@ import AdminTags from '../pages/admin/AdminTags/AdminTags';
 import NivelationExercise from '../pages/Nivelation/NivelationExercise/NivelationExercise';
 import AdminExercises from '../pages/admin/AdminExercises/AdminExercises';
 import AdminCreateEditExercise from '../pages/admin/AdminExercises/AdminCreateEditExercise/AdminCreateEditExercise';
+import AdminLevels from '../pages/admin/AdminLevels/AdminLevels';
+import AdminTrainingBlocks from '../pages/admin/AdminLevels/AdminTrainingBlocks/AdminTrainingBlocks';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -80,20 +82,28 @@ const RouterApp = () => {
 									element={<AdminConfigScreen />}
 								/>
 								<Route
+									path={PATHS.ADMIN_TAGS}
+									element={<AdminTags />}
+								/>
+								<Route
+									path={PATHS.ADMIN_TRAINING_LEVEL}
+									element={<AdminTrainingBlocks />}
+								/>
+								<Route
+									path={PATHS.ADMIN_LEVELS}
+									element={<AdminLevels />}
+								/>
+								<Route
+									path={PATHS.ADMIN_EXERCISES}
+									element={<AdminExercises />}
+								/>
+								<Route
 									path={PATHS.ADMIN_USERS_LIST}
 									element={<UsersList />}
 								/>
 								<Route
 									path={PATHS.ADMIN_USER_INFO}
 									element={<AdminUserInfo />}
-								/>
-								<Route
-									path={PATHS.ADMIN_TAGS}
-									element={<AdminTags />}
-								/>
-								<Route
-									path={PATHS.ADMIN_EXERCISES}
-									element={<AdminExercises />}
 								/>
 								<Route
 									path={PATHS.ADMIN_CREATE_EDIT_EXERCISE}

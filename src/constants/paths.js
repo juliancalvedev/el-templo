@@ -6,6 +6,8 @@ export const PATHS = {
 	ADMIN_USER_INFO: 'admin-user-info',
 	ADMIN_TAGS: 'admin-tags',
 	ADMIN_EXERCISES: 'admin-exercises',
+	ADMIN_LEVELS: 'admin-levels',
+	ADMIN_TRAINING_LEVEL: 'admin-trainings/:level',
 	ADMIN_CREATE_EDIT_EXERCISE: 'admin-create-edit-exercise',
 
 	CHANGE_USER_PASSWORD: 'change-user-password',

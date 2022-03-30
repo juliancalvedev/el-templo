@@ -8,6 +8,7 @@ const AdminConfigScreen = () => {
 	const navigate = useNavigate();
 
 	const navigateToTags = () => navigate(`/${PATHS.ADMIN_TAGS}`);
+	const navigateToLevels = () => navigate(`/${PATHS.ADMIN_LEVELS}`)
 	const navigateToExercises = () => navigate(`/${PATHS.ADMIN_EXERCISES}`)
 
 	return (
@@ -23,7 +24,8 @@ const AdminConfigScreen = () => {
 						className='mt-5'
 					/>
 					<Button
-						text='Adminsitrar Entrenamientos'
+						text='Adminsitrar Niveles'
+						onClick={navigateToLevels}
 						size={2}
 						className='mt-3'
 					/>

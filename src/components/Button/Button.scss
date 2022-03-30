@@ -1,13 +1,20 @@
 @import '../../styles/variables.scss';
 
 .button {
+	height: 40px;
 	border: 0;
 	background-color: transparent;
+
 	&:not(.button-color--4) {
 		border-radius: 15px;
 	}
 	&:not(.button-color--3):not(.button-color--4) {
 		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	}
+	&-circle {
+		height: 50px;
+		width: 50px;
+		border-radius: 100px !important;
 	}
 	&-color {
 		&--1 {
