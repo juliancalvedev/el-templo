@@ -10,20 +10,8 @@
 - Al entrar con El Mail Verificado, pero la cuenta No Habilitida, se muestra la pantalla 
 'Aún no ha sido verificado.'
 
-- Login- el botón está descentrado.
-
-- page de Buenvenido al Templo;
-  -Botón descentrado
-
 - la página de Peso y Altura;
   -También tiene el botón descentrado.
-  -Al hacer click en Entrar, 
-    se queda la página de carga indefinidamente. 
-  -Pero al refrescar la página, continúa correctamente al Main.
-
-- page My-profile;
-  -Los botones de abajo de Contraseña y cerrar sesión, están cortitos.
-  -Al clickear el botón de Editar Perfil, rebienta, y página en blanco.
 
 - page forgotten-password,
  -Botón descentrado.
