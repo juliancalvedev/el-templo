@@ -8,50 +8,50 @@ import TrainedDay from '../TrainedDay/TrainedDay';
 // TODO Cambiar esta constante por los datos del BackEnd
 const weeklyTraining = [
 	{
-		day: 'monday',
+		day: 'Mon',
 		number: 6,
 		trained: true,
 	},
 	{
-		day: 'tuesday',
+		day: 'Tue',
 		number: 7,
 		trained: true,
 	},
 	{
-		day: 'wednesday',
+		day: 'Wed',
 		number: 8,
 		trained: false,
 	},
 	{
-		day: 'thursday',
+		day: 'Thu',
 		number: 9,
 		trained: false,
 	},
 	{
-		day: 'friday',
+		day: 'Fri',
 		number: 10,
 		trained: false,
 	},
 	{
-		day: 'saturday',
+		day: 'Sat',
 		number: 11,
 		trained: false,
 	},
 	{
-		day: 'sunday',
+		day: 'Sun',
 		number: 12,
 		trained: false,
 	},
 ];
 
 const daysOfWeek = [
-	'sunday',
-	'monday',
-	'tuesday',
-	'wednesday',
-	'thursday',
-	'friday',
-	'saturday',
+	'Sun',
+	'Mon',
+	'Tue',
+	'Wed',
+	'Thu',
+	'Fri',
+	'Sat',
 ];
 
 const WeeklyCalendar = () => {
