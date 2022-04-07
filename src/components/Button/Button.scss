@@ -24,8 +24,8 @@
 			border: 2px solid $tertiary;
 			background-color: $nineth;
 		}
-		&--3 {
-		}
+		// &--3 {
+		// }
 		&--4 {
 			background-color: $nineth;
 			border: 2px solid #ccc;
@@ -35,6 +35,10 @@
 		&--5 {
 			border: 2px solid rgba(219, 17, 17, 0.534);
 			background-color: rgba(202, 19, 19, 0.24);
+		}
+		&--6 {
+			border: 2px solid rgba(91, 219, 17, 0.534);
+			background-color: rgba(86, 202, 19, 0.24);
 		}
 	}
 }
