@@ -37,6 +37,7 @@ import AdminExercises from '../pages/admin/AdminExercises/AdminExercises';
 import AdminCreateEditExercise from '../pages/admin/AdminExercises/AdminCreateEditExercise/AdminCreateEditExercise';
 import AdminLevels from '../pages/admin/AdminLevels/AdminLevels';
 import AdminTrainingBlocks from '../pages/admin/AdminLevels/AdminTrainingBlocks/AdminTrainingBlocks';
+import AdminTraining from '../pages/admin/AdminLevels/AdminTraining/AdminTraining';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -88,6 +89,10 @@ const RouterApp = () => {
 								<Route
 									path={PATHS.ADMIN_TRAINING_LEVEL}
 									element={<AdminTrainingBlocks />}
+								/>
+								<Route
+									path={PATHS.ADMIN_TRAINING}
+									element={<AdminTraining />}
 								/>
 								<Route
 									path={PATHS.ADMIN_LEVELS}

@@ -25,7 +25,6 @@ const AdminLevels = () => {
         <MainContainer back color={2} bg={1} col={12} text='Niveles' navbar scroll>
             <div
                 className='col-12 d-flex flex-column align-items-center'
-            // style={{ backgroundColor: 'red' }}
             >
                 <div className='mt-3'>
                     <Text

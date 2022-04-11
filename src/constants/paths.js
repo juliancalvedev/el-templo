@@ -7,6 +7,7 @@ export const PATHS = {
 	ADMIN_TAGS: 'admin-tags',
 	ADMIN_EXERCISES: 'admin-exercises',
 	ADMIN_LEVELS: 'admin-levels',
+	ADMIN_TRAINING: 'admin-training',
 	ADMIN_TRAINING_LEVEL: 'admin-trainings/:level',
 	ADMIN_CREATE_EDIT_EXERCISE: 'admin-create-edit-exercise',
 

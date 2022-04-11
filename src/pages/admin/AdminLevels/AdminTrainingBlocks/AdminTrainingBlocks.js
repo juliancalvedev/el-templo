@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Button from '../../../../components/Button/Button'
 import MainContainer from '../../../../components/MainContainer/MainContainer'
 import Text from '../../../../components/Text/Text'
+import { PATHS } from '../../../../constants/paths'
 import useFetch from '../../../../hooks/useFetch'
 import { getLevelByNumber } from '../../../../services/admin'
 
 const AdminTrainingBlocks = () => {
+    const navigate = useNavigate()
     const { level } = useParams('level')
 
     const [routineBlocks, setRoutineBlocks] = useState()
@@ -37,12 +39,20 @@ const AdminTrainingBlocks = () => {
                             :
                             6}
                         circle
-                        onClick={() => console.log(routineBlock && routineBlock[`day${i}`])}
+                        onClick={() => routineBlock ?
+                            onClickDayButton(routineBlock[`day${i}`])
+                            :
+                            console.error('ERROR: Selected day has not assigned ID.')}
                     />
                 </div>
             ))
         }
         return auxArr
+    }
+
+    const onClickDayButton = (id) => {
+        console.log(id)
+        navigate(`/${PATHS.ADMIN_TRAINING}`, { state: { trainingDayId: id } })
     }
 
     return (
