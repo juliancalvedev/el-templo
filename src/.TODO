@@ -1,10 +1,68 @@
+- El texto 'ver mas' de /help está descentrado.
 
+- Revisar en ADMIN_USER_INFO el tema de cómo se pasan las props por el navigate,
+  y cambiarlo por solo pasar el id,
+  y hacer un nuevo fetch en la nueva página
 
- - El texto 'ver mas' de /help está descentrado.
+- revisar en ADMIN_CREATE_EDIT_EXERCISE, a veces, auqnue la petición sea correcta,
+  sale el toast rojo de error.
 
- - Revisar en ADMIN_USER_INFO el tema de cómo se pasan las props por el navigate,
- y cambiarlo por solo pasar el id, 
-y hacer un nuevo fetch en la nueva página
+----------- COSAS DEL TODO ANTIGUO -------------------
 
-- revisar en ADMIN_CREATE_EDIT_EXERCISE, a veces, auqnue la petición sea correcta, 
-sale el toast rojo de error.
+- Register;
+  -Al clickear el link de verificación del mail, lleva a una ruta https://el-templo.web.app,
+  con toda la pantalla en blanco. Al refrescar nada ocurre, el usuario No Es Verificado.
+  -El link de Terminos y condiciones, no hace nada.
+  -El input SexSelector está chuequísimo.
+  -El input Pais, no abre al tocar en cuaqluier lugar del input, sino en un area de la izquierda
+  de tamaño variable.
+
+- Al entrar con El Mail Verificado, pero la cuenta No Habilitida, se muestra la pantalla
+  'Aún no ha sido verificado.'
+
+- Login- el botón está descentrado.
+
+- page de Buenvenido al Templo;
+  -Botón descentrado
+
+- la página de Peso y Altura;
+  -También tiene el botón descentrado.
+  -Al hacer click en Entrar,
+  se queda la página de carga indefinidamente.
+  -Pero al refrescar la página, continúa correctamente al Main.
+
+- page My-profile;
+  -Los botones de abajo de Contraseña y cerrar sesión, están cortitos.
+  -Al clickear el botón de Editar Perfil, rebienta, y página en blanco.
+
+- page forgotten-password,
+  -Botón descentrado.
+  -El link del mail para verificar contraseña puede que no esté funcionando correctamente.
+
+- page Dashboard;
+  -No tiene scroll vertical, el botón de abajo queda oculto tras el navbar.
+  -El botón que dice 'VER DETALLE' al lado de 'Resumen de mi progreso', está fuera de la pantalla.
+  -'VER DETALLE', al clickearlo te muestra los DETALLES, pero no te permite volver atrás.
+  -El boton de 'Comenzar a Entrenar' no hace nada (imagino que aún no esta la page hecha).
+
+- page Nivelation;
+  -Botón descentrado, y al clickearlo nada ocurre.
+
+- page Help;
+  -Ha que ver el tema de los DropsDowns.
+  -El botón de 'Tienes duda sobre tu entrenamiento?', esta fuera de la pantalla.
+  -Los dropDown permiten ser abiertos, y al tocar otro, se cierra uno y se abre el tocado,
+  pero no permite cerrarse al tocarse uno abierto.
+  -El Botón 'Terminos y condiciones' redirige a page Contact.
+
+- page Contact;
+  -Las tres barritas marrones no están en contacto con el lateral.
+  -Le falta el TopBar.
+
+- si no hay imagen, que aparezca la imagen por default, Y si no hay img y creas la cuenta o editas el perfil y sigue sin haber img, que no se envie al backend la default img, que el front decida si mostrar la img por defecto o la del back
+
+- hacer que el onClick de los inputs funcione (date y select)
+
+- Editar Info del usuario, al enviar asi nomas los formularios no esta checkeado el sexo por default y hay error con el DateOfBirth que no lo toma como date, sino como string
+
+- Traducciones en AdminConfig.js
