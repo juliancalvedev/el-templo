@@ -50,7 +50,7 @@ const Dashboard = () => {
 						<div className={styles.boxColor} style={{width: `${xp}%`}}></div>
 					</div>
 					<div>
-						<Text justify={'end'} size='1' text={level + 1} />
+						<Text justify={'end'} size='1' text={`${t('dashboard.main.level')} ${level + 1}`} />
 					</div>
 				</div>
 			</div>
