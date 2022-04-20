@@ -42,9 +42,9 @@ export const editProfile =({img, firstName, lastName, sex, country, dateOfBirth 
 		});
 
 
-export const getUserInfo = async () => privateGet({ url: `${baseURL}/info` });
+export const getUserInfo = () => privateGet({ url: `${baseURL}/info` });
 
-export const putTrainingInfo = async (trainingInfo) => privatePut({
+export const putTrainingInfo = (trainingInfo) => privatePut({
 			url: `${baseURL}/edit-training-info`,
 			body: {
 				goals: trainingInfo.goals,
@@ -53,3 +53,5 @@ export const putTrainingInfo = async (trainingInfo) => privatePut({
 				height: trainingInfo.height,
 			},
 		})
+
+export const getDashboard = () => privateGet({ url: `${baseURL}/dashboard` });

@@ -53,13 +53,13 @@ const es = {
 		december: 'Diciembre',
 	},
 	daysShort: {
-		monday: 'L',
-		tuesday: 'M',
-		wednesday: 'MI',
-		thursday: 'J',
-		friday: 'V',
-		saturday: 'S',
-		sunday: 'D',
+		Mon: 'L',
+		Tue: 'M',
+		Wed: 'MI',
+		Thu: 'J',
+		Fri: 'V',
+		Sat: 'S',
+		Sun: 'D',
 	},
 
 	auth: {
