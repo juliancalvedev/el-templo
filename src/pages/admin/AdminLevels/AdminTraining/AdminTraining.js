@@ -1,24 +1,41 @@
-import React from 'react'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import useFetch from '../../../../hooks/useFetch'
-import { getTrainingById } from '../../../../services/admin'
+import React from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import MainContainer from '../../../../components/MainContainer/MainContainer';
+import TrainedDay from '../../../../components/TrainedDay/TrainedDay';
+import TrainingCard from '../../../../components/TrainingCard/TrainingCard';
+import useFetch from '../../../../hooks/useFetch';
+import { getTrainingById } from '../../../../services/admin';
 
 const AdminTraining = () => {
-    const navigate = useNavigate()
-    const { trainingDayId } = useLocation().state
+	const navigate = useNavigate();
+	const { trainingDayId, trainingLevel, trainingDay, trainingBlock } =
+		useLocation().state;
 
-    const [trainingResponse, trainingError, apiCallTraining] = useFetch({
-        service: () => getTrainingById({ id: trainingDayId }),
-        globalLoader: true,
-        callNow: true,
-        callback: () => { },
-    });
+	const [trainingResponse, trainingError, apiCallTraining] = useFetch({
+		service: () => getTrainingById({ id: trainingDayId }),
+		globalLoader: true,
+		callNow: true,
+		callback: () => {},
+	});
 
-    console.log(trainingResponse)
+	return (
+		<MainContainer
+			back
+			color={2}
+			bg={1}
+			col={12}
+			text={`Nivel: ${trainingLevel} - Bloque: ${trainingBlock} - Día: ${trainingDay}`}
+			navbar
+			scroll
+			alignCenter
+		>
+			<TrainingCard />
+			<TrainingCard />
+			<TrainingCard />
+			<TrainingCard />
+			<TrainingCard />
+		</MainContainer>
+	);
+};
 
-    return (
-        <div>Pag de Admin Trainigns</div>
-    )
-}
-
-export default AdminTraining
+export default AdminTraining;

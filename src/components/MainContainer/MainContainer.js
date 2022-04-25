@@ -5,11 +5,11 @@ import TopBar from '../TopBar/TopBar';
 import './MainContainer.scss';
 import useStyles from './useStyles';
 
-const MainContainer = ({ children, scroll, backgroundImg, col = '11', navbar, ...topbarOptions }) => {
+const MainContainer = ({ children, scroll, backgroundImg, col = '11', navbar, alignCenter, ...topbarOptions }) => {
 
 	const topbar = !isEmpty({ ...topbarOptions });
 
-	const styles = useStyles({scroll, backgroundImg, col, banner: topbarOptions?.banner, navbar});
+	const styles = useStyles({ scroll, backgroundImg, col, banner: topbarOptions?.banner, navbar, alignCenter });
 
 	return (
 		<div className={styles.container}>

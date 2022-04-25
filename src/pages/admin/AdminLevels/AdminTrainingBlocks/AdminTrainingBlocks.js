@@ -26,7 +26,7 @@ const AdminTrainingBlocks = () => {
         },
     });
 
-    const levelsOfBlocks = (routineBlock) => {
+    const levelsOfBlocks = (routineBlock, blockNumber) => {
         let auxArr = []
         for (let i = 1; i <= 8; i++) {
             auxArr.push((
@@ -37,10 +37,15 @@ const AdminTrainingBlocks = () => {
                             routineBlock && routineBlock[`day${i}`] === undefined ?
                             5
                             :
-                            6}
+                            6
+                        }
                         circle
                         onClick={() => routineBlock ?
-                            onClickDayButton(routineBlock[`day${i}`])
+                            onClickDayButton({
+                                trainingDayId: routineBlock[`day${i}`],
+                                trainingBlock: blockNumber,
+                                trainingDay: i
+                            })
                             :
                             console.error('ERROR: Selected day has not assigned ID.')}
                     />
@@ -50,9 +55,16 @@ const AdminTrainingBlocks = () => {
         return auxArr
     }
 
-    const onClickDayButton = (id) => {
-        console.log(id)
-        navigate(`/${PATHS.ADMIN_TRAINING}`, { state: { trainingDayId: id } })
+    const onClickDayButton = ({ trainingDayId, trainingBlock, trainingDay }) => {
+        navigate(`/${PATHS.ADMIN_TRAINING}`,
+            {
+                state: {
+                    trainingDayId: trainingDayId,
+                    trainingLevel: level,
+                    trainingBlock: trainingBlock,
+                    trainingDay: trainingDay
+                }
+            })
     }
 
     return (
@@ -71,16 +83,16 @@ const AdminTrainingBlocks = () => {
                 >
                     <div className='d-flex flex-column text-center'>
                         <Text text={'Bloque 1'} size={4} />
-                        {routineBlocks && levelsOfBlocks(routineBlocks?.block1)}
+                        {routineBlocks && levelsOfBlocks(routineBlocks?.block1, 1)}
                     </div>
                     <div className='d-flex flex-column text-center'>
 
                         <Text text={'Bloque 2'} size={4} />
-                        {routineBlocks && levelsOfBlocks(routineBlocks?.block2)}
+                        {routineBlocks && levelsOfBlocks(routineBlocks?.block2, 2)}
                     </div>
                     <div className='d-flex flex-column text-center'>
                         <Text text={'Bloque 3'} size={4} />
-                        {routineBlocks && levelsOfBlocks(routineBlocks?.block3)}
+                        {routineBlocks && levelsOfBlocks(routineBlocks?.block3, 3)}
                     </div>
                 </div>
             </div>
