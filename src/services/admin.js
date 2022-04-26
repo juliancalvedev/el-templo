@@ -17,7 +17,7 @@ export const getLevelByNumber = (levelNumber) => privateGet({ url: `training/lev
 
 export const getExerciseById = ({ id }) => privateGet({ url: `${baseURL}/exercise/${id}` });
 
-export const getTrainingById = ({ id }) => privateGet({ url: `training/${id}` });
+export const getRoutineById = ({ id }) => privateGet({ url: `training/routine/${id}` });
 
 export const postNewTag = ({ titleES, titleEN, bodyPart }) =>
 	privatePost({ url: `${baseURL}/tag`, body: { titleES, titleEN, bodyPart } });

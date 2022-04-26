@@ -18,7 +18,6 @@ const AdminLevels = () => {
     });
 
     const navigateToLevel = (level) => {
-        console.log(level)
         navigate(`/${PATHS.ADMIN_TRAINING_LEVEL.replace(':level', level)}`)
     }
     return (
