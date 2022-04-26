@@ -1,13 +1,23 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { PATHS } from '../../../../constants/paths';
-import Button from '../../../../components/Button/Button';
 import MainContainer from '../../../../components/MainContainer/MainContainer';
 import useFetch from '../../../../hooks/useFetch';
-import { getUserById } from '../../../../services/admin';
+import { getUserById, enableOrDisableUser, changeUserLevel } from '../../../../services/admin';
+import Text from '../../../../components/Text/Text';
+import { useTranslation } from 'react-i18next';
+import Point from '../../../../assets/Icons/Point';
+import Button from '../../../../components/Button/Button';
+import Input from '../../../../components/Input/Input';
+import { compareWithCurrDate, cutDate } from '../../../../utils/date';
 
 export const AdminUserInfo = () => {
+
+	const { t } = useTranslation();
+
 	const navigate = useNavigate();
+	const [user, setUser] = useState({});
+	const [changeLevel, setChangeLevel] = useState(false);
+	const [newLevel, setNewLevel] = useState(0);
 
 	const id = useLocation()?.search?.split('id=')?.[1];
 	if (!id) {
@@ -16,8 +26,26 @@ export const AdminUserInfo = () => {
 
 	const [data, error, apiCall] = useFetch({
 		service: () => getUserById(id),
-		globalLoader: true
+		globalLoader: true,
+		callback: () => {setUser(data?.user); setChangeLevel(false);}
 	})
+	const [activateDate, activateError, activateApiCall] = useFetch({
+		service: () => enableOrDisableUser(id, user.endEnabledDate && !compareWithCurrDate(user.endEnabledDate)),
+		globalLoader: true,
+		callback: () => apiCall()
+	})
+	const [changeLevelData, changeLevelError, changeLevelApiCall] = useFetch({
+		service: () => changeUserLevel(id, newLevel),
+		globalLoader: true,
+		callback: () => apiCall()
+	})
+
+	const onChangeLevelInput = (e) => {
+		const { value } = e.target;
+		if (value >= 0 && value <= 12) {
+			setNewLevel(value);
+		}
+	}
 
 	useEffect(() => {
 		if (id) {
@@ -26,28 +54,43 @@ export const AdminUserInfo = () => {
 	}, [id])
 
 	return (
-		<MainContainer col='12' text={`${data?.user?.firstName + ' ' + data?.user?.lastName}`} back>
-			<div className=''>
-					{/* <ul>
-						<li>ID: {_id}</li>
-						<li>Email: {email}</li>
-						<li>Nombre: {firstName}</li>
-						<li>Apellido: {lastName}</li>
-						<li>Fecha de Nacimiento: {dateOfBirth}</li>
-						<li>Sexo: {sex}</li>
-						<li>País: {country}</li>
-						<li>
-							Imagen:{' '}
-							{<img src={img} style={{ height: '50px' }}></img>}
-						</li>
-						<li>Fecha de Creación: {createdAt}</li>
-						<li>Rol: {role}</li>
-						<li>Verificación de Email: {emailIsVerified}</li>
-						<li>Usuario Habilitado: {enabled}</li>
-						<li>Nivel: {level}</li>
-						<li>Comienzo de Habilitación: {startEnabledDate}</li>
-						<li>Finalización de Habilitación: {endEnabledDate}</li>
-					</ul> */}
+		<MainContainer col='12' text={`${data?.user?.firstName + ' ' + data?.user?.lastName}`} back navbar scroll shadow>
+			<div class="card col-10 m-auto mt-3">
+				<div class="card-body">
+					<div className='d-flex flex-column align-items-start col-12'>
+						<div className='col-12'>
+							<div className='d-flex col-6 align-items-center'>
+								<Text text={`${t('admin.userTable.level')}: `} />
+								{changeLevel ? <Input value={newLevel} onChange={onChangeLevelInput} type='number' /> : <Text text={user.level} />}
+							{!changeLevel && <div className='col-6'>
+
+								<Button onClick={() => { setChangeLevel(true); setNewLevel(user.level); }} text="change level" size={2} />
+							</div>}
+								<div className='d-flex'>
+
+									{changeLevel && <Button text='guardar' onClick={changeLevelApiCall} />}
+									{changeLevel && <Button text='cancelar' type={2} onClick={() => setChangeLevel(false)} />}
+								</div>
+								<div className='col-3'>
+
+
+								</div>
+							</div>
+						</div>
+						<div className='d-flex align-items-center col-12'>
+							<Text text={`${t('admin.userTable.enabled')}:`} />
+							<Point active={user.endEnabledDate && !compareWithCurrDate(user.endEnabledDate)} />
+							<Button onClick={activateApiCall} text="activar" size={2} />
+						</div>
+						<Text text={`${t('admin.userTable.email')}: ${user.email}`} />
+						<Text text={`${t('admin.userTable.name')}: ${user.firstName} ${user.lastName}`} />
+						<Text text={`${t('admin.userTable.sex')}: ${user.sex}`} />
+						<Text text={`${t('admin.userTable.country')}: ${user.country}`} />
+						<Text text={`${t('admin.userTable.enabledDate')}: ${cutDate(user.startEnabledDate)}`} />
+						<Text text={`${t('admin.userTable.disabledDate')}: ${cutDate(user.endEnabledDate)}`} />
+					</div>
+
+				</div>
 			</div>
 		</MainContainer>
 	);

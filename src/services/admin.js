@@ -8,6 +8,8 @@ import {
 const baseURL = '/admin';
 
 export const getUserById = (id) => privateGet({ url: `${baseURL}/users/${id}`});
+export const enableOrDisableUser = (id, currentState) => privateGet({ url: `${baseURL}/${currentState ? 'disable' : 'enable'}-user/${id}`});
+export const changeUserLevel = (id, newLevel) => privatePut({ url: `${baseURL}/level-user/${id}`, body: { level: newLevel }  });
 export const getUsers = ({ offset, search, limit }) => {
 
 	let query = offset || search || limit ? '?' : '';

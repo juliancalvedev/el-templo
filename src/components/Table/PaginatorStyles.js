@@ -1,5 +1,4 @@
 const PaginatorStyles = ({ offset, totalPages }) => {
-    console.log(offset, totalPages);
     return {
         prevPage: `${offset === 0 ? '' : 'page-item cursorPointer'}`,
         pageItem: 'page-item',

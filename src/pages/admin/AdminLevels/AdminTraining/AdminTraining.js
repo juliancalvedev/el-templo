@@ -14,8 +14,6 @@ const AdminTraining = () => {
         callback: () => { },
     });
 
-    console.log(trainingResponse)
-
     return (
         <div>Pag de Admin Trainigns</div>
     )

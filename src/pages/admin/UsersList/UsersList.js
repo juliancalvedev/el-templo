@@ -6,7 +6,7 @@ import Table from '../../../components/Table/Table';
 import Button from '../../../components/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../../constants/paths';
-import { cutDate } from '../../../utils/date';
+import { cutDate, compareWithCurrDate } from '../../../utils/date';
 import { useTranslation } from 'react-i18next';
 import Point from '../../../assets/Icons/Point';
 
@@ -71,7 +71,7 @@ const UsersList = () => {
 						startEnabledDate: cutDate(u.startEnabledDate),
 						endEnabledDate: cutDate(u.endEnabledDate),
 						name: `${u.firstName} ${u.lastName}`,
-						enabled: <Point active={new Date() > u.endEnabledDate}/>,
+						enabled: <Point active={u.endEnabledDate && !compareWithCurrDate(u.endEnabledDate)}/>,
 						options: <Button
 							text='Ver'
 							size={3}

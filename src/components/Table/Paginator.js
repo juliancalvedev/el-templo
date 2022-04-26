@@ -8,7 +8,6 @@ const Paginator = ({ offset, onSetPage, total, limit = 20 }) => {
     const styles = PaginatorStyles({offset, totalPages});
 
     const onClickPage = (num) => {
-        console.log(num);
         if(num >= 0 && num <= (totalPages - 1)) {
             if(num !== offset) {
                 onSetPage(num);

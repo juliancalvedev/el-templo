@@ -51,7 +51,6 @@ const AdminTrainingBlocks = () => {
     }
 
     const onClickDayButton = (id) => {
-        console.log(id)
         navigate(`/${PATHS.ADMIN_TRAINING}`, { state: { trainingDayId: id } })
     }
 

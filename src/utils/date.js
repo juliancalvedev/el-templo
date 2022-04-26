@@ -3,3 +3,9 @@ export const cutDate = (date) => {
 
 	return trimDate;
 };
+
+export const compareWithCurrDate = (date) => {
+	const currDate = new Date();
+	const compareDate = new Date(date);
+	return currDate > compareDate;
+}
