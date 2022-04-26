@@ -33,11 +33,12 @@ const AdminTrainingBlocks = () => {
                 <div className='m-2' key={i}>
                     <Button
                         text={i}
-                        type={routineBlock === undefined ||
-                            routineBlock && routineBlock[`day${i}`] === undefined ?
-                            5
-                            :
-                            6
+                        type={1
+                            // routineBlock === undefined ||
+                            // routineBlock && routineBlock[`day${i}`] === undefined ?
+                            // 5
+                            // :
+                            // 6
                         }
                         circle
                         onClick={() => routineBlock ?
