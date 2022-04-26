@@ -36,7 +36,13 @@ export const getUsers = ({ offset, search, limit }) => {
 
 export const getExercises = () => privateGet({ url: `${baseURL}/exercise` });
 
+export const getLevels = () => privateGet({ url: `level` });
+
+export const getLevelByNumber = (levelNumber) => privateGet({ url: `training/level/${levelNumber}` })
+
 export const getExerciseById = ({ id }) => privateGet({ url: `${baseURL}/exercise/${id}` });
+
+export const getTrainingById = ({ id }) => privateGet({ url: `training/${id}` });
 
 export const postNewTag = ({ titleES, titleEN, bodyPart }) =>
 	privatePost({ url: `${baseURL}/tag`, body: { titleES, titleEN, bodyPart } });

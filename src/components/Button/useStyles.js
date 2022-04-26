@@ -1,4 +1,4 @@
-const useStyles = ({ size, type, className = '' }) => {
+const useStyles = ({ size, type, className = '', circle = false }) => {
 
     const BUTTON_SIZE = {
         0: '',
@@ -13,13 +13,15 @@ const useStyles = ({ size, type, className = '' }) => {
         3: '3',
         4: '4',
         5: '5',
+        6: '6',
+        7: '7',
 
     }
 
     return {
         container: `col-${BUTTON_SIZE[size]}  `,
 
-        button: ` button py-${BUTTON_TYPE[type] === '4' ? '3' : '2'} col-12 button-color--${BUTTON_TYPE[type]} ${className}`
+        button: ` button ${circle && 'button-circle'} py-${BUTTON_TYPE[type] === '4' ? '3' : '2'} col-12 button-color--${BUTTON_TYPE[type]} ${className}`
     }
 }
 
