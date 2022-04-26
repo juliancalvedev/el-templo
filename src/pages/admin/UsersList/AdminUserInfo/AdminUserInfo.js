@@ -1,37 +1,34 @@
+import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { PATHS } from '../../../../constants/paths';
 import Button from '../../../../components/Button/Button';
 import MainContainer from '../../../../components/MainContainer/MainContainer';
+import useFetch from '../../../../hooks/useFetch';
+import { getUserById } from '../../../../services/admin';
 
 export const AdminUserInfo = () => {
 	const navigate = useNavigate();
 
-	const location = useLocation();
-	const {
-		_id,
-		email,
-		firstName,
-		lastName,
-		dateOfBirth,
-		sex,
-		country,
-		img,
-		createdAt,
-		role,
-		emailIsVerified,
-		enabled,
-		level,
-		endEnabledDate,
-		startEnabledDate,
-	} = location.state.user;
+	const id = useLocation()?.search?.split('id=')?.[1];
+	if (!id) {
+		navigate(-1);
+	}
 
-	const handleButtonBack = () => navigate(`/${PATHS.ADMIN_USERS_LIST}`);
+	const [data, error, apiCall] = useFetch({
+		service: () => getUserById(id),
+		globalLoader: true
+	})
+
+	useEffect(() => {
+		if (id) {
+			apiCall();
+		}
+	}, [id])
 
 	return (
-		<MainContainer col='12'>
+		<MainContainer col='12' text={`${data?.user?.firstName + ' ' + data?.user?.lastName}`} back>
 			<div className=''>
-				<div className='list'>
-					<ul>
+					{/* <ul>
 						<li>ID: {_id}</li>
 						<li>Email: {email}</li>
 						<li>Nombre: {firstName}</li>
@@ -50,9 +47,7 @@ export const AdminUserInfo = () => {
 						<li>Nivel: {level}</li>
 						<li>Comienzo de Habilitación: {startEnabledDate}</li>
 						<li>Finalización de Habilitación: {endEnabledDate}</li>
-					</ul>
-				</div>
-				<Button text={'Volver'} size={1} onClick={handleButtonBack} />
+					</ul> */}
 			</div>
 		</MainContainer>
 	);

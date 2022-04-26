@@ -7,7 +7,32 @@ import {
 
 const baseURL = '/admin';
 
-export const getUsers = () => privateGet({ url: `${baseURL}/users` });
+export const getUserById = (id) => privateGet({ url: `${baseURL}/users/${id}`});
+export const getUsers = ({ offset, search, limit }) => {
+
+	let query = offset || search || limit ? '?' : '';
+	let added = false;
+	if(query) {
+		if(offset){
+			query += 'offset=' + offset;
+			added = true;
+		}
+		if(search){
+			if(added){
+				query += '&';
+			}
+			query += 'search=' + search;
+		}
+		if(limit){
+			if(added){
+				query += '&';
+			}
+			query += 'limit=' + limit;
+		}
+	}
+	
+	return privateGet({ url: `${baseURL}/users${query}` });
+}
 
 export const getExercises = () => privateGet({ url: `${baseURL}/exercise` });
 

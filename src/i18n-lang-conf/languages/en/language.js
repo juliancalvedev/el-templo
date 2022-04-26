@@ -376,6 +376,17 @@ const en = {
 				bottom: 'Bottom',
 			},
 		},
+		userTable: {
+			email: 'Email',
+			name: 'Name',
+			sex: 'Sex',
+			country: 'Country',
+			enabled: 'Enabled',
+			level: 'Level',
+			enabledDate: 'Enabled Date',
+			disabledDate: 'Disabled Date',
+			options: 'Options'
+		},
 		exercises: {
 			video: 'Video',
 			spanishName: 'Spanish Name',

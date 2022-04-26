@@ -374,6 +374,17 @@ const es = {
 				bottom: 'Inferior',
 			},
 		},
+		userTable: {
+			email: 'Email',
+			name: 'Nombre',
+			sex: 'Sexo',
+			country: 'País',
+			enabled: 'Habilitado',
+			level: 'Nivel',
+			enabledDate: 'Fecha Alta',
+			disabledDate: 'Fecha Baja',
+			options: 'Opciones'
+		},
 		exercises: {
 			video: 'Video',
 			spanishName: 'Nombre en Español',
