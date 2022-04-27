@@ -5,6 +5,7 @@ const useStyles = () => {
         exercisesContainer: 'd-flex justify-content-around',
         exerciseLeft: 'exercise-box d-flex flex-column align-items-center',
         exerciseRight: 'exercise-box',
+        inputSelect: 'input-select'
     };
 };
 

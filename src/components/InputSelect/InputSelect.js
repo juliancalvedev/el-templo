@@ -6,7 +6,7 @@ const InputSelect = ({
 	name,
 	onChange,
 	value,
-	options,
+	options = [],
 	label,
 	style,
 	multiple,
