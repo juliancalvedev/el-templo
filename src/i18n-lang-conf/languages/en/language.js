@@ -413,8 +413,10 @@ const en = {
 			hypertrophy: 'Hypertrophy',
 			suplementary: 'Suplementary',
 			reps: 'Reps',
-			times: 'Times'
-		}
+			times: 'Times',
+			saveRoutine: 'Save Routine'
+		},
+
 
 	},
 	errors: {

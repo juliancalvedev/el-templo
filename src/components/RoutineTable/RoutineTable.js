@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
-import { editAllTrainings, editTraining, getExercises, getRoutineById } from '../../services/admin';
+import { editAllTrainings, getExercises, getRoutineById } from '../../services/admin';
 import TrainingCard from '../TrainingCard/TrainingCard';
 import Button from '../Button/Button'
 import { eachCardIsCompleted } from '../../utils/objectUtils';
 
 const RoutineTable = ({ trainingDayId, isEditing }) => {
     const { t } = useTranslation()
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const [routineIds, setRoutineIds] = useState({})
     const [eachCard, setEachCard] = useState({})
@@ -107,34 +107,21 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
     const [savedRoutine, savedRoutineError, savedRoutineApiCall] = useFetch({
         service: () => editAllTrainings(routineIds, eachCard),
         globalLoader: true,
-        // callback: () => {
-        //     editTraining(routineIds.adaptation2, ...eachCard.adaptation2);
-        //     editTraining(routineIds.strength, ...eachCard.strength);
-        //     editTraining(routineIds.hypertrophy, ...eachCard.hypertrophy);
-        //     editTraining(routineIds.suplementary, ...eachCard.suplementary);
-        // }
+        callback: () => { }
     })
 
     const onChangeInput = (e, exerciseType) => {
-
-
         setEachCard({
             ...eachCard,
             [exerciseType]: {
                 ...eachCard[exerciseType],
                 [e.exerciseNumber]: {
                     ...eachCard[exerciseType][e.exerciseNumber],
-                    [e.name]: e.value
+                    [e.name]: e.name === 'exerciseId' ? e.value : parseInt((e.value.charAt(0) === '0' ? e.value.substring(1) : e.value))
                 },
             }
         })
     }
-    useEffect(() => {
-        // console.log(eachCard)
-        console.log('eachCard Is Complete', eachCardIsCompleted(eachCard))
-        // eachCardIsCompleted(eachCard)
-    }, [eachCard])
-
 
     return (
         <div className='col-12 d-flex flex-column align-items-center'>
@@ -185,7 +172,7 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
             <Button
                 className='mt-3 mb-4'
                 onClick={savedRoutineApiCall}
-                text='Crear Rutina'
+                text={t('admin.routines.saveRoutine')}
                 size={2}
                 disabled={!eachCardIsCompleted(eachCard)}
             />

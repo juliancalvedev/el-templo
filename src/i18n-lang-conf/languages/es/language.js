@@ -411,8 +411,10 @@ const es = {
 			hypertrophy: 'Hipertrofia',
 			suplementary: 'Suplementario',
 			reps: 'Reps',
-			times: 'Veces'
-		}
+			times: 'Veces',
+			saveRoutine: 'Guardar Rutina'
+		},
+
 	},
 	errors: {
 		generic: 'Oops, ocurrió un error.',

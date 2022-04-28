@@ -92,8 +92,6 @@ export const deleteTag = (id) => privateDelete({ url: `${baseURL}/tag/${id}` });
 export const getBodyParts = () => privateGet({ url: `/public/body-parts` });
 
 export const editTraining = (id, data) => {
-	// console.log(data);
-	data = { ...data, reps: Number(data.reps), times: Number(data.times) }
 	return privatePut({ url: `/admin/training/${id}`, body: data })
 };
 
@@ -105,7 +103,6 @@ export const editAllTrainings = (routineIds, eachCard) => {
 		editTraining(routineIds.hypertrophy, { ...eachCard.hypertrophy }),
 		editTraining(routineIds.suplementary, { ...eachCard.suplementary }),
 	]).then(resp => {
-		// console.log(resp);
 		res(resp?.[0]);
 	}).catch(err => rej[err?.[0]])
 	)

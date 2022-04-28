@@ -44,7 +44,7 @@ const TrainingCard = ({
                                                 key={exercise?._id}
                                                 value={exercise?._id}
                                             >
-                                                {exercise?.titleES}
+                                                {exercise[`title${lang}`]}
                                             </option>
                                         )
                                     })}
@@ -55,7 +55,7 @@ const TrainingCard = ({
                                     <Text text={`${t('admin.routines.reps')}:`} size='1' />
                                 </div>
                                 <input
-                                    value={exercise1?.reps}
+                                    value={exercise1?.reps ? exercise1?.reps : '0'}
                                     className={styles.inputNumber}
                                     onChange={(e) => onChangeInput(e, 'exercise1')}
                                     type='number'
@@ -68,7 +68,7 @@ const TrainingCard = ({
                                     <Text text={`${t('admin.routines.times')}:`} size='1' />
                                 </div>
                                 <input
-                                    value={exercise1?.times}
+                                    value={exercise1?.times ? exercise1?.times : '0'}
                                     className={styles.inputNumber}
                                     onChange={(e) => onChangeInput(e, 'exercise1')}
                                     type='number'
@@ -90,8 +90,8 @@ const TrainingCard = ({
                         <div className={styles.inputsContainer}>
                             <div>
                                 <select
-                                    className={styles.inputSelect}
                                     value={exercise2?.exerciseId}
+                                    className={styles.inputSelect}
                                     onChange={(e) => onChangeInput(e, 'exercise2')}
                                     name='exerciseId'
                                 >
@@ -102,7 +102,7 @@ const TrainingCard = ({
                                                 key={exercise?._id}
                                                 value={exercise?._id}
                                             >
-                                                {exercise?.titleES}
+                                                {exercise[`title${lang}`]}
                                             </option>
                                         )
                                     })}
@@ -113,7 +113,7 @@ const TrainingCard = ({
                                     <Text text={`${t('admin.routines.reps')}:`} size='1' />
                                 </div>
                                 <input
-                                    value={exercise2?.reps}
+                                    value={exercise2?.reps ? exercise2?.reps : '0'}
                                     className={styles.inputNumber}
                                     onChange={(e) => onChangeInput(e, 'exercise2')}
                                     type='number'
@@ -126,7 +126,7 @@ const TrainingCard = ({
                                     <Text text={`${t('admin.routines.times')}:`} size='1' />
                                 </div>
                                 <input
-                                    value={exercise2?.times}
+                                    value={exercise2?.times ? exercise2?.times : '0'}
                                     className={styles.inputNumber}
                                     onChange={(e) => onChangeInput(e, 'exercise2')}
                                     type='number'
