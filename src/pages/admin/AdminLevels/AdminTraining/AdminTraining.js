@@ -3,19 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import MainContainer from '../../../../components/MainContainer/MainContainer';
 import RoutineTable from '../../../../components/RoutineTable/RoutineTable';
+import useFetch from '../../../../hooks/useFetch';
 
 const AdminTraining = () => {
     const { t } = useTranslation();
-    const navigate = useNavigate();
     const { trainingDayId, trainingLevel, trainingDay, trainingBlock } = useLocation().state;
-
-
-    const [trainingResponse, trainingError, apiCallTraining] = useFetch({
-        service: () => getTrainingById({ id: trainingDayId }),
-        globalLoader: true,
-        callNow: true,
-        callback: () => { },
-    });
 
     return (
         <MainContainer

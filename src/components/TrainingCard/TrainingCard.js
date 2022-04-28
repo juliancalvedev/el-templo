@@ -10,47 +10,18 @@ const TrainingCard = ({
     title = 'Title',
     exercise1,
     exercise2,
-    isEditing
+    isEditing,
+    exercisesListResponse,
+    onChange,
 }) => {
     const { t } = useTranslation()
     const styles = useStyles();
     const lang = localStorage.getItem('lang').toUpperCase();
 
-    const [eachCard, setEachCard] = useState({})
-
-    useEffect(() => {
-        setEachCard({
-            trainingType: title,
-            exercise1: {
-                exerciseId: exercise1?.exerciseId,
-                reps: exercise1?.reps,
-                times: exercise1?.times,
-            },
-            exercise2: {
-                exerciseId: exercise2?.exerciseId,
-                reps: exercise2?.reps,
-                times: exercise2?.times,
-            }
-        })
-    }, [exercise1, exercise2])
-
-    const [exercisesListResponse, exercisesListError, apiCallExercisesList] = useFetch({
-        service: () => getExercises(),
-        globalLoader: true,
-        callNow: true,
-        callback: () => { },
-    });
-
-    const onChangeInput = (e, exerciseType) => {
-        setEachCard({
-            ...eachCard,
-            [exerciseType]: {
-                ...eachCard[exerciseType],
-                [e.target.name]: e.target.value
-            }
-        })
+    const onChangeInput = (e, exerciseNumber) => {
+        const { name, value } = e.target
+        onChange({ name, value, exerciseNumber });
     }
-    console.log(eachCard)
 
     return (
         <div className={styles.trainingCardContainer} >
@@ -65,7 +36,7 @@ const TrainingCard = ({
                             <div>
                                 <select
                                     className={styles.inputSelect}
-                                    value={eachCard?.exercise1?.exerciseId}
+                                    value={exercise1?.exerciseId}
                                     onChange={(e) => onChangeInput(e, 'exercise1')}
                                     name='exerciseId'
                                 >
@@ -87,7 +58,7 @@ const TrainingCard = ({
                                     <Text text={`${t('admin.routines.reps')}:`} size='1' />
                                 </div>
                                 <input
-                                    value={eachCard?.exercise1?.reps}
+                                    value={exercise1?.reps}
                                     className={styles.inputNumber}
                                     onChange={(e) => onChangeInput(e, 'exercise1')}
                                     type='number'
@@ -100,7 +71,7 @@ const TrainingCard = ({
                                     <Text text={`${t('admin.routines.times')}:`} size='1' />
                                 </div>
                                 <input
-                                    value={eachCard?.exercise1?.times}
+                                    value={exercise1?.times}
                                     className={styles.inputNumber}
                                     onChange={(e) => onChangeInput(e, 'exercise1')}
                                     type='number'
@@ -123,7 +94,7 @@ const TrainingCard = ({
                             <div>
                                 <select
                                     className={styles.inputSelect}
-                                    value={eachCard?.exercise2?.exerciseId}
+                                    value={exercise2?.exerciseId}
                                     onChange={(e) => onChangeInput(e, 'exercise2')}
                                     name='exerciseId'
                                 >
@@ -145,7 +116,7 @@ const TrainingCard = ({
                                     <Text text={`${t('admin.routines.reps')}:`} size='1' />
                                 </div>
                                 <input
-                                    value={eachCard?.exercise2?.reps}
+                                    value={exercise2?.reps}
                                     className={styles.inputNumber}
                                     onChange={(e) => onChangeInput(e, 'exercise2')}
                                     type='number'
@@ -158,7 +129,7 @@ const TrainingCard = ({
                                     <Text text={`${t('admin.routines.times')}:`} size='1' />
                                 </div>
                                 <input
-                                    value={eachCard?.exercise2?.times}
+                                    value={exercise2?.times}
                                     className={styles.inputNumber}
                                     onChange={(e) => onChangeInput(e, 'exercise2')}
                                     type='number'
