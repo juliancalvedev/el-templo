@@ -4,8 +4,12 @@ const useStyles = () => {
         titleContainer: '',
         exercisesContainer: 'd-flex justify-content-around',
         exerciseLeft: 'exercise-box d-flex flex-column align-items-center',
-        exerciseRight: 'exercise-box',
-        inputSelect: 'input-select'
+        exerciseRight: 'exercise-box d-flex flex-column align-items-center',
+        inputsContainer: 'inputs-container d-flex flex-column justify-content-between',
+        inputSelect: 'input-select',
+        inputNumberContainer: 'd-flex justify-content-center align-items-center',
+        inputNumberText: 'input-number-text',
+        inputNumber: 'input-number',
     };
 };
 

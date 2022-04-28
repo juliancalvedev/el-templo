@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import { getRoutineById } from '../../services/admin';
 import TrainingCard from '../TrainingCard/TrainingCard';
+import Button from '../Button/Button'
 
 const RoutineTable = ({ trainingDayId, isEditing }) => {
     const { t } = useTranslation()
@@ -17,7 +18,7 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
         callNow: true,
         callback: () => { setRoutine(trainingResponse?.response?.routine) },
     });
-
+    console.log(trainingResponse)
     return (
         <div className='col-12 d-flex flex-column align-items-center'>
             <TrainingCard
@@ -50,6 +51,7 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
                 exercise1={routine?.suplementary?.exercise1}
                 exercise2={routine?.suplementary?.exercise2}
             />
+            <Button text='Crear Rutina' size={2} disabled={true} />
         </div>
     );
 };
