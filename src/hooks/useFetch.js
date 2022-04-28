@@ -22,6 +22,7 @@ const useFetch = ({ service, globalLoader, callback = () => { }, callNow = false
             setResp(data);
             setError(problem);
         } catch (err) {
+            console.log(err);
             setError({ message: 'generic', code: 500 })
         }
     }

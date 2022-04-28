@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
-import { getExercises, getRoutineById } from '../../services/admin';
+import { editAllTrainings, editTraining, getExercises, getRoutineById } from '../../services/admin';
 import TrainingCard from '../TrainingCard/TrainingCard';
 import Button from '../Button/Button'
 
@@ -10,7 +10,7 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
     const { t } = useTranslation()
     const navigate = useNavigate();
 
-    const [routine, setRoutine] = useState({})
+    const [routineIds, setRoutineIds] = useState({})
     const [eachCard, setEachCard] = useState({})
 
     const [trainingResponse, trainingError, apiCallTraining] = useFetch({
@@ -19,9 +19,16 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
         callNow: true,
         callback: () => {
             const { routine } = trainingResponse?.response;
-            setRoutine(routine);
+            setRoutineIds({
+                adaptation1: routine?.adaptation1?._id,
+                adaptation2: routine?.adaptation2?._id,
+                strength: routine?.strength?._id,
+                hypertrophy: routine?.hypertrophy?._id,
+                suplementary: routine?.suplementary?._id,
+            });
             setEachCard({
                 adaptation1: {
+                    trainingType: 'adaptation1',
                     exercise1: {
                         exerciseId: routine?.adaptation1?.exercise1?.exerciseId,
                         reps: routine?.adaptation1?.exercise1?.reps,
@@ -34,6 +41,7 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
                     }
                 },
                 adaptation2: {
+                    trainingType: 'adaptation2',
                     exercise1: {
                         exerciseId: routine?.adaptation2?.exercise1?.exerciseId,
                         reps: routine?.adaptation2?.exercise1?.reps,
@@ -46,6 +54,7 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
                     }
                 },
                 strength: {
+                    trainingType: 'strength',
                     exercise1: {
                         exerciseId: routine?.strength?.exercise1?.exerciseId,
                         reps: routine?.strength?.exercise1?.reps,
@@ -58,6 +67,7 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
                     }
                 },
                 hypertrophy: {
+                    trainingType: 'hypertrophy',
                     exercise1: {
                         exerciseId: routine?.hypertrophy?.exercise1?.exerciseId,
                         reps: routine?.hypertrophy?.exercise1?.reps,
@@ -70,6 +80,7 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
                     }
                 },
                 suplementary: {
+                    trainingType: 'suplementary',
                     exercise1: {
                         exerciseId: routine?.suplementary?.exercise1?.exerciseId,
                         reps: routine?.suplementary?.exercise1?.reps,
@@ -86,32 +97,40 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
         },
     });
 
-    const [exercisesListResponse, exercisesListError, apiCallExercisesList] = useFetch({
+    const [exercisesListResponse] = useFetch({
         service: () => getExercises(),
         globalLoader: true,
         callNow: true,
-        callback: () => { },
     });
 
+
+    const [savedRoutine, savedRoutineError, savedRoutineApiCall] = useFetch({
+        service: () => editAllTrainings(routineIds, eachCard),
+        globalLoader: true,
+        // callback: () => {
+        //     editTraining(routineIds.adaptation2, ...eachCard.adaptation2);
+        //     editTraining(routineIds.strength, ...eachCard.strength);
+        //     editTraining(routineIds.hypertrophy, ...eachCard.hypertrophy);
+        //     editTraining(routineIds.suplementary, ...eachCard.suplementary);
+        // }
+    })
+
     const onChangeInput = (e, exerciseType) => {
-        console.log(e)
-        console.log('exerciseType', exerciseType)
+
 
         setEachCard({
             ...eachCard,
             [exerciseType]: {
                 ...eachCard[exerciseType],
-                [exerciseType]: {
+                [e.exerciseNumber]: {
                     ...eachCard[exerciseType][e.exerciseNumber],
-                    [e.exerciseNumber]: {
-                        ...eachCard[exerciseType][e.exerciseNumber]
-                    }
+                    [e.name]: e.value
                 },
             }
         })
     }
     useEffect(() => {
-        console.log(eachCard?.adaptation1)
+        console.log(eachCard)
     }, [eachCard])
 
 
@@ -161,7 +180,7 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
                 onChange={(e) => onChangeInput(e, 'suplementary')}
 
             />
-            <Button text='Crear Rutina' size={2} disabled={true} />
+            <Button onClick={savedRoutineApiCall} text='Crear Rutina' size={2} />
         </div>
     );
 };

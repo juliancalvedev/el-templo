@@ -2,9 +2,6 @@ import useStyles from './useStyles';
 import './TrainingCard.scss';
 import Text from '../Text/Text';
 import { useTranslation } from 'react-i18next';
-import useFetch from '../../hooks/useFetch';
-import { getExercises } from '../../services/admin';
-import { useEffect, useState } from 'react';
 
 const TrainingCard = ({
     title = 'Title',
