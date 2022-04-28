@@ -402,9 +402,20 @@ const en = {
 			createNewExercise: 'Create New Exercise',
 			editExercise: 'Edit Exercise',
 			loadingTags: 'Loading Tags...'
-
-
+		},
+		routines: {
+			level: 'Level',
+			block: 'Block',
+			day: 'Day',
+			adaptation1: 'Adaptation 1',
+			adaptation2: 'Adaptation 2',
+			strength: 'Strength',
+			hypertrophy: 'Hypertrophy',
+			suplementary: 'Suplementary',
+			reps: 'Reps',
+			times: 'Times'
 		}
+
 	},
 	errors: {
 		generic: 'Oops, an error occurred.',

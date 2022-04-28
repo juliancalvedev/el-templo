@@ -400,7 +400,18 @@ const es = {
 			createNewExercise: 'Crear Nuevo Ejercicio',
 			editExercise: 'Editar Ejercicio',
 			loadingTags: 'Cargando Tags...'
-
+		},
+		routines: {
+			level: 'Nivel',
+			block: 'Bloque',
+			day: 'Día',
+			adaptation1: 'Adaptación 1',
+			adaptation2: 'Adaptación 2',
+			strength: 'Fuerza',
+			hypertrophy: 'Hipertrofia',
+			suplementary: 'Suplementario',
+			reps: 'Reps',
+			times: 'Veces'
 		}
 	},
 	errors: {

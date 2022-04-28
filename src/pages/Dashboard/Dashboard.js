@@ -1,39 +1,37 @@
-import MainContainer from "../../components/MainContainer/MainContainer";
+import MainContainer from '../../components/MainContainer/MainContainer';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useState } from "react";
-import UserImage from "../../components/UserImage/UserImage";
+import { useState } from 'react';
+import UserImage from '../../components/UserImage/UserImage';
 import './Dashboard.scss';
-import Text from "../../components/Text/Text";
-import Button from "../../components/Button/Button";
-import ImgDashboard from "../../assets/images/ImgDashboard";
-import WeeklyCalendar from "../../components/WeeklyCalendar/WeeklyCalendar";
+import Text from '../../components/Text/Text';
+import Button from '../../components/Button/Button';
+import ImgDashboard from '../../assets/images/ImgDashboard';
+import WeeklyCalendar from '../../components/WeeklyCalendar/WeeklyCalendar';
 import useStyles from './useStyles';
-
-
 
 const Dashboard = () => {
 	const { t } = useTranslation();
-	const { firstName, level, img, experience } = useSelector((store) => store.user);
+	const { firstName, level, img, experience } = useSelector(
+		(store) => store.user
+	);
 	const [summary, setSummary] = useState(true);
 	const handleChange = () => {
 		setSummary(false);
-	}
+	};
 	const styles = useStyles();
-	const xp = ((100 * experience) / 24) + 4;
+	const xp = (100 * experience) / 24 + 4;
+
 	return (
 		<MainContainer
 			color={1}
-			text={`${t('dashboard.main.welcome')} ${firstName}!`}
+			text={`${t('dashboard.main.welcome')} ${firstName ? firstName : ''}!`}
 			shadow
 			col='12'
 			scroll
 			navbar
 		>
-
-			<div
-				className={styles.div}
-			>
+			<div className={styles.div}>
 				<div className={styles.userimg}>
 					<UserImage img={img} />
 				</div>
@@ -47,10 +45,14 @@ const Dashboard = () => {
 						/>
 					</div>
 					<div className={styles.boxcontainer}>
-						<div className={styles.boxColor} style={{width: `${xp}%`}}></div>
+						<div className={styles.boxColor} style={{ width: `${xp}%` }}></div>
 					</div>
 					<div>
-						<Text justify={'end'} size='1' text={`${t('dashboard.main.level')} ${level + 1}`} />
+						<Text
+							justify={'end'}
+							size='1'
+							text={`${t('dashboard.main.level')} ${level + 1}`}
+						/>
 					</div>
 				</div>
 			</div>
@@ -75,10 +77,7 @@ const Dashboard = () => {
 			{summary ? (
 				<div>
 					<div>
-						<Text
-							className='mx-2 '
-							text={t('dashboard.main.progress')}
-						/>
+						<Text className='mx-2 ' text={t('dashboard.main.progress')} />
 					</div>
 					<div className={styles.img}>
 						<ImgDashboard />
@@ -94,14 +93,8 @@ const Dashboard = () => {
 				</div>
 			)}
 			<div className={styles.btn}>
-				<Button
-					size={3}
-					type={2}
-					text={t('dashboard.main.btn')}
-				/>
+				<Button size={3} type={2} text={t('dashboard.main.btn')} />
 			</div>
-			
-
 		</MainContainer>
 	);
 };

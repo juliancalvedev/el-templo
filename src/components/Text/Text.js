@@ -27,7 +27,7 @@ const Text = ({
 
 	return (
 		<div className={styles.container}>
-			<p onClick={onClick} className={styles.text} styles={{customStyles}}>
+			<p onClick={onClick} className={styles.text} styles={{ customStyles }}>
 				{text}
 			</p>
 		</div>
