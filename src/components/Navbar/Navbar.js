@@ -26,7 +26,7 @@ const Navbar = () => {
 	const navigate = useNavigate();
 
 	const redirection = () => {
-		if (level < 1) {
+		if (level === 0) {
 			navigate(`/${PATHS.NIVELATION}`);
 		} else {
 			navigate(`/${PATHS.TRAINING}`);
