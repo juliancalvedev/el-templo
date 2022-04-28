@@ -37,7 +37,7 @@ const TrainingCard = ({
                                     onChange={(e) => onChangeInput(e, 'exercise1')}
                                     name='exerciseId'
                                 >
-                                    <option >Elegir</option>
+                                    <option hidden={true}>Elegir</option>
                                     {exercisesListResponse?.exercises?.map(exercise => {
                                         return (
                                             <option
@@ -95,7 +95,7 @@ const TrainingCard = ({
                                     onChange={(e) => onChangeInput(e, 'exercise2')}
                                     name='exerciseId'
                                 >
-                                    <option >Elegir</option>
+                                    <option hidden={true}>Elegir</option>
                                     {exercisesListResponse?.exercises?.map(exercise => {
                                         return (
                                             <option

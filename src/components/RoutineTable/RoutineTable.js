@@ -5,6 +5,7 @@ import useFetch from '../../hooks/useFetch';
 import { editAllTrainings, editTraining, getExercises, getRoutineById } from '../../services/admin';
 import TrainingCard from '../TrainingCard/TrainingCard';
 import Button from '../Button/Button'
+import { eachCardIsCompleted } from '../../utils/objectUtils';
 
 const RoutineTable = ({ trainingDayId, isEditing }) => {
     const { t } = useTranslation()
@@ -103,7 +104,6 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
         callNow: true,
     });
 
-
     const [savedRoutine, savedRoutineError, savedRoutineApiCall] = useFetch({
         service: () => editAllTrainings(routineIds, eachCard),
         globalLoader: true,
@@ -130,7 +130,9 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
         })
     }
     useEffect(() => {
-        console.log(eachCard)
+        // console.log(eachCard)
+        console.log('eachCard Is Complete', eachCardIsCompleted(eachCard))
+        // eachCardIsCompleted(eachCard)
     }, [eachCard])
 
 
@@ -180,7 +182,13 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
                 onChange={(e) => onChangeInput(e, 'suplementary')}
 
             />
-            <Button onClick={savedRoutineApiCall} text='Crear Rutina' size={2} />
+            <Button
+                className='mt-3 mb-4'
+                onClick={savedRoutineApiCall}
+                text='Crear Rutina'
+                size={2}
+                disabled={!eachCardIsCompleted(eachCard)}
+            />
         </div>
     );
 };
