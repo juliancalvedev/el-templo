@@ -45,8 +45,6 @@ export const LanguageSelector = () => {
 
 	}
 
-	console.log(currentLang)
-
 	return (
 		<div className={style.mainContainer}>
 			{showDropdown ?
