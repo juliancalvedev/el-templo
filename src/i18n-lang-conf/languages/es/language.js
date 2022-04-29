@@ -360,7 +360,7 @@ const es = {
 			edit: 'Editar',
 			delete: 'Eliminar',
 			filterByTagName: 'Filtrar por nombre de Tag',
-			createNewTag: 'Crear Nuevo Tag',
+			createNewTag: 'Crear Tag',
 			editTag: 'Editar Tag',
 			createTag: 'Crear Tag',
 			saveChanges: 'Guardar Cambios',

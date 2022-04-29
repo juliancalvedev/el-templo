@@ -21,12 +21,9 @@ const Paginator = ({ offset, onSetPage, total, limit = 20 }) => {
                 <li className={styles.prevPage}>
                     <span className="page-link" onClick={() => onClickPage(offset - 1)}>Previous</span>
                 </li>
-                <li className={styles.noCursor}><span className="page-link">{offset + 1}</span></li>
+                <li className={styles.noCursor}><span className="page-link">{offset + 1} de {totalPages}</span></li>
                 <li className={styles.nextPage}>
                     <span className="page-link"  onClick={() => onClickPage(offset + 1)}>Next</span>
-                </li>
-                <li className={styles.noCursor}>
-                    <span className="page-link">de {totalPages}</span>
                 </li>
             </ul>
         </nav>

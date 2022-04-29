@@ -9,48 +9,36 @@ import { PATHS } from '../../../constants/paths';
 import { cutDate, compareWithCurrDate } from '../../../utils/date';
 import { useTranslation } from 'react-i18next';
 import Point from '../../../assets/Icons/Point';
+import useTable from '../../../hooks/useTable';
 
 const UsersList = () => {
 
-	const [search, setSearch] = useState('');
-	const [offset, setOffset] = useState(0);
-	const [call, setCall] = useState(false);
-
+	
 	const { t } = useTranslation();
-
+	
 	const navigate = useNavigate();
-
+	
 	const [data, error, apiCall] = useFetch({
 		service: () => getUsers({ search, offset }),
 		globalLoader: true,
 	});
-
+	
 	const handleClick = (id) => {
 		navigate(`/${PATHS.ADMIN_USER_INFO}?id=${id}`);
 	};
-
-	const onPressSearch = () => {
-		setOffset(0);
-		setCall(!call);
-	}
-
-	const onSetPage = (newPage) => {
-		setOffset(newPage);
-		setCall(!call);
-	}
-
-	useEffect(() => {
-		apiCall();
-	}, [call]);
+	
+	
+	const { search, setSearch, offset, onSetPage, onPressSearch } = useTable({apiCall});
 
 	return (
 		<MainContainer scroll navbar back text='Users' shadow >
 			<div className='my-3'>
 				<Table
+				apiCall={apiCall}
 					paginator
 					showSearch
 					search={search}
-					onChangeSearch={setSearch}
+					setSearch={setSearch}
 					onPressSearch={onPressSearch}
 					offset={offset}
 					total={data?.total}

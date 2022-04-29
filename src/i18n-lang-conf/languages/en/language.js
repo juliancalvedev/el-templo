@@ -362,7 +362,7 @@ const en = {
 			edit: 'Edit',
 			delete: 'Delete',
 			filterByTagName: 'Filter by Tag name',
-			createNewTag: 'Create New Tag',
+			createNewTag: 'Create Tag',
 			editTag: 'Edit Tag',
 			createTag: 'Create Tag',
 			saveChanges: 'Save Changes',

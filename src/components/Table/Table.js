@@ -3,12 +3,12 @@ import Paginator from './Paginator';
 import Search from './Search';
 
 // columns [ { title, field } ]
-const Table = ({ columns = [], data = [], paginator, onSetPage, offset, total, search, showSearch, onChangeSearch, onPressSearch }) => {
+const Table = ({ columns = [], data = [], paginator, onSetPage, offset, total, search, showSearch, setSearch, onPressSearch, extraSearch }) => {
 
 
     return (
         <div>
-            {showSearch && <Search value={search} onChange={onChangeSearch} onPressSearch={onPressSearch}/>}
+            {(showSearch || extraSearch) && <Search extraSearch={extraSearch} value={search} onChange={setSearch} onPressSearch={onPressSearch}/>}
             <div  style={{ overflowX: 'scroll' }}>
                 <table className='table table-hover'>
                     <thead>

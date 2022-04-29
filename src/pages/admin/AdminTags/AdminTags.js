@@ -4,6 +4,7 @@ import Button from '../../../components/Button/Button';
 import Input from '../../../components/Input/Input';
 import MainContainer from '../../../components/MainContainer/MainContainer';
 import Modal from '../../../components/Modal/Modal';
+import Table from '../../../components/Table/Table';
 import InputSelect from '../../../components/InputSelect/InputSelect';
 import {
 	deleteTag,
@@ -14,6 +15,7 @@ import {
 } from '../../../services/admin';
 import Text from '../../../components/Text/Text';
 import { useTranslation } from 'react-i18next';
+import useTable from '../../../hooks/useTable';
 
 const defaultOption = { value: null, name: 'default' };
 
@@ -26,6 +28,7 @@ const AdminTags = () => {
 		titleEN: '',
 		bodyPart: [],
 	});
+
 
 	const [bodyPartsOptions, setBodyPartsOptions] = useState([]);
 	const [showModalSetTag, setShowModalSetTag] = useState(false);
@@ -45,7 +48,7 @@ const AdminTags = () => {
 	const [filterTags, setFilterTags] = useState('');
 
 	const [tagsListResponse, tagsListError, apiCallGetTagsList] = useFetch({
-		service: () => getTagsList(),
+		service: () => getTagsList({ search, offset }),
 		globalLoader: true,
 		callback: () => { },
 	});
@@ -87,6 +90,9 @@ const AdminTags = () => {
 			refreshListTrigger();
 		},
 	});
+
+	const { search, setSearch, offset, onSetPage, onPressSearch } = useTable({ apiCall: apiCallGetTagsList });
+
 
 	const lang = localStorage.getItem('lang').toUpperCase();
 
@@ -175,216 +181,147 @@ const AdminTags = () => {
 	const toggleConfirmDeleteTag = () => setConfirmDeleteTag(!confirmDeleteTag);
 
 	return (
-		<MainContainer col='12' navbar scroll>
-			<div
-				className='d-flex flex-column justify-content-start'
-				style={{ height: '100vh' }}
+		<MainContainer col='12' navbar scroll topbar back>
+
+
+			{/* ▼▼▼▼▼▼ List ▼▼▼▼▼▼ */}
+
+			<Table
+				paginator
+				showSearch
+				search={search}
+				setSearch={setSearch}
+				onSetPage={onSetPage}
+				onPressSearch={onPressSearch}
+				offset={offset}
+				total={tagsListResponse?.total}
+				extraSearch={<Button
+					text={t('admin.tags.createNewTag')}
+					onClick={toggleModalCreateNewTag}
+					size='3'
+					type={2}
+				/>}
+				columns={[
+					{ title: t('admin.userTable.name'), field: `title${lang}` },
+					{ title: '', field: `edit` },
+					{ title: '', field: `delete` },
+				]}
+				data={tagsListResponse?.tags?.map(tag => ({
+					...tag,
+					edit: <Button
+						text={t('admin.tags.edit')}
+						size={2}
+						onClick={() =>
+							toggleModalEditTag(tag)
+						}
+					/>,
+					delete: <Button
+						text={t(
+							'admin.tags.delete'
+						)}
+						size={2}
+						type={5}
+						onClick={() =>
+							handleDeleteTag(tag)
+						}
+					/>
+				}))}
+			/>
+
+
+			{/* ▼▼▼▼▼▼ Modal Set New Tag ▼▼▼▼▼▼ */}
+			<Modal
+				show={showModalSetTag}
+				onClose={() => toggleModalCreateNewTag({ clearForm: true })}
+				header={
+					isEditingTag
+						? t(`admin.tags.editTag`)
+						: t(`admin.tags.createNewTag`)
+				}
 			>
-				{/* ▼▼▼▼▼▼ TopBar ▼▼▼▼▼▼ */}
-				<div
-					style={{
-						position: 'fixed',
-						top: 0,
-						width: '100%',
-						maxWidth: '800px',
-						backgroundColor: 'rgba(11,11,11,.5)',
-					}}
-				>
-					<div className='mt-4'>
-						<Button
-							text={t('admin.tags.createNewTag')}
-							onClick={toggleModalCreateNewTag}
-							size='3'
-							type={2}
-						/>
-					</div>
-
-					<div className='col-12 d-flex justify-content-between align-items-center'>
-						<div className='col-10'>
-							<Input
-								placeholder={t('admin.tags.filterByTagName')}
-								value={filterTags}
-								onChange={(e) =>
-									handleInputChange({ e: e, type: 'filter' })
-								}
-							/>
-						</div>
-					</div>
-				</div>
-				{/* ▲▲▲▲▲▲ TopBar ▲▲▲▲▲▲ */}
-
-				{/* ▼▼▼▼▼▼ List ▼▼▼▼▼▼ */}
-				<div
-					className='col-12 d-flex flex-column justify-content-center align-items-center'
-					style={{ marginTop: '140px' }}
-				>
-					<div className='col-12 mb-5 pb-3 d-flex flex-column align-items-center'>
-						{tagsListResponse?.tags
-							?.filter((tag) =>
-								tag[`title${lang}`]
-									?.toLowerCase()
-									.includes(filterTags.toLowerCase())
-							)
-							?.map((tag) => {
-								return (
-									<div
-										key={tag._id}
-										className='col-12 d-flex flex-row justify-content-center'
-										style={{
-											borderBottom: '1px solid black',
-											boxShadow:
-												'0 4px 12px -2px rgba(11,11,11,.3)',
-											height: '60px',
-										}}
-									>
-										<div className='col-12 d-flex flex-row justify-content-betwen align-items-center'>
-											<div
-												style={{
-													marginLeft: '5%',
-													width: '40%',
-												}}
-											>
-												<Text
-													text={tag[`title${lang}`]}
-												/>
-											</div>
-
-											<div
-												style={{
-													width: '25%',
-												}}
-											>
-												<Text
-													text={t(
-														`admin.tags.bodyPart.${tag.bodyPart}`
-													)}
-												/>
-											</div>
-
-											<div style={{ width: '25%' }}>
-												<Button
-													text={t('admin.tags.edit')}
-													size={2}
-													onClick={() =>
-														toggleModalEditTag(tag)
-													}
-												/>
-											</div>
-
-											<div style={{ width: '25%' }}>
-												<Button
-													text={t(
-														'admin.tags.delete'
-													)}
-													size={2}
-													type={5}
-													onClick={() =>
-														handleDeleteTag(tag)
-													}
-												/>
-											</div>
-										</div>
-									</div>
-								);
+				<div className='d-flex flex-column align-items-center'>
+					<Input
+						label={t(`admin.tags.spanishName`)}
+						value={newTagData.titleES}
+						onChange={(e) =>
+							handleInputChange({ e: e, type: 'es' })
+						}
+					/>
+					<Input
+						label={t(`admin.tags.englishName`)}
+						value={newTagData.titleEN}
+						onChange={(e) =>
+							handleInputChange({ e: e, type: 'en' })
+						}
+					/>
+					<div className='w-100'>
+						<InputSelect
+							label={t(`admin.tags.category`)}
+							name='category'
+							options={bodyPartsOptions.map((part) => {
+								return {
+									value: part.value,
+									name: t(
+										`admin.tags.bodyPart.${part.name}`
+									),
+								};
 							})}
+							value={newTagData?.bodyPart}
+							onChange={(e) =>
+								handleInputChange({ e: e, type: 'select' })
+							}
+							style={
+								newTagData?.bodyPart ===
+									'Seleccione una categoría' ||
+									newTagData?.bodyPart ===
+									'Select a Category' ||
+									newTagData?.bodyPart === ''
+									? { color: 'red' }
+									: { color: 'blue' }
+							}
+						/>
+					</div>
+					<div className='my-3 col-12'>
+						<Button
+							text={`${isEditingTag
+								? t(`admin.tags.saveChanges`)
+								: t(`admin.tags.createTag`)
+								}`}
+							onClick={onSubmitFormTag}
+						/>
 					</div>
 				</div>
-				{/* ▲▲▲▲▲▲ List ▲▲▲▲▲▲ */}
+			</Modal>
+			{/* ▲▲▲▲▲▲ Modal Create New Tag ▲▲▲▲▲▲ */}
 
-				{/* ▼▼▼▼▼▼ Modal Set New Tag ▼▼▼▼▼▼ */}
+			{/* ▼▼▼▼▼▼ Modal Delete  ▼▼▼▼▼▼ */}
+			<div className='col-12'>
 				<Modal
-					show={showModalSetTag}
-					onClose={() => toggleModalCreateNewTag({ clearForm: true })}
-					header={
-						isEditingTag
-							? t(`admin.tags.editTag`)
-							: t(`admin.tags.createNewTag`)
-					}
+					show={showModalConfirmDeleteTag}
+					onClose={() => setShowModalConfirmDeleteTag(false)}
+					header={t('admin.tags.deleteTagQuestion')}
 				>
-					<div className='d-flex flex-column align-items-center'>
-						<Input
-							label={t(`admin.tags.spanishName`)}
-							value={newTagData.titleES}
-							onChange={(e) =>
-								handleInputChange({ e: e, type: 'es' })
-							}
-						/>
-						<Input
-							label={t(`admin.tags.englishName`)}
-							value={newTagData.titleEN}
-							onChange={(e) =>
-								handleInputChange({ e: e, type: 'en' })
-							}
-						/>
-						<div className='w-100'>
-							<InputSelect
-								label={t(`admin.tags.category`)}
-								name='category'
-								options={bodyPartsOptions.map((part) => {
-									return {
-										value: part.value,
-										name: t(
-											`admin.tags.bodyPart.${part.name}`
-										),
-									};
-								})}
-								value={newTagData?.bodyPart}
-								onChange={(e) =>
-									handleInputChange({ e: e, type: 'select' })
-								}
-								style={
-									newTagData?.bodyPart ===
-										'Seleccione una categoría' ||
-										newTagData?.bodyPart ===
-										'Select a Category' ||
-										newTagData?.bodyPart === ''
-										? { color: 'red' }
-										: { color: 'blue' }
-								}
+					<div className='col-12 d-flex flex-column justify-content-between'>
+						<div className='mb-4'>
+							<Text
+								text={tagToDelete[`title${lang}`]}
+								size={4}
+								color={5}
+								bold
 							/>
 						</div>
-						<div className='my-3 col-12'>
+						<div className='d-flex flex-column align-items-center'>
 							<Button
-								text={`${isEditingTag
-									? t(`admin.tags.saveChanges`)
-									: t(`admin.tags.createTag`)
-									}`}
-								onClick={onSubmitFormTag}
+								text={t('admin.tags.deleteTag')}
+								size={3}
+								type={5}
+								onClick={toggleConfirmDeleteTag}
 							/>
 						</div>
 					</div>
 				</Modal>
-				{/* ▲▲▲▲▲▲ Modal Create New Tag ▲▲▲▲▲▲ */}
-
-				{/* ▼▼▼▼▼▼ Modal Delete  ▼▼▼▼▼▼ */}
-				<div className='col-12'>
-					<Modal
-						show={showModalConfirmDeleteTag}
-						onClose={() => setShowModalConfirmDeleteTag(false)}
-						header={t('admin.tags.deleteTagQuestion')}
-					>
-						<div className='col-12 d-flex flex-column justify-content-between'>
-							<div className='mb-4'>
-								<Text
-									text={tagToDelete[`title${lang}`]}
-									size={4}
-									color={5}
-									bold
-								/>
-							</div>
-							<div className='d-flex flex-column align-items-center'>
-								<Button
-									text={t('admin.tags.deleteTag')}
-									size={3}
-									type={5}
-									onClick={toggleConfirmDeleteTag}
-								/>
-							</div>
-						</div>
-					</Modal>
-				</div>
-				{/* ▲▲▲▲▲▲ Modal Delete ▲▲▲▲▲▲ */}
 			</div>
+			{/* ▲▲▲▲▲▲ Modal Delete ▲▲▲▲▲▲ */}
 		</MainContainer>
 	);
 };
