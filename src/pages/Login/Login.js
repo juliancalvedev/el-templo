@@ -21,11 +21,8 @@ const Login = () => {
 	const styles = useStyles();
 
 	const [email, setEmail] = useState('');
-
 	const [password, setPassword] = useState('');
-
 	const [showAlert, setShowAlert] = useState(false);
-
 	const [inputType, setInputType] = useState('password');
 
 	const callback = () => {
@@ -110,12 +107,12 @@ const Login = () => {
 					placeholder={t('auth.login.passwordPlaceholder')}
 					onClickIcon={onClickIcon}
 					transparent
-					
 				/>
 
 				<Button onClick={apiCall} text={t('auth.login.btnLogin')} />
 				<div className={styles.textRecovery}>
 					<Text
+						bold
 						color={3}
 						size={1}
 						underline
@@ -125,10 +122,13 @@ const Login = () => {
 				</div>
 			</div>
 			<div className={styles.textRegister}>
-				<Text size={1} color={2} text={t('auth.login.register1')} />
+				<div className='mx-1'>
+					<Text size={1} color={2} text={t('auth.login.register1')} />
+				</div>
 				<Text
 					size={1}
 					color={3}
+					bold
 					underline
 					onClick={toRegister}
 					text={t('auth.login.register2')}
