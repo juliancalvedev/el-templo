@@ -8,11 +8,12 @@ const TrainingCard = ({
     exercise1,
     exercise2,
     isEditing,
-    exercisesListResponse,
+    exerciseList,
     onChange,
+    isActive,
 }) => {
     const { t } = useTranslation()
-    const styles = useStyles();
+    const styles = useStyles({ isActive, isEditing });
     const lang = localStorage.getItem('lang').toUpperCase();
 
     const onChangeInput = (e, exerciseNumber) => {
@@ -38,7 +39,7 @@ const TrainingCard = ({
                                     name='exerciseId'
                                 >
                                     <option hidden={true}>Elegir</option>
-                                    {exercisesListResponse?.exercises?.map(exercise => {
+                                    {exerciseList?.exercises?.map(exercise => {
                                         return (
                                             <option
                                                 key={exercise?._id}
@@ -96,7 +97,7 @@ const TrainingCard = ({
                                     name='exerciseId'
                                 >
                                     <option hidden={true}>Elegir</option>
-                                    {exercisesListResponse?.exercises?.map(exercise => {
+                                    {exerciseList?.exercises?.map(exercise => {
                                         return (
                                             <option
                                                 key={exercise?._id}
