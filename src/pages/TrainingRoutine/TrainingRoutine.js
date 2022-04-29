@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import MainContainer from "../../components/MainContainer/MainContainer";
-import EditRoutineDay from "../../components/EditRoutineDay/EditRoutineDay";
+import RoutineTable from "../../components/RoutineTable/RoutineTable";
 import useFetch from "../../hooks/useFetch";
 import { getMyExercise } from "../../services/training";
 
@@ -10,10 +10,7 @@ const TrainingRoutine = () => {
     const [myExercise, myExerciseError, apiCallMyExercise] = useFetch({
         service: () => getMyExercise(),
         globalLoader: true,
-        callNow: true,
-        callback: () => {
-            // console.log('myExercise', myExercise?.response?.routine?._id)
-        }
+        callNow: true
     })
 
     return (
@@ -31,8 +28,9 @@ const TrainingRoutine = () => {
             scroll
             alignCenter
         >
-            <EditRoutineDay
-                trainingDayId={myExercise?.response?.routine?._id}
+            <RoutineTable
+                {...myExercise?.response?.routine}
+                trainingType={myExercise?.response?.trainingType}
             />
         </MainContainer>
     );
