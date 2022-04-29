@@ -5,6 +5,7 @@ import Text from '../Text/Text';
 const Button = ({
 	text,
 	size = 3,
+	textSize = 2,
 	className,
 	onClick,
 	type = 1,
@@ -30,7 +31,7 @@ const Button = ({
 			>
 				<Text
 					justify={type === 4 && 'start'}
-					size={2}
+					size={textSize}
 					color={COLOR_TEXT[type]}
 					bold={type === 3 || type === 4 || circle}
 					text={transformedText}
