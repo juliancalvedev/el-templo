@@ -10,10 +10,13 @@ import TextArea from '../../../components/TextArea/TextArea';
 import { PATHS } from '../../../constants/paths';
 import useFetch from '../../../hooks/useFetch';
 import { getExercises } from '../../../services/admin';
+import Table from '../../../components/Table/Table';
+import UseTable from '../../../hooks/useTable';
 
 const AdminExercises = () => {
     const { t } = useTranslation();
     const navigate = useNavigate()
+
 
     const [showModal, setShowModal] = useState(false)
     const [newExerciseData, setNewExerciseData] = useState({
@@ -26,11 +29,14 @@ const AdminExercises = () => {
     });
 
     const [exercisesListFetch, exercisesListError, apiCallExercisesList] = useFetch({
-        service: () => getExercises(),
+        service: () => getExercises({ offset: tableData.offset, search: tableData.search }),
         callNow: true,
         globalLoader: true,
         callback: () => { },
     });
+
+    const tableData = UseTable({ apiCall: apiCallExercisesList });
+
 
     const navigateToCreateExercise = () => {
         navigate(`/${PATHS.ADMIN_CREATE_EDIT_EXERCISE}`)
@@ -41,37 +47,28 @@ const AdminExercises = () => {
 
     return (
         <MainContainer col='12' navbar scroll shadow back text='Administrar Ejercicios' >
-            {/* ▼▼▼▼▼▼ TopBar ▼▼▼▼▼▼ */}
-            <div
-                style={{
-                    position: 'fixed',
-                    top: 53,
-                    width: '100%',
-                    maxWidth: '800px',
-                    backgroundColor: 'rgba(11,11,11,.5)',
-                }}
-            >
-                <div className='mt-4'>
-                    <Button
-                        text={
-                            // t('admin.tags.createNewTag'),
-                            'Crear Nuevo Ejercicio'}
-                        onClick={navigateToCreateExercise}
-                        size='3'
-                        type={2}
-                    />
-                </div>
+            <Table
+                paginator
+                total={exercisesListFetch?.total}
+                {...tableData}
+                columns={[
+                    { title: t('admin.userTable.name'), field: `title${localStorage.getItem('lang').toUpperCase()}` },
+                    { title: t('editar'), field: `edit` },
 
-            </div>
-            {/* ▲▲▲▲▲▲ TopBar ▲▲▲▲▲▲ */}
-            <div className='auxiliar-map mt-5 pt-4' >
-                {exercisesListFetch?.exercises.map(exercise =>
-                    <ul key={exercise._id} style={{ border: '1px solid black' }}>
-                        <li>{exercise.titleES}</li>
-                        <li>{exercise.tags[0].titleES}</li>
-                        <Button text={'Editar'} size={1} onClick={() => navigateToEditExercise(exercise._id)} />
-                    </ul>)}
-            </div>
+                ]}
+                extraSearch={<Button
+                    text={
+                        // t('admin.tags.createNewTag'),
+                        'Crear Nuevo Ejercicio'}
+                    onClick={navigateToCreateExercise}
+                    size='3'
+                    type={2}
+                />}
+                data={exercisesListFetch?.exercises.map(e => ({
+                    ...e,
+                    edit: <Button text={'Editar'} size={1} onClick={() => navigateToEditExercise(e._id)} />
+                }))}
+            />
 
         </MainContainer>
     )
