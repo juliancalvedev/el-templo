@@ -1,8 +1,8 @@
 import useStyles from './useStyles';
-import {Link, useLocation, useNavigate} from 'react-router-dom';
-import {useTranslation} from 'react-i18next';
-import {useSelector} from 'react-redux';
-import {ROLES} from '../../constants/roles';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { ROLES } from '../../constants/roles';
 
 import './Navbar.scss';
 import IconDashboard from '../../assets/Icons/IconDashboard';
@@ -13,16 +13,16 @@ import IconProfile from '../../assets/Icons/IconProfile';
 import IconProfileActive from '../../assets/Icons/IconProfileActive';
 import IconHelp from '../../assets/Icons/IconHelp';
 import IconHelpActive from '../../assets/Icons/IconHelpActive';
-import {PATHS} from '../../constants/paths';
+import { PATHS } from '../../constants/paths';
 import Text from '../Text/Text';
 
 const Navbar = () => {
-	const {t} = useTranslation();
-	const {role, level} = useSelector((store) => store.user);
+	const { t } = useTranslation();
+	const { role, level } = useSelector((store) => store.user);
 	const currentLocation = useLocation().pathname.substring(1);
 
 	const styles = useStyles();
-	const {pathname} = useLocation();
+	const { pathname } = useLocation();
 	const navigate = useNavigate();
 
 	const redirection = () => {
@@ -37,12 +37,12 @@ const Navbar = () => {
 			<div className={styles.iconsContainer}>
 				{role === ROLES.ADMIN && (
 					<Text
-					// TODO traducir
-						text={'Admin'} 
+						// TODO traducir
+						text={'Admin'}
 						onClick={() => navigate(`/${PATHS.BASE_URL}`)}
 						color={
 							currentLocation.includes('admin') ||
-							currentLocation === ''
+								currentLocation === ''
 								? 'linkSelected'
 								: 'link'
 						}
@@ -57,7 +57,7 @@ const Navbar = () => {
 						<IconDashboard />
 					)}
 				</span>
-				<span onClick={redirection}>
+				<span onClick={() => navigate(`/${PATHS.TRAINING_ROUTINE}`)}>
 					{pathname === PATHS.TRAINING ? (
 						<IconMuscleActive />
 					) : (

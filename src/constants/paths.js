@@ -31,6 +31,7 @@ export const PATHS = {
 	NIVELATION_EXERCISE: 'nivelation-exercise',
 	TRAINING: 'training',
 	EDIT_PROFILE: 'edit-profile',
+	TRAINING_ROUTINE: 'training-routine'
 };
 
 export const SHOW_NAVBAR = [PATHS.BASE_URL];

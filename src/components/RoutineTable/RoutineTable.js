@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
@@ -169,13 +169,15 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
                 onChange={(e) => onChangeInput(e, 'suplementary')}
 
             />
-            <Button
-                className='mt-3 mb-4'
-                onClick={savedRoutineApiCall}
-                text={t('admin.routines.saveRoutine')}
-                size={2}
-                disabled={!eachCardIsCompleted(eachCard)}
-            />
+            {isEditing &&
+                <Button
+                    className='mt-3 mb-4'
+                    onClick={savedRoutineApiCall}
+                    text={t('admin.routines.saveRoutine')}
+                    size={2}
+                    disabled={!eachCardIsCompleted(eachCard)}
+                />
+            }
         </div>
     );
 };
