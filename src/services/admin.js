@@ -18,7 +18,7 @@ export const getUsers = ({ offset, search, limit }) => {
 	return privateGet({ url: `${baseURL}/users${query}` });
 }
 
-export const getExercises = () => privateGet({ url: `${baseURL}/exercise` });
+export const getExercises = (params) => privateGet({ url: `${baseURL}/exercise${queryParams(params)}` });
 
 export const getLevels = () => privateGet({ url: `level` });
 
@@ -37,8 +37,7 @@ export const postNewExercise = ({
 	descriptionES,
 	descriptionEN,
 	tags,
-	video }) => {
-	return privatePost({
+	video }) => privatePost({
 		url: `${baseURL}/exercise`, body: {
 			titleES,
 			titleEN,
@@ -48,21 +47,17 @@ export const postNewExercise = ({
 			video
 		}
 	});
-}
 
-export const putEditExercise = ({ id, body }) => {
-
-	return privatePut({
-		url: `${baseURL}/exercise/${id}`, body: {
-			titleES: body.titleES,
-			titleEN: body.titleEN,
-			descriptionES: body.descriptionES,
-			descriptionEN: body.descriptionEN,
-			tags: body.tags,
-			video: body.video
-		}
-	});
-}
+export const putEditExercise = ({ id, body }) => privatePut({
+	url: `${baseURL}/exercise/${id}`, body: {
+		titleES: body.titleES,
+		titleEN: body.titleEN,
+		descriptionES: body.descriptionES,
+		descriptionEN: body.descriptionEN,
+		tags: body.tags,
+		video: body.video
+	}
+});
 
 export const putEditedTag = ({ id, titleES, titleEN, bodyPart }) =>
 	privatePut({ url: `${baseURL}/tag/${id}`, body: { titleES, titleEN, bodyPart } });
