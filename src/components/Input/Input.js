@@ -29,9 +29,10 @@ const Input = ({
 	name,
 	className,
 	disabled,
-	onBlur = () => {},
-	onFocus = () => {},
-	onClickIcon = () => {},
+	max,
+	onBlur = () => { },
+	onFocus = () => { },
+	onClickIcon = () => { },
 }) => {
 	const feedbackColorType = (isInvalid && 'error') || (transparent && 2);
 	const styles = useStyles({
@@ -47,6 +48,7 @@ const Input = ({
 			{label && <label className={styles.label}>{label}</label>}
 			<div className={styles.inputContent}>
 				<input
+					max={max}
 					onBlur={onBlur}
 					onFocus={onFocus}
 					disabled={disabled}
