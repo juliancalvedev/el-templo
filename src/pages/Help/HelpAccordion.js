@@ -28,6 +28,7 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 	const [data, error, apiCall] = useFetch({
 	service: () => help({ message, subject }),
 	globalLoader: true,
+	callback: () => { setMessage(''); setSubject(''); }
 	});
 	const toContact = () => navigate(`/${PATHS.CONTACT}`);
 	// toTerms redirige a Contact hasta que este creada la page Terminos&Condiciones
@@ -103,6 +104,7 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 
 							<div className={styles.buttonHA2}>
 								<Button
+									disabled={!(!!message && !!subject)}
 									onClick={apiCall}
 									text={t('help.main.btnSend')}
 									size={1}
