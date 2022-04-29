@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import { editAllTrainings, getExercises, getRoutineById } from '../../services/admin';
-import TrainingCard from '../TrainingCard/TrainingCard';
+import TrainingCardInputs from '../TrainingCardInputs/TrainingCardInputs';
 import Button from '../Button/Button'
 import { eachCardIsCompleted } from '../../utils/objectUtils';
 
-const RoutineTable = ({ trainingDayId, isEditing }) => {
+const EditRoutineDay = ({ trainingDayId }) => {
     const { t } = useTranslation()
     // const navigate = useNavigate();
 
@@ -125,16 +125,14 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
 
     return (
         <div className='col-12 d-flex flex-column align-items-center'>
-            <TrainingCard
-                isEditing={isEditing}
+            <TrainingCardInputs
                 title={t('admin.routines.adaptation1')}
                 exercise1={eachCard?.adaptation1?.exercise1}
                 exercise2={eachCard?.adaptation1?.exercise2}
                 exercisesListResponse={exercisesListResponse}
                 onChange={(e) => onChangeInput(e, 'adaptation1')}
             />
-            <TrainingCard
-                isEditing={isEditing}
+            <TrainingCardInputs
                 title={t('admin.routines.adaptation2')}
                 exercise1={eachCard?.adaptation2?.exercise1}
                 exercise2={eachCard?.adaptation2?.exercise2}
@@ -142,8 +140,7 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
                 onChange={(e) => onChangeInput(e, 'adaptation2')}
 
             />
-            <TrainingCard
-                isEditing={isEditing}
+            <TrainingCardInputs
                 title={t('admin.routines.strength')}
                 exercise1={eachCard?.strength?.exercise1}
                 exercise2={eachCard?.strength?.exercise2}
@@ -151,8 +148,7 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
                 onChange={(e) => onChangeInput(e, 'strength')}
 
             />
-            <TrainingCard
-                isEditing={isEditing}
+            <TrainingCardInputs
                 title={t('admin.routines.hypertrophy')}
                 exercise1={eachCard?.hypertrophy?.exercise1}
                 exercise2={eachCard?.hypertrophy?.exercise2}
@@ -160,8 +156,7 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
                 onChange={(e) => onChangeInput(e, 'hypertrophy')}
 
             />
-            <TrainingCard
-                isEditing={isEditing}
+            <TrainingCardInputs
                 title={t('admin.routines.suplementary')}
                 exercise1={eachCard?.suplementary?.exercise1}
                 exercise2={eachCard?.suplementary?.exercise2}
@@ -169,17 +164,15 @@ const RoutineTable = ({ trainingDayId, isEditing }) => {
                 onChange={(e) => onChangeInput(e, 'suplementary')}
 
             />
-            {isEditing &&
-                <Button
-                    className='mt-3 mb-4'
-                    onClick={savedRoutineApiCall}
-                    text={t('admin.routines.saveRoutine')}
-                    size={2}
-                    disabled={!eachCardIsCompleted(eachCard)}
-                />
-            }
+            <Button
+                className='mt-3 mb-4'
+                onClick={savedRoutineApiCall}
+                text={t('admin.routines.saveRoutine')}
+                size={2}
+                disabled={!eachCardIsCompleted(eachCard)}
+            />
         </div>
     );
 };
 
-export default RoutineTable
+export default EditRoutineDay

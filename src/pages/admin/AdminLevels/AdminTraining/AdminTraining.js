@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import MainContainer from '../../../../components/MainContainer/MainContainer';
-import RoutineTable from '../../../../components/RoutineTable/RoutineTable';
+import EditRoutineDay from '../../../../components/EditRoutineDay/EditRoutineDay';
 import useFetch from '../../../../hooks/useFetch';
 
 const AdminTraining = () => {
@@ -24,7 +24,7 @@ const AdminTraining = () => {
             scroll
             alignCenter
         >
-            <RoutineTable trainingDayId={trainingDayId} isEditing />
+            <EditRoutineDay trainingDayId={trainingDayId} />
         </MainContainer>
     );
 };

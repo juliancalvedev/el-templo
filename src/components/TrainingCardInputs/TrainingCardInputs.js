@@ -1,9 +1,9 @@
 import useStyles from './useStyles';
-import './TrainingCard.scss';
+import './TrainingCardInputs.scss';
 import Text from '../Text/Text';
 import { useTranslation } from 'react-i18next';
 
-const TrainingCard = ({
+const TrainingCardInputs = ({
     title = 'Title',
     exercise1,
     exercise2,
@@ -147,4 +147,4 @@ const TrainingCard = ({
     );
 };
 
-export default TrainingCard;
+export default TrainingCardInputs;

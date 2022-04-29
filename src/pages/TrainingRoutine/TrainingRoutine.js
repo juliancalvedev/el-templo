@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import MainContainer from "../../components/MainContainer/MainContainer";
-import RoutineTable from "../../components/RoutineTable/RoutineTable";
+import EditRoutineDay from "../../components/EditRoutineDay/EditRoutineDay";
 import useFetch from "../../hooks/useFetch";
 import { getMyExercise } from "../../services/training";
 
@@ -31,7 +31,7 @@ const TrainingRoutine = () => {
             scroll
             alignCenter
         >
-            <RoutineTable
+            <EditRoutineDay
                 trainingDayId={myExercise?.response?.routine?._id}
             />
         </MainContainer>

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useState} from 'react';
+import { useState } from 'react';
 import Text from '../../components/Text/Text';
 import './Help.scss';
 import HelpAccordion from './HelpAccordion';
@@ -12,15 +12,15 @@ import useStyles from './useStyles';
 const Help = () => {
 	const { t } = useTranslation();
 	const [showBtn, setShowBtn] = useState(true);
-	const handleChangeBtn= () => {
-		setShowBtn(false);	
+	const handleChangeBtn = () => {
+		setShowBtn(false);
 	}
-	
-	const styles=useStyles();
-	return (
 
+	const styles = useStyles();
+
+	return (
 		<MainContainer color={2} text={t('help.main.help')} bg={1} back navbar scroll col='12'>
-			<Text bold size={4} text={t('help.main.aboutUs')} className='mt-3'/>
+			<Text bold size={4} text={t('help.main.aboutUs')} className='mt-3' />
 
 			<Text font={2} size={5} text={t('help.main.elTemplo')} />
 			<img
@@ -38,33 +38,33 @@ const Help = () => {
 				{t('help.main.rectangle324')}
 			</p>
 
-			{showBtn?<Button 
+			{showBtn ? <Button
 				onClick={handleChangeBtn}
 				type={3}
 				text={t('help.main.btn1')}
-				
-			/>:
 
-			<div >
-				<div className={styles.card}>
-					<Text font={2} size={5} text={t('help.main.mission')} />
+			/> :
 
-					<div className={styles.textHelp2}>
-						<Text
-							justify='start'
-							size={2}
-							text={t('help.main.auxText2')}
-						/>
-						<Text
-							justify='start'
-							size={2}
-							text={t('help.main.auxText21')}
-						/>
+				<div >
+					<div className={styles.card}>
+						<Text font={2} size={5} text={t('help.main.mission')} />
+
+						<div className={styles.textHelp2}>
+							<Text
+								justify='start'
+								size={2}
+								text={t('help.main.auxText2')}
+							/>
+							<Text
+								justify='start'
+								size={2}
+								text={t('help.main.auxText21')}
+							/>
+						</div>
+
+						<HelpAccordion />
 					</div>
-
-					<HelpAccordion />
-				</div>
-			</div>}
+				</div>}
 		</MainContainer>
 	);
 };
