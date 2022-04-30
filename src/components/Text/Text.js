@@ -13,7 +13,8 @@ const Text = ({
 	className,
 	justify = 'center',
 	customStyles,
-	onClick = () => {},
+	cursorPointer,
+	onClick = () => { },
 }) => {
 	const styles = useStyles({
 		bold,
@@ -23,6 +24,7 @@ const Text = ({
 		className,
 		font,
 		justify,
+		cursorPointer
 	});
 
 	return (
