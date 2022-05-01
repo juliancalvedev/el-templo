@@ -9,12 +9,17 @@ import Button from '../../components/Button/Button';
 import ImgDashboard from '../../assets/images/ImgDashboard';
 import WeeklyCalendar from '../../components/WeeklyCalendar/WeeklyCalendar';
 import useStyles from './useStyles';
+import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../constants/paths';
 
 const Dashboard = () => {
 	const { t } = useTranslation();
 	const { firstName, level, img, experience } = useSelector(
 		(store) => store.user
 	);
+
+	const navigate = useNavigate();
+
 	const [summary, setSummary] = useState(true);
 	const handleChange = () => {
 		setSummary(false);
@@ -93,7 +98,7 @@ const Dashboard = () => {
 				</div>
 			)}
 			<div className={styles.btn}>
-				<Button size={3} type={2} text={t('dashboard.main.btn')} />
+				<Button size={3} type={2} text={t('dashboard.main.btn')} onClick={() => navigate(`/${PATHS.NIVELATION}`)}/>
 			</div>
 		</MainContainer>
 	);

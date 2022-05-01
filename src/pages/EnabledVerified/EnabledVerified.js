@@ -27,7 +27,7 @@ const EnabledVerified = () => {
 	});
 
 	return (
-		<MainContainer scroll>
+		<MainContainer scroll back>
 			<div className={styles.maincontainer}>
 				{!emailIsVerified && (
 					<div className={styles.container}>

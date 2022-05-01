@@ -427,7 +427,8 @@ const es = {
 			selectLevel: 'Seleccione un nivel',
 		},
 		nivelation: {
-			index: 'Nivelacion'
+			index: 'Nivelacion',
+			deleteNivelation: 'Se borrará {{title}}'
 		},
 		usersList: {
 			index: 'Administrar usuarios'
