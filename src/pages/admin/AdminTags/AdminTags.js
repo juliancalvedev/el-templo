@@ -226,7 +226,7 @@ const AdminTags = () => {
 							'global.delete'
 						)}
 						size={2}
-						type={5}
+						type={2}
 						onClick={() =>
 							handleDeleteTag(tag)
 						}

@@ -68,7 +68,7 @@ const AdminExercises = () => {
                 />}
                 data={exercisesListFetch?.exercises.map(e => ({
                     ...e,
-                    edit: <Button text={t('global.edit')} size={1} onClick={() => navigateToEditExercise(e._id)} />
+                    edit: <Button text={t('global.edit')} size={3} onClick={() => navigateToEditExercise(e._id)} />
                 }))}
             />
 
