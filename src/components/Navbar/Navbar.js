@@ -33,7 +33,7 @@ const Navbar = () => {
 		}
 	};
 	return (
-		<nav className={styles.navbarContainer}>
+		<div className={styles.navbarContainer}>
 			<div className={styles.iconsContainer}>
 				{role === ROLES.ADMIN && (
 					<Text
@@ -79,7 +79,7 @@ const Navbar = () => {
 					)}
 				</span>
 			</div>
-		</nav>
+		</div>
 	);
 };
 

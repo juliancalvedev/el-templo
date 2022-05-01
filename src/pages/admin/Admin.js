@@ -10,11 +10,10 @@ const Admin = () => {
 
 	return (
 		<MainContainer col='12' navbar scroll back text={routeName.map(r => `${r} `)}>
-			<DivTop >
+			<div>
 				<AdminBar />
 				<Outlet />
-
-			</DivTop>
+			</div>
 		</MainContainer>
 	);
 };

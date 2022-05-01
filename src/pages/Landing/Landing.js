@@ -18,7 +18,7 @@ const Landing = () => {
 	const styles = useStyles();
 
 	return (
-		<MainContainer backgroundImg='login'>
+		<MainContainer backgroundImg='login' calc>
 			<div className={styles.languageSelector}>
 				<LanguageSelector />
 			</div>

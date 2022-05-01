@@ -69,7 +69,7 @@ export const Register = () => {
 	);
 
 	return (
-		<MainContainer text={t('auth.register.register')} back shadow color={1} scroll col='11' alignCenter>
+		<MainContainer text={t('auth.register.register')} back shadow color={1} scroll col='11' alignCenter calc>
 			<DivTop >
 				<div className={styles.nameAndlastnameContainer}>
 
