@@ -13,6 +13,7 @@ import './Register.scss';
 import { Countries } from '../../constants/countries';
 import { imgToBase64 } from '../../utils/base64';
 import UserImage from '../../components/UserImage/UserImage';
+import Modal from '../../components/Modal/Modal'
 
 export const Register = () => {
 	const { t } = useTranslation();
@@ -26,6 +27,7 @@ export const Register = () => {
 	const [baseImage, setBaseImage] = useState('');
 	const [inputTypePassword, setInputTypePassword] = useState('password');
 	const [inputTypePassword2, setInputTypePassword2] = useState('password');
+	const [showAvatarModal, setShowAvatarModal] = useState(false)
 
 	const maxDateOfBirth = () => {
 		// format yyyy-mm-dd
@@ -52,7 +54,7 @@ export const Register = () => {
 	};
 
 	const clickFile = () => {
-		document.getElementById('file').click();
+		setShowAvatarModal(true)
 	};
 	const onChangeImg64 = (e) => imgToBase64({ e, setter: setBaseImage });
 
@@ -64,14 +66,13 @@ export const Register = () => {
 	return (
 		<MainContainer text={t('auth.register.register')} back shadow color={1} scroll col='11' alignCenter>
 			<div className={styles.nameAndlastnameContainer}>
-				<input
-					className={styles.base1}
-					id='file'
-					type='file'
-					onChange={onChangeImg64}
-					hidden
-				/>
-				<UserImage edit onClick={clickFile} img={baseImage} />
+
+				<div className='input-Avatar'>
+					<UserImage edit onClick={clickFile} img={baseImage} />
+				</div>
+				<Modal show={showAvatarModal} onClose={() => setShowAvatarModal(false)}>
+					<img src='/avatars/1.jpg' />
+				</Modal>
 
 				<div className={styles.NL}>
 					<div className={styles.Fname}>
