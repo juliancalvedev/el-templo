@@ -183,6 +183,11 @@ const en = {
 			auxText: 'This will help your coach to advise you properly.',
 			amateur: 'Amateur',
 			professional: 'Professional',
+			level1: 'I never train',
+			level2: 'I train sporadically',
+			level3: 'I train weekly',
+			level4: 'I train daily',
+			level5: 'I train professionally',
 		},
 		weightHeight: {
 			title: 'Complete the last personal data.',

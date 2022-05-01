@@ -48,6 +48,8 @@ const TrainingLevel = () => {
 
 			<div></div>
 			<div className={styles.container}>
+				<Text text={t(`welcome.trainingLevel.level${selectedLevel}`)} color='2'
+					size='1' />
 				<form className={styles.form}>
 					<InputRange
 						id='level'
