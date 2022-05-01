@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useTable = ({apiCall}) => {
+const useTable = ({apiCall = () => {}} = {}) => {
 
     const [offset, setOffset] = useState(0);
     const [search, setSearch] = useState('');

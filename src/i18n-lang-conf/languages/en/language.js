@@ -26,6 +26,7 @@ const en = {
 		loading: 'Loading...',
 		total: 'Total',
 		time: 'Time',
+		create: 'Create',
 
 		errors: {
 			required: 'This field is required.',

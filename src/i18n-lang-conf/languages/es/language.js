@@ -26,6 +26,7 @@ const es = {
 		loading: 'Cargando...',
 		total: 'Total',
 		time: 'Tiempo',
+		create: 'Crear',
 
 		errors: {
 			required: 'Este campo es requerido.',

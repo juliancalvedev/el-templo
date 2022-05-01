@@ -2,6 +2,7 @@ export const PATHS = {
 	BASE_URL: '',
 	ADMIN: 'admin',
 	ADMIN_CONFIG: 'admin-config',
+	ADMIN_NIVELATION: 'admin-nivelation',
 	ADMIN_USERS_LIST: 'admin-users-list',
 	ADMIN_USER_INFO: 'admin-user-info',
 	ADMIN_TAGS: 'admin-tags',

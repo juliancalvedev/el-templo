@@ -34,41 +34,40 @@ const AdminLevels = () => {
     }, [])
 
     return (
-        <MainContainer scroll>
-            <div
-                className='col-12 d-flex flex-column align-items-center'
-            >
-                <div className='mt-3'>
-                    <Text
-                        text={t('admin.adminLevels.selectLevel')}
-                        size={4}
-                    />
-                </div>
-                <div className='col-12 d-flex flex-column align-items-center mt-3'>
-                    <Button
-                        text={t('admin.nivelation.index')}
-                        size={1}
-                    />
-                </div>
-                <div className='col-12 d-flex flex-row flex-wrap justify-content-center mt-2'>
-                    {levelsResponse?.response
-                        .sort((a, b) => a.level - b.level)
-                        .filter(e => e.level !== 0)
-                        .map(element => {
-                            return (
-                                <div className='m-3' key={element?._id}>
-                                    <Button
-                                        text={element?.level}
-                                        size={1}
-                                        circle
-                                        onClick={() => navigateRoutineBLocks(element)}
-                                    />
-                                </div>
-                            )
-                        })}
-                </div>
+        <div
+            className='col-12 d-flex flex-column align-items-center'
+        >
+            <div className='mt-3'>
+                <Text
+                    text={t('admin.adminLevels.selectLevel')}
+                    size={4}
+                />
             </div>
-        </MainContainer>
+            <div className='col-12 d-flex flex-column align-items-center mt-3'>
+                <Button
+                    text={t('admin.nivelation.index')}
+                    size={1}
+                    onClick={() => navigate(`/${PATHS.ADMIN_NIVELATION}`)}
+                />
+            </div>
+            <div className='col-12 d-flex flex-row flex-wrap justify-content-center mt-2'>
+                {levelsResponse?.response
+                    .sort((a, b) => a.level - b.level)
+                    .filter(e => e.level !== 0)
+                    .map(element => {
+                        return (
+                            <div className='m-3' key={element?._id}>
+                                <Button
+                                    text={element?.level}
+                                    size={1}
+                                    circle
+                                    onClick={() => navigateRoutineBLocks(element)}
+                                />
+                            </div>
+                        )
+                    })}
+            </div>
+        </div>
     )
 }
 

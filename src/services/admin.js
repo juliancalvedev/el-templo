@@ -119,7 +119,7 @@ export const createNivelation = ({
 	lvl12
 } });
 export const editNivelation = ({
-	id,
+	_id,
 	titleEN,
 	titleES,
 	lvl1,
@@ -134,7 +134,7 @@ export const editNivelation = ({
 	lvl10,
 	lvl11,
 	lvl12
-}) => privatePut({ url: `${nivelationURL}/${id}`, body: {
+}) => privatePut({ url: `${nivelationURL}/${_id}`, body: {
 	titleEN,
 	titleES,
 	lvl1,

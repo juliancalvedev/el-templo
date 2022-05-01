@@ -189,7 +189,7 @@ const AdminTags = () => {
 	}, [])
 
 	return (
-		<MainContainer col='12'>
+			<div>
 
 
 			{/* ▼▼▼▼▼▼ List ▼▼▼▼▼▼ */}
@@ -329,8 +329,8 @@ const AdminTags = () => {
 					</div>
 				</Modal>
 			</div>
-			{/* ▲▲▲▲▲▲ Modal Delete ▲▲▲▲▲▲ */}
-		</MainContainer>
+			</div>
+
 	);
 };
 

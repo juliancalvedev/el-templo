@@ -43,6 +43,14 @@ const Input = ({
 		icon,
 	});
 
+	const handleChangeInput = (e) => {
+		if(type === 'number') {
+			e.target.value = e.target.value.replaceAll("[^\\d.]", "");
+			e.target.value = e.target.value ? parseFloat(e.target.value) : 0;
+		}
+		onChange(e);
+	}
+
 	return (
 		<div className={styles.container}>
 			{label && <label className={styles.label}>{label}</label>}
@@ -52,8 +60,8 @@ const Input = ({
 					onBlur={onBlur}
 					onFocus={onFocus}
 					disabled={disabled}
-					onChange={onChange}
-					type={type}
+					onChange={handleChangeInput}
+					type={type === 'number' ? 'text' : type}
 					name={name}
 					className={styles.input}
 					value={value}
