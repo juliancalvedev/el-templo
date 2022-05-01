@@ -30,7 +30,7 @@ const Button = ({
 			>
 				<Text
 					justify={type === 4 && 'start'}
-					size={2}
+					size={1}
 					color={COLOR_TEXT[type]}
 					bold={type === 3 || type === 4 || circle}
 					text={transformedText}
