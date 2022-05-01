@@ -20,7 +20,7 @@ const Button = ({
 
 	const transformedText = type === 3 ? text.toUpperCase() : text;
 
-	const styles = useStyles({ className, size, type, circle });
+	const styles = useStyles({ className, size, type, circle, disabled });
 
 	return (
 		<div className={styles.container}>

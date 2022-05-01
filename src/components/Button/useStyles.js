@@ -1,4 +1,4 @@
-const useStyles = ({ size, type, className = '', circle = false }) => {
+const useStyles = ({ size, type, className = '', circle = false, disabled }) => {
 
     const BUTTON_SIZE = {
         0: '',
@@ -25,6 +25,7 @@ const useStyles = ({ size, type, className = '', circle = false }) => {
         py-${BUTTON_TYPE[type] === '4' ? '3' : '2'}
         col-12 button-color--${BUTTON_TYPE[type]}
         ${className}
+        ${(type === 3 && disabled) && 'special-disable'}
         `
     }
 }

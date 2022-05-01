@@ -30,7 +30,7 @@ export const PATHS = {
 	DASHBOARD: 'dashboard',
 	NIVELATION: 'nivelation',
 	NIVELATION_EXERCISE: 'nivelation-exercise',
-	TRAINING: 'training',
+	TRAINING: 'training-routine',
 	EDIT_PROFILE: 'edit-profile',
 	TRAINING_ROUTINE: 'training-routine'
 };

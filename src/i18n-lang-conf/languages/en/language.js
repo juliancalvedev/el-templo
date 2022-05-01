@@ -280,11 +280,10 @@ const en = {
 		main: {
 			welcome: 'Welcome',
 			level: 'Level ',
-			summary: 'progress summary',
+			summary: 'Progress summary',
 			see: 'SEE DETAIL',
 			progress:
 				'As you progress in your workouts, your progress will be seen here.',
-
 			btn: 'Start training',
 		},
 	},
