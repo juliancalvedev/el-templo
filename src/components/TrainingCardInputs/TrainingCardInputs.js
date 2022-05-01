@@ -2,6 +2,7 @@ import useStyles from './useStyles';
 import './TrainingCardInputs.scss';
 import Text from '../Text/Text';
 import { useTranslation } from 'react-i18next';
+import { langUpperCased } from '../../utils/localStorage';
 
 const TrainingCardInputs = ({
     title = 'Title',
@@ -12,7 +13,6 @@ const TrainingCardInputs = ({
 }) => {
     const { t } = useTranslation()
     const styles = useStyles();
-    const lang = localStorage.getItem('lang').toUpperCase();
 
     const onChangeInput = (e, exerciseNumber) => {
         const { name, value } = e.target
@@ -43,7 +43,7 @@ const TrainingCardInputs = ({
                                             key={exercise?._id}
                                             value={exercise?._id}
                                         >
-                                            {exercise[`title${lang}`]}
+                                            {exercise[`title${langUpperCased()}`]}
                                         </option>
                                     )
                                 })}
@@ -101,7 +101,7 @@ const TrainingCardInputs = ({
                                             key={exercise?._id}
                                             value={exercise?._id}
                                         >
-                                            {exercise[`title${lang}`]}
+                                            {exercise[`title${langUpperCased()}`]}
                                         </option>
                                     )
                                 })}

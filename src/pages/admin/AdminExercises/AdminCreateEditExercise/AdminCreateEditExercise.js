@@ -14,7 +14,6 @@ import { getExerciseById, getTagsList, postNewExercise, putEditExercise } from '
 import { langUpperCased } from '../../../../utils/localStorage'
 
 const AdminCreateEditExercise = () => {
-    const lang = localStorage.getItem('lang').toUpperCase();
     const { t } = useTranslation();
     const location = useLocation();
     const navigate = useNavigate();
