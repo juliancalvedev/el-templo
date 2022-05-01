@@ -214,7 +214,6 @@ export const Register = () => {
 					</div>
 					<Text
 						cursorPointer
-
 						size='1'
 						color={4}
 						underline
