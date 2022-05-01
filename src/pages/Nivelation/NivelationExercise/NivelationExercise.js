@@ -4,6 +4,7 @@ import MainContainer from '../../../components/MainContainer/MainContainer';
 import Exercise from '../../../components/Exercise/Exercise';
 import { getNivelationRoutine } from '../../../services/training';
 import useFetch from '../../../hooks/useFetch';
+import { langUpperCased } from '../../../utils/localStorage';
 
 const NivelationExercise = () => {
 
@@ -13,7 +14,7 @@ const NivelationExercise = () => {
     globalLoader: true,
     callNow: true,
     callback: () => {
-      if(data?.response){
+      if (data?.response) {
 
         const { adaptation1, adaptation2, strength, hyphertrophy, suplementary } = data?.response?.routine;
         setTraining({ adaptation1, adaptation2, strength, hyphertrophy, suplementary });
@@ -30,11 +31,11 @@ const NivelationExercise = () => {
     <MainContainer color={2} text={t('user.nivelation.nivelation')} bg={1} back scroll col={12}>
 
       {stepper === 0 && <Exercise
-        title={training?.adaptation1?.exercise1?.exercise?.[`title${localStorage?.getItem('lang')?.toUpperCase()}`]}
+        title={training?.adaptation1?.exercise1?.exercise?.[`title${langUpperCased()}`]}
         video={training?.adaptation1?.exercise1?.exercise?.video}
-        description={training?.adaptation1?.exercise1?.exercise?.[`description${localStorage?.getItem('lang')?.toUpperCase()}`]}
+        description={training?.adaptation1?.exercise1?.exercise?.[`description${langUpperCased()}`]}
         onNext={() => setNextExercise(nextExercise + 1)}
-        />}
+      />}
     </MainContainer>
   )
 }

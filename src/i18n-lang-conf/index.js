@@ -6,8 +6,7 @@ import es from './languages/es/language';
 
 const getLastLangFromLocalStorage = () => {
 	let lang = localStorage.getItem('lang');
-	console.log('LANG', lang);
-	if(!lang) {
+	if (!lang) {
 		lang = 'es';
 		localStorage.setItem('lang', 'es');
 	}

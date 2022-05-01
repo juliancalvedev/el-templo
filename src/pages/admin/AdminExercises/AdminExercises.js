@@ -10,6 +10,7 @@ import Table from '../../../components/Table/Table';
 import UseTable from '../../../hooks/useTable';
 import { useDispatch } from 'react-redux';
 import { addRouteName, replaceRouteName } from '../../../redux/route';
+import { langUpperCased } from '../../../utils/localStorage'
 
 const AdminExercises = () => {
     const { t } = useTranslation();
@@ -55,7 +56,7 @@ const AdminExercises = () => {
                 total={exercisesListFetch?.total}
                 {...tableData}
                 columns={[
-                    { title: t('admin.userTable.name'), field: `title${localStorage.getItem('lang').toUpperCase()}` },
+                    { title: t('admin.userTable.name'), field: `title${langUpperCased()}` },
                     { title: t('global.edit'), field: `edit` },
 
                 ]}

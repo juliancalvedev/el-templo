@@ -9,6 +9,7 @@ import Modal from '../../../../components/Modal/Modal';
 import Input from "../../../../components/Input/Input";
 import { editNivelation, deleteNivelation, createNivelation } from '../../../../services/admin';
 import Text from "../../../../components/Text/Text";
+import { langUpperCased } from "../../../../utils/localStorage";
 
 const defaultValue = {
     titleES: "",
@@ -31,8 +32,6 @@ const AdminNivelation = () => {
 
     const { t } = useTranslation();
     const [newOrEditNivelationData, setNewOrEditNivelationData] = useState(defaultValue);
-
-    const lang = localStorage.getItem('lang').toUpperCase();
 
     const [selectedDeleteNivelation, setSelectedNivelation] = useState(null);
 
@@ -201,7 +200,7 @@ const AdminNivelation = () => {
                     action: onSubmitDelete
                 }}
             >
-                <Text text={t('admin.nivelation.deleteNivelation', { title: selectedDeleteNivelation?.[`title${lang}`]})}/>
+                <Text text={t('admin.nivelation.deleteNivelation', { title: selectedDeleteNivelation?.[`title${langUpperCased()}`] })} />
 
             </Modal>
         </div>

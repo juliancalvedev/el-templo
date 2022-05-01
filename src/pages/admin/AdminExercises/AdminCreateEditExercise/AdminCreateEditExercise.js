@@ -11,9 +11,9 @@ import TextArea from '../../../../components/TextArea/TextArea'
 import { PATHS } from '../../../../constants/paths'
 import useFetch from '../../../../hooks/useFetch'
 import { getExerciseById, getTagsList, postNewExercise, putEditExercise } from '../../../../services/admin'
+import { langUpperCased } from '../../../../utils/localStorage'
 
 const AdminCreateEditExercise = () => {
-    const lang = localStorage.getItem('lang').toUpperCase();
     const { t } = useTranslation();
     const location = useLocation();
     const navigate = useNavigate();
@@ -192,30 +192,30 @@ const AdminCreateEditExercise = () => {
                         onChange={handleOnChangeInputs}
                     />
 
-                        <div className='w-100 mt-2'>
-                            <InputSelect
-                                readOnly
-                                label={t(`admin.exercises.tags`)}
-                                name='tags'
-                                onClick={(e) => addTag(e)}
-                                options={tagsList?.map((tag) => {
-                                    return {
-                                        value: tag._id,
-                                        name: `${tag[`title${lang}`]}`,
-                                    };
-                                })}
-                                value={true}
-                            />
-                            {newExerciseData?.tags <= 0 &&
-                                <div className='col-12 d-flex justify-content-start'>
-                                    <Text
-                                        text={t(`admin.exercises.minOneTag`)}
-                                        size={1}
-                                        color={1}
-                                    />
-                                </div>
-                            }
-                        </div>
+                    <div className='w-100 mt-2'>
+                        <InputSelect
+                            readOnly
+                            label={t(`admin.exercises.tags`)}
+                            name='tags'
+                            onClick={(e) => addTag(e)}
+                            options={tagsList?.map((tag) => {
+                                return {
+                                    value: tag._id,
+                                    name: `${tag[`title${langUpperCased()}`]}`,
+                                };
+                            })}
+                            value={true}
+                        />
+                        {newExerciseData?.tags <= 0 &&
+                            <div className='col-12 d-flex justify-content-start'>
+                                <Text
+                                    text={t(`admin.exercises.minOneTag`)}
+                                    size={1}
+                                    color={1}
+                                />
+                            </div>
+                        }
+                    </div>
 
                     <div className='col-12 d-flex align-items-center flex-wrap mt-2 pb-4'>
                         {newExerciseData?.tags?.map((tag, i) => {
@@ -223,7 +223,7 @@ const AdminCreateEditExercise = () => {
                             return (
                                 <Tag
                                     key={i}
-                                    text={tagToShow?.[`title${lang}`]}
+                                    text={tagToShow?.[`title${langUpperCased()}`]}
                                     onClick={() => { deleteTag(tag) }}
                                 />
                             )
