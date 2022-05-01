@@ -1,4 +1,11 @@
-const DivBottom = ({ children, className, style, marginBottom = 0 }) => {
+const DivBottom = ({ children, className, style, marginBottom = 0, separation = 2 }) => {
+
+    const SEPARATION = {
+        1: 0,
+        2: 44,
+        3: 80
+    }
+
     return (
         <div
             className={
@@ -9,7 +16,7 @@ const DivBottom = ({ children, className, style, marginBottom = 0 }) => {
                 ...style,
                 margin: '0px',
                 padding: '0px',
-                marginBottom: `${marginBottom}px`
+                marginBottom: `${SEPARATION[separation] + (marginBottom && marginBottom)}px`
             }}>
             {children}
         </div>

@@ -131,7 +131,7 @@ const Login = () => {
 				</div>
 			</DivTop>
 
-			<DivBottom marginBottom={15}>
+			<DivBottom  >
 				<div className={styles.textRegister}>
 					<div className='mx-1'>
 						<Text size={1} color={2} text={t('auth.login.register1')} />
