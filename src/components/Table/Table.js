@@ -21,7 +21,7 @@ const Table = ({ columns = [], data = [], paginator, onSetPage, offset, total, s
                     </thead>
                     <tbody>
                         {data.map(d => <tr key={randomHexadecimal()}>
-                            {columns.map(h => <td key={randomHexadecimal()}>
+                            {columns.map(h => <td  style={{minWidth: '80px'}} key={randomHexadecimal()}>
                                 {d[h.field]}
                             </td>)}
                         </tr>)}

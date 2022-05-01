@@ -10,7 +10,7 @@ const Search = ({ search, onChange, onPressSearch, extraSearch }) => {
                 <div className='col-sm-9 col-md-4'>
                     <Input value={search} onChange={(e) => onChange(e.target.value)} />
                 </div>
-                <div>
+                <div className='col-sm-3 col-md-4'>
                     <Button text='buscar' onClick={onPressSearch} />
                 </div>
             </div>}
