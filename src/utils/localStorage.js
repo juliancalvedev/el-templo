@@ -1,1 +1,1 @@
-export const langUpperCased = () => localStorage.getItem('lang').toUpperCase();
+export const langUpperCased = () => localStorage?.getItem('lang')?.toUpperCase();

@@ -18,6 +18,7 @@ import { useTranslation } from 'react-i18next';
 import useTable from '../../../hooks/useTable';
 import { useDispatch } from 'react-redux';
 import { replaceRouteName } from '../../../redux/route';
+import { langUpperCased } from '../../../utils/localStorage';
 
 const defaultOption = { value: null, name: 'default' };
 
@@ -96,9 +97,6 @@ const AdminTags = () => {
 	});
 
 	const { search, setSearch, offset, onSetPage, onPressSearch } = useTable({ apiCall: apiCallGetTagsList });
-
-
-	const lang = localStorage.getItem('lang').toUpperCase();
 
 	const refreshListTrigger = () => setRefreshList(!refreshList);
 
@@ -185,11 +183,11 @@ const AdminTags = () => {
 	const toggleConfirmDeleteTag = () => setConfirmDeleteTag(!confirmDeleteTag);
 
 	useEffect(() => {
-			dispatch(replaceRouteName(t('admin.adminTags.index')));
+		dispatch(replaceRouteName(t('admin.adminTags.index')));
 	}, [])
 
 	return (
-			<div>
+		<div>
 
 
 			{/* ▼▼▼▼▼▼ List ▼▼▼▼▼▼ */}
@@ -210,7 +208,7 @@ const AdminTags = () => {
 					type={2}
 				/>}
 				columns={[
-					{ title: t('admin.userTable.name'), field: `title${lang}` },
+					{ title: t('admin.userTable.name'), field: `title${langUpperCased()}` },
 					{ title: '', field: `edit` },
 					{ title: '', field: `delete` },
 				]}
@@ -312,7 +310,7 @@ const AdminTags = () => {
 					<div className='col-12 d-flex flex-column justify-content-between'>
 						<div className='mb-4'>
 							<Text
-								text={tagToDelete[`title${lang}`]}
+								text={tagToDelete[`title${langUpperCased()}`]}
 								size={4}
 								color={5}
 								bold
@@ -329,7 +327,7 @@ const AdminTags = () => {
 					</div>
 				</Modal>
 			</div>
-			</div>
+		</div>
 
 	);
 };
