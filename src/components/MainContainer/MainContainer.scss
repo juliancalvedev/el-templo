@@ -1,9 +1,11 @@
 @import '../../styles/variables.scss';
+
 .main-container {
-	
+
 	&--scroll {
 		min-height: 100vh;
 	}
+
 	&--no-scroll {
 		height: 100vh;
 		overflow: hidden;
@@ -11,6 +13,7 @@
 
 	&__body {
 		height: 90%;
+
 		&--banner {
 			height: 70%;
 		}
@@ -25,6 +28,7 @@
 	&--login {
 		background-image: url('../../assets/images/barra.jpg');
 	}
+
 	&--welcome1 {
 		background-image: url('https://www.aestheticascetics.com/wp-content/uploads/2020/08/Empty-Gym-scaled.jpg');
 		background-position: absolute;
@@ -32,9 +36,11 @@
 		box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 		background-size: 100%;
 	}
+
 	&--mainGoals {
 		background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fst2.depositphotos.com%2F2389277%2F5903%2Fi%2F950%2Fdepositphotos_59034877-stock-photo-workout-at-gym-with-hammer.jpg&f=1&nofb=1');
 	}
+
 	background-repeat: no-repeat;
 	background-size: cover;
 }
