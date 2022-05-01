@@ -5,7 +5,13 @@ import en from './languages/en/language';
 import es from './languages/es/language';
 
 const getLastLangFromLocalStorage = () => {
-	return window.localStorage.getItem('lang');
+	let lang = localStorage.getItem('lang');
+	console.log('LANG', lang);
+	if(!lang) {
+		lang = 'es';
+		localStorage.setItem('lang', 'es');
+	}
+	return lang
 };
 
 const setCurrentLangToLocalStorage = (lang) => {
@@ -37,7 +43,7 @@ i18n.use(initReactI18next) // passes i18n down to react-i18next
 		},
 	});
 
-const updateLang = () => {
+const updateLang = async () => {
 	const currentLang = getLastLangFromLocalStorage();
 	if (!currentLang) {
 		setCurrentLangToLocalStorage('es');
