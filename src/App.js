@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
@@ -11,6 +11,7 @@ import { cleanErrorAction } from './redux/api';
 import RouterApp from './Router/RouterApp';
 import './styles/variables.scss';
 import Loading from './components/Loading/Loading';
+import AnimationElTemplo from './components/AnimationElTemplo/AnimationElTemplo';
 
 function App() {
 	const { isError, message, loading } = useSelector((store) => store.api);
@@ -18,6 +19,8 @@ function App() {
 	i18n.options.interpolation.defaultVariables = {
 		companyName: 'El Templo',
 	};
+
+	const [showAnimationElTemplo, setShowAnimationElTemplo] = useState(true);
 
 	const { t } = useTranslation();
 
@@ -34,8 +37,15 @@ function App() {
 		}
 	}, [isError]);
 
+	useEffect(() => {
+		setTimeout(() => {
+			setShowAnimationElTemplo(false);
+		}, 4000)
+	}, [])
+
 	return (
 		<div className='App container-fluid' id="App">
+			{showAnimationElTemplo && <AnimationElTemplo />}
 			{loading && <Loading />}
 			{isError && <Toast message={t(`errors.${message}`)} />}
 			<RouterApp />
