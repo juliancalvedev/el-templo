@@ -6,6 +6,7 @@ const useStyles = ({
 	className,
 	font,
 	justify,
+	cursorPointer
 }) => {
 	const fontSizes = {
 		1: '1',
@@ -41,6 +42,7 @@ const useStyles = ({
         text__color--${colors[color]} 
         m-0 p-0 
         ${className}
+		${cursorPointer && 'cursor-pointer'}
         `,
 	};
 };
