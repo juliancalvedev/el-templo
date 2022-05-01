@@ -18,7 +18,7 @@ const HelpAccordionBlue = ({ accordionType = 'blue', color = 'color' }) => {
 						aria-expanded='false'
 						aria-controls='flush-collapseOne'
 					>
-						{t('help.main.accordionTextBlue1')}
+						<Text size={2} bold text={t('help.main.accordionTextBlue1')} />
 					</button>
 				</h2>
 				<div
@@ -34,20 +34,22 @@ const HelpAccordionBlue = ({ accordionType = 'blue', color = 'color' }) => {
 							<Text
 								text={t('help.main.auxText3.item1')}
 								color={1}
-								size={1}
+								size={2}
 								justify="start"
 							/>
 							<Text
 								text={t('help.main.auxText3.item2')}
 								color={1}
-								size={1}
+								size={2}
 								justify="start"
+								bold
 							/>
 							<Text
 								text={t('help.main.auxText3.item3')}
 								color={1}
 								size={1}
 								justify="start"
+								bold
 							/>
 							<Text
 								text={t('help.main.auxText3.item4')}

@@ -40,11 +40,7 @@ const ButtonPagination = ({
 			>
 				<div
 					className={direction}
-					style={{
-						scale: '1.7',
-						paddingTop: '3px',
-						paddingRight: '5px',
-					}}
+					
 				>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'

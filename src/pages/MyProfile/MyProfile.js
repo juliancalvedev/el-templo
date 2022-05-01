@@ -40,6 +40,7 @@ const MyProfile = () => {
 			text={t('user.myProfile.myProfile')}
 			col='12'
 			scroll
+			navbar
 		>
 			<CardInfo
 				startEnabledDate={startEnabledDate}

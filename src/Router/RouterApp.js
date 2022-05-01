@@ -51,7 +51,7 @@ const RouterApp = () => {
 			<Routes>
 				{savedToken ? (
 					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
-						{goals?.length === 0 && (
+						{(goals?.length === 0 || !goals) && (
 							<Route>
 								<Route
 									path={PATHS.BASE_URL}

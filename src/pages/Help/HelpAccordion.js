@@ -46,7 +46,7 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 							aria-expanded='false'
 							aria-controls='collapseTwo'
 						>
-							{t('help.main.accordionText1')}
+							<Text text={t('help.main.accordionText1')} size={2} />
 						</button>
 					</h2>
 					<div
