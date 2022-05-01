@@ -1,8 +1,8 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import useForm from './UseForm';
-import {RegisterValidate} from './RegisterValidate';
+import { RegisterValidate } from './RegisterValidate';
 import Input from '../../components/Input/Input';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../components/Button/Button';
 import Text from '../../components/Text/Text';
@@ -17,10 +17,10 @@ import { PROFILE_IMAGE_DEFAULT } from '../../constants/profileImageDefault';
 
 
 export const Register = () => {
-	const {t} = useTranslation();
+	const { t } = useTranslation();
 	const styles = useStyles();
 	const countries = Countries({ t });
-	
+
 
 	const [type, setType] = useState('text');
 	const onFocus = () => setType('date');
@@ -62,9 +62,9 @@ export const Register = () => {
 	const clickFile = () => {
 		document.getElementById('file').click();
 	};
-	const onChangeImg64 = (e) => imgToBase64({e, setter: setBaseImage});
+	const onChangeImg64 = (e) => imgToBase64({ e, setter: setBaseImage });
 
-	const {handleChange, values, handleSubmit, errors} = useForm(
+	const { handleChange, values, handleSubmit, errors } = useForm(
 		RegisterValidate,
 		baseImage
 	);
@@ -223,13 +223,13 @@ export const Register = () => {
 					<Button
 						disabled={
 							(!values.firstName,
-							!values.lastName,
-							!values.sex,
-							!values.email,
-							!values.password,
-							!values.password2,
-							!values.country,
-							!values.dateOfBirth)
+								!values.lastName,
+								!values.sex,
+								!values.email,
+								!values.password,
+								!values.password2,
+								!values.country,
+								!values.dateOfBirth)
 						}
 						onClick={handleSubmit}
 						text={t('auth.register.btnRegister')}

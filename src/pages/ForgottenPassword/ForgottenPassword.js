@@ -11,13 +11,14 @@ import { startPasswordRecovery } from '../../services/auth';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
 import useStyles from './useStyles';
+import './ForgottenPassword.scss'
 
 
 const ForgottenPassword = () => {
 	const { t } = useTranslation();
 
 	const navigate = useNavigate();
-	const styles=useStyles();
+	const styles = useStyles();
 
 	const [email, setEmail] = useState('');
 
@@ -34,32 +35,34 @@ const ForgottenPassword = () => {
 	return (
 		<MainContainer back col='12' backgroundImg='lock' color={1}>
 			<div className='col-11 m-auto'>
-
-				<Text size={4} bold text={t('auth.forgotPassword1.title')} />
-				<Input
-					value={email}
-					onChange={handleChangeEmail}
-					type='email'
-					placeholder={t('auth.forgotPassword1.emailPlaceholder')}
-				/>
-				<Text size={2} text={t('auth.forgotPassword1.contentForgotPassword')} />
-			</div>
-				<div className={styles.img}>
-					<ImgPadlockFP />
-					<ImgKeyFP />
+				<div className={styles.titleContainer}>
+					<Text size={4} bold text={t('auth.forgotPassword1.title')} />
 				</div>
-				<div className='col-11 m-auto'>
-
-					<Button
-						size={3}
-						disabled={!email}
-						type={2}
-						onClick={apiCall}
-						text={t('auth.forgotPassword1.btnAccept')}
-						className='mb-4'
+				<div className={styles.inputContainer}>
+					<Input
+						value={email}
+						onChange={handleChangeEmail}
+						type='email'
+						placeholder={t('auth.forgotPassword1.emailPlaceholder')}
 					/>
 				</div>
-		</MainContainer>
+				<Text size={2} text={t('auth.forgotPassword1.contentForgotPassword')} />
+			</div>
+			<div className={styles.imgContainer}>
+				<ImgPadlockFP />
+				<ImgKeyFP />
+			</div>
+			<div className='col-10 m-auto'>
+				<Button
+					size={3}
+					disabled={!email}
+					type={2}
+					onClick={apiCall}
+					text={t('auth.forgotPassword1.btnAccept')}
+					className='mb-4'
+				/>
+			</div>
+		</MainContainer >
 	);
 };
 

@@ -5,7 +5,7 @@ import Text from '../Text/Text';
 const Button = ({
 	text,
 	size = 3,
-	textSize = 2,
+	textSize = 1,
 	className,
 	onClick,
 	type = 1,
