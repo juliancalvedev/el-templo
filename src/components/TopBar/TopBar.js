@@ -26,14 +26,15 @@ const TopBar = ({ text, color = 1, bg = 'none', back = false, shadow, banner, ba
 							</div>
 						</div>
 					)}
-
-					<Text text={text} color={color} className='p-1' />
+					<div className={back ? styles.textContainerWithArrow : styles.textContainerNotArrow}>
+						<Text text={text} color={color} className='p-1' size='2' />
+					</div>
 				</div>
 			</nav>
-					{bannerTexts && <div className='pb-5'>
+			{bannerTexts && <div className='pb-5'>
 
-					{bannerTexts?.map( bt => bt)}
-					</div>}
+				{bannerTexts?.map(bt => bt)}
+			</div>}
 		</div>
 	);
 };
