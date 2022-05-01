@@ -11,6 +11,7 @@ import WeeklyCalendar from '../../components/WeeklyCalendar/WeeklyCalendar';
 import useStyles from './useStyles';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
+import InputAvatar from '../../components/InputAvatar/InputAvatar'
 
 const Dashboard = () => {
 	const { t } = useTranslation();
@@ -30,16 +31,18 @@ const Dashboard = () => {
 	return (
 		<MainContainer
 			color={1}
-			text={`${t('dashboard.main.welcome')} ${firstName ? firstName : ''}!`}
+			text={`${t('dashboard.main.welcome')} ${firstName ? firstName : ''}`}
 			shadow
 			col='12'
 			scroll
 			navbar
 		>
 			<div className={styles.div}>
-				<div className={styles.userimg}>
-					<UserImage img={img} />
+
+				<div className={styles.userimg} >
+					<InputAvatar img={img} />
 				</div>
+
 				<div className={styles.containerColor}>
 					<div className={styles.textLevel}>
 						<Text
@@ -98,7 +101,7 @@ const Dashboard = () => {
 				</div>
 			)}
 			<div className={styles.btn}>
-				<Button size={3} type={2} text={t('dashboard.main.btn')} onClick={() => navigate(`/${PATHS.NIVELATION}`)}/>
+				<Button size={3} type={2} text={t('dashboard.main.btn')} onClick={() => navigate(`/${PATHS.NIVELATION}`)} />
 			</div>
 		</MainContainer>
 	);
