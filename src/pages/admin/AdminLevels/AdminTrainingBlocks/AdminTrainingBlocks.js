@@ -1,15 +1,23 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import Button from '../../../../components/Button/Button'
 import MainContainer from '../../../../components/MainContainer/MainContainer'
 import Text from '../../../../components/Text/Text'
 import { PATHS } from '../../../../constants/paths'
 import useFetch from '../../../../hooks/useFetch'
+import { addRouteName, addRouteParams, replaceRouteName } from '../../../../redux/route'
 import { getLevelByNumber } from '../../../../services/admin'
 
 const AdminTrainingBlocks = () => {
     const navigate = useNavigate()
-    const { level } = useParams('level')
+    const { level } = useParams('level');
+
+    const { t } = useTranslation();
+
+    const dispatch = useDispatch();
+    const { routeName } = useSelector(state => state.route);
 
     const [routineBlocks, setRoutineBlocks] = useState()
 
@@ -33,13 +41,7 @@ const AdminTrainingBlocks = () => {
                 <div className='m-2' key={i}>
                     <Button
                         text={i}
-                        type={1
-                            // routineBlock === undefined ||
-                            // routineBlock && routineBlock[`day${i}`] === undefined ?
-                            // 5
-                            // :
-                            // 6
-                        }
+                        type={1}
                         circle
                         onClick={() => routineBlock ?
                             onClickDayButton({
@@ -57,19 +59,14 @@ const AdminTrainingBlocks = () => {
     }
 
     const onClickDayButton = ({ trainingDayId, trainingBlock, trainingDay }) => {
-        navigate(`/${PATHS.ADMIN_TRAINING}`,
-            {
-                state: {
-                    trainingDayId: trainingDayId,
-                    trainingLevel: level,
-                    trainingBlock: trainingBlock,
-                    trainingDay: trainingDay
-                }
-            })
+        dispatch(addRouteParams({ propName: 'id', value: trainingDayId }));
+        navigate(`/${PATHS.ADMIN_TRAINING}`)
+        dispatch(replaceRouteName(`${t('admin.routines.level')}: ${level} - ${t('admin.routines.block')}: ${trainingBlock} - ${t('admin.routines.day')}: ${trainingDay}`))
+
     }
 
     return (
-        <MainContainer back color={2} bg={1} col={12} text={`Bloques de Nivel ${level}`} navbar scroll>
+        <MainContainer scroll>
             <div
                 className='col-12 d-flex flex-column align-items-center'
             >

@@ -1,14 +1,21 @@
-import React from 'react'
+import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Button from '../../../components/Button/Button'
 import MainContainer from '../../../components/MainContainer/MainContainer'
 import Text from '../../../components/Text/Text'
 import { PATHS } from '../../../constants/paths'
 import useFetch from '../../../hooks/useFetch'
+import { replaceRouteName } from '../../../redux/route'
 import { getLevels } from '../../../services/admin'
 
 const AdminLevels = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const { t } = useTranslation();
+
+    const dispatch = useDispatch();
 
     const [levelsResponse, levelsError, apiCallLevels] = useFetch({
         service: () => getLevels(),
@@ -17,23 +24,29 @@ const AdminLevels = () => {
         callback: () => { },
     });
 
-    const navigateToLevel = (level) => {
-        navigate(`/${PATHS.ADMIN_TRAINING_LEVEL.replace(':level', level)}`)
+    const navigateRoutineBLocks = (data) => {
+        dispatch(replaceRouteName(`${t('admin.routines.level')}: ${data?.level}`));
+        navigate(`/${PATHS.ADMIN_TRAINING_LEVEL.replace(':level', data?.level)}`);
     }
+
+    useEffect(() => {
+        dispatch(replaceRouteName(t('admin.adminLevels.index')));
+    }, [])
+
     return (
-        <MainContainer back color={2} bg={1} col={12} text='Niveles' navbar scroll>
+        <MainContainer scroll>
             <div
                 className='col-12 d-flex flex-column align-items-center'
             >
                 <div className='mt-3'>
                     <Text
-                        text={'Seleccione un nivel'}
+                        text={t('admin.adminLevels.selectLevel')}
                         size={4}
                     />
                 </div>
                 <div className='col-12 d-flex flex-column align-items-center mt-3'>
                     <Button
-                        text={'Nivelación'}
+                        text={t('admin.nivelation.index')}
                         size={1}
                     />
                 </div>
@@ -48,7 +61,7 @@ const AdminLevels = () => {
                                         text={element?.level}
                                         size={1}
                                         circle
-                                        onClick={() => navigateToLevel(element?.level)}
+                                        onClick={() => navigateRoutineBLocks(element)}
                                     />
                                 </div>
                             )

@@ -149,18 +149,7 @@ const AdminCreateEditExercise = () => {
     return (
         <MainContainer
             col='12'
-            navbar
             scroll
-            topbar
-            back
-            bg={1}
-            color={2}
-            text={
-                isEditing ?
-                    t(`admin.exercises.editExercise`)
-                    :
-                    t('admin.exercises.createNewExercise')
-            }
         >
             <div className='col-12 d-flex flex-column justify-content-start align-items-center h-100'>
                 <div className='col-10 d-flex flex-column align-items-center'>
@@ -202,7 +191,6 @@ const AdminCreateEditExercise = () => {
 
                         onChange={handleOnChangeInputs}
                     />
-                    {tagsList ?
 
                         <div className='w-100 mt-2'>
                             <InputSelect
@@ -228,11 +216,7 @@ const AdminCreateEditExercise = () => {
                                 </div>
                             }
                         </div>
-                        :
-                        <div className='mt-4'>
-                            <Text text={t('admin.exercises.loadingTags')} />
-                        </div>
-                    }
+
                     <div className='col-12 d-flex align-items-center flex-wrap mt-2 pb-4'>
                         {newExerciseData?.tags?.map((tag, i) => {
                             const tagToShow = tagsList?.find(e => e?._id === tag)

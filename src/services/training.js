@@ -13,3 +13,5 @@ export const getMyExercise = () => {
 		url: `/train/training/get-my-exercise`
 	})
 }
+
+export const getNivelationExercises = () => privateGet({ url: `get-nivelation` });

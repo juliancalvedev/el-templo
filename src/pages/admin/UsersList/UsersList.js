@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import useFetch from '../../../hooks/useFetch';
 import { getUsers } from '../../../services/admin';
 import MainContainer from '../../../components/MainContainer/MainContainer';
@@ -10,9 +10,12 @@ import { cutDate, compareWithCurrDate } from '../../../utils/date';
 import { useTranslation } from 'react-i18next';
 import Point from '../../../assets/Icons/Point';
 import useTable from '../../../hooks/useTable';
+import { useDispatch } from 'react-redux';
+import { replaceRouteName } from '../../../redux/route';
 
 const UsersList = () => {
 
+	const dispatch = useDispatch();
 	
 	const { t } = useTranslation();
 	
@@ -30,8 +33,12 @@ const UsersList = () => {
 	
 	const { search, setSearch, offset, onSetPage, onPressSearch } = useTable({apiCall});
 
+	useEffect(() => {
+		dispatch(replaceRouteName(t('admin.usersList.index')));
+	}, [])
+
 	return (
-		<MainContainer scroll navbar back text='Users' shadow >
+		<MainContainer scroll>
 			<div className='my-3'>
 				<Table
 				apiCall={apiCall}
