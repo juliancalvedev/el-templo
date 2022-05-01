@@ -7,6 +7,7 @@ import {
 import { queryParams } from './query';
 
 const baseURL = '/admin';
+const nivelationURL = `${baseURL}/nivelation`;
 
 export const getUserById = (id) => privateGet({ url: `${baseURL}/users/${id}` });
 export const enableOrDisableUser = (id, currentState) => privateGet({ url: `${baseURL}/${currentState ? 'disable' : 'enable'}-user/${id}` });
@@ -84,3 +85,68 @@ export const editAllTrainings = (routineIds, eachCard) => {
 	}).catch(err => rej[err?.[0]])
 	)
 }
+
+export const deleteNivelation = (id) => privateDelete({ url: `${nivelationURL}/${id}` });
+export const createNivelation = ({
+	titleEN,
+	titleES,
+	lvl1,
+	lvl2,
+	lvl3,
+	lvl4,
+	lvl5,
+	lvl6,
+	lvl7,
+	lvl8,
+	lvl9,
+	lvl10,
+	lvl11,
+	lvl12
+}) => privatePost({ url: `${nivelationURL}`, body: {
+	titleEN,
+	titleES,
+	lvl1,
+	lvl2,
+	lvl3,
+	lvl4,
+	lvl5,
+	lvl6,
+	lvl7,
+	lvl8,
+	lvl9,
+	lvl10,
+	lvl11,
+	lvl12
+} });
+export const editNivelation = ({
+	id,
+	titleEN,
+	titleES,
+	lvl1,
+	lvl2,
+	lvl3,
+	lvl4,
+	lvl5,
+	lvl6,
+	lvl7,
+	lvl8,
+	lvl9,
+	lvl10,
+	lvl11,
+	lvl12
+}) => privatePut({ url: `${nivelationURL}/${id}`, body: {
+	titleEN,
+	titleES,
+	lvl1,
+	lvl2,
+	lvl3,
+	lvl4,
+	lvl5,
+	lvl6,
+	lvl7,
+	lvl8,
+	lvl9,
+	lvl10,
+	lvl11,
+	lvl12
+} });

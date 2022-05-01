@@ -16,11 +16,15 @@ import {
 import Text from '../../../components/Text/Text';
 import { useTranslation } from 'react-i18next';
 import useTable from '../../../hooks/useTable';
+import { useDispatch } from 'react-redux';
+import { replaceRouteName } from '../../../redux/route';
 
 const defaultOption = { value: null, name: 'default' };
 
 const AdminTags = () => {
 	const { t } = useTranslation();
+
+	const dispatch = useDispatch();
 
 	const [newTagData, setNewTagData] = useState({
 		id: '',
@@ -180,8 +184,12 @@ const AdminTags = () => {
 	};
 	const toggleConfirmDeleteTag = () => setConfirmDeleteTag(!confirmDeleteTag);
 
+	useEffect(() => {
+			dispatch(replaceRouteName(t('admin.adminTags.index')));
+	}, [])
+
 	return (
-		<MainContainer col='12' navbar scroll topbar back>
+		<MainContainer col='12'>
 
 
 			{/* ▼▼▼▼▼▼ List ▼▼▼▼▼▼ */}
@@ -196,7 +204,7 @@ const AdminTags = () => {
 				offset={offset}
 				total={tagsListResponse?.total}
 				extraSearch={<Button
-					text={t('admin.tags.createNewTag')}
+					text={t('admin.adminTags.createTag')}
 					onClick={toggleModalCreateNewTag}
 					size='3'
 					type={2}
@@ -209,7 +217,7 @@ const AdminTags = () => {
 				data={tagsListResponse?.tags?.map(tag => ({
 					...tag,
 					edit: <Button
-						text={t('admin.tags.edit')}
+						text={t('global.edit')}
 						size={2}
 						onClick={() =>
 							toggleModalEditTag(tag)
@@ -217,7 +225,7 @@ const AdminTags = () => {
 					/>,
 					delete: <Button
 						text={t(
-							'admin.tags.delete'
+							'global.delete'
 						)}
 						size={2}
 						type={5}

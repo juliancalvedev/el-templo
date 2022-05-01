@@ -70,7 +70,7 @@ const en = {
 		},
 
 		login: {
-			title: 'Welcome',
+			title: 'Welcome!',
 			subtitle: 'Login to continue',
 			emailPlaceholder: 'Email',
 			passwordPlaceholder: 'Password',
@@ -401,7 +401,30 @@ const en = {
 			saveChanges: 'Save Changes',
 			createNewExercise: 'Create New Exercise',
 			editExercise: 'Edit Exercise',
-			loadingTags: 'Loading Tags...'
+		},
+		adminConfig: {
+			index: 'Manage trainings',
+			adminExercises: 'Manage the exercises',
+			adminTags: 'Manage the tags',
+			adminLevels: 'Manage the levels',
+		},
+		adminExercises: {
+			index: 'Manage the exercises',
+			createExercise: 'Create new exercise'
+		},
+		adminTags: {
+			index: 'Manage the tags',
+			createTag: 'Create tag',
+		},
+		adminLevels: {
+			index: 'Manage the levels',
+			selectLevel: 'Select level',
+		},
+		usersList: {
+			index: 'Manage users'
+		},
+		nivelation: {
+			index: 'Nivelation'
 		},
 		routines: {
 			level: 'Level',
@@ -416,8 +439,6 @@ const en = {
 			times: 'Times',
 			saveRoutine: 'Save Routine'
 		},
-
-
 	},
 	errors: {
 		generic: 'Oops, an error occurred.',

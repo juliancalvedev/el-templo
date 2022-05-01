@@ -2,6 +2,7 @@
 
 .input {
 	height: 40px;
+	margin-left: 5px;
 	outline: none;
 	border: none;
 	background-color: transparent !important;
@@ -65,6 +66,6 @@
 			}
 		}
 
-		&--general {}
+		// &--general {}
 	}
 }

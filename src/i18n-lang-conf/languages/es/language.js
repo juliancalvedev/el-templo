@@ -401,6 +401,31 @@ const es = {
 			editExercise: 'Editar Ejercicio',
 			loadingTags: 'Cargando Tags...'
 		},
+		adminConfig: {
+			index: 'Administrar entrenamientos',
+			adminExercises: 'Administrar ejercicios',
+			adminTags: 'Administrar etiquetas',
+			adminLevels: 'Administrar niveles',
+		},
+		adminExercises: {
+			index: 'Administrar ejercicios',
+			createExercise: 'Nuevo ejercicio'
+		},
+		adminTags: {
+			index: 'Administrar etiquetas',
+			createTag: 'Nueva Etiqueta'
+
+		},
+		adminLevels: {
+			index: 'Administrar niveles',
+			selectLevel: 'Seleccione un nivel',
+		},
+		nivelation: {
+			index: 'Nivelacion'
+		},
+		usersList: {
+			index: 'Administrar usuarios'
+		},
 		routines: {
 			level: 'Nivel',
 			block: 'Bloque',

@@ -73,11 +73,17 @@ const RouterApp = () => {
 						)}
 
 						{role === ROLES.ADMIN && (
-							<Route>
+							<Route
+								path={PATHS.BASE_URL}
+								element={<Admin />}
+							>
 								<Route
-									path={PATHS.BASE_URL}
 									index
-									element={<Admin />}
+									element={<UsersList />}
+								/>
+								<Route
+									path={PATHS.ADMIN_USER_INFO}
+									element={<AdminUserInfo />}
 								/>
 								<Route
 									path={PATHS.ADMIN_CONFIG}
@@ -102,14 +108,6 @@ const RouterApp = () => {
 								<Route
 									path={PATHS.ADMIN_EXERCISES}
 									element={<AdminExercises />}
-								/>
-								<Route
-									path={PATHS.ADMIN_USERS_LIST}
-									element={<UsersList />}
-								/>
-								<Route
-									path={PATHS.ADMIN_USER_INFO}
-									element={<AdminUserInfo />}
 								/>
 								<Route
 									path={PATHS.ADMIN_CREATE_EDIT_EXERCISE}
