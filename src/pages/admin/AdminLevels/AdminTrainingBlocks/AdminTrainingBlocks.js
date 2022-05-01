@@ -66,7 +66,6 @@ const AdminTrainingBlocks = () => {
     }
 
     return (
-        <MainContainer scroll>
             <div
                 className='col-12 d-flex flex-column align-items-center'
             >
@@ -94,7 +93,6 @@ const AdminTrainingBlocks = () => {
                     </div>
                 </div>
             </div>
-        </MainContainer>
     )
 }
 

@@ -44,7 +44,7 @@ export default function AuthReducer(state = defaultValue, { type, payload }) {
 }
 
 const onLogout = () => {
-	localStorage.clear();
+	localStorage.removeItem('token');
 };
 // ACTIONS
 export const checkLoggedUserAction = () => (dispatch) => {

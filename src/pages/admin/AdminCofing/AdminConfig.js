@@ -23,9 +23,7 @@ const AdminConfigScreen = () => {
 	}, [])
 
 	return (
-		<MainContainer col='12' scroll>
-			<div className='flex-d flex-column justify-content-center h-100'>
-				<div className='d-flex flex-column align-items-center justify-content-around h-100'>
+				<div className='d-flex flex-column align-items-center'>
 					<Button
 						text={t('admin.adminConfig.adminTags')}
 						onClick={navigateToTags}
@@ -45,8 +43,6 @@ const AdminConfigScreen = () => {
 						className='mt-3'
 					/>
 				</div>
-			</div>
-		</MainContainer>
 	);
 };
 

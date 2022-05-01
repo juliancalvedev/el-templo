@@ -26,6 +26,7 @@ const es = {
 		loading: 'Cargando...',
 		total: 'Total',
 		time: 'Tiempo',
+		create: 'Crear',
 
 		errors: {
 			required: 'Este campo es requerido.',
@@ -179,6 +180,11 @@ const es = {
 			auxText: 'Esto ayudará a tu entrenador a asesorarte adecuadamente.',
 			amateur: 'Amateur',
 			professional: 'Profesional',
+			level1: 'No entreno nunca',
+			level2: 'Entreno muy de vez en cuando',
+			level3: 'Entreno semanalmente',
+			level4: 'Entreno seguido',
+			level5: 'Entreno profesionalmente',
 		},
 		weightHeight: {
 			title: 'Completa estos ultimos datos personales.',

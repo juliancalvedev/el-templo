@@ -26,6 +26,7 @@ const en = {
 		loading: 'Loading...',
 		total: 'Total',
 		time: 'Time',
+		create: 'Create',
 
 		errors: {
 			required: 'This field is required.',
@@ -145,7 +146,7 @@ const en = {
 		onboard1: {},
 		onboard2: {},
 		forgotPassword1: {
-			title: '¿Did you forget your password?',
+			title: 'Did you forget your password?',
 			emailPlaceholder: 'Enter your email',
 			contentForgotPassword:
 				'We will send an email with the steps to follow to change your password.',
@@ -182,6 +183,11 @@ const en = {
 			auxText: 'This will help your coach to advise you properly.',
 			amateur: 'Amateur',
 			professional: 'Professional',
+			level1: 'I never train',
+			level2: 'I train sporadically',
+			level3: 'I train weekly',
+			level4: 'I train daily',
+			level5: 'I train professionally',
 		},
 		weightHeight: {
 			title: 'Complete the last personal data.',

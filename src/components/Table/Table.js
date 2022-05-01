@@ -1,4 +1,5 @@
 import React from 'react'
+import { randomHexadecimal } from '../../utils/mathUtils';
 import Paginator from './Paginator';
 import Search from './Search';
 
@@ -13,14 +14,14 @@ const Table = ({ columns = [], data = [], paginator, onSetPage, offset, total, s
                 <table className='table table-hover'>
                     <thead>
                         <tr>
-                            {columns.map((header, i) => (<th key={i}>
+                            {columns.map((header, i) => (<th key={randomHexadecimal()}>
                                 {header?.title}
                             </th>))}
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map(d => <tr>
-                            {columns.map(h => <td>
+                        {data.map(d => <tr key={randomHexadecimal()}>
+                            {columns.map(h => <td key={randomHexadecimal()}>
                                 {d[h.field]}
                             </td>)}
                         </tr>)}
