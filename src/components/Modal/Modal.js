@@ -4,7 +4,7 @@ import Text from '../Text/Text';
 import './Modal.scss';
 import useStyles from './useStyles';
 
-const Modal = ({ header, children, show, onClose, acceptButton }) => {
+const Modal = ({ header, children, show, onClose, acceptButton, closeButton }) => {
 	const { t } = useTranslation();
 
 	const styles = useStyles();
@@ -38,6 +38,13 @@ const Modal = ({ header, children, show, onClose, acceptButton }) => {
 											}
 											disabled={acceptButton.disabled}
 											size={1}
+										/>
+									)}
+									{closeButton && (
+										<Button
+											text={closeButton.text || t('global.close')}
+											onClick={onClose}
+											type={3}
 										/>
 									)}
 								</div>

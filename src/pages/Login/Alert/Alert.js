@@ -11,7 +11,7 @@ const Alert = ({ show, onClose }) => {
     const styles = useStyles();
 
     return (
-        <Modal show={show} onClose={onClose}>
+        <Modal show={show} onClose={onClose} closeButton>
             <div className={styles.container}>
                 <div className={styles.topContainer}>
                     <div className={styles.titleContainer}>

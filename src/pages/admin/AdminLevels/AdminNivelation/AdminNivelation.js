@@ -8,6 +8,7 @@ import { useState } from "react";
 import Modal from '../../../../components/Modal/Modal';
 import Input from "../../../../components/Input/Input";
 import { editNivelation, deleteNivelation, createNivelation } from '../../../../services/admin';
+import Text from "../../../../components/Text/Text";
 
 const defaultValue = {
     titleES: "",
@@ -31,7 +32,9 @@ const AdminNivelation = () => {
     const { t } = useTranslation();
     const [newOrEditNivelationData, setNewOrEditNivelationData] = useState(defaultValue);
 
-    const [deleteId, setDeleteId] = useState(null);
+    const lang = localStorage.getItem('lang').toUpperCase();
+
+    const [selectedDeleteNivelation, setSelectedNivelation] = useState(null);
 
     const [showEditModal, setShowEditModal] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -60,7 +63,7 @@ const AdminNivelation = () => {
         }
     });
     const [deleteNivelationData, errorDeleteNivelation, deleteNivelationApiCall] = useFetch({
-        service: () => deleteNivelation(deleteId),
+        service: () => deleteNivelation(selectedDeleteNivelation?._id),
         globalLoader: true,
         callback: () => {
             setShowDeleteModal(false);
@@ -91,8 +94,8 @@ const AdminNivelation = () => {
         setShowEditModal(true);
     }
 
-    const onDelete = (id) => {
-        setDeleteId(id);
+    const onDelete = (nivelation) => {
+        setSelectedNivelation(nivelation);
         setShowDeleteModal(true);
     }
 
@@ -145,7 +148,7 @@ const AdminNivelation = () => {
                 data={nivelations?.response.map(nivelation => ({
                     ...nivelation,
                     edit: <Button type={1} text={t('global.edit')} onClick={() => onEdit(nivelation)} />,
-                    delete: <Button type={2} text={t('global.delete')} onClick={() => onDelete(nivelation._id)} />
+                    delete: <Button type={2} text={t('global.delete')} onClick={() => onDelete(nivelation)} />
                 }))}
             />
             <Modal
@@ -198,7 +201,7 @@ const AdminNivelation = () => {
                     action: onSubmitDelete
                 }}
             >
-
+                <Text text={t('admin.nivelation.deleteNivelation', { title: selectedDeleteNivelation?.[`title${lang}`]})}/>
 
             </Modal>
         </div>

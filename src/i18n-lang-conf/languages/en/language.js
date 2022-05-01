@@ -430,7 +430,8 @@ const en = {
 			index: 'Manage users'
 		},
 		nivelation: {
-			index: 'Nivelation'
+			index: 'Nivelation',
+			deleteNivelation: 'the {{title}} will be deleted'
 		},
 		routines: {
 			level: 'Level',
