@@ -26,6 +26,7 @@ const InputAvatar = ({ showModal, onCloseInputAvatar, onClickInputAvatar, onChan
         <Modal show={showModal} onClose={onCloseInputAvatar} >
             {AVATAR.map((avatar, index) => {
                 return index != 0 && <img
+                    key={index}
                     onClick={() => onSelectAvatar(index)}
                     src={avatar}
                     height='85px'

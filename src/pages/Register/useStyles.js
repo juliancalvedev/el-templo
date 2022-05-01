@@ -11,7 +11,8 @@ const useStyles = () => {
 		labelSex: 'mb-0 d-flex',
 		emailPassCountryBirthday: 'email-pass-country-birthday d-flex flex-column col-12 justify-content-center',
 		password2: 'password-2',
-		buttonInput: 'mt-4 d-flex flex-column col-11 justify-content-center',
+		inputCountry: 'input-country',
+		buttonInput: 'col-12 d-flex flex-column justify-content-center align-items-center',
 		textTermsAndConditions1: 'mt-1',
 	};
 };

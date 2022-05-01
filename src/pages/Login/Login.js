@@ -13,8 +13,8 @@ import useFetch from '../../hooks/useFetch';
 import Text from '../../components/Text/Text';
 import Alert from './Alert/Alert';
 import useStyles from './useStyles';
-import DivTop from '../../DivTop/DivTop';
-import DivBottom from '../../DivBottom/DivBottom';
+import DivTop from '../../components/DivTop/DivTop';
+import DivBottom from '../../components/DivBottom/DivBottom';
 
 const Login = () => {
 	const { t } = useTranslation();

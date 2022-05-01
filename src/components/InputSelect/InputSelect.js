@@ -21,7 +21,7 @@ const InputSelect = ({
 			<div className={styles.container}>
 				<div className={styles.select}>
 					<select
-						ariaLabel=".form-select-lg example"
+						aria-label=".form-select-lg example"
 						className={styles.select1}
 						value={value}
 						onChange={onChange}
