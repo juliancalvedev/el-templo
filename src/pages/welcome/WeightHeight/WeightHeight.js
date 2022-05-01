@@ -114,7 +114,7 @@ const WeightHeight = () => {
 			banner
 			bannerTexts={bannerTexts}
 		>
-			<DivTop>
+			<DivTop className='mt-5 pt-5'>
 
 				<div></div>
 				<div className={styles.container}>

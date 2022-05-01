@@ -18,8 +18,9 @@ const Welcome = () => {
 	const toOnboarding = () => navigate(`/${PATHS.MAIN_GOALS}`);
 
 	return (
-		<MainContainer backgroundImg='welcome1' scroll>
+		<MainContainer backgroundImg='welcome1'>
 			<DivTop>
+				<div className={styles.text}>
 
 					<Text
 						text={t('welcome.main.title')}
@@ -35,9 +36,10 @@ const Welcome = () => {
 						bold
 						justify='start'
 					/>
-				<Text text={t('welcome.main.auxText')} size='3' color='1' />
+				</div>
 			</DivTop>
-			<DivBottom>
+			<Text text={t('welcome.main.auxText')} size='3' color='1' />
+			<DivBottom separation={1}>
 				<Button
 					text={t('welcome.main.btnLetsBegin')}
 					onClick={toOnboarding}

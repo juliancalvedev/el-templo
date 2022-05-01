@@ -1,12 +1,4 @@
-import { privateGet } from '../axios/privateInstance';
-
-const baseURLTraining = '/training';
-const baseURLRoutine = '/routine';
-
-export const getNivelationRoutine = () =>
-	privateGet({
-		url: `${baseURLTraining}${baseURLRoutine}/622ffe11fa41859eb50469b2`
-	});
+import { privateGet, privatePost } from '../axios/privateInstance';
 
 export const getMyExercise = () => {
 	return privateGet({
@@ -15,3 +7,9 @@ export const getMyExercise = () => {
 }
 
 export const getNivelationExercises = () => privateGet({ url: `get-nivelation` });
+export const makeNivelation = (data) => privatePost({ url: `/training/make-nivelation`, body: {
+	results: data.map( d => ({
+		id: d.id,
+		count: d.count
+	}))
+} });

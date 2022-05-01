@@ -29,7 +29,7 @@ const Navbar = () => {
 		if (level === 0) {
 			navigate(`/${PATHS.NIVELATION}`);
 		} else {
-			navigate(`/${PATHS.TRAINING}`);
+			navigate(`/${PATHS.TRAINING_ROUTINE}`);
 		}
 	};
 
@@ -58,7 +58,7 @@ const Navbar = () => {
 						<IconDashboard />
 					)}
 				</span>
-				<span onClick={() => navigate(`/${PATHS.TRAINING_ROUTINE}`)}>
+				<span onClick={redirection}>
 					{pathname === '/' + PATHS.TRAINING ? (
 						<IconMuscleActive />
 					) : (

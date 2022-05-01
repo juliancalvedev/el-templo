@@ -11,6 +11,8 @@ import InputRange from '../../../components/InputRange/InputRange';
 import ButtonPagination from '../../../components/ButtonPagination/ButtonPagination';
 import MainContainer from '../../../components/MainContainer/MainContainer';
 import useStyles from './useStyles';
+import DivTop from '../../../components/DivTop/DivTop';
+import DivBottom from '../../../components/DivBottom/DivBottom';
 
 const TrainingLevel = () => {
 	const { t } = useTranslation();
@@ -46,44 +48,41 @@ const TrainingLevel = () => {
 	return (
 		<MainContainer back={true} bg='1' color='2' backgroundImg='mainGoals' banner bannerTexts={bannerTexts}>
 
-			<div></div>
-			<div className={styles.container}>
-				<Text text={t(`welcome.trainingLevel.level${selectedLevel}`)} color='2'
-					size='1' />
-				<form className={styles.form}>
-					<InputRange
-						id='level'
-						min='1'
-						max='5'
-						defaultValue={trainingLevel}
-						onChange={changeLevel}
-					/>
-				</form>
+			<DivTop justify='center' className='align-items-center' style={{paddingTop: '50%'}}>
 
-				<div className={styles.text}>
-					<div style={{ marginTop: '-23px' }}>
-						<Text
-							text={t('welcome.trainingLevel.amateur')}
-							color='2'
-							size='1'
+						<Text text={t(`welcome.trainingLevel.level${selectedLevel}`)} color='2' size='1' />
+						<InputRange
+							id='level'
+							min='1'
+							max='5'
+							defaultValue={trainingLevel}
+							onChange={changeLevel}
 						/>
-					</div>
-					<div style={{ marginTop: '-25px' }}>
-						<Text
-							text={t('welcome.trainingLevel.professional')}
-							color='2'
-							size='1'
-						/>
-					</div>
-				</div>
-			</div>
 
-			<div className={styles.btn}>
+						<div className={styles.text}>
+							<div style={{ marginTop: '-23px' }}>
+								<Text
+									text={t('welcome.trainingLevel.amateur')}
+									color='2'
+									size='1'
+								/>
+							</div>
+							<div style={{ marginTop: '-25px' }}>
+								<Text
+									text={t('welcome.trainingLevel.professional')}
+									color='2'
+									size='1'
+								/>
+							</div>
+						</div>
+
+			</DivTop>
+			<DivBottom className='align-items-end' marginBottom={-30} >
 				<ButtonPagination
 					direction='right'
 					onClick={toWeightAndHeight}
 				/>
-			</div>
+			</DivBottom>
 		</MainContainer>
 	);
 };
