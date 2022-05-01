@@ -14,6 +14,8 @@ import InputDivided from '../../../components/InputDivided/InputDivided';
 import MainContainer from '../../../components/MainContainer/MainContainer';
 import useFetch from '../../../hooks/useFetch';
 import useStyles from './useStyles';
+import DivTop from '../../../components/DivTop/DivTop';
+import DivBottom from '../../../components/DivBottom/DivBottom';
 const WeightHeight = () => {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
@@ -112,43 +114,49 @@ const WeightHeight = () => {
 			banner
 			bannerTexts={bannerTexts}
 		>
-			<div></div>
-			<div className={styles.container}>
-				<div className={styles.input1}>
-					<InputDivided
-						id='weight'
-						text1={t('welcome.weightHeight.weight')}
-						text2={t('welcome.weightHeight.kilos')}
-						onChange={onWeightChange}
-						type='text'
-						min='20'
-						max='400'
-						maxLength='3'
-						placeholder='0'
-						value={selectedWeight}
-					/>
-				</div>
+			<DivTop>
 
-				<div className={styles.input2}>
-					<InputDivided
-						id='height'
-						text1={t('welcome.weightHeight.height')}
-						text2={t('welcome.weightHeight.meters')}
-						onChange={onHeightChange}
-						type='text'
-						min='1'
-						max='3'
-						maxLength='4'
-						placeholder='1.00'
-						value={selectedHeight}
-					/>
+				<div></div>
+				<div className={styles.container}>
+					<div className={styles.input1}>
+						<InputDivided
+							id='weight'
+							text1={t('welcome.weightHeight.weight')}
+							text2={t('welcome.weightHeight.kilos')}
+							onChange={onWeightChange}
+							type='text'
+							min='20'
+							max='400'
+							maxLength='3'
+							placeholder='0'
+							value={selectedWeight}
+						/>
+					</div>
+
+					<div className={styles.input2}>
+						<InputDivided
+							id='height'
+							text1={t('welcome.weightHeight.height')}
+							text2={t('welcome.weightHeight.meters')}
+							onChange={onHeightChange}
+							type='text'
+							min='1'
+							max='3'
+							maxLength='4'
+							placeholder='1.00'
+							value={selectedHeight}
+						/>
+					</div>
 				</div>
-			</div>
-			<Button
-				text={t('welcome.weightHeight.enter')}
-				onClick={apiCall}
-				disabled={!selectedWeight || !selectedHeight}
-			/>
+			</DivTop>
+			<DivBottom>
+
+				<Button
+					text={t('welcome.weightHeight.enter')}
+					onClick={apiCall}
+					disabled={!selectedWeight || !selectedHeight}
+				/>
+			</DivBottom>
 		</MainContainer>
 	);
 };
