@@ -20,8 +20,12 @@ const useStyles = ({ size, type, className = '', circle = false }) => {
 
     return {
         container: `col-${BUTTON_SIZE[size]}  `,
-
-        button: ` button ${circle && 'button-circle'} py-${BUTTON_TYPE[type] === '4' ? '3' : '2'} col-12 button-color--${BUTTON_TYPE[type]} ${className}`
+        button: `button 
+        ${circle && 'button-circle'}
+        py-${BUTTON_TYPE[type] === '4' ? '3' : '2'}
+        col-12 button-color--${BUTTON_TYPE[type]}
+        ${className}
+        `
     }
 }
 

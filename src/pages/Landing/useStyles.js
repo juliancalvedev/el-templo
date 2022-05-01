@@ -1,7 +1,8 @@
 const useStyles = () => {
     return {
-        languageSelector: 'col-12 d-flex justify-content-end',
-        mainLogo: 'm-auto d-flex justify-content-center col-8'
+        languageSelector: 'language-selector',
+        mainLogo: 'main-logo m-auto col-8',
+        buttonsContainer: 'buttons-container'
     }
 }
 
