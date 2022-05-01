@@ -19,7 +19,7 @@ const MyProfile = () => {
 	const navigate = useNavigate();
 	const styles = useStyles();
 
-	const { startEnabledDate, endEnabledDate, goals, height, weight, level, img} =
+	const { startEnabledDate, endEnabledDate, goals, height, weight, level, img, firstName, lastName } =
 		useSelector((store) => store.user);
 
 	const handleChangePasswordNavigate = () =>
@@ -41,7 +41,12 @@ const MyProfile = () => {
 			col='12'
 			scroll
 		>
-			<CardInfo t={t} startEnabledDate={startEnabledDate} img={img} level={level} />
+			<CardInfo
+				startEnabledDate={startEnabledDate}
+				img={img}
+				level={level}
+				userName={`${firstName} ${lastName}`}
+			/>
 			<div className={styles.importantBar}>
 				<ImportantBar
 					text={`${t('user.myProfile.endEnabledDate')}${cutDate(
@@ -50,21 +55,22 @@ const MyProfile = () => {
 				/>
 			</div>
 
-			<div className={styles.aboutYou}>
+			<div className={styles.aboutYouContainer}>
 				<div className={styles.aboutYouText}>
 					<Text bold text={`${t('user.myProfile.aboutYou')}`} />
 				</div>
 				<div className={styles.aboutYouBtnEdit} >
-							
-				<Button
-					onClick={handleEditAboutYou}
-					text={t('user.myProfile.editInfo')}
-					type={3}
-					size={1}
-				/>
+					<Text
+						onClick={handleEditAboutYou}
+						text={t('user.myProfile.editInfo')}
+						color={5}
+						size={1}
+						bold
+					// TODO Aca agregar la prop 'cursorPointer' cuando se haga el merge del pr que lo trae
+					/>
 				</div>
+			</div>
 
-				</div>
 			<div className={styles.textContainer}>
 				<Text justify='start' bold text={t('user.myProfile.goals')} />
 			</div>

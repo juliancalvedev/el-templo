@@ -5,8 +5,11 @@ import UserImage from '../../../components/UserImage/UserImage';
 import { PATHS } from '../../../constants/paths';
 import { cutDate } from '../../../utils/date';
 import useStyles from './useStyles';
+import { useTranslation } from 'react-i18next';
+import './CardInfo.scss'
 
-const CardInfo = ({ level, img, t, startEnabledDate }) => {
+const CardInfo = ({ level, img, startEnabledDate, userName }) => {
+	const { t } = useTranslation()
 	const navigation = useNavigate();
 
 	const onClickIcon = () => navigation(`/${PATHS.EDIT_PROFILE}`);
@@ -25,17 +28,23 @@ const CardInfo = ({ level, img, t, startEnabledDate }) => {
 					bold
 					text={`${t('user.myProfile.level')} ${level}`}
 				/>
+				<div className={styles.userNameContainerFix}>
+					<Text
+						justify='start'
+						size='1'
+						text={userName ? userName : ''}
+					/>
+				</div>
 				<Text
 					justify='start'
 					size='1'
-					className='mt-2'
+					className='mt-1'
 					text={`${t('user.myProfile.completedTrainings')}: 00`}
 				/>
-
 				<Text
 					justify='start'
 					size='1'
-					className='mt-2'
+					className=''
 					text={`${t('user.myProfile.memberSince')}: ${cutDate(
 						`${startEnabledDate}`
 					)}`}

@@ -1,15 +1,10 @@
 @import '../../styles/variables';
+
 .importantBox {
-	background-color: $tenth;
-	height: 40px;
+	height: fit-content;
+	min-height: 40px;
 	margin-top: 2px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-.importantBoxWhiteText {
-	color: $sixth;
-	font-weight: 500;
-	font-size: 1rem;
-	margin-bottom: 0px;
 }
