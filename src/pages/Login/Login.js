@@ -13,6 +13,8 @@ import useFetch from '../../hooks/useFetch';
 import Text from '../../components/Text/Text';
 import Alert from './Alert/Alert';
 import useStyles from './useStyles';
+import DivTop from '../../DivTop/DivTop';
+import DivBottom from '../../DivBottom/DivBottom';
 
 const Login = () => {
 	const { t } = useTranslation();
@@ -75,68 +77,77 @@ const Login = () => {
 
 	return (
 		<MainContainer backgroundImg='login' color={2} back>
-			<div>
-				<Text
-					justify='start'
-					size={4}
-					color={2}
-					bold
-					text={t('auth.login.title')}
-				/>
-				<Text
-					justify='start'
-					color={2}
-					text={t('auth.login.subtitle')}
-				/>
-			</div>
-
-			<div className={styles.inputs}>
-				<Input
-					value={email}
-					onChange={handleChangeEmail}
-					type='email'
-					placeholder={t('auth.login.emailPlaceholder')}
-					transparent
-				/>
-
-				<Input
-					icon='eye'
-					value={password}
-					onChange={handleChangePassword}
-					type={inputType}
-					placeholder={t('auth.login.passwordPlaceholder')}
-					onClickIcon={onClickIcon}
-					transparent
-				/>
-
-				<Button onClick={apiCall} text={t('auth.login.btnLogin')} />
-				<div className={styles.textRecovery}>
+			<DivTop >
+				<div className={styles.titleContainer}>
 					<Text
-						cursorPointer
+						justify='start'
+						size={4}
+						color={2}
 						bold
-						color={3}
-						size={1}
-						underline
-						onClick={toForgottenPassword}
-						text={t('auth.login.recovery')}
+						text={t('auth.login.title')}
+					/>
+					<Text
+						justify='start'
+						color={2}
+						text={t('auth.login.subtitle')}
 					/>
 				</div>
-			</div>
-			<div className={styles.textRegister}>
-				<div className='mx-1'>
-					<Text size={1} color={2} text={t('auth.login.register1')} />
+
+				<div className={styles.inputsContainer}>
+					<div className={styles.eachInput}>
+						<Input
+							value={email}
+							onChange={handleChangeEmail}
+							type='email'
+							placeholder={t('auth.login.emailPlaceholder')}
+							transparent
+						/>
+					</div>
+					<div className={styles.eachInput}>
+						<Input
+							icon='eye'
+							value={password}
+							onChange={handleChangePassword}
+							type={inputType}
+							placeholder={t('auth.login.passwordPlaceholder')}
+							onClickIcon={onClickIcon}
+							transparent
+						/>
+					</div>
+
+					<Button onClick={apiCall} text={t('auth.login.btnLogin')} />
+
+					<div className={styles.textRecovery}>
+						<Text
+							cursorPointer
+							bold
+							color={3}
+							size={1}
+							underline
+							onClick={toForgottenPassword}
+							text={t('auth.login.recovery')}
+						/>
+					</div>
 				</div>
-				<Text
-					cursorPointer
-					size={1}
-					color={3}
-					bold
-					underline
-					onClick={toRegister}
-					text={t('auth.login.register2')}
-				/>
-			</div>
-			<Alert show={showAlert} onClose={onCloseAlert} />
+			</DivTop>
+
+			<DivBottom  >
+				<div className={styles.textRegister}>
+					<div className='mx-1'>
+						<Text size={1} color={2} text={t('auth.login.register1')} />
+					</div>
+					<Text
+						cursorPointer
+						size={1}
+						color={3}
+						bold
+						underline
+						onClick={toRegister}
+						text={t('auth.login.register2')}
+					/>
+				</div>
+				<Alert show={showAlert} onClose={onCloseAlert} />
+			</DivBottom>
 		</MainContainer>
 	);
 };

@@ -67,6 +67,7 @@ const Input = ({
 					value={value}
 					placeholder={placeholder}
 				/>
+
 				{(icon || isValid) && (
 					<div className={styles.iconContainer}>
 						<span onClick={onClickIcon}>

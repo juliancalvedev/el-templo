@@ -71,7 +71,7 @@ const en = {
 		},
 
 		login: {
-			title: 'Welcome',
+			title: 'Welcome!',
 			subtitle: 'Login to continue',
 			emailPlaceholder: 'Email',
 			passwordPlaceholder: 'Password',
