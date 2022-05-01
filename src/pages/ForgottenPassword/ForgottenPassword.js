@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
 import useStyles from './useStyles';
 import './ForgottenPassword.scss'
+import { checkValidEmail } from '../../utils/email';
 
 
 const ForgottenPassword = () => {
@@ -55,7 +56,7 @@ const ForgottenPassword = () => {
 			<div className='col-10 m-auto'>
 				<Button
 					size={3}
-					disabled={!email}
+					disabled={!checkValidEmail(email)}
 					type={2}
 					onClick={apiCall}
 					text={t('auth.forgotPassword1.btnAccept')}
