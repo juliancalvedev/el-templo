@@ -12,8 +12,8 @@ import SexSelector from '../../components/SexSelector/SexSelector';
 import './Register.scss';
 import { Countries } from '../../constants/countries';
 import { imgToBase64 } from '../../utils/base64';
-import UserImage from '../../components/UserImage/UserImage';
-import Modal from '../../components/Modal/Modal'
+import InputAvatar from '../../components/InputAvatar/InputAvatar';
+
 
 export const Register = () => {
 	const { t } = useTranslation();
@@ -53,26 +53,33 @@ export const Register = () => {
 		}
 	};
 
-	const clickFile = () => {
+	const onClickInputAvatar = () => {
 		setShowAvatarModal(true)
 	};
+	const onCloseInputAvatar = () => {
+		setShowAvatarModal(false)
+	};
+
 	const onChangeImg64 = (e) => imgToBase64({ e, setter: setBaseImage });
 
 	const { handleChange, values, handleSubmit, errors } = useForm(
 		RegisterValidate,
 		baseImage
 	);
-
+	console.log(baseImage)
 	return (
 		<MainContainer text={t('auth.register.register')} back shadow color={1} scroll col='11' alignCenter>
 			<div className={styles.nameAndlastnameContainer}>
 
-				<div className='input-Avatar'>
-					<UserImage edit onClick={clickFile} img={baseImage} />
+				<div>
+					<InputAvatar
+						showModal={showAvatarModal}
+						onClickInputAvatar={onClickInputAvatar}
+						onCloseInputAvatar={onCloseInputAvatar}
+						onChangeAvatar={(value) => setBaseImage(value)}
+						img={baseImage}
+					/>
 				</div>
-				<Modal show={showAvatarModal} onClose={() => setShowAvatarModal(false)}>
-					<img src='/avatars/1.jpg' />
-				</Modal>
 
 				<div className={styles.NL}>
 					<div className={styles.Fname}>

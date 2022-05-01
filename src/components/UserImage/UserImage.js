@@ -16,6 +16,7 @@ const UserImage = ({ edit, onClick, img }) => {
 						width: '80px',
 						backgroundSize: '100%'
 					}}>
+					{/* <EditAvatar /> */}
 				</div>
 			) : (
 				<div
