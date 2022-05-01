@@ -12,10 +12,10 @@ const MainContainer = ({ children, scroll, backgroundImg, col = '11', navbar, al
 	const styles = useStyles({ scroll, backgroundImg, col, banner: topbarOptions?.banner, navbar, alignCenter });
 
 	return (
-		<div className={styles.container}>
-			<div className={styles.mainContainer}>
+		<div className={styles.container} >
+			<div className={styles.mainContainer} >
 				{topbar && <TopBar {...topbarOptions} />}
-				<div className={styles.bodyContainer}>
+				<div className={styles.bodyContainer} style={{ height: 'calc(100vh - 53px)' }}>
 					{children}
 				</div>
 			</div>

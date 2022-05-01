@@ -21,6 +21,7 @@ const InputSelect = ({
 			<div className={styles.container}>
 				<div className={styles.select}>
 					<select
+						aria-label=".form-select-lg example"
 						className={styles.select1}
 						value={value}
 						onChange={onChange}
@@ -32,6 +33,7 @@ const InputSelect = ({
 					>
 						{options.map((selectOption, key) => (
 							<option
+								style={{ fontFamily: 'fantasy' }}
 								key={key}
 								hidden={selectOption?.hidden}
 								value={selectOption.value}
@@ -40,9 +42,9 @@ const InputSelect = ({
 							</option>
 						))}
 					</select>
-					<div className={styles.chevron}>
+					{/* <div className={styles.chevron}>
 						<IconSelect />
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>

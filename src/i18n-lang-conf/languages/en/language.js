@@ -32,7 +32,7 @@ const en = {
 			required: 'This field is required.',
 			emailType: 'Use a valid e-mail.',
 			passwordNotEquals: 'Passwords must be equals.',
-			validPassword: 'Password is not valid.',
+			validPassword: '(Must Contain 3 letters and 1 number)',
 			notAllowedEmail: 'Email is not Valid.',
 			number: 'Must be a number.',
 			text: 'Must be a text.',
@@ -99,7 +99,7 @@ const en = {
 			passwordPlaceholder: 'Password',
 			passwordRequirement:
 				'(Must contain at least 6 letters and 1 number)',
-			password2Placeholder: 'Confirm Your Password',
+			password2Placeholder: 'Confirm your password',
 			countrySelection: 'Country',
 			country1: 'Argentina',
 			country2: 'USA',
