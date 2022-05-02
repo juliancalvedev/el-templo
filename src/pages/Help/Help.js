@@ -35,10 +35,10 @@ const Help = () => {
 				<Text justify='start' size={2} text={t('help.main.auxText13')} />
 			</div>
 			<p className={styles.p}>
-				{t('help.main.rectangle324')}
 			</p>
 
 			{showBtn ? <Button
+				className='mb-3'
 				onClick={handleChangeBtn}
 				type={3}
 				text={t('help.main.btn1')}

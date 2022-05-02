@@ -2,7 +2,7 @@ const useStyles = () => {
     return {
 			textHelp1: 'col-11 m-auto my-3 d-flex align-items-start flex-column',
 			p: ' d-flex  justify-content-center align-items-center col-12 rectangle324 py-3 ',
-			card: 'card p-0',
+			card: 'p-0',
 			textHelp2: 'col-11 m-auto mt-2 mb-4',
 
 			buttonHA1: 'accordion-button  bg-light text-dark ',
@@ -13,8 +13,8 @@ const useStyles = () => {
 			textarea: 'col-12   border border-1  mt-1	p-3',
 			buttonHA2: 'col-12 d-flex justify-content-end',
 			buttonHA3: 'accordion-button bg-light text-dark ',
-			textfaqs: 'd-flex justify-content-start mt-3 px-2 ',
-			textfq: 'd-flex justify-content-start mb-2 px-2',
+			textfaqs: 'd-flex justify-content-start mt-4 px-2 ',
+			textfq: 'd-flex justify-content-start mb-4 px-2',
 
 			containerHAB: 'accordion accordion-flush col-12   ',
 			textHAB1: 'col-12 px-3 py-2 d-flex flex-column justify-content-center',

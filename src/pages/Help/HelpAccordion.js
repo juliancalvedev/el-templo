@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import useStyles from './useStyles';
 import useFetch from '../../hooks/useFetch';
-import {help} from '../../services/user';
+import { help } from '../../services/user';
 import { PATHS } from '../../constants/paths';
 import Button from '../../components/Button/Button';
 import Text from '../../components/Text/Text';
@@ -15,7 +15,7 @@ import Input from '../../components/Input/Input';
 const HelpAccordion = ({ icon = 'icon' }) => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
-	const styles=useStyles();
+	const styles = useStyles();
 	const [message, setMessage] = useState('');
 	const [subject, setSubject] = useState('');
 
@@ -23,12 +23,12 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 		setMessage(e.target.value);
 	};
 	const handleChangeSubject = (e) => {
-			setSubject(e.target.value);
-		};
+		setSubject(e.target.value);
+	};
 	const [data, error, apiCall] = useFetch({
-	service: () => help({ message, subject }),
-	globalLoader: true,
-	callback: () => { setMessage(''); setSubject(''); }
+		service: () => help({ message, subject }),
+		globalLoader: true,
+		callback: () => { setMessage(''); setSubject(''); }
 	});
 	const toContact = () => navigate(`/${PATHS.CONTACT}`);
 	// toTerms redirige a Contact hasta que este creada la page Terminos&Condiciones
@@ -55,7 +55,7 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 						aria-labelledby='headingTwo'
 						data-bs-parent='#accordionExample'
 					>
-						<div className='accordion-body row'>
+						<div className='accordion-body row mb-5'>
 							<div className={styles.textHA1}>
 								<Text
 									bold
@@ -123,7 +123,7 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 							aria-expanded='false'
 							aria-controls='collapseThree'
 						>
-							{t('help.main.accordionText2')}
+							<Text size={2} text={t('help.main.accordionText2')} />
 						</button>
 					</h2>
 					<div
@@ -132,7 +132,7 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 						aria-labelledby='headingThree'
 						data-bs-parent='#accordionExample'
 					>
-						<div className='accordion-body '>
+						<div className='accordion-body'>
 							<Text
 								bold
 								className={styles.textfaqs}
@@ -153,22 +153,21 @@ const HelpAccordion = ({ icon = 'icon' }) => {
 			</div>
 			<div>
 				{/* TODO  cambiar button por componente Button*/}
-				
-				
-				<button
-					className={` accordion-button bg-light  text-dark accordion-button--${icon}`}
+
+
+				<Button
+					text={t('help.main.btn2')}
+					type={4}
 					onClick={toTerms}
-				>
-					{t('help.main.btn2')}
-				</button>
-				<button
-					className={`accordion-button bg-light  text-dark accordion-button--${icon}`}
-					onClick={toContact}
-				>
-					{t('help.main.btn3')}
-				</button>
+				/>
+
+				<Button
+					text={t('help.main.btn3')}
+					type={4}
+					onClick={toTerms}
+				/>
 			</div>
-		</div>
+		</div >
 	);
 };
 
