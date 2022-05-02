@@ -1,13 +1,68 @@
 @import '../../styles/variables';
 
-
-.boxcontainer{
-  height: 2vh;
-border: 1px solid white;
-border-radius: 4px ;
-box-shadow: $shadow310;
+.boxcontainer {
+  height: 10px;
+  // border: 1px solid white;
+  border-radius: 20px;
+  box-shadow: $shadow310;
 }
-.colored{
-  background: linear-gradient(90deg, #2E4F77 95.81%, rgba(46, 79, 119, 0) 100%);
-height: 2vh;
+
+.colored {
+  background: linear-gradient(90deg, #2E4F77 45.81%, rgba(0, 0, 0, 0) 100%);
+  background-color: white;
+  height: 10px;
+}
+
+.level-container {
+  height: 131px;
+  padding-top: 22px;
+
+  .image-container {
+    scale: .78;
+    z-index: 2;
+    position: relative;
+    left: 11px;
+    bottom: 3px;
+  }
+
+  .text-over-level-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    margin-bottom: 7px;
+
+    .text-experience-percent {
+      position: relative;
+      top: 7px;
+      left: 26px;
+    }
+  }
+
+  .text-under-level-container {
+    margin-top: 2px;
+  }
+}
+
+.progress-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 22px;
+  margin-bottom: 20px;
+
+  .summary {
+    margin-left: 20px;
+    width: fit-content;
+  }
+
+  .see-details {
+    margin-right: 20px;
+    width: fit-content;
+    white-space: nowrap;
+  }
+}
+
+.body-info-container {
+  margin-top: 40px;
 }

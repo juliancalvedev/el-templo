@@ -32,6 +32,7 @@ const Navbar = () => {
 			navigate(`/${PATHS.TRAINING_ROUTINE}`);
 		}
 	};
+
 	return (
 		<div className={styles.navbarContainer}>
 			<div className={styles.iconsContainer}>
@@ -51,28 +52,28 @@ const Navbar = () => {
 				)}
 
 				<span onClick={() => navigate(`/${PATHS.DASHBOARD}`)}>
-					{pathname === PATHS.DASHBOARD ? (
+					{pathname === '/' + PATHS.DASHBOARD ? (
 						<IconDashboardActive />
 					) : (
 						<IconDashboard />
 					)}
 				</span>
 				<span onClick={redirection}>
-					{pathname === PATHS.TRAINING ? (
+					{pathname === '/' + PATHS.TRAINING ? (
 						<IconMuscleActive />
 					) : (
 						<IconMuscle />
 					)}
 				</span>
 				<span onClick={() => navigate(`/${PATHS.MY_PROFILE}`)}>
-					{pathname === PATHS.MY_PROFILE ? (
+					{pathname === '/' + PATHS.MY_PROFILE ? (
 						<IconProfileActive />
 					) : (
 						<IconProfile />
 					)}
 				</span>
 				<span onClick={() => navigate(`/${PATHS.HELP}`)}>
-					{pathname === PATHS.HELP ? (
+					{pathname === '/' + PATHS.HELP ? (
 						<IconHelpActive />
 					) : (
 						<IconHelp />
