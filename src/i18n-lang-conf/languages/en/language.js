@@ -222,6 +222,10 @@ const en = {
 		questionary: {},
 	},
 
+	trainingDashboard: {
+		index: 'Trainings',
+	},
+
 	exercise: {
 		exerciseNumber: 'Exercise n°',
 		watchVideoDescription: 'See video description',

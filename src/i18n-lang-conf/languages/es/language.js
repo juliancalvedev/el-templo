@@ -218,7 +218,9 @@ const es = {
 		finishTraining: {},
 		questionary: {},
 	},
-
+	trainingDashboard: {
+		index: 'Entrenamientos',
+	},
 	exercise: {
 		exerciseNumber: 'Ejercicio n°',
 		watchVideoDescription: 'Ver descripción del video',
