@@ -16,7 +16,7 @@ const useStyles = ({ transparent, isInvalid, isValid, className, icon }) => {
         ${isInvalid ? 'input-state--is-invalid' : ''}
         `,
 
-        iconContainer: `icon-container col-3 d-flex justify-content-center align-items-center ${icon || isValid ? '' : 'display-none'}`
+        iconContainer: `icon-container col-3 d-flex justify-content-end align-items-center ${icon || isValid ? '' : 'display-none'}`
     }
 }
 
