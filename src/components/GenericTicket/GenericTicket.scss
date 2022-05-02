@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+
 .generic-ticket {
 	height: 40px;
 	margin-top: 8px;
@@ -8,16 +9,32 @@
 	font-weight: 500;
 	text-indent: 10px;
 	padding-right: 1rem;
+
 	.container1 {
+
+
 		&--list {
 			border-right: 2px solid $fifteenth;
 			height: 100%;
 			padding-top: 7px;
 		}
+
 		.text-1-container {
+			margin-left: 30px;
 			padding: 0px 5px;
 		}
+
+		.divided-ticket-fix-left {
+			margin-left: 10px;
+		}
+
 	}
+
+	.divided-ticket-fix-right {
+		// background-color: blue;
+		margin-right: 10px;
+	}
+
 
 	&--separated {
 		display: flex;
@@ -31,14 +48,16 @@
 	}
 
 	.end__aligned--text {
-		word-spacing: 25px;
+		word-spacing: 20px;
 	}
+
 	.generic-ticket-text {
 		margin: 0px;
 		padding: 0px;
 	}
-	.generic-ticket-stats {
-	}
+
+	.generic-ticket-stats {}
+
 	.mode {
 		border-left: 3px solid black;
 	}

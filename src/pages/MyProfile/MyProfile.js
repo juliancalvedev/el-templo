@@ -25,7 +25,7 @@ const MyProfile = () => {
 	const handleChangePasswordNavigate = () =>
 		navigate(`/${PATHS.CHANGE_USER_PASSWORD}`);
 
-	const handleEditAboutYou = () => navigate(`/${PATHS.EDIT_ABOUT_YOU}`);
+	const handleEditAboutYou = () => navigate(`/${PATHS.EDIT_PROFILE}`);
 
 	const dispatch = useDispatch();
 	const onLogout = () => {
@@ -41,13 +41,16 @@ const MyProfile = () => {
 			col='12'
 			scroll
 			navbar
+			alignCenter
 		>
-			<CardInfo
-				startEnabledDate={startEnabledDate}
-				img={img}
-				level={level}
-				userName={`${firstName} ${lastName}`}
-			/>
+			<div className={styles.cardInfoContainer}>
+				<CardInfo
+					startEnabledDate={startEnabledDate}
+					img={img}
+					level={level}
+					userName={`${firstName} ${lastName}`}
+				/>
+			</div>
 			<div className={styles.importantBar}>
 				<ImportantBar
 					text={`${t('user.myProfile.endEnabledDate')}${cutDate(
@@ -63,38 +66,33 @@ const MyProfile = () => {
 				<div className={styles.aboutYouBtnEdit} >
 					<Text
 						onClick={handleEditAboutYou}
-						text={t('user.myProfile.editInfo')}
+						text={t('user.myProfile.edit')}
 						color={5}
-						size={1}
+						size={2}
 						bold
-					// TODO Aca agregar la prop 'cursorPointer' cuando se haga el merge del pr que lo trae
+						cursorPointer
 					/>
 				</div>
 			</div>
 
-			<div className={styles.textContainer}>
+			<div className={styles.textBoxTitleContainer}>
 				<Text justify='start' bold text={t('user.myProfile.goals')} />
 			</div>
 
 			<div className={styles.generic}>
-				<GenericTicket
-					list
-					text1='1 '
-					text2={`${t(`welcome.goals.${goals?.[0]}`)}`}
-				/>
-				<GenericTicket
-					list
-					text1='2'
-					text2={`${t(`welcome.goals.${goals?.[1]}`)}`}
-				/>
-				<GenericTicket
-					list
-					text1='3'
-					text2={`${t(`welcome.goals.${goals?.[2]}`)}`}
-				/>
+				{goals?.map((goal, i) => {
+					return (
+						<GenericTicket
+							key={i}
+							list
+							text1={i + 1}
+							text2={`${t(`welcome.goals.${goal}`)}`}
+						/>
+					)
+				})}
 			</div>
 
-			<div className={styles.textContainer}>
+			<div className={styles.textBoxTitleContainer}>
 				<Text
 					bold
 					justify='start'
@@ -103,12 +101,12 @@ const MyProfile = () => {
 			</div>
 			<div className={styles.generic}>
 				<GenericTicket
-					mode='stat'
+					dividedTicket
 					text1={t('user.myProfile.weight')}
 					text3={`${weight} KG`}
 				/>
 				<GenericTicket
-					mode='list'
+					dividedTicket
 					text1={t('user.myProfile.height')}
 					text3={`${height} Mt`}
 				/>
@@ -116,14 +114,17 @@ const MyProfile = () => {
 
 			<div className={styles.btn}>
 				<Button
+					textSize={2}
 					text={t('user.myProfile.password')}
 					type={4}
 					onClick={handleChangePasswordNavigate}
 				/>
 				<Button
+					textSize={2}
 					text={t('user.myProfile.logOut')}
 					type={4}
 					onClick={onLogout}
+					secondary
 				/>
 			</div>
 		</MainContainer>

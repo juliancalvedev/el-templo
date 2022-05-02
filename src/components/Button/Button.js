@@ -10,7 +10,8 @@ const Button = ({
 	onClick,
 	type = 1,
 	disabled,
-	circle
+	circle,
+	secondary
 }) => {
 	const COLOR_TEXT = {
 		1: '2',
@@ -20,7 +21,7 @@ const Button = ({
 
 	const transformedText = type === 3 ? text.toUpperCase() : text;
 
-	const styles = useStyles({ className, size, type, circle, disabled });
+	const styles = useStyles({ className, size, type, circle, disabled, secondary });
 
 	return (
 		<div className={styles.container}>
@@ -28,13 +29,15 @@ const Button = ({
 				disabled={disabled}
 				className={styles.button}
 				onClick={onClick}
+
 			>
 				<Text
 					justify={type === 4 && 'start'}
 					size={textSize}
-					color={COLOR_TEXT[type]}
+					color={secondary ? 4 : COLOR_TEXT[type]}
 					bold={type === 3 || type === 4 || circle}
 					text={transformedText}
+					cursorPointer
 				/>
 			</button>
 		</div>

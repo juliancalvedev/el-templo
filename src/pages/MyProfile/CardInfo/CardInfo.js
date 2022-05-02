@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import EditUserIcon from '../../../assets/Icons/EditUserIcon';
 import Text from '../../../components/Text/Text';
-import UserImage from '../../../components/UserImage/UserImage';
+import InputAvatar from '../../../components/InputAvatar/InputAvatar'
 import { PATHS } from '../../../constants/paths';
 import { cutDate } from '../../../utils/date';
 import useStyles from './useStyles';
@@ -18,10 +18,12 @@ const CardInfo = ({ level, img, startEnabledDate, userName }) => {
 
 	return (
 		<div className={styles.container}>
+
 			<div className={styles.imageContainer}>
-				<UserImage img={img} />
+				<InputAvatar img={img} />
 			</div>
-			<div className={styles.textContainer}>
+
+			<div className={styles.cardInfoTextContainer}>
 				<Text
 					justify='start'
 					size='3'
