@@ -9,7 +9,7 @@ import WeeklyCalendar from '../../components/WeeklyCalendar/WeeklyCalendar';
 import useStyles from './useStyles';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
-import InputAvatar from '../../components/InputAvatar/InputAvatar'
+import ProfileImgAndXP from '../../components/ProfileImgAndXP/ProfileImgAndXP'
 import './Dashboard.scss';
 import DashboardBodyInfo from '../../components/DashboardBodyInfo/DashboardBodyInfo';
 
@@ -38,41 +38,7 @@ const Dashboard = () => {
 			navbar
 			alignCenter
 		>
-			<div className={styles.levelContainer}>
-				<div className={styles.userImg} >
-					<InputAvatar img={img} />
-				</div>
-
-				<div className={styles.containerColor}>
-					<div className={styles.textOverLevelContainer}>
-						<Text
-							className={'mx-4'}
-							text={`${t('dashboard.main.level')} ${level}`}
-							bold
-							size={3}
-						/>
-						<div className={styles.textExperiencePercent}>
-							<Text
-								className={'mx-4'}
-								text={`${Math.trunc(xp)}%`}
-								size={1}
-							/>
-						</div>
-					</div>
-					<div className={styles.boxcontainer}>
-						<div className={styles.boxColor} style={{ width: `${xp}%` }}></div>
-					</div>
-					<div className={styles.textUnderLevelContainer}>
-						<Text
-							justify={'end'}
-							size='1'
-							color={5}
-							bold
-							text={`${t('dashboard.main.level')} ${level + 1}`}
-						/>
-					</div>
-				</div>
-			</div>
+			<ProfileImgAndXP />
 
 			<div className={styles.calendar}>
 				<WeeklyCalendar />
@@ -114,9 +80,9 @@ const Dashboard = () => {
 					<DashboardBodyInfo values={''} />
 				</div>
 			)}
-			<div className={styles.btn}>
+			{level === 0 && <div className={styles.btn}>
 				<Button size={3} type={2} text={t('dashboard.main.btn')} onClick={() => navigate(`/${PATHS.NIVELATION}`)} />
-			</div>
+			</div>}
 		</MainContainer>
 	);
 };

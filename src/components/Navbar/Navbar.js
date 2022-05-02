@@ -29,7 +29,7 @@ const Navbar = () => {
 		if (level === 0) {
 			navigate(`/${PATHS.NIVELATION}`);
 		} else {
-			navigate(`/${PATHS.TRAINING_ROUTINE}`);
+			navigate(`/${PATHS.TRAINING_DASHBOARD}`);
 		}
 	};
 
