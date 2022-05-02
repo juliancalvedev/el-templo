@@ -43,6 +43,8 @@
 			padding-left: 30px;
 		}
 
+
+
 		&--5 {
 			border: 2px solid rgba(219, 17, 17, 0.534);
 			background-color: rgba(202, 19, 19, 0.24);
@@ -53,6 +55,14 @@
 			background-color: rgba(86, 202, 19, 0.24);
 		}
 	}
+}
+
+.logOut-btn-fix {
+	border-top: none;
+}
+
+.btn-white {
+	height: 56px;
 }
 
 button:disabled,

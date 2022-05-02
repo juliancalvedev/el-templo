@@ -23,7 +23,7 @@ const CardInfo = ({ level, img, startEnabledDate, userName }) => {
 				<InputAvatar img={img} />
 			</div>
 
-			<div className={styles.textContainer}>
+			<div className={styles.cardInfoTextContainer}>
 				<Text
 					justify='start'
 					size='3'
