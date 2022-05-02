@@ -37,6 +37,7 @@ const Button = ({
 					color={secondary ? 4 : COLOR_TEXT[type]}
 					bold={type === 3 || type === 4 || circle}
 					text={transformedText}
+					cursorPointer
 				/>
 			</button>
 		</div>
