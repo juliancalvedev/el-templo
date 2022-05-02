@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
 import InputAvatar from '../../components/InputAvatar/InputAvatar'
 import './Dashboard.scss';
+import DashboardBodyInfo from '../../components/DashboardBodyInfo/DashboardBodyInfo';
 
 const Dashboard = () => {
 	const { t } = useTranslation();
@@ -50,13 +51,13 @@ const Dashboard = () => {
 							bold
 							size={3}
 						/>
-						<Text
-							className={'mx-4'}
-							text={`${Math.trunc(xp)}%`}
-							bold
-							size={1}
-						/>
-
+						<div className={styles.textExperiencePercent}>
+							<Text
+								className={'mx-4'}
+								text={`${Math.trunc(xp)}%`}
+								size={1}
+							/>
+						</div>
 					</div>
 					<div className={styles.boxcontainer}>
 						<div className={styles.boxColor} style={{ width: `${xp}%` }}></div>
@@ -80,6 +81,11 @@ const Dashboard = () => {
 			<div className={styles.progressSummary}>
 				<div className={styles.summary} >
 					<Text bold text={t('dashboard.main.summary')} size={2} />
+					{summary &&
+						<div>
+							<Text bold color={4} text={t('dashboard.main.thisWeek')} size={2} />
+						</div>
+					}
 				</div>
 				<div className={styles.seeDetails}>
 					{level > 0 &&
@@ -93,7 +99,7 @@ const Dashboard = () => {
 				</div>
 			</div>
 
-			{summary ? (
+			{summary && false ? (
 				<div className='d-flex flex-column justify-content-start align-items-center'>
 					<div className='col-10'>
 						<Text className='mt-2 ' size='2' text={t('dashboard.main.progress')} />
@@ -103,12 +109,9 @@ const Dashboard = () => {
 					</div>
 				</div>
 			) : (
-				<div>
-					<Text
-						text={
-							'*partes de cuerpo y porcentaje con iconos y numeros*horas entrenadas a la semana con icono'
-						}
-					/>
+				<div className={styles.bodyInfoContainer}>
+					{/* TODO pasar valores desde el backend */}
+					<DashboardBodyInfo values={''} />
 				</div>
 			)}
 			<div className={styles.btn}>

@@ -26,7 +26,17 @@
   }
 
   .text-over-level-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
     margin-bottom: 7px;
+
+    .text-experience-percent {
+      position: relative;
+      top: 7px;
+      left: 26px;
+    }
   }
 
   .text-under-level-container {
@@ -51,4 +61,8 @@
     width: fit-content;
     white-space: nowrap;
   }
+}
+
+.body-info-container {
+  margin-top: 40px;
 }

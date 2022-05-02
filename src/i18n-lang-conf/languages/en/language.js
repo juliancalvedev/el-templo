@@ -281,10 +281,14 @@ const en = {
 			welcome: 'Welcome',
 			level: 'Level ',
 			summary: 'Progress summary',
+			thisWeek: 'This week you trained',
 			see: 'SEE DETAIL',
 			progress:
 				'As you progress in your workouts, your progress will be seen here.',
 			btn: 'Start training',
+			upperBody: 'Upper body ',
+			middleBody: 'Middle body',
+			lowerBody: 'Lower body'
 		},
 	},
 	navbar: {

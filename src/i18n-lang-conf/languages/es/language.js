@@ -280,10 +280,14 @@ const es = {
 			welcome: 'Bienvenido',
 			level: 'Nivel',
 			summary: 'Resumen de mi progreso',
+			thisWeek: 'Esta semana entrenaste',
 			see: 'VER DETALLE',
 			progress:
 				'A medida que avances en tus entrenamientos, acá se van a ver tus progresos.',
 			btn: 'Comenzar a entrenar',
+			upperBody: 'Tren superior',
+			middleBody: 'Zona media',
+			lowerBody: 'Tren inferior'
 		},
 	},
 	navbar: {
