@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { changePassword } from '../../services/user';
 import { useNavigate } from 'react-router';
 import MainContainer from '../../components/MainContainer/MainContainer';
-
+import DivTop from '../../components/DivTop/DivTop'
+import DivBottom from '../../components/DivBottom/DivBottom'
 import Input from '../../components/Input/Input';
-
 import Button from '../../components/Button/Button';
 import useStyles from './useStyles';
 
@@ -15,15 +15,10 @@ const ChangeUserPassword = () => {
 	const navigate = useNavigate();
 	const styles = useStyles();
 	const [showCurrentPassword, setShowCurrentPassword] = useState('password');
-
 	const [showNewPasword, setShowNewPassword] = useState('password');
-
 	const [showRepeatPassword, setShowRepeatPassword] = useState('password');
-
 	const [currentPassword, setCurrentPassword] = useState('');
-
 	const [newPassword, setNewPassword] = useState('');
-
 	const [repeatPassword, setRepeatPassword] = useState('');
 
 	const handleChangeCurrentPassword = (e) => {
@@ -44,6 +39,7 @@ const ChangeUserPassword = () => {
 			navigate(-1, { replace: true });
 		}
 	};
+
 	const onClickCurrentPassword = () => {
 		if (showCurrentPassword === 'password') {
 			setShowCurrentPassword('text');
@@ -70,40 +66,48 @@ const ChangeUserPassword = () => {
 	};
 
 	return (
-		<MainContainer back shadow text={t('user.changeUserPassword.title')}>
-			<div className={styles.container}>
+		<MainContainer
+			back
+			shadow
+			text={t('user.changeUserPassword.title')}
+			alignCenter
+			col='12'
+		>
+			<DivTop >
 				<div className={styles.inputs}>
+					<div className='col-12' style={{ marginBottom: '21px' }} >
+						<Input
+							icon='eye'
+							placeholder={t('user.changeUserPassword.currentPassword')}
+							onChange={handleChangeCurrentPassword}
+							className='col-11'
+							type={showCurrentPassword}
+							onClickIcon={onClickCurrentPassword}
+						/>
+					</div>
+					<div className='mb-0 col-12'>
+						<Input
+							icon='eye'
+							placeholder={t('user.changeUserPassword.newPassword')}
+							onChange={handleNewPassword}
+							className='col-11'
+							type={showNewPasword}
+							onClickIcon={onClickNewPassword}
+							feedback={t('global.errors.validPassword')}
+						/>
+					</div>
 					<Input
 						icon='eye'
-						placeholder={t(
-							'user.changeUserPassword.currentPassword'
-						)}
-						onChange={handleChangeCurrentPassword}
-						className='col-11'
-						type={showCurrentPassword}
-						onClickIcon={onClickCurrentPassword}
-					/>
-					<Input
-						placeholder={t('user.changeUserPassword.newPassword')}
-						onChange={handleNewPassword}
-						className='col-11'
-						type={showNewPasword}
-						icon='eye'
-						onClickIcon={onClickNewPassword}
-						feedback={t('global.errors.validPassword')}
-					/>
-					<Input
-						placeholder={t(
-							'user.changeUserPassword.repeatNewPassword'
-						)}
+						placeholder={t('user.changeUserPassword.repeatNewPassword')}
 						onChange={handleRepeatPassword}
 						className='col-11'
 						type={showRepeatPassword}
-						icon='eye'
 						onClickIcon={onClickRepeatPassword}
 					/>
 				</div>
+			</DivTop>
 
+			<DivBottom>
 				<div className={styles.button}>
 					<Button
 						text={t('user.changeUserPassword.submitPassword')}
@@ -114,9 +118,11 @@ const ChangeUserPassword = () => {
 							newPassword.length <= 6
 						}
 						onClick={handleSubmit}
+						size={3}
 					/>
 				</div>
-			</div>
+			</DivBottom>
+
 		</MainContainer>
 	);
 };

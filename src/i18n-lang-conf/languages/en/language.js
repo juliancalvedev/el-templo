@@ -34,7 +34,7 @@ const en = {
 			required: 'This field is required.',
 			emailType: 'Use a valid e-mail.',
 			passwordNotEquals: 'Passwords must be equals.',
-			validPassword: '(Must Contain 3 letters and 1 number)',
+			validPassword: '(Must contain at least 6 letters and 1 number)',
 			notAllowedEmail: 'Email is not Valid.',
 			number: 'Must be a number.',
 			text: 'Must be a text.',
@@ -331,7 +331,7 @@ const en = {
 			title: 'Edit password',
 			currentPassword: 'Current password',
 			newPassword: 'New password',
-			repeatNewPassword: 'Repeat New Password',
+			repeatNewPassword: 'Repeat new password',
 			submitPassword: 'Change Password',
 		},
 		myProfile: {
