@@ -9,6 +9,7 @@ import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import useStyles from './useStyles';
 import useFetch from '../../hooks/useFetch'
+import './ChangeUserPassword.scss'
 
 const ChangeUserPassword = () => {
 	const { t } = useTranslation();
@@ -35,28 +36,16 @@ const ChangeUserPassword = () => {
 	const handleSubmit = () => changePasswordApiCall()
 
 	const onClickShowCurrentPassword = () => {
-		if (showCurrentPassword === 'password') {
-			setShowCurrentPassword('text');
-		}
-		if (showCurrentPassword === 'text') {
-			setShowCurrentPassword('password');
-		}
+		if (showCurrentPassword === 'password') setShowCurrentPassword('text');
+		if (showCurrentPassword === 'text') setShowCurrentPassword('password');
 	};
 	const onClickShowNewPassword = () => {
-		if (showNewPasword === 'password') {
-			setShowNewPassword('text');
-		}
-		if (showNewPasword === 'text') {
-			setShowNewPassword('password');
-		}
+		if (showNewPasword === 'password') setShowNewPassword('text');
+		if (showNewPasword === 'text') setShowNewPassword('password');
 	};
 	const onClickShowRepeatPassword = () => {
-		if (showRepeatPassword === 'password') {
-			setShowRepeatPassword('text');
-		}
-		if (showRepeatPassword === 'text') {
-			setShowRepeatPassword('password');
-		}
+		if (showRepeatPassword === 'password') setShowRepeatPassword('text');
+		if (showRepeatPassword === 'text') setShowRepeatPassword('password');
 	};
 
 	return (
@@ -68,28 +57,25 @@ const ChangeUserPassword = () => {
 			col='12'
 		>
 			<DivTop >
-				<div className={styles.inputs}>
-					<div className='col-12' style={{ marginBottom: '21px' }} >
-						<Input
-							icon='eye'
-							placeholder={t('user.changeUserPassword.currentPassword')}
-							onChange={handleChangeCurrentPassword}
-							className='col-11'
-							type={showCurrentPassword}
-							onClickIcon={onClickShowCurrentPassword}
-						/>
-					</div>
-					<div className='mb-0 col-12'>
-						<Input
-							icon='eye'
-							placeholder={t('user.changeUserPassword.newPassword')}
-							onChange={handleNewPassword}
-							className='col-11'
-							type={showNewPasword}
-							onClickIcon={onClickShowNewPassword}
-							feedback={t('global.errors.validPassword')}
-						/>
-					</div>
+				<div className={styles.inputsContainer}>
+					<Input
+						icon='eye'
+						placeholder={t('user.changeUserPassword.currentPassword')}
+						onChange={handleChangeCurrentPassword}
+						className='col-11'
+						type={showCurrentPassword}
+						onClickIcon={onClickShowCurrentPassword}
+						margin='0px 0px 21px 0px'
+					/>
+					<Input
+						icon='eye'
+						placeholder={t('user.changeUserPassword.newPassword')}
+						onChange={handleNewPassword}
+						className='col-11'
+						type={showNewPasword}
+						onClickIcon={onClickShowNewPassword}
+						feedback={t('global.errors.validPassword')}
+					/>
 					<Input
 						icon='eye'
 						placeholder={t('user.changeUserPassword.repeatNewPassword')}
@@ -117,7 +103,7 @@ const ChangeUserPassword = () => {
 				</div>
 			</DivBottom>
 
-		</MainContainer>
+		</MainContainer >
 	);
 };
 
