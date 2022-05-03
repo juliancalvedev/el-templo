@@ -77,9 +77,9 @@ const en = {
 			subtitle: 'Login to continue',
 			emailPlaceholder: 'Email',
 			passwordPlaceholder: 'Password',
-			recovery: 'Forgotten password?',
+			recovery: 'Forgot your password?',
 			btnLogin: 'Log In',
-			register1: 'you have not an account?',
+			register1: 'You have not an account?',
 			register2: 'Register here',
 		},
 		emailConfirm: {

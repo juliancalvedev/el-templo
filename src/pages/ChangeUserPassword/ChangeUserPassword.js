@@ -8,6 +8,7 @@ import DivBottom from '../../components/DivBottom/DivBottom'
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import useStyles from './useStyles';
+import useFetch from '../../hooks/useFetch'
 
 const ChangeUserPassword = () => {
 	const { t } = useTranslation();
@@ -21,26 +22,19 @@ const ChangeUserPassword = () => {
 	const [newPassword, setNewPassword] = useState('');
 	const [repeatPassword, setRepeatPassword] = useState('');
 
-	const handleChangeCurrentPassword = (e) => {
-		setCurrentPassword(e.target.value);
-	};
+	const [changePasswordResponse, changePasswordError, changePasswordApiCall] = useFetch({
+		service: () => changePassword({ currentPassword, newPassword }),
+		globalLoader: true,
+		callNow: false,
+	})
 
-	const handleNewPassword = (e) => {
-		setNewPassword(e.target.value);
-	};
+	const handleChangeCurrentPassword = (e) => setCurrentPassword(e.target.value);
+	const handleNewPassword = (e) => setNewPassword(e.target.value);
+	const handleRepeatPassword = (e) => setRepeatPassword(e.target.value);
 
-	const handleRepeatPassword = (e) => {
-		setRepeatPassword(e.target.value);
-	};
+	const handleSubmit = () => changePasswordApiCall()
 
-	const handleSubmit = async ({ problem }) => {
-		await changePassword({ currentPassword, newPassword });
-		if (!problem) {
-			navigate(-1, { replace: true });
-		}
-	};
-
-	const onClickCurrentPassword = () => {
+	const onClickShowCurrentPassword = () => {
 		if (showCurrentPassword === 'password') {
 			setShowCurrentPassword('text');
 		}
@@ -48,7 +42,7 @@ const ChangeUserPassword = () => {
 			setShowCurrentPassword('password');
 		}
 	};
-	const onClickNewPassword = () => {
+	const onClickShowNewPassword = () => {
 		if (showNewPasword === 'password') {
 			setShowNewPassword('text');
 		}
@@ -56,7 +50,7 @@ const ChangeUserPassword = () => {
 			setShowNewPassword('password');
 		}
 	};
-	const onClickRepeatPassword = () => {
+	const onClickShowRepeatPassword = () => {
 		if (showRepeatPassword === 'password') {
 			setShowRepeatPassword('text');
 		}
@@ -82,7 +76,7 @@ const ChangeUserPassword = () => {
 							onChange={handleChangeCurrentPassword}
 							className='col-11'
 							type={showCurrentPassword}
-							onClickIcon={onClickCurrentPassword}
+							onClickIcon={onClickShowCurrentPassword}
 						/>
 					</div>
 					<div className='mb-0 col-12'>
@@ -92,7 +86,7 @@ const ChangeUserPassword = () => {
 							onChange={handleNewPassword}
 							className='col-11'
 							type={showNewPasword}
-							onClickIcon={onClickNewPassword}
+							onClickIcon={onClickShowNewPassword}
 							feedback={t('global.errors.validPassword')}
 						/>
 					</div>
@@ -102,7 +96,7 @@ const ChangeUserPassword = () => {
 						onChange={handleRepeatPassword}
 						className='col-11'
 						type={showRepeatPassword}
-						onClickIcon={onClickRepeatPassword}
+						onClickIcon={onClickShowRepeatPassword}
 					/>
 				</div>
 			</DivTop>
