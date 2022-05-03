@@ -27,7 +27,8 @@ const es = {
 		total: 'Total',
 		time: 'Tiempo',
 		create: 'Crear',
-
+		day: 'Día {{number}}',
+		block: 'Bloque {{number}}',
 		errors: {
 			required: 'Este campo es requerido.',
 			emailType: 'Debe ser un email válido.',
@@ -364,6 +365,11 @@ const es = {
 			subtitle: 'Tu nivel es',
 			button: 'Ir a mi entrenamiento',
 		},
+		training: {
+			index: 'Rutinas',
+			skipText: 'Recuerda que la entrada en calor es fundamental para evitar lesiones, y preparar el cuerpo para la actividad física. Sin embargo, si venís de un entrenamiento previo puedes',
+			skipBtn: 'SALTAR CALENTAMIENTO'
+		}
 	},
 	admin: {
 		tags: {
@@ -453,6 +459,13 @@ const es = {
 			saveRoutine: 'Guardar Rutina'
 		},
 
+	},
+	routineTypes: {
+		adaptation1: 'Adaptación 1',
+		adaptation2: 'Adaptación 2',
+		strength: 'Fuerza',
+		hypertrophy: 'Hipertrofia',
+		suplementary: 'Suplementario',
 	},
 	errors: {
 		generic: 'Oops, ocurrió un error.',

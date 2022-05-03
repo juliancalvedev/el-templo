@@ -1,6 +1,6 @@
-const useStyles = () => {
+const useStyles = ({type}) => {
     return {
-        tagContainer: 'tag-container'
+        tagContainer: `tag-container--${type}`
     }
 }
 export default useStyles;

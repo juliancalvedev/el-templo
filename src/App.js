@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import './styles/icons.scss';
+import './styles/global.scss';
 import Toast from './components/Toast/Toast';
 
 import i18n from './i18n-lang-conf';

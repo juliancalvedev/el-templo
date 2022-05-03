@@ -26,6 +26,7 @@ const useStyles = ({
 		link: 'link',
 		linkSelected: 'link-selected',
 		error: 'error',
+		done: 'done'
 	};
 
 	const fontFamilies = {

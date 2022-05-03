@@ -13,3 +13,10 @@ export const makeNivelation = (data) => privatePost({ url: `/training/make-nivel
 		count: d.count
 	}))
 } });
+
+export const makeTraining = ({ trainingType, currentBlock, currentDay }) => privatePost({ url: '/training/make-training', body: {
+	routineBlockNumber: currentBlock,
+	dayNumber: currentDay,
+	trainingType
+}});
+

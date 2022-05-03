@@ -27,6 +27,8 @@ const en = {
 		total: 'Total',
 		time: 'Time',
 		create: 'Create',
+		day: 'Day {{number}}',
+		block: 'Block {{number}}',
 
 		errors: {
 			required: 'This field is required.',
@@ -367,6 +369,11 @@ const en = {
 			subtitle: 'Your level is',
 			button: 'Go to my training',
 		},
+		training: {
+			index: 'Routines',
+			skipText: 'Recuerda que la entrada en calor es fundamental para evitar lesiones, y preparar el cuerpo para la actividad física. Sin embargo, si venís de un entrenamiento previo puedes',
+			skipBtn: 'SKIP WARM UP WORKOUT'
+		}
 	},
 	admin: {
 		tags: {
@@ -453,6 +460,13 @@ const en = {
 			times: 'Times',
 			saveRoutine: 'Save Routine'
 		},
+	},
+	routineTypes: {
+		adaptation1: 'Adaptación 1',
+		adaptation2: 'Adaptación 2',
+		strength: 'Fuerza',
+		hypertrophy: 'Hipertrofia',
+		suplementary: 'Suplementario',
 	},
 	errors: {
 		generic: 'Oops, an error occurred.',
