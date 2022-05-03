@@ -19,39 +19,42 @@ export const changePassword = async ({ currentPassword, newPassword }) => {
 				newPassword: newPassword,
 			},
 		});
+		console.log(response.data)
 		const { data, problem } = response.data;
 		return { data, problem };
 	} catch (error) {
 		alert(error);
+		return { error };
+
 	}
 };
 
-export const editProfile =({img, firstName, lastName, sex, country, dateOfBirth }) =>
-	
-		 privatePut({
-			url: `${baseURL}/edit-basic-info`,
-			body: {
-				img,
-				firstName,
-				lastName,
-				sex,
-				country,
-				dateOfBirth,
+export const editProfile = ({ img, firstName, lastName, sex, country, dateOfBirth }) =>
 
-			},
-		});
+	privatePut({
+		url: `${baseURL}/edit-basic-info`,
+		body: {
+			img,
+			firstName,
+			lastName,
+			sex,
+			country,
+			dateOfBirth,
+
+		},
+	});
 
 
 export const getUserInfo = () => privateGet({ url: `${baseURL}/info` });
 
 export const putTrainingInfo = (trainingInfo) => privatePut({
-			url: `${baseURL}/edit-training-info`,
-			body: {
-				goals: trainingInfo.goals,
-				trainingLevel: trainingInfo.trainingLevel,
-				weight: trainingInfo.weight,
-				height: trainingInfo.height,
-			},
-		})
+	url: `${baseURL}/edit-training-info`,
+	body: {
+		goals: trainingInfo.goals,
+		trainingLevel: trainingInfo.trainingLevel,
+		weight: trainingInfo.weight,
+		height: trainingInfo.height,
+	},
+})
 
 export const getDashboard = () => privateGet({ url: `${baseURL}/dashboard` });
