@@ -10,24 +10,23 @@ export const help = ({ message, subject }) =>
 		},
 	});
 
-export const changePassword = async ({ currentPassword, newPassword }) => {
-	try {
-		const response = await privatePut({
-			url: `${baseURL}/change-password`,
-			body: {
-				currentPassword: currentPassword,
-				newPassword: newPassword,
-			},
-		});
-		console.log(response.data)
-		const { data, problem } = response.data;
-		return { data, problem };
-	} catch (error) {
-		alert(error);
-		return { error };
+export const changePassword = ({ currentPassword, newPassword }) => privatePut({
+	url: `${baseURL}/change-password`,
+	body: {
+		currentPassword: currentPassword,
+		newPassword: newPassword,
+	},
+});
 
+export const makeNivelation = (data) => privatePost({
+	url: `/training/make-nivelation`, body: {
+		results: data.map(d => ({
+			id: d.id,
+			count: d.count
+		}))
 	}
-};
+});
+
 
 export const editProfile = ({ img, firstName, lastName, sex, country, dateOfBirth }) =>
 

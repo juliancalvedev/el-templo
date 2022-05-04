@@ -10,12 +10,13 @@ import Button from '../../components/Button/Button';
 import useStyles from './useStyles';
 import useFetch from '../../hooks/useFetch'
 import './ChangeUserPassword.scss'
+import { PATHS } from '../../constants/paths';
 
 const ChangeUserPassword = () => {
 	const { t } = useTranslation();
-
 	const navigate = useNavigate();
 	const styles = useStyles();
+
 	const [showCurrentPassword, setShowCurrentPassword] = useState('password');
 	const [showNewPasword, setShowNewPassword] = useState('password');
 	const [showRepeatPassword, setShowRepeatPassword] = useState('password');
@@ -27,6 +28,9 @@ const ChangeUserPassword = () => {
 		service: () => changePassword({ currentPassword, newPassword }),
 		globalLoader: true,
 		callNow: false,
+		callback: () => {
+			navigate(`/${PATHS.MY_PROFILE}`)
+		}
 	})
 
 	const handleChangeCurrentPassword = (e) => setCurrentPassword(e.target.value);
@@ -35,18 +39,10 @@ const ChangeUserPassword = () => {
 
 	const handleSubmit = () => changePasswordApiCall()
 
-	const onClickShowCurrentPassword = () => {
-		if (showCurrentPassword === 'password') setShowCurrentPassword('text');
-		if (showCurrentPassword === 'text') setShowCurrentPassword('password');
-	};
-	const onClickShowNewPassword = () => {
-		if (showNewPasword === 'password') setShowNewPassword('text');
-		if (showNewPasword === 'text') setShowNewPassword('password');
-	};
-	const onClickShowRepeatPassword = () => {
-		if (showRepeatPassword === 'password') setShowRepeatPassword('text');
-		if (showRepeatPassword === 'text') setShowRepeatPassword('password');
-	};
+	const onClickShowCurrentPassword = () => setShowCurrentPassword(showCurrentPassword === 'password' ? 'text' : 'password')
+	const onClickShowNewPassword = () => setShowNewPassword(showNewPasword === 'password' ? 'text' : 'password')
+	const onClickShowRepeatPassword = () => setShowRepeatPassword(showRepeatPassword === 'password' ? 'text' : 'password')
+
 
 	return (
 		<MainContainer
