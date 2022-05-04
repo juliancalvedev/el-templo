@@ -1,7 +1,6 @@
 import useStyles from './useStyles';
 import './Exercise.scss';
 import Text from '../Text/Text';
-import TotalTime from '../TotalTime/TotalTime';
 import DropDown from '../DropDown/DropDown';
 import Chronometer from '../../components/Chronometer/Chronometer';
 import ButtonPagination from '../../components/ButtonPagination/ButtonPagination';

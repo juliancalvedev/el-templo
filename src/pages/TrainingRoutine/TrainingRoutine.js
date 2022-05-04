@@ -13,6 +13,8 @@ import SubtitleBar from "../../components/SubtitleBar/SubtitleBar";
 import SkipRoutine from "./SkipRoutine/SkipRoutine";
 import { useState } from "react";
 import { TRAINING_TYPES } from "../../constants/training";
+import { useSelector } from "react-redux";
+import { PATHS } from "../../constants/paths";
 
 const TrainingRoutine = () => {
     const { t } = useTranslation();
@@ -21,21 +23,19 @@ const TrainingRoutine = () => {
 
     const [showSkip, setShowSkip] = useState(true);
 
-    const { training, currentBlock, currentDay, trainingType } = useLocation()?.state;
-    if (!training || !currentBlock || !currentDay) {
+    const { exercise1, exercise2, currentBlock, currentDay, trainingType } = useSelector( state => state.exercise );
+    if (!exercise1 || !exercise2 || !currentBlock || !currentDay) {
         navigate(-1);
     }
 
-    console.log('TT', training);
-
-    const [exercise1, errorExercise1, exercise1ApiCall] = useFetch({
-        service: () => getExerciseById({ id: training?.exercise1?.exercise?._id }),
+    const [exercise1Data, errorExercise1, exercise1ApiCall] = useFetch({
+        service: () => getExerciseById({ id: exercise1?.exerciseId }),
         callNow: true,
         globalLoader: true
     })
 
-    const [exercise2, errorExercise2, exercise2ApiCall] = useFetch({
-        service: () => getExerciseById({ id: training?.exercise2?.exercise?._id }),
+    const [exercise2Data, errorExercise2, exercise2ApiCall] = useFetch({
+        service: () => getExerciseById({ id: exercise2?.exerciseId }),
         callNow: true,
         globalLoader: true
     })
@@ -54,8 +54,8 @@ const TrainingRoutine = () => {
             bg={1}
             text={t('user.training.index')}
             navbar
-            calc
             col={12}
+            scroll
         >
             <DivTop>
                 <SubtitleBar text={`
@@ -65,13 +65,13 @@ const TrainingRoutine = () => {
                 {showSkip && (trainingType === TRAINING_TYPES.ADAPTATION1 || trainingType === TRAINING_TYPES.ADAPTATION2) && <SkipRoutine onClick={makeTrainingApiCall} onClose={() => setShowSkip(false)} />}
                 <div className="col-11 d-flex flex-column align-items-center m-auto">
 
-                    <CardInfoTraining tags={exercise1?.exercise?.tags.map(t => t[`title${lang}`])} text={exercise1?.exercise?.[`title${lang}`]} />
-                    <CardInfoTraining tags={exercise2?.exercise?.tags.map(t => t[`title${lang}`])} text={exercise2?.exercise?.[`title${lang}`]} />
+                    <CardInfoTraining tags={exercise1Data?.exercise?.tags.map(t => t[`title${lang}`])} text={exercise1?.exercise?.[`title${lang}`]} />
+                    <CardInfoTraining tags={exercise2Data?.exercise?.tags.map(t => t[`title${lang}`])} text={exercise2?.exercise?.[`title${lang}`]} />
                 </div>
             </DivTop>
             <DivBottom className="col-12">
                 <div className="col-11 m-auto">
-                    <Button text='comenzar training asdasd' />
+                    <Button text='comenzar training asdasd' onClick={() => navigate(`/${PATHS.MAKE_TRAINING}`)} />
                 </div>
             </DivBottom>
 

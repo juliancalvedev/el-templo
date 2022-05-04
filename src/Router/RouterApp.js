@@ -41,10 +41,12 @@ import AdminTraining from '../pages/admin/AdminLevels/AdminTraining/AdminTrainin
 import TrainingRoutine from '../pages/TrainingRoutine/TrainingRoutine';
 import AdminNivelation from '../pages/admin/AdminLevels/AdminNivelation/AdminNivelation';
 import TrainingDashboard from '../pages/TrainingRoutine/TrainingDashboard';
+import MakeTraining from '../pages/TrainingRoutine/MakeTraining';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
 	const { role, goals, level } = useSelector((store) => store.user);
+	const { trainingType } = useSelector((store) => store.exercise);
 
 	const savedToken = localStorage.getItem('token');
 
@@ -139,10 +141,16 @@ const RouterApp = () => {
 								path={PATHS.TRAINING_DASHBOARD}
 								element={<TrainingDashboard />}
 							/>
-							<Route
-								path={PATHS.TRAINING_ROUTINE}
-								element={<TrainingRoutine />}
-							/>
+							{ trainingType &&
+								<Route>
+									<Route
+										path={PATHS.TRAINING_ROUTINE}
+										element={<TrainingRoutine />}
+									/>
+									<Route
+										path={PATHS.MAKE_TRAINING}
+										element={<MakeTraining />}
+									/></Route>}
 						</Route>
 						<Route
 							path={

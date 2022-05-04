@@ -33,7 +33,8 @@ export const PATHS = {
 	TRAINING: 'training-routine',
 	EDIT_PROFILE: 'edit-profile',
 	TRAINING_ROUTINE: 'training-routine',
-	TRAINING_DASHBOARD: 'training-dashboard'
+	TRAINING_DASHBOARD: 'training-dashboard',
+	MAKE_TRAINING: 'make-training'
 };
 
 export const SHOW_NAVBAR = [PATHS.BASE_URL];
