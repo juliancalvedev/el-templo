@@ -5,12 +5,14 @@ import AuthReducer from './auth';
 import ApiReducer from './api';
 import UserReducer from './user';
 import RouteReducer from './route';
+import ExerciseReducer from './exercise';
 
 const rootReducer = combineReducers({
 	auth: AuthReducer,
 	user: UserReducer,
 	api: ApiReducer,
-	route: RouteReducer
+	route: RouteReducer,
+	exercise: ExerciseReducer
 	//Aca hay que agregar los otros reducers que se requieran
 });
 

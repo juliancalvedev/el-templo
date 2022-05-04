@@ -73,7 +73,6 @@ const AdminNivelation = () => {
     const tableData = useTable();
 
     const onChange = (e) => {
-        console.log(e.target.name, e.target.value)
         setNewOrEditNivelationData({
             ...newOrEditNivelationData,
             [e.target.name]: e.target.value
@@ -81,8 +80,6 @@ const AdminNivelation = () => {
     }
 
     const onEdit = (data) => {
-        setType('edit');
-        console.log(data);
         setShowEditModal(true)
         setNewOrEditNivelationData(data);
     }
