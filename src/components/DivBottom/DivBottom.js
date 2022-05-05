@@ -10,7 +10,7 @@ const DivBottom = ({ children, className, style, marginBottom = 0, separation = 
         <div
             className={
                 className +
-                ' col-12 d-flex flex-column justify-content-start'
+                ' col-12 d-flex flex-column justify-content-start align-items-center'
             }
             style={{
                 ...style,

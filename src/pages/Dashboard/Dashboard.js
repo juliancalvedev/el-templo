@@ -46,23 +46,28 @@ const Dashboard = () => {
 
 			<div className={styles.progressSummary}>
 				<div className={styles.summary} >
-					<Text bold text={t('dashboard.main.summary')} size={2} />
+					<div
+						style={{ marginLeft: '6px' }}
+					>
+						<Text bold text={t('dashboard.main.summary')} size={2} />
+					</div>
 					{summary &&
-						<div>
+						<div >
 							<Text bold color={4} text={t('dashboard.main.thisWeek')} size={2} />
 						</div>
 					}
 				</div>
-				<div className={styles.seeDetails}>
-					{level > 0 &&
+				{level > 0 &&
+					<div className={styles.seeDetails}>
 						<Button
 							size={2}
 							onClick={handleChange}
 							type={3}
 							text={t('dashboard.main.see')}
+							textSize={1}
 						/>
-					}
-				</div>
+					</div>
+				}
 			</div>
 
 			{summary && false ? (
