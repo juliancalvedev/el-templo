@@ -5,7 +5,7 @@ import './DashboardBodyInfo.scss'
 import Text from "../Text/Text"
 import { useTranslation } from "react-i18next"
 
-const DashboardBodyInfo = ({ values }) => {
+const DashboardBodyInfo = ({ upper, middle, bottom }) => {
     // TODO pasar valores desde el backend
     const { t } = useTranslation()
     const style = useStyles()
@@ -24,9 +24,9 @@ const DashboardBodyInfo = ({ values }) => {
             </div>
 
             <div className={style.circlesContainer}>
-                <BrownCircle value={30} />
-                <BrownCircle value={57} />
-                <BrownCircle value={23} />
+                <BrownCircle value={upper} />
+                <BrownCircle value={middle} />
+                <BrownCircle value={bottom} />
             </div>
         </div>
     )

@@ -12,12 +12,21 @@ import { PATHS } from '../../constants/paths';
 import ProfileImgAndXP from '../../components/ProfileImgAndXP/ProfileImgAndXP'
 import './Dashboard.scss';
 import DashboardBodyInfo from '../../components/DashboardBodyInfo/DashboardBodyInfo';
+import { getDashboard } from '../../services/user';
+import useFetch from '../../hooks/useFetch';
 
 const Dashboard = () => {
 	const { t } = useTranslation();
 	const { firstName, level, img, experience } = useSelector(
 		(store) => store.user
 	);
+
+	
+	const [data] = useFetch({
+		service: () => getDashboard(),
+		callNow: true,
+		globalLoader: true,
+	})
 
 	const navigate = useNavigate();
 
@@ -41,7 +50,7 @@ const Dashboard = () => {
 			<ProfileImgAndXP />
 
 			<div className={styles.calendar}>
-				<WeeklyCalendar />
+				<WeeklyCalendar data={data}/>
 			</div>
 
 			<div className={styles.progressSummary}>
@@ -82,7 +91,7 @@ const Dashboard = () => {
 			) : (
 				<div className={styles.bodyInfoContainer}>
 					{/* TODO pasar valores desde el backend */}
-					<DashboardBodyInfo values={''} />
+					<DashboardBodyInfo {...data?.bodyParts} />
 				</div>
 			)}
 			{level === 0 && <div className={styles.btn}>

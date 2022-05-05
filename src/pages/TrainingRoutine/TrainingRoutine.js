@@ -15,6 +15,7 @@ import { useState } from "react";
 import { TRAINING_TYPES } from "../../constants/training";
 import { useSelector } from "react-redux";
 import { PATHS } from "../../constants/paths";
+import { BACK_RESPONSE } from "../../constants/responses";
 
 const TrainingRoutine = () => {
     const { t } = useTranslation();
@@ -23,7 +24,7 @@ const TrainingRoutine = () => {
 
     const [showSkip, setShowSkip] = useState(true);
 
-    const { exercise1, exercise2, currentBlock, currentDay, trainingType } = useSelector( state => state.exercise );
+    const { exercise1, exercise2, currentBlock, currentDay, trainingType } = useSelector(state => state.exercise);
     if (!exercise1 || !exercise2 || !currentBlock || !currentDay) {
         navigate(-1);
     }
@@ -43,7 +44,9 @@ const TrainingRoutine = () => {
     const [makeTrainingData, errorMakeTraining, makeTrainingApiCall] = useFetch({
         service: () => makeTraining({ trainingType, currentBlock, currentDay }),
         globalLoader: true,
-        callback: () => navigate(-1)
+        callback: () => {
+            navigate(`/${PATHS.TRAINING_DASHBOARD}`)
+        }
     })
 
 

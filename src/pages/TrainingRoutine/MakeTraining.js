@@ -9,6 +9,7 @@ import { makeTraining } from "../../services/training";
 import { PATHS } from "../../constants/paths";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
+import { BACK_RESPONSE } from "../../constants/responses";
 
 const MakeTraining = () => {
 
@@ -22,7 +23,14 @@ const MakeTraining = () => {
     const [data, error, apiCall] = useFetch({
         service: () => makeTraining({ trainingType, currentDay, currentBlock }),
         globalLoader: true,
-        callback: () => navigate(`/${PATHS.TRAINING_DASHBOARD}`)
+        callback: () => {
+            if (data?.response?.statusCode === BACK_RESPONSE.NO_MORE_EXERCISE) {
+                navigate(`/${PATHS.CONGRATULATIONS}`)
+            } else {
+
+                navigate(`/${PATHS.TRAINING_DASHBOARD}`)
+            }
+        }
     })
 
     const onNext = () => {
@@ -47,7 +55,7 @@ const MakeTraining = () => {
                 title={currExercise?.[`title${lang}`]}
                 video={currExercise?.video}
                 description={currExercise?.[`description${lang}`]}
-                onNext={onNext} 
+                onNext={onNext}
             />
         </MainContainer>
     )

@@ -4,18 +4,10 @@ import './WeeklyCalendar.scss';
 import { MONTHS } from '../../constants/months';
 import { useTranslation } from 'react-i18next';
 import TrainedDay from '../TrainedDay/TrainedDay';
-import useFetch from '../../hooks/useFetch';
-import { getDashboard } from '../../services/user';
 
-const WeeklyCalendar = () => {
+const WeeklyCalendar = ({ data }) => {
 	const styles = useStyles();
 	const { t } = useTranslation();
-
-	const [data] = useFetch({
-		service: () => getDashboard(),
-		callNow: true,
-		globalLoader: true,
-	})
 
 	const date = new Date();
 
