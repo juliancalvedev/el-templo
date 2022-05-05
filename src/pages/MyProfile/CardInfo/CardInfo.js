@@ -20,7 +20,7 @@ const CardInfo = ({ level, img, startEnabledDate, userName }) => {
 		<div className={styles.container}>
 
 			<div className={styles.imageContainer}>
-				<InputAvatar img={img} />
+				<InputAvatar img={img ? img : 0} />
 			</div>
 
 			<div className={styles.cardInfoTextContainer}>

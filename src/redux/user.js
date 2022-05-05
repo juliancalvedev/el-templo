@@ -7,19 +7,19 @@ const SET_LEVEL_TRAINING_INFO = 'SET_LEVEL_TRAINING_INFO';
 const ERROR = 'ERROR';
 
 const defaultValue = {
-	_id: null,
-	email: null,
-	firstName: null,
-	lastName: null,
-	level: null,
+	_id: undefined,
+	email: undefined,
+	firstName: undefined,
+	lastName: undefined,
+	level: undefined,
 	experience: 0,
-	dateOfBirth: null,
-	sex: null,
-	country: null,
-	img: null,
-	role: null,
-	endEnabledDate: null,
-	startEnabledDate: null,
+	dateOfBirth: undefined,
+	sex: undefined,
+	country: undefined,
+	img: undefined,
+	role: undefined,
+	endEnabledDate: undefined,
+	startEnabledDate: undefined,
 	trainingInfo: {
 		goals: ['', '', ''],
 		trainingLevel: 0,
@@ -60,7 +60,7 @@ export const getUserInfoAction = (data) => async (dispatch) => {
 		type: GET_USER_INFO,
 		payload: data,
 	});
-	
+
 };
 
 export const addGoalsToTrainingInfo = (data) => (dispatch) => {

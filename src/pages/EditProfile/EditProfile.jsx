@@ -1,18 +1,15 @@
 import { useDispatch } from 'react-redux';
-import { cutDate } from '../../utils/date';
 import useFetch from '../../hooks/useFetch';
 import { useEffect, useState } from 'react';
 import Text from '../../components/Text/Text';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
-import UserImage from '../../components/UserImage/UserImage';
 import InputSelect from '../../components/InputSelect/InputSelect';
 import SexSelector from '../../components/SexSelector/SexSelector';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import { Countries } from '../../constants/countries';
 import { editProfile, getUserInfo } from '../../services/user';
-import { imgToBase64 } from '../../utils/base64';
 import { useTranslation } from 'react-i18next';
 import { PATHS } from '../../constants/paths';
 import { useSelector } from 'react-redux';
@@ -20,44 +17,39 @@ import useStyles from './useStyles.js';
 import './EditProfile.scss';
 import { getUserInfoAction } from '../../redux/user';
 import InputAvatar from '../../components/InputAvatar/InputAvatar';
+import { maxDateOfBirth } from '../../utils/date';
 
 const EditProfile = () => {
+	const { t } = useTranslation();
+	const styles = useStyles();
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const countries = Countries({ t });
 	const { firstName, lastName, sex, country, dateOfBirth, img } = useSelector(
 		(store) => store.user
 	);
+
 	const [values, setValues] = useState({
-		firstName,
-		lastName,
-		country,
-		dateOfBirth,
-		sex,
-	});
-	const [baseImage, setBaseImage] = useState(img);
-	const [callGetUserInfo, setCallGetUserInfo] = useState(false);
-	const [showAvatarModal, setShowAvatarModal] = useState(false);
-
-	const { t } = useTranslation();
-	const countries = Countries({ t });
-
-	const onChange = (e) => {
-		setValues({
-			...values,
-			[e.target.name]: e.target.value,
-		});
-	};
+		firstName: '',
+		lastName: '',
+		sex: '',
+		dateOfBirth: '',
+		country: '',
+	})
 
 	useEffect(() => {
 		setValues({
-			firstName,
-			lastName,
-			country,
-			dateOfBirth: cutDate(dateOfBirth),
-			sex,
-		});
-		setBaseImage(img);
-	}, [firstName]);
+			firstName: firstName,
+			lastName: lastName,
+			sex: sex,
+			dateOfBirth: dateOfBirth,
+			country: country?.toLowerCase(),
+		})
+	}, [firstName, lastName, sex, country, dateOfBirth, img])
+
+	const [callGetUserInfo, setCallGetUserInfo] = useState(false);
+	const [showAvatarModal, setShowAvatarModal] = useState(false);
+	const [avatarImg, setAvatarImg] = useState(img ? img : 0);
 
 	const [updated, errorUpdateInfo, updateInfo] = useFetch({
 		service: () => getUserInfo(),
@@ -69,7 +61,7 @@ const EditProfile = () => {
 	});
 
 	const [data, error, apiCall] = useFetch({
-		service: () => editProfile({ ...values, img: baseImage }),
+		service: () => editProfile(values),
 		globalLoader: true,
 		callback: () => setCallGetUserInfo(true),
 	});
@@ -79,11 +71,6 @@ const EditProfile = () => {
 			updateInfo();
 		}
 	}, [callGetUserInfo]);
-
-	const styles = useStyles();
-	const clickFile = () => {
-		document.getElementById('file').click();
-	};
 
 	const [type, setType] = useState('text');
 	const onFocus = () => setType('date');
@@ -96,52 +83,71 @@ const EditProfile = () => {
 		setShowAvatarModal(false);
 	};
 
-	const handleClickImage = (e) => imgToBase64({ e, setter: setBaseImage });
+	const handleChangeInput = (e) => {
+		console.log(e.target.name)
+		setValues({ ...values, [e.target.name]: e.target.value })
+	}
 
 	return (
-		<MainContainer back text='Edicion de perfil' shadow>
+		<MainContainer back text='Edición de perfil' shadow>
 			<div className={styles.ImgAndName}>
-				<div className={styles.userImg}>
+				<div className={styles.userImg} style={{ marginLeft: '-5px' }}>
 					<div>
 						<InputAvatar
+							isEditing
 							showModal={showAvatarModal}
 							onClickInputAvatar={onClickInputAvatar}
 							onCloseInputAvatar={onCloseInputAvatar}
-							onChangeAvatar={(value) => setBaseImage(value)}
-							img={baseImage}
+							onChangeAvatar={(value) => setAvatarImg(value)}
+							img={avatarImg ? avatarImg : 0}
 						/>
 					</div>
 				</div>
 				<div className={styles.userName}>
-					<Input name='firstName' onChange={onChange} value={values.firstName} />
-					<Input name='lastName' onChange={onChange} value={values.lastName} />
+					<Input
+						name='firstName'
+						placeholder={t('auth.register.firstNamePlaceholder')}
+						value={values?.firstName || ''}
+						onChange={handleChangeInput}
+					/>
+					<Input
+						name='lastName'
+						placeholder={t('auth.register.lastNamePlaceholder')}
+						value={values?.lastName || ''}
+						onChange={handleChangeInput}
+					/>
 				</div>
-				{/*  */}
 			</div>
 			<div className={styles.SexSelection}>
 				<div className={styles.textSex}>
 					<Text text='Sexo' bold />
 				</div>
-				<SexSelector handleChange={onChange} />
+				<SexSelector
+					checkedF={values?.sex === 'F' ? true : false}
+					checkedM={values?.sex === 'M' ? true : false}
+					checkedO={values?.sex === 'O' ? true : false}
+					handleChange={handleChangeInput}
+				/>
 			</div>
 
 			<div className={styles.inputBox}>
 				<InputSelect
-					value={values.country}
-					defaulValue={values.country}
-					onChange={onChange}
-					options={countries}
 					name='country'
+					value={values?.country || ''}
+					onChange={handleChangeInput}
+					options={countries}
 				/>
 
 				<Input
-					onChange={onChange}
-					type={type}
+					max={maxDateOfBirth()}
+					placeholder={t('auth.register.dateOfBirth')}
 					name='dateOfBirth'
-					value={values.dateOfBirth}
+					value={values?.dateOfBirth || ''}
+					onChange={handleChangeInput}
+					icon={'date'}
+					type={type}
 					onBlur={onBlur}
 					onFocus={onFocus}
-					icon='date'
 				/>
 			</div>
 

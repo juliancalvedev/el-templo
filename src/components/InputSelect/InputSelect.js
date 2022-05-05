@@ -30,6 +30,7 @@ const InputSelect = ({
 						multiple={multiple}
 						readOnly={readOnly}
 						onClick={onClick}
+						id='input-select-id'
 					>
 						{options.map((selectOption, key) => (
 							<option
