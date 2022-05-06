@@ -8,7 +8,6 @@ const SexSelector = ({ handleChange, checkedF, checkedM, checkedO }) => {
 	const styles = useStyles();
 
 	return (
-
 		<div className={styles.containerButtonsRadio}>
 			<div className={styles.ButtonRadio}>
 				<ButtonRadio

@@ -31,7 +31,7 @@ const Input = ({
 	disabled,
 	max,
 	cursorPointer,
-	margin,
+	marginFix,
 	onBlur = () => { },
 	onFocus = () => { },
 	onClickIcon = () => { },
@@ -56,7 +56,10 @@ const Input = ({
 	return (
 		<div className={styles.container} >
 			{label && <label className={styles.label}>{label}</label>}
-			<div className={styles.inputContent} style={{ margin: margin }}>
+			<div
+				className={styles.inputContent}
+				style={{ margin: `${marginFix === true ? '6px 0px' : marginFix}` }}
+			>
 				<input
 					style={{ cursor: `${cursorPointer ? 'pointer' : 'text'}` }}
 					max={max}

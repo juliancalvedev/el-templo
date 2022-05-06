@@ -48,6 +48,7 @@ const EditProfile = () => {
 		})
 	}, [firstName, lastName, sex, country, dateOfBirth, img])
 
+
 	const [editProfileResponse, editProfileError, editProfileApiCall] = useFetch({
 		service: () => putEditProfile({ ...values, img: avatarImg }),
 		globalLoader: true,
@@ -66,7 +67,6 @@ const EditProfile = () => {
 
 	const handleChangeInput = (e) => setValues({ ...values, [e.target.name]: e.target.value })
 
-	console.log(values)
 	return (
 		<MainContainer back text={t('profile.editProfile.topBar')} shadow alignCenter>
 			<DivTop>
@@ -130,6 +130,7 @@ const EditProfile = () => {
 						onBlur={() => setInputDateType('text')}
 						onFocus={() => setInputDateType('date')}
 						cursorPointer
+						marginFix
 					/>
 				</div>
 			</DivTop>
