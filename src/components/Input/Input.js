@@ -30,6 +30,7 @@ const Input = ({
 	className,
 	disabled,
 	max,
+	cursorPointer,
 	onBlur = () => { },
 	onFocus = () => { },
 	onClickIcon = () => { },
@@ -44,7 +45,7 @@ const Input = ({
 	});
 
 	const handleChangeInput = (e) => {
-		if(type === 'number') {
+		if (type === 'number') {
 			e.target.value = e.target.value.replaceAll("[^\\d.]", "");
 			e.target.value = e.target.value ? parseFloat(e.target.value) : 0;
 		}
@@ -52,10 +53,11 @@ const Input = ({
 	}
 
 	return (
-		<div className={styles.container}>
+		<div className={styles.container} >
 			{label && <label className={styles.label}>{label}</label>}
 			<div className={styles.inputContent}>
 				<input
+					style={{ cursor: `${cursorPointer ? 'pointer' : 'text'}` }}
 					max={max}
 					onBlur={onBlur}
 					onFocus={onFocus}
