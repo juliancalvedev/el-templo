@@ -134,7 +134,7 @@ const EditProfile = () => {
 				</div>
 			</DivTop>
 
-			<DivBottom >
+			<DivBottom separation={1}>
 				<div className={styles.buttonBox}>
 					<Button text={t('profile.editProfile.saveChanges')} onClick={() => editProfileApiCall()} />
 				</div>
