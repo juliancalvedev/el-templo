@@ -7,16 +7,21 @@ export const getMyExercise = () => {
 }
 
 export const getNivelationExercises = () => privateGet({ url: `get-nivelation` });
-export const makeNivelation = (data) => privatePost({ url: `/training/make-nivelation`, body: {
-	results: data.map( d => ({
-		id: d.id,
-		count: d.count
-	}))
-} });
 
-export const makeTraining = ({ trainingType, currentBlock, currentDay }) => privatePost({ url: '/training/make-training', body: {
-	routineBlockNumber: currentBlock,
-	dayNumber: currentDay,
-	trainingType
-}});
+export const makeNivelation = (data) => privatePost({
+	url: `/training/make-nivelation`, body: {
+		results: data.map(d => ({
+			id: d.id,
+			count: d.count
+		}))
+	}
+});
+
+export const makeTraining = ({ trainingType, currentBlock, currentDay }) => privatePost({
+	url: '/training/make-training', body: {
+		routineBlockNumber: currentBlock,
+		dayNumber: currentDay,
+		trainingType
+	}
+});
 

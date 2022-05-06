@@ -42,6 +42,7 @@ import TrainingRoutine from '../pages/TrainingRoutine/TrainingRoutine';
 import AdminNivelation from '../pages/admin/AdminLevels/AdminNivelation/AdminNivelation';
 import TrainingDashboard from '../pages/TrainingRoutine/TrainingDashboard';
 import MakeTraining from '../pages/TrainingRoutine/MakeTraining';
+import Congratulations from '../pages/TrainingRoutine/Congratulations';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -141,7 +142,7 @@ const RouterApp = () => {
 								path={PATHS.TRAINING_DASHBOARD}
 								element={<TrainingDashboard />}
 							/>
-							{ trainingType &&
+							{trainingType &&
 								<Route>
 									<Route
 										path={PATHS.TRAINING_ROUTINE}
@@ -150,7 +151,12 @@ const RouterApp = () => {
 									<Route
 										path={PATHS.MAKE_TRAINING}
 										element={<MakeTraining />}
-									/></Route>}
+									/>
+									<Route
+										path={PATHS.CONGRATULATIONS}
+										element={<Congratulations />}
+									/>
+								</Route>}
 						</Route>
 						<Route
 							path={

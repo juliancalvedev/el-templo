@@ -76,7 +76,7 @@ const Login = () => {
 	};
 
 	return (
-		<MainContainer backgroundImg='login' color={2} back calc>
+		<MainContainer backgroundImg='login' color={2} back calc col='12'>
 			<DivTop >
 				<div className={styles.titleContainer}>
 					<Text

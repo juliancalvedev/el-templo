@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { cleanErrorAction, loadingAction, setErrorAction } from '../redux/api';
 
-
 const useFetch = ({ service, globalLoader, callback = () => { }, callNow = false }) => {
 
     const dispatch = useDispatch();

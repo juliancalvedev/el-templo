@@ -153,7 +153,7 @@ const es = {
 		forgotPassword2: {},
 		passwordRecoveryForm: {
 			title: 'Crea tu nueva contraseña',
-			newPassword: 'Nueva contraseña',
+			newPassword: 'Contraseña nueva',
 			repeatNewPassword: 'Repite nueva contraseña',
 			btnUpdatePassword: 'Actualizar contraseña',
 		},
@@ -329,7 +329,7 @@ const es = {
 		changeUserPassword: {
 			title: 'Edición de contraseña',
 			currentPassword: 'Contraseña actual',
-			newPassword: 'Nueva contraseña',
+			newPassword: 'Contraseña nueva',
 			repeatNewPassword: 'Repetir contraseña nueva',
 			submitPassword: 'Cambiar contraseña',
 		},
