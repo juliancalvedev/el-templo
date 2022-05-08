@@ -33,6 +33,12 @@ export const Register = () => {
 	const onClickIconPassword = () => setInputTypePassword(inputTypePassword === 'password' ? 'text' : 'password')
 	const onClickIconPassword2 = () => setInputTypePassword2(inputTypePassword2 === 'password' ? 'text' : 'password')
 
+	const maxDateOfBirth = () => {
+		// format yyyy-mm-dd
+		const dateOfTodayFormat = `${new Date().getFullYear()}-${('' + new Date().getMonth()).length === 1 && '0'}${new Date().getMonth() + 1}-${('' + new Date().getDate()) <= 9 ? `0${new Date().getDate()}` : new Date().getDate()}`
+		return dateOfTodayFormat
+	}
+
 	const onClickInputAvatar = () => {
 		setShowAvatarModal(true)
 	};

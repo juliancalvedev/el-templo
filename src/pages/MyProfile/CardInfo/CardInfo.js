@@ -53,7 +53,7 @@ const CardInfo = ({ level, img, startEnabledDate, userName }) => {
 				/>
 			</div>
 			<div className={styles.iconEdit}>
-				<span onClick={onClickIcon}>
+				<span onClick={onClickIcon} style={{ cursor: 'pointer' }}>
 					<EditUserIcon />
 				</span>
 			</div>
