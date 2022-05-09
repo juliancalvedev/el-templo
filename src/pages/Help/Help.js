@@ -4,7 +4,6 @@ import Text from '../../components/Text/Text';
 import './Help.scss';
 import HelpAccordion from './HelpAccordion';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import TopSpacing from '../../components/TopSpacing/TopSpacing';
 
 import Button from '../../components/Button/Button';
 import useStyles from './useStyles';
@@ -19,10 +18,11 @@ const Help = () => {
 	const styles = useStyles();
 
 	return (
-		<MainContainer color={2} text={t('help.main.help')} bg={1} back navbar scroll col='12'>
-			<Text bold size={4} text={t('help.main.aboutUs')} className='mt-3' />
+		<MainContainer color={2} text={t('help.main.help')} bg={1} back navbar scroll col='12' alignCenter>
 
-			<Text font={2} size={5} text={t('help.main.elTemplo')} />
+			<Text bold size={4} text={t('help.main.aboutUs')} className='mt-4' />
+
+			<Text font={2} size={5} text={t('help.main.elTemplo')} className='mb-3' />
 			<img
 				className='d-inline-block'
 				width='100%'
@@ -34,16 +34,20 @@ const Help = () => {
 				<Text justify='start' size={2} text={t('help.main.auxText12')} />
 				<Text justify='start' size={2} text={t('help.main.auxText13')} />
 			</div>
-			<p className={styles.p}>
-			</p>
+			<span className={styles.p}></span>
 
-			{showBtn ? <Button
-				className='mb-3'
-				onClick={handleChangeBtn}
-				type={3}
-				text={t('help.main.btn1')}
-
-			/> :
+			{showBtn ?
+				<div className='col-12 mt-1' >
+					<Button
+						className='mb-3'
+						onClick={handleChangeBtn}
+						size='3'
+						textSize={2}
+						type={3}
+						text={t('help.main.btn1')}
+					/>
+				</div>
+				:
 
 				<div >
 					<div className={styles.card}>
@@ -61,7 +65,6 @@ const Help = () => {
 								text={t('help.main.auxText21')}
 							/>
 						</div>
-
 						<HelpAccordion />
 					</div>
 				</div>}
