@@ -21,7 +21,7 @@ const Dashboard = () => {
 		(store) => store.user
 	);
 
-	
+
 	const [data] = useFetch({
 		service: () => getDashboard(),
 		callNow: true,
@@ -35,7 +35,7 @@ const Dashboard = () => {
 		setSummary(false);
 	};
 	const styles = useStyles();
-	const xp = (100 * experience) / 24 + 4;
+	const xp = (100 * experience) / 24 + 4; // TODO ex está sin usar (?
 
 	return (
 		<MainContainer
@@ -50,7 +50,7 @@ const Dashboard = () => {
 			<ProfileImgAndXP />
 
 			<div className={styles.calendar}>
-				<WeeklyCalendar data={data}/>
+				<WeeklyCalendar data={data} />
 			</div>
 
 			<div className={styles.progressSummary}>
@@ -90,7 +90,6 @@ const Dashboard = () => {
 				</div>
 			) : (
 				<div className={styles.bodyInfoContainer}>
-					{/* TODO pasar valores desde el backend */}
 					<DashboardBodyInfo {...data?.bodyParts} />
 				</div>
 			)}

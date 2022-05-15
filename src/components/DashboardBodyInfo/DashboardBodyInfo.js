@@ -6,7 +6,6 @@ import Text from "../Text/Text"
 import { useTranslation } from "react-i18next"
 
 const DashboardBodyInfo = ({ upper, middle, bottom }) => {
-    // TODO pasar valores desde el backend
     const { t } = useTranslation()
     const style = useStyles()
 
@@ -24,9 +23,9 @@ const DashboardBodyInfo = ({ upper, middle, bottom }) => {
             </div>
 
             <div className={style.circlesContainer}>
-                <BrownCircle value={upper} />
-                <BrownCircle value={middle} />
-                <BrownCircle value={bottom} />
+                <BrownCircle value={isNaN(upper) ? 0 : upper} />
+                <BrownCircle value={isNaN(middle) ? 0 : middle} />
+                <BrownCircle value={isNaN(bottom) ? 0 : bottom} />
             </div>
         </div>
     )
