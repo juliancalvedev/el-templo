@@ -99,8 +99,7 @@ const en = {
 			sex3: 'Other',
 			emailPlaceholder: 'Email@email.com',
 			passwordPlaceholder: 'Password',
-			passwordRequirement:
-				'(Must contain at least 6 letters and 1 number)',
+			passwordRequirement: '(Must contain at least 6 letters and 1 number)',
 			password2Placeholder: 'Confirm your password',
 			countrySelection: 'Country',
 			country1: 'Argentina',
@@ -268,11 +267,12 @@ const en = {
 			accordionTextBlue1: 'What are the objectives of the program ?',
 			accordionTextBlue2: 'When do I level up?',
 			accordionTextBlue3: 'What will be included in a daily training?',
-			accordionTextBlue4:
-				'What level of physical preparation is needed to do it?',
+			accordionTextBlue4: 'What level of physical preparation is needed to do it?',
 			auxText3: {
-				item1: '• Development of basic strength capabilities (explosive, power, maximum, resistance).',
-				item2: '• Development of basic flexibility capabilities (passive, active, dynamic).',
+				item1:
+					'• Development of basic strength capabilities (explosive, power, maximum, resistance).',
+				item2:
+					'• Development of basic flexibility capabilities (passive, active, dynamic).',
 				item3: '• Increased biomechanical efficiency.',
 				item4: '• Prevention or treatment of injuries.',
 				item5: '• Improvement in the sports performance.',
@@ -289,12 +289,11 @@ const en = {
 			summary: 'Progress summary',
 			thisWeek: 'This week you trained',
 			see: 'SEE DETAIL',
-			progress:
-				'As you progress in your workouts, your progress will be seen here.',
+			progress: 'As you progress in your workouts, your progress will be seen here.',
 			btn: 'Start training',
 			upperBody: 'Upper body ',
 			middleBody: 'Middle body',
-			lowerBody: 'Lower body'
+			lowerBody: 'Lower body',
 		},
 	},
 	navbar: {
@@ -371,9 +370,14 @@ const en = {
 		},
 		training: {
 			index: 'Routines',
-			skipText: 'Recuerda que la entrada en calor es fundamental para evitar lesiones, y preparar el cuerpo para la actividad física. Sin embargo, si venís de un entrenamiento previo puedes',
-			skipBtn: 'SKIP WARM UP WORKOUT'
-		}
+			skipText:
+				'Recuerda que la entrada en calor es fundamental para evitar lesiones, y preparar el cuerpo para la actividad física. Sin embargo, si venís de un entrenamiento previo puedes',
+			skipBtn: 'SKIP WARM UP WORKOUT',
+		},
+		aboutYou: {
+			editAboutYou: 'Edit about you',
+			saveChanges: 'Save changes',
+		},
 	},
 	admin: {
 		tags: {
@@ -405,7 +409,7 @@ const en = {
 			level: 'Level',
 			enabledDate: 'Enabled Date',
 			disabledDate: 'Disabled Date',
-			options: 'Options'
+			options: 'Options',
 		},
 		exercises: {
 			video: 'Video',
@@ -430,7 +434,7 @@ const en = {
 		},
 		adminExercises: {
 			index: 'Manage the exercises',
-			createExercise: 'Create new exercise'
+			createExercise: 'Create new exercise',
 		},
 		adminTags: {
 			index: 'Manage the tags',
@@ -441,11 +445,11 @@ const en = {
 			selectLevel: 'Select level',
 		},
 		usersList: {
-			index: 'Manage users'
+			index: 'Manage users',
 		},
 		nivelation: {
 			index: 'Nivelation',
-			deleteNivelation: 'the {{title}} will be deleted'
+			deleteNivelation: 'the {{title}} will be deleted',
 		},
 		routines: {
 			level: 'Level',
@@ -458,7 +462,7 @@ const en = {
 			suplementary: 'Suplementary',
 			reps: 'Reps',
 			times: 'Times',
-			saveRoutine: 'Save Routine'
+			saveRoutine: 'Save Routine',
 		},
 	},
 	routineTypes: {

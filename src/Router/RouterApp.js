@@ -43,6 +43,7 @@ import AdminNivelation from '../pages/admin/AdminLevels/AdminNivelation/AdminNiv
 import TrainingDashboard from '../pages/TrainingRoutine/TrainingDashboard';
 import MakeTraining from '../pages/TrainingRoutine/MakeTraining';
 import Congratulations from '../pages/TrainingRoutine/Congratulations';
+import EditAboutYou from '../pages/EditAboutYou/EditAboutYou';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -173,6 +174,10 @@ const RouterApp = () => {
 						<Route
 							path={PATHS.EDIT_PROFILE}
 							element={<EditProfile />}
+						/>
+						<Route
+							path={PATHS.EDIT_ABOUT_YOU}
+							element={<EditAboutYou />}
 						/>
 						<Route
 							path={PATHS.CHANGE_USER_PASSWORD}

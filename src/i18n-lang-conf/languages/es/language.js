@@ -267,8 +267,10 @@ const es = {
 			accordionTextBlue4:
 				'¿Qué nivel de preparación física se necesita para realizarlo?',
 			auxText3: {
-				item1: '•Desarrollo de capacidades básicas de la fuerza (explosiva, potencia, máxima, resistencia).',
-				item2: '• Desarrollo de capacidades básicas de la flexibilidad (Pasiva, activa, dinámica).',
+				item1:
+					'•Desarrollo de capacidades básicas de la fuerza (explosiva, potencia, máxima, resistencia).',
+				item2:
+					'• Desarrollo de capacidades básicas de la flexibilidad (Pasiva, activa, dinámica).',
 				item3: '• Aumento de eficiencia biomecánica.',
 				item4: '• Prevención o tratamiento de lesiones',
 				item5: '• Mejora en el rendimiento deportivo. ',
@@ -290,7 +292,7 @@ const es = {
 			btn: 'Comenzar a entrenar',
 			upperBody: 'Tren superior',
 			middleBody: 'Zona media',
-			lowerBody: 'Tren inferior'
+			lowerBody: 'Tren inferior',
 		},
 	},
 	navbar: {
@@ -367,9 +369,14 @@ const es = {
 		},
 		training: {
 			index: 'Rutinas',
-			skipText: 'Recuerda que la entrada en calor es fundamental para evitar lesiones, y preparar el cuerpo para la actividad física. Sin embargo, si venís de un entrenamiento previo puedes',
-			skipBtn: 'SALTAR CALENTAMIENTO'
-		}
+			skipText:
+				'Recuerda que la entrada en calor es fundamental para evitar lesiones, y preparar el cuerpo para la actividad física. Sin embargo, si venís de un entrenamiento previo puedes',
+			skipBtn: 'SALTAR CALENTAMIENTO',
+		},
+		aboutYou: {
+			editAboutYou: 'Edición sobre vos',
+			saveChanges: 'Guardar cambios',
+		},
 	},
 	admin: {
 		tags: {
@@ -401,7 +408,7 @@ const es = {
 			level: 'Nivel',
 			enabledDate: 'Fecha Alta',
 			disabledDate: 'Fecha Baja',
-			options: 'Opciones'
+			options: 'Opciones',
 		},
 		exercises: {
 			video: 'Video',
@@ -417,7 +424,7 @@ const es = {
 			saveChanges: 'Guardar Cambios',
 			createNewExercise: 'Crear Nuevo Ejercicio',
 			editExercise: 'Editar Ejercicio',
-			loadingTags: 'Cargando Tags...'
+			loadingTags: 'Cargando Tags...',
 		},
 		adminConfig: {
 			index: 'Administrar entrenamientos',
@@ -427,12 +434,11 @@ const es = {
 		},
 		adminExercises: {
 			index: 'Administrar ejercicios',
-			createExercise: 'Nuevo ejercicio'
+			createExercise: 'Nuevo ejercicio',
 		},
 		adminTags: {
 			index: 'Administrar etiquetas',
-			createTag: 'Nueva Etiqueta'
-
+			createTag: 'Nueva Etiqueta',
 		},
 		adminLevels: {
 			index: 'Administrar niveles',
@@ -440,10 +446,10 @@ const es = {
 		},
 		nivelation: {
 			index: 'Nivelacion',
-			deleteNivelation: 'Se borrará {{title}}'
+			deleteNivelation: 'Se borrará {{title}}',
 		},
 		usersList: {
-			index: 'Administrar usuarios'
+			index: 'Administrar usuarios',
 		},
 		routines: {
 			level: 'Nivel',
@@ -456,9 +462,8 @@ const es = {
 			suplementary: 'Suplementario',
 			reps: 'Reps',
 			times: 'Veces',
-			saveRoutine: 'Guardar Rutina'
+			saveRoutine: 'Guardar Rutina',
 		},
-
 	},
 	routineTypes: {
 		adaptation1: 'Adaptación 1',

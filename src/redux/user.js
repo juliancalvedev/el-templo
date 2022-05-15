@@ -26,6 +26,9 @@ const defaultValue = {
 		weight: 0,
 		height: 0,
 	},
+	trainingLevel: 0,
+	weight: 0,
+	height: 0,
 };
 
 // REDUCER
@@ -60,7 +63,7 @@ export const getUserInfoAction = (data) => async (dispatch) => {
 		type: GET_USER_INFO,
 		payload: data,
 	});
-	
+
 };
 
 export const addGoalsToTrainingInfo = (data) => (dispatch) => {

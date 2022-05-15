@@ -115,8 +115,6 @@ const WeightHeight = () => {
 			bannerTexts={bannerTexts}
 		>
 			<DivTop className='mt-5 pt-5'>
-
-				<div></div>
 				<div className={styles.container}>
 					<div className={styles.input1}>
 						<InputDivided

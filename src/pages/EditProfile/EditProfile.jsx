@@ -96,8 +96,6 @@ const EditProfile = () => {
 		setShowAvatarModal(false);
 	};
 
-	const handleClickImage = (e) => imgToBase64({ e, setter: setBaseImage });
-
 	return (
 		<MainContainer back text='Edicion de perfil' shadow>
 			<div className={styles.ImgAndName}>
