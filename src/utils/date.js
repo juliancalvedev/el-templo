@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 export const cutDate = (date) => {
 	const trimDate = date ? date.substring(0, 10).split('-').reverse().join('/') : date;
 
@@ -9,3 +11,6 @@ export const compareWithCurrDate = (date) => {
 	const compareDate = new Date(date);
 	return currDate > compareDate;
 }
+
+export const maxDateOfBirth = () => moment(new Date()).format('YYYY-MM-DD')
+

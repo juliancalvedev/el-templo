@@ -11,10 +11,10 @@ import useStyles from './useStyles';
 import SexSelector from '../../components/SexSelector/SexSelector';
 import './Register.scss';
 import { Countries } from '../../constants/countries';
-import { imgToBase64 } from '../../utils/base64';
 import InputAvatar from '../../components/InputAvatar/InputAvatar';
 import DivTop from '../../components/DivTop/DivTop'
 import DivBottom from '../../components/DivBottom/DivBottom';
+import { maxDateOfBirth } from '../../utils/date';
 
 export const Register = () => {
 	const { t } = useTranslation();
@@ -25,34 +25,19 @@ export const Register = () => {
 	const onFocus = () => setType('date');
 	const onBlur = () => setType('text');
 
-	const [baseImage, setBaseImage] = useState('');
+	const [avatarImg, setAvatarImg] = useState(0);
 	const [inputTypePassword, setInputTypePassword] = useState('password');
 	const [inputTypePassword2, setInputTypePassword2] = useState('password');
 	const [showAvatarModal, setShowAvatarModal] = useState(false)
 
+	const onClickIconPassword = () => setInputTypePassword(inputTypePassword === 'password' ? 'text' : 'password')
+	const onClickIconPassword2 = () => setInputTypePassword2(inputTypePassword2 === 'password' ? 'text' : 'password')
+
 	const maxDateOfBirth = () => {
 		// format yyyy-mm-dd
-		const dateOfTodayFormat = `${new Date().getFullYear()}-${('' + new Date().getMonth()).length === 1 && '0'}${new Date().getMonth() + 1}-${new Date().getDate()}`
+		const dateOfTodayFormat = `${new Date().getFullYear()}-${('' + new Date().getMonth()).length === 1 && '0'}${new Date().getMonth() + 1}-${('' + new Date().getDate()) <= 9 ? `0${new Date().getDate()}` : new Date().getDate()}`
 		return dateOfTodayFormat
 	}
-
-	const onClickIconPassword = () => {
-		if (inputTypePassword === 'password') {
-			setInputTypePassword('text');
-		}
-		if (inputTypePassword === 'text') {
-			setInputTypePassword('password');
-		}
-	};
-
-	const onClickIconPassword2 = () => {
-		if (inputTypePassword2 === 'password') {
-			setInputTypePassword2('text');
-		}
-		if (inputTypePassword2 === 'text') {
-			setInputTypePassword2('password');
-		}
-	};
 
 	const onClickInputAvatar = () => {
 		setShowAvatarModal(true)
@@ -61,11 +46,9 @@ export const Register = () => {
 		setShowAvatarModal(false)
 	};
 
-	const onChangeImg64 = (e) => imgToBase64({ e, setter: setBaseImage });
-
 	const { handleChange, values, handleSubmit, errors } = useForm(
 		RegisterValidate,
-		baseImage
+		avatarImg
 	);
 
 	return (
@@ -78,8 +61,8 @@ export const Register = () => {
 							showModal={showAvatarModal}
 							onClickInputAvatar={onClickInputAvatar}
 							onCloseInputAvatar={onCloseInputAvatar}
-							onChangeAvatar={(value) => setBaseImage(value)}
-							img={baseImage}
+							onChangeAvatar={(value) => setAvatarImg(value)}
+							img={avatarImg}
 						/>
 					</div>
 
