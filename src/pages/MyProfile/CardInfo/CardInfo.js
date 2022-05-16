@@ -20,7 +20,7 @@ const CardInfo = ({ level, img, startEnabledDate, userName }) => {
 		<div className={styles.container}>
 
 			<div className={styles.imageContainer}>
-				<InputAvatar img={img} />
+				<InputAvatar img={img ? img : 0} />
 			</div>
 
 			<div className={styles.cardInfoTextContainer}>
@@ -53,7 +53,7 @@ const CardInfo = ({ level, img, startEnabledDate, userName }) => {
 				/>
 			</div>
 			<div className={styles.iconEdit}>
-				<span onClick={onClickIcon}>
+				<span onClick={onClickIcon} style={{ cursor: 'pointer' }}>
 					<EditUserIcon />
 				</span>
 			</div>

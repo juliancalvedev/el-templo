@@ -1,4 +1,4 @@
-import EditAvatar from '../../assets/Icons/EditAvatar';
+import IconEditAvatar from '../../assets/Icons/IconEditAvatar';
 import './UserImage.scss';
 import useStyles from './useStyles';
 
@@ -20,11 +20,11 @@ const UserImage = ({ edit, onClick, img }) => {
 				<div
 					className='user__profile--image'
 					style={{
-						height: '80px',
-						width: '80px',
+						height: '88px',
+						width: '88px',
 						backgroundSize: '100%'
 					}}>
-					{edit && <EditAvatar />}
+					{edit && <IconEditAvatar />}
 				</div>
 			)}
 		</div>

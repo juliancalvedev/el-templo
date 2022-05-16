@@ -198,7 +198,10 @@ const es = {
 	},
 	profile: {
 		profile: {},
-		editProfile: {},
+		editProfile: {
+			topBar: 'Edición de perfil',
+			saveChanges: 'Guardar cambios'
+		},
 		editPassword: {},
 	},
 

@@ -27,8 +27,7 @@ export const makeNivelation = (data) => privatePost({
 	}
 });
 
-
-export const editProfile = ({ img, firstName, lastName, sex, country, dateOfBirth }) =>
+export const putEditProfile = ({ img, firstName, lastName, sex, country, dateOfBirth }) =>
 
 	privatePut({
 		url: `${baseURL}/edit-basic-info`,

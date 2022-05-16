@@ -111,8 +111,6 @@ const en = {
 			termsAndConditions1:
 				'By registering and creating your account, you agree to the',
 			termsAndConditions2: 'Terms and conditions',
-
-			//RegisterValidate:
 			firstNameError: 'Enter your name',
 			lastNameError: 'Enter your last name',
 			emailError: 'Email address is invalid',
@@ -202,7 +200,10 @@ const en = {
 	},
 	profile: {
 		profile: {},
-		editProfile: {},
+		editProfile: {
+			topBar: 'Edit profile',
+			saveChanges: 'Save changes'
+		},
 		editPassword: {},
 	},
 

@@ -16,20 +16,21 @@ const InputSelect = ({
 	const styles = useStyles();
 
 	return (
-		<div>
+		<div >
 			{label && <label name={name}>{label}</label>}
-			<div className={styles.container}>
-				<div className={styles.select}>
+			<div className={styles.container} >
+				<div className={styles.select} >
 					<select
 						aria-label=".form-select-lg example"
 						className={styles.select1}
 						value={value}
 						onChange={onChange}
 						name={name}
-						style={style}
+						style={{ ...style, cursor: 'pointer' }}
 						multiple={multiple}
 						readOnly={readOnly}
 						onClick={onClick}
+						id='input-select-id'
 					>
 						{options.map((selectOption, key) => (
 							<option
@@ -42,12 +43,9 @@ const InputSelect = ({
 							</option>
 						))}
 					</select>
-					{/* <div className={styles.chevron}>
-						<IconSelect />
-					</div> */}
 				</div>
 			</div>
-		</div>
+		</div >
 	);
 };
 
