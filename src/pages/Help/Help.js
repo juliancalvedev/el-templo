@@ -34,8 +34,7 @@ const Help = () => {
 				<Text justify='start' size={2} text={t('help.main.auxText12')} />
 				<Text justify='start' size={2} text={t('help.main.auxText13')} />
 			</div>
-			<p className={styles.p}>
-			</p>
+			<span className={styles.brownBar}></span>
 
 			{showBtn ? <Button
 				className='mb-3'
@@ -43,8 +42,8 @@ const Help = () => {
 				type={3}
 				text={t('help.main.btn1')}
 
-			/> :
-
+			/>
+				:
 				<div >
 					<div className={styles.card}>
 						<Text font={2} size={5} text={t('help.main.mission')} />

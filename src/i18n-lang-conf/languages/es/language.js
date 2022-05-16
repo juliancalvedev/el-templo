@@ -451,7 +451,11 @@ const es = {
 		},
 		nivelation: {
 			index: 'Nivelacion',
-			deleteNivelation: 'Se borrará {{title}}'
+			deleteNivelation: 'Se borrará {{title}}',
+			yoursResults: 'Tus resultados',
+			finishNivelation: 'TERMINAR NIVELACIÓN',
+			yoursReps: 'Tus repeticiones:'
+
 		},
 		usersList: {
 			index: 'Administrar usuarios'

@@ -245,7 +245,7 @@ const en = {
 			aboutUs: 'About us',
 			elTemplo: 'El Templo',
 			auxText1:
-				'The Temple is a functional and alternative training space for trained and untrained people.',
+				'El Templo is a functional and alternative training space for trained and untrained people.',
 			auxText12:
 				'From free acrobatics to gymnastics, weightlifting to calisthenics and natural movement.',
 			auxText13:
@@ -454,6 +454,9 @@ const en = {
 		nivelation: {
 			index: 'Nivelation',
 			deleteNivelation: 'the {{title}} will be deleted',
+			yoursResults: 'Yours results',
+			finishNivelation: 'FINISH NIVELATION',
+			yoursReps: 'Your reps:'
 		},
 		routines: {
 			level: 'Level',

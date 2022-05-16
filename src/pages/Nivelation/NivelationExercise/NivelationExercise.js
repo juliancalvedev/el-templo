@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import MainContainer from '../../../components/MainContainer/MainContainer';
-import Exercise from '../../../components/Exercise/Exercise';
 import useFetch from '../../../hooks/useFetch';
 import { langUpperCased } from '../../../utils/localStorage';
 import {
@@ -14,11 +13,16 @@ import DivTop from '../../../components/DivTop/DivTop';
 import DivBottom from '../../../components/DivBottom/DivBottom';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../../constants/paths';
+import Text from '../../../components/Text/Text';
+import ButtonPagination from '../../../components/ButtonPagination/ButtonPagination';
+import { useDispatch } from 'react-redux';
+import { cleanErrorAction, loadingAction } from '../../../redux/api';
 
 const NivelationExercise = () => {
   const { t } = useTranslation();
   const lang = langUpperCased();
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const [step, setStep] = useState(0)
   const [finalStep, setFinalStep] = useState(0)
@@ -59,16 +63,25 @@ const NivelationExercise = () => {
     setNivelations(aux);
   };
 
+  const handleNextStep = () => {
+    dispatch(loadingAction())
+    setTimeout(() => {
+      dispatch(cleanErrorAction())
+      setStep(step + 1)
+    }, 1500)
+  }
+
   return (
     <MainContainer
-      color={2}
-      text={t('user.nivelation.nivelation')}
-      bg={1}
+      col='12'
+      color={1}
+      bg={3}
       back
       scroll
       calc
     >
       <DivTop>
+        <Text className='mt-3' text={t('admin.nivelation.yoursResults')} bold size='4' />
         <div className='mt-5'>
           {nivelations.map((n, i) => {
             if (step === i) {
@@ -87,17 +100,25 @@ const NivelationExercise = () => {
       </DivTop>
 
       <DivBottom>
-        {step < finalStep - 1 ?
-          <Button
-            onClick={() => setStep(step + 1)}
-            text={t('global.next')}
-          />
-          :
-          <Button
-            onClick={makeNivelationApiCall}
-            text={t('global.confirm')}
-          />
-        }
+        <div className='col-12'>
+          {step < finalStep - 1 ?
+            <div className='col-11 d-flex justify-content-end'>
+              <ButtonPagination
+                disabled={nivelations[step] >= 0}
+                onClick={handleNextStep}
+              />
+            </div>
+            :
+            <div className='col-11 d-flex justify-content-end'>
+              <ButtonPagination
+                textLeft={t('admin.nivelation.finishNivelation')}
+                textSize='1'
+                textBold
+                onClick={makeNivelationApiCall}
+              />
+            </div>
+          }
+        </div>
       </DivBottom>
     </MainContainer>
   );
