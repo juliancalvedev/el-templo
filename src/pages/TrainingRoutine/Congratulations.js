@@ -46,7 +46,6 @@ const Congratulations = () => {
                 <Text text='Terminaste tu entrenamiento diario' color={6} size={5} />
                 <Text text='Hoy trabajaste' />
                 <div className="d-flex justify-content-evenly flex-wrap">
-
                     {data?.muscles?.map(tag => <Tag type={2} color={1} text={tag[`title${lang}`]} />)}
                 </div>
             </DivTop>
