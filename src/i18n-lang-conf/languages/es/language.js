@@ -362,6 +362,8 @@ const es = {
 			paragraph:
 				'Para adaptar el plan a tu nivel, realiza los siguientes ejercicios. completa la cantidad de repeticiones que puedas',
 			nivelation: 'Nivelación',
+			howMany: '¿Qué cantidad de',
+			canYouDo: 'podés hacer?',
 		},
 		newLevel: {
 			title: '¡Felicitaciones!',
