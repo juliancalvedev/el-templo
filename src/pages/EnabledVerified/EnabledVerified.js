@@ -3,15 +3,14 @@ import { resendVerifyEmail } from '../../services/auth';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { PATHS } from '../../constants/paths';
-
-import './EnabledVerified.scss';
-
 import Text from '../../components/Text/Text';
 import Button from '../../components/Button/Button';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import ImgCorreoNoVerificado from '../../assets/images/ImgCorreoNoVerificado';
 import useFetch from '../../hooks/useFetch';
 import useStyles from './useStyles';
+import DivBottom from '../../components/DivBottom/DivBottom';
+import DivTop from '../../components/DivTop/DivTop';
 
 const EnabledVerified = () => {
 	const navigate = useNavigate();
@@ -27,49 +26,51 @@ const EnabledVerified = () => {
 	});
 
 	return (
-		<MainContainer scroll back>
-			<div className={styles.maincontainer}>
-				{!emailIsVerified && (
-					<div className={styles.container}>
-						<div className={styles.title}>
-							<Text
-								text={t(
-									'auth.enabledVerified.emailNotVerified.title'
-								)}
-								size='4'
-								bold
-							/>
-						</div>
-						<div className={styles.text1}>
-							<Text
-								text={t(
-									'auth.enabledVerified.emailNotVerified.auxText'
-								)}
-								size='3'
-							/>
-						</div>
-						<div className={styles.img}>
-							<ImgCorreoNoVerificado />
-						</div>
+		<MainContainer col='10' calc>
+			<DivTop>
+				<div className={styles.title} style={{ marginTop: '20px' }}>
+					<Text
+						text={t(
+							'auth.enabledVerified.emailNotVerified.title'
+						)}
+						size='4'
+						bold
+					/>
+				</div>
+				<div className={styles.text1}>
+					<Text
+						text={t(
+							'auth.enabledVerified.emailNotVerified.auxText'
+						)}
+						size='3'
+					/>
+				</div>
+				<div className={styles.img}>
+					<ImgCorreoNoVerificado />
+				</div>
+			</DivTop>
 
-						<div className={styles.text2}>
-							<Text
-								text={t(
-									'auth.enabledVerified.emailNotVerified.hasNotEmail'
-								)}
-								size='1'
-							/>
-							<Button
-								text={t(
-									'auth.enabledVerified.emailNotVerified.btnResendEmail'
-								)}
-								onClick={apiCall}
-							/>
-						</div>
+			<DivBottom marginBottom={-35}>
+				<div className={styles.text2}>
+					<Text
+						text={t(
+							'auth.enabledVerified.emailNotVerified.hasNotEmail'
+						)}
+						size='1'
+					/>
+					<div className='col-12 mt-1'>
+						<Button
+							size={3}
+							type={2}
+							text={t(
+								'auth.enabledVerified.emailNotVerified.btnResendEmail'
+							)}
+							onClick={apiCall}
+						/>
 					</div>
-				)}
-			</div>
-		</MainContainer>
+				</div>
+			</DivBottom>
+		</MainContainer >
 	);
 };
 
