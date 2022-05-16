@@ -24,7 +24,8 @@ const TrainingRoutine = () => {
 
     const [showSkip, setShowSkip] = useState(true);
 
-    const { exercise1, exercise2, currentBlock, currentDay, trainingType } = useSelector(state => state.exercise);
+    const { exercise1, exercise2, currentBlock, currentDay, trainingType, currentExerciseNumber } = useSelector(state => state.exercise);
+    console.log(currentExerciseNumber);
     if (!exercise1 || !exercise2 || !currentBlock || !currentDay) {
         navigate(-1);
     }
@@ -68,13 +69,13 @@ const TrainingRoutine = () => {
                 {showSkip && (trainingType === TRAINING_TYPES.ADAPTATION1 || trainingType === TRAINING_TYPES.ADAPTATION2) && <SkipRoutine onClick={makeTrainingApiCall} onClose={() => setShowSkip(false)} />}
                 <div className="col-11 d-flex flex-column align-items-center m-auto">
 
-                    <CardInfoTraining tags={exercise1Data?.exercise?.tags.map(t => t[`title${lang}`])} text={exercise1?.exercise?.[`title${lang}`]} />
-                    <CardInfoTraining tags={exercise2Data?.exercise?.tags.map(t => t[`title${lang}`])} text={exercise2?.exercise?.[`title${lang}`]} />
+                    <CardInfoTraining disabled={currentExerciseNumber !== 1} tags={exercise1Data?.exercise?.tags.map(t => t[`title${lang}`])} text={exercise1?.exercise?.[`title${lang}`]} />
+                    <CardInfoTraining disabled={currentExerciseNumber !== 2} tags={exercise2Data?.exercise?.tags.map(t => t[`title${lang}`])} text={exercise2?.exercise?.[`title${lang}`]} />
                 </div>
             </DivTop>
             <DivBottom className="col-12">
                 <div className="col-11 m-auto">
-                    <Button text='comenzar training asdasd' onClick={() => navigate(`/${PATHS.MAKE_TRAINING}`)} />
+                    <Button text={t('global.start')} onClick={() => navigate(`/${PATHS.MAKE_TRAINING}`)} />
                 </div>
             </DivBottom>
 

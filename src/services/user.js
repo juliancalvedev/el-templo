@@ -19,6 +19,7 @@ export const changePassword = ({ currentPassword, newPassword }) =>
 		},
 	});
 
+<<<<<<< HEAD
 export const makeNivelation = (data) =>
 	privatePost({
 		url: `/training/make-nivelation`,
@@ -29,6 +30,18 @@ export const makeNivelation = (data) =>
 			})),
 		},
 	});
+=======
+export const makeNivelation = (data) => privatePost({
+	url: `/training/make-nivelation`, body: {
+		results: data.map(d => ({
+			id: d.id,
+			count: d.count
+		}))
+	}
+});
+
+export const putEditProfile = ({ img, firstName, lastName, sex, country, dateOfBirth }) =>
+>>>>>>> 7a71e9213122bce84cb952c9d0f4aa3d97e6337b
 
 export const editProfile = ({
 	img,

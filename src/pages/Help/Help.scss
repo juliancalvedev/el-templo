@@ -2,8 +2,9 @@
 
 .rectangle324 {
 	background-color: $sixteenth;
-	font-weight:bold;
+	font-weight: bold;
 	font-family: $font-1;
+	height: 42px;
 	font-size: 18px;
 	line-height: 24px;
 	color: #ffffff;
@@ -12,23 +13,24 @@
 .accordion-button {
 
 
-	padding-top:2vh;
-	padding-bottom:2vh;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
 	font-family: $font-1;
 	font-weight: bold;
 	font-size: 13px;
 	line-height: 1px;
-	
+
 	&--icon {
 		&:not(.collapsed) {
 			&::after {
-				
+
 				background-image: none;
 
 			}
 		}
-		&::after {	
-	
+
+		&::after {
+
 			background-image: none;
 			background-color: none;
 		}
@@ -39,6 +41,7 @@
 			background-color: $tertiary;
 			color: $nineth;
 		}
+
 		background-color: $tertiary;
 		color: $nineth;
 		font-weight: 300;
@@ -49,40 +52,42 @@
 
 .accordion-body {
 	align-items: start;
-	
-  margin: 0;
-  padding: 0;
+
+	margin: 0;
+	padding: 0;
 
 	&--color {
 		background-color: $tenth;
-		
+
 		padding: 0;
 	}
 }
 
-textarea{
-	 outline: none;
-  border: none;
-  width: 80%;
-  background-color: transparent !important;
-   border-radius: 15px;
-    padding: 2px 0 2px 0;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+textarea {
+	outline: none;
+	border: none;
+	width: 80%;
+	background-color: transparent !important;
+	border-radius: 15px;
+	padding: 2px 0 2px 0;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 	resize: none;
 }
+
 .accordion-button:not(.collapsed)::after {
 
-   background-size: 15px ;
+	background-size: 15px;
 
-	margin-right:1%;
+	margin-right: 1%;
 }
+
 .accordion-button::after {
 
-   background-size: 15px ;
-   	display: flex;
-     align-items: start;
-	
-	
-	 
+	background-size: 15px;
+	display: flex;
+	align-items: start;
+
+
+
 
 }

@@ -29,6 +29,7 @@ const es = {
 		create: 'Crear',
 		day: 'Día {{number}}',
 		block: 'Bloque {{number}}',
+		start: 'Start',
 		errors: {
 			required: 'Este campo es requerido.',
 			emailType: 'Debe ser un email válido.',
@@ -198,7 +199,10 @@ const es = {
 	},
 	profile: {
 		profile: {},
-		editProfile: {},
+		editProfile: {
+			topBar: 'Edición de perfil',
+			saveChanges: 'Guardar cambios'
+		},
 		editPassword: {},
 	},
 
@@ -294,6 +298,11 @@ const es = {
 			middleBody: 'Zona media',
 			lowerBody: 'Tren inferior',
 		},
+		details: {
+			index: 'Detalle de progreso',
+			title: 'Entrenamientos',
+			trainedZones: 'Zonas entrenadas'
+		}
 	},
 	navbar: {
 		nav: {
@@ -361,6 +370,8 @@ const es = {
 			paragraph:
 				'Para adaptar el plan a tu nivel, realiza los siguientes ejercicios. completa la cantidad de repeticiones que puedas',
 			nivelation: 'Nivelación',
+			howMany: '¿Qué cantidad de',
+			canYouDo: 'podés hacer?',
 		},
 		newLevel: {
 			title: '¡Felicitaciones!',
@@ -447,6 +458,13 @@ const es = {
 		nivelation: {
 			index: 'Nivelacion',
 			deleteNivelation: 'Se borrará {{title}}',
+<<<<<<< HEAD
+=======
+			yoursResults: 'Tus resultados',
+			finishNivelation: 'TERMINAR NIVELACIÓN',
+			yoursReps: 'Tus repeticiones:'
+
+>>>>>>> 7a71e9213122bce84cb952c9d0f4aa3d97e6337b
 		},
 		usersList: {
 			index: 'Administrar usuarios',

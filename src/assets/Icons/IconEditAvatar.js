@@ -1,7 +1,7 @@
-const editAvatar = () => {
+const IconEditAvatar = () => {
     return (
 
-        <svg cursor="pointer" width="100%" height="100%" opacity="100%" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="88px" height="88px" opacity="100%" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="44" cy="44" r="44" fill="#C4C4C4" fillOpacity="1" />
             <path d="M54.909 40.3636C55.9131 40.3636 56.7272 39.5496 56.7272 38.5455C56.7272 37.5413 55.9131 36.7273 54.909 36.7273C53.9048 36.7273 53.0908 37.5413 53.0908 38.5455C53.0908 39.5496 53.9048 40.3636 54.909 40.3636Z" fill="#2E4F77" />
             <path d="M34.5056 32.1818C34.7293 32.1818 34.9093 32.0199 34.9093 31.8182V30.7272C34.9093 30.5272 34.7293 30.3636 34.5056 30.3636H31.6765C31.4529 30.3636 31.2729 30.5255 31.2729 30.7272V31.8182C31.2729 32.0182 31.4529 32.1818 31.6765 32.1818H34.5056Z" fill="#2E4F77" />
@@ -11,4 +11,4 @@ const editAvatar = () => {
 
     )
 }
-export default editAvatar;
+export default IconEditAvatar;

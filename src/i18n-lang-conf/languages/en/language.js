@@ -29,7 +29,7 @@ const en = {
 		create: 'Create',
 		day: 'Day {{number}}',
 		block: 'Block {{number}}',
-
+		start: 'Start',
 		errors: {
 			required: 'This field is required.',
 			emailType: 'Use a valid e-mail.',
@@ -110,8 +110,6 @@ const en = {
 			termsAndConditions1:
 				'By registering and creating your account, you agree to the',
 			termsAndConditions2: 'Terms and conditions',
-
-			//RegisterValidate:
 			firstNameError: 'Enter your name',
 			lastNameError: 'Enter your last name',
 			emailError: 'Email address is invalid',
@@ -201,7 +199,10 @@ const en = {
 	},
 	profile: {
 		profile: {},
-		editProfile: {},
+		editProfile: {
+			topBar: 'Edit profile',
+			saveChanges: 'Save changes'
+		},
 		editPassword: {},
 	},
 
@@ -244,7 +245,7 @@ const en = {
 			aboutUs: 'About us',
 			elTemplo: 'El Templo',
 			auxText1:
-				'The Temple is a functional and alternative training space for trained and untrained people.',
+				'El Templo is a functional and alternative training space for trained and untrained people.',
 			auxText12:
 				'From free acrobatics to gymnastics, weightlifting to calisthenics and natural movement.',
 			auxText13:
@@ -295,6 +296,11 @@ const en = {
 			middleBody: 'Middle body',
 			lowerBody: 'Lower body',
 		},
+		details: {
+			index: 'Progress detail',
+			title: 'Trainings',
+			trainedZones: 'trained muscles'
+		}
 	},
 	navbar: {
 		nav: {
@@ -362,6 +368,8 @@ const en = {
 			paragraph:
 				'To adapt the plan to your level, perform the following exercises. complete as many reps as you can.  ',
 			nivelation: 'Nivelation',
+			howMany: 'How many',
+			canYouDo: 'can you do?',
 		},
 		newLevel: {
 			title: 'Congratulations!',
@@ -374,10 +382,13 @@ const en = {
 				'Recuerda que la entrada en calor es fundamental para evitar lesiones, y preparar el cuerpo para la actividad física. Sin embargo, si venís de un entrenamiento previo puedes',
 			skipBtn: 'SKIP WARM UP WORKOUT',
 		},
+<<<<<<< HEAD
 		aboutYou: {
 			editAboutYou: 'Edit about you',
 			saveChanges: 'Save changes',
 		},
+=======
+>>>>>>> 7a71e9213122bce84cb952c9d0f4aa3d97e6337b
 	},
 	admin: {
 		tags: {
@@ -450,6 +461,12 @@ const en = {
 		nivelation: {
 			index: 'Nivelation',
 			deleteNivelation: 'the {{title}} will be deleted',
+<<<<<<< HEAD
+=======
+			yoursResults: 'Yours results',
+			finishNivelation: 'FINISH NIVELATION',
+			yoursReps: 'Your reps:'
+>>>>>>> 7a71e9213122bce84cb952c9d0f4aa3d97e6337b
 		},
 		routines: {
 			level: 'Level',

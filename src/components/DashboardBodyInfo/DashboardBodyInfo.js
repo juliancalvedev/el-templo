@@ -5,8 +5,7 @@ import './DashboardBodyInfo.scss'
 import Text from "../Text/Text"
 import { useTranslation } from "react-i18next"
 
-const DashboardBodyInfo = ({ upper, middle, bottom }) => {
-    // TODO pasar valores desde el backend
+const DashboardBodyInfo = ({ upper = 0, middle = 0, bottom = 0 }) => {
     const { t } = useTranslation()
     const style = useStyles()
 

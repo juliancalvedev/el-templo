@@ -17,25 +17,25 @@ import useFetch from '../../hooks/useFetch';
 
 const Dashboard = () => {
 	const { t } = useTranslation();
+	const navigate = useNavigate();
+
 	const { firstName, level, img, experience } = useSelector(
 		(store) => store.user
 	);
 
-	
+
 	const [data] = useFetch({
 		service: () => getDashboard(),
 		callNow: true,
 		globalLoader: true,
 	})
 
-	const navigate = useNavigate();
 
-	const [summary, setSummary] = useState(true);
 	const handleChange = () => {
-		setSummary(false);
+		navigate(`/${PATHS.MY_PROGRESS}`)
 	};
 	const styles = useStyles();
-	const xp = (100 * experience) / 24 + 4;
+	const xp = (100 * experience) / 24 + 4; // TODO ex está sin usar (?
 
 	return (
 		<MainContainer
@@ -50,7 +50,7 @@ const Dashboard = () => {
 			<ProfileImgAndXP />
 
 			<div className={styles.calendar}>
-				<WeeklyCalendar data={data}/>
+				<WeeklyCalendar data={data} />
 			</div>
 
 			<div className={styles.progressSummary}>
@@ -60,11 +60,6 @@ const Dashboard = () => {
 					>
 						<Text bold text={t('dashboard.main.summary')} size={2} />
 					</div>
-					{summary &&
-						<div >
-							<Text bold color={4} text={t('dashboard.main.thisWeek')} size={2} />
-						</div>
-					}
 				</div>
 				{level > 0 &&
 					<div className={styles.seeDetails}>
@@ -78,22 +73,9 @@ const Dashboard = () => {
 					</div>
 				}
 			</div>
-
-			{summary && false ? (
-				<div className='d-flex flex-column justify-content-start align-items-center'>
-					<div className='col-10'>
-						<Text className='mt-2 ' size='2' text={t('dashboard.main.progress')} />
-					</div>
-					<div className={styles.img}>
-						<ImgDashboard />
-					</div>
-				</div>
-			) : (
 				<div className={styles.bodyInfoContainer}>
-					{/* TODO pasar valores desde el backend */}
 					<DashboardBodyInfo {...data?.bodyParts} />
 				</div>
-			)}
 			{level === 0 && <div className={styles.btn}>
 				<Button size={3} type={2} text={t('dashboard.main.btn')} onClick={() => navigate(`/${PATHS.NIVELATION}`)} />
 			</div>}
