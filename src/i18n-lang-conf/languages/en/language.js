@@ -29,7 +29,7 @@ const en = {
 		create: 'Create',
 		day: 'Day {{number}}',
 		block: 'Block {{number}}',
-
+		start: 'Start',
 		errors: {
 			required: 'This field is required.',
 			emailType: 'Use a valid e-mail.',
@@ -296,6 +296,11 @@ const en = {
 			middleBody: 'Middle body',
 			lowerBody: 'Lower body',
 		},
+		details: {
+			index: 'Progress detail',
+			title: 'Trainings',
+			trainedZones: 'trained muscles'
+		}
 	},
 	navbar: {
 		nav: {

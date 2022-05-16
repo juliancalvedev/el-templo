@@ -43,6 +43,7 @@ import AdminNivelation from '../pages/admin/AdminLevels/AdminNivelation/AdminNiv
 import TrainingDashboard from '../pages/TrainingRoutine/TrainingDashboard';
 import MakeTraining from '../pages/TrainingRoutine/MakeTraining';
 import Congratulations from '../pages/TrainingRoutine/Congratulations';
+import MyProgress from '../pages/Dashboard/MyProgress/MyProgress';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -165,6 +166,10 @@ const RouterApp = () => {
 									: PATHS.DASHBOARD
 							}
 							element={<Dashboard />}
+						/>
+						<Route
+							path={PATHS.MY_PROGRESS}
+							element={<MyProgress />}
 						/>
 						<Route
 							path={PATHS.MY_PROFILE}

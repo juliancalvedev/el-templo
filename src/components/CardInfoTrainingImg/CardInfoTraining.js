@@ -1,10 +1,11 @@
 import Tag from "../Tag/Tag"
 import Text from "../Text/Text"
 import useStyles from "./useStyles"
+import './CardInfoTraining.scss'
 
-const CardInfoTraining = ({ text, tags }) => {
+const CardInfoTraining = ({ text, tags, disabled }) => {
 
-    const styles = useStyles();
+    const styles = useStyles({disabled});
 
     return (
         <div className={styles.mainContainer}>

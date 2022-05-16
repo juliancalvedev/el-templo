@@ -7,9 +7,9 @@ import InputSelect from '../../components/InputSelect/InputSelect';
 import SexSelector from '../../components/SexSelector/SexSelector';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import { Countries } from '../../constants/countries';
-import { putEditProfile } from '../../services/user';
+import { getUserInfo, putEditProfile } from '../../services/user';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './useStyles.js';
 import './EditProfile.scss';
 import InputAvatar from '../../components/InputAvatar/InputAvatar';
@@ -17,12 +17,17 @@ import { maxDateOfBirth } from '../../utils/date';
 import DivTop from '../../components/DivTop/DivTop'
 import DivBottom from '../../components/DivBottom/DivBottom'
 import moment from 'moment'
+import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../constants/paths';
+import { getUserInfoAction } from '../../redux/user';
 
 
 const EditProfile = () => {
 	const { t } = useTranslation();
 	const styles = useStyles();
 	const countries = Countries({ t });
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	const { firstName, lastName, sex, country, dateOfBirth, img } = useSelector(
 		(store) => store.user
 	);
@@ -48,11 +53,24 @@ const EditProfile = () => {
 		})
 	}, [firstName, lastName, sex, country, dateOfBirth, img])
 
+	const [infoData, infoDataError, apiCall] = useFetch({
+		service: () => getUserInfo(),
+		globalLoader: true,
+		callback: () => {
+			dispatch(getUserInfoAction(infoData?.user))
+			navigate(`/${PATHS.MY_PROFILE}`)
+		}
+	})
 
 	const [editProfileResponse, editProfileError, editProfileApiCall] = useFetch({
 		service: () => putEditProfile({ ...values, img: avatarImg }),
 		globalLoader: true,
+		callback: () => {
+			apiCall()
+		}
 	});
+
+
 
 	useEffect(() => {
 		setInputDateType('text');

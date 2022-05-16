@@ -28,6 +28,7 @@ export const PATHS = {
 	WEIGHT_HEIGHT: 'weight-height',
 	CONTACT: 'contact',
 	DASHBOARD: 'dashboard',
+	MY_PROGRESS: 'dashboard/my-progress',
 	NIVELATION: 'nivelation',
 	NIVELATION_EXERCISE: 'nivelation-exercise',
 	TRAINING: 'training-routine',

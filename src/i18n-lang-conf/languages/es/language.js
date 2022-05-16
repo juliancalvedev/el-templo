@@ -29,6 +29,7 @@ const es = {
 		create: 'Crear',
 		day: 'Día {{number}}',
 		block: 'Bloque {{number}}',
+		start: 'Start',
 		errors: {
 			required: 'Este campo es requerido.',
 			emailType: 'Debe ser un email válido.',
@@ -295,6 +296,11 @@ const es = {
 			middleBody: 'Zona media',
 			lowerBody: 'Tren inferior'
 		},
+		details: {
+			index: 'Detalle de progreso',
+			title: 'Entrenamientos',
+			trainedZones: 'Zonas entrenadas'
+		}
 	},
 	navbar: {
 		nav: {
