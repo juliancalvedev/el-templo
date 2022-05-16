@@ -449,6 +449,9 @@ const en = {
 		nivelation: {
 			index: 'Nivelation',
 			deleteNivelation: 'the {{title}} will be deleted',
+			yoursResults: 'Yours results',
+			finishNivelation: 'FINISH NIVELATION',
+			yoursReps: 'Your reps:'
 		},
 		routines: {
 			level: 'Level',

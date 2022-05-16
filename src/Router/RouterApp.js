@@ -124,19 +124,19 @@ const RouterApp = () => {
 								/>
 							</Route>
 						)}
-
-						{level < 1 && (
-							<Route>
-								<Route
-									path={PATHS.NIVELATION}
-									element={<Nivelation />}
-								/>
-								<Route
-									path={PATHS.NIVELATION_EXERCISE}
-									element={<NivelationExercise />}
-								/>
-							</Route>
-						)}
+						{/* TODO descomentar la validación de nivelation */}
+						{/* {level < 1 && ( */}
+						<Route>
+							<Route
+								path={PATHS.NIVELATION}
+								element={<Nivelation />}
+							/>
+							<Route
+								path={PATHS.NIVELATION_EXERCISE}
+								element={<NivelationExercise />}
+							/>
+						</Route>
+						{/* )} */}
 						<Route>
 							<Route
 								path={PATHS.TRAINING_DASHBOARD}
