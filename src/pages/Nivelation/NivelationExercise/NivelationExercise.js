@@ -39,18 +39,18 @@ const NivelationExercise = () => {
       );
     },
   });
+
+  const [makeNivelationData, makeNivelationError, makeNivelationApiCall] = useFetch({
+    service: () => makeNivelation(nivelations),
+    globalLoader: true,
+    callback: () => {
+      navigate(`/${PATHS.DASHBOARD}`);
+    },
+  });
+
   useEffect(() => {
     setFinalStep(questionsArray?.response?.length)
   }, [questionsArray])
-
-  const [makeNivelationData, makeNivelationError, makeNivelationApiCall] =
-    useFetch({
-      service: () => makeNivelation(nivelations),
-      globalLoader: true,
-      callback: () => {
-        navigate(`/${PATHS.DASHBOARD}`);
-      },
-    });
 
   const onChangeValue = (e, id) => {
     const aux = [...nivelations];
