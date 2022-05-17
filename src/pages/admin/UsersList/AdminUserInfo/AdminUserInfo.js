@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import MainContainer from '../../../../components/MainContainer/MainContainer';
 import useFetch from '../../../../hooks/useFetch';
 import { getUserById, enableOrDisableUser, changeUserLevel } from '../../../../services/admin';
 import Text from '../../../../components/Text/Text';

@@ -13,18 +13,9 @@ const Exercise = ({title, video, description, onNext}) => {
 	
 	//Cambiar el totalTime para que sume uno cada vez que el reloj cambia de estado con useEffect
 	const [totalTime, setTotalTime] = useState({ ms: 0, s: 0, m: 0 });
-	const [chronometerTime, setChronometerTime] = useState({
-		ms: 0,
-		s: 0,
-		m: 0,
-	});
+
 	const [showChronometer, setShowChronometer] = useState(true);
 	const [btnNextIsDisabled, setBtnNextIsDisabled] = useState(true);
-	
-	const timeToShow = `${totalTime.m}:${totalTime.s <= 9 ? '0' : ''}${
-		totalTime.s
-	}`;
-	
 	const onStop = (time) => {
 		const mili = time.ms;
 		const sec = time.s;

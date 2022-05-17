@@ -8,7 +8,6 @@ import {
   makeNivelation,
 } from '../../../services/training';
 import NivelationCard from './NivelationCard';
-import Button from '../../../components/Button/Button';
 import DivTop from '../../../components/DivTop/DivTop';
 import DivBottom from '../../../components/DivBottom/DivBottom';
 import { useNavigate } from 'react-router-dom';
@@ -29,7 +28,7 @@ const NivelationExercise = () => {
   const [finalStep, setFinalStep] = useState(0)
   const [nivelations, setNivelations] = useState([]);
 
-  const [questionsArray, errorQuestionsArray, apiCallQuestionsArray] = useFetch({
+  const [questionsArray] = useFetch({
     service: () => getNivelationExercises(),
     globalLoader: true,
     callNow: true,

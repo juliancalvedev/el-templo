@@ -14,7 +14,6 @@ import { Countries } from '../../constants/countries';
 import InputAvatar from '../../components/InputAvatar/InputAvatar';
 import DivTop from '../../components/DivTop/DivTop'
 import DivBottom from '../../components/DivBottom/DivBottom';
-import { maxDateOfBirth } from '../../utils/date';
 
 export const Register = () => {
 	const { t } = useTranslation();

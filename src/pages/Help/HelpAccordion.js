@@ -12,7 +12,7 @@ import HelpAccordionBlue from './HelpAccordionBlue';
 import Input from '../../components/Input/Input';
 
 
-const HelpAccordion = ({ icon = 'icon' }) => {
+const HelpAccordion = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const styles = useStyles();

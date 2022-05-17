@@ -1,5 +1,3 @@
-import React from 'react';
-
 const useStyles = () => {
 	return {
 		chronoContainer: 'chronoContainer col-12',

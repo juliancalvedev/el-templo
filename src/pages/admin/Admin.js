@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import AdminBar from '../../components/AdminBar/AdminBar';
-import DivTop from '../../components/DivTop/DivTop';
 import MainContainer from '../../components/MainContainer/MainContainer';
 
 const Admin = () => {

@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import PrivatedLayout from '../layouts/PrivatedLayout/PrivatedLayout';
 import PublicLayout from '../layouts/PublicLayout/PublicLayout';
-import AdminLayout from '../layouts/AdminLayout/AdminLayout';
 
 import { ROLES } from '../constants/roles';
 import Login from '../pages/Login/Login';

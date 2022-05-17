@@ -1,7 +1,6 @@
 import MainContainer from '../../components/MainContainer/MainContainer';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
 import Text from '../../components/Text/Text';
 import Button from '../../components/Button/Button';
 import ImgDashboard from '../../assets/images/ImgDashboard';
@@ -19,7 +18,7 @@ const Dashboard = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 
-	const { firstName, level, img, experience } = useSelector(
+	const { firstName, level, experience } = useSelector(
 		(store) => store.user
 	);
 

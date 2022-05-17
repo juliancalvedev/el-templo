@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/Button/Button';
@@ -9,7 +9,7 @@ import { getExercises } from '../../../services/admin';
 import Table from '../../../components/Table/Table';
 import UseTable from '../../../hooks/useTable';
 import { useDispatch } from 'react-redux';
-import { addRouteName, replaceRouteName } from '../../../redux/route';
+import { replaceRouteName } from '../../../redux/route';
 import { langUpperCased } from '../../../utils/localStorage'
 import { randomHexadecimal } from '../../../utils/mathUtils';
 
@@ -18,16 +18,6 @@ const AdminExercises = () => {
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
-
-    const [showModal, setShowModal] = useState(false)
-    const [newExerciseData, setNewExerciseData] = useState({
-        titleES: '',
-        descriptionES: '',
-        titleEN: '',
-        descriptionEN: '',
-        tags: [],
-        vide: ''
-    });
 
     const [exercisesListFetch, exercisesListError, apiCallExercisesList] = useFetch({
         service: () => getExercises({ offset: tableData.offset, search: tableData.search }),

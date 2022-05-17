@@ -3,11 +3,10 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import Button from '../../../../components/Button/Button'
-import MainContainer from '../../../../components/MainContainer/MainContainer'
 import Text from '../../../../components/Text/Text'
 import { PATHS } from '../../../../constants/paths'
 import useFetch from '../../../../hooks/useFetch'
-import { addRouteName, addRouteParams, replaceRouteName } from '../../../../redux/route'
+import { addRouteParams, replaceRouteName } from '../../../../redux/route'
 import { getLevelByNumber } from '../../../../services/admin'
 
 const AdminTrainingBlocks = () => {
@@ -17,11 +16,10 @@ const AdminTrainingBlocks = () => {
     const { t } = useTranslation();
 
     const dispatch = useDispatch();
-    const { routeName } = useSelector(state => state.route);
 
     const [routineBlocks, setRoutineBlocks] = useState()
 
-    const [routineBlockResponse, routineBlockError, apiCallRoutineBlock] = useFetch({
+    const [routineBlockResponse] = useFetch({
         service: () => getLevelByNumber(level),
         globalLoader: true,
         callNow: true,

@@ -13,7 +13,7 @@ const CardInfoTraining = ({ text, tags, disabled, img = '' }) => {
             <div className={styles.body}>
 
                 <div className={styles.imgContainer}>
-                    <img className={styles.img} src={img} width='120' height='120' />
+                    <img alt='avatar' className={styles.img} src={img} width='120' height='120' />
                 </div>
 
                 <div className={styles.infoContainer}>

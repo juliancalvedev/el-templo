@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import IconFlagEEUU from '../../assets/Icons/IconFlagEEUU';
 import IconFlagSpain from '../../assets/Icons/IconFlagSpain';
 
@@ -8,12 +7,11 @@ import Text from '../Text/Text';
 import useStyles from './useStyles';
 
 export const LanguageSelector = () => {
-	const { t } = useTranslation();
 	const style = useStyles()
 
 	const [currentLang, setCurrentLang] = useState()
 	const [showDropdown, setShowDropdown] = useState(false)
-	const [languages, setLanguages] = useState({
+	const [languages] = useState({
 		es: {
 			render: (
 				<div className={style.langOption}>

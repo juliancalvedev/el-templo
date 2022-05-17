@@ -6,7 +6,6 @@ import { Chart } from 'primereact/chart';
 import { getDashboard } from '../../../services/user';
 import useFetch from '../../../hooks/useFetch';
 import { langUpperCased } from '../../../utils/localStorage';
-import { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 const colors = [

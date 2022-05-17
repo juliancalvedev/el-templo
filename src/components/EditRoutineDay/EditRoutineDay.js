@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import { editAllTrainings, getExercises, getRoutineById } from '../../services/admin';
 import TrainingCardInputs from '../TrainingCardInputs/TrainingCardInputs';
@@ -14,7 +13,7 @@ const EditRoutineDay = ({ trainingDayId }) => {
     const [routineIds, setRoutineIds] = useState({})
     const [eachCard, setEachCard] = useState({})
 
-    const [trainingResponse, trainingError, apiCallTraining] = useFetch({
+    const [trainingResponse] = useFetch({
         service: () => getRoutineById({ id: trainingDayId }),
         globalLoader: true,
         callNow: true,

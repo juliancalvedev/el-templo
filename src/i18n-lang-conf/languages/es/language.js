@@ -430,7 +430,6 @@ const es = {
 			englishDescription: 'Descripción en Inglés',
 			tags: 'Tags',
 			minOneTag: 'Por favor, establezca al menos un Tag.',
-			loadingTags: 'Cargando Tags...',
 			reviewFields: 'Por favor, asegúrese que todos los campos estén completos.',
 			createExercise: 'Crear Ejercicio',
 			saveChanges: 'Guardar Cambios',

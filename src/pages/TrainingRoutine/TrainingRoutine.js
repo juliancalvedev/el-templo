@@ -31,13 +31,13 @@ const TrainingRoutine = () => {
         navigate(-1);
     }
 
-    const [exercise1Data, errorExercise1, exercise1ApiCall] = useFetch({
+    const [exercise1Data] = useFetch({
         service: () => getExerciseById({ id: exercise1?.exerciseId }),
         callNow: true,
         globalLoader: true
     })
 
-    const [exercise2Data, errorExercise2, exercise2ApiCall] = useFetch({
+    const [exercise2Data] = useFetch({
         service: () => getExerciseById({ id: exercise2?.exerciseId }),
         callNow: true,
         globalLoader: true

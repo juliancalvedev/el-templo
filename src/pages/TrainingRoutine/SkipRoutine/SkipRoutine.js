@@ -1,4 +1,3 @@
-import { t } from "i18next"
 import { useTranslation } from "react-i18next"
 import Button from "../../../components/Button/Button";
 import Text from "../../../components/Text/Text"

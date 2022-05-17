@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import useFetch from '../../../hooks/useFetch';
 import Button from '../../../components/Button/Button';
 import Input from '../../../components/Input/Input';
-import MainContainer from '../../../components/MainContainer/MainContainer';
 import Modal from '../../../components/Modal/Modal';
 import Table from '../../../components/Table/Table';
 import InputSelect from '../../../components/InputSelect/InputSelect';

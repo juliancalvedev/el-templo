@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { HasErrors } from './RegisterValidate';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
 import useFetch from '../../hooks/useFetch';
