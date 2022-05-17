@@ -31,7 +31,7 @@ export const PATHS = {
 	MY_PROGRESS: 'dashboard/my-progress',
 	NIVELATION: 'nivelation',
 	NIVELATION_EXERCISE: 'nivelation-exercise',
-	TRAINING: 'training-routine',
+	TRAINING: 'training-dashboard',
 	EDIT_PROFILE: 'edit-profile',
 	EDIT_ABOUT_YOU: 'edit-about-you',
 	TRAINING_ROUTINE: 'training-routine',

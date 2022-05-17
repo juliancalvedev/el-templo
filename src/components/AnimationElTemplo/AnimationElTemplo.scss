@@ -8,8 +8,7 @@
     position: absolute;
     display: flex;
     justify-content: center;
-    overflow-y: hidden;
-    overflow-x: hidden;
+    overflow: hidden !important;
 
     &--img {
         position: relative;
