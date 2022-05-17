@@ -79,7 +79,7 @@ export const AdminUserInfo = () => {
 						<div className='d-flex align-items-center col-12'>
 							<Text text={`${t('admin.userTable.enabled')}:`} />
 							<Point active={user.endEnabledDate && !compareWithCurrDate(user.endEnabledDate)} />
-							<Button onClick={activateApiCall} text={t(`global.${user.endEnabledDate && !compareWithCurrDate(user.endEnabledDate) ? 'enable': 'disable'}`)}  size={1} type={3} />
+							<Button onClick={activateApiCall} text={t(`global.${!!user.endEnabledDate && !compareWithCurrDate(user.endEnabledDate) ? 'disable': 'enable'}`)}  size={1} type={3} />
 						</div>
 						<Text text={`${t('admin.userTable.email')}: ${user.email}`} />
 						<Text text={`${t('admin.userTable.name')}: ${user.firstName} ${user.lastName}`} />
