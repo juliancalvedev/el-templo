@@ -38,8 +38,8 @@ const Welcome = () => {
 					/>
 				</div>
 			</DivTop>
-			<Text text={t('welcome.main.auxText')} size='3' color='1' />
 			<DivBottom separation={1}>
+			<Text text={t('welcome.main.auxText')} size='3' color='5' bold className='mt-5' />
 				<Button
 					text={t('welcome.main.btnLetsBegin')}
 					onClick={toOnboarding}
