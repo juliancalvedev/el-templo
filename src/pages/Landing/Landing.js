@@ -7,6 +7,7 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import ElTemploLogo from '../../assets/images/ElTemploLogo';
 import useStyles from './useStyles';
 import './Landing.scss'
+import InstallApp from '../../components/InstallApp/InstallApp';
 
 const Landing = () => {
 	const { t } = useTranslation();
@@ -26,6 +27,7 @@ const Landing = () => {
 				<ElTemploLogo />
 			</div>
 			<div className={styles.buttonsContainer}>
+				<InstallApp />
 				<Button
 					onClick={handleSubmitLogin}
 					text={t('auth.landing.btnLogin')}

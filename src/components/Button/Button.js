@@ -11,7 +11,8 @@ const Button = ({
 	type = 1,
 	disabled,
 	circle,
-	secondary
+	secondary,
+	textBold
 }) => {
 	const COLOR_TEXT = {
 		1: '2',
@@ -35,7 +36,7 @@ const Button = ({
 					justify={type === 4 && 'start'}
 					size={textSize}
 					color={secondary ? 4 : COLOR_TEXT[type]}
-					bold={type === 3 || type === 4 || circle}
+					bold={type === 3 || type === 4 || circle || textBold}
 					text={transformedText}
 					cursorPointer
 				/>
