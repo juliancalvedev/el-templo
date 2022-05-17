@@ -46,7 +46,7 @@ const TrainingDashboard = () => {
     });
 
     const onClick = () => {
-        navigate(`/${PATHS.TRAINING}`);
+        navigate(`/${PATHS.TRAINING_ROUTINE}`);
     }
 
     return (
