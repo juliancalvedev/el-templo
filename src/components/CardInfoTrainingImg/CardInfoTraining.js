@@ -3,7 +3,7 @@ import Text from "../Text/Text"
 import useStyles from "./useStyles"
 import './CardInfoTraining.scss'
 
-const CardInfoTraining = ({ text, tags, disabled }) => {
+const CardInfoTraining = ({ text, tags, disabled, img = '' }) => {
 
     const styles = useStyles({disabled});
 
@@ -12,7 +12,7 @@ const CardInfoTraining = ({ text, tags, disabled }) => {
             <div className={styles.body}>
 
                 <div className={styles.imgContainer}>
-                    <img className={styles.img} src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Galletita_Sonrisas.jpg/245px-Galletita_Sonrisas.jpg' width='120' height='120' />
+                    <img className={styles.img} src={img} width='120' height='120' />
                 </div>
 
                 <div className={styles.infoContainer}>

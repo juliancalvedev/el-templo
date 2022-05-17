@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MainContainer from "../../components/MainContainer/MainContainer";
 import DivTop from "../../components/DivTop/DivTop";
 import DivBottom from "../../components/DivBottom/DivBottom";
@@ -15,7 +15,8 @@ import { useState } from "react";
 import { TRAINING_TYPES } from "../../constants/training";
 import { useSelector } from "react-redux";
 import { PATHS } from "../../constants/paths";
-import { BACK_RESPONSE } from "../../constants/responses";
+import number1 from '../../assets/images/1.png';
+import number2 from '../../assets/images/2.jpg';
 
 const TrainingRoutine = () => {
     const { t } = useTranslation();
@@ -69,8 +70,8 @@ const TrainingRoutine = () => {
                 {showSkip && (trainingType === TRAINING_TYPES.ADAPTATION1 || trainingType === TRAINING_TYPES.ADAPTATION2) && <SkipRoutine onClick={makeTrainingApiCall} onClose={() => setShowSkip(false)} />}
                 <div className="col-11 d-flex flex-column align-items-center m-auto">
 
-                    <CardInfoTraining disabled={currentExerciseNumber !== 1} tags={exercise1Data?.exercise?.tags.map(t => t[`title${lang}`])} text={exercise1?.exercise?.[`title${lang}`]} />
-                    <CardInfoTraining disabled={currentExerciseNumber !== 2} tags={exercise2Data?.exercise?.tags.map(t => t[`title${lang}`])} text={exercise2?.exercise?.[`title${lang}`]} />
+                    <CardInfoTraining img={number1} disabled={currentExerciseNumber !== 1} tags={exercise1Data?.exercise?.tags.map(t => t[`title${lang}`])} text={exercise1?.exercise?.[`title${lang}`]} />
+                    <CardInfoTraining img={number2} disabled={currentExerciseNumber !== 2} tags={exercise2Data?.exercise?.tags.map(t => t[`title${lang}`])} text={exercise2?.exercise?.[`title${lang}`]} />
                 </div>
             </DivTop>
             <DivBottom className="col-12">
