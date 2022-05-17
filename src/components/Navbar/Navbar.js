@@ -1,10 +1,7 @@
 import useStyles from './useStyles';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { ROLES } from '../../constants/roles';
-
-import './Navbar.scss';
 import IconDashboard from '../../assets/Icons/IconDashboard';
 import IconDashboardActive from '../../assets/Icons/IconDashboardActive';
 import IconMuscle from '../../assets/Icons/IconMuscle';
@@ -15,9 +12,9 @@ import IconHelp from '../../assets/Icons/IconHelp';
 import IconHelpActive from '../../assets/Icons/IconHelpActive';
 import { PATHS } from '../../constants/paths';
 import Text from '../Text/Text';
+import './Navbar.scss';
 
 const Navbar = () => {
-	const { t } = useTranslation();
 	const { role, level } = useSelector((store) => store.user);
 	const currentLocation = useLocation().pathname.substring(1);
 
@@ -52,7 +49,8 @@ const Navbar = () => {
 				)}
 
 				<span onClick={() => navigate(`/${PATHS.DASHBOARD}`)}>
-					{pathname === '/' + PATHS.DASHBOARD ? (
+					{pathname === '/' + PATHS.DASHBOARD ||
+						(pathname === '/' && role !== ROLES.ADMIN) ? (
 						<IconDashboardActive />
 					) : (
 						<IconDashboard />
