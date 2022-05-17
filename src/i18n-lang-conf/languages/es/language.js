@@ -29,7 +29,8 @@ const es = {
 		create: 'Crear',
 		day: 'Día {{number}}',
 		block: 'Bloque {{number}}',
-		start: 'Start',
+		start: 'Comenzar',
+		send: 'Enviar',
 		errors: {
 			required: 'Este campo es requerido.',
 			emailType: 'Debe ser un email válido.',
@@ -486,6 +487,21 @@ const es = {
 		strength: 'Fuerza',
 		hypertrophy: 'Hipertrofia',
 		suplementary: 'Suplementario',
+	},
+	congratulations: {
+		title: '¡Felicitaciones!',
+		cardText1: 'Terminaste tu',
+		cardText2: 'entrenamiento del día',
+		worksToday: 'Hoy trabajaste'
+	},
+	feedback: {
+		title: '¿Qué te pareció el entrenamiento de hoy?',
+		easy: 'FÁCIL',
+		good: 'BIEN',
+		hard: 'DIFICIL',
+		messageTitle: 'Si quieres nos puedes dejar cualquier comentario extra sobre el entrenamiento:',
+		textAreaPlaceholder: 'Tu mensaje',
+		returnToDashboard: 'Volver a mi dashboard'
 	},
 	errors: {
 		generic: 'Oops, ocurrió un error.',

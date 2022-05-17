@@ -45,6 +45,7 @@ import MakeTraining from '../pages/TrainingRoutine/MakeTraining';
 import Congratulations from '../pages/TrainingRoutine/Congratulations';
 import EditAboutYou from '../pages/EditAboutYou/EditAboutYou';
 import MyProgress from '../pages/Dashboard/MyProgress/MyProgress';
+import { Feedback } from '../pages/TrainingRoutine/Feedback';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -158,6 +159,10 @@ const RouterApp = () => {
 									<Route
 										path={PATHS.CONGRATULATIONS}
 										element={<Congratulations />}
+									/>
+									<Route
+										path={PATHS.FEEDBACK}
+										element={<Feedback />}
 									/>
 								</Route>}
 						</Route>

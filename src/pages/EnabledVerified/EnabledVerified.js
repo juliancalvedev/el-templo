@@ -26,7 +26,7 @@ const EnabledVerified = () => {
 	});
 
 	return (
-		<MainContainer col='10' calc>
+		<MainContainer col='10' calc back>
 			<DivTop>
 				<div className={styles.title} style={{ marginTop: '20px' }}>
 					<Text

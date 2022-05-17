@@ -30,6 +30,7 @@ const en = {
 		day: 'Day {{number}}',
 		block: 'Block {{number}}',
 		start: 'Start',
+		send: 'Enviar',
 		errors: {
 			required: 'This field is required.',
 			emailType: 'Use a valid e-mail.',
@@ -482,6 +483,21 @@ const en = {
 		strength: 'Fuerza',
 		hypertrophy: 'Hipertrofia',
 		suplementary: 'Suplementario',
+	},
+	congratulations: {
+		title: 'Congratulations!',
+		cardText1: 'You finished your',
+		cardText2: 'daily training',
+		worksToday: 'Today you worked'
+	},
+	feedback: {
+		title: 'What did you think of today\'s training?',
+		easy: 'EASY',
+		good: 'GOOD',
+		hard: 'HARD',
+		messageTitle: 'if you want you can leave an extra comment about the training:',
+		textAreaPlaceholder: 'Your message',
+		returnToDashboard: 'Return to my dashboard'
 	},
 	errors: {
 		generic: 'Oops, an error occurred.',

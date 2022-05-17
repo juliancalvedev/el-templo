@@ -69,7 +69,7 @@ const TrainingDashboard = () => {
                     trainingType={trainingType}
                     text={t('global.day', { number: day })}
                     done={day < currentDay}
-                    active={day === currentDay && !noMoreExercise}
+                    active={day === currentDay && !noMoreExercise && !!myExercise}
                 />)}
             </div>}
         </MainContainer>
