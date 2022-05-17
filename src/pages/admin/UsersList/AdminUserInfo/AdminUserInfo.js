@@ -54,7 +54,6 @@ export const AdminUserInfo = () => {
 	}, [id])
 
 	return (
-		<MainContainer col='12' text={`${data?.user?.firstName + ' ' + data?.user?.lastName}`} back navbar scroll shadow>
 			<div class="card col-10 m-auto mt-3">
 				<div class="card-body">
 					<div className='d-flex flex-column align-items-start col-12'>
@@ -64,12 +63,12 @@ export const AdminUserInfo = () => {
 								{changeLevel ? <Input value={newLevel} onChange={onChangeLevelInput} type='number' /> : <Text text={user.level} />}
 							{!changeLevel && <div className='col-6'>
 
-								<Button onClick={() => { setChangeLevel(true); setNewLevel(user.level); }} text="change level" size={2} />
+								<Button onClick={() => { setChangeLevel(true); setNewLevel(user.level); }} text={t('global.edit')} size={2} type={3} />
 							</div>}
 								<div className='d-flex'>
 
-									{changeLevel && <Button text='guardar' onClick={changeLevelApiCall} />}
-									{changeLevel && <Button text='cancelar' type={2} onClick={() => setChangeLevel(false)} />}
+									{changeLevel && <Button text={t('global.confirm')} onClick={changeLevelApiCall} />}
+									{changeLevel && <Button text={t('global.close')} type={2} onClick={() => setChangeLevel(false)} />}
 								</div>
 								<div className='col-3'>
 
@@ -80,7 +79,7 @@ export const AdminUserInfo = () => {
 						<div className='d-flex align-items-center col-12'>
 							<Text text={`${t('admin.userTable.enabled')}:`} />
 							<Point active={user.endEnabledDate && !compareWithCurrDate(user.endEnabledDate)} />
-							<Button onClick={activateApiCall} text="activar" size={2} />
+							<Button onClick={activateApiCall} text={t(`global.${user.endEnabledDate && !compareWithCurrDate(user.endEnabledDate) ? 'enable': 'disable'}`)}  size={1} type={3} />
 						</div>
 						<Text text={`${t('admin.userTable.email')}: ${user.email}`} />
 						<Text text={`${t('admin.userTable.name')}: ${user.firstName} ${user.lastName}`} />
@@ -92,6 +91,5 @@ export const AdminUserInfo = () => {
 
 				</div>
 			</div>
-		</MainContainer>
 	);
 };
