@@ -43,11 +43,8 @@ import AdminNivelation from '../pages/admin/AdminLevels/AdminNivelation/AdminNiv
 import TrainingDashboard from '../pages/TrainingRoutine/TrainingDashboard';
 import MakeTraining from '../pages/TrainingRoutine/MakeTraining';
 import Congratulations from '../pages/TrainingRoutine/Congratulations';
-<<<<<<< HEAD
 import EditAboutYou from '../pages/EditAboutYou/EditAboutYou';
-=======
 import MyProgress from '../pages/Dashboard/MyProgress/MyProgress';
->>>>>>> 7a71e9213122bce84cb952c9d0f4aa3d97e6337b
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -61,28 +58,7 @@ const RouterApp = () => {
 			<Routes>
 				{savedToken ? (
 					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
-						{(goals?.length === 0 || !goals) && (
-							<Route>
-								<Route
-									path={PATHS.BASE_URL}
-									element={<Welcome />}
-								/>
-								<Route
-									path={PATHS.MAIN_GOALS}
-									element={<MainGoals />}
-								/>
-								<Route
-									path={PATHS.TRAINING_LEVEL}
-									element={<TrainingLevel />}
-								/>
-								<Route
-									path={PATHS.WEIGHT_HEIGHT}
-									element={<WeightHeight />}
-								/>
-							</Route>
-						)}
-
-						{role === ROLES.ADMIN && (
+						{(role === ROLES.ADMIN && goals?.length > 0) && (
 							<Route
 								path={PATHS.BASE_URL}
 								element={<Admin />}
@@ -129,6 +105,28 @@ const RouterApp = () => {
 								/>
 							</Route>
 						)}
+
+						{(goals?.length === 0 || !goals) && (
+							<Route>
+								<Route
+									path={PATHS.BASE_URL}
+									element={<Welcome />}
+								/>
+								<Route
+									path={PATHS.MAIN_GOALS}
+									element={<MainGoals />}
+								/>
+								<Route
+									path={PATHS.TRAINING_LEVEL}
+									element={<TrainingLevel />}
+								/>
+								<Route
+									path={PATHS.WEIGHT_HEIGHT}
+									element={<WeightHeight />}
+								/>
+							</Route>
+						)}
+
 
 						{level < 1 && (
 							<Route>

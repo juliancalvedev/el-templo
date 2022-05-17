@@ -382,13 +382,10 @@ const en = {
 				'Recuerda que la entrada en calor es fundamental para evitar lesiones, y preparar el cuerpo para la actividad física. Sin embargo, si venís de un entrenamiento previo puedes',
 			skipBtn: 'SKIP WARM UP WORKOUT',
 		},
-<<<<<<< HEAD
 		aboutYou: {
 			editAboutYou: 'Edit about you',
 			saveChanges: 'Save changes',
 		},
-=======
->>>>>>> 7a71e9213122bce84cb952c9d0f4aa3d97e6337b
 	},
 	admin: {
 		tags: {
@@ -461,12 +458,9 @@ const en = {
 		nivelation: {
 			index: 'Nivelation',
 			deleteNivelation: 'the {{title}} will be deleted',
-<<<<<<< HEAD
-=======
 			yoursResults: 'Yours results',
 			finishNivelation: 'FINISH NIVELATION',
 			yoursReps: 'Your reps:'
->>>>>>> 7a71e9213122bce84cb952c9d0f4aa3d97e6337b
 		},
 		routines: {
 			level: 'Level',

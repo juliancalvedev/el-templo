@@ -7,7 +7,7 @@ import InputSelect from '../../components/InputSelect/InputSelect';
 import SexSelector from '../../components/SexSelector/SexSelector';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import { Countries } from '../../constants/countries';
-import { getUserInfo, putEditProfile } from '../../services/user';
+import { editProfile, getUserInfo } from '../../services/user';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './useStyles.js';
@@ -63,14 +63,12 @@ const EditProfile = () => {
 	})
 
 	const [editProfileResponse, editProfileError, editProfileApiCall] = useFetch({
-		service: () => putEditProfile({ ...values, img: avatarImg }),
+		service: () => editProfile({ ...values, img: avatarImg }),
 		globalLoader: true,
 		callback: () => {
 			apiCall()
 		}
 	});
-
-
 
 	useEffect(() => {
 		setInputDateType('text');
@@ -83,11 +81,8 @@ const EditProfile = () => {
 		setShowAvatarModal(false);
 	};
 
-<<<<<<< HEAD
-=======
 	const handleChangeInput = (e) => setValues({ ...values, [e.target.name]: e.target.value })
 
->>>>>>> 7a71e9213122bce84cb952c9d0f4aa3d97e6337b
 	return (
 		<MainContainer back text={t('profile.editProfile.topBar')} shadow alignCenter>
 			<DivTop>

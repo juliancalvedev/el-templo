@@ -8,7 +8,7 @@ const InputRange = ({ id, defaultValue, min, max, step = '1', onChange }) => {
 				id={id}
 				type='range'
 				className='form-range inputRange'
-				defaultValue={defaultValue}
+				value={defaultValue}
 				min={min}
 				max={max}
 				step={step}

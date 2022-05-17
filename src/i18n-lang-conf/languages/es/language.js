@@ -458,13 +458,10 @@ const es = {
 		nivelation: {
 			index: 'Nivelacion',
 			deleteNivelation: 'Se borrará {{title}}',
-<<<<<<< HEAD
-=======
 			yoursResults: 'Tus resultados',
 			finishNivelation: 'TERMINAR NIVELACIÓN',
 			yoursReps: 'Tus repeticiones:'
 
->>>>>>> 7a71e9213122bce84cb952c9d0f4aa3d97e6337b
 		},
 		usersList: {
 			index: 'Administrar usuarios',

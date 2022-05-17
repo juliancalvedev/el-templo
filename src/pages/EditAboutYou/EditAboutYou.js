@@ -10,7 +10,9 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import Text from '../../components/Text/Text';
 import Button from '../../components/Button/Button';
 import useFetch from '../../hooks/useFetch';
-import { editAboutYou } from '../../services/user';
+import { editAboutYou, getUserInfo } from '../../services/user';
+import { getUserInfoAction } from '../../redux/user';
+import { PATHS } from '../../constants/paths';
 
 const EditAboutYou = () => {
 	const dispatch = useDispatch();
@@ -32,9 +34,21 @@ const EditAboutYou = () => {
 		});
 	}, [trainingLevel, height, weight]);
 
+	const [infoData, infoDataError, apiCall] = useFetch({
+		service: () => getUserInfo(),
+		globalLoader: true,
+		callback: () => {
+			dispatch(getUserInfoAction(infoData?.user))
+			navigate(`/${PATHS.MY_PROFILE}`)
+		}
+	})
+
 	const [data, error, apiCallEditAboutYou] = useFetch({
 		service: () => editAboutYou(values),
 		globalLoader: true,
+		callback: () => {
+			apiCall()
+		}
 	});
 
 	const handleChangeTrainingLevel = (e) =>
@@ -72,6 +86,7 @@ const EditAboutYou = () => {
 					/>
 					<InputRange
 						id='level'
+						name='level'
 						min='1'
 						max='5'
 						defaultValue={values.trainingLevel}

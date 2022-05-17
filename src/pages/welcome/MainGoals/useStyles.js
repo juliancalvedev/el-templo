@@ -1,6 +1,6 @@
 const useStyles = () => {
 	return {
-		container: 'showing-inputs d-flex flex-column align-items-center',
+		container: 'col-11 showing-inputs d-flex flex-column align-items-center',
 		DG0: 'goal-field goal-1 d-flex col-12',
 		selected0: 'd-flex justify-content-between align-items-center col-12 ',
 		cross0: 'crossIcon crossIcon1',
