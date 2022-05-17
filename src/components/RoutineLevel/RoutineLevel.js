@@ -1,12 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import EllipseChecked from '../../assets/symbols/EllipseChecked';
-import { PATHS } from '../../constants/paths';
 import { TRAINING_TYPES } from '../../constants/training';
 import Text from '../Text/Text';
 import './RoutineLevel.scss';
 import TrainingImg from './TrainingImg/TrainingImg';
 import useStyles from './useStyles';
+import adaptation1 from '../../assets/images/adaptation.jpg'
 
 const RoutineLevel = ({ text, active, done, trainingType, onClick }) => {
 
@@ -35,7 +34,7 @@ const RoutineLevel = ({ text, active, done, trainingType, onClick }) => {
                 }
             </div>
             {active && <div className={styles.trainings}>
-                <TrainingImg onClick={() => onClick(TRAINING_TYPES.ADAPTATION1)} active={trainingType === TRAINING_TYPES.ADAPTATION1} text={t('routineTypes.adaptation1')} />
+                <TrainingImg img={adaptation1} onClick={() => onClick(TRAINING_TYPES.ADAPTATION1)} active={trainingType === TRAINING_TYPES.ADAPTATION1} text={t('routineTypes.adaptation1')} />
                 <TrainingImg onClick={() => onClick(TRAINING_TYPES.ADAPTATION2)} active={trainingType === TRAINING_TYPES.ADAPTATION2} text={t('routineTypes.adaptation2')} />
                 <TrainingImg onClick={() => onClick(TRAINING_TYPES.STRENGTH)} active={trainingType === TRAINING_TYPES.STRENGTH} text={t('routineTypes.strength')} />
                 <TrainingImg onClick={() => onClick(TRAINING_TYPES.HYPERTROPHY)} active={trainingType === TRAINING_TYPES.HYPERTROPHY} text={t('routineTypes.hypertrophy')} />
