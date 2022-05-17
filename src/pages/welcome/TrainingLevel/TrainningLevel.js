@@ -20,9 +20,11 @@ const TrainingLevel = () => {
 	const navigate = useNavigate();
 	const styles = useStyles();
 	const { trainingLevel } = useSelector((store) => store?.user?.trainingInfo);
+
 	const [selectedLevel, setSelectedLevel] = useState(
 		trainingLevel === 0 ? 1 : trainingLevel
 	);
+
 	const changeLevel = (e) => setSelectedLevel(parseInt(e.target.value));
 
 	const toWeightAndHeight = () => {
