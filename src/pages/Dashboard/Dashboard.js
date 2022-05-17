@@ -61,21 +61,31 @@ const Dashboard = () => {
 						<Text bold text={t('dashboard.main.summary')} size={2} />
 					</div>
 				</div>
-				{level > 0 &&
-					<div className={styles.seeDetails}>
-						<Button
-							size={2}
-							onClick={handleChange}
-							type={3}
-							text={t('dashboard.main.see')}
-							textSize={1}
+			{level > 0 &&
+				<div className={styles.seeDetails}>
+					<Button
+						disabled={!!data?.bodyParts}
+						onClick={handleChange}
+						type={3}
+						text={t('dashboard.main.see')}
+						textSize={1}
 						/>
-					</div>
-				}
+				</div>
+			}
 			</div>
+			{level === 0 ? (
+				<div className='d-flex flex-column justify-content-start align-items-center'>
+					<div className='col-10'>
+						<Text className='mt-2 ' size='2' text={t('dashboard.main.progress')} />
+					</div>
+					<div className={styles.img}>
+						<ImgDashboard />
+					</div>
+				</div>
+			) : (
 				<div className={styles.bodyInfoContainer}>
 					<DashboardBodyInfo {...data?.bodyParts} />
-				</div>
+				</div>)}
 			{level === 0 && <div className={styles.btn}>
 				<Button size={3} type={2} text={t('dashboard.main.btn')} onClick={() => navigate(`/${PATHS.NIVELATION}`)} />
 			</div>}

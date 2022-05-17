@@ -1,7 +1,8 @@
 import Tag from "../Tag/Tag"
 import Text from "../Text/Text"
 import useStyles from "./useStyles"
-import './CardInfoTraining.scss'
+import './CardInfoTraining.scss';
+import { randomHexadecimal } from '../../utils/mathUtils';
 
 const CardInfoTraining = ({ text, tags, disabled, img = '' }) => {
 
@@ -20,7 +21,7 @@ const CardInfoTraining = ({ text, tags, disabled, img = '' }) => {
                         <Text text={text} size={4} bold />
                     </div>
                     <div className={styles.tagContainer}>
-                        {tags?.map(t => <Tag type={2} color={5} bold text={t} />)}
+                        {tags?.map(t => <Tag key={randomHexadecimal()} type={2} color={5} bold text={t} />)}
                     </div>
                 </div>
             </div>

@@ -17,6 +17,7 @@ import Text from '../../../components/Text/Text';
 import ButtonPagination from '../../../components/ButtonPagination/ButtonPagination';
 import { useDispatch } from 'react-redux';
 import { cleanErrorAction, loadingAction } from '../../../redux/api';
+import { randomHexadecimal } from '../../../utils/mathUtils';
 
 const NivelationExercise = () => {
   const { t } = useTranslation();
@@ -88,6 +89,7 @@ const NivelationExercise = () => {
               return (
                 <div key={i}>
                   <NivelationCard
+                  key={randomHexadecimal()}
                     value={n.count}
                     title={n[`title${lang}`]}
                     onChange={(e) => onChangeValue(e, n.id)}

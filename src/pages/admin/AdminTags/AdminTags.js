@@ -19,6 +19,7 @@ import useTable from '../../../hooks/useTable';
 import { useDispatch } from 'react-redux';
 import { replaceRouteName } from '../../../redux/route';
 import { langUpperCased } from '../../../utils/localStorage';
+import { randomHexadecimal } from '../../../utils/mathUtils';
 
 const defaultOption = { value: null, name: 'default' };
 
@@ -215,6 +216,7 @@ const AdminTags = () => {
 				data={tagsListResponse?.tags?.map(tag => ({
 					...tag,
 					edit: <Button
+					key={randomHexadecimal()}
 						text={t('global.edit')}
 						size={2}
 						onClick={() =>
@@ -222,6 +224,7 @@ const AdminTags = () => {
 						}
 					/>,
 					delete: <Button
+					key={randomHexadecimal()}
 						text={t(
 							'global.delete'
 						)}

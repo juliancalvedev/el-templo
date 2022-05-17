@@ -14,6 +14,7 @@ import './Congratulations.scss';
 import XPBar from "../../components/ProfileImgAndXP/XPBar";
 import { useNavigate } from "react-router-dom";
 import { PATHS } from "../../constants/paths";
+import { randomHexadecimal } from "../../utils/mathUtils";
 
 const Congratulations = () => {
 
@@ -53,7 +54,7 @@ const Congratulations = () => {
                 </div>
                 <Text bold text={t('congratulations.worksToday')} className='mb-4' />
                 <div className="d-flex justify-content-evenly flex-wrap">
-                    {data?.muscles?.map(tag => <Tag type={2} color={1} text={tag[`title${lang}`]} />)}
+                    {data?.muscles?.map(tag => <Tag key={randomHexadecimal()} type={2} color={1} text={tag[`title${lang}`]} />)}
                 </div>
             </DivTop>
             <DivBottom className='col-12'>

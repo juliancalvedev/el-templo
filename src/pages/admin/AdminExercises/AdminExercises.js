@@ -11,6 +11,7 @@ import UseTable from '../../../hooks/useTable';
 import { useDispatch } from 'react-redux';
 import { addRouteName, replaceRouteName } from '../../../redux/route';
 import { langUpperCased } from '../../../utils/localStorage'
+import { randomHexadecimal } from '../../../utils/mathUtils';
 
 const AdminExercises = () => {
     const { t } = useTranslation();
@@ -68,7 +69,7 @@ const AdminExercises = () => {
                 />}
                 data={exercisesListFetch?.exercises.map(e => ({
                     ...e,
-                    edit: <Button text={t('global.edit')} size={3} onClick={() => navigateToEditExercise(e._id)} />
+                    edit: <Button key={randomHexadecimal()} text={t('global.edit')} size={3} onClick={() => navigateToEditExercise(e._id)} />
                 }))}
             />
 

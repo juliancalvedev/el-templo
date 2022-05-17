@@ -12,6 +12,7 @@ import Point from '../../../assets/Icons/Point';
 import useTable from '../../../hooks/useTable';
 import { useDispatch } from 'react-redux';
 import { replaceRouteName } from '../../../redux/route';
+import { randomHexadecimal } from '../../../utils/mathUtils';
 
 const UsersList = () => {
 
@@ -66,8 +67,9 @@ const UsersList = () => {
 						startEnabledDate: cutDate(u.startEnabledDate),
 						endEnabledDate: cutDate(u.endEnabledDate),
 						name: `${u.firstName} ${u.lastName}`,
-						enabled: <Point active={u.endEnabledDate && !compareWithCurrDate(u.endEnabledDate)}/>,
+						enabled: <Point key={randomHexadecimal()} active={u.endEnabledDate && !compareWithCurrDate(u.endEnabledDate)}/>,
 						options: <Button
+						key={randomHexadecimal()}
 							text='Ver'
 							size={3}
 							type={3}
