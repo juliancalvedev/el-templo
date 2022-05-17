@@ -8,19 +8,36 @@
     position: absolute;
     display: flex;
     justify-content: center;
+    overflow: hidden !important;
+
     &--img {
         position: relative;
         animation: mymove 5s;
     }
 }
 
-
 @keyframes pulse {
-    from { transform: scale(1) ; bottom: 0px  ; opacity: 1;    }
-    to   { transform: scale(0.75); bottom: 400px ; opacity: 0.25; }
- }
+    from {
+        transform: scale(1);
+        bottom: 0px;
+        opacity: 1;
+    }
 
- @keyframes mymove {
-    from {top: 0px;transform: scale(0.5) ;}
-    to {top: 200px;transform: scale(1);}
-  }
+    to {
+        transform: scale(0.75);
+        bottom: 400px;
+        opacity: 0.25;
+    }
+}
+
+@keyframes mymove {
+    from {
+        top: 0px;
+        transform: scale(0.5);
+    }
+
+    to {
+        top: 200px;
+        transform: scale(1);
+    }
+}

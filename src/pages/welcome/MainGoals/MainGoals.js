@@ -93,7 +93,7 @@ const MainGoals = () => {
 	]
 
 	return (
-		<MainContainer back={true} bg='1' color='2' backgroundImg='mainGoals' banner bannerTexts={bannerTexts}>
+		<MainContainer back={true} bg='1' color='2' backgroundImg='mainGoals' banner bannerTexts={bannerTexts} col='12'>
 			<DivTop>
 
 				<div className={styles.container}>
@@ -129,6 +129,7 @@ const MainGoals = () => {
 							</div>
 						</div>
 					</div>
+
 					<div
 						className={styles.DG2}
 						onClick={() => deleteGoal(2)}
@@ -165,17 +166,18 @@ const MainGoals = () => {
 				</div>
 			</DivTop>
 
-			<DivBottom marginBottom={-30} className='align-items-end'>
-
-				<ButtonPagination
-					disabled={
-						selectedGoals[0] === '' ||
-						selectedGoals[1] === '' ||
-						selectedGoals[2] === ''
-					}
-					onClick={toTrainingLevel}
-					className={disableBtnNext()}
-				/>
+			<DivBottom marginBottom={-30} >
+				<div className='col-11 d-flex justify-content-end' >
+					<ButtonPagination
+						disabled={
+							selectedGoals[0] === '' ||
+							selectedGoals[1] === '' ||
+							selectedGoals[2] === ''
+						}
+						onClick={toTrainingLevel}
+						className={disableBtnNext()}
+					/>
+				</div>
 			</DivBottom>
 		</MainContainer>
 	);

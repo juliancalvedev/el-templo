@@ -25,7 +25,7 @@ const MyProfile = () => {
 	const handleChangePasswordNavigate = () =>
 		navigate(`/${PATHS.CHANGE_USER_PASSWORD}`);
 
-	const handleEditAboutYou = () => navigate(`/${PATHS.EDIT_PROFILE}`);
+	const handleEditAboutYou = () => navigate(`/${PATHS.EDIT_ABOUT_YOU}`);
 
 	const dispatch = useDispatch();
 	const onLogout = () => {
@@ -57,7 +57,7 @@ const MyProfile = () => {
 						`${endEnabledDate}`
 					)}`}
 				/>
-			</div>
+			</div >
 
 			<div className={styles.aboutYouContainer}>
 				<div className={styles.aboutYouText}>
@@ -127,7 +127,7 @@ const MyProfile = () => {
 					secondary
 				/>
 			</div>
-		</MainContainer>
+		</MainContainer >
 	);
 };
 

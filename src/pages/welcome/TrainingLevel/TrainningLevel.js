@@ -46,42 +46,47 @@ const TrainingLevel = () => {
 	]
 
 	return (
-		<MainContainer back={true} bg='1' color='2' backgroundImg='mainGoals' banner bannerTexts={bannerTexts}>
+		<MainContainer alignCenter back bg='1' color='2' backgroundImg='mainGoals' banner bannerTexts={bannerTexts}>
 
-			<DivTop justify='center' className='align-items-center' style={{paddingTop: '50%'}}>
+			<DivTop	>
+				<div
+					className='col-12 d-flex flex-column justify-content-center align-items-center'
+					style={{ paddingTop: '50%' }}
+				>
+					<Text text={t(`welcome.trainingLevel.level${selectedLevel}`)} color='2' size='1' />
+					<InputRange
+						id='level'
+						min='1'
+						max='5'
+						defaultValue={selectedLevel}
+						onChange={changeLevel}
+					/>
 
-						<Text text={t(`welcome.trainingLevel.level${selectedLevel}`)} color='2' size='1' />
-						<InputRange
-							id='level'
-							min='1'
-							max='5'
-							defaultValue={trainingLevel}
-							onChange={changeLevel}
-						/>
-
-						<div className={styles.text}>
-							<div style={{ marginTop: '-23px' }}>
-								<Text
-									text={t('welcome.trainingLevel.amateur')}
-									color='2'
-									size='1'
-								/>
-							</div>
-							<div style={{ marginTop: '-25px' }}>
-								<Text
-									text={t('welcome.trainingLevel.professional')}
-									color='2'
-									size='1'
-								/>
-							</div>
+					<div className={styles.text}>
+						<div style={{ marginTop: '-23px' }}>
+							<Text
+								text={t('welcome.trainingLevel.amateur')}
+								color='2'
+								size='1'
+							/>
 						</div>
-
+						<div style={{ marginTop: '-25px' }}>
+							<Text
+								text={t('welcome.trainingLevel.professional')}
+								color='2'
+								size='1'
+							/>
+						</div>
+					</div>
+				</div>
 			</DivTop>
 			<DivBottom className='align-items-end' marginBottom={-30} >
-				<ButtonPagination
-					direction='right'
-					onClick={toWeightAndHeight}
-				/>
+				<div className='col-12 d-flex justify-content-end' >
+					<ButtonPagination
+						direction='right'
+						onClick={toWeightAndHeight}
+					/>
+				</div>
 			</DivBottom>
 		</MainContainer>
 	);

@@ -10,6 +10,7 @@ const InputDivided = ({
 	onChange,
 	type,
 	id,
+	name,
 	min,
 	max,
 	defaultValue,
@@ -37,6 +38,7 @@ const InputDivided = ({
 					onChange={onChange}
 					type={type}
 					id={id}
+					name={name}
 					min={min}
 					max={max}
 					defaultValue={defaultValue}

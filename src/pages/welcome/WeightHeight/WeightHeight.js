@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserInfoAction } from '../../../redux/user';
-import { putTrainingInfo } from '../../../services/user';
+import { getUserInfo, putTrainingInfo } from '../../../services/user';
 import { useNavigate } from 'react-router-dom';
 
 import './WeightHeight.scss';
@@ -78,11 +78,6 @@ const WeightHeight = () => {
 		}
 	};
 
-	const callback = () => {
-		dispatch(getUserInfoAction());
-		navigate(`/${PATHS.DASHBOARD}`);
-	};
-
 	const [data, error, apiCall] = useFetch({
 		service: () =>
 			putTrainingInfo({
@@ -91,8 +86,19 @@ const WeightHeight = () => {
 				height: selectedHeight,
 			}),
 		globalLoader: true,
-		callback,
+		callback: () => {
+			apiCallGetUserInfo()
+		}
 	});
+
+	const [infoData, infoDataError, apiCallGetUserInfo] = useFetch({
+		service: () => getUserInfo(),
+		globalLoader: true,
+		callback: () => {
+			dispatch(getUserInfoAction(infoData?.user))
+			navigate(`/${PATHS.DASHBOARD}`)
+		}
+	})
 
 	const bannerTexts = [
 		<Text
@@ -115,8 +121,6 @@ const WeightHeight = () => {
 			bannerTexts={bannerTexts}
 		>
 			<DivTop className='mt-5 pt-5'>
-
-				<div></div>
 				<div className={styles.container}>
 					<div className={styles.input1}>
 						<InputDivided

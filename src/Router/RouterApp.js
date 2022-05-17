@@ -43,6 +43,7 @@ import AdminNivelation from '../pages/admin/AdminLevels/AdminNivelation/AdminNiv
 import TrainingDashboard from '../pages/TrainingRoutine/TrainingDashboard';
 import MakeTraining from '../pages/TrainingRoutine/MakeTraining';
 import Congratulations from '../pages/TrainingRoutine/Congratulations';
+import EditAboutYou from '../pages/EditAboutYou/EditAboutYou';
 import MyProgress from '../pages/Dashboard/MyProgress/MyProgress';
 
 const RouterApp = () => {
@@ -57,28 +58,7 @@ const RouterApp = () => {
 			<Routes>
 				{savedToken ? (
 					<Route path={PATHS.BASE_URL} element={<PrivatedLayout />}>
-						{(goals?.length === 0 || !goals) && (
-							<Route>
-								<Route
-									path={PATHS.BASE_URL}
-									element={<Welcome />}
-								/>
-								<Route
-									path={PATHS.MAIN_GOALS}
-									element={<MainGoals />}
-								/>
-								<Route
-									path={PATHS.TRAINING_LEVEL}
-									element={<TrainingLevel />}
-								/>
-								<Route
-									path={PATHS.WEIGHT_HEIGHT}
-									element={<WeightHeight />}
-								/>
-							</Route>
-						)}
-
-						{role === ROLES.ADMIN && (
+						{(role === ROLES.ADMIN && goals?.length > 0) && (
 							<Route
 								path={PATHS.BASE_URL}
 								element={<Admin />}
@@ -125,6 +105,28 @@ const RouterApp = () => {
 								/>
 							</Route>
 						)}
+
+						{(goals?.length === 0 || !goals) && (
+							<Route>
+								<Route
+									path={PATHS.BASE_URL}
+									element={<Welcome />}
+								/>
+								<Route
+									path={PATHS.MAIN_GOALS}
+									element={<MainGoals />}
+								/>
+								<Route
+									path={PATHS.TRAINING_LEVEL}
+									element={<TrainingLevel />}
+								/>
+								<Route
+									path={PATHS.WEIGHT_HEIGHT}
+									element={<WeightHeight />}
+								/>
+							</Route>
+						)}
+
 
 						{level < 1 && (
 							<Route>
@@ -178,6 +180,10 @@ const RouterApp = () => {
 						<Route
 							path={PATHS.EDIT_PROFILE}
 							element={<EditProfile />}
+						/>
+						<Route
+							path={PATHS.EDIT_ABOUT_YOU}
+							element={<EditAboutYou />}
 						/>
 						<Route
 							path={PATHS.CHANGE_USER_PASSWORD}

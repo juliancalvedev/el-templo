@@ -40,12 +40,6 @@ const CardInfo = ({ level, img, startEnabledDate, userName }) => {
 				<Text
 					justify='start'
 					size='1'
-					className='mt-1'
-					text={`${t('user.myProfile.completedTrainings')}: 00`}
-				/>
-				<Text
-					justify='start'
-					size='1'
 					className=''
 					text={`${t('user.myProfile.memberSince')}: ${cutDate(
 						`${startEnabledDate}`

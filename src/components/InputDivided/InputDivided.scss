@@ -8,6 +8,7 @@
 	// TODO Eliminar border cuando la page tenga imagen de fondo
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-radius: 15px;
+	box-shadow: 0px 0px 5px $shadow025;
 
 	.input__divided--label {
 		text-indent: 1rem;
@@ -22,6 +23,7 @@
 		width: 2px;
 		height: 40px;
 	}
+
 	.input__divided--auxTextContainer {
 		padding-right: 5%;
 
@@ -36,6 +38,7 @@
 			text-align: end;
 			font-size: 1rem;
 		}
+
 		.input__divided--input:focus {
 			outline: none;
 			border: none;

@@ -26,6 +26,9 @@ const defaultValue = {
 		weight: 0,
 		height: 0,
 	},
+	trainingLevel: 0,
+	weight: 0,
+	height: 0,
 };
 
 // REDUCER
