@@ -267,10 +267,13 @@ const es = {
 			btn3: 'Contacto',
 			accordionTextBlue1: '¿Cuáles son los objetivos del programa ?',
 			accordionTextBlue2: '¿Cuándo subo de nivel?',
+			textBlue2Items: 'El sistema de niveles está diseñado para que avances cuando completes los requisitos de cada día con una cantidad de 5 series por ejercicio, eso nos indica que estás listo para las nuevos ejercicios con mayor dificultad y las demandas que implican.',
 			accordionTextBlue3:
 				'¿Qué estará contemplado dentro de un entrenamiento diario?',
-			accordionTextBlue4:
+				textBlue3Items: 'Dentro de un entrenamiento diario vas a contar con ejercicios adaptativos de resistencia y movilidad, un bloque orientado a los básicos de fuerza con el peso de tu cuerpo, luego un bloque de hipertrofia de ejercicios ya dominados en progresiones anteriores y por ultimo ejercicios suplementarios de condicionamiento general o particular de tejidos o gestos motores.',
+				accordionTextBlue4:
 				'¿Qué nivel de preparación física se necesita para realizarlo?',
+				textBlue4Items: 'Podes iniciarlo desde un nivel inicial sin actividad física previa o siendo alguien ya experimentado en la actividad, nuestro sistema de nivelación se va a encargar de situarte en donde mejor te puedas desempeñar!',
 			auxText3: {
 				item1:
 					'•Desarrollo de capacidades básicas de la fuerza (explosiva, potencia, máxima, resistencia).',

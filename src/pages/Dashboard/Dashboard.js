@@ -63,7 +63,7 @@ const Dashboard = () => {
 			{level > 0 &&
 				<div className={styles.seeDetails}>
 					<Button
-						disabled={!!data?.bodyParts}
+						disabled={!(!!data?.bodyParts?.bottom || !!data?.bodyParts?.bottom || !!data?.bodyParts?.middle)}
 						onClick={handleChange}
 						type={3}
 						text={t('dashboard.main.see')}

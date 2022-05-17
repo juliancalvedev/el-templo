@@ -8,7 +8,7 @@ const XPBar = () => {
     const { t } = useTranslation();
 
     const { level, experience } = useSelector((store) => store.user);
-    const xp = (100 * experience) / 24 + 4;
+    const xp = ((100 * experience) / 24) === 0 ? 0 : (100 * experience) / 24 + 4;
 
     const styles = useStyles();
   return (
