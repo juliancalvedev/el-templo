@@ -30,6 +30,7 @@ const EmailRegisterSended = () => {
 					bold
 					text={t('auth.emailConfirm.title')}
 					className='mt-5'
+					back
 				/>
 				<div>
 
