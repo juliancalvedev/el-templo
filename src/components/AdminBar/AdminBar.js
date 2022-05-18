@@ -26,7 +26,7 @@ const AdminBar = () => {
 					text={t('adminBar.users')}
 					onClick={toUsersList}
 					color={
-						currentLocation === 'admin-users-list'
+						currentLocation === ''
 							? 'linkSelected'
 							: 'link'
 					}

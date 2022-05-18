@@ -1,5 +1,6 @@
 import Text from "../../Text/Text"
 import useStyles from './useStyles';
+import './TrainingImg.scss';
 
 const TrainingImg = ({ text, active, done, onClick, img = '' }) => {
 

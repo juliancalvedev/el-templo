@@ -5,10 +5,11 @@ import { editAllTrainings, getExercises, getRoutineById } from '../../services/a
 import TrainingCardInputs from '../TrainingCardInputs/TrainingCardInputs';
 import Button from '../Button/Button'
 import { eachCardIsCompleted } from '../../utils/objectUtils';
+import { useNavigate } from 'react-router-dom';
 
 const EditRoutineDay = ({ trainingDayId }) => {
     const { t } = useTranslation()
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const [routineIds, setRoutineIds] = useState({})
     const [eachCard, setEachCard] = useState({})
@@ -98,15 +99,16 @@ const EditRoutineDay = ({ trainingDayId }) => {
     });
 
     const [exercisesListResponse] = useFetch({
-        service: () => getExercises(),
+        service: () => getExercises({ offset: 0, search: '', limit: 100000}),
         globalLoader: true,
         callNow: true,
+        callback: () => console.log(exercisesListResponse)
     });
 
     const [savedRoutine, savedRoutineError, savedRoutineApiCall] = useFetch({
         service: () => editAllTrainings(routineIds, eachCard),
         globalLoader: true,
-        callback: () => { }
+        callback: () => { navigate(-1) }
     })
 
     const onChangeInput = (e, exerciseType) => {

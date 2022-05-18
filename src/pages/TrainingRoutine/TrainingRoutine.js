@@ -70,7 +70,7 @@ const TrainingRoutine = () => {
                 {showSkip && (trainingType === TRAINING_TYPES.ADAPTATION1 || trainingType === TRAINING_TYPES.ADAPTATION2) && <SkipRoutine onClick={makeTrainingApiCall} onClose={() => setShowSkip(false)} />}
                 <div className="col-11 d-flex flex-column align-items-center m-auto">
 
-                    <CardInfoTraining img={number1} disabled={currentExerciseNumber !== 1} tags={exercise1Data?.exercise?.tags.map(t => t[`title${lang}`])} text={exercise1?.exercise?.[`title${lang}`]} />
+                    <CardInfoTraining done={currentExerciseNumber !== 1} img={number1} tags={exercise1Data?.exercise?.tags.map(t => t[`title${lang}`])} text={exercise1?.exercise?.[`title${lang}`]} />
                     <CardInfoTraining img={number2} disabled={currentExerciseNumber !== 2} tags={exercise2Data?.exercise?.tags.map(t => t[`title${lang}`])} text={exercise2?.exercise?.[`title${lang}`]} />
                 </div>
             </DivTop>

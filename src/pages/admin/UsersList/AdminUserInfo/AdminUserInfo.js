@@ -26,7 +26,7 @@ export const AdminUserInfo = () => {
 	const [data, error, apiCall] = useFetch({
 		service: () => getUserById(id),
 		globalLoader: true,
-		callback: () => {setUser(data?.user); setChangeLevel(false);}
+		callback: () => { setUser(data?.user); setChangeLevel(false); }
 	})
 	const [activateDate, activateError, activateApiCall] = useFetch({
 		service: () => enableOrDisableUser(id, user.endEnabledDate && !compareWithCurrDate(user.endEnabledDate)),
@@ -53,42 +53,44 @@ export const AdminUserInfo = () => {
 	}, [id])
 
 	return (
-			<div class="card col-10 m-auto mt-3">
-				<div class="card-body">
-					<div className='d-flex flex-column align-items-start col-12'>
-						<div className='col-12'>
-							<div className='d-flex col-6 align-items-center'>
+		<div class="card col-10 m-auto mt-3">
+			<div class="card-body">
+				<div className='d-flex flex-column align-items-start col-12'>
+					<div className='col-12'>
+						<div className='d-flex flex-column col-6 align-items-center'>
+							<div className='d-flex col-12 align-items-center'>
 								<Text text={`${t('admin.userTable.level')}: `} />
 								{changeLevel ? <Input value={newLevel} onChange={onChangeLevelInput} type='number' /> : <Text text={user.level} />}
-							{!changeLevel && <div className='col-6'>
+								{!changeLevel && <div className='col-6'>
 
-								<Button onClick={() => { setChangeLevel(true); setNewLevel(user.level); }} text={t('global.edit')} size={2} type={3} />
+									<Button onClick={() => { setChangeLevel(true); setNewLevel(user.level); }} text={t('global.edit')} size={2} type={3} />
+								</div>}
+							</div>
+							{changeLevel && <div className='d-flex mb-2'>
+
+								<Button text={t('global.confirm')} size={2} type={1} onClick={changeLevelApiCall} />
+								<Button text={t('global.close')} type={3} onClick={() => setChangeLevel(false)} />
 							</div>}
-								<div className='d-flex'>
-
-									{changeLevel && <Button text={t('global.confirm')} onClick={changeLevelApiCall} />}
-									{changeLevel && <Button text={t('global.close')} type={2} onClick={() => setChangeLevel(false)} />}
-								</div>
-								<div className='col-3'>
+							<div className='col-3'>
 
 
-								</div>
 							</div>
 						</div>
-						<div className='d-flex align-items-center col-12'>
-							<Text text={`${t('admin.userTable.enabled')}:`} />
-							<Point active={user.endEnabledDate && !compareWithCurrDate(user.endEnabledDate)} />
-							<Button onClick={activateApiCall} text={t(`global.${!!user.endEnabledDate && !compareWithCurrDate(user.endEnabledDate) ? 'disable': 'enable'}`)}  size={1} type={3} />
-						</div>
-						<Text text={`${t('admin.userTable.email')}: ${user.email}`} />
-						<Text text={`${t('admin.userTable.name')}: ${user.firstName} ${user.lastName}`} />
-						<Text text={`${t('admin.userTable.sex')}: ${user.sex}`} />
-						<Text text={`${t('admin.userTable.country')}: ${user.country}`} />
-						<Text text={`${t('admin.userTable.enabledDate')}: ${cutDate(user.startEnabledDate)}`} />
-						<Text text={`${t('admin.userTable.disabledDate')}: ${cutDate(user.endEnabledDate)}`} />
 					</div>
-
+					<div className='d-flex align-items-center col-12'>
+						<Text text={`${t('admin.userTable.enabled')}:`} />
+						<Point active={user.endEnabledDate && !compareWithCurrDate(user.endEnabledDate)} />
+						<Button onClick={activateApiCall} text={t(`global.${!!user.endEnabledDate && !compareWithCurrDate(user.endEnabledDate) ? 'disable' : 'enable'}`)} size={1} type={3} />
+					</div>
+					<Text text={`${t('admin.userTable.email')}: ${user.email}`} />
+					<Text text={`${t('admin.userTable.name')}: ${user.firstName} ${user.lastName}`} />
+					<Text text={`${t('admin.userTable.sex')}: ${user.sex}`} />
+					<Text text={`${t('admin.userTable.country')}: ${user.country}`} />
+					<Text text={`${t('admin.userTable.enabledDate')}: ${cutDate(user.startEnabledDate)}`} />
+					<Text text={`${t('admin.userTable.disabledDate')}: ${cutDate(user.endEnabledDate)}`} />
 				</div>
+
 			</div>
+		</div>
 	);
 };
