@@ -69,9 +69,7 @@ export const deleteTag = (id) => privateDelete({ url: `${baseURL}/tag/${id}` });
 
 export const getBodyParts = () => privateGet({ url: `/public/body-parts` });
 
-export const editTraining = (id, data) => {
-	return privatePut({ url: `/admin/training/${id}`, body: data })
-};
+export const editTraining = (id, data) => privatePut({ url: `/admin/training/${id}`, body: data })
 
 export const editAllTrainings = (routineIds, eachCard) => {
 	return new Promise((res, rej) => Promise.all([
