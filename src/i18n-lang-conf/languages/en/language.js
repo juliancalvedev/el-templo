@@ -30,6 +30,7 @@ const en = {
 		day: 'Day {{number}}',
 		block: 'Block {{number}}',
 		start: 'Start',
+		send: 'Enviar',
 		errors: {
 			required: 'This field is required.',
 			emailType: 'Use a valid e-mail.',
@@ -267,8 +268,12 @@ const en = {
 			btn3: 'Contact',
 			accordionTextBlue1: 'What are the objectives of the program ?',
 			accordionTextBlue2: 'When do I level up?',
+			textBlue2Items: 'The level system is designed to advance you when you complete the requirements for each day with as many as 5 sets per exercise, indicating that you are ready for new exercises with greater difficulty and the demands that they imply.',
 			accordionTextBlue3: 'What will be included in a daily training?',
+			textBlue3Items: 'Within a daily training you will have adaptive exercises of resistance and mobility, a block oriented to the basics of strength with the weight of your body, then a block of hypertrophy of exercises already mastered in previous progressions and finally supplementary conditioning exercises general or particular tissue or motor gestures.',
 			accordionTextBlue4: 'What level of physical preparation is needed to do it?',
+			textBlue4Items: 'You can start it from an initial level without previous physical activity or being someone already experienced in the activity, our leveling system will take care of placing you where you can best perform!',
+
 			auxText3: {
 				item1:
 					'• Development of basic strength capabilities (explosive, power, maximum, resistance).',
@@ -482,6 +487,21 @@ const en = {
 		strength: 'Fuerza',
 		hypertrophy: 'Hipertrofia',
 		suplementary: 'Suplementario',
+	},
+	congratulations: {
+		title: 'Congratulations!',
+		cardText1: 'You finished your',
+		cardText2: 'daily training',
+		worksToday: 'Today you worked'
+	},
+	feedback: {
+		title: 'What did you think of today\'s training?',
+		easy: 'EASY',
+		good: 'GOOD',
+		hard: 'HARD',
+		messageTitle: 'if you want you can leave an extra comment about the training:',
+		textAreaPlaceholder: 'Your message',
+		returnToDashboard: 'Return to my dashboard'
 	},
 	errors: {
 		generic: 'Oops, an error occurred.',

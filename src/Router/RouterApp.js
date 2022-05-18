@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import PrivatedLayout from '../layouts/PrivatedLayout/PrivatedLayout';
 import PublicLayout from '../layouts/PublicLayout/PublicLayout';
-import AdminLayout from '../layouts/AdminLayout/AdminLayout';
 
 import { ROLES } from '../constants/roles';
 import Login from '../pages/Login/Login';
@@ -45,6 +44,7 @@ import MakeTraining from '../pages/TrainingRoutine/MakeTraining';
 import Congratulations from '../pages/TrainingRoutine/Congratulations';
 import EditAboutYou from '../pages/EditAboutYou/EditAboutYou';
 import MyProgress from '../pages/Dashboard/MyProgress/MyProgress';
+import { Feedback } from '../pages/TrainingRoutine/Feedback';
 
 const RouterApp = () => {
 	const { token } = useSelector((store) => store.auth);
@@ -158,6 +158,10 @@ const RouterApp = () => {
 									<Route
 										path={PATHS.CONGRATULATIONS}
 										element={<Congratulations />}
+									/>
+									<Route
+										path={PATHS.FEEDBACK}
+										element={<Feedback />}
 									/>
 								</Route>}
 						</Route>

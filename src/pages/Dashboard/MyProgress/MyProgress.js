@@ -6,7 +6,6 @@ import { Chart } from 'primereact/chart';
 import { getDashboard } from '../../../services/user';
 import useFetch from '../../../hooks/useFetch';
 import { langUpperCased } from '../../../utils/localStorage';
-import { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 const colors = [
@@ -89,7 +88,7 @@ const MyProgress = () => {
             <DivTop>
                 <Text size={5} color={5} className='mb-2' font={2} text={t('dashboard.details.title')} />
                 <Text className='mb-5' bold text={t('dashboard.details.trainedZones')} />
-                <Chart type="pie" data={chartData} options={lightOptions} style={{ position: 'relative', width: '40%' }} />
+                <Chart type="pie" data={chartData} options={lightOptions} style={{ position: 'relative', width: '90%' }} />
             </DivTop>
         </MainContainer>
     )

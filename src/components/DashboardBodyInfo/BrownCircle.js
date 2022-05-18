@@ -4,7 +4,7 @@ import Text from '../Text/Text'
 export const BrownCircle = ({ value }) => {
     return (
         <div style={{
-            backgroundColor: '#C59980',
+            backgroundColor: '#2e4f77',
             height: '55px',
             width: '55px',
             borderRadius: '100%',

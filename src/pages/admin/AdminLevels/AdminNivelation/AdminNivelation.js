@@ -10,6 +10,7 @@ import Input from "../../../../components/Input/Input";
 import { editNivelation, deleteNivelation, createNivelation } from '../../../../services/admin';
 import Text from "../../../../components/Text/Text";
 import { langUpperCased } from "../../../../utils/localStorage";
+import { randomHexadecimal } from "../../../../utils/mathUtils";
 
 const defaultValue = {
     titleES: "",
@@ -143,8 +144,8 @@ const AdminNivelation = () => {
                 ]}
                 data={nivelations?.response.map(nivelation => ({
                     ...nivelation,
-                    edit: <Button type={1} text={t('global.edit')} onClick={() => onEdit(nivelation)} />,
-                    delete: <Button type={2} text={t('global.delete')} onClick={() => onDelete(nivelation)} />
+                    edit: <Button key={randomHexadecimal()} type={1} text={t('global.edit')} onClick={() => onEdit(nivelation)} />,
+                    delete: <Button key={randomHexadecimal()} type={2} text={t('global.delete')} onClick={() => onDelete(nivelation)} />
                 }))}
             />
             <Modal

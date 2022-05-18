@@ -17,7 +17,7 @@ const EnabledVerified = () => {
 	const { t } = useTranslation();
 	const styles = useStyles();
 
-	const { emailIsVerified, savedEmail } = useSelector((store) => store.auth);
+	const { savedEmail } = useSelector((store) => store.auth);
 
 	const [data, error, apiCall] = useFetch({
 		service: () => resendVerifyEmail(savedEmail),
@@ -26,7 +26,7 @@ const EnabledVerified = () => {
 	});
 
 	return (
-		<MainContainer col='10' calc>
+		<MainContainer col='10' calc back>
 			<DivTop>
 				<div className={styles.title} style={{ marginTop: '20px' }}>
 					<Text

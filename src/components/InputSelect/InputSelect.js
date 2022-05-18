@@ -1,4 +1,3 @@
-import IconSelect from '../../assets/Icons/IconSelect';
 import useStyles from './useStyles';
 import './InputSelect.scss';
 

@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import MainContainer from '../../../components/MainContainer/MainContainer';
 import Button from '../../../components/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../../constants/paths';

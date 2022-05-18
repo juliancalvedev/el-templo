@@ -29,7 +29,8 @@ const es = {
 		create: 'Crear',
 		day: 'Día {{number}}',
 		block: 'Bloque {{number}}',
-		start: 'Start',
+		start: 'Comenzar',
+		send: 'Enviar',
 		errors: {
 			required: 'Este campo es requerido.',
 			emailType: 'Debe ser un email válido.',
@@ -266,10 +267,13 @@ const es = {
 			btn3: 'Contacto',
 			accordionTextBlue1: '¿Cuáles son los objetivos del programa ?',
 			accordionTextBlue2: '¿Cuándo subo de nivel?',
+			textBlue2Items: 'El sistema de niveles está diseñado para que avances cuando completes los requisitos de cada día con una cantidad de 5 series por ejercicio, eso nos indica que estás listo para las nuevos ejercicios con mayor dificultad y las demandas que implican.',
 			accordionTextBlue3:
 				'¿Qué estará contemplado dentro de un entrenamiento diario?',
-			accordionTextBlue4:
+				textBlue3Items: 'Dentro de un entrenamiento diario vas a contar con ejercicios adaptativos de resistencia y movilidad, un bloque orientado a los básicos de fuerza con el peso de tu cuerpo, luego un bloque de hipertrofia de ejercicios ya dominados en progresiones anteriores y por ultimo ejercicios suplementarios de condicionamiento general o particular de tejidos o gestos motores.',
+				accordionTextBlue4:
 				'¿Qué nivel de preparación física se necesita para realizarlo?',
+				textBlue4Items: 'Podes iniciarlo desde un nivel inicial sin actividad física previa o siendo alguien ya experimentado en la actividad, nuestro sistema de nivelación se va a encargar de situarte en donde mejor te puedas desempeñar!',
 			auxText3: {
 				item1:
 					'•Desarrollo de capacidades básicas de la fuerza (explosiva, potencia, máxima, resistencia).',
@@ -429,7 +433,6 @@ const es = {
 			englishDescription: 'Descripción en Inglés',
 			tags: 'Tags',
 			minOneTag: 'Por favor, establezca al menos un Tag.',
-			loadingTags: 'Cargando Tags...',
 			reviewFields: 'Por favor, asegúrese que todos los campos estén completos.',
 			createExercise: 'Crear Ejercicio',
 			saveChanges: 'Guardar Cambios',
@@ -486,6 +489,21 @@ const es = {
 		strength: 'Fuerza',
 		hypertrophy: 'Hipertrofia',
 		suplementary: 'Suplementario',
+	},
+	congratulations: {
+		title: '¡Felicitaciones!',
+		cardText1: 'Terminaste tu',
+		cardText2: 'entrenamiento del día',
+		worksToday: 'Hoy trabajaste'
+	},
+	feedback: {
+		title: '¿Qué te pareció el entrenamiento de hoy?',
+		easy: 'FÁCIL',
+		good: 'BIEN',
+		hard: 'DIFICIL',
+		messageTitle: 'Si quieres nos puedes dejar cualquier comentario extra sobre el entrenamiento:',
+		textAreaPlaceholder: 'Tu mensaje',
+		returnToDashboard: 'Volver a mi dashboard'
 	},
 	errors: {
 		generic: 'Oops, ocurrió un error.',

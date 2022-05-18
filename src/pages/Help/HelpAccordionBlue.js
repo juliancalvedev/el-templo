@@ -4,10 +4,10 @@ import Text from '../../components/Text/Text';
 import useStyles from './useStyles';
 const HelpAccordionBlue = ({ accordionType = 'blue', color = 'color' }) => {
 	const { t } = useTranslation();
-	const styles=useStyles();
+	const styles = useStyles();
 	return (
 		<div className={styles.containerHAB} id='accordionFlushExample'>
-			
+
 			<div className='accordion-item'>
 				<h2 className='accordion-header' id='flush-headingOne'>
 					<button
@@ -74,7 +74,7 @@ const HelpAccordionBlue = ({ accordionType = 'blue', color = 'color' }) => {
 			<div className='accordion-item'>
 				<h2 className='accordion-header' id='flush-headingTwo'>
 					<button
-						className={`accordion-button border-1 accordion-button--${accordionType}  `}
+						className={`accordion-button border-1 accordion-button--${accordionType}`}
 						type='button'
 						data-bs-toggle='collapse'
 						data-bs-target='#flush-collapseTwo'
@@ -90,11 +90,13 @@ const HelpAccordionBlue = ({ accordionType = 'blue', color = 'color' }) => {
 					aria-labelledby='flush-headingTwo'
 					data-bs-parent='#accordionFlushExample'
 				>
-					<div className={`accordion-body accordion-body--${color}`}>
-						Placeholder content for this accordion, which is intended to
-						demonstrate the <code>.accordion-flush</code> class. This is
-						the second item's accordion body. Let's imagine this being
-						filled with some actual content.
+					<div className={`accordion-body accordion-body--${color} p-3`}>
+						<Text
+							text={t('help.main.textBlue2Items')}
+							color={1}
+							size={2}
+							justify="start"
+						/>
 					</div>
 				</div>
 			</div>
@@ -117,14 +119,13 @@ const HelpAccordionBlue = ({ accordionType = 'blue', color = 'color' }) => {
 					aria-labelledby='flush-headingThree'
 					data-bs-parent='#accordionFlushExample'
 				>
-					<div className={`accordion-body accordion-body--${color}`}>
-						Placeholder content for this accordion, which is intended to
-						demonstrate the <code>.accordion-flush</code> class. This is
-						the third item's accordion body. Nothing more exciting
-						happening here in terms of content, but just filling up the
-						space to make it look, at least at first glance, a bit more
-						representative of how this would look in a real-world
-						application.
+					<div className={`accordion-body accordion-body--${color}  p-3`}>
+						<Text
+							text={t('help.main.textBlue3Items')}
+							color={1}
+							size={2}
+							justify="start"
+						/>
 					</div>
 				</div>
 			</div>
@@ -147,14 +148,13 @@ const HelpAccordionBlue = ({ accordionType = 'blue', color = 'color' }) => {
 					aria-labelledby='flush-headingFour'
 					data-bs-parent='#accordionFlushExample'
 				>
-					<div className={`accordion-body accordion-body--${color}`}>
-						Placeholder content for this accordion, which is intended to
-						demonstrate the <code>.accordion-flush</code> class. This is
-						the third item's accordion body. Nothing more exciting
-						happening here in terms of content, but just filling up the
-						space to make it look, at least at first glance, a bit more
-						representative of how this would look in a real-world
-						application.
+					<div className={`accordion-body accordion-body--${color}  p-3`}>
+					<Text
+							text={t('help.main.textBlue4Items')}
+							color={1}
+							size={2}
+							justify="start"
+						/>
 					</div>
 				</div>
 			</div>

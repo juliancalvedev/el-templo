@@ -1,5 +1,3 @@
-import { getUserInfo } from '../services/user';
-
 // ACTION TYPES
 const GET_USER_INFO = 'GET_USER_INFO';
 const SET_GOALS_TRAINING_INFO = 'SET_GOALS_TRAINING_INFO';

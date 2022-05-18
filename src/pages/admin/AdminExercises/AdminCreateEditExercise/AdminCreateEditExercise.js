@@ -30,7 +30,6 @@ const AdminCreateEditExercise = () => {
     const [submitIsDisabled, setSubmitIsDisabled] = useState(true);
     const [exerciseIdToEdit, setExerciseIdToEdit] = useState(null);
     const [isEditing, setIsEditing] = useState(false)
-    const [editingExercise, setEditingExercise] = useState();
 
     useEffect(() => {
         const id = location?.state?.id
@@ -48,7 +47,7 @@ const AdminCreateEditExercise = () => {
         }
     }, [isEditing])
 
-    const [tagsListFetch, tagsListError, apiCallGetTagsList] = useFetch({
+    const [tagsListFetch] = useFetch({
         service: () => getTagsList(),
         callNow: true,
         globalLoader: true,

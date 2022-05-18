@@ -11,6 +11,7 @@ import useFetch from "../../hooks/useFetch";
 import { setExerciseAction } from "../../redux/exercise";
 import { getMyExercise } from "../../services/training";
 import { BACK_RESPONSE } from '../../constants/responses';
+import { randomHexadecimal } from "../../utils/mathUtils";
 
 const DAYS = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -65,11 +66,12 @@ const TrainingDashboard = () => {
             {/* Days */}
             {trainingType && <div className="my-4 col-12">
                 {DAYS.map(day => <RoutineLevel
+                key={randomHexadecimal()}
                     onClick={onClick}
                     trainingType={trainingType}
                     text={t('global.day', { number: day })}
                     done={day < currentDay}
-                    active={day === currentDay && !noMoreExercise}
+                    active={day === currentDay && !noMoreExercise && !!myExercise}
                 />)}
             </div>}
         </MainContainer>

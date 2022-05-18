@@ -57,12 +57,6 @@ const Chronometer = ({ onStop = () => {}, value = { ms: 0, s: 0, m: 0 } }) => {
 		onStop(timer);
 	};
 
-	// Function ready to be used.
-	const reset = () => {
-		clearInterval(interv);
-		setTimer({ ms: 0, s: 0, m: 0, h: 0 });
-	};
-
 	useEffect(() => {
 		if (timer.m >= 60) {
 			// If minutes get to 60, auto Stops.

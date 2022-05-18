@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Button from '../../../components/Button/Button'
-import MainContainer from '../../../components/MainContainer/MainContainer'
 import Text from '../../../components/Text/Text'
 import { PATHS } from '../../../constants/paths'
 import useFetch from '../../../hooks/useFetch'
@@ -17,7 +16,7 @@ const AdminLevels = () => {
 
     const dispatch = useDispatch();
 
-    const [levelsResponse, levelsError, apiCallLevels] = useFetch({
+    const [levelsResponse] = useFetch({
         service: () => getLevels(),
         globalLoader: true,
         callNow: true,
@@ -58,6 +57,7 @@ const AdminLevels = () => {
                         return (
                             <div className='m-3' key={element?._id}>
                                 <Button
+                                
                                     text={element?.level}
                                     size={1}
                                     circle

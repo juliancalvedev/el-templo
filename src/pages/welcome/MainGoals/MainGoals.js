@@ -15,6 +15,7 @@ import ButtonPagination from '../../../components/ButtonPagination/ButtonPaginat
 import useStyles from './useStyles';
 import DivTop from '../../../components/DivTop/DivTop';
 import DivBottom from '../../../components/DivBottom/DivBottom';
+import { randomHexadecimal } from '../../../utils/mathUtils';
 
 const MainGoals = () => {
 	const { t } = useTranslation();
@@ -156,6 +157,7 @@ const MainGoals = () => {
 									onClick={() => addNewGoal(goal)}
 								>
 									<Text
+									key={randomHexadecimal()}
 										text={t(`welcome.goals.${goal}`)}
 										size='1'
 										color={2}

@@ -46,7 +46,9 @@ const InputAvatar = ({ showModal, onCloseInputAvatar, onClickInputAvatar, onChan
                     {img <= 0 ?
                         <IconEditAvatar />
                         :
-                        <img src={AVATAR[img]} style={{
+                        <img
+                        alt='editAvatar'
+                        src={AVATAR[img]} style={{
                             width: '88px',
                             height: '88px',
                             borderRadius: '100%',
