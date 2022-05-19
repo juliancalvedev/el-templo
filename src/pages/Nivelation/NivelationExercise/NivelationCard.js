@@ -16,8 +16,9 @@ const NivelationCard = ({ title, onChange, value }) => {
                     <Text text={t('admin.nivelation.yoursReps')} size='1' />
                 </div>
             </div>
-            <div style={{ width: '50%' }}>
-                <Input type='number' value={value} onChange={onChange} />
+            <div className='col-7'>
+
+                <Input value={value} type='number' onChange={onChange} />
             </div>
         </div>
     );

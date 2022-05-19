@@ -22,7 +22,7 @@ const XPBar = () => {
         />
         <div className={styles.textExperiencePercent}>
             <Text
-                className={'mx-4'}
+                className={'mx-4 mb-2'}
                 text={`${Math.trunc(xp)}%`}
                 size={1}
             />

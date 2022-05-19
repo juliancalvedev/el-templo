@@ -1,6 +1,9 @@
+import { t } from 'i18next'
+import { useTranslation } from 'react-i18next'
 import Input from '../../components/Input/Input'
 import Button from '../Button/Button'
 const Search = ({ search, onChange, onPressSearch, extraSearch }) => {
+    const { t } = useTranslation();
     return (
         <div className="d-flex align-items-center col-12 justify-content-between">
             <div className="d-flex align-items-center col-4">
@@ -11,7 +14,7 @@ const Search = ({ search, onChange, onPressSearch, extraSearch }) => {
                     <Input value={search} onChange={(e) => onChange(e.target.value)} />
                 </div>
                 <div className='col-sm-3 col-md-4'>
-                    <Button text='buscar' onClick={onPressSearch} />
+                    <Button text={t('global.search')} onClick={onPressSearch} />
                 </div>
             </div>}
         </div>

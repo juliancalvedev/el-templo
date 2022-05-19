@@ -2,13 +2,11 @@
 
 .level-container {
     height: 131px;
-    padding-top: 22px;
-  
     .image-container {
       scale: .78;
       z-index: 2;
       position: relative;
-      left: 11px;
+      left: 4px;
       bottom: 3px;
     }
   
@@ -17,7 +15,6 @@
       justify-content: space-between;
       align-items: flex-end;
   
-      margin-bottom: 7px;
   
       .text-experience-percent {
         position: relative;

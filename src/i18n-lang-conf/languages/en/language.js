@@ -30,7 +30,7 @@ const en = {
 		day: 'Day {{number}}',
 		block: 'Block {{number}}',
 		start: 'Start',
-		send: 'Enviar',
+		send: 'Send',
 		errors: {
 			required: 'This field is required.',
 			emailType: 'Use a valid e-mail.',
@@ -259,7 +259,7 @@ const en = {
 			auxText21: ' Be better humans through our actions and behaviors.',
 			accordionText1: 'Do you have questions about your training?',
 			accordionInside1: 'Contact the coach',
-			accordionInside2: 'Matter:',
+			accordionInside2: 'Subject:',
 			accordionInside3: 'Message:',
 			btnSend: 'Send',
 
@@ -384,8 +384,8 @@ const en = {
 		training: {
 			index: 'Routines',
 			skipText:
-				'Recuerda que la entrada en calor es fundamental para evitar lesiones, y preparar el cuerpo para la actividad física. Sin embargo, si venís de un entrenamiento previo puedes',
-			skipBtn: 'SKIP WARM UP WORKOUT',
+				'Remember that warming up is essential to avoid injuries and prepare the body for physical activity. However, if you come from a previous training you can',
+			skipBtn: 'SKIP WARM UP',
 		},
 		aboutYou: {
 			editAboutYou: 'Edit about you',
@@ -482,11 +482,11 @@ const en = {
 		},
 	},
 	routineTypes: {
-		adaptation1: 'Adaptación 1',
-		adaptation2: 'Adaptación 2',
-		strength: 'Fuerza',
-		hypertrophy: 'Hipertrofia',
-		suplementary: 'Suplementario',
+		adaptation1: 'Adaptation 1',
+		adaptation2: 'Adaptation 2',
+		strength: 'Strength',
+		hypertrophy: 'Hypertrophy',
+		suplementary: 'Suplementary',
 	},
 	congratulations: {
 		title: 'Congratulations!',
@@ -499,7 +499,7 @@ const en = {
 		easy: 'EASY',
 		good: 'GOOD',
 		hard: 'HARD',
-		messageTitle: 'if you want you can leave an extra comment about the training:',
+		messageTitle: 'If you want you can leave an extra comment about the training:',
 		textAreaPlaceholder: 'Your message',
 		returnToDashboard: 'Return to my dashboard'
 	},

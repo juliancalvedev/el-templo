@@ -28,7 +28,7 @@ const AdminBar = () => {
 					color={
 						currentLocation === ''
 							? 'linkSelected'
-							: 'link'
+							: '6'
 					}
 					underline
 				/>
@@ -41,7 +41,7 @@ const AdminBar = () => {
 					color={
 						currentLocation === 'admin-config'
 							? 'linkSelected'
-							: 'link'
+							: '6'
 					}
 					underline
 				/>

@@ -46,11 +46,12 @@ const Input = ({
 	});
 
 	const handleChangeInput = (e) => {
+		let event = {...e}
 		if (type === 'number') {
-			e.target.value = e.target.value.replaceAll("[^\\d.]", "");
-			e.target.value = e.target.value ? parseFloat(e.target.value) : 0;
+			const value = e.target.value.replace(/[^0-9]/g, '');
+			event = {...event, target: { ...e.target, value }}
 		}
-		onChange(e);
+		onChange(event);
 	}
 
 	return (

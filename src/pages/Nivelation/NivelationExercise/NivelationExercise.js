@@ -71,6 +71,7 @@ const NivelationExercise = () => {
     }, 1500)
   }
 
+
   return (
     <MainContainer
       col='12'

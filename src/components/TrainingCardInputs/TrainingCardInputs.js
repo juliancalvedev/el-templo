@@ -16,7 +16,7 @@ const TrainingCardInputs = ({
 
     const onChangeInput = (e, exerciseNumber) => {
         const { name, value } = e.target
-        onChange({ name, value, exerciseNumber });
+        onChange({ name, value: value.replace(/^d/g, ''), exerciseNumber });
     }
 
     return (
@@ -54,10 +54,10 @@ const TrainingCardInputs = ({
                                 <Text text={`${t('admin.routines.reps')}:`} size='1' />
                             </div>
                             <input
-                                value={exercise1?.reps ? exercise1?.reps : '0'}
+                                value={exercise1?.reps ? exercise1?.reps : ''}
                                 className={styles.inputNumber}
                                 onChange={(e) => onChangeInput(e, 'exercise1')}
-                                type='number'
+                                
                                 name='reps'
                             />
                         </div>
@@ -67,10 +67,9 @@ const TrainingCardInputs = ({
                                 <Text text={`${t('admin.routines.times')}:`} size='1' />
                             </div>
                             <input
-                                value={exercise1?.times ? exercise1?.times : '0'}
+                                value={exercise1?.times ? exercise1?.times : ''}
                                 className={styles.inputNumber}
                                 onChange={(e) => onChangeInput(e, 'exercise1')}
-                                type='number'
                                 name='times'
                             />
                         </div>
@@ -112,10 +111,10 @@ const TrainingCardInputs = ({
                                 <Text text={`${t('admin.routines.reps')}:`} size='1' />
                             </div>
                             <input
-                                value={exercise2?.reps ? exercise2?.reps : '0'}
+                                value={exercise2?.reps ? exercise2?.reps : ''}
                                 className={styles.inputNumber}
                                 onChange={(e) => onChangeInput(e, 'exercise2')}
-                                type='number'
+                                
                                 name='reps'
                             />
                         </div>
@@ -125,10 +124,10 @@ const TrainingCardInputs = ({
                                 <Text text={`${t('admin.routines.times')}:`} size='1' />
                             </div>
                             <input
-                                value={exercise2?.times ? exercise2?.times : '0'}
+                                value={exercise2?.times ? exercise2?.times : ''}
                                 className={styles.inputNumber}
                                 onChange={(e) => onChangeInput(e, 'exercise2')}
-                                type='number'
+                                
                                 name='times'
                             />
                         </div>

@@ -25,7 +25,6 @@ const useStyles = ({ size, type, className = '', circle = false, disabled, secon
         py-${BUTTON_TYPE[type] === '4' ? '3' : '2'}
         col-12 button-color--${BUTTON_TYPE[type]}
         ${className}
-        ${(type === 3 && disabled) && 'special-disable'}
         ${secondary && 'logOut-btn-fix'}
         ${type === 4 && 'btn-white'}
         `

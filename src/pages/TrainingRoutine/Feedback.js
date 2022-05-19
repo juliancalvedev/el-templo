@@ -56,7 +56,7 @@ export const Feedback = () => {
                 <div className="col-12 my-3">
 
                     <Text justify="start" text={t('feedback.messageTitle')} className='mb-1' />
-                    <TextArea onChange={(e) => setMessage(e.target.value)} value={message} placeholder='Tu mensaje' />
+                    <TextArea onChange={(e) => setMessage(e.target.value)} value={message} placeholder={t('feedback.textAreaPlaceholder')} />
                     <div className="d-flex justify-content-end">
                         <Button type={3} onClick={apiCall} size={1} text={t('global.send')} disabled={!(!!message)} />
                     </div>
