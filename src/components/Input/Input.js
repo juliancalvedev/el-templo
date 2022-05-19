@@ -32,6 +32,7 @@ const Input = ({
 	max,
 	cursorPointer,
 	marginFix,
+	id,
 	onBlur = () => { },
 	onFocus = () => { },
 	onClickIcon = () => { },
@@ -46,10 +47,10 @@ const Input = ({
 	});
 
 	const handleChangeInput = (e) => {
-		let event = {...e}
+		let event = { ...e }
 		if (type === 'number') {
 			const value = e.target.value.replace(/[^0-9]/g, '');
-			event = {...event, target: { ...e.target, value }}
+			event = { ...event, target: { ...e.target, value } }
 		}
 		onChange(event);
 	}
@@ -62,6 +63,7 @@ const Input = ({
 				style={{ margin: `${marginFix === true ? '6px 0px' : marginFix}` }}
 			>
 				<input
+					id={id}
 					style={{ cursor: `${cursorPointer ? 'pointer' : 'text'}` }}
 					max={max}
 					onBlur={onBlur}

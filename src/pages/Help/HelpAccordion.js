@@ -152,9 +152,6 @@ const HelpAccordion = () => {
 				</div>
 			</div>
 			<div>
-				{/* TODO  cambiar button por componente Button*/}
-
-
 				<Button
 					text={t('help.main.btn2')}
 					type={4}

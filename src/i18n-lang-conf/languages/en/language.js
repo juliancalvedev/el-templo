@@ -31,6 +31,7 @@ const en = {
 		block: 'Block {{number}}',
 		start: 'Start',
 		send: 'Send',
+		installApp: 'INSTALL EL TEMPLO',
 		errors: {
 			required: 'This field is required.',
 			emailType: 'Use a valid e-mail.',

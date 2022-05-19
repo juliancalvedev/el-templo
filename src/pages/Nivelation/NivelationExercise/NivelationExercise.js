@@ -17,6 +17,7 @@ import ButtonPagination from '../../../components/ButtonPagination/ButtonPaginat
 import { useDispatch } from 'react-redux';
 import { cleanErrorAction, loadingAction } from '../../../redux/api';
 import { randomHexadecimal } from '../../../utils/mathUtils';
+import Input from '../../../components/Input/Input';
 
 const NivelationExercise = () => {
   const { t } = useTranslation();
@@ -59,7 +60,7 @@ const NivelationExercise = () => {
   const onChangeValue = (e, id) => {
     const aux = [...nivelations];
     const currNiv = aux.indexOf(aux.find((n) => n.id === id));
-    aux[currNiv].count = e.target.value;
+    aux[currNiv].count = e.target.value?.toString() === '' ? 0 : e.target.value;
     setNivelations(aux);
   };
 
@@ -71,7 +72,6 @@ const NivelationExercise = () => {
     }, 1500)
   }
 
-
   return (
     <MainContainer
       col='12'
@@ -80,20 +80,23 @@ const NivelationExercise = () => {
       back
       scroll
       calc
+      alignCenter
     >
-      <DivTop>
+      <DivTop >
         <Text className='mt-3' text={t('admin.nivelation.yoursResults')} bold size='4' />
-        <div className='mt-5'>
-          {nivelations.map((n, i) => {
+        <div className='mt-5 col-12'>
+          {nivelations?.map((n, i) => {
             if (step === i) {
               return (
-                <div key={i}>
-                  <NivelationCard
-                  key={randomHexadecimal()}
-                    value={n.count}
-                    title={n[`title${lang}`]}
-                    onChange={(e) => onChangeValue(e, n.id)}
-                  />
+                <div key={i} className='col-12 d-flex flex-column align-items-center'>
+                  <NivelationCard />
+                  <div style={{ width: '182px' }}>
+                    <Input
+                      value={parseInt(n.count)}
+                      title={n[`title${lang}`]}
+                      onChange={(e) => onChangeValue(e, n.id)}
+                    />
+                  </div>
                 </div>
               )
             }
