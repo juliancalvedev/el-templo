@@ -48,7 +48,7 @@ const AdminCreateEditExercise = () => {
     }, [isEditing])
 
     const [tagsListFetch] = useFetch({
-        service: () => getTagsList(),
+        service: () => getTagsList({ offset: 0, search: '', limit: 10000 }),
         callNow: true,
         globalLoader: true,
         callback: () => {
@@ -78,7 +78,7 @@ const AdminCreateEditExercise = () => {
     });
 
     const [newExerciseResponse, newExerciseError, apiCallCreateNewExercise] = useFetch({
-        service: () => postNewExercise(newExerciseData),
+        service: () => postNewExercise({...newExerciseData, video: newExerciseData?.video || ''}),
         globalLoader: true,
         callback: () => { navigate(`/${PATHS.ADMIN_EXERCISES}`) },
     });
@@ -86,7 +86,7 @@ const AdminCreateEditExercise = () => {
     const [editExerciseResponse, editExerciseError, apiCallEditExercise] = useFetch({
         service: () => putEditExercise({
             id: exerciseIdToEdit,
-            body: newExerciseData
+            body: {...newExerciseData, video: newExerciseData?.video || ''}
         }),
         globalLoader: true,
         callback: () => { navigate(`/${PATHS.ADMIN_EXERCISES}`) },
@@ -196,7 +196,7 @@ const AdminCreateEditExercise = () => {
                             readOnly
                             label={t(`admin.exercises.tags`)}
                             name='tags'
-                            onClick={(e) => addTag(e)}
+                            onChange={(e) => addTag(e)}
                             options={tagsList?.map((tag) => {
                                 return {
                                     value: tag._id,
