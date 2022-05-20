@@ -32,7 +32,6 @@ const EditProfile = () => {
 		(store) => store.user
 	);
 
-	const [inputDateType, setInputDateType] = useState('text');
 	const [values, setValues] = useState({
 		firstName: '',
 		lastName: '',
@@ -48,7 +47,8 @@ const EditProfile = () => {
 			firstName: firstName,
 			lastName: lastName,
 			sex: sex,
-			dateOfBirth: dateOfBirth,
+			dateOfBirth: moment(dateOfBirth).format('YYYY-MM-DD'),
+			// dateOfBirth: dateOfBirth,
 			country: country?.toLowerCase(),
 		})
 	}, [firstName, lastName, sex, country, dateOfBirth, img])
@@ -69,10 +69,6 @@ const EditProfile = () => {
 			apiCall()
 		}
 	});
-
-	useEffect(() => {
-		setInputDateType('text');
-	}, [values?.dateOfBirth])
 
 	const onClickInputAvatar = () => {
 		setShowAvatarModal(true);
@@ -136,15 +132,15 @@ const EditProfile = () => {
 					/>
 
 					<Input
+						label={t('auth.register.dateOfBirth')}
 						max={maxDateOfBirth()}
 						placeholder={t('auth.register.dateOfBirth')}
 						name='dateOfBirth'
-						value={moment(values?.dateOfBirth).format('DD/MM/YYYY') || ''}
+						value={values?.dateOfBirth}
+						required
 						onChange={handleChangeInput}
-						icon={'date'}
-						type={'date'}
-						onBlur={() => setInputDateType('text')}
-						onFocus={() => setInputDateType('date')}
+						icon='date'
+						type='date'
 						cursorPointer
 						marginFix
 					/>
