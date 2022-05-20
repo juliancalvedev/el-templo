@@ -35,7 +35,6 @@ const Navbar = () => {
 			<div className={styles.iconsContainer}>
 				{role === ROLES.ADMIN && (
 					<Text
-						// TODO traducir
 						text={'Admin'}
 						onClick={() => navigate(`/${PATHS.BASE_URL}`)}
 						color={

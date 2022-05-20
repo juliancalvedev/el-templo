@@ -32,6 +32,7 @@ const Input = ({
 	max,
 	cursorPointer,
 	marginFix,
+	id,
 	onBlur = () => { },
 	onFocus = () => { },
 	onClickIcon = () => { },
@@ -60,6 +61,7 @@ const Input = ({
 				style={{ margin: `${marginFix === true ? '6px 0px' : marginFix}` }}
 			>
 				<input
+					id={id}
 					style={{ cursor: `${cursorPointer ? 'pointer' : 'text'}` }}
 					max={max}
 					onBlur={onBlur}

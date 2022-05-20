@@ -8,10 +8,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import MainContainer from '../MainContainer/MainContainer';
 
-const Exercise = ({title, video, description, onNext}) => {
+const Exercise = ({ title, video, description, onNext }) => {
 	const { t } = useTranslation();
-	
-	//Cambiar el totalTime para que sume uno cada vez que el reloj cambia de estado con useEffect
+
 	const [totalTime, setTotalTime] = useState({ ms: 0, s: 0, m: 0 });
 
 	const [showChronometer, setShowChronometer] = useState(true);
@@ -25,12 +24,12 @@ const Exercise = ({title, video, description, onNext}) => {
 		}
 		setTotalTime({ ms: mili, s: sec, m: min });
 	};
-	
+
 	const handleShowChronometer = () => {
 		setShowChronometer(!showChronometer)
 	};
-	
-	const styles = useStyles({showChronometer});
+
+	const styles = useStyles({ showChronometer });
 	return (
 		<MainContainer col='12' scroll>
 			<div className={styles.exerciseContainer}>
@@ -67,18 +66,17 @@ const Exercise = ({title, video, description, onNext}) => {
 					</DropDown>
 				</div>
 
-				{/* TODO Manejar qué hace el cronómetro si, mientras está corriendo, se dezpliega el DropDown. */}
-					<div className={styles.chronometerContainer}>
-						<Chronometer
-							onStop={onStop}
-							// Value mantiene el tiempo si el componente desaparece y reaparece.
-							value={{
-								ms: totalTime.ms,
-								s: totalTime.s,
-								m: totalTime.m,
-							}}
-						/>
-					</div>
+				<div className={styles.chronometerContainer}>
+					<Chronometer
+						onStop={onStop}
+						// Value mantiene el tiempo si el componente desaparece y reaparece.
+						value={{
+							ms: totalTime.ms,
+							s: totalTime.s,
+							m: totalTime.m,
+						}}
+					/>
+				</div>
 
 				<div className={styles.btnNextContainer}>
 					<ButtonPagination

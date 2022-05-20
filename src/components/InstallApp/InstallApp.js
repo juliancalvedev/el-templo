@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Button from '../Button/Button'
+import { useTranslation } from 'react-i18next'
 
 const InstallApp = () => {
+    const { t } = useTranslation()
 
     const [isReadyForInstall, setIsReadyForInstall] = useState(false);
 
@@ -44,7 +46,7 @@ const InstallApp = () => {
         <div className='my-2'>
             {isReadyForInstall &&
                 <Button
-                    text={'INSTALAR APP'}
+                    text={t('global.installApp')}
                     type={2}
                     textBold
                     onClick={downloadApp} />

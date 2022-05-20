@@ -34,7 +34,6 @@ const Dashboard = () => {
 		navigate(`/${PATHS.MY_PROGRESS}`)
 	};
 	const styles = useStyles();
-	const xp = (100 * experience) / 24 + 4; // TODO ex está sin usar (?
 
 	return (
 		<MainContainer
@@ -60,17 +59,17 @@ const Dashboard = () => {
 						<Text bold text={t('dashboard.main.summary')} size={2} />
 					</div>
 				</div>
-			{level > 0 &&
-				<div className={styles.seeDetails}>
-					<Button
-						disabled={!(!!data?.bodyParts?.bottom || !!data?.bodyParts?.bottom || !!data?.bodyParts?.middle)}
-						onClick={handleChange}
-						type={3}
-						text={t('dashboard.main.see')}
-						textSize={1}
+				{level > 0 &&
+					<div className={styles.seeDetails}>
+						<Button
+							disabled={!(!!data?.bodyParts?.bottom || !!data?.bodyParts?.bottom || !!data?.bodyParts?.middle)}
+							onClick={handleChange}
+							type={3}
+							text={t('dashboard.main.see')}
+							textSize={1}
 						/>
-				</div>
-			}
+					</div>
+				}
 			</div>
 			{level === 0 ? (
 				<div className='d-flex flex-column justify-content-start align-items-center'>
