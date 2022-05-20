@@ -155,11 +155,11 @@ const HelpAccordion = () => {
 				{/* TODO  cambiar button por componente Button*/}
 
 
-				<Button
+				{/* <Button
 					text={t('help.main.btn2')}
 					type={4}
 					onClick={toTerms}
-				/>
+				/> */}
 
 				<Button
 					text={t('help.main.btn3')}

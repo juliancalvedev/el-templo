@@ -46,12 +46,10 @@ const Input = ({
 	});
 
 	const handleChangeInput = (e) => {
-		let event = {...e}
 		if (type === 'number') {
-			const value = e.target.value.replace(/[^0-9]/g, '');
-			event = {...event, target: { ...e.target, value }}
+			e.target.value = e.target.value.replace(/[^0-9]/g, '');
 		}
-		onChange(event);
+		onChange(e);
 	}
 
 	return (

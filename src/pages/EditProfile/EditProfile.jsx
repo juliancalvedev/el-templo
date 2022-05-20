@@ -142,7 +142,7 @@ const EditProfile = () => {
 						value={moment(values?.dateOfBirth).format('DD/MM/YYYY') || ''}
 						onChange={handleChangeInput}
 						icon={'date'}
-						type={inputDateType}
+						type={'date'}
 						onBlur={() => setInputDateType('text')}
 						onFocus={() => setInputDateType('date')}
 						cursorPointer

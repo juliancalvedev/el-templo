@@ -187,7 +187,7 @@ export const Register = () => {
 							text={t('auth.register.btnRegister')}
 						/>
 					</div>
-					<div style={{ marginBottom: '-6px' }}>
+					{/* <div style={{ marginBottom: '-6px' }}>
 						<Text
 							size='1'
 							text={t('auth.register.termsAndConditions1')}
@@ -200,7 +200,7 @@ export const Register = () => {
 						color={4}
 						underline
 						text={t('auth.register.termsAndConditions2')}
-					/>
+					/> */}
 				</div>
 			</DivBottom>
 		</MainContainer>
