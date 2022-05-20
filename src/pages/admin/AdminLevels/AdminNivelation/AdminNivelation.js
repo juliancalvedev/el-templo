@@ -74,7 +74,6 @@ const AdminNivelation = () => {
     const tableData = useTable();
 
     const onChange = (e) => {
-        console.log(e.target.name);
         setNewOrEditNivelationData({
             ...newOrEditNivelationData,
             [e.target.name]: e.target.value

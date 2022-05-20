@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import MainContainer from '../MainContainer/MainContainer';
 
-const Exercise = ({ title, video, description, onNext }) => {
+const Exercise = ({ title, video, description, onNext, reps, times }) => {
 	const { t } = useTranslation();
 
 	const [totalTime, setTotalTime] = useState({ ms: 0, s: 0, m: 0 });
@@ -52,7 +52,10 @@ const Exercise = ({ title, video, description, onNext }) => {
 				<div className={styles.gifContainer}>
 					<iframe src={video} className={styles.gif} frameBorder="0" allow="autoplay"></iframe>
 				</div>
-
+					<div className='d-flex col-12 justify-content-evenly'>
+						<Text bold text={t('exercise.times', {times})}/>
+						<Text bold text={t('exercise.reps', {reps})}/>
+					</div>
 				<div
 					className={styles.dropDownContainer}
 					onClick={handleShowChronometer}

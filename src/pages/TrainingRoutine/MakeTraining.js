@@ -17,8 +17,12 @@ const MakeTraining = () => {
     const dispatch = useDispatch();
     const { exercise1, exercise2, trainingType, currentDay, currentExerciseNumber, currentBlock } = useSelector(state => state.exercise);
     const currExercise = (currentExerciseNumber === 1 ? exercise1 : exercise2)?.exercise;
+    const { reps, times } = (currentExerciseNumber === 1 ? exercise1 : exercise2);
+    // const times = ;
+    // const reps = ;
     const lang = langUpperCased();
     const navigate = useNavigate();
+
 
     const [data, error, apiCall] = useFetch({
         service: () => makeTraining({ trainingType, currentDay, currentBlock }),
@@ -56,6 +60,8 @@ const MakeTraining = () => {
                 video={currExercise?.video}
                 description={currExercise?.[`description${lang}`]}
                 onNext={onNext}
+                reps={reps}
+                times={times}
             />
         </MainContainer>
     )

@@ -102,7 +102,6 @@ const EditRoutineDay = ({ trainingDayId }) => {
         service: () => getExercises({ offset: 0, search: '', limit: 100000}),
         globalLoader: true,
         callNow: true,
-        callback: () => console.log(exercisesListResponse)
     });
 
     const [savedRoutine, savedRoutineError, savedRoutineApiCall] = useFetch({

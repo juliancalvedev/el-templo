@@ -44,7 +44,6 @@ const MyProgress = () => {
             const auxHoverBackgroundColor = [];
             const auxData = [];
             resp?.muscles?.forEach( (m, index) => {
-                console.log(m[`title${lang}`]);
                 auxLables.push(m[`title${lang}`]);
                 auxBackgroundColor.push(colors[index].backgroundColor);
                 auxHoverBackgroundColor.push(colors[index].hoverBackgroundColor);

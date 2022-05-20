@@ -53,14 +53,14 @@ export const AdminUserInfo = () => {
 	}, [id])
 
 	return (
-		<div class="card col-10 m-auto mt-3">
-			<div class="card-body">
+		<div className="card col-10 m-auto mt-3">
+			<div className="card-body">
 				<div className='d-flex flex-column align-items-start col-12'>
 					<div className='col-12'>
-						<div className='d-flex flex-column col-6 align-items-center'>
+						<div className='d-flex flex-column col-9 align-items-center'>
 							<div className='d-flex col-12 align-items-center'>
-								<Text text={`${t('admin.userTable.level')}: `} />
-								{changeLevel ? <Input value={newLevel} onChange={onChangeLevelInput} type='number' /> : <Text text={user.level} />}
+								<Text bold text={`${t('admin.userTable.level')} `} />
+								{changeLevel ? <Input value={newLevel} onChange={onChangeLevelInput} type='number' /> : <Text bold text={user.level} />}
 								{!changeLevel && <div className='col-6'>
 
 									<Button onClick={() => { setChangeLevel(true); setNewLevel(user.level); }} text={t('global.edit')} size={2} type={3} />
@@ -78,16 +78,16 @@ export const AdminUserInfo = () => {
 						</div>
 					</div>
 					<div className='d-flex align-items-center col-12'>
-						<Text text={`${t('admin.userTable.enabled')}:`} />
+						<Text bold text={`${t('admin.userTable.enabled')}:`} />
 						<Point active={user.endEnabledDate && !compareWithCurrDate(user.endEnabledDate)} />
 						<Button onClick={activateApiCall} text={t(`global.${!!user.endEnabledDate && !compareWithCurrDate(user.endEnabledDate) ? 'disable' : 'enable'}`)} size={1} type={3} />
 					</div>
-					<Text text={`${t('admin.userTable.email')}: ${user.email}`} />
-					<Text text={`${t('admin.userTable.name')}: ${user.firstName} ${user.lastName}`} />
-					<Text text={`${t('admin.userTable.sex')}: ${user.sex}`} />
-					<Text text={`${t('admin.userTable.country')}: ${user.country}`} />
-					<Text text={`${t('admin.userTable.enabledDate')}: ${cutDate(user.startEnabledDate)}`} />
-					<Text text={`${t('admin.userTable.disabledDate')}: ${cutDate(user.endEnabledDate)}`} />
+					<Text bold text={`${t('admin.userTable.email')}: ${user.email}`} />
+					<Text bold text={`${t('admin.userTable.name')}: ${user.firstName} ${user.lastName}`} />
+					<Text bold text={`${t('admin.userTable.sex')}: ${user.sex}`} />
+					<Text bold text={`${t('admin.userTable.country')}: ${user.country}`} />
+					<Text bold text={`${t('admin.userTable.enabledDate')}: ${cutDate(user.startEnabledDate)}`} />
+					<Text bold text={`${t('admin.userTable.disabledDate')}: ${cutDate(user.endEnabledDate)}`} />
 				</div>
 
 			</div>

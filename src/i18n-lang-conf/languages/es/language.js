@@ -232,6 +232,8 @@ const es = {
 		exerciseNumber: 'Ejercicio n°',
 		watchVideoDescription: 'Ver descripción del video',
 		nextExercise: 'SIGUIENTE EJERCICIO',
+		times: 'Series: {{times}}',
+		reps: 'Reps: {{reps}}',
 	},
 
 	appStart: {
@@ -421,7 +423,7 @@ const es = {
 			sex: 'Sexo',
 			country: 'País',
 			enabled: 'Habilitado',
-			level: 'Nivel',
+			level: 'Nivel: ',
 			enabledDate: 'Fecha Alta',
 			disabledDate: 'Fecha Baja',
 			options: 'Opciones',

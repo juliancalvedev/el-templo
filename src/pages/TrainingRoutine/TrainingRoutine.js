@@ -26,7 +26,6 @@ const TrainingRoutine = () => {
     const [showSkip, setShowSkip] = useState(true);
 
     const { exercise1, exercise2, currentBlock, currentDay, trainingType, currentExerciseNumber } = useSelector(state => state.exercise);
-    console.log(currentExerciseNumber);
     if (!exercise1 || !exercise2 || !currentBlock || !currentDay) {
         navigate(-1);
     }
