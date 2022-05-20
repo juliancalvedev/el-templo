@@ -1,11 +1,17 @@
 @import '../../styles/variables.scss';
 
+.input-label {
+	margin-left: 20px;
+}
+
 .input {
 	height: 40px;
 	margin-left: 5px;
 	outline: none;
 	border: none;
 	background-color: transparent !important;
+
+
 
 	&::-webkit-calendar-picker-indicator {
 		opacity: 0;

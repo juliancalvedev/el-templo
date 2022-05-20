@@ -1,9 +1,9 @@
-const useStyles = ({ transparent, isInvalid, isValid, className, icon }) => {
+const useStyles = ({ transparent, isInvalid, isValid, className, icon, type }) => {
     return {
-        container: `col-12 my-2 
+        container: `col-12 ${type === 'date' ? 'my-0' : 'my-2'} 
         ${className}`,
 
-        label: 'form-label',
+        label: 'input-label',
 
         inputContent: `input__content d-flex pr-5 
         input__content--${transparent ? 'transparent' : 'general'} 

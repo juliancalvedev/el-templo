@@ -4,6 +4,7 @@ import IconEye from '../../assets/Icons/IconEye';
 import IconCheck from '../../assets/Icons/IconCheck';
 import Text from '../Text/Text';
 import IconDate from '../../assets/Icons/IconDate';
+import { useTranslation } from 'react-i18next';
 
 const ICON = ({ transparent }) => {
 	const ICONS = {
@@ -15,6 +16,7 @@ const ICON = ({ transparent }) => {
 };
 
 const Input = ({
+	required,
 	label,
 	value,
 	onChange,
@@ -37,6 +39,7 @@ const Input = ({
 	onFocus = () => { },
 	onClickIcon = () => { },
 }) => {
+	const { t } = useTranslation()
 	const feedbackColorType = (isInvalid && 'error') || (transparent && 2);
 	const styles = useStyles({
 		isValid,
@@ -44,6 +47,7 @@ const Input = ({
 		transparent,
 		className,
 		icon,
+		type
 	});
 
 	const handleChangeInput = (e) => {
@@ -55,12 +59,17 @@ const Input = ({
 
 	return (
 		<div className={styles.container} >
-			{label && <label className={styles.label}>{label}</label>}
+			{label &&
+				<label className={styles.label}>
+					<Text text={label} size={1} />
+				</label>
+			}
 			<div
 				className={styles.inputContent}
 				style={{ margin: `${marginFix === true ? '6px 0px' : marginFix}` }}
 			>
 				<input
+					required={required}
 					id={id}
 					style={{ cursor: `${cursorPointer ? 'pointer' : 'text'}` }}
 					max={max}

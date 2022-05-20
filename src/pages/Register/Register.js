@@ -49,6 +49,7 @@ export const Register = () => {
 		RegisterValidate,
 		avatarImg
 	);
+	console.log(values?.dateOfBirth);
 
 	return (
 		<MainContainer text={t('auth.register.register')} back shadow color={1} scroll col='11' alignCenter calc>
@@ -155,15 +156,17 @@ export const Register = () => {
 
 					{errors.country && <p>{(errors.country = t('auth.register.countryError'))}</p>}
 					<Input
+						label={t('auth.register.dateOfBirth')}
 						max={maxDateOfBirth()}
 						placeholder={t('auth.register.dateOfBirth')}
 						name='dateOfBirth'
-						value={values.dateOfBirth}
+						value={values?.dateOfBirth}
+						required
 						onChange={handleChange}
-						icon={'date'}
-						type={type}
-						onBlur={onBlur}
-						onFocus={onFocus}
+						icon='date'
+						type='date'
+						cursorPointer
+						marginFix
 					/>
 				</div>
 			</DivTop>
