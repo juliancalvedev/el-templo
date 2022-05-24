@@ -90,6 +90,7 @@ const AdminCreateEditExercise = () => {
         }),
         globalLoader: true,
         callback: () => { navigate(`/${PATHS.ADMIN_EXERCISES}`) },
+        successAlert: true,
     });
 
     const handleOnChangeInputs = (e) => {

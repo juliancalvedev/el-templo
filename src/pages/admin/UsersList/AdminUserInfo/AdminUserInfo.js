@@ -31,12 +31,14 @@ export const AdminUserInfo = () => {
 	const [activateDate, activateError, activateApiCall] = useFetch({
 		service: () => enableOrDisableUser(id, user.endEnabledDate && !compareWithCurrDate(user.endEnabledDate)),
 		globalLoader: true,
-		callback: () => apiCall()
+		callback: () => apiCall(),
+		successAlert: true
 	})
 	const [changeLevelData, changeLevelError, changeLevelApiCall] = useFetch({
 		service: () => changeUserLevel(id, newLevel),
 		globalLoader: true,
-		callback: () => apiCall()
+		callback: () => apiCall(),
+		successAlert: true
 	})
 
 	const onChangeLevelInput = (e) => {

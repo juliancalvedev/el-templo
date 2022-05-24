@@ -32,7 +32,8 @@ export const Feedback = () => {
     const [data, error, apiCall] = useFetch({
         service: () => help({ message, subject: `Feedback Training: ${knobText}` }),
 		globalLoader: true,
-		callback: () => { setMessage('') }
+		callback: () => { setMessage('') },
+        successAlert: true
     })
 
 

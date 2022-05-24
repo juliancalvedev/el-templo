@@ -52,7 +52,8 @@ const AdminNivelation = () => {
         callback: () => {
             setShowEditModal(false);
             nivelationsApiCall();
-        }
+        },
+        successAlert: true
     });
     const [createNivelationData, errorcreateNivelation, createNivelationApiCall] = useFetch({
         service: () => createNivelation(newOrEditNivelationData),
@@ -60,7 +61,8 @@ const AdminNivelation = () => {
         callback: () => {
             setShowEditModal(false);
             nivelationsApiCall();
-        }
+        },
+        successAlert: true
     });
     const [deleteNivelationData, errorDeleteNivelation, deleteNivelationApiCall] = useFetch({
         service: () => deleteNivelation(selectedDeleteNivelation?._id),
@@ -68,7 +70,8 @@ const AdminNivelation = () => {
         callback: () => {
             setShowDeleteModal(false);
             nivelationsApiCall();
-        }
+        },
+        successAlert: true
     });
 
     const tableData = useTable();

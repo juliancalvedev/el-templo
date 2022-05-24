@@ -23,6 +23,7 @@ const useForm = (RegisterValidate, img) => {
 				img,
 			}),
 		globalLoader: true,
+		successAlert: true,
 	});
 
 	const [errors, setErrors] = useState({});

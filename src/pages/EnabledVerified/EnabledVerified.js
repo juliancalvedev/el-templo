@@ -22,6 +22,7 @@ const EnabledVerified = () => {
 	const [data, error, apiCall] = useFetch({
 		service: () => resendVerifyEmail(savedEmail),
 		globalLoader: true,
+		successAlert: true,
 		callback: () => navigate(`/${PATHS.LOGIN}`),
 	});
 

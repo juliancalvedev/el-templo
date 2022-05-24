@@ -12,6 +12,7 @@ const PasswordRecovery = () => {
 	const [data, error, apiCall] = useFetch({
 		service: () => enablePasswordRecovery({ token }),
 		globalLoader: true,
+		successAlert: true,
 	})
 
 	useEffect(() => {

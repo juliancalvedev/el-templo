@@ -28,7 +28,8 @@ const HelpAccordion = () => {
 	const [data, error, apiCall] = useFetch({
 		service: () => help({ message, subject }),
 		globalLoader: true,
-		callback: () => { setMessage(''); setSubject(''); }
+		callback: () => { setMessage(''); setSubject(''); },
+		successAlert: true
 	});
 	const toContact = () => navigate(`/${PATHS.CONTACT}`);
 	// toTerms redirige a Contact hasta que este creada la page Terminos&Condiciones

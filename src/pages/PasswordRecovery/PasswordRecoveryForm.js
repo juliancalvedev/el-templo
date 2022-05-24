@@ -27,7 +27,8 @@ const PasswordRecoveryForm = () => {
 	const [data, error, apiCall] = useFetch({
 		service: () => onPasswordRecovery({ password, token }),
 		globalLoader: true,
-		callback: () => navigate(`/${PATHS.LOGIN}`)
+		callback: () => navigate(`/${PATHS.LOGIN}`),
+		successAlert: true
 	});
 
 	const onChangePasswordType = () => {

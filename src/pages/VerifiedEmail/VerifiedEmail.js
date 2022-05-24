@@ -22,6 +22,7 @@ const VerifiedEmail = () => {
 	const [data, error, apiCall] = useFetch({
 		service: () => verifyEmailToBackEnd({ token }),
 		globalLoader: true,
+		successAlert: true,
 	});
 
 	const navigateToLoggin = () => navigate(`/${PATHS.LOGIN}`);

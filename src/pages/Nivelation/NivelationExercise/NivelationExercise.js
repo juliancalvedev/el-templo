@@ -51,6 +51,7 @@ const NivelationExercise = () => {
     callback: () => {
       navigate(`/${PATHS.DASHBOARD}`);
     },
+    successAlert: true,
   });
 
   useEffect(() => {

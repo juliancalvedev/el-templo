@@ -19,7 +19,8 @@ const EmailRegisterSended = () => {
 	const [data, error, apiCall] = useFetch({
 		service: () => resendVerifyEmail(savedEmail),
 		globalLoader: true,
-		callback: () => navigate(`${PATHS.LOGIN}`)
+		callback: () => navigate(`${PATHS.LOGIN}`),
+		successAlert: true
 	})
 
 	return (

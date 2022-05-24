@@ -30,7 +30,8 @@ const ChangeUserPassword = () => {
 		callNow: false,
 		callback: () => {
 			navigate(`/${PATHS.MY_PROFILE}`)
-		}
+		},
+		successAlert: true
 	})
 
 	const handleChangeCurrentPassword = (e) => setCurrentPassword(e.target.value);

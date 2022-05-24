@@ -107,7 +107,8 @@ const EditRoutineDay = ({ trainingDayId }) => {
     const [savedRoutine, savedRoutineError, savedRoutineApiCall] = useFetch({
         service: () => editAllTrainings(routineIds, eachCard),
         globalLoader: true,
-        callback: () => { navigate(-1) }
+        callback: () => { navigate(-1) },
+        successAlert: true
     })
 
     const onChangeInput = (e, exerciseType) => {

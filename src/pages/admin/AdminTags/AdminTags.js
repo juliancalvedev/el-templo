@@ -75,6 +75,7 @@ const AdminTags = () => {
 		callback: () => {
 			refreshListTrigger();
 		},
+		successAlert: true
 	});
 
 	const [editTagResponse, editTagError, apiCallEditTag] = useFetch({
@@ -83,6 +84,7 @@ const AdminTags = () => {
 		callback: () => {
 			refreshListTrigger();
 		},
+		successAlert: true
 	});
 
 	const [deleteTagResponse, deleteTagError, apiCallDeleteTag] = useFetch({

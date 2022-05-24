@@ -67,7 +67,8 @@ const EditProfile = () => {
 		globalLoader: true,
 		callback: () => {
 			apiCall()
-		}
+		},
+		successAlert: true
 	});
 
 	const onClickInputAvatar = () => {

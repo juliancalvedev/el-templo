@@ -48,7 +48,8 @@ const EditAboutYou = () => {
 		globalLoader: true,
 		callback: () => {
 			apiCall()
-		}
+		},
+		successAlert: true
 	});
 
 	const handleChangeTrainingLevel = (e) =>

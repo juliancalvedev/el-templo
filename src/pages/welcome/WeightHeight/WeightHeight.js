@@ -88,7 +88,8 @@ const WeightHeight = () => {
 		globalLoader: true,
 		callback: () => {
 			apiCallGetUserInfo()
-		}
+		},
+		successAlert: true
 	});
 
 	const [infoData, infoDataError, apiCallGetUserInfo] = useFetch({

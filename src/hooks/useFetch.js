@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { cleanErrorAction, loadingAction, setErrorAction } from '../redux/api';
+import { cleanErrorAction, loadingAction, setErrorAction, successAlertAction } from '../redux/api';
 
-const useFetch = ({ service, globalLoader, callback = () => { }, callNow = false }) => {
+const useFetch = ({ service, globalLoader, callback = () => { }, callNow = false, successAlert = false }) => {
 
     const dispatch = useDispatch();
 
@@ -29,7 +29,11 @@ const useFetch = ({ service, globalLoader, callback = () => { }, callNow = false
     useEffect(() => {
         if (resp) {
             callback();
-            dispatch(cleanErrorAction());
+            if(successAlert) {
+                dispatch(successAlertAction());
+            } else {
+                dispatch(cleanErrorAction());
+            }
             setLoading(false);
         } else if (error) {
             dispatch(setErrorAction(error));

@@ -30,7 +30,8 @@ const ForgottenPassword = () => {
 	const [data, error, apiCall] = useFetch({
 		service: () => startPasswordRecovery({ email }),
 		globalLoader: true,
-		callback: () => navigate(`/${PATHS.LOGIN}`)
+		callback: () => navigate(`/${PATHS.LOGIN}`),
+		successAlert: true
 	})
 
 	return (
