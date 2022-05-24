@@ -11,7 +11,7 @@ const Toast = ({ message, error, success }) => {
   return (
     <div className={styles.container}>
       <div className={styles.body}>
-        <h6 className={styles.text}>{t(`${error ? 'error.' + message : success? 'global.success' : ''}`)}</h6>
+        <h6 className={styles.text}>{t(`${error ? 'errors.' + message : success? 'global.success' : ''}`)}</h6>
       </div>
     </div>
   );
